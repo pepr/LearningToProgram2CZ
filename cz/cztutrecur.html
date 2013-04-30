@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Rekurze</title>
+</head>
+<body>
+
+<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
+se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+
+<h2>Rekurze</h2>
+
+<div class="whatcovered">
+<p>Poznámka: Téma <em>rekurze</em> je určeno pro poměrně pokročilé
+programátory. Při tvorbě většiny aplikací o rekurzi nemusíte vědět vůbec
+nic. Ale občas je užitečnost použití rekurze přímo neocenitelná, proto si
+zde o ní něco řekneme. Pokud vám to v prvním okamžiku nebude dávat smysl,
+nepropadejte panice.</p>
+</div>
+
+<h3>Co to vlastně je?</h3>
+
+<p>V předchozích částech učebnice jsme se zmínili o tom, že použití cyklu
+patří k jednomu ze základních kamenů programování. Navzdory tomuto tvrzení
+je ve skutečnosti možné vytvářet programy, které nepoužívají přímo
+vyjádřenou konstrukci cyklu. V některých jazycích, jako je například Lisp,
+přímá konstrukce cyklu jako <code>FOR</code>, <code>WHILE</code>, a dalších
+ve skutečnosti vůbec neexistuje. Místo toho se zde používá technika známá
+jako <em>rekurze</em>. Pro řešení některých typů problémů se rekurze ukazuje
+být velmi mocnou technikou. Proto se na ni teď podíváme.</p>
+
+<p>Rekurzí jednoduše rozumíme použití nějaké funkce jako části definice té
+samé funkce. Takže o definici akronymu GNU (což je zdroj velkého množství
+softwarových produktů dostupných zdarma) říkáme, že je rekurzivní, protože
+zkratka GNU znamená <em>GNU's Not Unix</em> <span class="trnote"
+title="Poznámka překladatele">(čili <em>GNU Není Unix</em>)</span>. Zkratka
+GNU je tedy součástí definice významu zkratky samé.</p>
+
+<p>Klíčem k fungování rekurze je to, že <b>musí existovat podmínka
+ukončení</b> taková, že v určité situaci funkce pokračuje větví, která
+představuje nerekurzivní řešení. (Definice akronymu GNU tímto testem
+použitelnosti neprojde, protože vede k nekonečnému cyklu.)</p>
+
+<div class="trnote">
+<p><b>Poznámka překladatele:</b> Možná jste se někdy setkali s žertovnou
+podobou vysvětlení nekonečného cyklu, jak by mohl být uveden ve výkladovém
+slovníku:</p>
+
+<dl>
+<dt>Cyklus nekonečný</dt>
+<dd><p>Viz <em>Nekonečný cyklus</em>.</p></dd>
+<dt>Nekonečný cyklus</dt>
+<dd><p>Viz <em>Cyklus nekonečný</em>.</p></dd>
+</dl>
+
+<p>Taková definice nekonečného cyklu je vlastně generována rekurzí. Pokud
+hesla <em>Cyklus nekonečný</em> a <em>Nekonečný cyklus</em> budeme považovat
+za funkce a jejich část <em>Viz xyz</em> za volání jiné funkce, pak jsme
+vytvořili nekonečný cyklus za použití takzvané <em>nepřímé rekurze</em>. Ta
+se od výše zmíněné rekurze liší pouze tím, že k volání funkce samé nedochází
+přímo, ale zprostředkovaně, jinou funkcí. Aby nepřímá rekurze byla k něčemu
+dobrá, musí být rovněž splněn předpoklad, že <em>v určitém bodě musí nastat
+nerekurzivní dořešení problému</em>.</p>
+
+</div>
+
+<p>Podívejme se na jednoduchý příklad. Matematická funkce <em>faktoriál</em>
+je definována jako součin všech čísel až po zadaný argument včetně.
+Faktoriál čísla 1 (jedna) je definován jako 1. Pokud se nad tím zamyslíme,
+pak zjistíme, že totéž můžeme vyjádřit jiným způsobem: faktoriál čísla N je
+roven N krát faktoriál čísla (N-1). Takže můžeme psát:</p>
+
+<pre>
+1! = 1
+2! = 1 x 2 = 2
+3! = 1 x 2 x 3 = 2! x 3 = 6
+N! = 1 x 2 x 3 x .... (N-2) x (N-1) x N = (N-1)! x N
+</pre>
+
+<p>V jazyce Python to můžeme zapsat takto:</p>
+
+<pre>
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+</pre>
+
+<p>Protože v každém kroku snižujeme hodnotu čísla N a testujeme shodu na
+hodnotu 1, musí funkce skončit. V uvedené definici funkce je ovšem malá chyba.
+Pokud se ji pokusíte zavolat pro číslo menší než jedna, uvede se do
+nekonečného cyklu. Opravit to můžeme tím, že místo testu na rovnost použijeme
+operátor <code>&lt;=</code>. Tento příklad ukazuje, jak snadno můžeme při
+zápisu podmínky ukončení udělat chybu. U rekurzivních funkcí jde pravděpodobně
+o jednu z nejběžnějších chyb. Abyste zajistili jejich správnou funkčnost,
+ujistěte se, že testujete všechny hodnoty v okolí bodu ukončení <span
+class="trnote" title="Poznámka překladatele">rekurze</span>.</p>
+
+<p>Podívejme se, co se děje, když funkci spustíme. Povšimněte si, že příkaz
+<code>return</code> vrací <code>n * (<em>výsledek následujícího volání funkce
+factorial</em>)</code>, takže dostáváme:</p>
+
+<pre>
+factorial(4) = 4 * factorial(3)
+factorial(3) = 3 * factorial(2)
+factorial(2) = 2 * factorial(1)
+factorial(1) = 1
+</pre>
+
+<p>V tomto okamžiku se Python vrací do vyšších úrovní a dosazuje hodnoty:</p>
+
+<pre>
+factorial(2) = 2 * 1 = 2
+factorial(3) = 3 * 2 = 6
+factorial(4) = 4 * 6 = 24
+</pre>
+
+<p>Zápis funkce pro výpočet faktoriálu bez použití rekurze ve skutečnosti
+není tak obtížný. Vyzkoušejte si jej v rámci cvičení. V podstatě potřebujete
+provést cyklus přes všechna čísla až do <code>N</code> a během této činnosti
+provádíte násobení. Ale později uvidíme, že existují funkce, jejichž zápis
+je bez použití rekurze mnohem obtížnější <span class="trnote"
+title="Poznámka překladatele">(ve srovnání s rekurzivním zápisem)</span>.
+
+
+<h3>Rekurzivní průchod seznamem</h3>
+
+<p>Jinou oblastí, kdy je použití rekurze velmi užitečné, je zpracování
+seznamů. Rekurzi můžeme snadno použít za předpokladu, že jsme schopni
+testovat prázdnost seznamu a generovat zeznam bez první položky. <span
+class="trnote" title="Poznámka překladatele">Pro získání části
+seznamu</span> můžeme v jazyce Python použít techniku, které se říká
+<em>slicing</em> ([slajsing] = odkrajování, odřezávání). Plné vysvětlení
+naleznete v příručce jazyka Python. Pro naše účely postačí, když budeme
+vědět, že se při použtí indexu ve tvaru <code>[1:]</code> vrací <span
+class="trnote" title="Poznámka překladatele">kopie</span> všech prvků
+seznamu prvku na idexu 1 až do konce seznamu. Takže pokud chceme získat
+první prvek seznamu <code>L</code>, napíšeme:</p>
+
+<pre>
+prvni = L[0] <span class="comment"># použijeme prostě normální indexování</span>
+</pre>
+
+<p>A pokud chceme získat <span class="trnote" title="Poznámka
+překladatele">kopii</span> zbytku seznamu, napíšeme:</p>
+
+<pre>
+zbytek = L[1:] <span class="comment"># vyřízneme prvky na indexech 1, 2, 3, ...</span>
+</pre>
+
+<p>Abyste se ujistili, že to funguje, napište na vyzývací řádek Pythonu
+následující:</p>
+
+<pre>
+>>> L = [1, 2, 3, 4, 5]
+>>> print L[0]
+1
+>>> print L[1:]
+[2, 3, 4, 5]
+</pre> 
+
+<p class="trnote"><b>Poznámka překladatele:</b> Obecně zápis
+<code>Seznam[od:do]</code> vyřízne z původního seznamu prvky počínaje indexem
+<code>od</code> až po prvek s indexem o jedno menším, než <code>do</code>.
+Pokud část <code>od</code> nebo <code>do</code> není uvedena, pak se do
+neuvedené části vnitřně doplní index, který zahrne prvky od začátku nebo do
+konce seznamu. Pří získávání části seznamu dochází ke kopii prvků. Zápis
+<code>Seznam[:]</code> se používá jako obrat pro získání kopie seznamu.
+Prostým přiřazením <code>s2&nbsp;=&nbsp;Seznam</code> získáme pouze odkaz na
+originální seznam. Pokud změníme <code>s2</code>, změní se i
+<code>Seznam</code>. Požadavek na získání kopie seznamu proto nepatří k nějak
+výjimečným.</p>
+
+<p>Nyní se vraťme k použití rekurze pro tisk seznamů. Uvažujme jednoduchý
+případ, kdy chceme každý prvek seznamu řetězců vytisknout voláním funkce
+<code>tiskSeznamu</code>:</p>
+
+<pre>
+def tiskSeznamu(Seznam):
+    if Seznam:
+        print Seznam[0]<span class="comment">
+        # Podrobnosti k [1:] &mdash; viz příručka jazyka Python, 'slicing'.</span>
+        tiskSeznamu(Seznam[1:])
+</pre>
+
+<p>Pokud je seznam neprázdný &mdash; dotaz na neprázdný seznam v boolovském
+kontextu vrací hodnotu <code>True</code> &mdash;, pak vytiskneme obsah
+prvního prvku seznamu a zpracujeme <span class="trnote" 
+title="Poznámka překladatele">stejným způsobem</span> zbytek seznamu takto
+(nepythonovský pseudo kód):</p>
+
+<pre>
+Jsme uvnitř tiskSeznamu([1,2,3])
+   tiskne se [1,2,3][0] => 1
+   spouští se tiskSeznamu([1,2,3][1:]) => tiskSeznamu([2,3])
+   => nyní jsme uvnitř tiskSeznamu([2,3])
+      tiskne se [2,3][0] => 2
+      spouští se tiskSeznamu([2,3][1:]) => tiskSeznamu([3])
+      => nyní jsme uvnitř tiskSeznamu([3])
+         tiskne se [3][0] => 3
+         spouští se tiskSeznamu([3][1:]) => tiskSeznamu([])
+         => nyní jsme uvnitř tiskSeznamu([])
+            Podmínka v "if Seznam" není pro prázdný seznam splněna, 
+            proto se vracíme z funkce <span class="trnote" title="Poznámka překladatele">(nejhlubší bod rekurze)</span>.
+      => jsme zpět v tiskSeznamu([3])
+         narazili jsme na konec funkce a vracíme se
+   => jsme zpět v tiskSeznamu([2,3])
+      narazili jsme na konec funkce a vracíme se
+=> jsme zpět v tiskSeznamu([1,2,3]), tj. na nejvyšší úrovni
+   narazili jsme na konec funkce a vracíme se
+</pre>
+
+<p class="note"><b>Poznámka:</b> Výše uvedené vysvětlení je s úpravami
+převzato z textu, který uvedl Zak Arntson v mailing listu "Python Tutor" v
+červenci 2003.</p>
+
+<p>V případě jednoduchého seznamu lze totéž jednoduše řešit při použití
+jednoduchého cyklu <code>for</code>. Ale uvažujme, jak by to vypadalo v
+případě, kdyby byl <code>Seznam</code> složitější a mohl uvnitř obsahovat
+další seznamy. <span class="trnote" title="Poznámka překladatele">(Prvkem by
+mohl být buď řetězec nebo další seznam.)</span> Pokud jsme schopni testovat,
+zda je prvek seznamu dalším seznamem, pak zavoláme funkci
+<code>tiskSeznamu()</code> rekurzivně. Pokud prvek není seznamem, pak jej
+jednoduše vytiskneme. Vyzkoušejme si to:</p>
+
+<pre>
+def tiskSeznamu(Seznam):
+    <span class="comment"># Jestliže je seznam prázdný, nedělej nic.</span>
+    if not Seznam: return
+    <span class="comment"># Pokud je první prvek seznamem, dosadíme jej do tiskSeznamu().</span>
+    if type(Seznam[0]) == type([]):
+        tiskSeznamu(Seznam[0])
+    else:<span class="comment"> # První prvek není seznam. Jednoduše jej vytiskneme.</span> 
+        print Seznam[0]
+    <span class="comment"># Nyní zpracujeme zbytek Seznamu.</span> 
+    tiskSeznamu(Seznam[1:])
+</pre>
+
+<p>Pokud se totéž pokusíte zapsat pomocí cyklu, zjistíte, že je to velmi
+obtížné. Rekurze umožní zapsat <span class="trnote" title="Poznámka překladatele"
+>podobně</span> složité úlohy srovnatelně jednoduše. <span class="trnote"
+title="Poznámka překladatele">(Jinými slovy, rekurzivní řešení jednoduchého
+případu a uvedeného složitějšího případu je přibližně stejně
+obtížné.)</span></p>
+
+<p>Je tu ovšem jeden zádrhel (jako vždycky). Rekurzivní zpracování velkých
+datových struktur typicky vede k velké spotřebě paměťového prostoru. Takže
+pokud máte k dispozici málo paměti nebo zpracováváte velmi velké datové
+struktury, může být složitější konvenční řešení bezpečnější.</p>
+
+<p>Tak. A nyní udělejme další skok do neznáma &mdash; seznámíme se
+s&nbsp;<em>objektově orientovaným programováním</em>.</p>
+
+<hr>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztuterrors.html" title="Práce s chybami">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutclass.html" title="Objektově orientované programování">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutrecur.html,v 1.6 2004/08/31 11:55:14 prikryl Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutrecur.html,v 1.6 2004/08/31 11:55:14 prikryl Exp $</p>
+</div>
+</body>
+</html>
+

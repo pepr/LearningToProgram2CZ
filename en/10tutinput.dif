@@ -1,0 +1,112 @@
+Index: tutinput.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutinput.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+29c29
+< points. This aspect of programming is whats referred to as the 
+---
+> points. This aspect of programming is what is referred to as the 
+51c51
+< Afterwards we'll try doing the same in a program.
+---
+> Afterwords we'll try doing the same in a program.
+83c83
+< knowledgable but malicious user could type in a Python command that 
+---
+> knowledgeable but malicious user could type in a Python command that 
+135c135
+< up from time to time through the ret of the tutorial as we 
+---
+> up from time to time through the rest of the tutorial as we 
+161c161
+< Dim book,name,entry  <SPAN Class="comment">' Create some variables.</SPAN>
+---
+> Dim dict,name,entry  <SPAN Class="comment">' Create some variables.</SPAN>
+194c194
+< Scripting technology to generate an InputBox doialog 
+---
+> Scripting technology to generate an InputBox dialog 
+272c272
+< <P>The advantage of the explicit vesion is that you can 
+---
+> <P>The advantage of the explicit version is that you can 
+280c280
+< exactly the same eaach time, and so hopefully will the 
+---
+> exactly the same each time, and so hopefully will the 
+311c311,312
+< <H4>Redirecting stdin & stdout</H4>
+---
+> <H4>Redirecting stdin &amp; stdout</H4>
+> 
+331c332
+< WE would do the same with a Python program like this:
+---
+> We would do the same with a Python program like this:
+336,337c337,338
+< <P>Which would run myprogram.py but instead of displaying 
+< the output on screen it would write it to the file result.txt.
+---
+> <P>Which would run <tt>myprogram.py</tt> but instead of displaying 
+> the output on screen it would write it to the file <tt>result.txt</tt>.
+344c345
+< <P>First create a file called echoinput.py containing the 
+---
+> <P>First create a file called <tt>echoinput.py</tt> containing the 
+348,349c349,350
+< inp = sys.stdin.readline().strip()
+< while inp != '':
+---
+> inp = sys.stdin.readline()
+> while inp.strip() != '':
+351c352
+<    inp = sys.stdin.readline().strip()
+---
+>    inp = sys.stdin.readline()
+356c357
+< stdin, <TT>raw_input</TT> does that for you as a convenience.
+---
+> stdin, <TT>raw_input()</TT> does that for you as a convenience.
+365,368c366,368
+< <P>Now create a simple text file called input.txt containing 
+< some lines of text and ending with an empty line.
+< <BR>
+< <P>Run the program again redirecting input from input.txt:
+---
+> <P>Now create a simple text file called <tt>input.txt</tt> 
+> containing some lines of text. Run the last program again, 
+> redirecting input from <tt>input.txt</tt>:
+370c370
+< $ python echoinput.py < input.txt
+---
+> $ python echoinput.py &lt; input.txt
+372,373c372,373
+< <P>Python echoes back what was in the file. But you might 
+< recall that we said that <TT>print</TT> and <TT>raw_input</TT> 
+---
+> <P>Python echos back what was in the file. But you might 
+> recall that we said that <TT>print</TT> and raw_input</TT> 
+375,377c375,377
+< replace the stdin stuff in echoinput.py with <TT>raw_input()</TT> 
+< like this:
+< <PRE>
+---
+> replace the stdin stuff in <tt>echoinput.py</tt> with 
+> <TT>raw_input()</TT> like this:
+> PRE>
+423c423
+< and in most cases we dont even need that since we just iterate 
+---
+> and in most cases we don't even need that since we just iterate 
+450,453c450,453
+< within Microsoft's Windows Script Host environment the 
+< situation would be different, and WSH provides a 
+< mechanism to extract such arguments from a WshArguments 
+< object populated by WSH at run time.
+---
+> within Microsoft's <a href="tutfunc.htm#wsh">Windows 
+> Script Host</a> environment the situation would be different, 
+> and WSH provides a mechanism to extract such arguments from 
+> a <tt>WshArguments</tt> object populated by WSH at run time.

@@ -1,0 +1,55 @@
+/* This is the color.css file designed originally for the Czech translation
+   of the Alan Gauld's book "Learning to Program". Then it was generalized
+   to be useful also for the English original. Feel free to use 
+   and/or modify it to meet your criteria. 
+                                         Petr Prikryl (prikrylp@skil.cz)   
+$Id: colors.css,v 1.6 2005/01/24 17:38:06 petr Exp $
+*/
+
+/* Style for very visible marking of the "ToDo" kind (inverse red). */
+.ir { color: white; background: #d00; font-weight: bold; }
+
+/* Color attributes. */
+
+body { background-color: #ffeeff }
+pre, code, tt { color: navy; }
+pre { background-color: #f6f6e6 }
+
+table, table td { border-color: orange }
+
+h1 { color: navy; }
+h2 { color: white; background-color: navy; }
+h3 { color: white; background-color: navy; }
+
+.comment  { color: green; }
+
+.whatcovered, .remember { background-color: #ffd; border-color: navy; }
+
+.details { background-color: #fff5c5; border-color: navy; }
+.details pre { background-color: #faeaba; }
+.details .trnote { background-color: #eafaba; }
+
+.trnote { background-color: #eafaea; }
+.trnote pre { background-color: #e1f1e1; }
+
+
+/* And colors for the Table of Contents. */
+
+body.toc, body.toc h2 { background-color: #bcd; }
+body.toc h1 { color: #def ; background-color: #003063; }
+
+body.toc h2 { color: black; }
+
+body.toc ul  { color: maroon; }
+
+body.toc a:link    { color: red; }
+body.toc a:active  { background-color: #ddf; }
+body.toc a:visited { color: maroon; }
+body.toc a:hover   { background-color: #cde; }
+
+/* Colors of RCS identifiers with the content. They are intentionally made
+   rather invisible -- not that important for the reader.  If you want to 
+   read them, try to select the text in your HTML browser. */
+.cvs { color: #fd5 }
+.toc .cvs { color: #89a; }
+.trnote .cvs { color: #5a5; }

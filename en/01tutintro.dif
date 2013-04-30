@@ -1,0 +1,35 @@
+Index: tutintro.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutintro.htm,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -r1.4 -r1.5
+23c23
+<    of new topics over the coming months focussing on practical 
+---
+>    of new topics over the coming months focusing on practical 
+24a25,28
+> <BR><BR>
+>    <P>Oh, and if you still need to see the old version of the 
+>    tutor, its still available 
+>    <a href="oldtutor/index.htm" target="top">here</a>.
+76c80
+< <P>Martin Pozzi was the first to translate the tutor (into Spanish) 
+---
+> <P>Martin Pizza was the first to translate the tutor (into Spanish) 
+105c109
+< efforts in putting this together. I'ts always better to read a 
+---
+> efforts in putting this together. It's always better to read a 
+138a143,149
+> <P>Finally I have made a basic PDF version available too, 
+> it doesn't have any fancy navigation features like bookmarks 
+> and it won't be updated as often as the zip/tgz files 
+> (because its much more work to do so!). But if you like 
+> PDF its <a href="tutor.pdf">here</a>.
+> 
+> <BR>
+254c265
+< I'll leave as an excercise for the interested Windows user!
+---
+> I'll leave as an exercise for the interested Windows user!

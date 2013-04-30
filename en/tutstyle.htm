@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>A Little Bit of Style</TITLE>
+</HEAD>
+<BODY bgcolor="#CCBBCC">
+
+<CENTER>
+<H2>Coding Style</H2>
+<P>
+<TABLE BORDER> 
+<TR> <TH>What will we cover?</TH> </TR>
+<TR> <TD>
+<LI>Several new uses for comments 
+<LI>How to layout code using indentation to improve readability 
+<LI>An introduction to the use of modules for storing our programs
+</TD> </TR> 
+</TABLE>
+</CENTER>
+
+<H3>Comments</H3>
+
+<P>I've already spoken about comments in the 'More Sequences' section. 
+However there are some other things we can do with comments and I'll 
+enlarge on those here:
+
+<H4>Version history information</H4>
+
+<P>It is good practice to create a file header at the start of
+each file. This should provide details such as the creation
+date, author, date of last change, version and a general 
+description of the contents. Often a log of changes. 
+This block will appear as a comment:
+<PRE>
+<SPAN CLASS="comment">
+#############################
+# Module:   Spam.py
+# Author:   A.J.Gauld
+# Date:     1999/09/03
+# Version:  Draft 0.4
+'''
+This module provides a Spam class which can be
+combined with any other type of Food object to create
+interesting meal combinations.
+'''
+###############################
+# Log:
+# 1999/09/01    AJG - File created
+# 1999/09/02    AJG - Fixed bug in pricing strategy
+# 1999/09/02    AJG - Did it right this time!
+# 1999/09/03    AJG - Added broiling method(cf Change Req #1234)
+################################</SPAN>
+import sys, string, food
+...
+
+</PRE>
+
+<P>Thus when you first open a file it should contain a 
+nice summary of what the file is for, whats changed 
+over time and who did it and when. This is particularly 
+important if you are working on a team project and need 
+to know who to ask about the design or the changes.
+There are version control tools available that can help 
+automate the production of some of this documentation, 
+but they are outside the scope of this tutorial.
+
+<P>Note that I put the description in between two sets
+of triple quotes. This is a Python specific trick known 
+as a <I>documentation string</i> that makes the 
+description available to Pythons built-in <tt>help</tt> 
+function as we'll see shortly.
+
+
+<H4>Commenting out redundant code</H4>
+<P>This technique is often used to isolate a faulty section of
+code. For example, assume a program reads some data, processes it,
+prints the output and then saves the results back to the data
+file. If the results are not what we expect it would be useful
+to temporarily prevent the (erroneous)data being saved back to
+the file and thus corrupting it. We could simply delete the
+relevant code but a less radical approach is simply to convert
+the lines into comments like so:
+<PRE>
+data = readData(datafile)
+for item in data:
+    results.append(calculateResult(item))
+printResults(results)
+<SPAN CLASS="comment">######################
+# Comment out till bug in calculateResult fixed
+# for item in results:
+#     dataFile.save(item)
+######################</SPAN>
+print 'Program terminated'
+</PRE>
+
+<P>Once the fault has been fixed we can simply delete the
+comment markers to make the code active once more. Some 
+editing tools, including IDLE, have menu options to 
+comment out a selected block of code, and to uncomment 
+it later.
+
+<H4>Documentation strings</H4>
+
+<P>All languages allow you to create comments to document what a
+function or module does, but a few, such as Python and Smalltalk,
+go one stage further and allow you to document the function in a
+way that the language/environment can use to provide interactive
+help while programming. In Python this is done using the
+<TT> """documentation""" </TT> string style:
+<PRE>
+class Spam:
+    """A meat for combining with other foods
+    
+    It can be used with other foods to make interesting meals.
+    It comes with lots of nutrients and can be cooked using many
+    different techniques"""
+    
+    def __init__(self):
+        ...
+
+print Spam.__doc__
+</PRE>
+
+<P><B>Note:</B> We can access the<I> documentation string </I> by
+printing the special<TT>  __doc__ </TT>variable. Modules, Functions and
+classes/methods can all have documentation strings. For example
+try:
+<PRE>
+import sys
+print sys.__doc__
+</PRE>
+
+<P>Since Python version 2.2 there is also a <tt>help()</tt> 
+function within Python that will search for and print out any helpful 
+documentation on a Python symbol. For example to see the help 
+on <TT>sys.exit</TT> we can do this at the Python prompt:
+<PRE>
+>>> import sys
+>>> help (sys.exit)
+Help on built-in function exit:
+
+exit(...)
+    exit([status])
+
+    Exit the interpreter by raising SystemExit(status).
+    If the status is omitted or None, it defaults to zero (i.e., success).
+    If the status is numeric, it will be used as the system exit status.
+    If it is another kind of object, it will be printed and the system
+    exit status will be one (i.e., failure).
+(END)
+</PRE>
+
+<P>To get out of help mode hit the letter 'q'(for quit) 
+when you see then <TT>(END)</TT> marker. If more than one page 
+of help is present you can hit the space bar to page through it.
+If you are using IDLE, or other IDE, then you likely won't see 
+the <tt>(END)</tt> marker rather it will simply display all 
+the text and you need to use the scroll bars to go back and 
+read it.</P>
+
+
+<H3>Block Indentation</H3>
+
+<P>This is one of the most hotly debated topics in programming.
+It almost seems that every programmer has his/her own idea of the
+best way to indent code. As it turns out there have been some
+studies done that show that at least some factors are genuinely
+important beyond cosmetics - ie they actually help us understand
+the code better. 
+
+<P>The reason for the debate is simple. In most programming
+languages the indentation is purely cosmetic, an aid to the
+reader. (In Python it is, in fact, needed and is essential to
+proper working of the program!) Thus: 
+
+<PRE>
+&lt; script language="VBScript">
+For I = 1 TO 10
+    MsgBox I
+Next
+&lt;/script>
+</PRE>
+
+<P>Is exactly the same as:
+<PRE>
+&lt; script language="VBScript">
+For I = 1 TO 10
+MsgBox I
+Next
+&lt;/script>
+</PRE>
+
+<P>so far as the VBScript interpreter is concerned. It's just 
+easier for us to read with indentation.
+
+<P>The key point is that indentation should reflect the logical
+structure of the code thus visually it should follow the flow of
+the program. To do that it helps if the blocks look like blocks
+thus:
+
+<PRE>
+XXXXXXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXX
+</PRE>
+
+<P>which reads better than:
+<PRE>
+XXXXXXXXXXXXXXXXXXXXX
+  XXXXX
+    XXXXXXXXXXXX
+    XXXXXXXXXXXX
+    XXXXXXXXXXXX
+  XXXXX
+</PRE>
+
+<P>because it's clearly all one block. Studies have shown
+significant improvements in comprehension when indenting reflects
+the logical block structure. In the small samples we've seen so
+far it may not seem important but when you start writing programs
+with hundreds or thousands of lines it will become much more
+so. 
+
+<H3>Variable Names</H3>
+
+<P>The variable names we have used so far have been fairly
+meaningless, mainly because they had no meaning but simply
+illustrated techniques. In general its much better if your
+variable names reflect what you want them to represent. For
+example in our times table exercise we used 'multiplier' as the
+variable to indicate which table we were printing. That is much
+more meaningful than simply 'm' - which would have worked just as
+well and been less typing. 
+
+<P>Its a trade-off between comprehensibility and effort.
+Generally the best choice is to go for short but meaningful
+names. Too long a name becomes confusing and is difficult to get
+right consistently(for example I could have used
+<TT>the_table_we_are_printing</TT> instead of <TT>multiplier</TT>
+but it's far too long and not really much clearer. 
+
+<H3>Saving Your Programs</H3>
+
+<P>While the Python interactive interpreter prompt (>>>) is very
+useful for trying out ideas quickly, it loses all you type the
+minute you exit.  In the longer term we want to be able to write
+programs and then run them over and over again. To do this in
+Python we create a text file with an extension <TT> .py </TT> (this
+is a convention only, you could use anything you like. But it's a
+good idea to stick with convention in my opinion...). You can
+then run your programs from an Operating System command prompt 
+by typing:<BR>
+<BR><TT>$ python spam.py</TT><BR> 
+<BR>Where <TT>spam.py</TT> is the name of your Python program 
+file and the <TT>$</TT> is the operating system prompt.
+
+<P>The other advantage of using files to store the programs is
+that you can edit mistakes without having to retype the whole
+fragment or, in IDLE, cursor all the way up past the errors to
+reselect the code. IDLE supports having a file open for editing
+and running it from the 'Edit|Run module' menu. 
+
+<P>From now on I won't normally be showing the <TT> >>> </TT> prompt in 
+examples, I'll assume you are creating the programs in a 
+separate file and running them either within IDLE or from 
+a command prompt (my personal favourite).</P>
+
+
+<TABLE>
+<TR><TD>
+<H4>Note for Windows users</H4>
+<P>Under Windows you can set up a file association for files 
+ending <TT> .py </TT> within Explorer. This will allow you 
+to run Python programs by simply double clicking the file's 
+icon. This should already have been done by the installer. 
+You can check by finding some .py files and trying to run 
+them. If they start (even with a Python error message) 
+it's set up. The problem you will likely run into at this 
+point is that the files will run in a DOS box and then 
+immediately close, so fast you scarcely even see them! 
+There are a couple of options:
+<UL>
+<LI>The first way is simplest and involves putting the 
+following line of code at the end of each program:
+<BR>
+<BR><TT>raw_input("Hit ENTER to quit")</TT>
+<BR>
+<BR>Which simply displays the message and waits for the user 
+to hit the ENTER or Return key. We will discuss <TT>raw_input()</TT> 
+in a future topic.<BR>
+<BR>
+</P>
+</LI>
+<LI>The second technique uses the Windows Explorer settings. 
+The procedure is fairly standard but may vary according to 
+the version of Windows you have. I will describe Windows XP Home.
+<BR>First select a <TT>.py</TT> file and go to the 
+<TT>Tools-&gt;Folder Options</TT> menu item. In the dialog box 
+select the <TT>File Types</TT> tab.
+Scroll down till you find the <TT>PY</TT> file type and click 
+on it to select it. Click the <TT>Advanced</TT> button at the bottom. 
+In the new dialog select open from the list and click <TT>Edit...</TT>
+In the new dialog you should see the <TT>Application...</TT> line say 
+something like:
+<BR>
+<BR><TT>E:\PYTHON22\python.exe "%1" %*</TT>
+<BR>
+<BR>Edit it to add a <TT>-i</TT> after the <TT>python.exe</TT>, 
+like this:
+<BR>
+<BR><TT>E:\PYTHON22\python.exe -i "%1" %*</TT>
+<BR>
+<BR>Now close all the dialogs.
+<BR>
+<BR>This will stop Python from exiting at the end of your program 
+and leave you at the >>> prompt where you can inspect variable 
+values etc, or just exit manually. (An alternative trick is to 
+add a new option called Test alongside Open. This allows you 
+to Right Click in explorer and choose open to run the program 
+and it close automatically and choose Test to run the program 
+finishing in Python. The choice is yours.)</P> 
+</LI>
+</UL>
+</TD></TR>
+</TABLE>
+<BR>
+<TABLE>
+<TR><TD>
+<H4>Note for Unix users</H4> 
+<P>The first line of a Python <I>script</I> file should contain 
+the sequence <TT> #! </TT>followed by the full path of python 
+on your system. You can find that by typing, at your shell prompt: 
+<BR> 
+<BR><TT>$ which python</TT>
+<BR>
+<BR>On my system the line looks like:<BR>
+<BR><TT>#! /usr/local/bin/python</TT><BR>
+<BR>This will allow you to run the file without calling Python at 
+the same time (after you set it to be executable via chmod 
+- but you knew that already I'm sure!):
+<BR>
+<BR><TT>$ spam.py</TT>
+<BR>
+<BR>You can use an even more convenient trick on most modern 
+Unix systems (including all Linux distros) which replaces 
+the path information with <TT>/usr/bin/env/python</TT>, like this:
+<BR>
+<BR><TT>#! /usr/bin/env/python</TT>
+<BR>
+<BR>That will find where Python is in your path automatically. 
+The only snag is where you may have two or more different 
+versions of Python installed and the script will only work with 
+one of them (maybe it uses a brand new language feature, say), 
+in that case you will be better with the full path technique.
+<BR>
+<BR>This <TT>#!</TT> line doesn't do any harm under Windows/Mac 
+either, since it just looks like a comment, so those users 
+can put it in too, if their code is likely to ever be run 
+on a unix box.
+</TD></TR>
+</TABLE>
+<H4>VBScript &amp; JavaScript</H4>
+<P>You VBScript and JavaScript users can ignore the above, 
+you've already been saving your programs as files, it's 
+the only way to get them to work!
+
+<CENTER>
+<!-- HR WIDTH="60%" -->
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>Comments can be used to temporarily prevent code from 
+executing, which is useful when testing or 'debugging' code.
+<LI>Comments can be used to provide an explanatory header 
+with version history of type file.
+<LI>Documentation strings can be used to provide run-time 
+information about a module and the objects within it.
+<LI>Indentation of blocks of code helps the reader see clearly 
+the logical structure of the code.
+<LI>By typing a python program into a file instead of at the 
+Python '>>>' prompt the program can be saved and run on demand 
+by typing <TT>$ python progname.py</TT> at the command prompt or
+by double clicking the filename within an Explorer window on 
+Windows.
+</UL> </TR></TABLE>
+<P>
+<A HREF="tutloops.htm">Previous</A>&nbsp
+<A HREF="tutinput.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+Index: tutfunc.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutfunc.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+31c31
+< the problems we are trying to solve rather than the minutae of 
+---
+> the problems we are trying to solve rather than the minutiae of 
+169c169
+< that module. Try it on the builtin functions:
+---
+> that module. Try it on the built-in functions:
+175c175
+< complain that it doesn't recognise the name. 
+---
+> complain that it doesn't recognize the name. 
+189c189
+< <P>Python is an extremely extendable language in that you can 
+---
+> <P>Python is an extremely extensible language in that you can 
+223c223
+< following them. If that was the case we would atempt to execute 
+---
+> following them. If that was the case we would attempt to execute 
+229c229
+< <P>You can import and use any of Pytho'ns modules in this way and
+---
+> <P>You can import and use any of Python's modules in this way and
+261c261
+<     <LI>sin,cos etc - trigonometical functions
+---
+>     <LI>sin,cos etc - trigonometrical functions
+288c288
+< do internet programming, graphics, build databases etc.
+---
+> do Internet programming, graphics, build databases etc.
+298c298
+< <P>Ok, So we know how to use the existing functions and modules, 
+---
+> <P>OK, So we know how to use the existing functions and modules, 
+321c321
+< definition with <TT>End Sub</TT>, following the normal VBSCript 
+---
+> definition with <TT>End Sub</TT>, following the normal VBScript 
+346c346
+< parentheses duuring function definition but, as is usual in 
+---
+> parentheses during function definition but, as is usual in 
+352,353c352,353
+< that doesn't return a value! VBSCript differentiates between 
+< functions and procedures by having a diffent name for their 
+---
+> that doesn't return a value! VBScript differentiates between 
+> functions and procedures by having a different name for their 
+485c485
+< <P>That defines the function, making use of some of the builtin 
+---
+> <P>That defines the function, making use of some of the built-in 
+539c539
+< Javadscript uses functions to define objects as well 
+---
+> JavaScript uses functions to define objects as well 
+574c574
+< way to control it in a minute). By changing the behaviour of 
+---
+> way to control it in a minute). By changing the behavior of 
+579c579
+< not to change the basic behaviour of built in functions.
+---
+> not to change the basic behavior of built in functions.
+582c582
+< built in behaviour but still using a meaningful name for 
+---
+> built in behavior but still using a meaningful name for 
+743c743
+< <P>THe structure of the .wsf file is XML and the program 
+---
+> <P>The structure of the .wsf file is XML and the program 
+754c754
+< <TT>WSCript.Echo</TT> statement we have to <I>escape</I> the 
+---
+> <TT>WScript.Echo</TT> statement we have to <I>escape</I> the 
+793c793
+< cannot demonstrate using the more resticted web browser 
+---
+> cannot demonstrate using the more restricted web browser 

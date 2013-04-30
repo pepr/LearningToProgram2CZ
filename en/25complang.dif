@@ -1,0 +1,533 @@
+Index: complang.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/complang.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+0a1,526
+> <HTML>
+> <HEAD>
+>    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+>    <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (WinNT; I) [Netscape]">
+>    <TITLE>Programming Languages</TITLE>
+> </HEAD>
+> <BODY>
+> 
+> <CENTER>
+> <A NAME="TOP"></A>
+> <H1>Programming Languages I Have Used</H1></CENTER>
+> 
+> <P>This document lists some of the programming languages I have
+> used or investigated (played with) over the years. It is a very
+> personal view and sometimes the views expressed will appear 
+> contradictory or even downright quirky. That's because they 
+> reflect the author's state of mind at the time of using the
+> particular language!
+> 
+> <P>The layout arranges the languages into groups:</P>
+> <UL>
+> <LI>Those that I have used 'in anger' on 
+> <a href="#PRODUCTION">production work</A>.
+> <LI><A href="#LITTLE">Little languages</A> used (often in 
+> production projects) for small tasks (less than 1000 lines of code).
+> <LI>Languages which I have only <a href="#EXPERIMENTAL">
+> experimented</A> with, never used on real development work.
+> </UL>
+> <P>Where it makes sense I will present a 'Hello World' program
+> in the language.
+> 
+> <HR WIDTH="60%">
+> <A NAME="PRODUCTION"></A>
+> <H2>Production Use</H2>
+> 
+> <P>In this context "production" means that I got paid for doing
+> the work and/or that several other people are using the resulting
+> program. It also means that the programs were developed using
+> industry standard software engineering practices for design and
+> documentation etc.
+> 
+> <H3>C</H3>
+> <P>When I first started using C (on a vacation project while at
+> university) it came as a breath of fresh air after the
+> restrictions of ANSI <a href="#PASCAL">Pascal</A>. It allowed
+> fast expression of ideas with just enough type checking to let
+> you know if you're being stupid but not enough to suffocate as
+> Pascal did. It also meant excursions into Assembler were limited
+> to those few areas where Assembler was fun!
+> 
+> <P>A few years later I migrated to C++ but over time I now find
+> myself using C++ as a better C and even occasionally preferring
+> the original. C++ cranks up the type checking to near Pascal
+> levels and adds whole wadges of new features which complicate
+> the language and slow the compiler.
+> 
+> <P>C remains one of my favourite languages and its not
+> a coincidence or surprise that the OS everyone is talking 
+> about - Linux - is written in vanilla C and not C++.
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> #include <stdio.h>
+> 
+> void main()
+> {
+>     char* msg="Hello World!"; /* similar idiom as OO examples */
+>     
+>     puts(msg);
+> }
+> </PRE>
+> 
+> <HR ALIGN="LEFT" WIDTH="20%">
+> <H3>C++</H3>
+> 
+> <P>C++ is C with bells on. Initially the bells tinkled
+> occasionally and made sweet music. Now there are so many bells
+> you can't hear the music for the noise! (And some modern C++
+> programs look like noise too!)
+> 
+> <P>I have a great admiration for C++ and for very large systems
+> or environments where many different modes of design/programming
+> are practiced it is peerless. Unfortunately that flexibility is
+> also its downfall. It has become almost impossible to program
+> well in C++ without an intimate understanding of its internals,
+> which is ironic given that one of its primary design aims is to
+> allow the programmer to work at a greater level of abstraction. 
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> 
+> #include &ltstring.h&gt
+> #include &ltstdio.h&gt
+> 
+> class Message  // define a message class
+> {
+> private:
+>     char msg[50];
+> public:
+>     Message(char* s)
+>         {strcpy(msg,s);};
+>     void print()
+>         {puts(msg);};
+> };
+> 
+> void main()
+> {
+>     m = new Message("Hello World!");
+>     m->print();
+>     delete m;
+> }
+> </PRE>
+> <HR ALIGN="LEFT" WIDTH="20%">
+> <A NAME="PASCAL">
+> <H3>Delphi</H3>
+> 
+> <P>Delphi isn't really a language, its an environment. But
+> everyone tends to call the language within that environment
+> Delphi too so I'll roll with the flow!
+> 
+> <P>The real name for the language of Delphi is Object Pascal and
+> it is a (widely divergent) version of the language Apple used to
+> program the first Macs. This in turn added OOP features to
+> standard Pascal. (A fuller description and demo of Apple style
+> OP is found in Booch's OOAD 1st edition c1992)
+> 
+> <P>Essentially Delphi's brand of OP adds the best features of
+> C++ to Pascal but without striving for total backward
+> compatibility or no compromise performance etc. This results in
+> a much more human readable and simpler language. For serious
+> windows programming OP is my language of choice ad the Delphi
+> environment is the best IDE I've used so far. (I'm currently on
+> V3 although V4 is the latest version at the time of writing)
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> program hello;
+> 
+> {---------Class definition ---------}
+> type
+>     class=TMessage
+>         msg : String;
+>     public:
+>         constructor Create(s : String);
+>         procedure Print;
+>     end;
+> 
+> constructor TMessage.Create(s : String);
+> begin
+>     msg := s;
+> end;
+> 
+> procedure TMessage.Print;
+> begin
+>     writeln(msg);
+> end;
+> 
+> {------------End class -----------}
+> 
+> var m : TMessage //declare instance reference
+> 
+> begin
+>     m := TMessage.Create('Hello World'); // create instance
+>     m.Print;
+>     m.Free;
+> end.
+> </PRE>
+> 
+> <HR ALIGN="LEFT" WIDTH="20%">
+> <H3>COBOL</H3>
+> 
+> <P>COBOL is one of the earliest computer languages appearing in
+> 1959, just one year after me! It is one of the latest computer
+> languages that I have used however but no better for that! It is
+> not a popular language amongst programmers and despite trying to
+> maintain a neutral stand, I can only agree with the consensus.
+> COBOL has a few good features especially those specific to its
+> bread and butter tasks of data processing, number crunching and
+> file handling. In particular its report writing capabilities
+> outshine its contemporaries and its file handling is quite simply
+> the best in the game.  These don't, however, make up for its
+> negative characteristics: uppercase letters, fixed position
+> keywords and verbosity bordering on the insane. I will be quite
+> happy never to have to work with COBOL ever again. 
+> 
+> <H4>Hello World</H4>
+> 
+> <PRE>
+> IDENTIFICATION DIVISION.
+>   PROGRAM-ID.   HELLO-PROG.
+> *******************************
+> ENVIRONMENT DIVISION.
+>   CONFIGURATION SECTION.
+>     SOURCE-COMPUTER.    IBM-PC.
+>     OBJECT-COMPUTER.    IBM-PC.
+> ********************************
+> DATA DIVISION.
+> ********************************
+> PROCEDURE DIVISION.
+>   DISPLAY-PARA.
+>     DISPLAY "HELLO WORLD FROM COBOL!".
+>   END-PARA.
+>   STOP RUN.
+> 
+> </PRE>
+> 
+> <HR WIDTH="60%">
+> <A NAME="LITTLE"></A>
+> <H2>Little Languages</H2> 
+> 
+> <P>The definitive description of little languages is in a series
+> of articles published in Dr Dobbs journal and the ICM.  In
+> particular I recommend the Programming Pearls series of books by
+> Jon Bentley. In the context of this discussion I really mean
+> scripting languages ans some of these have actually become pretty
+> big!  
+> 
+> <H3>awk</H3> 
+> 
+> <P>The first little language I came across and still a
+> favourite. It does a conceptually simple job simply and
+> reasonably fast. Everyone should learn awk.
+> 
+> <P>The key principle of operation in awk is pattern matching.
+> Awk reads a text file line by line searching for patterns. When
+> it finds a pattern that it recognizes it performs whatever
+> action(sub-routine) has been defined - the default being to
+> print the line. An Awk program thus consists of a set of
+> pattern/action pairs. Typical uses are to extract columns 
+> from a data file, or to produce summary reports etc.
+> 
+> <H5>Hello world</H5>
+> 
+> <P>Note: This version prints "Hello World" every time "Hello" or
+> "hello" is found in the input file, and gives a success count at
+> the end.
+> 
+> <PRE>
+> #!/bin/awk
+> 
+> BEGIN   {msg="Hello World"}
+> /[Hh]ello/ {print msg; count++}
+> END     {print "Hello was found ", count, "times in ", FILENAME}
+> 
+> </PRE>
+> 
+> <H3>Perl</H3>
+> 
+> <P>The flavour of the last few years, never mind month, and very
+> powerful. Pity it reads like line noise, and on a very dodgy line
+> at that! 
+> 
+> <P>I have never quite got my head round Perl - I can see the
+> power but it just offends my senses somehow. Everything just
+> looks a bit too much like its been stuck together with sticky
+> tape and glue rather than coherently designed. (Its OO mechanism
+> in particular!)
+> 
+> <P>What cannot be denied is that the WWW is driven by Perl to a
+> very large extent and if you are curious then don't let me
+> stop you! Instead visit:  
+> <a href="http://www.perl.org">http://www.perl.org</a>
+> 
+> <h5>Hello World</h5>
+> <PRE>
+> $msg = "Hello World";
+> print $msg;
+> </PRE>
+> 
+> <H3>Python</H3> 
+> 
+> <P>Perl for purists, especially OO purists. I love it to bits!
+> 
+> <P>Python is object oriented throughout, it has an extensive
+> module system and is designed to allow scripting on a large
+> scale. Although much less well known than Perl you can achieve
+> pretty much the same results for the same effort in Python as
+> you can with Perl - and you might even understand the resultant
+> code 6 months later.
+> 
+> <H5>Hello World</H5>
+> 
+> <PRE>
+> #!/local/bin/python
+> 
+> class Message:
+>     def __init__(self, str="No message provided"):
+>         self.text = str     
+>     def print(self):
+>         print self.text
+> 
+> if __name__ == "__main__":
+>     m = Message("Hello World")
+>     m.print()
+>     
+> </PRE>
+> 
+> <H3>Unix Shells</H3> 
+> 
+> <P>sh,csh,tcsh,ksh,bash. Pick your favourite. A command prompt
+> with real power. You can do <em>if, case, while</em> and
+> <em>for</em> loops.  You can test for file type(directory, system
+> file, access etc) There's command history access, filename and
+> command completion, executing jobs in foreground or background
+> etc etc. 
+> 
+> <H5>Hello World</H5>
+> 
+> <PRE>
+> #! /bin/sh
+> 
+> message="Hello World"
+> echo $message
+> 
+> </PRE>
+> 
+> <H3>DOS Batch/NT Command</H3>
+> 
+> <P>What can I say? A command prompt with no power?
+> Amazingly some people have twisted it to achieve amazing things.
+> I still hate it though and wish Microsoft would provide a
+> really useful batch language for Windows/NT (and shipping Perl
+> in the Resource Kit doesn't count guys!).
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> SET MSG="Hello World"
+> ECHO %MSG%
+> 
+> </PRE>
+> 
+> <HR WIDTH="60%">
+> <A NAME="EXPERIMENTAL"></A>
+> <H2>Experimental Languages</H2>
+> 
+> <P>Experimental here means that <em>I</em> have experimented with
+> these languages. It does not mean that they are some kind of
+> computer science experiment. Rather I have used these languages
+> to write some kind of minimalist application, but only for the
+> purpose of educating myself about the language. The dividing line
+> between some of these and the little languages above is fine, but
+> ultimately the little languages have produced tools which I use
+> in earnest, the experimental ones produced tools which I do not
+> use on a regular basis. 
+> 
+> <P>This is not to denigrate these languages in any way - they are
+> all production languages to someone else and I have learned
+> valuable lessons about programming from all of them. I heartily
+> recommend to any wannabe programmer that he/she experience as
+> many different styles of programming as possible - and these
+> languages all offer something different from the more mainstream
+> languages above. 
+> 
+> <H3>BASIC</H3>
+> 
+> <P>BASIC was technically my first programming language. But what
+> I did with it was so trivial that I don't really consider it
+> programming. I really started using BASIC on my CP/M
+> Microcomputer and it introduced me to Random Access files.  I
+> still occasionally play with BASIC - especially if I'm working on
+> a PC and its the only programming tool around! 
+> 
+> <P>Visual Basic aficionados keep trying to persuade me that
+> the modern dialects of the language are of good quality, but
+> despite downloading the free CCE edition and creating a few
+> simple apps, I just cannot work up any real enthusiasm. Sorry
+> BASIC.
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> LET MSG$ = "Hello World"
+> PRINT MSG$;
+> </PRE>
+> 
+> <H3>Lisp</H3>
+> 
+> <P>Lisp is described by its fans as 'the only beautiful
+> programming language'. Its detractors say Lisp stands for 'Lots
+> of Irrelevant Silly Parentheses'. I sympathize with both views.
+> Lisp really stands for List Processing and is very descriptive of
+> how the language both looks and works. Everything in Lisp is
+> either a list or an atom - an atom is an element of a list which
+> is not itself a list. 
+> 
+> <P>It is this fundamental cleanness of form and its simple
+> syntax which provokes the 'beautiful language' reaction above.
+> What I learned from Lisp is a different way to structure
+> problems, use of recursion (something I had previously avoided as
+> too complicated) and an appreciation of the notion that data
+> can be a program and vice versa.
+> 
+> <P>The other notable thing about Lisp is that it is one of the
+> very earliest Computer Languages along with COBOL and Fortran.
+> I find it interesting that these earliest languages are still
+> each going strong in their respective fields while more modern 
+> languages (Algol, PL/1, CORAL, even ADA) have bloomed then faded
+> from sight. Maybe the designers of those early languages knew
+> some things that have been lost to later designers?
+> 
+> <P>Finally Lisp has a number of variants. The versions I have
+> used most are Elisp: the macro language of the Emacs editor,
+> XLISP an experimental OO version and Flavors, a very early
+> experimental OO dialect. Mainstream Lisp has acquired a standard:
+> Common Lisp and an OO system: CLOS. CLOS is perhaps the most
+> complete OO environment available today, albeit a fairly verbose
+> and extremely complex one. For that reason I won't even attempt
+> to do an OO Hello world. 
+> 
+> <H5>Hello World</H5>
+> <EM>Note: A Lisp program is itself a list. Each element of the list
+> is a list of instructions. The instruction lists can be nested
+> to implement conditionals, loops etc.</EM>
+> 
+> <PRE>
+> ( (setq msg "Hello World")
+>   (print 'msg))
+> </PRE>  
+> 
+> <H3>Logo</H3>
+> 
+> <P>I first came across Logo on my CP/M micro. It was a strange 
+> inclusion in the software bundle: a simple programming language
+> designed to teach children about computing using a set of
+> commands for guiding a robot 'turtle' about the floor with a pen
+> tracing the shapes. This became known as turtle graphics and has
+> been ported to many other languages, including Pascal and
+> Smalltalk.
+> 
+> <P>Logo also had a serious side however and incorporated full
+> List Processing capability and possesses many of the features of
+> Lisp, including the concept of programs being lists in and of
+> themselves. This makes Logo suitable for teaching (and 
+> implementing) Artificial Intelligence techniques but without the
+> mass of parentheses and unusual syntax (from a procedural
+> programmers viewpoint) inherent in Lisp.
+> 
+> <P>More modern Logo's have OO capability and there are even
+> versions for programming windows - complete with GUI class
+> libraries.
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> To Hello
+>     MAKE "Message [Hello World]
+>     PRINT :Message
+> End
+> 
+> Hello
+> 
+> </PRE>
+> 
+> <H3>Prolog</H3>
+> 
+> <P>Prolog is different. Very different!
+> 
+> <P>In Prolog you define rules of what you want to happen and
+> leave the system to figure out <em>how</em> the system should do
+> it. This is very intuitive to beginners, and very strange to
+> programmers trained in just about any other language.
+> 
+> <P>It is a mainstay of artificial intelligence research,
+> especially in Europe and Japan. Indeed the Japanese, in an
+> attempt to compete with the USA in computing announced in the mid
+> '80s that they would produce a "Fifth Generation" computer based
+> on Prolog by 1990. Such a machine never appeared but the Japanese
+> did succeed in dominating computing by the much simpler strategy
+> of building more and better memory chips than anyone else! 
+> 
+> <P>I played with Prolog because it was available on the VAX
+> computer I used in my first job - I often wondered why? We
+> certainly never used it in any kind of production capacity.
+> 
+> <P>I've never really written any serious code in Prolog but the
+> whole concept fascinates me. Maybe someday I'll find a real use
+> for it, until then I'll keep playing when the mood takes me.
+> 
+> <H5>Hello World</H5>
+> <PRE>
+> Message is "Hello World"
+> Message?
+> </PRE>
+> 
+> <H3>Smalltalk</H3>
+> 
+> <P>Smalltalk <em>is</em> Objects. Everywhere. Always.
+> 
+> <P>Although Simula 67 is generally held to be the first OO
+> language, Smalltalk was the one that really got the ball going
+> in the wider world. During the 1970's Smalltalk evolved into
+> what was to be the definitive OO environment: Smalltalk 80.
+> 
+> <P>If you want to sample Smalltalk 80 download a copy of Squeak
+> from Disney.com. The environment is a faithful copy of the
+> Smalltalk 80 programming environment, including the GUI which is
+> distinctly eccentric by modern standards but was the catalyst
+> for the Mac and windows etc. 
+> 
+> <P>My preferred Smalltalk implementation is Dolphin Smalltalk
+> for Win95. This is unusual in that the development environment
+> is free but if you want to distribute programs as EXEs then you
+> need to buy a deployment kit. This seems to be a reasonable
+> alternative to shareware as a try-before-you-buy scheme.
+> 
+> <P>The environment is good and the HTML format documentation
+> and tutorial is very readable. There is a support forum too.
+> 
+> <P>Smalltalk fans love the consistency of the language (as I
+> said, everything is an object) and its small set of syntactic
+> constructs - making it easy to learn. At least thats the idea -
+> it took me 3 attempts with 2 different environments to get my
+> head around it. At times Smalltalk rivals C and Perl in the use
+> of obscure and overloaded symbols (@,#,[,], etc).
+> 
+> <h5>Hello World</h5>
+> <PRE>
+> message := string new: "Hello World".
+> message print.
+> </PRE>
+> 
+> <HR>
+> <P>If you want to comment on these views please 
+> <a href="mailto:alan_gauld@xoom.com">mail me.</A></P>
+> <BR>
+> <A HREF="#TOP">Back to the top</A>
+> </BODY>
+> </HTML>

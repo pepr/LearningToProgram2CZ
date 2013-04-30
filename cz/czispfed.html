@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Editor ISPF -- příkazy a kláveskové zkratky</title>
+</head>
+<body>
+
+<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
+se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Na základě obsahu
+následujícího textu jsem dospěl k závěru, že jde o editor <em>s historickou
+hodnotou</em>. Nepředpokládám, že by jej nějaký programátor-začátečník chtěl
+vůbec používat. Jeden z pádných důvodů je i ten, že se tento editor
+pravděpodobně nepoužívá na počítačích typu IBM PC. Z tohoto důvodu jsem se
+rozhodl text nepřekládat.</p>
+
+<h1>Some Commands and Shortcuts for the MVS ISPF Editor</h1>
+
+<p>This document lists some of the more common ISPF editting commands
+and the PF key shortcuts. There is also a brief overview of the
+editor and its "philosophy"</p>
+ 
+<h2>ISPF Overview</h2>
+
+<p>ISPF editor is a strange mix of in-place editting like emacs in
+overwrite mode and line oriented editors like vi. Strictly it is
+<i>page oriented</i> and within a page you can move the cursor,
+overtype existing text or type new text.</p>
+
+<p>There is a command field opposite each line into which you can type
+<i>line commands</i> to copy, delete or move lines. These take
+effect the next time you hit enter.</p>
+
+<p>There is also a <i>command-line</i> at the top of the screen
+similar to the '<b>:</b>' prompt in vi or the M-x prompt in emacs
+(or the DO key for all you VMS/TPU users...). Here you type
+commands like 'DOWN 200' to move 200 lines down the file.</p>
+
+<p>Finally there are the Function (PF) keys which can be tailored
+somewhat to your own requirements and allow you to split screen
+(actually giving a new TSO session!), page up/down etc.</p>
+ 
+<p>Note that the editor in Infoman is a subset of ISPF - only the
+most basic commands work in either the command line area or the
+command field.</p>
+
+<h2>ISPF PF Keys</h2>
+
+<ul>
+<li><b>PF1</b> Help screen</li>
+
+<li><b>PF2</b> Split screen at current cursor position - starts a
+new TSO/ISPF session.</li>
+
+<li><b>PF3</b> End - return to previous task saving edits</li>
+
+<li><b>PF4</b> Return - Don't know what this actually does!</li>
+
+<li><b>PF5</b> RFIND - Repeat last find command</li>
+
+<li><b>PF6</b> RChange - Repeat last change(replace) command</li>
+
+<li><b>PF7</b> Page up - behaviour depends on scroll settings</li>
+
+<li><b>PF8</b> Page Down - behaviour depends on scroll
+settings</li>
+
+<li><b>PF9</b> Swap - swap screens if split</li>
+
+<li><b>PF10</b> Left - Move screen window left</li>
+
+<li><b>PF11</b> Right - Move screen window right</li>
+
+<li><b>PF12</b> Retrieve - Command history</li>
+</ul>
+
+<a name="FIND"></a> 
+<h2>ISPF Command line commands</h2>
+
+<p>The most useful are:</p> 
+<ul>
+<li>UP [n] - where n is the number of lines to move up.</li>
+
+<li>DOWN [n] - where n is the number of lines to move down.</li>
+
+<li>F[ind] :string: - Finds the string</li>
+
+<li>
+<ul>
+<li>prepending the string with 'C' makes it case sensitive</li>
+
+<li>prepending the string with 'P' treats as a PICTURE string -
+like a  "regular expression"</li>
+
+<li>
+<ul>
+<li># = number</li>
+
+<li>@ = alpha</li>
+
+<li>$ = non alpha</li>
+
+<li>&gt; = uppercase</li>
+
+<li>&lt; = lowercase</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li>R[eplace] :string: - Replace the string.</li>
+</ul>
+
+<p>Other useful commands include:</p> 
+<ul>
+<li>TE [n] - Text Entry - Gets rid of the left hand ' ' ' ' ' and
+line number columns giving a straight text entry screen. The
+argument limits the range to the next N lines.</li>
+
+<li>TF [n] - Text Flow - ie reformat the text to fill lines etc.
+The argument limits the range to the next N lines.</li>
+
+<li>X [n] - EXCLUDE - Hides next N lines (or using XX hides the
+defined block.)</li>
+
+<li>RESET - Restores hidden lines</li>
+
+<li>SORT &lt;n&gt; &lt;m&gt; - Sort based on columns N to M</li>
+
+<li>SORT &lt;.L1&gt; &lt;.L2&gt; - Sort between 2 labels - labels
+are values in the ..... region beginning with a '.'</li>
+
+<li>SEARCH - like find but the following have special meaning:</li>
+
+<li class="c2">
+<ul>
+<li>SEARCH &lt;string&gt; PRE - find where word begins with
+&lt;string&gt;</li>
+
+<li>SEARCH &lt;string&gt; SUF - find where word ends with
+&lt;string&gt;</li>
+
+<li>SEARCH &lt;string&gt; WORD - find where &lt;string&gt; is a
+word</li>
+</ul>
+</li>
+
+<li>COLS - display a ruler like display - useful when using
+SORT.</li>
+</ul>
+
+<h2>ISPF In-Line Commands</h2>
+
+<p>The In-Line commands come in 2 varieties. <i>Single letter
+commands</i> act on a single line. These include <i>A, B,</i>
+<i>I</i> etc. <i>Range Commands</i> consist of double letters
+marking the start and finish of a range. Thus <i>CC</i> will be
+entered at the start line and finish line of a region to be copied.
+An <i>A</i> will insert the copied block into the file starting on
+the line after the one with the 'A'.</p>
+
+<p>The most common Line Commands are listed below(* means a range can
+be specified):</p> 
+<ul>
+<li>A - <i>After</i> - Pastes buffer text after marked line</li>
+
+<li>B - <i>Before</i> - Pastes buffer text Before marked line</li>
+
+<li>C* - <i>Copy</i> marked line/range</li>
+
+<li>D* - <i>Delete</i> marked line/range</li>
+
+<li>I - <i>Insert</i> - Open a new line for inserting text(no
+paste)</li>
+
+<li>M - <i>Move</i> - Moves marked line/range to an A or B position
+(There <b>must</b> be an A or B defined)</li>
+
+<li>R - <i>Repeat</i> - Copies the current line/range to
+immediately after itself (needed since you can't put a C and an A
+on the same line...)</li>
+</ul>
+
+<p>Note: You have to be careful when specifying multiple commands in
+the same screen that you don't try to copy a deleted line etc. The
+commands are performed in sequential order. You will get a
+<i>reasonably</i> helpful error message if you do get too clever
+for your own good!</p>
+ 
+<p>That should be enough to be going on with. There are lots more
+things you can do but you'll need to find and ask an ISPF expert
+for that - try somebody in ASG!...</p>
+
+<hr>
+<div class="foot">
+<p class="navig">[ 
+<a href="czcomputing.html" title="Počítačová témata">zpět</a>
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: czispfed.html,v 1.5 2004/08/31 11:55:12 prikryl Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: czispfed.html,v 1.5 2004/08/31 11:55:12 prikryl Exp $</p>
+</div>
+</body>
+</html>
+

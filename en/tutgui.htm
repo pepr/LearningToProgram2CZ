@@ -1,0 +1,888 @@
+<html>
+<head>
+   <title>Introduction to GUI Programming</title>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</head>
+<body bgcolor="#CCBBCC">
+
+<CENTER>
+<h2>GUI Programming with Tkinter</h2>
+<P>
+<TABLE>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD>
+<UL>
+<LI>Basic GUI building principles
+<LI>Basic widgets
+<LI>Simple Tkinter program structure
+<LI>GUI and OOP, a perfect match
+<LI>wxPython as an alternative to Tkinter
+</UL>
+</TD></TR></TABLE>
+</CENTER>
+
+<P>In this topic we look at how a GUI program is assembled in a
+general sense, then how this is done using Python's native GUI
+toolkit, Tkinter. This will not be a full blown Tkinter reference
+nor even a complete tutorial. There is already a very good and
+detailed tutor linked from the Python web site. This tutorial
+will instead try to lead you through the basics of GUI
+programming, introducing some of the basic GUI components and
+how to use them. We will also look at how Object Oriented
+programming can help organize a GUI application.
+
+<H3>GUI principles</H3>
+
+<P>The first thing I want to say is that you won't learn
+anything new about programming here. Programming a GUI is
+exactly like any other kind of programming, you can use
+sequences, loops, branches and modules just as before. What is
+different is that in programming a GUI you usually use a
+<I>Toolkit</I> and must follow the pattern of program design
+laid down by the toolkit vendor. Each new toolkit will have its
+own API and set of design rules and you as a programmer need to
+learn these. This is why most programmers try to standardize on
+only a few toolkits which are available across multiple 
+languages - learning a new toolkit tends to be much harder
+than learning a new programming language!
+
+<P>Most windows programming languages come with a toolkit included
+(usually a thin veneer over the very primitive toolkit built into 
+the windowing system itself). Visual Basic, Delphi(Kylix) and 
+Visual C++/.NET are examples of this.
+
+<P>Java is different in that the language includes its 
+own graphics toolkit (called Swing) which runs on 
+any platform that Java runs on - which is almost any platform!
+
+<P>There are other toolkits that you can get separately 
+which can be used on any OS (Unix, Mac, Windows...). 
+These generally have adapters to allow them to 
+be used from many different languages. Some of these are commercial 
+but many are freeware. Examples are: GT/K, Qt, Tk
+
+<P>They all have web sites. For some examples try:</P>
+
+<UL>
+<LI><A href="http://www.wxPython.org">wxPython</a>, a Python 
+version of the <a href="http://www.wxwidgets.org">wxWidgets </A>
+toolkit which is actually written in C++  
+
+<LI><A href="www.trolltech.com">PyQt, the Qt toolkit</A> which has 
+"bindings" to most languages.
+
+<LI><A href="http://www.daa.com.au/~james/software/pygtk/">
+pyGTK, the Gimp Toolkit, or GTK+</A> which is a freeware project used 
+heavily in the Linux community.
+</UL>
+
+<P>Qt and GT/k are what most Linux applications are 
+written in and are both free for non commercial use
+(ie you don't sell your programs for profit) Qt can 
+provide a commercial license too if you want.
+
+<P>The standard Python graphics kit (comes with the language) 
+is Tkinter which is based on Tk, a very old multi OS toolkit.
+This is the toolkit we will look at most closely, versions of 
+it are available for Tcl, Haskell and Perl as well as Python.
+
+<P>The principles in Tk are slightly different to other toolkits 
+so I will conclude with a very brief look at another popular GUI 
+toolkit for Python(and C/C++) which is more conventional in its 
+approach. But first some general principles:
+
+<P>As we have already stated several times GUI applications are
+nearly always event driven by nature. If you don't remember what
+that means go back and look at the 
+<A href="tutevent.htm">event driven programming</A> topic.
+
+<P>I will assume that you are already familiar with GUIs as 
+a user and will focus on how GUI programs work from a
+programmers perspective. I will not be going into details of how
+to write large complex GUIs with multiple windows, MDI
+interfaces etc. I will stick to the basics of creating 
+a single window application with some labels, buttons, 
+text boxes and message boxes.
+
+<P>First things first, we need to check our vocabulary. GUI
+programming has its own set of programming terms. The most
+common terms are described in the table below:</P>
+<TABLE border>
+<TR><TH>Term</TH><TH>Description</TH></TR>
+<TR><TD VAlign="TOP">Window</TD>
+    <TD>An area of the screen controlled by an application.
+    Windows are usually rectangular but some GUI environments
+    permit other shapes. Windows can contain other windows 
+    and frequently every single GUI control is treated as a
+    window in its own right.</TD></TR>
+<TR><TD VAlign="TOP">Control</TD>
+    <TD>A control is a GUI object used for controlling the
+    application. Controls have properties and usually generate
+    events. Normally controls correspond to application level
+    objects and the events are coupled to methods of the
+    corresponding object such that when an event occurs the
+    object executes one of its methods. The GUI environment
+    usually provides a mechanism for binding events to
+    methods.</TD></TR>
+<TR><TD VAlign="TOP">Widget</TD>
+    <TD>A control, sometimes restricted to visible controls.  Some
+    controls(such as timers) can be associated with a given
+    window but are not visible. Widgets are that subset of
+    controls which are visible and can be manipulated by the
+    user or programmer. The widgets that we shall cover are:
+    <UL><LI>Frame
+        <LI>Label
+        <LI>Button
+        <LI>Text Entry
+        <LI>Message boxes
+     </UL>
+     <P>The ones we won't discuss in this topic but are used
+     elsewhere in the tutor are:
+     <UL><LI>Text box
+         <LI>Radio Button
+     </UL>
+     Finally, the ones not discussed at all are:<BR>
+     <UL><LI>Canvas - for drawing
+         <LI>Check button - for multiple selections
+         <LI>Image - for displaying BUMP, GIF, JPEG and PNG images
+         <LI>Listbox - for lists!
+         <LI>Menu/MenuButton - for building menus
+         <LI>Scale/Scrollbar - indicating position
+     </UL></TD></TR>
+<TR><TD VAlign="TOP">Frame</TD>
+    <TD>A type of widget used to group other widgets together.
+    Often a Frame is used to represent the complete window and
+    further frames are embedded within it.
+    </TD></TR>
+<TR><TD VAlign="TOP">Layout</TD>
+    <TD>Controls are laid out within a Frame according to a
+    particular form of Layout. The Layout may be specified in
+    a number of ways, either using on-screen coordinates
+    specified in pixels, using relative position to other
+    components(left, top etc) or using a grid or table
+    arrangement. A coordinate system is easy to understand but
+    difficult to manage when a window is resized etc. Beginners
+    are advised to use non-resizable windows if working with
+    coordinate based layouts.</TD></TR>
+<TR><TD VAlign="TOP">Child</TD>
+    <TD>GUI applications tend to consist of a hierarchy of
+    widgets/controls. The top level Frame comprising the
+    application window will contain sub frames which in turn
+    contain still more frames or controls. These controls can be
+    visualized as a tree structure with each control having a
+    single parent and a number of children. In fact it is normal
+    for this structure to be stored explicitly by the widgets
+    so that the programmer, or more commonly the GUI environment
+    itself, can often perform some common action to a control
+    and all its children.</TD></TR>
+</TABLE>
+
+<H4>The Containment tree</H4>
+
+<P>One very important principle to grasp in GUI programming is 
+the idea of a containment hierarchy. That is the widgets are 
+contained in a tree like structure with a top level widget 
+controlling the entire interface. It has various child widgets 
+which in turn may have children of their own. Events arrive at 
+a child widget and if it is unable to handle it it will pass 
+the event to its parent and so on up to the top level. Similarly 
+if a command is given to draw a widget it will send the command 
+on down to its children, thus a draw command to the top level 
+widget will redraw the entire application whereas one sent 
+to a button will likely only redraw the button itself.
+
+<P>This concept of events percolating up the tree and commands 
+being pushed down is fundamental to understanding how GUIs 
+operate at the programmer level, and why you always need to 
+specify a widgets parent when creating it, so that it knows 
+where is sits in the containment tree. We can illustrate a 
+containment tree for the simple application we will create 
+in this topic like this:
+
+<A name="tree">
+<CENTER><P>
+<TABLE>
+<TR><TD>
+<IMG Alt="GUI Containment tree" src="guitree.gif">
+</TD></TR>,</TABLE>
+</CENTER>
+
+<P>This illustrates the top level widget containing a single 
+<TT>Frame</TT> which represents the outermost window border. 
+This in turn contains two more Frames, the first of which 
+contains a <TT>Text Entry</TT> widget and the second contains 
+the two <TT>Buttons</TT> used to control the application. 
+We will refer back to this diagram later in the topic when 
+we come to build the GUI.
+
+<H3>A Tour of Some Common Widgets</H3>
+
+<P>In this section we will use the Python interactive prompt to
+create some simple windows and widgets. Note that because IDLE
+is itself a Tkinter application you cannot reliably run Tkinter
+applications within IDLE. You can of course create the files
+using IDLE as an editor but you must run them from a OS command 
+prompt. Pythonwin users can run Tkinter applications since
+Pythonwin is built using windows own GUI toolkit, MFC. However
+even within Pythonwin there are certain unexpected behaviors
+with Tkinter application. As a result I will use the raw Python
+prompt from the Operating System.
+
+<h4> >>> from Tkinter import * </H4> 
+
+<P>This is the first requirement of any Tkinter program - import
+the names of the widgets. You could of course just import the
+module but it quickly gets tiring typing <TT>Tkinter</TT> in front of
+every component name.
+
+<H4>>>> top = Tk()</H4>
+
+<P>This creates the top level widget in our widget hierarchy.
+All other widgets will be created as children of this. Notice
+that a new blank window has appeared complete with an empty 
+title bar save for a Tk logo as icon and the usual set of 
+control buttons (iconify, maximize etc). We will now add 
+components to this window as we build an application.
+
+<h4>>>> dir(top)</H4>
+<PRE>['_tclCommands', 'children', 'master', 'tk']
+</PRE>
+
+<P>The <TT>dir</TT> function shows us what names are known to the
+argument. You can use it on modules but in this case we are
+looking at the internals of the <TT>top</TT> object, an instance
+of the <TT>Tk</TT> class. These are the attributes of
+<TT>top</TT>, note, in particular, the <TT>children</TT> and
+<TT>master</TT> attributes which are the links to the widget
+containment tree.  Note also the attribute <TT>_tclCommands</TT>, 
+this is because, as you might recall, Tkinter is built on a Tcl
+toolkit called Tk. 
+
+<h4>>>> F = Frame(top)</H4>
+
+<P>Create a <I>Frame</I> widget which will in turn contain the child
+controls/widgets that we use. <TT>Frame</TT> specifies 
+<TT>top</TT> as its first (and in this case only) parameter 
+thus signifying that <TT>F</TT> will be a child widget of 
+<TT>top</TT>.
+
+<h4>>>> F.pack()</H4>
+
+<P>Notice that the Tk window has now shrunk to the size of the
+added Frame widget - which is currently empty so the window is 
+now very small! The <TT>pack()</TT> method invokes a <I>Layout
+Manager</I> known as the packer which is very easy to use for
+simple layouts but becomes a little clumsy as the layouts get
+more complex. We will stick with it for now because it is
+easy to use. Note that widgets will not be visible in our
+application until we pack them (or use another Layout manager 
+method).
+
+<h4>>>> lHello = Label(F, text="Hello world")</H4>
+
+<P>Here we create a new object, <TT>lHello</TT>, an instance 
+of the <TT>Label</TT> class, with a parent widget <TT>F</TT> 
+and a <TT>text</TT> attribute of "Hello world". Notice that 
+because Tkinter object constructors tend to have many parameters 
+(each with default values) it is usual to use the named 
+parameter technique of passing arguments to Tkinter objects. 
+Also notice that the object is not yet visible because we 
+haven't packed it yet.
+
+<P>One final point to note is the use of a naming convention: I
+put a lowercase<TT>l</TT>, for Label, in front of a name,
+<TT>Hello</TT>, which reminds me of its purpose. Like most naming
+conventions this is a matter of personal choice, but I find it
+helps. 
+
+<h4>>>> lHello.pack()</h4>
+
+<P>Now we can see it. Hopefully yours looks quite a lot like this:</P>
+<img src="tk-hello.gif" alt="Window with Label">
+
+<P>We can specify other properties of the Label such as the font
+and color using parameters to the object constructor too. We can
+also access the corresponding properties using the <TT>configure</TT>
+method of Tkinter widgets, like so:
+
+<H4>>>> lHello.configure(text="Goodbye")</H4>
+
+<P>The message changed. That was easy, wasn't it?
+<TT>configure</TT> is an especially good technique if you need to
+change multiple properties at once because they can all be passed
+as arguments. However if you only want to change a single
+property at a time, as we did above you can treat the object like
+a dictionary, thus:
+
+<H4>>>> lHello['text'] = "Hello again"</H4>
+
+<P>which is shorter and arguably easier to understand.
+
+<P>Labels are pretty boring widgets, they can only
+display read-only text, albeit in various colors, fonts and
+sizes. (In fact they can be used to display simple graphics 
+too but we won't bother with that here).
+
+<P>Before we look at another object type there is one more thing
+to do and that's to set the title of the window. We do that by
+using a method of the top level widget <TT>top</TT>:
+
+<H4>>>> F.master.title("Hello")</H4>
+
+<P>We could have used <TT>top</TT> directly but, as we'll see
+later, access through the Frame's master property is a useful 
+technique.
+
+<H4>>>> bQuit = Button(F, text="Quit", command=F.quit)</H4>
+
+<P>Here we create a new widget a button. The button has a label
+"Quit" and is associated with the command <TT>F.quit</TT>. Note
+that we pass the method name, we do <B>not</B> call the method 
+by adding parentheses after it. This means we must pass a 
+function object in Python terms, it can be a built in method 
+provided by Tkinter, as here, or any other function that we define. 
+The function or method must take no arguments. The <TT>quit</TT> 
+method, like the <TT>pack</TT> method, is defined in a base 
+class and is inherited by all Tkinter widgets, but is usually 
+called at the top window level of the application. 
+
+<H4>>>>bQuit.pack()</H4>
+
+<P>Once again the <TT>pack</TT> method makes the button visible.
+
+<H4>>>>top.mainloop()</H4>
+
+<P>We start the Tkinter event loop. Notice that the Python &gt;&gt;&gt;
+prompt has now disappeared. That tells us that Tkinter now has
+control. If you press the <TT>Quit</TT> button the prompt will 
+return, proving that our <TT>command</TT> option worked.</P>
+
+<P>Note that if running this from Pythonwin or IDLE you may 
+get a different result, if so try typing the commands so far 
+into a Python script and running them from an OS command prompt. 
+
+<P>In fact its probably a good time to try that anyhow, after
+all it's how most Tkinter programs will be run in practice. Use
+the principle commands from those we've discussed so far as shown:</P>
+<PRE>
+from Tkinter import *
+
+<SPAN CLASS="Comment"># set up the window itself</SPAN>
+top = Tk()
+F = Frame(top)
+F.pack()
+
+<SPAN CLASS="Comment"># add the widgets</SPAN>
+lHello = Label(F, text="Hello")
+lHello.pack()
+bQuit = Button(F, text="Quit", command=F.quit)
+bQuit.pack()
+
+<SPAN CLASS="Comment"># set the loop running</SPAN>
+top.mainloop()
+</PRE>
+
+<P>The call to the <TT>top.mainloop</TT> method starts the
+Tkinter event loop generating events. In this case the only event
+that we catch will be the button press event which is connected to the
+<TT>F.quit</TT> method.  <TT>F.quit</TT> in turn will terminate
+the application. Try it, it should look like this:</P>
+
+<img src="tk-hellbut.gif" alt="Label with Button">
+
+<H3>Exploring Layout</H3>
+
+<P><B>Note:</B> from now on I'll provide examples as Python script 
+files rather than as commands at the >>> prompt.
+
+<P>In this section I want to look at how Tkinter positions widgets within 
+a window. We already have seen Frame, Label and Button widgets and those 
+are all we need for this section. In the previous example we used the 
+<TT>pack</TT> method of the widget to locate it within its parent widget. 
+Technically what we are doing is invoking Tk's packer <I>Layout Manager</I>. 
+The Layout Manager's job is to determine the best layout for the widgets 
+based on hints that the programmer provides, plus constraints such as the 
+size of the window as controlled by the user. Some Layout managers use 
+exact locations within the window, specified in pixels normally, and 
+this is very common in Microsoft Windows environments such as Visual 
+Basic. Tkinter includes a <I>Placer</I> Layout Manager which can do 
+this too via a place method. I won't look at that in this tutor because 
+usually one of the other, more intelligent, managers is a better choice, 
+since they take the need to worry about what happens when a window is 
+resized away from us as programmers.
+
+<P>The simplest Layout Manager in Tkinter is the packer which we've 
+been using. The packer, by default, just stacks widgets one on top 
+of the other. That is very rarely what we want for normal widgets, 
+but if we build our applications from Frames then stacking Frames 
+on top of each other is quite a reasonable approach. We can then put 
+our other widgets into the Frames using either the packer or other 
+Layout Manager within each Frame as appropriate. You can see an 
+example of this in action in the 
+<A href="tutcase.htm">Case Study topic.</A>
+
+<P>Even the simple packer provides a multitude of options, however.
+For example we can arrange our widgets horizontally instead of 
+vertically by providing a <TT>side</TT> argument, like so:
+<PRE>
+lHello.pack(side="left")
+bQuit.pack(side="left")
+</PRE>
+<P>That will force the widgets to go to the left thus the first widget
+(the label) will appear at the extreme left hand side, followed by the 
+next widget (the Button). If you modify the lines in the example above 
+it will look like this:</P>
+<img src="tk-leftpack.gif" alt="Left packed widgets">
+
+<P>And if you change the <TT>"left"</TT> to <TT>"right"</TT> then the 
+Label appears on the extreme right and the Button to the left of it, 
+like so:</P>
+<img src="tk-rightpack.gif" alt="Right packed widgets">
+
+<P>One thing you notice is that it doesn't look very nice because the 
+widgets are squashed together. The packer also provides us with some 
+parameters to deal with that. The easiest to use is <I>Padding</I> and 
+is specified in terms of horizontal padding (<TT>padx</TT>), and vertical 
+padding(<TT>pady</TT>). These values are specified in pixels. Lets try 
+adding some horizontal padding to our example:</P>
+<PRE>
+lHello.pack(side="left", padx=10)
+bQuit.pack(side='left', padx=10)
+</PRE>
+<P>It should look like this:</P>
+<img src="tk-padx.gif" alt="Horizontal padding">
+
+<P>If you try resizing the window you'll see that the widgets retain 
+their positions relative to one another but stay centered in the window. 
+Why is that, if we packed them to the left? The answer is that we 
+packed them into a Frame but the Frame was packed without a side, 
+so it is positioned top, center - the packers default. If you want 
+the widgets to stay at the correct side of the window you will need 
+to pack the Frame to the appropriate side too:
+<PRE>
+F.pack(side='left')
+</PRE>
+
+<P>Also note that the widgets stay centered if you resize the window 
+vertically - again that's the packers default behavior.
+
+<P>I'll leave you to play with padx and pady for yourself to see 
+the effect of different values and combinations etc. Between them, 
+<TT>side</TT> and <TT>padx/pady</TT> allow quite a lot of 
+flexibility in the positioning of widgets using the packer. There 
+are several other options, each adding another subtle form of control, 
+please check the 
+<A href="http://www.pythonware.com/library/tkinter/introduction/index.htm">
+Tkinter reference pages</A> for details.
+
+<P>There are a couple of other layout managers in Tkinter, known
+as the <I>grid</I> and the <I>placer</I>. To use the grid manager
+you use <TT>grid()</TT> instead of <TT>pack()</TT> and for the
+placer you call <TT>place()</TT> instead of <TT>pack()</TT>. Each
+has its own set of options and since I'll only cover the packer
+in this intro you'll need to look up the Tkinter tutorial and
+reference for the details.  The main points to note are that the
+grid arranges components in a grid (surprise!) within the window
+- this can often be useful for dialog boxes with lined up text
+entry boxes, for example.  The placer user either fixed
+coordinates in pixels or relative coordinates within a window.
+The latter allow the component to resize along with the window -
+always occupying 75% of the vertical space say. This can be
+useful for intricate window designs but does require a lot of pre
+planning - I strongly recommend a pad of squared paper, a pencil
+and eraser! 
+
+<H3>Controlling Appearance using Frames and the Packer</H3>
+
+<P>The Frame widget actually has a few useful properties that we
+can use. After all, it's very well having a logical frame around
+components but sometimes we want something we can see too. This
+is especially useful for grouped controls like radio buttons or
+check boxes. The Frame solves this problem by providing, in
+common with many other Tk widgets, a <I>relief</I> property.
+Relief can have any one of several values: <TT>sunken, raised,
+groove, ridge</TT> or <TT>flat</TT>. Let's use the
+<TT>sunken</TT> value on our simple dialog box. Simply change
+the Frame creation line to:
+
+<PRE> F = Frame(top, relief="sunken", border=1) </PRE>
+
+<P><B>Note 1:</B>You need to provide a border too. If you don't
+the Frame will be sunken but with an invisible border - you
+don't see any difference!
+
+<P><B>Note 2:</B> that you don't put the border size in quotes.
+This is one of the confusing aspects of Tk programming is knowing
+when to use quotes around an option and when to leave them out.
+In general if it's a numeric or single character value you can
+leave the quotes off. If it's a mixture of digits and letters or
+a string then you need the quotes.  Likewise with which letter
+case to use. Unfortunately there is no easy solution, you just
+learn from experience - Python often gives a list of the valid
+options in it's error messages! 
+
+<P>One other thing to notice is that the Frame doesn't fill the
+window. We can fix that with another packer option called,
+unsurprisingly, <TT>fill</TT>. When you pack the frame do it
+thusly:
+<PRE>
+F.pack(fill="x")
+</PRE>
+
+<P>This fills horizontally, if you want the frame to fill the
+entire window just use <TT>fill='y'</TT> too. Because this is 
+quite a common requirement there is a special fill option 
+called <TT>BOTH</TT> so you could type:
+<PRE>
+F.pack(fill="both")
+</PRE>
+
+<P>The end result of running the script now looks like:</P>
+<img src="tk-sunken.gif" alt="Sunken Frame">
+
+<H3>Adding more widgets</H3>
+
+<P>Let's now look at a text <I>Entry</I> widget. This is the
+familiar single line of text input box. It shares a lot of the
+methods of the more sophisticated <I>Text</I> widget which we
+won't look at here. Essentially we will simply use it to capture 
+what the user types and to clear that text on demand.
+
+<P>Going back to our "Hello World" program we'll add a text entry
+widget inside a Frame of its own and a button that can clear the
+text that we type into it. This will demonstrate not only how to
+create and use the Entry widget but also how to define our own
+event handling functions and connect them to widgets. 
+
+<PRE>
+from Tkinter import *
+
+<SPAN CLASS="Comment"># create the event handler first</SPAN>
+def evClear():
+  eHello.delete(0,END)
+
+<SPAN CLASS="Comment"># create the top level window/frame</SPAN>
+top = Tk()
+F = Frame(top)
+F.pack(expand="true")
+
+<SPAN CLASS="Comment"># Now the frame with text entry</SPAN>
+fEntry = Frame(F, border=1)
+eHello = Entry(fEntry)
+fEntry.pack(side="top", expand="true")
+eHello.pack(side="left", expand="true")
+
+<SPAN CLASS="Comment"># Finally the frame with the buttons. 
+# We'll sink this one for emphasis</SPAN>
+fButtons = Frame(F, relief="sunken", border=1)
+bClear = Button(fButtons, text="Clear Text", command=evClear)
+bClear.pack(side="left", padx=5, pady=2)
+bQuit = Button(fButtons, text="Quit", command=F.quit)
+bQuit.pack(side="left", padx=5, pady=2)
+fButtons.pack(side="top", expand="true")
+
+<SPAN CLASS="Comment"># Now run the eventloop</SPAN>
+F.mainloop()
+</PRE>
+
+<P>Note that once more we pass the name of the event handler 
+(<TT>evClear</TT>)., without parentheses, as the <TT>command</TT> 
+argument to the <TT>bClear</TT> button. Note also the use of a naming 
+convention, evXXX to link the event handler with the
+corresponding widget.
+
+<P>Running the program yields this:</P>
+<img src="tk-entry.gif" alt="Entry and button controls">
+
+<P>And if you type something in the text entry box then hit the
+"Clear Text" button it removes it again.
+
+<H3>Binding events - from widgets to code</H3>
+
+<P>Up till now we have used the command property of buttons to
+associate Python functions with GUI events. Sometimes we want
+more explicit control, for example to catch a particular key
+combination. The way to do that is use the <TT>bind</TT> 
+function to explicitly tie together (or bind) an event and a 
+Python function.
+
+<P>We'll now define a hot key - let's say CTRL-c - to delete the 
+text in the above example. To do that we need to bind the 
+CTRL-C key combination to the same event handler as the 
+Clear button. Unfortunately there's an unexpected snag. When we
+use the command option the function specified must take no
+arguments. When we use the bind function to do the same job the
+bound function must take one argument. This we need to create a
+new function with a single parameter which calls
+<TT>evClear</TT>. Add the following after the evClear 
+definition:</P>
+<PRE>
+def evHotKey(event):
+    evClear()
+</PRE>
+
+<P>And add the following line following the definition of the
+Entry widget:</P>
+<PRE>
+eHello.bind("&lt;Control-c&gt;",evHotKey) <SPAN class="comment"># the key definition is case sensitive</SPAN> 
+</PRE>
+
+<P>Run the program again and you can now clear the text by
+either hitting the button or typing Ctrl-c. We could also use
+bind to capture things like mouse clicks or capturing or losing
+Focus or even the windows becoming visible. See the Tkinter
+documentation for more information on this. The hardest part is
+usually figuring out the format of the event description!
+
+<H3>A Short Message</H3>
+
+<P>You can report short messages to your users using a 
+<I>MessageBox</I>. This is very easy in Tk and is accomplished
+using the <TT>tkMessageBox</TT> module functions as shown:
+
+<PRE>
+import tkMessageBox
+tkMessageBox.showinfo("Window Text", "A short message") 
+</PRE>
+
+There are also error, warning, Yes/No and OK/Cancel boxes
+available via different <TT>showXXX</TT> functions. They are 
+distinguished by different icons and buttons. The latter two 
+use <TT>askXXX</TT> instead of <TT>showXXX</TT> and  return 
+a value to indicate which button the user pressed, like so:
+
+<PRE>
+res = tMessageBox.askokcancel("Which?", "Ready to stop?")
+print res
+</PRE>
+
+<P>Here are some of the Tkinter message boxes:</P>
+<img src="tk-info.gif" alt="Info box">&nbsp;&nbsp;
+<img src="tk-error.gif" alt="Error box">&nbsp;&nbsp;
+<img src="tk-yesno.gif" alt="Yes/No box">
+
+<H3>Wrapping Applications as Objects</H3>
+
+<P>It's common when programming GUI's to wrap the entire
+application as a class. This begs the question,  how do we fit
+the widgets of a Tkinter application into this class structure?
+There are two choices, we either decide to make the
+application itself as a subclass of a Tkinter Frame or have a
+member field store a reference to the top level window. The
+latter approach is the one most commonly used in other toolkits so
+that's the approach we'll use here. If you want to see the first
+approach in action go back and look at the example in the 
+<A href="tutevent.htm">Event Driven Programming</A> topic.  
+(That example also illustrates the basic use of the incredibly
+versatile Tkinter Text widget)</P>
+
+<P>I will convert the example above using an Entry field, a
+Clear button and a Quit button to an OO structure. First we 
+create an Application class and within the constructor assemble 
+the visual parts of the GUI. 
+
+<P>We assign the resultant Frame to <TT>self.mainWindow</TT>,
+thus allowing other methods of the class access to the top level
+Frame. Other widgets that we may need to access (such as the
+Entry field) are likewise assigned to member variables of the
+Frame. Using this technique the event handlers become methods of
+the application class and all have access to any other data 
+members of the application (although in this case there are
+none) through the <TT>self</TT> reference. This provides seamless 
+integration of the GUI with the underlying application 
+objects:</P>
+
+<PRE>
+from Tkinter import *
+     
+class ClearApp:
+   def __init__(self, parent=0):
+      self.mainWindow = Frame(parent)
+      <SPAN CLASS="Comment"># Create the entry widget</SPAN>
+      self.entry = Entry(self.mainWindow)
+      self.entry.insert(0,"Hello world")
+      self.entry.pack(fill=X)
+      
+      <SPAN CLASS="Comment"># now add the 2 buttons, use a grooved effect </SPAN>
+      fButtons = Frame(self.mainWindow, border=2, relief="groove")
+      bClear = Button(fButtons, text="Clear", 
+                      width=8, height=1, command=self.clearText)
+      bQuit = Button(fButtons, text="Quit", 
+                      width=8, height=1, command=self.mainWindow.quit)
+      bClear.pack(side="left", padx=15, pady=1)
+      bQuit.pack(side="right", padx=15, pady=1)
+      fButtons.pack(fill=X)
+      self.mainWindow.pack()
+
+      <SPAN CLASS="Comment"># set the title</SPAN>
+      self.mainWindow.master.title("Clear")
+      
+   def clearText(self):
+      self.entry.delete(0,END)
+      
+app = ClearApp()
+app.mainWindow.mainloop()
+</PRE>
+
+<P>Here's the result:</P>
+<img src="tk-oopentry.gif" alt="OOP version">
+
+<P>The result looks remarkably like the previous incarnation
+although I have tweaked the lower frame to give it a nice grooved
+finish and I've supplied widths to the buttons to make them look
+more similar to the wxPython example below.</P>
+
+<P>Of course its not just the main application that we can wrap
+up as an object. We could create a class based around a Frame
+containing a standard set of buttons and reuse that class in
+building dialog windows say. We could even create whole dialogs
+and use them across several projects. Or we can extend the
+capabilities of the standard widgets by subclassing them - maybe
+to create a button that changes colour depending on its state.
+This is what has been done with the Python Mega Widgets (PMW)
+which is an extension to Tkinter which you can download. 
+
+<H3>An alternative - wxPython</H3>
+
+<P>There are many other GUI toolkits available but one of the 
+most popular is the wxPython toolkit which is, in turn, a wrapper
+for the C++ toolkit wxWidgets. wxPython is much more typical
+than Tkinter of GUI toolkits in general. It also provides more
+standard functionality than Tk "out of the box" - things like
+tooltips, status bars etc which have to be hand crafted in 
+Tkinter. We'll use wxPython to recreate the simple "Hello
+World" Label and Button example above.
+
+<P>I won't go through this in detail, if you do want to know
+more about how wxPython works you will need to download the
+package from the 
+<A href="http://www.wxPython.org/">wxPython website.</A>
+
+<P>In general terms the toolkit defines a framework which allows
+us to create windows and populate them with controls and to
+bind methods to those controls. It is fully object oriented so
+you should use methods rather than functions. The example looks
+like this:
+
+<PRE>
+from wxPython.wx import *
+
+<SPAN CLASS="comment"># --- Define a custom Frame, this will become the main window ---</SPAN>
+class HelloFrame(wxFrame):
+   def __init__(self, parent, ID, title, pos, size):
+        wxFrame.__init__(self, parent, ID, title, pos, size)
+	<SPAN CLASS="comment"># we need a panel to get the right background</SPAN>
+        panel = wxPanel(self, -1)
+
+	<SPAN CLASS="comment"># Now create the text and button widgets</SPAN>
+	self.tHello = wxTextCtrl(panel, -1, "Hello world", (3,3), (185,22))
+        button = wxButton(panel, 10, "Clear", (15, 32))
+        button = wxButton(panel, 20, "Quit", (100, 32))
+
+	<SPAN CLASS="comment"># now bind the button to the handler</SPAN>
+        EVT_BUTTON(self, 10, self.OnClear)
+        EVT_BUTTON(self, 20, self.OnQuit)
+	
+   <SPAN CLASS="comment"># these are our event handlers</SPAN>
+   def OnClear(self, event):
+       self.tHello.Clear()
+       
+   def OnQuit(self, event):
+       self.Destroy()
+
+<SPAN CLASS="comment"># --- Define the Application Object ---
+# Note that all wxPython programs MUST define an 
+# application class derived from wxApp</SPAN>
+class HelloApp(wxApp):
+   def OnInit(self):
+       frame = HelloFrame(NULL, -1, "Hello", (200,50),(200,90) )
+       frame.Show(true)
+       # self.setTopWindow(frame)
+       return true
+
+<SPAN CLASS="comment"># create instance and start the event loop</SPAN>
+HelloApp().MainLoop()
+</PRE>
+
+<P>And it looks like this:</P>
+<img src="wx-hello.gif" alt="wxPython Hello program">
+
+<P>Points to note are the use of a naming convention for the
+methods that get called by the framework - <TT>OnXXXX</TT>. Also
+note the <TT>EVT_XXX</TT> functions to bind events to widgets -
+there is a whole family of these. wxPython has a vast array of
+widgets, far more than Tkinter, and with them you can build
+quite sophisticated GUIs. Unfortunately they tend to use a
+coordinate based placement scheme which becomes very tedious
+after a while. It is possible to use a scheme very similar to 
+the Tkinter packer but its not so well documented. There is 
+a commercial GUI builder available and hopefully someone 
+will soon provide a free one too.
+
+<P>Incidentally it might be of interest to note that this and the
+very similar Tkinter example above have both got about the
+same number of lines of executable code - Tkinter: 19, wxPython: 20. 
+
+<P>In conclusion, if you just want a quick GUI front end to a
+text based tool then Tkinter should meet your needs with minimal
+effort. If you want to build full featured cross platform GUI
+applications look more closely at wxPython.
+
+<P>Other toolkits include MFC and .NET and of course there is 
+the venerable curses which is a kind of text based GUI!  
+Many of the lessons we've learned with Tkinter apply to all of 
+these toolkits but each has its own characteristics and
+foibles.  Pick one, get to know it and enjoy the wacky world of
+GUI design. Finally I should mention that many of the toolkits 
+do have graphical GUI builder tools, for example Qt has Blackadder 
+and GTK has Glade. wxPython has 
+<A href="http://pythoncard.sourceforge.net/">Python Card</A> 
+which tries to simplify the whole wxPython GUI building process.
+There is even a GUI builder for Tkinter called 
+<A href="http://starship.python.net/crew/mike/Spectix/">
+SpecTix </A>, based on an earlier 
+<A href="http://spectcl.sourceforge.net/">Tcl tool</A> for building 
+Tk interfaces, but capable of generating code in multiple 
+languages including Python. There is also an enhanced set of 
+widgets for Tkinter called PMW to fill the gap between the 
+basic Tkinter set and those provided by wxPython etc. 
+
+<P>That's enough for now. This wasn't meant to be a Tkinter
+reference page, just enough to get you started. See the 
+<A href="http://www.python.org/topics/tkinter">Tkinter section</A> 
+of the Python web pages for links to other Tkinter resources.
+
+<P>There are also several books on using Tcl/Tk and at least one on 
+Tkinter. I will however come back to Tkinter in the case study, 
+where I illustrate one way of encapsulating a batch mode
+program in a GUI for improved usability. 
+
+<center>
+<P><TABLE>
+<TR><TH>Things to remember</TH></TR>
+<TR><TD><UL>
+<LI>GUIs controls are known as widgets
+<LI>Widgets are assembled in a containment hierarchy
+<LI>Different GUI toolkits provide different sets of widgets, 
+although there will be a basic set you can assume will be present
+<LI>Frames allow you to group related widgets and form the basis 
+of reusable GUI components
+<LI>Event handling functions or methods are associated with widgets 
+by linking their name with the widgets <TT>command</TT> property.
+<LI>OOP can simplify GUI programming significantly by creating 
+objects that correspond to widget groups and methods that 
+correspond to events.
+</UL></TD></TR></TABLE>
+
+<p>
+<hr WIDTH="60%">
+<a href="tutevent.htm" target="text">Previous</a> 
+<a href="tutrecur.htm" target="text">Next</a>
+<a href="tutcont.htm" target="contents">Contents</a>
+<br>&nbsp;
+<p>If you have any questions or feedback on this page send me mail at:
+<a href="mailto:alan.gauld@btinternet.com">alan.gauld@btinternet.com</a></center>
+
+</body>
+</html>

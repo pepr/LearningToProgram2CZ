@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Getting Started</TITLE>
+</HEAD>
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Getting Started</H2>
+<P>
+<TABLE BORDER> <TR> <TH align="left">What will we cover?</TH> </TR>
+<TR> <TD>How to start Python and what an error message looks like 
+- just in case...
+</TD> </TR> </TABLE>
+</CENTER>
+
+<P>For the next set of exercises I will assume you have
+a properly installed version of Python on your computer.
+If not, go fetch the latest version from the 
+<A HREF="http://www.Python.org/">Python web site</A> 
+and follow the install instructions for your platform.
+
+<P>Now from a command prompt type <TT>python</TT>
+and the Python prompt should appear looking something like this:</P>
+<PRE>
+Python 2.3 (#46, Jul 29 2003, 18:54:32) [MSC v.1200 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+</PRE>
+
+<P>Alternatively you might find a shortcut to something called IDLE, 
+or the Python GUI, in your start menus. If you start IDLE instead 
+of the command line version you will get a similar prompt but in 
+a window of its own and with some pretty font colors! Danny Yoo has 
+written a pretty good 
+<A href="http://hkn.eecs.berkeley.edu/~dyoo/python/idle_intro/index.html">
+IDLE Tutorial</A> to get you started with IDLE and I recommend 
+you pay it a visit if you want to stick with it rather than the 
+basic command prompt. It duplicates some of the early material 
+here but repetition of the basics is no bad thing!
+
+<P>The full manual for IDLE is found 
+<A href="http://www.python.org/idle/doc/idlemain.html">here</A>.
+For now I'd recommend you stick with Danny's tutor.
+
+<P>One interesting thing about IDLE is that it is itself a 
+Python program, so it's a very good demonstration of just
+what is possible using Python</P>
+
+<P>If you got your version of Python from ActiveState or 
+if you downloaded the Windows specific extensions (the 
+<I>winall</I> package), you also have access to another 
+GUI programming environment, very similar to IDLE but 
+perhaps a little more polished, called Pythonwin. 
+Either Pythonwin or IDLE make far better programming 
+environments than the standard DOS prompt, but at the 
+very beginning I prefer to use the  most basic tools 
+to focus on the underlying principles rather than the 
+toys.
+
+
+<H3>A word about error messages</H3>
+
+<P>If you type in the commands as we go through them then 
+sooner or later you will get an error message. 
+It will look something like this:
+
+<PRE>
+>>> print 'fred' + 7
+Traceback (most recent call last):
+  File "&lt;input>", line 1, in ?
+TypeError: cannot concatenate 'str' and 'int' objects
+</PRE>
+
+<P>Don't worry about the exact meaning here just look at the structure.<BR>
+The '>>> print ...' line is the erroneous command<BR>
+The next 2 lines are describing where the error occurred: <BR>
+<TT> 'line 1 in ?'</TT>  means line 1 in the command we are typing. 
+If it were a longer program stored in a source file the <TT>&lt;input></TT>
+would be replaced by the file name.</P>
+
+<P>The <TT>'TypeError...'</TT> line tells you what the interpreter thinks is 
+wrong and sometimes there will be a caret character(^) pointing 
+to the part of the line that Python thinks is at fault.<BR> 
+Unfortunately this will often be wrong, usually the error is 
+earlier in the line, or even in the (one or two) lines immediately 
+preceding where Python says it is - remember computers are dumb!
+
+<P>Use the error information to figure out what's happening. 
+Remember it's most likely to be you at fault not the computer. 
+Remember again that computers are dumb. Probably you just mistyped 
+something or forgot a quote sign or something similar. Check carefully.
+
+<P>In case you are wondering, the mistake I made was trying to add 
+a number to a character string. You're not allowed to do that so 
+Python objected and told me there was a TypeError. 
+You'll need to wait till we get to the topic on the 
+<A href="tutdata.htm#type">Raw Materials</A>
+to understand what types are all about....<BR><BR>
+
+<P>Whichever approach you've decided to take, command prompt or 
+IDLE (or Pythonwin) we are ready to start creating some very simple 
+Python programs.</P>
+
+<H3>JavaScript</H3>
+<P>To create JavaScript programs in a browser we need to do a 
+bit more work. We need to create an HTML file which we can load 
+into a web browser. The file will look like this:
+<PRE>
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;script language="JavaScript"&gt;
+
+document.write('Hello World\n');
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</PRE>
+<P>The bit between <TT>&lt;script...&gt;</TT> and <TT>&lt;/script&gt;</TT> 
+is our program. I won't be showing all the HTML tags every time 
+in this tutorial so you need to copy that file each time as a 
+template and then replace everything between the script tags with 
+the code you want to try out.
+
+<H3>VBScript</H3>
+<P>VBScript is essentially the same as JavaScript with the single 
+difference that you replace the name "JavaScript" in the <TT>language=</TT> 
+bit with, surprisingly enough, "VBScript". Like this:
+<PRE>
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;script language="VBScript"&gt;
+
+MsgBox "Hello World"
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</PRE>
+<P>Once again the bit between the <TT>&lt;script&gt;</TT> tags is 
+the program.
+
+<H4>VBScript and JavaScript errors</H4>
+
+<P>In both VBScript and JavaScript you will get a 
+dialog box pop up telling you the line number of an error. 
+There will also be a fairly inscrutable error message. As 
+with Python, treat the line number as a rough guide rather 
+than an exact pointer. After finding and fixing the error 
+you will need to reload (or refresh) the page in your browser.
+
+<P>OK, Whichever language you choose you are ready to start.
+
+<CENTER>
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>Start python by typing <I>python</I> at a command prompt
+<LI>Error messages are nothing to be scared of, read them carefully, 
+they usually give a clue as to why you got them. 
+<LI>But it's only a clue... if in doubt check the lines immediately 
+<I>before</I> the reported line.
+</UL> </TD></TR></TABLE>
+
+<!-- HR WIDTH="60%" -->
+
+<A HREF="tutwhat.htm" target="text">Previous</A>&nbsp
+<A HREF="tutseq1.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>
+

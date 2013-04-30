@@ -1,0 +1,485 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Input</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H2>Conversing with the user</H2>
+<P>
+<TABLE BORDER> <TR> <TH>What will we cover?</TH> </TR>
+<TR> <TD>
+<LI>How to prompt the user to enter data and how to read 
+that data once it is entered. 
+<LI>We will show how to read both numerical and string based 
+data. 
+<LI>The concepts of <I>stdin</I> and <I>stdout</I>
+<LI>We look at command line interfaces and how to read data 
+input as command line arguments.
+</TD> </TR> </TABLE>
+</CENTER>
+
+<P>So far our programs have only dealt with static data. Data that, 
+if need be, we can examine before the program runs and thus write the 
+program to suit. Most programs aren't like that. Most programs expect 
+to be driven by a user, at least to the extent of being told what file 
+to open, edit etc. Others prompt the user for data at critical
+points. This aspect of programming is what is referred to as the 
+<I>User Interface</I> and in commercial programs designing and 
+building the user interface is a job for specialists trained in 
+human machine interaction and ergonomics. The average programmer 
+does not have that luxury so must make do with some common sense, 
+and careful thought about how users will use the program. The
+most basic feature of a User Interface is displaying output
+and we have already covered the most primitive way of doing 
+that via the Python <TT>print</TT> command (and JavaScript's 
+<TT>write()</TT> function as well as the VBScript <TT>MsgBox</TT> 
+dialog). The next step in User Interface design is to take 
+input directly from the user. The simplest way to do that is 
+for the program to ask for the input at run time, the next 
+simplest way is for the user to pass the data in when he or 
+she starts the program, finally we have <I>graphical user 
+interfaces (GUIs)</I> with text entry boxes etc. In this 
+topic we look at the first two methods, we introduce GUI 
+programming much later in the tutor because it is 
+significantly more complex. 
+
+<P>Let's see how we can get data from a user in a normal 
+Python interactive session running in IDLE or an OS terminal.
+Afterwords we'll try doing the same in a program.
+
+
+<H3>>>> print raw_input("Type something: ")</H3>
+
+<P>As you see <TT>raw_input()</TT> simply displays the 
+given <I> prompt</I> - "Type something" in this case - and 
+captures whatever the user types in response. Print then displays 
+that response. We could instead assign it to a variable:
+<PRE>
+>>> resp = raw_input("What's your name? ")
+>>> print "Hi, %s, nice to meet you" % resp 
+</PRE>
+
+<P><TT>raw_input()</TT> has a cousin called <TT>input()</TT>. The 
+difference is that <TT>raw_input()</TT> collects the characters 
+the user types and presents them as a string, whereas <TT>input()</TT> 
+collects them and tries to form them into a number. For example 
+if the user types '1','2','3' then input will read those 3 
+characters and convert them into the number <I>123</I>.
+
+<P>Let's use <TT>input</TT> to decide which multiplication 
+table to print:
+<PRE>
+multiplier = input("Which multiplier do you want? Pick a number ")
+for j in range(1,13):
+   print "%d x %d = %d" % (j, multiplier, j * multiplier)
+</PRE>
+
+<P>Unfortunately there's a big snag to using <TT>input()</TT>. That's 
+because <tt>input()</TT> doesn't just evaluate numbers but rather 
+treats any input as Python code and tries to execute it. Thus a 
+knowledgeable but malicious user could type in a Python command that 
+deleted a file on your PC! For this reason it's better to stick to 
+<TT>raw_input()</TT> and convert the string into the data type you 
+need using Python's built in conversion functions. This is actually 
+pretty easy:
+
+<PRE>
+>>>multiplier = <B>int(</B>raw_input("Which multiplier do you want? Pick a number ")<B>)</B>
+>>>for j in range(1,13):
+...   print "%d x %d = %d" % (j, multiplier, j * multiplier)
+</PRE>
+
+<P>You see? We just wrapped the <TT>raw_input()</TT> call in a call 
+to <TT>int()</TT>. It has the same effect as using input but is much 
+safer. There are other conversion functions too so that you can 
+convert to floats etc as well.
+
+<P>So what about using this in a real program? You recall the 
+address book examples using a dictionary that we created in the 
+<A href="tutdata.htm#addressbook">raw materials</A> topic? 
+Let's revisit that address book now that we can write loops 
+and read input data.
+<PRE>
+<SPAN CLASS="comment"># create an empty address book dictionary</SPAN>
+addressBook = {}
+
+<SPAN CLASS="comment"># read entries till an empty string</SPAN>
+print 
+name = raw_input("Type the Name - leave blank to finish")
+while name != "":
+   entry = raw_input("Type the Street, Town, Phone. Leave blank to finish")
+   addressBook[name] = entry
+   name = raw_input("Type the Name - leave blank to finish")
+
+<SPAN Class="comment"># now ask for one to display</SPAN>
+name = raw_input("Which name to display?(blank to finish)")
+while name != "":
+   print name, addressBook[name]
+   name = raw_input("Which name to display?(blank to finish)")
+</PRE>
+
+<P>That's our biggest program so far, and although the user 
+interface design is a bit clunky it does the job. We will 
+see how to improve it in a later topic. Some things to note
+in this program are the use of the boolean test in the 
+<TT>while</TT> loops to determine when the user wants us 
+to stop. Also note that whereas in the raw materials 
+example we used a list to store the data as separate 
+fields we have just stored it as a single string here. 
+That's because we haven't yet covered how to break down 
+a string into separate fields. We'll cover that in a later 
+topic too. In fact the address book program will be cropping 
+up from time to time through the rest of the tutorial as we 
+gradually turn it into something useful.
+
+<H4>VBScript Input</H4>
+
+<P>In VBScript the InputBox statement reads input from the user thus:
+
+<PRE>
+&lt;script language="VBScript">
+Dim Input
+Input = InputBox("Enter your name") 
+MsgBox ("You entered: " & Input)
+&lt;/script>
+</PRE>
+
+<P>The <TT>InputBox</TT> function simply presents a dialog 
+with a prompt and an entry field. The contents of the entry 
+field are returned by the function. There are various values 
+that you can pass to the function such as a title string 
+for the dialog box in addition to the prompt. If the user 
+presses Cancel the function returns an empty string 
+regardless of what is actually in the entry field.
+
+<P>Here is the VBScript version of our Address book example.
+<PRE>
+&lt;script language="VBScript">
+Dim dict,name,entry  <SPAN Class="comment">' Create some variables.</SPAN>
+Set dict = CreateObject("Scripting.Dictionary")
+name = InputBox("Enter a name", "Address Book Entry")
+While name &lt;&gt; ""
+   entry = InputBox("Enter Details - Street, Town, Phone number",
+                    "Address Book Entry")
+   dict.Add name, entry <SPAN Class="comment">' Add key and details.</SPAN>
+   name = InputBox("Enter a name","Address Book Entry")
+Wend
+
+<SPAN Class="comment">' Now read back the values</SPAN>
+name = InputBox("Enter a name","Address Book Lookup")
+While name &lt;&gt; ""
+   MsgBox(name & " - " & dict.Item(name))
+   name = InputBox("Enter a name","Address Book Lookup")
+Wend
+&lt;/script>
+</PRE>
+
+<P>The basic structure is absolutely identical to the 
+Python program although a few lines longer because of 
+VBScript's need to pre-declare the variables with 
+<TT>Dim</TT> and because of the need for a <TT>Wend</TT> 
+statement to end each loop.</P>
+
+<A name="jscript">
+<H4>Reading input in JavaScript</H4>
+
+<P>JavaScript presents us with a challenge because it 
+is a language primarily used within a web browser.
+As such it has no input statement per se, instead we
+have the choice of reading from an HTML form element 
+or, in Internet Explorer, using Microsoft's Active 
+Scripting technology to generate an InputBox dialog 
+like the one used by VBScript. For variety I'll show 
+you how to use the HTML form technique. If you are 
+unfamiliar with HTML forms it might be worth finding
+an HTML  reference or tutorial to describe them, 
+alternatively just copy what I do here and hopefully 
+it will be self explanatory. I will be keeping it 
+very simple, I promise.</P>
+
+<P>The basic structure of our HTML example will be 
+to put the JavaScript code in a function, although 
+we haven't covered these yet. For now just try to 
+ignore the function definition bits.
+
+<PRE>
+&lt;script language="JavaScript">
+function myProgram(){
+   alert("We got a value of " + document.entry.data.value);
+}
+&lt;/script>
+
+&lt;form name='entry'>
+&lt;P>Type value then click outside the field with your mouse&lt;/P>
+&lt;Input Type='text' Name='data' onChange='myProgram()'>
+&lt;/form>
+</PRE>
+
+<P>The program just consists of a single line that 
+displays an <TT>alert</TT> box (very similar to VBScript's 
+MsgBox) containing the value from the text field.
+The form displays a prompt message (within 
+the <TT>&lt;P>&lt;/P></TT> pair) and an input field. The 
+form has a name, <TT>entry</TT> within the 
+<TT>document</TT> context, and the <TT>Input</TT> 
+field has a name, <TT>data</TT> within the 
+entry form context. Thus within the JavaScript 
+program we can refer to the value of the field 
+as:
+<PRE>
+<TT>document.entry.data.value</TT>
+</PRE>
+
+<P>I'm not going to show the address book example in 
+JavaScript because the HTML aspects become more complex 
+and the use of functions increases and I want to wait 
+till we have covered those in their own topic.</P>
+
+<A name="stdin">
+<TABLE BORDER>
+<TR><TD BGCOLOR="#FFDDAA">
+<H2>A word about <I>stdin</I> and <I>stdout</I></H2>
+<P><B>NOTE:</B> <I>stdin</I> is a bit of computer jargon for the 
+standard input device (usually the keyboard). stdout refers to 
+the standard output device (usually the screen). You will quite 
+often see references to the term stdin and stdout in discussions 
+about programing. stdin and stdout are made to look like files 
+(we'll get to those shortly) for consistency with file handling 
+code.</P> 
+<BR>
+<P>In Python they live in the <TT>sys</TT> module and are called 
+<TT>sys.stdin</TT> and <TT>sys.stdout</TT>. <TT>raw_input()</TT> 
+uses stdin automatically and print uses stdout. We can also read 
+from stdin and write to stdout directly and this can offer some 
+advantages in terms of fine control of the input and output. 
+Here is an example of reading from stdin:
+
+<PRE>
+import sys
+print "Type a value: ",  <SPAN CLASS="Comment"># comma prevents newline</SPAN>
+value = sys.stdin.readline()  <SPAN CLASS="Comment"># use stdin explicitly</SPAN>
+print value
+</PRE>
+
+<P>It is almost identical to:
+<PRE>
+print raw_input("Type a value: ")
+</PRE>
+
+<P>The advantage of the explicit version is that you can 
+do fancy things like make <TT>stdin</TT> point to a real 
+file so the program reads its input from the file rather 
+than the terminal - this can be useful for long testing 
+sessions whereby instead of sitting typing each input as 
+requested we simply let the program read its input from 
+a file. [ This has the added advantage of ensuring that we 
+can run the test repeatedly, sure that the input will be 
+exactly the same each time, and so hopefully will the 
+output. This technique of repeating previous tests to 
+ensure that nothing got broken is called <I>regression 
+testing</I> by programmers. ]</P>
+<BR>
+<P>Finally here is an example of direct output to 
+<TT>sys.stdout</TT> that can likewise be redirected 
+to a file. <TT>print</TT> is nearly equivalent to:
+<PRE>
+sys.stdout.write("Hello world\n") <SPAN CLASS="COMMENT"># \n= newline</SPAN>
+</PRE>
+
+<P>The main practical use for this is to get around the 
+fact that print always puts a space between the output 
+values, whereas with stdout we can avoid that. Compare 
+the two output lines in the example below:
+<PRE>
+import sys
+for item in ['one','is',1]: 
+    print item,  <SPAN Class="comment"># comma suppresses newline</SPAN>
+print 
+for item in ['one','is',str(1)]: <Span class="comment"># must explicitly convert to strings</SPAN>
+    sys.stdout.write(item)  <SPAN Class="comment"># no spaces!</SPAN>
+</PRE>
+
+<P>Of course we can achieve the same effect using format 
+strings if we know what the data looks like but if we don't 
+know what the data will look like till runtime then its 
+easier to just send it to stdout rather than try to 
+build a complex format string at runtime.
+
+<H4>Redirecting stdin &amp; stdout</H4>
+
+<P>So how do we redirect stdin and stdout to files? We can 
+do it directly within our program using the normal Python 
+file handling techniques which we will cover shortly, 
+but the easiest way is to do it via the operating system.</P>
+<BR>
+<P>This is how the operating system commands work when 
+we use redirection at the command prompt:
+
+<PRE>
+C:> dir
+C:> dir &gt; dir.txt
+</PRE>
+
+<P>The first command prints a directory listing to the screen. 
+The second prints it to a file. By using the <TT>'&gt;'</TT> 
+sign we tell the program to redirect <TT>stdout</TT> to the file 
+<TT>dir.txt</TT>.
+</P>
+
+We would do the same with a Python program like this:
+<PRE>
+$ python myprogram.py > result.txt
+</PRE>
+
+<P>Which would run <tt>myprogram.py</tt> but instead of displaying 
+the output on screen it would write it to the file <tt>result.txt</tt>.
+We could see the output later using a text editor like 
+notepad.</P>
+<BR>
+<P>To get stdin to point at a file we simply use a &lt; sign 
+rather than a &gt; sign. Here is a complete example:
+
+<P>First create a file called <tt>echoinput.py</tt> containing the 
+following code:
+<PRE>
+import sys
+inp = sys.stdin.readline()
+while inp.strip() != '':
+   print inp
+   inp = sys.stdin.readline()
+</PRE>
+
+<P><B>Note:</B> The <TT>strip()</TT> simply chops off 
+the newline character that is retained when reading from 
+stdin, <TT>raw_input()</TT> does that for you as a convenience.
+
+<P>You can now try running that from a command prompt:
+<PRE>
+$ python echoinput.py
+</PRE>
+<P>The result should be a program that echos back anything 
+you type until you enter a blank line.</P>
+<BR>
+<P>Now create a simple text file called <tt>input.txt</tt> 
+containing some lines of text. Run the last program again, 
+redirecting input from <tt>input.txt</tt>:
+<PRE>
+$ python echoinput.py &lt; input.txt
+</PRE>
+<P>Python echos back what was in the file. But you might 
+recall that we said that <TT>print</TT> and raw_input</TT> 
+actually use stdin and stdout internally? That means we can 
+replace the stdin stuff in <tt>echoinput.py</tt> with 
+<TT>raw_input()</TT> like this:
+PRE>
+inp = raw_input()
+while inp != '':
+   print inp
+   inp = raw_input()
+</PRE>
+
+<P>Which is much easier in most cases.</P>
+<BR>
+<P>By using this technique with multiple different input files 
+we can quickly and easily test our programs for a variety of 
+scenarios (for example bad data values or types) and do so 
+in a repeatable and reliable manner. We can also use 
+this technique to handle large volumes of data from a file 
+while still having the option to input the data manually for 
+small volumes using the same program. Redirecting stdin and 
+stdout is a very useful trick for the programmer, experiment 
+and see what other uses you can find for it.
+
+</TD></TR>
+</TABLE>
+<BR>
+<H2>Command Line Parameters</H2>
+
+<P>One other type of input is from the command line. 
+For example when you run your text editor from an 
+operating system command line, like:
+<BR>
+<BR><TT>$ EDIT Foo.txt</TT><BR>
+<BR>
+<P>what happens is that the operating system calls the 
+program called EDIT and passes it the name of the file 
+to edit, Foo.txt in this case.So how does the editor 
+read the filename?
+
+<P>In most languages the system provides an array or list of
+strings containing the command line words. Thus the first
+element will contain the command itself, the second element will
+be the first argument, etc. There may also be some kind of magic
+variable (often called something like <I>argc</I>, for 
+"argument count") that holds the number of elements in the list.
+
+<P>In Python that list is held by the <TT>sys</TT> module and
+called <TT>argv</TT> (for '<I>arg</I>ument <I>v</I>alues'). 
+Python doesn't need an <TT>argc</TT> type value since the usual 
+<TT>len()</TT> method can be used to find the length of the list, 
+and in most cases we don't even need that since we just iterate 
+over the list using Python's <TT>for</TT> loop, like this: 
+
+<PRE>
+import sys
+for item in sys.argv:
+    print item
+    
+print "The first argument was:", sys.argv[1]
+</PRE>
+
+<P>Note that this only works if you put it in a file 
+(say args.py) and execute it from the operating system 
+prompt like this:
+<PRE>
+C:\PYTHON\PROJECTS&gt; python args.py 1 23 fred
+args.py
+1
+23
+fred
+The first argument was: 1
+C:\PYTHON\PROJECTS&gt;
+</PRE>
+
+<H3>VBScript and JavaScript</H3>
+<P>Being web page based the concept of command line 
+arguments doesn't really arise. If we were using them 
+within Microsoft's <a href="tutfunc.htm#wsh">Windows 
+Script Host</a> environment the situation would be different, 
+and WSH provides a mechanism to extract such arguments from 
+a <tt>WshArguments</tt> object populated by WSH at run time.
+
+<P>That's really as far as we'll go with user input in this
+course.  It's very primitive but you can write useful programs
+with it. In the early days of Unix or PCs it's the only kind of
+interaction you got. Of course GUI programs read input too 
+and we will look at how that's done much later in the tutorial.</P>
+
+<CENTER>
+<!-- HR WIDTH="60%" -->
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>Use <TT>input</TT> for reading numbers, <TT>raw_input</TT> 
+for reading characters/strings.
+<LI>Both <TT>input</TT> and <TT>raw_input</TT> can display a 
+string to prompt the user.
+<LI>Command line parameters can be obtained from the 
+<TT>argv</TT> list imported from the <TT>sys</TT> module 
+in Python, where the first item is the name of the program.
+</UL> </TR></TABLE>
+<P>
+<A HREF="tutstyle.htm">Previous</A>&nbsp
+<A HREF="tutbranch.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,70 @@
+Index: tuterrors.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tuterrors.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+34c34
+< through VIsual Basic to VBScript. After that we will 
+---
+> through Visual Basic to VBScript. After that we will 
+39c39
+< line numbers to mark each oine of code. Transferring 
+---
+> line numbers to mark each one of code. Transferring 
+46c46
+< store an integer value. Whenever an error occured in 
+---
+> store an integer value. Whenever an error occurred in 
+54c54
+< 1010 LET DATA = INPUTFILE
+---
+> 1010 LET DATA = INPUT FILE
+70c70
+< concerned with detecting whether an error occured. 
+---
+> concerned with detecting whether an error occurred. 
+98c98
+< <P>To ignore errors we use the folowing code:
+---
+> <P>To ignore errors we use the following code:
+101c101
+< On Error GoTo 0  <SPAN class="Comment">' 0 implies go nowhere</SPAN>
+---
+> On Error Goto 0  <SPAN class="Comment">' 0 implies go nowhere</SPAN>
+120c120
+< <P>The default behaviour is for the interpreter to generate 
+---
+> <P>The default behavior is for the interpreter to generate 
+179c179
+< all exceptions hich have not already been handled elsewhere 
+---
+> all exceptions which have not already been handled elsewhere 
+212c212
+< if found the error is propogated up to the next level of the program 
+---
+> if found the error is propagated up to the next level of the program 
+296c296
+< Note that this is different behaviour to the <TT>else</TT> 
+---
+> Note that this is different behavior to the <TT>else</TT> 
+320c320
+< use of the <TT>raise</TT> keyword is to propogate an 
+---
+> use of the <TT>raise</TT> keyword is to propagate an 
+351c351
+< topic later in the turorial). Usually the class is trivial 
+---
+> topic later in the tutorial). Usually the class is trivial 
+368c368
+< the behaviour of the generic <TT>Exception</TT> class 
+---
+> the behavior of the generic <TT>Exception</TT> class 
+442c442
+< sound these ideas into your head nbefore we move on to the next 
+---
+> sound these ideas into your head before we move on to the next 
+453c453
+< <P>To complete any of the above you will neeed to use all of 
+---
+> <P>To complete any of the above you will need to use all of 

@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Simple sequences</TITLE>
+</HEAD><BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Simple Sequences</H2>
+<P>
+<TABLE BORDER> 
+<TR> <TH>What will we cover?</TH> </TR>
+<TR> <TD>
+<LI>Single commands
+<LI>The use of Python as a calculator
+<LI>Using parentheses to get the correct result
+<LI>Using format strings to print complex output
+<LI>How to quit Python from within a program.
+</TD> </TR> 
+</TABLE>
+</CENTER>
+
+<P>A simple sequence of instructions is the most basic program
+you can write. The simplest sequence is one containing a single
+command. We will try out some of these now. The heading will
+describe what you should type at the '>>>' Python prompt, the
+following paragraph will explain what happens.
+
+<H4>>>> print 'Hello there!'</H4>
+
+<P>The <TT>print</TT> command is the way to get Python to
+display its results to you. In this case it is printing the
+sequence of characters <TT>H,e,l,l,o, ,t,h,e,r,e,!</TT>. Such
+a sequence of characters is known in programming circles as a
+<I>string of characters</I> or a <I>character string</I> or 
+just a plain <I>string</I>.
+
+<P>You signify a string by surrounding it in quotes. In Python 
+you can use either single quotes(as above) or double quotes: 
+"a string ". This allows you to include one type of quote 
+within a string which is surrounded by the other type 
+- useful for apostrophes:</P>
+
+<PRE>
+>>> print "Monty Python's Flying Circus has a ' within it..."
+</PRE>
+
+<P>It's not just characters that can be printed:</P>
+
+<H4>>>>print 6 + 5</H4>
+
+<P>Here we have printed the result of an arithmetic operation -
+we added six and five. Python recognized the numbers as such and
+the plus sign and did the sum for us. It then printed the
+result.
+
+<P>So straight away you have a use for Python: it's a handy
+'pocket calculator'!
+
+Try a few more sums. Use some other arithmetic <I>operators</I>:
+<UL>
+<LI>subtract (-)
+<LI>multiply (*)
+<LI>divide (/)
+</UL>
+<P>We can combine multiple expressions like this:
+
+<PRE>
+>>> print ((8 * 4) + (7 - 3)) / (2 + 4)
+</PRE>
+
+<P>Notice the way I used parentheses to group the numbers together.
+What happens if you type the same sequence without the parentheses?
+This is because Python will evaluate the multiplication and
+division before the addition and subtraction.  This is usually
+what you would expect mathematically speaking but it may not be
+what you expect as a programmer! All programming languages have
+rules to determine the sequence of evaluation of operations and
+this is known as <I> operator precedence</I>. You will need to
+look at the reference documentation for each language to see how
+it works. With Python it's usually what logic and intuition would
+suggest, but occasionally it won't be...
+
+<P>As a general rule it's safest to include the brackets to make
+sure you get what you want when dealing with long series of sums
+like this. 
+
+<P>One other thing to note:
+
+<PRE>
+>>> print 5/2
+</PRE>
+
+<P>results in a whole number (<I>integer</I>) result (i.e. 2).
+This is because Python sees that the numbers are whole numbers
+and assumes you want to keep them that way. If you want decimal
+fractions as a result simply write one number as a decimal:
+
+<PRE>
+>>> print 5/2.0
+2.5
+</PRE>
+
+Python sees the 2.0 and realizes that we are happy dealing with
+fractions (referred to as <I> real</I> numbers or <I> floating
+point</I> in computing parlance), so it responds with a
+fractional result. In the most recent versions of Python you 
+can change this behavior to always produce real numbers from 
+a division by adding this line to the top of your program:
+<PRE>
+>>> from __future__ import division
+</PRE>
+<P>(Note, that's two underscores on each side of <TT>future</TT>)
+<P>Its likely that this will be the standard type of division 
+in some future version of Python but for now you have to 
+specifically tell Python that you want it turned on.
+
+<P>If you want to keep with whole numbers you can
+find the remainder by using the <TT>%</TT> sign like a 
+division operator. Python will print the remainder:
+
+<PRE>
+>>> print 7/2
+3
+>>> print 7%2
+1
+>>> print 7%4
+3
+</PRE>
+
+<P><I>%</I> is known as the <I>modulo</I> or <I>mod</I> operator
+and in other languages is often seen as <TT>MOD</TT> or similar.
+<P>Experiment and you will soon get the idea. 
+
+<H4>>>>print 'The total is: ', 23+45</H4>
+
+<P>You've seen that we can print strings and numbers. Now we
+combine the two in one print statement, separating them with a
+comma. We can extend this feature by combining it with a useful Python trick 
+for outputting data called a <I>format string</I>:
+
+<PRE>
+>>> print "The sum of %d and %d is: %d" % (7,18,7+18)
+</PRE>
+<P>In this command the format string contains '%' markers within it. 
+The letter 'd' after the % tells Python that a 'decimal number' 
+should be placed there. The values to fill in the markers are 
+obtained from the values inside the bracketed expression following 
+the % sign on its own.
+
+<P>There are other letters that can be placed after the % markers. 
+Some of these include:
+<UL>
+<LI>%s - for string
+<LI>%x - for hexadecimal number
+<LI>%0.2f - for a real number with a maximum of 2 decimal places
+<LI>%04d - pad the number out to 4 digits with 0's
+</UL>
+<P>The Python documentation will give lots more...
+
+<P>In fact you can print any Python <I>object</I> with the
+print command. Sometimes the result will not be what you hoped for
+(perhaps just a description of what kind of object it is) but you
+can always print it. 
+
+<H4>>>>import sys</H4>
+
+<P>Now this is a strange one. If you've tried it you'll see that
+it apparently does nothing. But that's not really true. To
+understand what happened we need to look at the architecture of
+Python (for non Python programmers, bear with me there will be a
+similar mechanism available to you too!)
+
+<P>When you start Python there are a bunch of commands available
+to you called <I> built-ins</I>, because they are built in to the
+Python core. However Python can extend the list of commands
+available by incorporating extension modules. - It's a bit like
+buying a new tool in your favourite DIY shop and adding it to
+your toolbox. The tool is the <TT>sys</TT> part and the
+<TT>import</TT> operation puts it into the toolbox.
+
+<P>In fact what this command does is makes available a whole
+bunch of new 'tools' in the shape of Python commands which are
+defined in a file called 'sys.py'. This is how Python is extended
+to do all sorts of clever things that are not built in to the
+basic system. You can even create your own <I> modules</I> and
+import and use them, just like the modules provided with Python
+when you installed it.
+
+<P>So how do we use these new tools?
+
+<H4>>>>sys.exit()</H4>
+
+<P>Whoops! What happened there? Simply that we executed the
+<TT>exit</TT> command defined in the <TT>sys</TT> 
+module. That command causes Python to exit. 
+(<STRONG>Note</STRONG>: Normally you exit Python by typing 
+the End Of File(<EM>EOF</EM>) character at the <TT>>>></TT> 
+prompt  - CTRL-Z on DOS or CTRL-D on Unix)
+
+<P>Notice that <TT>exit</TT> had 2 brackets after it. That's
+because exit is a <I>function</I> defined in sys and when we call
+a Python function we need to supply the parentheses even if
+there's nothing inside them!
+
+<P>Try typing sys.exit without the brackets. Python responds by
+telling you that exit is a function rather than by executing
+it!
+
+<P>One final thing to notice is that the last two commands are 
+actually only useful in combination. That is, to exit from Python 
+other than by typing EOF you need to type:
+<PRE>
+import sys
+sys.exit()
+</PRE>
+<P>This is a sequence of two commands! Now we're getting closer 
+to real programming....
+
+<H3> Using JavaScript</H3>
+
+<P>Unfortunately in JavaScript there is no easy way to type 
+the commands in and see them being executed immediately as 
+we have been doing with Python. However we can type all of 
+the simple commands we used above into a single HTML file 
+and load it into a browser. That way we will see what 
+they look like in JavaScript:
+<PRE>
+&lt;html>&lt;body>
+&lt;script language="JavaScript">
+document.write('Hello there!&lt;BR>');
+document.write("Monty Python\'s Flying Circus has a \' within it&lt;BR>");
+document.write(6+5);
+document.write("&lt;BR>");
+document.write(  ((8 * 4) + (7 - 3)) / (2 + 4)  );
+document.write("&lt;BR>");
+document.write( 5/2 );
+document.write("&lt;BR>");
+document.write( 5 % 2 );
+&lt;/script>
+&lt;/body>&lt;/html>
+</PRE>
+<P>And the output should look like this:
+<PRE>
+<html><body>
+<script language="JavaScript">
+document.write("Hello there!<BR>");
+document.write("Monty Python\'s Flying Circus has a \' within it<BR>");
+document.write(6+5);
+document.write("<BR>");
+document.write(  ((8 * 4) + (7 - 3)) / (2 + 4)  );
+document.write("<BR>");
+document.write( 5/2 );
+document.write("<BR>");
+document.write( 5 % 2 );
+</script>
+</body></html>
+</PRE>
+<P>Notice that we had to write <TT>&lt;BR&gt;</TT> to force a new line.
+That's because JavaScript writes its output as HTML and HTML wraps 
+lines into as wide a line as your browser window will allow. 
+To force a line break we have to use the HTML symbol for a new 
+line which is <TT>&lt;BR&gt;</TT>.
+
+<H3>And VBScript too...</H3>
+
+<P>Like JavaScript we have to create a file with our 
+VBScript commands and open it in a browser. The commands 
+that we have seen, written in VBScript look like this:
+<PRE>
+&lt;html>&lt;body>
+&lt;script language="VBScript">
+MsgBox "Hello There!"
+MsgBox "Monty Python's Flying Circus has a ' in it"
+MsgBox 6 + 5
+MsgBox ((8 * 4) + (7 - 3)) / (2 + 4)
+MsgBox 5/2
+MsgBox 5 MOD 2
+&lt;/script>
+&lt;/body>&lt;/html>
+</PRE>
+
+<P>And the output should consist of lots of dialog boxes 
+each presenting the output from one line of the program.
+
+<P>One point to note is that you cannot start a string 
+using a single quote in VBScript (We'll see why in a 
+later topic) although you can include single quotes inside 
+double quoted strings. To include a double quote inside 
+a double quoted string we have to use a function called 
+<TT>Chr</TT> which returns the character for a given 
+ASCII character code. I'ts all very messy but an example 
+should show how it works:
+
+<PRE>
+&lt;script language="VBScript">
+Dim qt
+qt = Chr(34)
+MsgBox qt & "Go Away!" & qt & " he cried"
+&lt;/script>
+</PRE>
+
+<P>Note that you can find out the ASCII code for any 
+character by using the Character Map applet in Windows,
+or by visiting this <a href="http://www.asciitable.com">
+web site</A> and looking up the decimal value or, as a 
+last resort, by using the following bit of JavaScript(!) 
+and replacing the double quote character with the 
+character you want:
+
+<PRE>
+&lt;script language="JavaScript">
+var code, chr = '"';
+code = chr.charCodeAt(0);
+document.write("&lt;BR&gt;The ASCII code of  " + chr + "  is " + code);
+&lt;/script>
+</PRE>
+
+<P>Don't worry about what it means just yet, we'll get to 
+it eventually for now just use it should you be forced to 
+find out an ASCII value.
+
+<P>That's our first look at programming, it wasn't too painful 
+was it? Before we continue though we need to take a look at the 
+raw materials of programming, namely data and what we can do 
+with it.</P>
+
+
+<CENTER>
+<!-- HR WIDTH=60% -->
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>Even a single command is a program
+<LI>Python does math <I>almost</I> the way you'd expect
+<LI>To get a fractional result you must use a fractional number
+<LI>You can combine text and numbers using the <TT>%</TT> format operator
+<LI>Quit with <TT>import sys; sys.exit()</TT>
+</UL> </TR></TABLE>
+<P>
+<A HREF="tutstart.htm" target="text">Previous</A>&nbsp
+<A HREF="tutdata.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:agauld@crosswinds.net">
+agauld@crosswinds.net</A>
+<BR>
+
+</BODY>
+</HTML>

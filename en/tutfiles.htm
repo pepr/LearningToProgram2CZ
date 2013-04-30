@@ -1,0 +1,822 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>File Handling</TITLE>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Handling Files</H2>
+<P>
+<TABLE BORDER>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD><UL>
+<LI>How to open a file
+<LI>How to read and write to an open file
+<LI>How to close a file.
+<LI>Building an address book
+<LI>Handling binary data files
+</UL></TD></TR>
+</TABLE>
+</P>
+</CENTER>
+
+<P>Handling files often poses problems for beginners although the
+reason for this puzzles me slightly. Files in a programming sense 
+are really no different from files that you use in a word processor 
+or other application: you <I> open</I> them, do some work and then
+<I> close</I> them again. 
+
+<P>The biggest differences are that in a program you access the
+file <I> sequentially</I>, that is, you read one line at a time
+starting at the beginning. In practice the word processor often
+does the same, it just holds the entire file in memory while you
+work on it and then writes it all back out when you close it.
+The other difference is that, when programming, you normally open 
+the file as read only or write only. You can write by creating 
+a new file from scratch (or overwriting an existing one) or 
+by <I> appending</I> to an existing one.
+
+<P>One other thing you can do while processing a file is that
+you can go back to the beginning.
+
+<H3>Files - Input and Output</H3>
+
+<P>Let's see that in practice. We will assume that a file exists
+called <TT>menu.txt</TT> and that it holds a list of meals:
+<PRE>
+spam &amp; eggs
+spam &amp; chips
+spam &amp; spam
+</PRE>
+
+<P>Now we will write a program to read the file and display the
+output - like the 'cat' command in Unix or the 'type' command in
+DOS. 
+
+<PRE>
+<SPAN CLASS="comment"># First open the file to read(r)</SPAN>
+inp = file("menu.txt","r")
+<SPAN CLASS="comment"># read the file into a list then print
+# each item</SPAN>
+for line in inp.readlines():
+    print line
+<SPAN CLASS="comment"># Now close it again</SPAN>
+inp.close()
+</PRE>
+
+<P><B>Note 1:</B> <TT>file()</TT> takes two arguments. 
+The first is the filename (which may be passed as a variable 
+or a literal string, as we did here). The second is the 
+<I>mode</I>. The mode determines whether we are opening 
+the file for reading(r) or writing(w), and also whether 
+it's for ASCII text or binary usage - by adding a 'b' to 
+the 'r' or 'w', as in: <TT>open(fn,"rb")</TT>
+
+<P><B>Note 2:</B> We used the <TT>file()</TT> function 
+to open the file, older versions of Python used the built
+in function <TT>open()</TT> instead. The parameters are 
+identical <TT>open()</TT> is still the preferred mechanism, 
+so we will usually use <tt>open()</tt> from now on, but 
+if you find <tt>file()</tt> more logical then 
+feel free to use that instead.
+
+<P><B>Note 3:</B> We read and close the file using functions
+preceded by the file variable. This notation is known as
+<I>method invocation</I> and is another example of <I>Object
+Orientation</I>. Don't worry about it for now, except to realize
+that it's related in some ways to modules. You can think of a
+file variable as being a reference to a module containing
+functions that operate on files and which we automatically import
+every time we create a file type variable. 
+
+<P><B>Note 4:</B> We close the file at the end with the 
+<TT>close()</TT> method. In Python, files are automatically 
+closed at the end of the program but it is good practice 
+to get into the habit of closing your files explicitly. 
+Why? Well, the operating system may not write the data 
+out to the file until it is closed (this can boost 
+performance). What this means is that if the program 
+exits unexpectedly there is a danger that your precious 
+data may not have been written to the file! So the moral is: 
+once you finish writing to a file, close it.
+
+<P>Consider how you could cope with long files. First of all 
+you would need to read the file one line at a time (in Python 
+by using <TT>readline()</TT> and a <TT>while</TT> loop instead 
+of <TT>readlines()</TT> and a <TT>for</TT> loop. 
+You might then use a <TT>line_count</TT> variable which is 
+incremented for each line and then tested to see whether 
+it is equal to 25 (for a 25 line screen). If so, you request 
+the user to press a key (enter, say) before resetting  
+<TT>line_count</TT> to zero and continuing. You might 
+like to try that as an excercise... 
+
+<P>Since Python version 2.2 it has also been possible to treat 
+the file as a list so you don't need to use <TT>readlines()</TT>
+inside a <TT>for</TT> loop, you just iterate over the file. 
+Let's rewrite the previous example to see this feature in action:
+<PRE>
+<SPAN CLASS="comment"># First open the file to read(r)</SPAN>
+inp = open("menu.txt","r")
+<SPAN CLASS="comment"># iterate over the file printing each item</SPAN>
+for line in inp:
+    print line
+<SPAN CLASS="comment"># Now close it again</SPAN>
+inp.close()
+
+</PRE>
+
+<P>Really that's all there is to it. You open the file, read it
+in and manipulate it any way you want to. When you're finished you
+close the file. However there is one little niggle you may have 
+noticed in the previous example: the lines read from the 
+file have a <i>newline</i> character at the end, so you wind 
+up with blank lines using <tt>print</tt> (which adds its own 
+newline). To avoid that Python provides a string method called 
+<tt>strip()</tt> which will remove <i>whitespace</i>, or 
+non-printable characters, from the end of a string. If we 
+substitute the print line above with:
+
+<pre>
+for line in inp:
+    print line.strip()
+</pre>
+
+<P>Everything should now work just fine.
+
+<P>To create a 'copy' command in Python, we simply
+open a new file in write mode and write the lines to that file
+instead of printing them. Like this:
+
+<PRE>
+<SPAN CLASS="comment"># Create the equivalent of: COPY MENU.TXT MENU.BAK
+
+# First open the files to read(r) and write(w)</SPAN>
+inp = open("menu.txt","r")
+outp = open("menu.bak","w")
+
+<SPAN CLASS="comment"># read file, copying each line to new file</SPAN>
+for line in inp:
+    outp.write(line)
+
+print "1 file copied..."
+
+<SPAN CLASS="comment"># Now close the files</SPAN>
+inp.close()
+outp.close()
+</PRE>
+
+<P>Did you notice that I added a print statement at the end, 
+just to reassure the user that something actually happened? 
+This kind of <I>user feedback</I> is usually a good idea. 
+
+<P>Because we wrote out the same <tt>line</tt> that we read 
+in there was no problems with newline characters here. But 
+if we had been writing out strings which we created, or 
+which we had <tt>strip</tt>ped earlier we would have 
+needed to add a newline on to the end of the output string, 
+like this: 
+
+<pre>
+outp.write(line + '\n') <SPAN class="comment"># \n is a newline</SPAN>
+</pre>
+
+<P>Let's look at how we might incorporate that into 
+our copy program. Instead of simply copying the menu we will add todays date to the top. That we we can easily generate a daily menu from the easily modified text file of meals. All we need to do is write out a couple of lines at the top of the new file before copying the menu.txt file, like this:
+
+<pre>
+<SPAN CLASS="comment"># Create daily menu based on MENU.TXT
+import time
+# First open the files to read(r) and write(w)</SPAN>
+inp = open("menu.txt","r")
+outp = open("menu.prn","w")
+
+
+<SPAN CLASS="comment"># Create todays date string </SPAN>
+today = time.localtime(time.time())
+theDate = time.strftime("%A %B %d", today)
+
+<SPAN CLASS="comment"># Add Banner text and a blank line</SPAN>
+outp.write("Menu for %s\n\n" % theDate) 
+
+<SPAN CLASS="comment"># copy each line of menu.txt to new file</SPAN>
+for line in inp:
+    outp.write(line)
+
+print "Menu created for %s..." % theDate
+
+<SPAN CLASS="comment"># Now close the files</SPAN>
+inp.close()
+outp.close()
+
+</pre>
+
+<p>Note that we use the <tt>time</tt> module to get 
+todays date (<tt>time.time()</tt>) and convert it 
+into a tuple of values <tt>(time.localtime())</tt> 
+which are then used by <tt>time.strftime()</tt> to 
+produce a string which, when inserted into a title 
+message using string formatting, looks like:
+
+<pre>
+Menu for Sunday September 19
+
+Spam &amp; Eggs
+Spam &amp;...
+</pre>
+
+<P>Although we added two '\n' characters at the end 
+there is only one blank line printed, that's because one 
+of them is the newline at the end of the title itself. 
+Managing the creation and removal of newline characters 
+is one of the more annoying aspects of handling text 
+files.</p>
+
+<TABLE BORDER>
+<TR><TD BGCOLOR="#FFDDAA">
+<h2>New lines and Operating Systems</h2>
+<BR>
+<P>The whole subject of newlines and text files is a murky 
+area of non standard implementation by different operating 
+systems. These differences have their roots in the early 
+days of data communications and the control of mechanical 
+teleprinters. Basically there are 3 different ways to 
+indicate a new line:
+<OL>
+<LI>A Carriage Return (CR) character ('\r')
+<LI>A Line Feed (LF) character ('\n')
+<LI>A CR/LF pair ('\r\n').
+</OL>
+
+<P>All three techniques are used in different operating 
+systems. MS DOS (and therefore Windows) uses method <i>3</i>. 
+Unix (including Linux) uses method <i>2</i>. Apple in its 
+original MacOS used method <i>1</i>, but now uses method 
+<i>2</i> since MacOS X is really a variant of Unix.</P>
+<BR>
+
+<P>So how can the poor programmer cope with this multiplicity 
+of line endings? In many languages she just has to do lots 
+of tests and take different action per OS. In more modern 
+languages, including Python, the language provides facilities 
+for dealing with the mess for you. In the case of Python 
+the assistance comes in the form of the <tt>os</tt> module 
+which can defines a variable called <tt>linesep</tt> which 
+is set to whatever the newline character is on the current 
+operating system. This makes adding newlines easy, and 
+<tt>strip()</tt> takes account of the OS when it does its 
+work of removing them, so really the simple way to stay sane, 
+so far as newlines are concerned is: always use <tt>strip()</tt> 
+to remove newlines from lines read from a file and always 
+add <tt>os.linesep</tt> to strings being written to a file.</p>
+<br>
+
+<p>That still leaves the awkward situation where a file is 
+created on one OS and then processed on another, 
+incompatible, OS and sadly, there isn't much we can do about 
+that except to compare the end of the line with <tt>os.linesep</tt> 
+to determine what the difference is.
+</TD></TR></table>
+
+<P>One final twist in file processing is that you might want 
+to append data to the end of an existing file. One way to 
+do that would be to open the file for input, read the data 
+into a list, append the data to the list and then write 
+the whole list out to a new version of the old file. 
+If the file is short that's not a problem but if the 
+file is very large, maybe over 100Mb, then you will simply 
+run out of memory to hold the list. Fortunately there's another 
+mode <TT>"a"</TT> that we can pass to <TT>open()</TT> which 
+allows us to append directly to an existing file just by writing.
+Even better, if the file doesn't exist it will open a new file 
+just as if you'd specified <TT>"w"</TT>.
+
+<P>As an example, let's assume we have a log file that we use for 
+capturing error messages. We don't want to delete the existing 
+messages so we choose to append the error, like this:
+<PRE>
+def logError(msg):
+   err = open("Errors.log","a")
+   err.write(msg)
+   err.close()
+</PRE>
+<P>In the real world we would probably want to limit the size 
+of the file in some way. A common technique is to create a 
+filename based on the date, thus when the date changes we 
+automatically create a new file and it is easy for the maintainers 
+of the system to find the errors for a particular day and
+to archive away old error files if they are not needed. 
+(Remember, from the menu example above, that the <TT>time</TT> 
+module can be used to find out the current date.)
+
+<H3>The Address Book Revisited</H3>
+
+<P>You remember the address book program we introduced during 
+the <A href="tutdata.htm#address">Raw Materials</A> topic and 
+then expanded in the <A href="tutinput.htm#address">
+Talking to the User</A> topic? Let's start to make it really 
+useful by saving it to a file and, of course, reading the file 
+at startup. We'll do this by writing some functions so in this 
+example we pull together several of the strands that we've 
+covered in the last few topics.
+
+<P>The basic design will require a function to read the file 
+at startup, another to write the file at the end of the program. 
+We will also create a function to present the user with a menu 
+of options and a separate function for each menu selection.
+The menu will allow the user to:
+<UL>
+<LI>Add an entry to the address book
+<LI>Remove an entry from the book
+<LI>Find and display an existing entry
+<LI>Quit the program
+</UL>
+
+<H4>Loading the Address Book</H4>
+
+<PRE>
+def readBook(book):
+    import os
+    filename = 'addbook.dat'
+    if os.path.exists(filename):
+       store = open(filename,'r')
+       while store:
+          name = store.readline().strip()
+	  entry = store.readline().strip()
+          book[name] = entry
+    else:
+        store = open(filename,'w') # create new empty file
+    store.close()
+</PRE>
+
+<P>Notice the use of <TT>strip()</TT> to remove the 
+newline character from the end of the line.
+
+<H4>Saving the Address Book</H4>
+
+<PRE>
+def saveBook(book):
+    store = open("addbook.dat",'w')
+    for name,entry in book.items():
+        store.write(name + '\n')
+        store.write(entry + '\n')
+    store.close()
+</PRE>
+
+<P>Notice we need to add a newline character (<TT>'\n'</TT>)
+when we write the data.
+
+<h4>Getting User Input</h4>
+
+<PRE>
+def getChoice(menu):
+    print menu
+    choice = int( raw_input("Select a choice(1-4): ") )
+    return choice
+</PRE>
+
+<h4>Adding an Entry</H4>
+
+<PRE>
+def addEntry(book):
+    name = raw_input("Enter a name: ")
+    entry = raw_input("Enter street, town and phone number: ")
+    book[name] = entry
+</PRE>
+
+<H4>Removing an entry</H4>
+
+<PRE>
+def removeEntry(book):
+    name = raw_input("Enter a name: ")
+    del(book[name])
+</PRE>
+
+<H4>Finding an entry</H4>
+
+<PRE>
+def findEntry(book):
+    name = raw_input("Enter a name: ")
+    if name in book.keys():
+       print name, book[name]
+    else: print "Sorry, no entry for: ", name
+</PRE>
+
+<H4>Quitting the program</H4>
+
+<P>Actually I won't write a separate function for this, 
+instead I'll make the quit option the test in my menu 
+<TT>while</TT> loop. So the main program will look 
+like this:
+
+<PRE>
+def main():
+    theMenu = '''
+    1) Add Entry
+    2) Remove Entry
+    3) Find Entry
+    4) Quit and save
+    '''
+    theBook = {}
+    readBook(theBook)
+    choice = getChoice(theMenu)
+    while choice != 4:
+        if choice == 1:
+            addEntry(theBook)
+        elif choice == 2:
+            removeEntry(theBook)
+        elif choice == 3:
+            findEntry(theBook)
+        else: print "Invalid choice, try again"
+        choice = getChoice(theMenu)
+    saveBook(theBook)
+</PRE>
+
+<P>Now the only thing left to do is call the <tt>main()</tt> 
+function when the program is run, and to do that we use 
+a bit of Python magic like this:
+
+<PRE>
+if __name__ == "__main__":
+    main()
+</PRE>
+
+<P>This mysterious bit of code allows us to use any python 
+file as a module by <TT>import</TT>ing it, or as a program 
+by running it. The difference is that when the program 
+is imported, the internal variable <TT>__name__</TT> is 
+set to the module name but when the file is run, the value 
+of <TT>__name__</TT> is set to <TT>"__main__"</TT>. Sneaky, eh?
+
+Now if you type all that code into a new text file and save 
+it as addressbook.py, you should be able to run it from an 
+OS prompt by typing:
+
+<PRE>
+C:\PROJECTS> python addressbook.py
+</PRE>
+
+<P>Or just double click the file in Explorer, it should start 
+up in its own DOS window, and the window will close when you 
+select the quit option.
+
+<P>Or in Linux:
+<PRE>
+$ python addressbook.py
+</PRE>
+
+<P>Study the code, see if you can find the mistakes (I've 
+left, at least, two minor bugs for you to find, there may be 
+more!) and try to fix them. This 60 odd line program is 
+typical of the sort of thing you can start writing for yourself.
+There are a couple of things we can do to improve it which 
+I'll cover in the next section, but even as it stands it's 
+a reasonably useful little tool.
+
+<H3>VBScript and JavaScript</H3>
+
+<P>Neither VBScript nor JavaScript have native file handling 
+capabilities. This is a security feature to ensure no-one 
+can read your files when you innocently load a web page, 
+but it does restrict their general usefulness. However, 
+as we saw with reusable modules there is a way to do it 
+using <A href="tutfunc.htm#wsh">Windows Script Host</A>.
+WSH provides a <tt>FileSystem</tt> object which allows 
+any WSH language to read files. We will look at a JavaScript 
+example in detail then show similar code in VBScript for 
+comparison, but as before the key elements will really 
+be calls to the WScript objects.
+
+<P>Before we can look at the code in detail it's worth 
+taking time to describe the <tt>FileSystem</tt> 
+<I>Object Model</I>. An Object Model is a set of related 
+objects which can be used by the programmer. The WSH 
+<tt>FileSystem</tt> object model consists of the 
+<TT>FSO</TT> object, a number of <tt>File</tt> objects, 
+including the <TT>TextFile</TT> object which we will use. 
+There are also some helper objects, most notable of 
+which is, for our purposes, the <TT>TextStream</TT> object. 
+Basically we will create an instance of the 
+<TT>FSO</TT> object, then use it to create our 
+<TT>TextFile</TT> objects and from these in turn 
+create <TT>TextStream</TT> objects to which we can 
+read or write text. The <TT>TextStream</TT> objects 
+themselves are what we actually read/write from the files.
+
+<P>Type the following code into a file called 
+<TT>testFiles.js</TT> and run it using <TT>cscript</TT> 
+as described in the earlier introduction to WSH.
+
+<H4>Opening a file</H4>
+
+<P>To open a file in WSH we create an FSO object then create 
+a TextFile object from that:
+<PRE>
+var fileName, fso, txtFile, outFile, line;
+
+<SPAN class="comment">// Get file name</SPAN>
+fso = new ActiveXObject("Scripting.FileSystemObject");
+WScript.Echo("What file name? ");
+fileName = WScript.StdIn.Readline();
+
+<SPAN class="comment">// open txtFile to read, outFile to write</SPAN>
+txtFile = fso.OpenTextFile(fileName, 1); <SPAN class="Comment">// mode 1 = Read</SPAN>
+fileName = fileName + ".BAK"
+outFile = fso.CreateTextFile(fileName);
+</PRE>
+
+<H4>Reading and Writing a file</H4>
+
+<PRE>
+<SPAN class="Comment">// loop over file till it reaches the end</SPAN>
+while ( !txtFile.AtEndOfStream ){
+    line = txtFile.ReadLine();
+    WScript.Echo(line);
+    outFile.WriteLine( line );
+    }
+</PRE>
+
+<H4>Closing files</H4>
+
+<PRE>
+txtFile.close();
+outFile.close();
+</PRE>
+
+<H4>And in VBScript</H4>
+
+<PRE>
+&lt;?xml version="1.0"?>
+
+&lt;job>
+  &lt;script language="VBScript">
+      Dim fso, inFile, outFile, inFileName, outFileName
+      Set fso = CreateObject("Scripting.FileSystemObject")
+      
+      WScript.Echo "Type a filename to backup"
+      inFileName = WScript.StdIn.ReadLine
+      outFileName = inFileName &amp;amp; ".BAK"
+      
+      <SPAN class="comment">' open the files</SPAN>
+      Set inFile = fso.OpenTextFile(inFileName, 1)
+      Set outFile = fso.CreateTextFile(outFileName)
+
+      <SPAN class="comment">' read the file and write to the backup copy</SPAN>
+      While not inFile.AtEndOfStream
+         line = inFile.ReadLine
+	 outFile.WriteLine(line)
+      Wend
+      
+      <SPAN class="comment">' close both files</SPAN>
+      inFile.Close
+      outFile.Close
+      
+      WScript.Echo inFileName &amp;amp; " backed up to " &amp;amp; outFileName
+  &lt;/script>
+&lt;/job>
+</PRE>
+
+
+<H3>Handling Non-Text Files</H3>
+
+<P>Handling text is one of the most common things that programmers 
+do, but sometimes we need to process raw binary data too. This is very 
+rarely done in VBScript or JavaScript so I will only be covering 
+how Python does it. 
+
+<H4>Opening and Closing Binary Files</H4>
+
+<P>The key difference between text files and binary files is that
+text files are composed of <i>octets</i>, or bytes, of binary data 
+whereby each byte represents a character and the end of the file 
+is marked by a special byte pattern, known generically as 
+<I>end of file</I>, or <I>eof</I>. A binary file contains 
+arbitrary binary data and thus no specific value can 
+be used to identify end of file, thus a different mode of 
+operation is required to read these files. The end result 
+of this is that when we open a binary file in Python (or 
+indeed any other language) we must specify that it is being 
+opened in binary mode or risk the file being truncated at 
+the first <tt>eof</tt> character that Python finds in the data. 
+The way we do this in Python is to add a 'b' to the mode 
+parameter, like this:
+<PRE>
+binfile = file("aBinaryFile.bin","rb")
+</PRE> 
+
+<P>The only difference from opening a text file is the mode 
+value of <TT>"rb"</TT>. You can use any of the other modes too, 
+simply add a 'b': <TT>"wb"</TT> to write, <TT>"ab"</TT> to 
+append.
+
+<P>Closing a binary file is no different to a text file, 
+simply call the <TT>close()</TT> method of the open file object:
+<PRE>
+binfile.close()
+</PRE>
+
+<P>Because the file was opened in binary mode there is no need 
+to given Python any extra information, it knows how to 
+close the file correctly.</P>
+
+<A name="encoding">
+<TABLE BORDER>
+<TR><TD BGCOLOR="#FFDDAA">
+<h2>Data Representation and Storage</h2>
+<br>
+<P>Before we discuss how to access the data within a binary 
+file we need to consider how data is represented and stored
+on a computer. All data is stored as a sequence of 
+<I>bi</I>nary digi<I>t</I>s, or bits. These bits are grouped 
+into sets of 8 or 16 called <I>bytes</I> or <I>words</I> 
+respectively. (A group of 4 is sometimes called a nibble!)
+A byte can be any one of 256 different bit patterns and 
+these are given the values 0-255.</P>
+<BR>
+<P>The information we manipulate in our programs, strings, 
+numbers etc must all be converted into sequences of bytes. Thus
+the characters that we use in strings are each allocated a 
+particular byte pattern. There were originally several 
+such <I>encodings</I>, but the most common is the <I>ASCII</I>
+(American Standard Coding for Information Interchange). 
+Unfortunately pure ASCII only caters for 128 values which is 
+not enough for non English languages. A new encoding 
+standard known as <I>Unicode</I> has been produced, which can 
+use data words instead of bytes to represent characters, 
+and allows for over 65000 characters. A subset of Unicode 
+called <I>UTF8</I> corresponds closely to the earlier ASCII 
+coding. Python by default supports ASCII and by pre-pending 
+a <TT>u</TT> in front of a string we can tell Python to 
+treat the string as Unicode.</P>
+<BR>
+<P>In the same way numbers need to be converted to binary 
+codings too. For small integers it is simple enough to use 
+the byte values directly, but for numbers larger than 255 
+(or negative numbers, or fractions) some additional work 
+needs to be done. Over time various standard codings have 
+emerged for numerical data and most programming languages 
+and operating systems use these. For example, the American 
+Institute of Electrical and Electronic Engineering 
+(<I>IEEE</I>) have defined a number of codings for 
+floating point numbers.</P>
+<BR>
+<P> The point of all of this is that when we read a binary 
+file we have to interpret the raw bit patterns into the 
+correct <I>type</I> of data for our program. It is perfectly 
+possible to interpret a stream of bytes that were 
+originally written as a character string as a set of 
+floating point numbers. Or course the original meaning 
+will have been lost but the bit patterns could represent 
+either. So when we read binary data it is extremely 
+important that we convert it into the correct data type.
+</TD></TR>
+</TABLE>
+</P>
+
+<H4>The <I>Struct</I> Module</H4>
+
+<P>To encode/decode binary data Python provides a module 
+called <TT>struct</TT>, short for structure.
+<TT>struct</TT> works very much like the format strings 
+we have been using to print mixed data. We provide a 
+string representing the data we are reading and apply 
+it to the byte stream that we are trying to interpret. 
+We can also use struct to convert a set of data to a 
+byte stream for writing, either to a binary file 
+(or even a communications line!).
+
+<P>There are many different conversion format codes but 
+we will only use the integer and string codes here. 
+(You can look up the others on the Python documentation 
+for the <TT>struct</TT> module.) The codes for integer 
+and string are <TT>i</TT>, and <TT>s</TT> respectively.
+The <TT>struct</TT> format strings consist of sequences 
+of codes with numbers pre-pended to indicate how many of 
+the items we need, for example <TT>4s</TT> means a string 
+of four characters.
+
+<P>Let's assume we wanted to write the address details, 
+from our Address Book program above, as binary data 
+with the street number as an integer and the rest as 
+a string (This is a bad idea in practice since street 
+"numbers" sometimes include letters!). The format 
+string would look like:
+<PRE>
+'i34s' <SPAN class="comment"># assuming 34 characters in the address!</SPAN>
+</PRE>
+
+To cope with multiple address lengths we could write 
+a function to create the binary string like this:
+<PRE>
+def formatAddress(address): 
+    <SPAN class="comment"># split breaks a string into a list of 'words'</SPAN>
+    fields = address.split()[0]
+    number = fields[0]
+    rest = ''
+    for field in fields[1:]: rest.append(field)
+    format = "i%ds" % len(rest) <span class="comment"> # create the format string</SPAN>
+    return struct.pack(format, number, rest)
+</PRE>
+
+<P>So we used a string method - <TT>split()</TT> - (more on them 
+in the next topic!) to split the address string into its parts, 
+extract the first one as the number and then use a <TT>for</TT> loop 
+to join the remaining fields back together. The length of 
+that string is the number we need in the <TT>struct</TT> 
+format string. Phew!
+
+<P><TT>formatAddress()</TT> will return a sequence of bytes 
+containing the binary representation of our address. Now that 
+we have our binary data let's see how we can write that to 
+a binary file and then read it back again.
+
+<H4>Reading & Writing Using <I>Struct</I></H4>
+
+<P>Let's create a binary file containing a single address line
+using the <TT>formatAddress()</TT> function defined above. 
+We need to open the file for writing in <TT>'wb'</TT> mode, 
+encode the data, write it to the file and then close the file. 
+Let's try it:
+<PRE>
+import struct
+f = file('address.bin','wb')
+data = "10 Some St, Anytown, 0171 234 8765"
+bindata = formatAddress(data)
+f.write(bindata)
+f.close()
+</PRE>
+
+<P>You can check that the data is indeed in binary 
+format by opening <TT>address.bin</TT> in notepad. The 
+characters will be readable but the number will 
+not look like 10!
+
+<P>To read it back again we need to open the file in 'rb' mode,
+read the data into a sequence of bytes, close the file and finally  
+unpack the data using a struct format string. The question is 
+how do we tell what the format string looks like? In this case 
+we know it must be like the one we created in 
+<TT>formatAddress()</TT>, namely <TT>'iNc'</TT> where N is a 
+variable number. How do we determine the value of N?
+
+<P>The struct module provides some helper functions that 
+return the size of each data type, so by firing up the Python 
+prompt and experimenting we can find out how many bytes 
+of data we will get back for each data type:
+<PRE>
+>>> import struct
+>>> print struct.calcsize('i')
+4
+>>> print struct.calcsize('s')
+1
+</PRE>
+
+<P>Ok, we know that our data will comprise 4 bytes for the number 
+and one byte for each character. So N will be the length of 
+the data minus 4. Let's try using that to read our file:
+<PRE>
+import struct
+f = file('address.bin','rb')
+data = f.read()
+f.close()
+fmtString = "i%ds" % (len(data) - 4)
+number, rest = struct.unpack(fmtString, data)
+address = ''
+for field in (number,rest): 
+    address.append(field)
+</PRE>
+
+<P>And that's it on binary data files, or at least as much as 
+I'm going to say on the subject. As you can see using binary 
+data introduces several complications and unless you have a 
+very good reason I don't recommend it. But at least if you 
+do need to read a binary file, you can do it (provided you 
+know what the data represented in the first place of course!)
+
+<CENTER>
+<!-- HR WIDTH=60% -->
+<TABLE BORDER>
+<TR><TH>Things to remember</TH></TR>
+<TR><TD>
+<LI>Open files before using them
+<LI>Files can usually only be read or written but not both at the same time
+<LI>Python's <TT>readlines()</TT> function reads all the lines in 
+a file, while <TT>readline()</TT> only reads one line at a time, 
+which may help save memory.
+<LI>Close files after use.
+<LI>Binary files need the mode flag to end in 'b'
+</TD></TR></TABLE>
+
+<A HREF="tutfunc.htm">Previous</A>&nbsp
+<A HREF="tuttext.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+</BODY>
+</HTML>

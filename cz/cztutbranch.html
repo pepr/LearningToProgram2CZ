@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Větvení</title>
+</head>
+<body>
+
+<h2>Větvení, aneb nechť padne rozhodnutí</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+<ul>
+<li>Třetí programová konstrukce &mdash; větvení.</li>
+<li>Jednoduché a násobné větvení.</li>
+<li>Použití boolovských výrazů.</li>
+</ul>
+</div>
+
+<p>Třetím z našich základních stavebních kamenů je <em>větvení</em> nebo
+také <em>podmíněný příkaz</em>. Jde jednoduše o pojmy, které popisují
+schopnost provést jednu z několika možných posloupností příkazů (jednu z
+větví) a to v závislosti na nějaké podmínce.</p>
+
+<p>Dříve, v době programování v assembleru, bylo větvení realizováno
+nejjednodušším možným způsobem &mdash; použitím instrukce <code>JUMP</code>.
+Program v tomto místě doslova skočil na určenou adresu v paměti. Obvykle to
+bylo podmíněno tím, že výsledkem předchozí instrukce byla nula. I když
+nebylo možné použít jiný způsob realizace podmíněného příkazu, byly takto
+napsány úžasně složité programy. To potvrzovalo správnost Dijkstrových
+tvrzení o minimálních požadavcích potřebných pro programování. Když se
+objevily vyšší programovací jazyky, objevila se i nová podoba instrukce
+<code>JUMP</code> pod názvem <code>GOTO</code>. 
+
+V jazyce QBASIC, který byl dodáván na instalačních CD&nbsp;ROM starších
+verzí Windows (před XP), lze GOTO stále používat. Pokud máte QBASIC
+nainstalován, můžete si vyzkoušet následující úsek kódu:</p>
+
+<pre>
+10 PRINT "Začínáme na řádku 10"
+20 J = 5
+30 IF J &lt; 10 GOTO 50
+40 Print "Tento řádek se nevytiskne"
+50 STOP
+</pre>
+
+<p>Povšimněte si, že dokonce i u tak krátkého programu trvá několik sekund,
+než přijdete na to co se stane. Kód nemá žádnou strukturu. Musíte si ji během
+čtení doslova vytvořit. U velkých programů to začne být prakticky nemožné. Z
+tohoto důvodu většina moderních programovacích jazyků &mdash; včetně jazyků
+Python, VBScript a JavaScript &mdash; buď příkazy skoku JUMP nebo GOTO nemají,
+nebo vás od jejich používání odrazují. Takže co bychom vlastně místo nich měli
+použít?</p>
+
+
+<h3>Příkaz <code>if</code></h3>
+
+<p>Intuitivně nejzřejmější podobou podmíněného příkazu je konstrukce <code>if,
+then, else</code>. Sleduje logiku anglické věty v tom smyslu, že <em>if</em>
+(jestliže) je nějaká boolovská podmínka splněna (o boolovských podmínkách se
+zmíníme dále v textu), <em>then</em> (pak) se provede blok příkazů, v opačném
+případě (nebo <em>else</em> (jinak)) se provede jiný blok.</p>
+
+
+
+<h4>Python</h4>
+
+<p>V jazyce Python vypadá zápis takto:</p>
+
+<pre>
+import sys  <span class="comment"># jen proto, abychom mohli program ukončit</span>
+print "Začínáme zde"
+j = 5
+if j &gt; 10:
+    print "Toto se nikdy nevytiskne"
+else:
+    sys.exit()
+</pre>
+
+<p>Takový zápis se ve srovnání s předchozím příkazem s <code>GOTO</code> lépe
+čte a je srozumitelnější. Za slovo <em>if</em> můžeme samozřejmě dosadit
+libovolnou podmínku testu za předpokladu, že ji lze vyhodnotit jako True nebo
+False &mdash; to znamená jako boolovskou hodnotu. Zkuste změnit operátor
+<code>&gt;</code> na <code>&lt;</code> a pozorujte, co se stane.</p>
+
+<h4>VBScript</h4>
+
+<p>Zápis v jazyce VBScript vypadá podobně:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+MsgBox "Začínáme zde"
+Dim J
+J = 5
+If J &gt; 10 Then
+    MsgBox "Toto se nikdy nevytiskne."
+Else
+    MsgBox "Konec programu."
+End If
+&lt;/script>
+</pre>
+
+<p>Vždyť je to téměř shodné, že ano? Hlavní rozdíl spočívá v použití
+<code>End&nbsp;If</code> pro označení konce konstrukce.</p>
+
+
+<h4>A ještě v JavaScript</h4>
+
+<p>V jazyce JavaScript nalezneme samozřejmě příkaz <code>if</code> také:</p>
+
+<pre>
+&lt;script type="text/javascript">
+var j;
+j = 5;
+if (j &gt; 10){
+           document.write("Toto se nikdy nevytiskne.");
+           }
+else {
+     document.write("Konec programu.");
+     }
+&lt;/script>
+</pre>
+
+<p>Povimněte si, že JavaScript používá uvnitř částí <code>if</code> a
+<code>else</code> pro vymezení bloku kódu složené závorky. Boolovský test je
+rovněž uzavřen v závorkách. Klíčové slovo <code>then</code> se zde nepoužívá.
+Co se týká stylu, složené závorky můžeme umístit na libovolnou pozici. Rozhodl
+jsem se, že je zarovnám pod sebe prostě proto, abych zdůraznil strukturu
+bloku. Pokud se v bloku nachází jen jediný řádek (jako v našem případě),
+můžeme závorky úplně vynechat. Potřebujeme je jen v případech, kdy mají
+ohraničit skupinu řádků, které patří do jednoho bloku.</p>
+
+
+<h3>Boolovské výrazy</h3>
+
+<p>Možná si ještě vzpomínáte, že jsme se v kapitole <a
+href="cztutdata.html#Boolean">o datech</a> zmínili o datovém typu
+<em>boolean</em>. Řekli jsme si, že má pouze dvě hodnoty: <code>True</code> a
+<code>False</code>. Boolovské proměnné vytváříme velmi zřídka<sup
+class="trnote"><a href="cztuttrn.html#Pbranch_boolvar" id="Bbranch_boolvar"
+title="Je to opravdu tak řídký jev?">[1]</a></sup>, ale dočasné boolovské
+hodnoty často vznikají jako výsledek vyhodnocení <em>výrazů</em>. Výrazem
+rozumíme kombinaci proměnných a hodnot, spojených operátory s cílem
+vyprodukovat výslednou hodnotu. V následujícím příkladu</p>
+
+<pre>
+if x &lt; 5:
+  print x
+</pre>
+
+<p>je zápis <code>x &lt; 5</code> výrazem. Pokud je <code>x</code> menší než
+5, bude jeho výsledkem hodnota <code>True</code>. Pokud je <code>x</code>
+větší nebo rovno 5, bude výsledkem výrazu hodnota <code>False</code>.</p>
+
+<p>Výrazy mohou být libovolně složité s tím, že výsledkem jejich vyhodnocení
+musí být nakonec vždy jediná hodnota. V případě větvení musí být výsledkem
+pravdivostní hodnota <em>True</em> nebo <em>False</em>. Nicméně, definice
+těchto dvou pravdivostních hodnot se jazyk od jazyka liší. V mnoha jazycích je
+hodnota <em>false</em><sup class="trnote"><a
+href="cztuttrn.html#Pbranch_newbool" id="Bbranch_newbool"
+title="Takže píše se to s malým nebo s velkým počátečním písmenem?"
+>[2]</a></sup> ztotožněna s hodnotou <code>0</code> nebo s hodnotou
+vyjadřující neexistenci (té se často říká <code>NULL</code>, <code>Nil</code>
+nebo <code>None</code>). Takže v boolovském kontextu bude například prázdný
+seznam nebo prázdný řetězec vyhodnocen jako <em>False</em>. Takovým způsobem
+se chová i Python. To znamená, že například můžeme využít cyklu
+<code>while</code> pro zpracování seznamu, které má skončit v okamžiku, kdy je
+seznam prázdný:</p>
+
+<pre>
+while seznam:
+    <span class="comment"># Proveď nějakou operaci, která vede ke zkrácení seznamu.</span>
+</pre>
+
+<p>V příkazu <code>if</code> můžeme tento obrat použít k testování prázdnosti
+seznamu, aniž bychom použili funkci <code>len()</code>:</p>
+
+<pre>
+if seznam:
+    <span class="comment"># něco zde udělej (seznam je prázdný)</span>
+</pre>
+
+<p>Boolovské výrazy můžeme kombinovat pomocí boolovských operátorů. Často tím
+můžeme zmenšit počet příkazů <code>if</code>. Uvažujme následující
+příklad:</p>
+
+<pre>
+if hodnota > maximum:
+    print "Hodnota je mimo rozsah!"
+else:
+    if hodnota &lt; minimum:
+        print "Hodnota je mimo rozsah!"
+</pre>
+
+<p>Povšimněte si, že blok prováděného kódu je v obou případech shodný.
+Zkombinováním obou testů do jednoho dosáhneme úspory práce jak pro počítač,
+tak pro nás:</p>
+
+<pre>
+if (hodnota > maximum) or (hodnota &lt; minimum):
+   print "Hodnota je mimo rozsah!"
+</pre>
+
+<p>Oba testy jsme spojili operátorem <code>or</code> <span
+class="trnote" title="Poznámka&nbsp;překladatele">(<em>nebo</em>, čili
+logickým součtem)</span>. Dostáváme jediný výraz. Python nejdříve vyhodnotí
+výraz uzavřený v první dvojici závorek, potom výraz v druhých závorkách a
+nakonec vypočtené hodnoty zpracuje do podoby jediné hodnoty &mdash;
+<code>True</code> nebo <code>False</code>.</p>
+
+<div class="trnote">
+<p class="trnote"><b>Poznámka překladatele:</b> Výše uvedený odstavec chápejte
+spíše z obecného pohledu. Python ve skutečnosti zpracovává boolovský výraz
+zleva doprava a skončí v okamžiku, kdy už následující části výrazu nemohou
+ovlivnit výsledek. Říká se tomu zkrácené vyhodnocování výrazu. Pokud v
+uvedeném příkladu získáváme vyhodnocením první závorky hodnotu
+<code>True</code>, pak při použití operátoru <code>or</code> nemá výsledek
+vyhodnocování druhé závorky na celkový výsledek vliv. Proto se vůbec
+neprovádí.</p>
+
+<p>Zkráceného vyhodnocování boolovských výrazů se většinou spíš výhodně
+využívá. Mohou však nastat případy, kdy díky tomuto jevu vzniká obtížněji
+odhalitelná chyba. Pokud bychom v místě druhé části výrazu volali funkci,
+která vrací boolovský výsledek, ale kromě toho má nějaký vedlejší efekt
+(například něco vypisuje), pak musíme myslet na to, že se také nemusí vůbec
+zavolat. Na dosažení zmíněného vedlejšího efektu proto nemůžeme při
+vyhodnocování výrazu spoléhat.</p>
+
+</div>
+
+<p>Pokud o prováděných testech uvažujeme v pojmech přirozeného jazyka, velmi
+často používáme spojky jako <em>a</em> (anglicky and), <em>nebo</em> (or),
+<em>negace</em> (ne, není, anglicky not). V takovém případě je velmi
+pravděpodobné, že se nám místo více jednoduchých testů podaří zapsat jeden
+složený.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Pokud uvažujeme v českém
+jazyce, pak vám doporučuji, abyste si operátor <code>and</code> překládali
+jako <em>a&nbsp;zároveň</em>. Pouhé <em>a</em> může vést k chybám, kdy tuto
+spojku můžeme chápat ve významu <em>nebo</em>. Překlad <em>a&nbsp;zároveň</em>
+zdůrazní význam operátoru <em>and</em> a pomůže nám snadněji vytvořit mentální
+obraz situace.</p>
+
+<h3>Zřetězení příkazů <code>if</code></h3>
+
+<p>Příkazy <code>if</code>/<code>then</code>/<code>else</code> můžeme do sebe
+<em>vnořovat</em>. V jazyce Python to můžeme vyjádřit následovně:</p>
+
+
+<pre>
+<span class="comment"># Předpokládáme, že cena byla předem stanovena...</span>
+cena = int(raw_input(u"Kolik to stojí? "))
+if cena == 100:
+    print u"Vezmu si to." 
+else:
+    if cena > 500:
+        print u"Tak to nechci ani náhodou!"
+    else:
+        if cena > 200:
+            print u"Co kdybyste přihodil zdarma podložku pod myš?"
+        else:
+            print u"Neočekávaná cena."
+</pre>
+
+<p class="note"><b>Poznámka 1:</b> V prvním příkazu <code>if</code> jsme pro
+<em>test na rovnost</em> použili operátor <code>==</code> (tj. zdvojený znak
+<code>=</code>). Jednoduchý znak <code>=</code> se používá pro přiřazování
+hodnot proměnným. Při programování v Pythonu <span class="trnote"
+title="Poznámka&nbsp;překladatele">(a také v C a v C++)</span> patří použití
+jednoduchého <code>=</code> v místě, kde bychom chtěli použít <code>==</code>
+k nejčastějším chybám. Python vás v takovém případě naštěstí varuje, že jste
+se dopustili syntaktické chyby. Někdy se ale musíte pořádně podívat, než si
+všimnete, o co vlastně jde.</p>
+
+<p class="note"><b>Poznámka 2:</b> Za povšimnutí stojí ještě jeden detail.
+Testy <em>větší&nbsp;než</em> provádíme od největší hodnoty k nejmenší.
+Kdybychom postupovali obráceně a začali bychom testem
+<code>cena&nbsp;>&nbsp;200</code>, pak bychom se nikdy nedostali k testu
+<code>cena&nbsp;>&nbsp;500</code>. Při používání po sobě jdoucích testů
+<em>menší&nbsp;než</em> musíme naopak začít testovat na nejmenší hodnotu a
+postupovat směrem k hodnotám vyšším. Jde o další past, do které se můžeme
+<span class="trnote" title="Poznámka&nbsp;překladatele">při troše
+nepozornosti</span> snadno chytit.</p>
+
+<h4>VBScript &amp; JavaScript</h4>
+
+<p>Příkazy <code>if</code> můžeme řetězit i v jazycích VBScript a JavaScript.
+Postup je zcela zřejmý. Proto si to ukážeme jen na příkladu v jazyce
+VBScript:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+DIM Cena
+cena = InputBox("Kolik to stojí?")
+cena = CInt(cena)
+If cena = 100 Then
+   MsgBox "Vezmu si to." 
+Else:
+    if cena > 500 Then
+        MsgBox "Tak to nechci ani náhodou!"
+    else:
+        if cena > 200 Then
+            MsgBox "Co kdybyste přihodil zdarma podložku pod myš?"
+        else:
+            MsgBox "Neočekávaná cena."
+	End If
+    End If
+End If
+&lt;/script>
+</pre>
+
+<p>Za zmínku zde stojí jedině to, že ke každému příkazu <code>if</code> musíme
+uvést odpovídající příklaz <code>End&nbsp;If</code>. Poznamenejme ještě, že
+pro převod řetězcové hodnoty na celočíselnou jsme použili funkci
+<code>CInt()</code>.</p>
+
+
+
+<h3>Příkazy typu <code>Case</code></h3>
+
+<p>S používáním zanořených příkazů <code>if</code>/<code>else</code> souvisí
+jedna potíž. Postupné odsazování způsobí, že se zdrojový text rychle roztáhne
+přes celou šířku stránky. Posloupnost zanořených
+<code>if/else/if/else&hellip;</code> však patří k tak běžným konstrukcím, že
+některé jazyky poskytují speciální způsob větvení.</p>
+
+<p>Zmíněné speciální konstrukce se často označují jako příkazy <em>case</em>
+nebo <em>switch</em>. V jazyce JavaScript vypadá příkaz <code>switch</code>
+následovně:</p>
+
+
+<pre>
+&lt;script type="text/javascript">
+function vypoctiPlochu() {
+   var tvar, sirka, delka, plocha;
+   tvar   = document.plocha.tvar.value;
+   sirka  = parseInt(document.plocha.sirka.value);
+   delka  = parseInt(document.plocha.delka.value);
+   <b>switch (tvar) {
+       case 'ctverec': 
+           plocha = delka * delka;
+           alert("Plocha tvaru " + tvar + " = " + plocha);
+           break;
+       case 'obdelnik': 
+           plocha = delka * sirka;
+           alert("Plocha tvaru " + tvar + " = " + plocha);
+           break;
+       case 'trojuhelnik':
+           plocha = delka * sirka / 2;
+           alert("Plocha tvaru " + tvar + " = " + plocha);
+           break;
+       default: alert("Neznámý tvar: " + tvar)
+       };
+    }</b>
+&lt;/script>
+
+&lt;form name="plocha">
+Délka:  &lt;input type="text" name="delka">
+Šířka:  &lt;input type="text" name="sirka">
+Tvar:   &lt;select name="tvar" size="1" onChange="vypoctiPlochu()">
+           &lt;option value="ctverec">čtverec
+           &lt;option value="obdelnik">obdélník
+           &lt;option value="trojuhelnik">trojúhelník
+        &lt;/select>
+&lt;/form>
+</pre>
+
+<p>Detaily jsou zachyceny v rámci HTML kódu formuláře. Jakmile si uživatel
+vybere tvar, zavolá se naše funkce. Na prvních řádcích se vytvářejí lokální
+proměnné a podle potřeby se řetězce převádějí na čísla. Zajímá nás úsek, který
+je vyznačen tučně. Podle vybraného tvaru se v něm vybírá příslušná akce.
+Povšimněte si kulatých závorek kolem identifikátoru <code>tvar</code> <span
+class="trnote" title="Poznámka&nbsp;překladatele">za klíčovým slovem
+<code>switch</code></span>. Jsou povinné &mdash; musí být uvedeny. Mohlí byste
+předpokládat, že bloky kódu uvnitř <code>case</code> by měly být uzavřeny do
+složených závorek, ale není tomu tak. Místo toho jsou ukončovány příkazem
+<code>break</code>. Nicméně celá sada příkazů <code>case</code>, která
+odpovídá části <code>switch</code>, již je svázána do podoby bloku jedním
+párem složených závorek.</p>
+
+<p>Povšimněte si, že poslední podmínka v příkladu má podobu
+<code>default</code>. V této části se zachytí všechny případy, které se
+nezachytily v předchozích částech <code>case</code>.</p>
+
+<p>Vyzkoušejte si, zda byste uměli výše uvedený příklad rozšířit tak, aby 
+pracoval i s kruhem. Do HTML formuláře nezapomeňte přidat novou volbu a do
+příkazu <code>switch</code> přidejte další variantu <code>case</code>.
+</p>
+
+<h4>Příkaz <code>Select Case</code> v jazyce VBScript</h4>
+
+<p>Verzi příkazu <span class="trnote" title="Poznámka&nbsp;překladatele">pro 
+výběr jedné z několika variant</span> nalezneme i v jazyce VBScript:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+Dim tvar, delka, sirka, CTVEREC, OBDELNIK, TROJUHELNIK
+CTVEREC = 0
+OBDELNIK = 1
+TROJUHELNIK = 2
+tvar  = CInt(InputBox("Čtverec(0), obdélník(1) nebo trojúhelník(2)?"))
+delka = CDbl(InputBox("Délka?"))
+sirka  = CDbl(InputBox("Šířka?"))<b>
+Select Case tvar 
+  Case CTVEREC
+    plocha = delka * delka
+    MsgBox "Plocha = "  &amp; plocha 
+  Case OBDELNIK
+    plocha = delka * sirka
+    MsgBox "Plocha = " &amp; plocha
+  Case TROJUHELNIK
+    plocha = delka * sirka / 2
+    MsgBox "Plocha = " &amp; plocha
+  Case Else 
+    MsgBox "Neznámý tvar"
+End Select</b>
+&lt;/script>
+</pre>
+
+<p>Na několika prvních řádcích se od uživatele získávají data a převádějí se
+na správný typ &mdash; stejně, jako tomu bylo u příkladu v jazyce JavaScript.
+Tučně vyznačená část <code>Select</code> znázorňuje konstrukci typu case, jak
+se používá v jazyce VBScript. Zasebou uvedené příkazy <code>Case</code> vždy
+ukončují blok předchozího. Celou konstrukci <code>Select</code> uzavírá příkaz
+<code>End&nbsp;Select</code>. Nalezneme zde také část
+<code>Case&nbsp;Else</code>, ve které se (jako v části <code>default</code>
+jazyka JavaScript) zachytí vše, co nebylo zpracováno dříve uvedenými částmi
+<code>Case</code>.</p>
+
+<p>Za zmínku stojí ještě použití <em>symbolických konstant</em> místo čísel.
+Proměnné zapsané velkými písmeny <code>CTVEREC</code>, <code>OBDELNIK</code> a
+<code>TROJUHELNIK</code> jsou zde jen kvůli tomu, aby se zdrojový text
+snadněji četl. Použití proměnných zapsaných velkými písmeny je předepsáno
+pouze konvencí. Dáváme tím najevo, že bychom je neměli chápat jako běžné
+proměnné, ale jako proměnné udržující konstantní hodnoty. Jazyk VBScript vám
+ale dovolí pojmenovat si proměnné podle své libosti.</p>
+
+<h4><code>case</code> v jazyce Python</h4>
+
+<p>Python explicitní konstrukci typu <em>case</em> nepodporuje. Místo toho
+nabízí kompromis v podobě <code>if/elif/else</code>:</p>
+
+<pre>
+menu = """
+Vyberte si tvar (1-3):
+   1) Ctverec
+   2) Obdelnik
+   3) Trojuhelnik
+"""   
+tvar = int(raw_input(menu))<b>
+if tvar == 1:
+    strana = float(raw_input("Strana: "))
+    print "Plocha ctverce = ", strana ** 2
+elif tvar == 2:
+    delka = float(raw_input("Delka: "))
+    sirka = float(raw_input("Sirka: "))
+    print "Plocha obdelniku = ", delka * sirka   
+elif tvar == 3:
+    zakladna = float(raw_input("Zakladna: "))
+    vyska =    float(raw_input("   Vyska: "))
+    print "Plocha trojuhelniku = ", zakladna * vyska / 2   
+else: 
+    print "Neplatny tvar. Zkute to znovu"</b>
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Abychom se zatím vyhnuli
+problémům s českými znaky, použili jsme texty bez diakritických znamének.
+Způsob řešení, kdy používáme i české znaky s diakritikou, můžete nalézt v
+dalších kapitolách.</p>
+
+<p>Povšimněte si použití <code>elif</code> a skutečnosti, že se (v porovnání s
+příkladem se zanořenými <code>if</code>) nemění odsazení, které je v Pythonu
+tak důležité. Za zmínku stojí i to, že <em>oba</em> zápisy &mdash; jak
+poslední zápis, tak dříve uvedený zápis využívající vnořených konstrukcí
+<code>if/else</code> &mdash; jsou funkčně shodné. Zápis využívající
+<code>elif</code> zvyšuje čitelnost v případech, kdy použijeme větší množství
+testů. V koncové větvi <code>else</code> se zachytí všechny případy, které
+nebyly zachyceny v předchozích testech. Odpovídá to použití
+<code>default</code> v JavaScript nebo <code>Case&nbsp;Else</code> v jazyce
+VBScript.</p>
+
+<p>O něco těžkopádnější podobu stejné konstrukce naleznete i v jazyce
+VBScript. Konstrukce <code>ElseIf...Then</code> se používá naprosto stejným
+způsobem, jako <code>elif</code> v jazyce Python. Ale setkáte se s ní zřídka,
+protože použití <span class="trnote" title="Poznámka&nbsp;překladatele"
+>alternativního</span> příkazu <code>Select&nbsp;Case</code> je
+jednodušší.</p>
+
+<h3>Teď to dáme všechno dohromady</h3>
+
+<p>Až dosud byly mnohé z našich příkladů velmi abstraktní. Na závěr se
+podívejme na příklad, který používá téměř vše, co jsme se zatím naučili.
+Uvedeme si běžnou programovací techniku, konkrétně zobrazení menu pro řízení
+uživatelského vstupu.</p>
+
+<p>Zde máme kód, za kterým následuje krátká diskuse. </p>
+
+<pre>
+menu = """
+Vyberte si tvar (1-3):
+   1) Ctverec
+   2) Obdelnik
+   3) Trojuhelnik
+   
+   <b>4) Konec</b>
+"""   
+tvar = int(raw_input(menu))<b>
+while tvar != 4:</b>
+    if tvar == 1:
+        strana = float(raw_input("Strana: "))
+        print "Plocha ctverce = ", strana ** 2
+    elif tvar == 2:
+        delka = float(raw_input("Delka: "))
+        sirka = float(raw_input("Sirka: "))
+        print "Plocha obdelniku = ", delka * sirka   
+    elif tvar == 3:
+        zakladna = float(raw_input("Zakladna: "))
+        vyska =    float(raw_input("   Vyska: "))
+        print "Plocha trojuhelniku = ", zakladna * vyska / 2   
+    else: 
+        print "Neplatny tvar. Zkute to znovu"<b>    
+    tvar = int(raw_input(menu))</b>
+</pre>
+
+
+<p>K předchozímu příkladu jsme přidali pouhé tři řádky (označeny tučně), ale
+tato jednoduchá úprava výrazně zvýšila použitelnost našeho programu. Doplněním
+volby <code>Konec</code> a přidáním cyklu jsme uživateli umožnili pokračovat
+ve výpočtech ploch různých tvarů až do doby, kdy získá všechny potřebné
+informace. Program již nemusí pokaždé ručně znovu a znovu spouštět. Kromě již
+zmíněných řádků jsme přidali pouze jeden řádek
+s&nbsp;<code>raw_input(menu)</code>, který slouží k opakovanému výběru tvaru.
+To znamená že uživatel může volit různé tvary a na závěr také činnost programu
+ukončit.</p>
+
+<p>Program tedy uživateli vytváří iluzi, že ví, co uživatel potřebuje. Na
+základě jeho volby se chová různým způsobem a správně provede odpovídající
+činnost. Uživateli se v podstatě zdá, že postup řídí, zatímco ve skutečnosti
+má řízení v rukou programátor, který předvídal, jak mají vypadat všechny
+platné vstupy a jak má na ně program reagovat. Projevovaná inteligence tedy
+patří programátorovi, nikoliv stroji. Počítače jsou ve své podstatě
+hloupé!</p>
+
+<p>Povšimněte si jak snadno můžeme svůj program zdokonalit přidání pouhých pár
+řádků a zkombinováním posloupností (bloků pro výpočet plochy), cyklů (zde
+cyklus <code>while</code>) a podmíněných příkazů (konstrukce
+<code>if</code>/<code>elif</code>/<code>else</code>). Jde o tři z&nbsp;<a
+href="cztutwhat.html#Dijkstra">Dijkstrových základních programátorských
+stavebních kamenů</a>. Pokud zvládnete všechny tři, můžete teoreticky
+naprogramovat cokoliv. Ale můžeme se naučit ještě několik technik, které nám
+programování dále usnadní. Takže zatím mějte ještě trochu strpení.</p>
+
+
+<h3>Změny v kolekci během provádění cyklu</h3>
+
+<p id="loopDelProblem">Když jsme se bavili o cyklech, zmínili jsme se o tom,
+že <a href="cztutloops.html#loopDelProblem">úprava kolekce během průchodu
+cyklem</a>, <span class="trnote" title="Poznámka&nbsp;překladatele">konkrétné
+rušení prvků v procházené kolekci</span>, nemusí být zcela jednoduché. Ale
+nevysvětlili jsme proč! Důvodem pro tento odklad byla skutečnost, že jsme
+museli nejdříve vysvětlit pojem <em>větvení</em>. Vraťme se tedy k řešení
+problému.</p>
+
+<p>Pokud potřebujeme měnit obsah kolekce během jejího zpracování (bez
+kopírování do jiné kolekce), můžeme k&nbsp;tomu využít vlastností cyklu
+<code>while</code>. Při použití konstrukce <code>while</code> totiž přímo
+pracujeme s obsahem indexové proměnné. Srovnejte to se situací, kdy se použije
+cyklus <code>for</code>, který indexovou proměnnou upravuje automaticky.
+Podívejme se, jak můžeme ze seznamu vypustit všechny prvky s nulovou
+hodnotou:</p>
+
+<pre>
+seznam = [1, 2, 3, 0, 4, 5, 0]
+index = 0
+while index &lt; len(seznam):
+    if seznam[index] == 0:
+        del seznam[index]
+    else: 
+        index += 1
+print seznam
+</pre>
+
+<p>Povšimněte si, že v případě odstraňování prvku <em>neprovádíme zvyšování
+indexu</em>. Spoléháme na to, že se při smazání položky vše posune, takže
+původní hodnota indexu bude poté ukazovat na další prvek kolekce. Zvyšování
+indexu se tedy provádí jen v jedné větvi konstrukce <code>if/else</code>. Při
+podobných obratech se můžeme velice snadno dopustit chyby, proto vždy
+funkčnost pečlivě otestujte.</p>
+
+<p>V Pythonu můžeme používat jistou sadu funkcí, které byly přímo navrženy
+pro manipulaci s obsahy senamů. Seznámíme se s nimi v rámci tématu <a
+href="cztutfctnl.html">Funkcionální programování</a>, tedy v části pro
+pokročilé.</p>
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+<li>Pro větvení používáme <code>if/else</code>.</li>
+<li>Část <code>else</code> je nepovinná.</li>
+<li>K rozhodnutí podle více z možných hodnot lze využít konstrukci typu
+    <code>Case</code> nebo konstrukci <code>if/elif</code>.</li>
+<li>Boolovské výrazy vracejí hodnoty <code>True</code> nebo
+    <code>False</code>.</li>
+<li>Kombinování menu s konstrukcemi <code>Case</code> nám umožňuje vytvářet
+    širokou škálu aplikací řízených uživatelem.</li>    
+</ul>
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutinput.html" title="Konverzace s uživatelem">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutfunc.html" title="Moduly a funkce">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutbranch.html,v 1.12 2005/10/20 20:52:03 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutbranch.html,v 1.12 2005/10/20 20:52:03 petr Exp $</p>
+</div>
+</body>
+</html>
+

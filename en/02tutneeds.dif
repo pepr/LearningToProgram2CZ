@@ -1,0 +1,14 @@
+Index: tutneeds.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutneeds.htm,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -r1.3 -r1.4
+20c20
+< course other than an internet enabled computer - which I assume
+---
+> course other than an Internet enabled computer - which I assume
+58c58
+< your sys admin!! It also comes prebuilt (and preinstalled) in 
+---
+> your sys admin!! It also comes pre-built (and pre-installed) in 

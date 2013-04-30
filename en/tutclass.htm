@@ -1,0 +1,1277 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>Classes</TITLE>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+<CENTER>
+<H2>Object Oriented Programming</H2>
+<P>
+<TABLE>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD>
+<UL>
+<LI>What is an object?
+<LI>What is a Class?
+<LI>What are polymorphism and inheritance?
+<LI>Creating, Storing and using objects
+</UL>
+</TR></TD></TABLE>
+</CENTER>
+
+<H3>What is Object Oriented Programming?</H3>
+
+<P>Now we move onto what might have been termed an advanced
+topic up until about 10 years ago. Nowadays '<I>Object Oriented
+Programming</I> has become the norm. Languages like Java and
+Python embody the concept so much that you can do very little
+without coming across objects somewhere. So what's it all about?
+
+<P>The best introductions are, in my opinion:
+<UL>
+<LI><I>Object Oriented Analysis</I> by Peter Coad & Ed Yourdon.
+<LI><I>Object Oriented Analysis and Design with Applications</I>
+by Grady Booch (the 1st edition if you can find it)
+<LI><I>Object Oriented Software Construction</I> by Bertrand
+Meyer (definitely the 2nd edition of this one)
+</UL>
+
+<P>These increase in depth, size and academic exactitude as you go
+down the list. For most non professional programmers' purposes 
+the first is adequate. For a more programming focused intro try
+<I>Object Oriented Programming</I> by Timothy Budd(2nd edition).
+This uses several languages to illustrate object oriented programming 
+techniques. It is much more strongly oriented towards writing 
+programs than any of the other books which cover the whole 
+gamut of theory and principle behind object orientation, at 
+the design level as well as at the code level.
+
+Finally for a whole heap of info on all topics OO try the Web
+link site at:
+<A Href="http://www.cetus-links.org">http://www.cetus-links.org</A>
+
+<P>Assuming you don't have the time nor inclination to research
+all these books and links right now, I'll give you a brief
+overview of the concept. (<B>Note:</B>Some people find OO hard to grasp
+others 'get it' right away. Don't worry if you come under the
+former category, you can still use objects even without really
+'seeing the light'.)
+
+<P>One final point: it is possible to implement an Object 
+Oriented design in a non OO language through coding conventions, 
+but it's usually an option of last resort rather than a 
+recommended strategy. If your problem fits well with OO 
+techniques then it's best to use an OO language. Most modern 
+languages, including Python, VBScript and JavaScript support 
+OOP quite well. That having been said I will be using Python 
+throughout all the examples and only showing the basic 
+concepts in VBScript and JavaScript with little additional 
+explanation.
+
+<H3>Data and Function - together</H3>
+
+<P>Objects are collections of data and functions that operate on
+that data. These are bound together so that you can pass an
+object from one part of your program and they automatically get
+access to not only the data <I>attributes</I> but the
+<I>operations</I> that are available too. This combining of data 
+and function is the very essence of Object Oriented Programming 
+and is known as <I>encapsulation</I>. (Some programming languages
+make the data invisible to users of the object and thus require 
+that the data be accessed via the object's methods. This technique 
+is properly known as <I>data hiding</I>, however in some texts 
+data hiding and encapsulation are used interchangeably.)
+
+<P>As an example of encapsulation, a string object would store 
+the character string but also provide <I>methods</I> to operate 
+on that string - search, change case, calculate length etc. 
+
+<P>Objects use a <I>message passing</I> metaphor whereby one
+object passes a message to another object and the receiving
+object responds by executing one of its operations, a <i>method</i>.  
+So a method is <I> invoked</I> on receipt of the corresponding
+message by the owning object. There are various notations used
+to represent this but the most common mimics the access to
+items in modules - a dot. Thus, for a fictitious widget
+class:
+<PRE>
+w = Widget() <SPAN CLASS="comment"># create new instance, w, of widget</SPAN>
+w.paint() <SPAN CLASS="comment"> # send the message 'paint' to it</SPAN>
+</PRE>
+
+<P>This would cause the paint method of the widget object to be
+invoked.
+
+<H3>Defining Classes</H3>
+
+<P>Just as data has various types so objects can have different
+types. These collections of objects with identical
+characteristics are collectively known as a <I> class</I>. We can
+define classes and create <I> instances</I> of them, which 
+are the actual objects. We can store references to
+these objects in variables in our programs.
+
+<P>Let's look at a concrete example to see if we can explain it
+better. We will create a message class that contains a string -
+the message text - and a method to print the message.
+<PRE>
+class Message:
+    def __inti__(self, aString):
+        self.text = aString
+    def printIt(self):
+        print self.text
+</PRE>
+
+<P><B>Note 1:</B>One of the methods of this class is called
+<TT> __init__ </TT> and it is a special method called a
+<I>constructor</I>. The reason for the name is that it is called
+when a new object instance is created or constructed. Any
+variables assigned (and hence created in Python) inside this
+method will be unique to the new instance. There are a number of
+special methods like this in Python, nearly all distinguished
+by the <TT> __xxx__ </TT> naming format.
+
+<P><B>Note 2:</B>Both the methods defined have a first parameter
+<TT>self</TT>. The name is a convention but it indicates the
+object instance. As we will soon see this parameter is filled in by
+the interpreter at run-time, not by the programmer. Thus 
+<tt>printIt</tt> is called, on an instance of the class 
+(see below), with no arguments: <TT> m.printIt()</TT>.
+
+<P><B>Note 3:</B>We called the class <TT> Message</TT> with a
+capital 'M'. This is purely convention, but it is fairly widely
+used, not just in Python but in other OO languages too. A related
+convention says that method names should begin with a lowercase
+letter and subsequent words in the name begin with uppercase
+letters. Thus a method called "calculate current balance" would
+be written: <TT> calculateCurrentBalance</TT>.
+
+<P>You may want to briefly revisit the 
+<a href="tutdata.htm#class">'Raw Materials'</a>
+section and look again at 'user defined types'. The Python address 
+example should be a little clearer now. Essentially the only 
+kind of used defined type in Python is a class. A class with 
+attributes but no methods (except <TT> __init__ </TT> is 
+effectively equivalent to a construct called a <TT>record</TT> 
+or <TT>struct</TT> in some programming languages..
+
+<H3>Using Classes</H3>
+
+<P>Having defined a class we can now create instances of our
+Message class and manipulate them:
+
+<PRE>
+m1 = Message("Hello world")
+m2 = Message("So long, it was short but sweet")
+
+note = [m1, m2] <SPAN CLASS="comment"># put the objects in a list</SPAN>
+for msg in note:
+    msg.printIt() <SPAN CLASS="comment"># print each message in turn</SPAN>
+</PRE>
+
+<P>So in essence you just treat the class as if it was a
+standard Python data type, which was after all the purpose of the
+excercise!
+
+<H4>What is "self"?</H4>
+
+<P>No, it's not a philosophical debate, it's one of the questions 
+most often asked by new Python OOP programmers. Every method 
+definition in a class in Python starts with a parameter called 
+<i>self</i>. Actually the actual name <tt>self</tt> is just a 
+convention, but like many programming conventions consistency 
+is good so let's stick with it! (As you'll see later JavaScript 
+has a similar concept but uses the name <tt>this</tt> instead.)
+
+<P>So what is <tt>self</TT> all about? Why do we need it?
+
+<P>Basically self is just a reference to the current instance.
+When you create an instance of the class the instance has a 
+copy of the data but not of the methods. Thus when we send a message 
+to an instance and it calls the corresponding method, it does 
+so via an internal reference to the class. It passes a reference 
+to itself (self!) to the method so that the class code knows 
+which instance to use. 
+<P>Lets look at a relatively familiar example.
+Consider a GUI application which has lots of Button objects.
+When a user presses a button the method associated with a 
+button press is activated - but how does the Button method 
+know which of the buttons has been pressed? The answer 
+is by referring to the self value which will be a reference 
+to the actual button instance that was pressed. We'll see 
+this in practice when we get to the GUI topic a little later.
+
+<P>So what happens when a message is sent to an object? 
+It works like this:<UL> 
+<LI>the client code calls the instance (sending the message in OOP speak).
+<LI>The instance calls the class method, passing a reference to itself (self).
+<LI>The class method then uses the passed reference to pick up the instance 
+data for the receiving object.
+</UL>
+
+<P>You can see this in action in this code sequence, notice 
+that we can explicitly call the class method, as we do in the 
+last line:
+
+<PRE>
+>>> class C:
+...   def __int__(self, val): self.val = val
+...   def f(self): print "hello, my value is:", self.val
+...
+>>> <SPAN class="comment"># create two instances</SPAN>
+>>> a = C(27)
+>>> b = C(42)
+>>> <SPAN class="comment"># first try sending messages to the instances</SPAN>
+>>> a.f()
+hello, my value is 27
+>>> b.f()
+hello, my value is 42
+>>> <SPAN class="comment"># now call the method explicitly via the class</SPAN>
+>>> C.f(a)
+hello, my value is 27
+</PRE>
+
+<P>So you see we can call the methods via the instance, 
+in which case Python fills in the self parameter for us, 
+or explicitly via the class, in which case we need to 
+pass the self value explicitly.
+
+<P>Now you might be wondering why, if Python can provide the 
+invisible reference between the instance and its class can't 
+Python also magically fill in the self by itself? The answer 
+is that Guido van Rossum designed it this way! Many OOP 
+languages do indeed hide the self parameter, but one of the 
+<A href="http://www.python.org/dev/culture.html">guiding principles</A> 
+of Python is that "explicit is better than implicit". You soon get used 
+to it and after a while not doing it seems strange.
+
+
+<H3>Same thing, Different thing</H3>
+
+<P>What we have so far is the ability to define our own types
+(classes) and create instances of these and assign them to
+variables. We can then pass messages to these objects which
+trigger the methods we have defined. But there's one last
+element to this OO stuff, and in many ways it's the most
+important aspect of all.
+
+<P>If we have two objects of different classes but which support
+the same set of messages but with their own corresponding
+methods then we can collect these objects together and treat
+them identically in our program but the objects will behave
+differently. This ability to behave differently to the same
+input messages is known as <I>polymorphism</I>.
+
+<P>Typically this could be used to get a number of different
+graphics objects to draw themselves on receipt of a 'paint'
+message. A circle draws a very different shape from a triangle
+but provided they both have a paint method we, as programmers,
+can ignore the difference and just think of them as 'shapes'.
+
+<P>Let's look at an example, where instead of drawing shapes we
+calculate their areas:
+
+<P>First we create Square and Circle classes:
+<PRE>
+class Square:
+    def __init__(self, side):
+        self.side = side
+    def calculateArea(self):
+        return self.side**2
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    def calculateArea(self):
+        import math
+        return math.pi*(self.radius**2)
+</PRE>
+
+<P>Now we can create a list of shapes (either circles or squares)
+and then print out their areas:
+
+<PRE>
+list = [Circle(5),Circle(7),Square(9),Circle(3),Square(12)]
+
+for shape in list:
+    print "The area is: ", shape.calculateArea()
+</PRE>
+
+<P>Now if we combine these ideas with modules we get a very
+powerful mechanism for reusing code. Put the class definitions in
+a module - say 'shapes.py' and then simply import that module
+when we want to manipulate shapes. This is exactly what has been
+done with many of the standard Python modules, which is why
+accessing methods of an object looks a lot like using functions
+in a module. 
+
+<H3>Inheritance</H3>
+
+<P>Inheritance is often used as a mechanism to implement
+polymorphism. Indeed in many OO languages it is the only way to
+implement polymorphism. It works as follows:
+
+<P>A class can <I>inherit</I> both attributes and operations
+from a <I>parent</I> or <I>super</I> class. This means that a
+new class which is identical to another class in most respects
+does not need to re-implement all the methods of the existing
+class, rather it can inherit those capabilities and then
+<I> override</I> those that it wants to do differently (like the
+paint method in the case above)
+
+<P>Again an example might illustrate this best. We will use a
+<I> class hierarchy</I> of bank accounts where we can deposit
+cash, obtain the balance and make a withdrawal. Some of the
+accounts provide interest (which, for our purposes, we'll assume
+is calculated on every deposit - an interesting innovation to the
+banking world!) and others charge fees for withdrawals. 
+
+<H4>The BankAccount class</H4>
+
+<P>Let's see how that might look. First let's consider the
+attributes and operations of a bank account at the most
+general (or <I>abstract</I>) level. 
+
+<P>Its usually best to consider the operations first then
+provide attributes as needed to support these operations.
+So for a bank account we can:
+<LI><I>Deposit</I> cash,
+<LI><I>Withdraw</I> cash,
+<LI><I>Check current balance</I> and
+<LI><I>Transfer</I> funds to another account.
+
+<P>To support these operations we will need a bank account ID(for
+the transfer operation) and the current balance. 
+
+<P>We can create a class to support that:
+<PRE>
+class BalanceError(Exception):
+      value = "Sorry you only have $%6.2f in your account"
+
+class BankAccount:
+    def __init__(self, initialAmount):
+       self.balance = initialAmount
+       print "Account created with balance %5.2f" % self.balance
+
+    def deposit(self, amount):
+       self.balance = self.balance + amount
+
+    def withdraw(self, amount):
+       if self.balance >= amount:
+          self.balance = self.balance - amount
+       else:
+          BalanceError.value = BalanceError.value % self.balance
+          raise BalanceError
+
+    def checkBalance(self):
+       return self.balance
+       
+    def transfer(self, amount, account):
+       try: 
+          self.withdraw(amount)
+          account.deposit(amount)
+       except BalanceError:
+          print BalanceError.value
+</PRE>
+
+<P><B>Note 1:</B> We check the balance before withdrawing and 
+also the use of exceptions to handle errors. Of course there is 
+no error type <TT>BalanceError</TT> so we needed to create one 
+- it's simply an instance of the <TT>Exception</TT> class with 
+a string value. When we <TT>raise</TT> it we pass the original 
+argument augmented by the current balance. Notice that we didn't 
+use <TT>self</TT> when defining the value, that's because 
+<TT>value</TT> is a shared attribute across all instances, 
+it is defined at the class level and known as a <I>class variable</I>. 
+We access it by using the class name followed by a dot: 
+<TT>BalanceError.value</TT> as seen above.
+
+<P><B>Note 2:</B> The <TT>transfer</TT> method uses the
+<TT>BankAccount</TT>'s <TT> withdraw/deposit</TT> <I>member
+functions</I> or methods to do the transfer. This is very common
+in OO and is known as <I> self messaging</I>. It means that
+<I>derived classes</I> can implement their own versions of
+<TT>deposit/withdraw</TT> but the <TT>transfer</TT> method can
+remain the same for all account types. 
+
+<H4>The InterestAccount class</H4>
+
+<P>Now we use inheritance to provide an account that adds
+interest (we'll assume 3%) on every deposit. It will be
+identical to the standard BankAccount class except for the
+deposit method. So we simply override that:
+
+<PRE>
+class InterestAccount(BankAccount):
+   def deposit(self, amount):
+       BankAccount.deposit(self,amount)
+       self.balance = self.balance * 1.03
+       
+</PRE>
+
+<P>And that's it. We begin to see the power of OOP, all the other
+methods have been inherited from BankAccount (by putting
+<TT>BankAccount</TT> inside the parentheses after the new class
+name). Notice also that deposit called the <I>superclass</I>'s
+deposit method rather than copying the code. Now if we modify
+the BankAccount deposit to include some kind of error checking
+the <I>sub-class</I> will gain those changes automatically. 
+
+<H4>The ChargingAccount class</H4>
+
+<P>This account is again identical to a standard BankAccount
+class except that this time it charges $3 for every withdrawal.
+As for the InterestAccount we can create a class inheriting from
+BankAccount and modifying the withdraw method.
+
+<PRE>
+class ChargingAccount(BankAccount):
+    def __init__(self, initialAmount):
+        BankAccount.__init__(self, initialAmount)
+        self.fee = 3
+        
+    def withdraw(self, amount):
+        BankAccount.withdraw(self, amount+self.fee)
+</PRE>
+
+<P><B>Note 1:</B> We store the fee as an <I>instance
+variable</I> so that we can change it later if necessary. Notice
+that we can call the inherited <TT> __init__ </TT> just like any
+other method.
+
+<P><B>Note 2:</B> We simply add the fee to the requested
+withdrawal and call the BankAccount withdraw method to do the
+real work.
+
+<P><B>Note 3:</B> We introduce a side effect here in that a
+charge is automatically levied on transfers too, but that's
+probably what we want, so is OK.
+
+<H4>Testing our system</H4>
+
+<P>To check that it all works try executing the following piece
+of code (either at the Python prompt or by creating a separate
+test file).
+
+<PRE>
+from bankaccount import *
+<SPAN CLASS="comment">
+# First a standard BankAccount</SPAN>
+a = BankAccount(500)
+b = BankAccount(200)
+a.withdraw(100)
+# a.withdraw(1000)
+a.transfer(100,b)
+print "A = ", a.checkBalance()
+print "B = ", b.checkBalance()
+
+<SPAN CLASS="comment">
+# Now an InterestAccount</SPAN>
+c = InterestAccount(1000)
+c.deposit(100)
+print "C = ", c.checkBalance()
+
+<SPAN CLASS="comment">
+# Then a ChargingAccount</SPAN>
+d = ChargingAccount(300)
+d.deposit(200)
+print "D = ", d.checkBalance()
+d.withdraw(50)
+print "D = ", d.checkBalance()
+d.transfer(100,a)
+print "A = ", a.checkBalance()
+print "D = ", d.checkBalance()
+
+<SPAN CLASS="comment">
+# Finally transfer from charging account to the interest one
+# The charging one should charge and the interest one add
+# interest</SPAN>
+print "C = ", c.checkBalance()
+print "D = ", d.checkBalance()
+d.transfer(20,c)
+print "C = ", c.checkBalance()
+print "D = ", d.checkBalance()
+</PRE>
+
+<P>Now uncomment the line <TT>a.withdraw(1000)</TT> to see the
+exception at work.
+
+<P>That's it. A reasonably straightforward example but it shows
+how inheritance can be used to quickly extend a basic framework
+with powerful new features.
+
+<P>We've seen how we can build up the example in stages and how
+we can put together a test program to check it works. Our tests
+were not complete in that we didn't cover every case and there
+are more checks we could have included - like what to do if an
+account is created with a negative amount...
+
+<H3>Collections of Objects</H3>
+
+<P>One problem that might have occurred to you is how we deal
+with lots of objects. Or how to manage objects which we create
+at runtime. Its all very well creating Bank Accounts statically
+as we did above:
+
+<PRE>
+acc1 = BankAccount(...)
+acc2 = BankAccount(...)
+acc3 = BankAccount(...)
+etc...
+</PRE>
+
+<P>But in the real world we don't know in advance how many accounts
+we need to create. How do we deal with this? Lets consider the
+problem in more detail:
+
+<P>We need some kind of 'database' that allows us to find a 
+given bank account by its owners name (or more likely their bank 
+account number - since one person can have many accounts and 
+several persons can have the same name...)
+
+<P>Finding something in a collection given a unique key....hmmm, 
+sounds like a dictionary! Lets see how we'd use a Python
+dictionary to hold dynamically created objects:
+
+<PRE>
+from bankaccount import *
+import time
+
+<SPAN CLASS="comment"># Create new function to generate unique id numbers</SPAN>
+def getNextID():
+    ok = raw_input("Create account[y/n]? ")
+    if ok[0] in 'yY':  <SPAN CLASS="comment"># check valid input</SPAN>
+       id = time.time() <SPAN CLASS="comment"># use current time as basis of ID</SPAN>
+       id = int(id) % 10000 <SPAN CLASS="comment"># convert to int and shorten to 4 digits</SPAN>
+    else: id = -1  <SPAN CLASS="comment"># which will stop the loop</SPAN>
+    return id
+    
+<SPAN CLASS="comment"># Let's create some accounts and store them in a dictionary</SPAN>
+accountData = {}  <SPAN CLASS="comment"># new dictionary</SPAN>
+while 1:          <SPAN CLASS="Comment"># loop forever</SPAN>
+   id = getNextID()
+   if id == -1: 
+      break       <SPAN CLASS="comment"># break forces an exit from the while loop</SPAN>
+   bal = float(raw_input("Opening Balance? "))  <SPAN CLASS="comment"># convert string to float</SPAN>  
+   accountData[id] = BankAccount(bal) <SPAN CLASS="comment"># use id to create new dictionary entry</SPAN>
+   print "New account created, Number: %04d, Balance %0.2f" % (id,bal)
+
+<SPAN CLASS="comment"># Now lets access the accounts</SPAN>
+for id in accountData.keys():
+    print "%04d\t%0.2f" % (id,accountData[id].checkBalance())
+
+<SPAN CLASS="comment"># and find a particular one</SPAN>
+<SPAN CLASS="comment"># Enter non number to force exception and end program</SPAN>
+while 1:
+   id = int(raw_input("Which account number? "))
+   if id in accountData.keys():
+      print "Balance = %0.2d" % accountData[id].checkBalance()
+   else: print "Invalid ID"
+</PRE>
+
+<P>Of course the key you use for the dictionary can be anything
+that uniquely identifies the object, it could be one of its
+attributes, like name say. Anything at all that is unique. You
+might find it worthwhile going back to the 
+<A href=tutdata.htm>raw materials</A> chapter
+and reading the dictionary section again, they really are very
+useful containers.
+
+<H3>Saving Your Objects</H3>
+
+<P>One snag with all of this is that you lose your data when the
+program ends. You need some way of saving objects too. As you get
+more advanced you will learn how to use databases to do that but
+we will look at using a simple text file to save and retrieve
+objects. (If you are using Python there are a couple of modules
+called Pickle and Shelve) that do this much more effectively but
+as usual I'll try to show you the generic way to do it that will
+work in any language. Incidentally the technical term for the
+ability to save and restore objects is <I>Persistence</I>.
+
+<P> The generic way is do this is to create <TT>save</TT> and
+<TT>restore</TT> methods at the highest level object and override
+in each class, such that they call the inherited version and 
+then add their locally defined attributes:</P>
+
+<PRE>
+class A:
+   def __init__(self,x,y):
+     self.x = x
+     self.y = y
+
+   def save(self,fn):
+     f = open(fn,"w")
+     f.write(str(self.x)+ '\n') <SPAN CLASS=comment># convert to a string and add newline</SPAN>
+     f.write(str(self.y)+'\n')
+     return f             <SPAN CLASS=comment># for child objects to use</SPAN>
+
+   def restore(self, fn):
+     f = open(fn)
+     self.x = int(f.readline()) <SPAN CLASS=comment># convert back to original type</SPAN>
+     self.y = int(f.readline())
+     return f
+     
+class B(A):
+   def __init__(self,x,y,z):
+     A.__init__(self,x,y)
+     self.z = z
+   
+   def save(self,fn):
+     f = A.save(self,fn)  <SPAN CLASS=comment># call parent save</SPAN>
+     f.write(str(self.z)+'\n')
+     return f         <SPAN CLASS=comment># in case further children exist</SPAN>
+   
+   def restore(self, fn):
+     f = A.restore(self,fn)
+     self.z = int(f.readline())
+     return f
+
+<SPAN CLASS=comment># create instances</SPAN>
+a = A(1,2)
+b = B(3,4,5)
+
+<SPAN CLASS=comment># save the instances</SPAN>
+a.save('a.txt').close() <SPAN CLASS=comment># remember to close the file</SPAN>
+b.save('b.txt').close()
+
+<SPAN CLASS=comment># retrieve instances</SPAN>
+newA = A(5,6)
+newA.restore('a.txt').close() <SPAN CLASS=comment># remember to close the file</SPAN>
+newB = B(7,8,9)
+newB.restore('b.txt').close()
+print "A: ",newA.x,newA.y
+print "B: ",newB.x,newB.y,newB.z
+</PRE>
+
+<P><B>Note:</B> The values printed out are the restored values not 
+the ones we used to create the instances.
+
+<P>The key thing is to override the save/restore methods in each
+class and to call the parent method as the first step. Then in
+the child class only deal with child class attributes. Obviously
+how you turn an attribute into a string and save it is up to you
+the programmer but it must be output on a single line. When
+restoring you simply reverse the storing process. 
+
+<H3>Mixing Classes and Modules</H3>
+
+<P>Modules and classes both provide mechanisms for controlling 
+the complexity of a program. It seems reasonable that as 
+programs get bigger we would want to combine these features 
+by putting classes into modules. Some authorities recommend 
+putting each class into a separate module but I think this 
+simply created an explosion of modules and increases rather 
+than decreases complexity. Instead I group classes together 
+and put the group into a module. Thus in our example above 
+I might put all the bank account class definitions in one 
+module, <tt>bankaccount</tt>, say,  and then create a separate 
+module for the application code that uses the module. A 
+simplified representation of that would be:
+
+<PRE>
+<SPAN class="comment">
+# File: bankaccount.py
+#
+# Implements a set of bank account classes
+###################
+</span>
+class BankAccount: ....
+
+class InterestAccount: ...
+
+class ChargingAccount: ...
+</PRE>
+
+<P>And then to use it:
+
+<PRE>
+import bankaccount
+
+newAccount = bankaccount.BankAccount()
+newChrgAcct = bankaccount.ChargingAccount()
+
+<SPAN class="comment">
+# now do stuff
+</span>
+</pre>
+
+<P>But what happens when we have two classes in different 
+modules that need to access each others details? The 
+simplest way is to import both modules, create local 
+instances of the classes we need and pass the instances 
+of one class to the other instances methods. Passing 
+whole objects around is what makes it object 
+<i>oriented</i> programming. You don't need to extract 
+the attributes out of one object and pass them into 
+another, just pass the entire object. Now if the 
+receiving object uses a polymorphic message to get 
+at the information it needs then the method will work 
+with any kind of object that supports the message.
+
+<P>Let's make that more concrete by looking at an 
+example. Let's create a short module called <tt>logger</tt>
+that contains two classes. The first logs activity in a file. 
+This logger will have a single method <tt>log()</tt> which 
+has a "loggable object" as a parameter. The other class in 
+our module is a <tt>Loggable</tt> class that can be inherited 
+by other classes to work with the logger. It looks like this:
+
+<PRE>
+<SPAN class="comment">
+# File: logger.py
+#
+# Create Loggable and Logger classes for logging activities 
+# of objects
+############
+</span>
+class Loggable:
+   def activity(self):
+       return "This needs to be overridden locally"
+
+class Logger:
+   def __init__(self, logfilename = "logger.dat"):
+       self._log = open(logfilename,"a")
+       
+   def log(self, loggedObj):
+       self._log.write(loggedObj.activity() + '\n')
+
+   def __del__(self):
+       self._log.close()
+</PRE>
+
+<P>Note that we have provided a destructor method (<tt>__del__</tt>)
+to close the file when the logger object is deleted or garbage 
+collected. This is another "magic method" in Python (as shown by 
+the double '_' characters) similar in many ways to <tt>__init__()</tt>
+
+<P>Also notice that we've called the log attribute <tt>_log</tt> 
+with a '_' character in front of the name. This is another 
+common naming convention in Python, like using capitalized 
+words for class names. A single underscore indicates that 
+the attribute is not intended to be accessed directly, 
+but only via the methods of the class.
+
+<P>Now before we can use our module we will create a new module which 
+defines loggable versions of our bank account classes:
+
+<PRE>
+<SPAN class="comment">
+# File: loggablebankaccount.py
+#
+# Extend Bank account classes to work with logger module.
+###############################
+</span>
+import bankaccount, logger
+
+class LoggableBankAccount(bankaccount.BankAccount, logger.Loggable):
+    def activity(self):
+       return "Account balance = %d" % self.checkBalance()
+
+class LoggableInterestAccount(bankaccount.InterestAccount,
+                              logger.Loggable):
+    def activity(self):
+       return "Account balance = %d" % self.checkBalance()
+
+class LoggableChargingAccount(bankaccount.ChargingAccount,
+                              logger.Loggable):
+    def activity(self):
+       return "Account balance = %d" % self.checkBalance()
+
+</PRE>
+
+<P>Notice we are using a feature called <i>multiple inheritance</i>, 
+where we inherit not one but two parent classes. This isn't 
+strictly needed in Python since we could just have added an 
+<tt>activity()</tt> method to our original classes and achieved 
+the same effect but in statically typed OOP languages such as 
+Java or C++ this technique would be necessary so I will show 
+you the technique here for future reference.
+
+<P>Now we come to the point of this excercise which is to 
+show our application code creating a logger object 
+and some bank accounts and passing the accounts to the 
+logger, even though they are all defined in different modules!
+
+<PRE>
+<SPAN class="comment">
+# Test logging and loggable bank accounts.
+#############
+</span>
+import logger
+import loggablebankaccount as lba
+
+log = logger.Logger()
+
+ba = lba.LoggableBankAccount()
+ba.deposit(700)
+log.log(ba)
+
+intacc = lba.LoggableInterestAccount()
+intacc.deposit(500)
+log.log(intacc)
+
+</pre>
+
+<P>Note the use of the <tt>as</tt> keyword to create a 
+shortcut name when importing <tt>loggablebankaccount</tt>
+
+<P>Note also that once we have created the local instances 
+we no longer need to use the module prefix and because there 
+is no direct access from one object to the other, it is all 
+via messages, there is no need for the two class definition 
+modules to directly refer to each other either. Finally 
+notice also that the Logger works with instances of both 
+<tt>LoggableBankAccount</tt> and <tt>LoggableInterestAccount</tt> 
+because they both support the <tt>Loggable</tt> <i>interface</i>.
+Compatibility of object interfaces via polymorphism is the 
+foundation upon which all OOP programs are built.
+
+<P>Hopefully this has given you a taste of Object Oriented
+Programming and you can move on to some of the other online
+tutorials, or read one of the books mentioned at the beginning
+for more information and examples. Now we will briefly look 
+at how OOP is done in VBScript and JavaScript.</P>
+
+<H3>OOP in VBScript</H3>
+
+<P>VBScript supports the concept of objects and allows us to 
+define classes and create instances, however it does <I>not</I> 
+support the concepts of inheritance or polymorphism. VBScript is 
+therefore what is known as <I>Object Based</I> rather than fully
+Object Oriented. Nonetheless the concepts of combining data 
+and function in a single object remain useful, and a limited 
+form of inheritance is possible using a technique called 
+delegation which we discuss below.
+
+<H4>Defining classes</H4>
+
+<P>A class is defined in VBScript using the <TT>Class</TT> statement, 
+like this:
+
+<PRE>
+&lt;script type=text/VBScript>
+Class MyClass
+   Private anAttribute
+   Public Sub aMethodWithNoReturnValue()
+       MsgBox "MyClass.aMethodWithNoReturnValue"
+   End Sub
+   Public Function aMethodWithReturnValue()
+       MsgBox "MyClass.aMethodWithReturnValue"
+       aMethodWithReturnValue = 42
+   End Function
+End Class
+&lt;/script>
+</PRE>
+
+<P>This defines a new class called <TT>MyClass</TT> with an 
+attribute called <TT>anAttribute</TT> which is only visible 
+to the methods inside the class, as indicated by the keyword 
+<TT>Private</TT>. It is conventional to declare data attributes 
+to be <TT>Private</TT> and most methods to be <TT>Public</TT>.
+This is known as data hiding and has the advantage of 
+allowing us to control access to the data by forcing methods 
+to be used and the methods can do data quality checks on the 
+values being passed in and out of the object. Python provides 
+its own mechanism for achieving this but it is beyond the 
+scope of this tutorial.
+
+<H4>Creating Instances</H4>
+
+<P>We create instances in VBScript with a combination of the 
+<TT>Set</TT> and <TT>New</TT> keywords. The variable to which 
+the new instance is assigned must also have been declared 
+with the <TT>Dim</TT> keyword as is the usual VBScript style.
+
+<PRE>
+&lt;script type=text/VBScript>
+Dim anInstance
+Set anInstance = New MyClass
+&lt;/script>
+</PRE>
+
+<P>This creates an instance of the class declared in the 
+previous section and assigns it to the <TT>anInstance</TT> 
+variable.
+
+<H4>Sending Messages</H4>
+
+<P>Messages are sent to instances using the same <I>dot 
+notation</I> used by Python.
+
+<PRE>
+&lt;script type=text/VBScript>
+Dim aValue
+anInstance.aMethodWithNoReturnValue()
+aValue = anInstance.aMethodWithReturnValue()
+MsgBox "aValue = " & aValue
+&lt;/script>
+</PRE>
+
+<P>The two methods declared in the class definition are 
+called, in the first case there is no return value, in the 
+second we assign the return to the variable <TT>aValue</TT>.
+There is nothing unusual here apart from the fact that the 
+subroutine and function are preceded by the instance name.
+
+<H4>Inheritance and Polymorphism</H4>
+
+<P>VBScript as a language does not provide any inheritance 
+mechanism nor any mechanism for polymorphism. However we can 
+fake it to some degree by using a technique called 
+<I>delegation</I>. This simply means that we define an 
+attribute of the sub class to be an instance of the 
+theoretical parent class. We then define a method for all 
+of the "inherited" methods which simply calls (or delegates to), 
+in turn, the method of the parent instance. Let's 
+subclass <TT>MyClass</TT> as defined above:
+
+<PRE>
+&lt;script type=text/VBScript>
+Class SubClass
+   Private parent
+   Private Sub Class_Initialize()
+      Set parent = New MyClass
+   End Sub
+   Public Sub aMethodWithNoReturnValue()
+      parent.aMethodWithNoREturnVAlue
+   End Sub
+   Public Function aMethodWithReturnValue()
+      aMethodWithReturnValue = parent.aMethodWithReturnValue
+   End Function
+   Public Sub aNewMethod
+      MsgBox "This is unique to the sub class"
+   End Sub
+End Class
+
+Dim inst,aValue
+Set inst = New SubClass
+inst.aMethodWithNoReturnVAlue
+aValue = inst.aMethodWithReturnValue
+inst.aNewMethod
+MsgBox "aValue = " & CStr(aValue)
+&lt;/script>
+</PRE>
+
+<P>The key points to note here are the use of the 
+private attribute <TT>parent</TT> and the special, 
+private method <TT>Class_Initialise</TT>. The former is 
+the superclass delegate attribute and the latter is the 
+equivalent of Pythons <TT>__init__</TT> method for 
+initializing instances when they are created, it is the 
+VBScript constructor in other words.
+
+<H3>OOP in JavaScript</H3>
+
+<P>JavaScript supports objects using a technique called 
+<I>prototyping</I>. This means that there is no explicit 
+class construct in JavaScript and instead we can define 
+a class in terms of a set of functions or a dictionary 
+like concept known as an <I>initializer</I>.
+
+<H4>Defining classes</H4>
+
+<P>The most common way to define a JavaScript "class" is 
+to create a function with the same name as the class, 
+effectively this is the constructor, but is not contained 
+within any other construct. It looks like this:
+<PRE>
+&lt;script type=text/JavaScript>
+function MyClass(theAttribute)
+{
+   this.anAttribute = theAttribute;
+};
+&lt;/script>
+</PRE>
+
+<P>You might notice the keyword <TT>this</TT> which is used in 
+the same way as Python's <TT>self</TT> as a placeholder reference 
+to the current instance.
+
+<P>We can add new attributes to the class later using the 
+built in <TT>prototype</TT> attribute like this:
+<PRE>
+&lt;script type=text/JavaScript>
+MyClass.prototype.newAttribute = null;
+&lt;/script>
+</PRE>
+
+<P>This defines a new attribute of <TT>MyClass</TT> called 
+<TT>newAttribute</TT>.
+
+<P>Methods are added by defining a normal function then 
+assigning the function name to a new attribute with the 
+name of the method. Normally the method and function have 
+the same name, but there is nothing to stop you calling 
+the methods something different, as illustrated below:
+
+<PRE>
+&lt;script type=text/JavaScript>
+function oneMethod(){
+    return this.anAttribute;
+}
+MyClass.prototype.getAttribute = oneMethod;
+function printIt(){
+    document.write(this.anAttribute + "&lt;BR>");
+};
+MyClass.prototype.printIt = printIt;
+&lt;/script>
+</PRE>
+
+<P>Of course it would be more convenient to define the 
+functions first then finish up with the constructor and
+assign the methods inside the constructor and this is in 
+fact the normal approach, so that the full class 
+definition looks like this:
+
+<PRE>
+&lt;script type=text/JavaScript>
+function oneMethod(){
+    return this.anAttribute;
+};
+
+function printIt(){
+    document.write(this.anAttribute + "&lt;BR>");
+};
+
+function MyClass(theAttribute)
+{
+   this.anAttribute = theAttribute;
+   this.getAttribute = oneMethod;
+   this.printIt = printIt;
+};
+&lt;/script>
+</PRE>
+
+<H4>Creating Instances</H4>
+
+<P>We create instances of classes using the keyword 
+<TT>new</TT>, like this:
+
+<PRE>
+&lt;script type=text/JavaScript>
+var anInstance = new MyClass(42);
+&lt;/script>
+</PRE>
+
+<P>Which creates a new instance called <TT>anInstance</TT>.
+
+<H4>Sending Messages</H4>
+
+<P>Sending messages in JavaScript is no different to 
+our other languages, we use the familiar dot notation.
+
+<PRE>
+&lt;script type=text/JavaScript>
+document.write("The attribute of anInstance is: &lt;BR>")
+anInstance.printIt();
+&lt;/script>
+</PRE>
+
+<H4>Inheritance and Polymorphism</H4>
+
+<P>Unlike VBScript it is possible to use JavaScript's prototyping 
+mechanism to inherit from another class. It is rather more 
+complex than the Python technique but is not completely 
+unmanageable, but it is, in my experience, a relatively 
+uncommon technique among JavaScript programmers.
+
+<P>The key to inheritance in JavaScript is the 
+<tt>prototype</tt> keyword (we used it in passing in the code above). 
+By using <tt>prototype</tt> we can effectively add features to 
+an object after it has been defined. We can see this in action here:
+<PRE>
+&lt;script language="JavaScript">
+function Message(text){
+   this.text = text;
+   this.say = function(){
+   	document.write(this.text + '&lt;br>');
+	};
+};
+
+msg1 = new Message('This is the first');
+msg1.say();
+
+Message.prototype.shout = function(){
+    alert(this.text);
+    };
+
+msg2 = new Message('This gets the new feature');
+msg2.shout()
+
+<SPAN class="comment">/* But so did msg1...*/</span>
+msg1.shout()
+
+&lt;/script>
+</PRE>
+
+<P><b>Note 1:</b> We added the new <tt>alert</tt> method using 
+<tt>prototype</tt> after creating instance <tt>msg1</tt> of the 
+class but the feature was available to the existing instance as 
+well as to the instance, <tt>msg2</tt> created after the addition. 
+That is, the new feature gets added to all instances of 
+<tt>Message</tt> both existing and new.
+
+<P><b>Note 2:</b> We used function in a new way here. It effectively 
+is used to create a function object which is assigned to the 
+object property. That is:
+<PRE>
+obj.func = function(){...};
+</PRE>
+<P>is equivalent to saying:
+<PRE>
+function f(){....}
+obj.func = f;
+</PRE>
+<P>We will see a similar concept in Python when we get to the 
+<a href="tutfctnl.htm">Functional Programming</a> topic.
+
+<P>This prototyping feature gives rise to the interesting 
+capability to change the behavior of built-in JavaScript objects, 
+either adding new features or changing the way existing 
+features function! Use this capability with great care if 
+you don't want to spend your time grappling with really 
+confusing bugs.
+
+<P>This use of <tt>prototype</tt> as a mechanism for adding 
+functionality to existing classes has the disadvantage that 
+it alters the existing instance behaviors and changes the 
+original class definition.
+
+<P>More conventional style inheritance is available too, 
+as shown below:
+
+<PRE>
+&lt;script language="JavaScript">
+function Parent(){
+   this.name = 'Parent';
+   this.basemethod = function(){
+       alert('This is the parent');
+       };
+};
+
+function Child(){
+   this.parent = Parent;
+   this.parent()
+   this.submethod = function(){
+       alert('This from the child');
+       };
+};
+
+var aParent = new Parent();
+var aChild = new Child();
+
+aParent.basemethod();
+aChild.submethod();
+aChild.basemethod();
+
+&lt;/script>
+</PRE>
+
+<P>The key point to note here is that the <tt>Child</tt> object 
+has access to the <tt>basemethod</tt> without it being explicitly 
+granted, it has inherited it from the parent class by virtue 
+of the assignment/call pair of lines:
+
+<PRE>
+   this.parent = Parent;
+   this.parent()
+</PRE>
+
+<P>within the <tt>Child</tt> class definition. And thus we have 
+inherited the <tt>basemethod</tt> from the <tt>Parent</tt> class!
+
+<P>We can, of course, use the same delegation trick we used with VBScript. 
+Here is the VBScript example translated into JavaScript:
+
+<PRE>
+&lt;script type=text/JavaScript>
+function noReturn(){
+   this.parent.printIt();
+};
+
+function returnValue(){
+      return this.parent.getAttribute();
+};
+
+function newMethod(){
+      document.write("This is unique to the sub class&lt;BR>");
+};
+
+function SubClass(){
+   this.parent = new MyClass(27);
+   this.aMethodWithNoReturnValue = noReturn; 
+   this.aMethodWithReturnValue = returnValue;
+   this.aNewMethod = newMethod;
+};
+
+var inst, aValue;
+inst = new SubClass(); <SPAN Class="Comment">// define superclass </SPAN>
+document.write("The sub class value is:&lt;BR>");
+inst.aMethodWithNoReturnValue();
+aValue = inst.aMethodWithReturnValue();
+inst.aNewMethod();
+document.write("aValue = " + aValue);
+&lt;/script>
+</PRE>
+
+<P>We will see classes and objects being used in the following
+topics and case studies. It is not always obvious to a beginner 
+how this, apparently complex, construct can make programs 
+easier to write and understand but hopefully as you see 
+classes being used in real programs it will become clearer. 
+One thing I would like to say is that, for very small programs 
+they do not really help and almost certainly will make the 
+program longer. However as your programs start to get 
+bigger - over about 100 lines say - then you will find that 
+classes and objects can help to keep things organized and 
+even reduce the amount of code you write.
+
+<P>If you are one of those who finds the whole OOP concept 
+confusing don't panic, many people have programmed for their 
+whole lives without ever creating a single class! On the other hand, if 
+you can get to grips with objects it does open up some powerful 
+new techniques.
+
+<CENTER>
+<P>
+<TABLE>
+<TR><TH>Things to Remember</TH></TR>
+<TR><TD>
+<UL>
+<LI>Classes <I>encapsulate</I> data and function into a single entity.
+<LI>Classes are like cookie cutters, used to create <I>instances</I>, 
+or <I>objects</I>.
+<LI>Objects communicate by sending each other <I>messages</I>.
+<LI>When an object receives a message it executes a corresponding 
+<I>method</I>.
+<LI>Methods are functions stored as attributes of the class.
+<LI>Classes can <I>inherit</I> methods and data from other classes.
+This makes it easy to extend the capabilities of a class without 
+changing the original.
+<LI><I>Polymorphism</I> is the ability to send the same message to several
+different types of object and each behaves in its own particular 
+way in response.
+<LI>Encapsulation, Polymorphism and Inheritance are all properties 
+of <I>Object Oriented</I> programming languages.
+<LI>VBScript and JavaScript are called <I>Object Based</I> languages
+because while they support encapsulation, they do not fully support 
+inheritance and polymorphism.
+</UL></TD></TR>
+</TABLE>
+
+<CENTER>
+<HR WIDTH=60%>
+
+<A HREF="tutregex.htm">Previous</A>&nbsp
+<A HREF="tutevent.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

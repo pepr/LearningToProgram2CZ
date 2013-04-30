@@ -1,0 +1,153 @@
+/* This is the CSS file designed originally for the Czech translation
+   of the Alan Gauld's book "Learning to Program". Then it was generalized
+   to be useful also for the English original. Feel free to use 
+   and/or modify it to meet your criteria. 
+                                         Petr Prikryl (prikrylp@skil.cz)   
+$Id: tutor.css,v 1.6 2005/10/07 19:07:42 petr Exp $   
+*/
+
+/* Margin, padding, border, alignment, and font attributes. 
+   In other words, all but color attributes -- see colors.css for the color 
+   attributes. */
+
+body 
+{ 
+  margin: 0.3em;
+  padding: 0.3em;
+}
+
+p, pre, dl, table { margin-left: 1em; margin-right: 1em; }
+pre { padding: 1em }
+p.title { font-weight: bold; }
+
+h2.author, h2.translator 
+{ 
+  font-weight: bold; font-size: small; 
+  text-align: center; 
+} 
+
+h3 code { font-size: 1.2em; }
+h4 code { font-size: 1.2em; }
+
+
+dl dt { padding-top: 1em; font-weight: bold; }
+ul { padding-right: 1em; }
+
+table 
+{ 
+  empty-cells: show;
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: thin;
+}
+
+table td 
+{ 
+  padding: 0.3em;
+  border-style: solid;
+  border-width: thin;
+  vertical-align: top;
+}
+
+table td p { margin: 0 }
+table caption { font-weight: bold; }
+
+h1, h2, h3, h4, h5, h6 { font-family: Verdana, helvetica, sans-serif; }
+
+h1 { text-align: center; }
+ 
+h2 
+{ 
+  margin-top: 0em;
+  margin-bottom: 0em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+h3, h4, h5, h6 
+{
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+
+.center { text-align: center }
+
+.whatcovered, .remember, .details
+{
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding: 0;
+  border-style: solid;
+  border-width: thin;
+}
+
+.foot p.note, .foot p.cvs { font-size: smaller; text-align: center; }
+.foot p.navig { text-align: center; }
+.navig a { padding-left: 1em; padding-right: 1em; }
+
+/* Style for minitoc */
+.minitoc p { margin-top: 0.2em }
+.minitoc a { text-decoration: none; }
+
+
+/* Different style for body of the class "trnote" (Translator Note). */
+
+body.trnote dt a { text-decoration: none; font-weight: normal; }
+body.trnote dd p { margin-left: 0; margin-right: 0; }
+body.trnote dd pre { margin-left: 0; }
+
+body.trnote p.author { text-align: right; font-weight: normal; }
+
+sup.trnote a { text-decoration: none }
+h3 sup.trnote a { font-size: smaller }
+
+div.trnote { padding-top: 0.2em; padding-bottom: 0.2em; }
+
+/* Different style for body of the class "toc" (Table of Contents). */
+
+body.toc 
+{ 
+  font-family: Verdana, helvetica, sans-serif;
+  font-size: 8pt; 
+  margin: 0; 
+  padding: 0; 
+  border-style: none; 
+}
+
+body.toc a { text-decoration: none; }
+
+body.toc ul 
+{ 
+  margin-left: 1em; 
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 8; 
+  font-size: 8pt;
+}
+
+body.toc h1 
+{ 
+  font-size: 12pt;
+  text-align: center; 
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+
+body.toc h2 
+{ 
+  font-size: 9pt; 
+  font-weight: normal;
+  text-decoration: underline;
+  padding-left: 3;
+  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+}
+
+

@@ -1,0 +1,766 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Ošetření chyb</title>
+</head>
+<body>
+
+<h2>Ošetření chyb</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+<ul>
+<li>Krátce z historie práce s chybami.</li>
+<li>Dvě techniky práce s chybami.</li>
+<li>Jak v našem kódu definovat a signalizovat chybu, která má být ošetřena 
+    jinde.</li>
+</ul>
+</div>
+
+<h3>Krátce z historie práce s chybami</h3>
+
+<p>Z hlediska způsobu zpracování chyb je z našich tří jazyků VBScript ten
+nejbizarnější. Je to dáno tím, že staví na základech jazyka BASIC, který
+patří k jedněm z prvních programovacích jazyků (kolem roku 1963). Způsob
+zpracování chyb v jazyce VBScript patří k těm místům, ze kterých je zmíněné
+dědictví jasně vidět. Pro naše účely to není špatné, protože mi to dává
+příležitost k vysvětlení, proč VBScript používá právě takový přístup.
+Vysvětlíme si historii způsobu zpracování chyb od jazyka BASIC, přes Visual
+Basic, až k VBScript. Poté se podíváme na mnohem modernější přístup, který
+ukázkovým způsobem využívají JavaScript a Python.</p>
+
+<p>V tradiční verzi jazyka BASIC byly se na všech řádcích programu psala
+čísla řádků. Přesun řízení se prováděl skokem na určitý řádek použitím
+příkazu <code>GOTO</code>. (Příklad jsme si ukázali v rámci tématu <a
+href="cztutbranch.html">Větvení</a>.) Byl to v podstatě jediný možný způsob
+řízení. V prostředí s takovými vlastnostmi byl běžný způsob ošetřování chyb
+založen na deklaraci proměnné <code>ERRORCODE</code>, ve které se ukládala
+číselná hodnota. Když se v programu vyskytla chyba, nastavil se obsah
+proměnné <code>ERRORCODE</code> na odpovídající hodnotu &mdash; nepodařilo
+se otevřít soubor, neslučitelnost typů, přetečení operátoru, a podobně.</p>
+
+<p>Uvedený přístup vedl k psaní kódu, který vypadal podobně, jako
+následující úsek fiktivního programu:</p>
+
+<pre>
+1010 LET DATA = INPUT FILE
+1020 CALL FUNKCE_PRO_ZPRACOVANI_DAT
+1030 IF NOT ERRORCODE = 0 GOTO 5000
+1040 CALL JINA_FUNKCE
+1050 IF NOT ERRORCODE = 0 GOTO 5000
+1060 REM POKRACUJ VE ZPRACOVANI TAKTO...
+...
+5000 IF ERRORCODE = 1 GOTO 5100
+5010 IF ERRORCODE = 2 GOTO 5200
+5020 REM DALSI PRIKAZY IF
+...
+5100 REM ZDE ZPRACUJ CHYBOVY KOD 1.
+...
+5200 REM ZDE ZPRACUJ CHYBOVY KOD 2.
+</pre>
+
+<p>Vidíme, že skoro polovina hlavního programu se zabývá zjišťováním, zda
+nenastala chyba. Časem byl zaveden o něco elegantnější mechanismus, ve kterém
+se detekce chyba a jejich ošetření částečně přesunulo do interpretu jazyka.
+Vypadal nějak takto:</p>
+
+
+<pre>
+1010 LET DATA = INPUTFILE
+1020 ON ERROR GOTO 5000
+1030 CALL FUNKCE_PRO_ZPRACOVANI_DAT
+1040 CALL JINA_FUNKCE
+...
+5000 IF ERRORCODE = 1 GOTO 5100
+5010 IF ERRORCODE = 2 GOTO 5200
+</pre>
+
+<p>K popisu umístění kódu pro ošetření chyby zde stačí jeden řádek. Pokud
+funkce narazila na chybu, musela i nadále nastavovat hodnotu proměnné
+<code>ERRORCODE</code>, ale velmi se zjednodušil zápis (a čtení!) kódu.</p>
+
+<p>No a co to má společného s námi? Je to docela prosté. Tento způsob
+zpracování chyb i nadále používá 
+Visual Basic, ačkoliv čísla řádků byla nahrazena uživatelsky přívětívějšími
+návěštími. VBScript &mdash; jako potomek jazyka Visual Basic &mdash; používá
+výrazně ořezanou verzi téhož mechanismu. To ve svém důsledku znamená, že nám
+VBScript dává na vybranou: buď budeme ošeřovat chyby lokálně, nebo je budeme
+zcela ignorovat.</p>
+
+<p>Pokud se rozhodneme pro ignorování chyb, zapíšeme to takto:</p>
+
+<pre>
+On Error Goto 0  <span class="comment">' 0 říká "nikam neskákej"</span>
+NejakaFunkce()
+NejakaJinaFunkce()
+...
+</pre>
+
+<p>Pokud se rozhodneme pro lokální ošetření chyb, použijeme zápis:</p>
+
+<pre>
+On Error Resume Next
+NejakaFunkce()
+If Err.Number = 42 Then
+   <span class="comment">' tady ošetři chybu</span>
+NejakaJinaFunkce()
+...
+</pre>
+
+<p>Takový zápis vypadá trochu zpátečnicky. Ve skutečnosti prostě odráží výše
+popsaný historický proces.</p>
+
+<p>V případě výskytu chyby se interpret standardně zachová tak, že uživateli
+zobrazí zprávu a zastaví provádění programu. Právě toto se stane, pokud při
+určování způsobu zpracování chyby použijeme zápis <code>Goto&nbsp;0</code>. To
+znamená, že zápisem <code>Goto&nbsp;0</code> vypínáme lokální řízení a říkáme
+interpretu, aby se zachoval obvyklým způsobem.</p>
+
+<p>Předpis pro zpracování chyby obsahující <code>Resume&nbsp;Next</code> nám
+buď dovolí předstírat, že chyba vůbec nenastala, nebo si můžeme otestovat
+objekt pro popis chyby (je pojmenován <code>Err</code>). Zajímá nás zejména
+jeho číselná složka <span class="trnote"
+title="Poznámka&nbsp;překladatele"><code>Number</code></span>. (Jde o naprosto
+stejnou techniku, jako výše ukázané testování <code>ERRORCODE</code>.) Objekt
+<code>Err</code> nese ještě další informační položky, které nám mohou pomoci
+vyrovnat se s nastalou situací méně katastrofickým způsobem, než je zastavení
+programu. Můžeme například zjistit, v jakém místě k chybě došlo (v jakém
+objektu, v jaké funkci a podobně). Můžeme také získat textový popis chyby,
+který můžeme uživateli vypsat jako součást hlášení o chybě, nebo jej můžeme
+zapsat do log souboru. Typ chyby můžeme v objektu <code>Err</code> změnit
+použitím jeho metody <code>Raise</code>. Tuto metodu můžeme použít i při
+generování našich vlastních chyb, které nastaly v našich vlastních
+funkcích.</p>
+
+<p>Jako příklad mechanismu ošetřování chyby v jazyce VBScript is uveďme
+případ, kdy dochází k dělení nulou:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+Dim x, y, vysledek
+x = CInt(InputBox("Zadejte dělence: "))
+y = CInt(InputBox("Zadejte dělitele: "))
+On Error Resume Next
+vysledek = x/y
+If Err.Number = 11 Then <span class="comment">' Dělení nulou</span>
+   vysledek = Null
+End If
+On Error GoTo 0 <span class="comment">' ošetřování chyb opět vypneme</span>
+If VarType(vysledek) = vbNull Then
+   MsgBox "CHYBA: Operace nemohla být provedena."
+Else
+   MsgBox CStr(x) &amp; " děleno " &amp; CStr(y) &amp; " je rovno " &amp; CStr(vysledek)
+End If
+&lt;/script>
+</pre>
+
+<p>Upřímně řečeno, uvedený přístup moc pěkný není. A zatímco obdivování
+dávné historie může být balzámem pro duši, moderní programovací jazyky, včetně
+jazyků Python a JavaScript, nabízejí mnohem elegantnější způsoby ošetřování
+chyb. Podívejme se, o jaké mechanismy jde.</p>
+
+
+<h3>Ošetřování chyb v jazyce Python</h3>
+
+<h4>Zpracování výjimek</h4>
+
+<p>V modernějších programovacích prostředích se vyvinul alternativní způsob
+práce s chybami. Je znám pod pojmem <em>ošetření výjimek</em> a je založen na
+tom, že funkce <em>vrhají</em> (<em>throw</em>) nebo<span class="trnote"
+title="Poznámka překladatele">, jinými slovy,</span> <em>vyvolávají</em>
+(<em>raise</em>) výjimky <span class="trnote"
+title="Poznámka&nbsp;překladatele">(exception [iksepšn])</span>. Systém si pak
+zajistí vyskočení z aktuálního bloku kódu na nejbližší blok pro ošetření
+výjimky. V&nbsp;systému se nachází také blok kódu, který <em>zachytí</em>
+(<em>catch</em>) všechny výjimky, které dosud nebyly zpracovány někde jinde.
+Poté obvykle zobrazí chybové hlášení a ukončí běh aplikace.</p>
+
+<p>K velkým výhodám tohoto stylu ošetřování chyb patří mnohem lepší čitelnost
+hlavní funkčnosti programu. Je to dáno tím, že nedochází k mísení s kódem pro
+ošetřování chyb. <span class="trnote"
+title="Poznámka&nbsp;překladatele">Jinými slovy,</span> v bloku kódu si můžeme
+číst aniž bychom byli jakkoliv nuceni číst kód pro ošetřování chyb.</p>
+
+<p>Podívejme se, jak se uvedený styl programování používá v praxi.</p>
+
+<h4>Try/Catch</h4>
+
+<p>Blok kódu pro ošetření výjimek se trochu podobá bloku
+<code>if...then...else</code>:</p>
+
+<pre>
+try:
+   <span class="comment"># Zde se umístí hlavní část kódu programu.</span>
+except TypVyjimky:
+   <span class="comment"># Zde se bude zpracovávat jmenovaná výjimka.</span>
+except JinyTypVyjimky:
+   <span class="comment"># Zde se ošetřuje jiná výjimka.</span>
+else:
+   <span class="comment"># Zde umístíme úklidový kód, který se provede
+   # v případě, že nenastane žádná výjimka.</span>
+</pre>
+
+<p>Python se pokouší provádět příkazy mezi příkazy <code>try</code> a prvním
+<code>except</code>. Pokud dojde k chybě, provádění příkazů v bloku za
+<code>try</code> se zastaví a skočí se dolů k příkazu <code>except</code>.
+Postupně se procházejí jednotlivé příkazy <code>except</code>, dokud se
+nenajde ten, který odpovídá typu chyby (neboli <em>výjimky</em>). Pokud se
+nalezne, provede se blok bezprostředně následujícího kódu. Pokud se nenalezne
+žádný odpovídající příkaz <code>except</code>, předává se nalezená chyba dál,
+do dalších <span class="trnote"
+title="Poznámka&nbsp;překladatele">(vyšších)</span> úrovní programu. Pokud
+není nalezen odpovídající <code>except</code>, dostane se chyba až na úroveň
+interpretu jazyka Python, který chybu zachytí, zobrazí chybové hlášení a
+zastaví provádění programu. V našich programech jsme zatím pozorovali právě
+takový projev<span class="trnote" title="Poznámka&nbsp;překladatele">, protože
+jsme zatím neuměli chybu zachytit a zpracovat sami</span>.</p>
+
+<p>Pokud v bloku <code>try</code> k žádným chybám nedojde, pak se provede blok
+za <code>else</code>. Ale v praxi se této možnosti využívá velmi zřídka.
+Poznamenejme, že příkaz <code>except</code>, u kterého není uveden žádný typ
+chyby, zachytí chyby <em>všech</em> typů, které dosud nebyly zpracovány.
+Využívání této formy příkazu se ale obecně nepovažuje za dobrý nápad. Výjimku
+ovšem představuje jeho používání v nejvyšší úrovni programu, kdy chceme
+zabránit tomu, aby Python uživateli zobrazil velmi technickou podobu chybového
+hlášení. Obecná podoba příkazu <code>except</code> nám v tomto případě umožní
+odchytit všechny dosud neošetřené chyby a zobrazit přívětivější hlášení o
+<em>ukončování programu</em>.</p>
+
+<p>Za zmínku stojí, že součástí instalace Pythonu je i modul
+<code>traceback</code>, který nám umožní extrahovat různé doplňkové informace
+o zdroji chyby. To se nám může hodit při vytváření log souboru a pro podobné
+akce. Modulem <code>traceback</code> se zde zabývat nebudeme. V případě
+potřeby naleznete popis jeho vlastností a použití ve standardní dokumentaci
+modulů.</p>
+
+<p>A jak to vše skutečně funguje si ukážeme na příkladu:</p>
+
+<pre>
+hodnota = raw_input("Zadej delitele: ")
+try:
+    hodnota = int(hodnota)
+    print "42 / %d = %d" % (hodnota, 42 / hodnota)
+
+except ValueError: 
+    print "Hodnotu nelze prevest na cele cislo."
+
+except ZeroDivisionError:
+    print "Neni povolena nulova hodnota."
+
+except: 
+    print "Stalo se neco neocekavaneho."
+
+else: 
+    print "Program skoncil uspesne."
+</pre>
+
+<p>Pokud program spustíme a místo čísla zadáme nějaký řetězec, zobrazí se
+zpráva vypisovaná ve větvi <code>ValueError</code> <span class="trnote"
+title="Poznámka&nbsp;překladatele">(chyba hodnoty)</span>. Pokud zadáme nulu,
+zobrazí se zpráva pro <code>ZeroDivisionError</code> <span class="trnote"
+title="Poznámka&nbsp;překladatele">(chyba při dělení nulou)</span>. Pokud
+zadáme platné číslo, zobrazí se výsledek a zpráva o úspěšném ukončení
+programu.</p>
+
+
+<h4>Try/Finally</h4>
+
+<p>Existuje ještě jeden typ bloku, který souvisí s výjimkami. Umožňuje
+zapsat kód pro úklid prováděný i poté, co nastala chyba. Nazývá se
+<code>try...finally</code> <span class="trnote" title="Poznámka
+překladatele" >(try [tray] = zkus, pokus se vykonat; finally [fajnly] =
+nakonec)</span> a typicky se používá pro zavírání souborů, vyprazdňování
+vyrovnávacích pamětí (buffer) na disk a podobně. Blok <code>finally</code>
+je proveden vždy jako poslední nezávisle na tom, co se stane v sekci
+<code>try</code>. <span class="trnote" title="Poznámka překladatele">Pokud
+nenastane výjimka, prostě se provede. Pokud nastane výjimka, zapamatuje se
+její objekt, kód bloku <code>finally</code> se provede a zapamatovaná
+výjimka se znovu vyvolá.</span></p>
+
+<pre>
+try:
+   <span class="comment"># Kód, související s účelem programu.</span>
+finally:
+   <span class="comment"># V této části provádíme úklidové akce nezávisle
+   # na tom, zda v bloku try nastala chyba či nikoliv.</span>
+</pre>
+
+<p>Síla této konstrukce se projeví při kombinaci s blokem
+<code>try/except</code>. Konkrétní volba pořadí zanoření těchto bloků
+nepřináší významné výhody. Pořadí zpracování <span class="trnote"
+title="Poznámka&nbsp;překladatele">příkazů</span> zůstává v obou případech
+stejné. Osobně používám blok <code>try/finally</code> obvykle jako vnější,
+protože si tím připomínám, že se <span class="trnote"
+title="Poznámka&nbsp;překladatele">blok větve</span> <code>finally</code>
+provede jako poslední. Ale z pohledu Pythonu je to jedno. Příklad:</p>
+
+<pre>
+print 'Start programu.'
+try:
+    try:
+        data = file('data.dat')
+        hodnota = int(data.readline().split()[2])
+        print 'Hodnota je %d.' % (hodnota/(42-hodnota))
+    except ZeroDivisionError: 
+        print 'Hodnota byla 42.'
+finally:
+    data.close()
+print 'Konec programu.'
+</pre>
+
+<p>V tomto případě dojde k uzavření souboru vždy, nezávisle na tom, zda v
+bloku <code>try/except</code> vznikne výjimka. Všimněte si odlišnosti
+chování ve vztahu k větvi <code>else</code> v konstrukci
+<code>try/except/else</code>, protože <span class="trnote"
+title="Poznámka&nbsp;překladatele">blok v <code>else</code></span> se zavolá
+jen v případě, kdy nedojde k <em>žádné</em> výjimce. To by znamenalo, že by
+nedošlo k uzavření souboru. Pokud bychom zase kód pro uzavření souboru
+umístili jednoduše mimo konstrukci <code>try/except</code>, pak by se soubor
+neuzavřel v případě, kdy by nastala jiná výjimka, než
+<code>ZeroDivisionError</code>. Takže pouze konstrukce
+<code>try/finally</code> zajistí, že k uzavření souboru dojde
+<em>vždy</em>.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> V souboru <code>data.dat</code> se očekává
+alespoň jeden řádek, který obsahuje alespoň tři slova (řetězce nerozdělené
+mezerami) a třetí slovo má charakter čísla. Příklad obsahu:</p>
+
+<pre>
+xxx yyy 40
+</pre>
+
+<p>Zadáním hodnoty 42 (do souboru) vyvoláme výjimku
+<code>ZeroDivisionError</code>. Pokud místo čísla zadáme například řetězec
+<code>ccc</code>, vznikne jiná výjimka (<code>ValueError</code>) související
+s tím, že se řetězec nedaří převést na číslo. Pokud místo čísla neuvedeme
+vůbec nic, vznikne při následném volání metody <code>split()</code> k
+vygenerování kratšího seznamu, takže nebude existovat položka s indexem 2. V
+takovém případě vznikne výjimka <code>IndexError</code>.</p>
+
+<p>Osobně se mi nelíbí otvírání souboru na jiné úrovni (v zanořeném
+<code>try</code>), než na jaké se provádí uzavírání &mdash; i když to
+funguje. Podle mého názoru by se soubor měl zavírat na stejné úrovni v kódu,
+na které byl otevřen.</p>
+
+<p>Platí to obecně, ale nejvýrazněji je to vidět v případě, kdy jedna z akcí
+(otevření/zavření souboru) je umístěna uvnitř funkce a druhá vně. Například
+funkce, které dostává jako argument otevřený soubor, by jej neměla zavírat.
+Ono to sice může fungovat naprosto bez problémů, ale může dojít ke zmatkům v
+naší hlavě, když si čteme zdrojový text. Důvod spočívá v tom, že při zápisu
+používání funkce je tato akce skryta našemu zraku a nemusíme si uvědomit, co
+se vevnitř děje. Výjimku představují situace, kdy funkce svým jménem
+napovídá, že se předaný soubor uvnitř otevře, respektive uzavře.</p>
+
+<p>Pokud tedy toto pravidlo <em>selského rozumu</em> napasujeme na výše
+uvedený příklad, pak osobně dávám přednost následujícímu zápisu příkladu
+(navíc přidán příkaz <code>print</code> za uzavření souboru, abychom
+zviditelnili provedení bloku kódu):</p>
+
+<pre>
+print 'Start programu.'
+try:
+    data = file('data.dat')
+    try:
+        hodnota = int(data.readline().split()[2])
+        print 'Hodnota je %d.' % (hodnota/(42-hodnota))
+    except ZeroDivisionError: 
+        print 'Hodnota byla 42.'
+finally:
+    data.close()
+    print 'Soubor uzavřen.'
+print 'Konec programu.'
+</pre>
+
+<p>Je tady ale ještě jeden zádrhel. Pokud by navíc selhalo i otvírání
+zouboru <code>data.dat</code>, dojde k výjimce proměnná <code>data</code>
+nebude naplněna (případně se váže na předchozí hodnotu). To znamená, že v
+sekci <code>finally</code>, ve kterém se budeme pokoušet o volání metody 
+<code>close()</code> objektu, který neexistuje. Proto je lepší zapsat:</p>
+
+<pre>
+print 'Start programu.'
+data = file('data.dat')
+try:
+    try:
+        hodnota = int(data.readline().split()[2])
+        print 'Hodnota je %d.' % (hodnota/(42-hodnota))
+    except ZeroDivisionError: 
+        print 'Hodnota byla 42.'
+finally:
+    data.close()
+    print 'Soubor uzavřen.'
+print 'Konec programu.'
+</pre>
+
+<p>V takovém případě je ovšem sporné už samotné použití
+<code>try/finally</code>, protože v případě, kdy se soubor nepovede otevřít,
+nedostaneme se vůbec do následující konstrukce. Zavírání souboru stejně v
+takovém případě není možné (viz předchozí odstavec). Pokud se soubor povede
+otevřít, nepotřebujeme uzavírání souboru vkládat do bloku
+<code>finally</code>. Osobně bych se proto přiklonil k naprosto jednoduchému
+řešení bez vnější konstrukce <code>try/finally</code>.</p>
+
+<pre>
+print 'Start programu.'
+data = file('data.dat')
+
+try:
+    hodnota = int(data.readline().split()[2])
+    print 'Hodnota je %d.' % (hodnota/(42-hodnota))
+except ZeroDivisionError: 
+    print 'Hodnota byla 42.'
+except:
+    print u'Nastala jiná výjimka.'
+data.close()
+print 'Konec programu.'
+</pre>
+
+<p><b>Závěr:</b> Původní příklad není tak jednoduchý, jak vypadá.</p>
+
+</div>
+
+
+<h4>Generování chyb</h4>
+
+<p>Jakým způsobem můžeme generovat výjimky &mdash; dejme tomu uvnitř modulu
+&mdash;, které má zachytit někdo jiný? V jazyce Python je pro tento případ
+vyhrazeno klíčové slovo <code>raise</code>:</p> 
+
+<pre>
+delenec = 42
+delitel = input('Jakou hodnotou chcete dělit číslo 42? ')
+if delitel == 0:
+   raise ZeroDivisionError()
+</pre>
+
+<p>Tento kód vygeneruje výjimku <code>ZeroDivisionError</code>, která může
+být zachycena v bloku <code>try/except</code>. Zbytku programu se to jeví
+naprosto stejně, jako kdyby chybu vygeneroval přímo Python. Klíčovým slovem
+<code>raise</code> se předepisuje také předávání chyby zevnitř bloku
+<code>except</code> do vyšších úrovní programu. <span class="trnote"
+title="Poznámka&nbsp;překladatele">Při výskytu chyby</span> můžeme například
+chtít provést nějakou lokální akci, dejme tomu zapsat záznam do log souboru,
+ale poté chceme, aby se o dalších akcích rozhodlo na vyšších úrovních
+programu. Použití může vypadat takto:</p>
+
+<pre>
+logsoubor = file('errorlog.txt', 'w')
+
+def f(hodnota):
+    try:
+        return 127 / (42-hodnota)
+    except ZeroDivisionError:
+        logsoubor.write('Hodnota byla 42.')
+        raise
+
+try:
+    f(42)
+except ZeroDivisionError:
+    print 'Nastala chyba. Zkuste znovu.'
+</pre>
+
+
+<p>Povšimněte si, jak funkce <code>f()</code> zachytává chybu, zapisuje
+zprávu do souboru se záznamem o chybě a poté předává zachycenou výjimku ke
+zpracování v bloku kódu, který se nachází ve vnější, obalující konstrukci
+<code>try/except</code>.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> S <em>log soubory</em>, tedy se soubory
+určenými pro záznam (protokolování) chyb a zvláštních stavů, se většinou
+zachází tak, že se záznamy neustále připisují na konec. Prakticky to
+znamená, že by se log soubor měl otvírat pro zápis za konec souboru, tedy v
+režimu <em>append</em> (druhý parametr s hodnotou <code>'a'</code>).</p>
+
+<p>Další zásada vyplývá ze skutečnosti, že u otevřeného souboru není
+zaručeno, že je veškerý zapisovaný obsah skutečně fyzicky uložen na disku.
+Pokud toho chceme dosáhnout, pak můžeme ve vhodných okamžicích provádět
+takzvané vyprázdnění vyrovnávací paměti (flush).</p>
+
+<p>Při zápisu do log souboru s chybami, kdy se předpokládá nízký počet
+zápisů, bývá praktičtější log soubor otevřít před každým zápisem a poté ho
+hned zavřít. Pokud aplikace havaruje, máme jistotu, že se neztratilo několik
+posledních zápisů.</p>
+
+<p>Ve výše uvedeném příkladě je log soubor otevřen na začátku a dokonce jsme
+jej zapoměli zavřít. Při výskytu chyby se původní obsah přepisuje, takže
+budeme mít zapsán jen poslední záznam. V mnoha jednoduchých případech to
+stačí, ale proč bychom to nemohli udělat pořádněji, když to není o moc
+složitější:</p>
+
+<pre>
+def f(hodnota):
+    try:
+        return 127 / (42-hodnota)
+    except ZeroDivisionError:
+        logsoubor = file('errorlog.txt', 'a') <span class="comment"># Otevřeme pro připsání na konec,</span>
+        logsoubor.write('Hodnota byla 42.\n') <span class="comment"># zapíšeme hodnotu</span>      
+        logsoubor.close()                     <span class="comment"># a soubor uzavřeme.</span>
+        raise
+
+try:
+    f(42)
+except ZeroDivisionError:
+    print u'Nastalo dělení nulou. Zkuste znovu.'
+</pre>
+
+<p>V praktických případech často používáme jediný log soubor a chceme do něj
+zapisovat na více místech v programu. Museli bychom tedy na více místech
+opakovat výše uvedené okomentované řádky. Problém by nastal v situaci, kdy
+se rozhodneme například změnit jméno log souboru. V takovém případě by nám
+mělo v hlavě varovně zasvítit pravidlo <b>DRY</b> z anglického <em>Do not
+Repeat Yourself</em>, čili volně <em>Neopakujte se</em>. Věc jednoduše
+vyřešíme tím, že si pro zápis na konec log souboru vytvoříme vlastní funkci <code>log()</code>.
+S jejím využitím pak výsledek bude vypadat nějak takto:</p>
+
+<pre>
+def log(zprava):
+    logsoubor = file('errorlog.txt', 'a') <span class="comment"># Otevřeme pro připsání na konec,</span>
+    logsoubor.write(zprava)               <span class="comment"># zapíšeme hodnotu</span>      
+    logsoubor.close()                     <span class="comment"># a soubor uzavřeme.</span>
+
+def f(hodnota):
+    try:
+        return 127 / (42-hodnota)
+    except ZeroDivisionError:
+        log('Hodnota byla 42.\n')  <span class="comment"># Zápis zprávy do log souboru.</span>
+        raise
+
+try:
+    f(42)
+except ZeroDivisionError:
+    print u'Nastalo dělení nulou. Zkuste znovu.'
+</pre>
+
+<p>V tomto okamžiku byste si mohli říci. <em>Proč bych za každou zprávu
+nepřidával automaticky přechod na nový řádek přímo ve funkci
+<code>log()</code>?</em> Nedoporučuji to. Uvědomte si, že v takovém případě
+byste se zbavili možnosti zapisovat postupně několika voláními funkce více
+hodnot na jeden řádek log souboru. Místo toho je vhodnější vytvořit další, 
+specializovanější funkci, která využívá výše definované, obecnější funkce
+<code>log()</code>. Speciální funkce může například do log souboru zapisovat
+i datum, čas a jmého přihlášeného uživatele:</p>
+
+<pre>
+def log(zprava):
+    logsoubor = file('errorlog.txt', 'a') <span class="comment"># Otevřeme pro připsání na konec,</span>
+    logsoubor.write(zprava)               <span class="comment"># zapíšeme hodnotu</span>      
+    logsoubor.close()                     <span class="comment"># a soubor uzavřeme.</span>
+
+def logErr(text):
+    import time                           <span class="comment"># Importujeme potřebné moduly.</span>
+    import getpass
+    tim = time.strftime('%c')             <span class="comment"># Získáme časovou značku.</span>
+    usr = getpass.getuser()               <span class="comment"># Získáme jméno uživatele.</span>
+    log('%s %s: %s\n' % (tim, usr, text)) <span class="comment"># Zapíšeme zformátovaný řádek.</span>
+    
+def f(hodnota):
+    try:
+        return 127 / (42-hodnota)
+    except ZeroDivisionError:
+        logErr('Hodnota byla 42.')  <span class="comment"># Zápis zprávy do log souboru.</span>
+        raise
+
+try:
+    f(42)
+except ZeroDivisionError:
+    print u'Nastalo dělení nulou. Zkuste znovu.'
+</pre>
+
+</div>
+
+<p>Za účelem zjemnění řízení našeho programu <span class="trnote"
+title="Poznámka&nbsp;překladatele">(nebo diagnostiky chyb)</span> můžeme
+definovat své vlastní typy výjimek. Činíme tak prostřednictvím nových tříd
+výjimek. (S definicemi tříd jsme se krátce seznámili rámci tématu <a
+href="cztutdata.html#class">Data, datové typy a proměnné</a> a podrobněji se
+s nimi setkáme ještě později v kapitole věnované <a
+href="cztutclass.html">objektově orientovanému programování</a>.) Pro tento
+účel obvykle definujeme třídu velmi prostou, která nedefinuje žádný další
+obsah a která je pouze odvozena od <span class="trnote"
+title="Poznámka&nbsp;překladatele">standardní bázové třídy</span>
+<code>Exception</code>. Používá se jako <em>chytré návěští</em>, které se dá
+rozpoznávat v příkazech <code>except</code>. Spokojme se s následujícím
+stručným příkladem:</p>
+
+<pre>
+class BrokenError(Exception): pass
+
+try:
+   raise BrokenError
+except BrokenError:
+   print u'Narazili jsme na chybu při zpracování.'
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Vzhledem k následující
+autorově poznámce jsem ponechal původní anglický identifikátor. Připojuji se
+k výzvě dodržovat níže uvedenou konvenci.</p>
+
+<p>Povšimněte si, že jsme při tvorbě jména použili konvenci, kdy se na konec
+jména třídy dává přípona "Error" (čili chyba). Povšimněte si, že
+<em>dědíme</em> chování obecné třídy <code>Exception</code> <span
+class="trnote" title="Poznámka&nbsp;překladatele">([iksepšn],
+výjimka)</span> tím, že její jméno uvedeme do závorek za jménem definované
+třídy. K dědičnosti se podrobněji dostaneme v kapitole věnované <a
+href="cztutclass.html">objektově orientovanému programování</a>.</p>
+
+<p>Ještě poslední poznámka k části týkající se generování chyb. Prozatím
+jsme pro <span class="trnote"
+title="Poznámka&nbsp;překladatele">předčasné</span> ukončování našich
+programů prováděli importováním modulu <code>sys</code> a voláním jeho
+funkce <code>exit()</code>. Jiný způsob, kterým dosáhneme naprosto stejného
+výsledku, spočívá ve vyvolání výjimky <code>SystemExit</code>:</p>
+
+<pre>
+>>> raise SystemExit
+</pre>
+
+<p>Hlavní výhoda tohoto přístupu spočívá v tom, že nemusíme nejdříve provést
+<code>import&nbsp;sys</code>.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Osobně se k tomuto postupu
+moc nepřikláním. Volání funkce <code>exit()</code> je známé i z jiných
+jazyků a jiným čtenářům vašeho zdrojového textu může volání
+<code>sys.exit()</code> připadat přirozenější.</p>
+
+
+<h3>JavaScript</h3>
+
+<p>V jazyce JavaScript se zpracování chyb provádí velmi podobně, jako v
+jazyce Python. Jen místo pythonovských klíčových slov <code>try</code>,
+<code>except</code> a <code>raise</code> se používají klíčová slova
+<code>try</code>, <code>catch</code> <span class="trnote"
+title="Poznámka&nbsp;překladatele">([keč], chytit)</span> a
+<code>throw</code> <span class="trnote"
+title="Poznámka&nbsp;překladatele">(vrhnout, hodit)</span>.</p>
+
+<p>Ukážeme si pár příkladů, ale principy zůstávají naprosto stejné jako v
+jazyce Python. V jazyce JavaScript ale nemáme konstrukci
+<code>try/finally</code>.</p>
+
+<h4>Zachytávání chyb</h4>
+
+<p>Zachytávání chyb v bloku kódu se předepisuje klíčovým slovem
+<code>try</code> a sadou příkazů <code>catch</code> téměř stejně, jako v
+Pythonu:</p>
+
+<pre>
+&lt;script type="text/javascript">
+try {
+    var x = NeexistujiciFunkce();
+    document.write(x);
+}
+catch(err) {
+    document.write("Došlo k chybě.");
+}
+&lt;/script>
+</pre>
+
+
+<h4>Vyvolání chyby</h4>
+
+<p>V jazyce Python jsme k vyvolání chyby používali klíčové slovo
+<code>raise</code>. V jazyce JavaScript používáme podobným způsobem
+<code>throw()</code>. Také v jazyce JavaScript si můžeme vytvořit vlastní
+typy chyb, jako v Pythonu. Ale mnohem jednodušší způsob spočívá v použití
+řetězce.</p>
+
+<pre>
+&lt;script type="text/javascript">
+try {
+    throw("Nová chyba");
+}
+catch(e) {
+    if (e == "Nová chyba")
+        document.write("Zachytili jsme novou chybu.");
+    else
+        document.write("Nenastala nová chyba.");
+}
+&lt;/script>
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Řetězce se pro výjimky
+používaly dříve i v jazyce Python. Z důvodů zpětné kompatibility jsou dosud
+podporovány, ale u nových programů se jejich používání nedoporučuje. Do
+budoucna se plánuje odstranění této možnosti.</p>
+
+<p>To je vše, co si o zpracování chyb řekneme. V tématech pro pokročilé
+uvidíte použití mechanismu pro zpracování chyb v praxi, spolu s použitím
+dalších základních konceptů, jako jsou posloupnosti, cykly a větvení. V
+tomto okamžiku již máte k dispozici všechny podstatné nástroje, které
+potřebujete pro vytváření mocných programů. Možná byste si teď měli zkusit
+nějaké vlastní programy vytvořit. Stačí pár, jen abyste dostali popisované
+mechanismy do hlavy před tím, než se pustíme do dalších témat. Pár
+námětů:</p>
+
+<ul>
+<li>Jednoduchá hra, jako je OXO nebo šibenice.</li>
+<li>Jednoduchá databáze &mdash; mohla by vycházet z našeho příkladu
+    záznamníku s adresami &mdash; pro ukládání detailů vaší sbírky
+    videozáznamů, DVD nebo CD.</li>
+<li>Diář, který vám umožní ukládat důležité události a schůzky. A pokud se
+    cítíte být <span class="trnote" 
+    title="Viz Douglas Adams: Stopařův průvodce po Galaxii."
+    >děsný frúd</span>, nechť se automaticky objevuje připomínka.</li>
+</ul>
+
+<p>Abyste se s výše uvedenými úkoly vyrovnali, budete muset použít všechny
+rysy jazyka, se kterými jsme se dosud seznámili, a možná i pár dodávaných
+modulů. Nezapomeňte občas nahlédnout do dokumentace. Pravděpodobně v ní
+najdete pár věcí, které vám ulehčí práci. Nezapomínejte taky na užitečnost
+interaktivního režimu (<code>>>></code>). Zkoušejte si v něm nové věci,
+dokud nepochopíte, jak fungují. Teprve poté přeneste získané znalosti do
+vašeho programu. Tímto způsobem pracují i profesionálové. A co je taky
+důležité, dobře se bavte!</p>
+
+<p>Nashledanou v části pro pokročilé :-)</p>
+
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+<li>V jazyce VBScript testujeme chybové kódy příkazem <code>if</code>.</li>
+<li>Výjimky se zachytávají v Pythonu zachytávají pomocí <code>except</code> 
+    a v JavaScript pomocí <code>catch</code>.</li>
+<li>Vygenerování výjimky můžeme v Pythonu předepsat klíčovým slovem
+    <code>raise</code>, v JavaScript pomocí <code>throw</code>.</li>
+<li>Typy chyb jsou v jazyce Python vyjadřovány pomocí tříd, v JavaScript
+    pomocí řetězců.</li>
+</ul>
+</div>
+
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztuttext.html" title="Práce s textem">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutname.html" title="Prostory jmen">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztuterrors.html,v 1.8 2005/10/20 20:55:24 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztuterrors.html,v 1.8 2005/10/20 20:55:24 petr Exp $</p>
+</div>
+</body>
+</html>
+

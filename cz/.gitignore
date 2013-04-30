@@ -1,0 +1,7 @@
+*.zip *.tgz
+*.pyc
+a.txt
+b.txt
+menu.txt
+test.htm
+tidy.log

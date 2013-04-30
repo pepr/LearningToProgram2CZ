@@ -1,0 +1,499 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Regular Expressions</TITLE>
+</HEAD>
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H3>Regular Expressions</H3>
+<P>
+<TABLE BORDER> <TR> <TH align="left">What will we cover?</TH> </TR>
+<TR> <TD><ul>
+<li>What regular expressions are
+<li>How to use regular expressions in Python programs
+<li>Regex support in JavaScript and VBScript
+</ul></TD> </TR> </TABLE>
+</CENTER>
+
+<H2>Definition</H2>
+
+<P>Regular expressions are groups of characters that describe a 
+larger group of characters. They describe a pattern of characters 
+for which we can search in a body of text. They are very similar 
+to the concept of wild cards used in file naming on most operating 
+systems, whereby an asterisk(*) can be used to represent any 
+sequence of characters in a file name. So <tt>*.py</tt> means any 
+file ending in <tt>.py</tt>. In fact filename wild-cards are a very 
+small subset of regular expressions.
+
+<P>Regular expressions are extremely powerful tools and most modern 
+programming languages either have built in support for using 
+regular expressions or have libraries or modules available that 
+you can use to search for and replace text based on regular 
+expressions. A full description of them is outside the scope of 
+this tutor, indeed there is at least one whole book dedicated to 
+regular expressions and if your interest is roused I recommend 
+that you investigate <a href="http://www.oreilly.com/catalog/regex/">
+the O'Reilly book</a>.
+
+<P>One interesting feature of regular expressions is that they 
+manifest similarities of structure to programs. Regular expressions 
+are patterns constructed from smaller units. These units are:
+<UL>
+<li>single characters
+<li>wildcard characters
+<li>character ranges or sets and
+<li>groups which are surrounded by parentheses. 
+</UL>
+
+<P>Note that because groups are a unit, so you can have groups of 
+groups and so on to an arbitrary level of complexity. We can 
+combine these units in ways reminiscent of a programming language 
+using sequences, repititions or conditional operators. We’ll look 
+at each of these in turn. So that we can try out the examples you 
+will need to import the <tt>re</tt> module and use it’s methods. 
+For convenience I will assume you have already imported <tt>re</tt> 
+in most of the examples shown.
+
+<H3>Sequences</H3>
+<P>As ever, the simplest construct is a sequence and the simplest 
+regular expression is just a sequence of characters:
+<PRE>
+red
+</PRE>
+<P>This will match, or find, any occurrence of the three 
+letters <tt>‘r’,’e’</tt> and <tt>‘d’</tt> in order, in a string. 
+Thus the words <b>red</b>, lette<b>red</b> and c<b>red</B>ible 
+would all be found because they contain ‘red’ within them. 
+To provide greater control over the outcome of matches we can 
+supply some special characters (known as <I>metacharacters</i>) 
+to limit the scope of the search:
+
+<CENTER><TABLE>
+<TR><TH COLSPAN="3">Metacharacters used in sequences<HR></TH></TR>
+<TR><TH>Expression</TH><TH>Meaning</TH><TH>Example</TH></TR>
+<TR>
+<TD>^red</TD>
+<TD>only at the start of a line</TD>
+<TD><b>red</b> ribbons are good
+</TD></TR><TR>
+<TD>red$</TD>
+<TD>only at the end of a line</TD>
+<TD>I love <b>red</b></TD>
+</TR>
+<TR>
+<TD>/Wred</TD>
+<TD>only at the start of a word</TD>
+<TD>it’s <b>red</b>irected by post</TD>
+</TR>
+<TR>
+<TD>red/W</TD>
+<TD>only at the end of a word</TD>
+<TD>you cove<b>red</B> it already</TD>
+</TD></TR>
+</TABLE></CENTER>
+
+<P>The metacharacters above are known as <i>anchors</i> because 
+they fix the position of the regular expression within a sentence 
+or word. There are several other anchors defined in the <tt>re</tt> 
+module documentation which we don’t cover in this chapter.
+
+<P>Sequences can also contain wildcard characters that 
+can substitute for any character. The wildcard character 
+is a period. Try this:
+<PRE>
+>>> import re
+>>> re.match('be.t', 'best')
+<re.MatchObject instance at 864460>
+>>> re.match('be.t', 'bess')
+</PRE>
+
+<P>The message in angle brackets tells us that the regular expression 
+<tt>‘be.t’</tt>, passed as the first argument matches the string 
+<tt>‘best’</tt> passed as the second argument. <tt>‘be.t’</tt> 
+will also match ‘beat’, ‘bent’, ‘belt’, etc. The second example 
+did not match because <tt>'bess'</tt> didn’t end in <tt>t</tt>, 
+so no MatchObject was created. Try out a few more matches to see 
+how this works. (Note that <tt>match()</tt> only matches at the 
+front of a string, not in the middle, we can use <tt>search()</tt> 
+for that as we will see later!)
+
+<P>The next unit is a <i>range</i> or <i>set</i>. This consists 
+of a collection of letters enclosed in square brackets and the 
+regular expression will search for any one of the enclosed 
+letters. 
+<PRE>
+>>> re.match('s[pwl]am', 'spam')
+<re.MatchObject instance at 7cab40>
+</PRE>
+
+<P>This would also match 'swam' or 'slam' but not 'sham' since 
+'h' is not included in the regular expression set.
+
+<P>By putting a <tt>^</tt> sign as the first element of the group we 
+can say that it should look for any character <i>except</i> those 
+listed, thus in this example:
+<PRE>
+>>> re.match('[^f]ool', 'cool')
+<re.MatchObject instance at 864890>
+>>> re.match('[^f]ool','fool')
+</PRE>
+
+<P>we can match ‘cool’ and ‘pool’ but we will not match ‘fool’ 
+since we are looking for any character except 'f' at the beginning 
+of the pattern.
+
+<P>Finally we can group sequences of characters, or other units, 
+together by enclosing them in parentheses, which is not 
+particularly useful in isolation but is useful when combined 
+with the repetition and conditional features we look at next.
+
+<H2>Repetition</H2>
+
+<P>We can also create regular expressions which match repeated 
+sequences of characters by using some more special characters. 
+We can look for a repetition of a single character or group of 
+characters using the following metacharacters:</P>
+
+<CENTER><TABLE>
+<TR><TH COLSPAN="3">Metacharacters used in repetition<HR></TH></TR>
+<TR><TH>Expression</TH><TH>Meaning</TH><TH>Example</TH></TR>
+<TR><TD>‘?’</TD>
+<TD>zero or one of the preceding character. Note the zero part 
+there since that can trip you up if you aren’t careful.</TD>	
+<TD>pythonl?y matches:<BR>
+<b>pythony</b><BR>
+<b>pythonly</b><BR>
+</TD>
+</TR>
+
+<TR><TD>‘*’</TD>
+<TD>looks for zero or more of the preceding character.</TD> 	
+<TD>pythonl*y matches both of the above, plus:<BR>
+<b>pythonlly</b><BR>
+<b>pythonllly</b><BR>
+etc.<BR>
+</TD>
+</TR>
+
+<TR><TD>‘+’</TD>
+<TD>looks for one or more of the preceding character. </TD>
+<TD>pythonl+y matches:<BR>
+<b>pythonly</b><BR>
+<b>pythonlly</b><BR>
+<b>pythonllly</b><BR>
+etc.</TD>
+</TR>
+
+<TR><TD>{n,m}</TD>
+<TD>looks for n to m repetitions of the preceding character.</TD>
+<TD>fo{1,2} matches:<BR>
+<b>fo</b> or</BR>
+<b>foo</b></BR>
+</TD>
+</TR>
+</TABLE></CENTER>
+
+<P>All of these repetition characters can be applied to groups 
+of characters too. Thus:
+<PRE>
+>>> re.match('(.an){1,2}s', 'cans')
+<re.MatchObject instance at 862760>
+</PRE>
+<P>The same pattern will also match: ‘cancans’ or ‘pans’ or 
+‘canpans’ but not ‘bananas’ since there is no character before 
+the second 'an' group.
+
+<P>There is one caveat with the <tt>{m,n}</tt> form of repetition 
+which is that it does not limit the match to only n units. Thus 
+the example in the table above, <tt>fo{1,2}</tt> will successfully 
+match <tt>fooo</tt> because it matches the <tt>foo</tt> at the 
+beginning of <tt>fooo</tt>. Thus if you want to 
+limit how many characters are matched you need to follow the 
+multiplying expression with an anchor or a negated range. In 
+our case <tt>fo{1,2}[^o]</tt> would prevent <tt>fooo</tt> 
+from matching since it says match 1 or 2 ‘o’s followed by 
+anything other than an ‘o’.
+
+<H3>Greedy expressions</H3>
+<P>Regular expressions are said to be greedy. What that means 
+is that the matching and searching functions will match as much 
+as possible of the string rather than stopping at the first 
+complete match. Normally this doesn’t matter too much but when 
+you combine wildcards with repetition operators you can wind 
+up grabbing more than you expect.
+
+<P>Consider the following example. If we have a regular expression 
+like <tt>a.*b</tt> that says we want to find an <tt>a</tt> 
+followed by any number of characters up to a <tt>b</tt> then 
+the match function will search from the first <tt>a</tt> to 
+the last <tt>b</tt>. That is to say that if the searched 
+string includes more than one 'b' all but the last one will be 
+included in the <tt>.*</tt> part of the expression. 
+Thus in this example: 
+<PRE>
+re.match('a.*b',’abracadabra')
+</PRE>
+<P>The MatchObject has matched all of <tt>abracadab</tt>. 
+Not just the first <tt>ab</tt>. This greedy matching behaviour is 
+one of the most common errors made by new users of regular 
+expressions.
+
+<P>To prevent this ‘greedy’ behaviour simply add a ‘?’ after the 
+repition character, like so:
+<PRE>
+re.match('a.*?b','abracadabra')
+</PRE>
+<P>which will now only match ‘ab’.
+
+<H3>Conditionals</H3>
+<P>The final piece in the jigsaw is to make the regular expression 
+search for optional elements or to select one of several patterns. 
+We’ll look at each of these options separately:
+
+<H4>Optional elements</H4>
+<P>You can specify that a character is optional using the zero or 
+more repetition metacharacters:
+<PRE>
+>>> re.match('computer?d?', 'computer')
+<re.MatchObject instance at 864890>
+</PRE>
+
+<P>will match <tt>computer</tt> or <tt>computed</tt>. 
+However it will also match <tt>computerd</tt>, which 
+we don’t want.
+
+<P>By using a range within the expression we can be more 
+specific. Thus:
+<PRE>
+>>> re.match('compute[rd]','computer')
+<re.MatchObject instance at 874390>
+</PRE>
+<P>will select only <tt>computer</tt> and <tt>computed</tt> 
+but reject the unwanted <tt>computerd</tt>.
+
+<h4>Optional Expressions</H4>
+<P>In addition to matching options from a list of characters we can 
+also match based on a choice of sub-expressions. We mentioned 
+earlier that we could group sequences of characters in parentheses, 
+but in fact we can group any arbitrary regular expression in 
+parentheses and treat it as a unit. In describing the syntax I 
+will use the notation <tt>(RE)</tt> to indicate any such 
+regular expression grouping.
+
+<P>The situation we want to examine here is the case whereby we 
+want to match a regular expression containing <tt>(RE)xxxx</tt> 
+or <tt>(RE)yyyy</tt> where <tt>xxxx</tt> and <tt>yyyy</tt> 
+are different patterns. Thus, for example we want to match 
+both <tt>premature</tt> and <tt>preventative</tt>. 
+We can do this by using a selection metacharacter:
+<PRE>
+>>> regexp = 'pre(mature|ventative)'
+>>> re.match(regexp,'premature')
+<re.MatchObject instance at 864890>
+>>> re.match(regexp,'preventative')
+<re.MatchObject instance at 864890>
+>>> re.match(regexp,'prelude')
+</PRE>
+
+<P>Notice that when defining the regular expression we had to 
+include both the options inside the parentheses, otherwise the 
+option would have been restricted to <tt>prematureentative</tt> 
+or <tt>prematurventative</tt>. In other words only the letters 
+<tt>e</tt> and <tt>v</tt> would have formed the options not 
+the groups.
+
+<H3>Using Regular Expressions in Python.</H3>
+
+<P>We’ve seen a little of what regular expressions look like 
+but what can we do with them? And how do we do it in Python? 
+To take the first point first, we can use them as very powerful 
+search tools in text. We can look for lots of different variations 
+of text strings in a single operation, we can even search for 
+non printable characters such as blank lines using some of the 
+metacharacters available. We can also replace these patterns 
+using the methods and functions of the re module. We’ve already 
+seen the <tt>match()</tt> function at work, there are several 
+other functions, some of which are described below:
+
+<CENTER><TABLE>
+<TR><TH COLSPAN="2">re Module functions and methods<HR></TH></TR>
+<TR><TH>Function/Method</TH><TH>Effect</TH></TR>
+<TR><TD>match(RE,string)</TD>
+<TD>if RE matches the <I>start</I> of the string it returns a match object</TD>
+</TR>
+<TR><TD>search(RE,string)</TD>
+<TD>if RE is found <I>anywhere</I> within the string a match object is returned
+</TD>
+</TR>
+<TR><TD>split(RE, string)</TD>
+<TD>like string.split() but uses the RE as a separator</TD>
+</TR>
+<TR><TD>sub(RE, replace, string)</TD>
+<TD>returns a string produced by substituting replace for re 
+at the first matching occurrence of RE. Note this function 
+has several additional features, see the documentation for 
+details.</TD>
+</TR>
+<TR><TD>findall(RE, string)</TD>
+<TD>Finds all occurences of RE in string, returning a list 
+of match objects</TD>
+</TR>
+<TR><TD>compile(RE)</TD>
+<TD>produces a regular expression object which can be reused 
+for multiple operations with the same RE. The object has all 
+of the above methods but with an implied re and is more 
+efficient than using the function versions.</TD>
+</TR>
+</TABLE></CENTER>
+
+<P>Note that this is not a full list of re’s methods and 
+functions and that those listed have some optional parameters 
+that can extend their use. The listed functions are the most 
+commonly used operations and are sufficient for most needs.
+
+<H4>A Practical Example Using Regular Expressions</H4>
+
+<P>As an example of how we might use regular expressions 
+in Python let’s create a program that will search an HTML 
+file for an IMG tag that has no ALT section. If we find 
+one we will add a message to the owner to create more 
+user friendly HTML in future!
+<PRE>
+import re
+<SPAN CLASS="Comment">
+# detect 'IMG' in upper/lower case allowing for
+# zero or more spaces between the < and the 'I'</SPAN>
+img = '&lt; *[iI][mM][gG] ' 	
+<SPAN Class-="comment">
+# allow any character up to the 'ALT' or 'alt' before &gt;</SPAN>
+alt = img + '.*[aA][lL][tT].*&gt;'
+
+<SPAN CLASS="COmment"># open file and read it into list</SPAN>
+filename = raw_input('Enter a filename to search ')
+inf = open(filename,'r')
+lines = inf.readlines()
+<SPAN Class="Comment">
+# if the line has an IMG tag and no ALT inside
+# add our message as an HTML comment</SPAN>
+for i in range(len(lines)):
+  if re.search(img,lines[i]) and not re.search(alt,lines[i]):
+    lines[i] += '&lt;!-- PROVIDE ALT TAGS ON IMAGES! --&gt;\n'
+
+<SPAN CLass="comment"># Now write the altered file and tidy up.</SPAN>
+inf.close()
+outf = open(filename,'w')
+outf.writelines(lines)
+outf.close()
+</PRE>
+
+<P>Notice two points about the above code. First we use 
+re.search instead of re.match because search finds the patterns 
+anywhere in the string whereas match only looks at the start 
+of the string. Secondly we use a statement continuation character 
+‘\’ in the if statements. This just allows us to lay the code 
+out over two lines which looks a little neater, especially if 
+there are many expressions to be combined.
+
+<P>This code is far from perfect because it doesn’t consider 
+the case where the IMG tag may be split over several lines, 
+but it illustrates the technique well enough for our purposes. 
+Of course such wanton vandalism of HTML files shouldn’t really 
+be encouraged, but then again anyone who doesn’t provide 
+ALT tags probably deserves all they get!
+
+<P>We’ll see regular expressions at work again in the Grammar 
+Counter case study, meantime experiment with them and check out the 
+other methods in the re module. We really have just scratched 
+the surface of what’s possible using these powerful text 
+processing tools.
+
+<H3>JavaSCript</H3>
+
+<P>JavaScript has good support for regular expressions 
+built into the language. In fact the string search operations 
+we used earlier are actually regular expression searches, 
+we simply used the most basic form - a simple sequence of 
+characters. All of the rules we discussed for Python apply 
+equally to Javascript except that regular expressions are 
+surrounded in slashes(<tt>/</tt>) instead of quotes. 
+Here are some examples to illustrate their use:
+
+<PRE>
+&lt;Script language="JavaScript">
+var str = "A lovely bunch of bananas";
+document.write(str + "&lt;BR>");
+if (str.match(/^A/)) {
+   document.write("Found string beginning with A&lt;BR>");
+}
+if (str.match(/b[au]/)) {
+   document.write("Found substring with either ba or bu&lt;BR>");
+}
+if (!str.match(/zzz/)) {
+   document.write("Didn't find substring zzz!&lt;BR>");
+}
+&lt;/Script>
+</PRE>
+<P>The first two succeed the third doesn't, hence the negative test.
+
+<H3>VBScript</H3>
+<P>VBScript does not have built in regular expressions like 
+JavaScript but it does have a Regular Expression object that 
+can be instantiated and used for searches, replacement etc. 
+It can also be controlled to ignore case and to search for 
+all instances or just one. It is used like this:
+
+<PRE>
+&lt;Script language="VBScript">
+Dim regex, matches
+Set regex = New RegExp
+
+regex.Global = True
+regex.Pattern = "b[au]"
+
+Set matches = regex.Execute("A lovely bunch of bananas")
+If matches.Count > 0 Then
+   MsgBox "Found " & matches.Count & " substrings"
+End If
+&lt;/Script>
+</PRE>
+
+<P>That's all I'll cover here but there is a wealth of 
+subtle sophistication in regular expressions, we have 
+literally just touched on their power in this short 
+topic. Fortunately there is also a wealth of online 
+information about their use, plus the excellent O'Reilly 
+book mentioned at the start. My advice is to take is 
+slowly and get accustomed to their vagaries as well 
+as their virtues.
+
+<CENTER>
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>Regular expressions are text patterns which can improve the 
+power and efficiency of text searches
+<LI>Regular expressions are notoriously difficult to get right 
+and can lead to obscure bugs - handle with care.
+<LI>Regular Expressions are not a cure all and often a more 
+sophisticated approach may be needed, if it doesn't work after 
+say 3 attempts consider another approach!
+</UL> </TD></TR></TABLE>
+
+<!-- HR WIDTH="60%" -->
+
+<A HREF="tutname.htm" target="text">Previous</A>&nbsp
+<A HREF="tutclass.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>
+

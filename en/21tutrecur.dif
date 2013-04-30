@@ -1,0 +1,22 @@
+Index: tutrecur.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutrecur.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+24c24
+< make sense stright away.</h5>
+---
+> make sense straight away.</h5>
+173c173
+< is a List using the builtin <TT>type()</TT> function and if it 
+---
+> is a List using the built-in <TT>type()</TT> function and if it 
+204c204
+< &lt;script language="VBSCript">
+---
+> &lt;script language="VBScript">
+238c238
+< <LI> Recusion is often, but not always, memory hungry
+---
+> <LI> Recursion is often, but not always, memory hungry

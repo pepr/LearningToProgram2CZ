@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>Error Handling</TITLE>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</HEAD>
+<CENTER>
+
+<BODY BGCOLOR="#CCBBCC">
+<H2>Handling Errors</H2>
+
+<P>
+<TABLE BORDER>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD>
+<LI>A short history of error handling
+<LI>Two techniques for handling errors
+<LI>Defining and raising errors in our code for others to catch
+</TD></TR>
+</Table>
+</CENTER>
+
+<H3>A Brief History of Error Handling</H3>
+
+<P>VBScript is by far the most bizarre of our three 
+languages in the way it handles errors. The reason 
+for this is that it is built on a foundation of BASIC
+which was one of the earliest programming languages
+(around 1963) and VBScript error handling is one place 
+where that heritage shines through. For our purposes 
+that's not a bad thing because it gives me the 
+opportunity to explain why VBScript works as it does 
+by tracing the history of error handling from BASIC 
+through Visual Basic to VBScript. After that we will 
+look at a much more modern approach as exemplified in 
+both JavaScript and Python.
+
+<P>In traditional BASIC, programs were written with 
+line numbers to mark each one of code. Transferring 
+control was done by jumping to a specific line using 
+a statement called GOTO (we saw an example of this in the 
+<A href="tutbranch.htm">Branching topic</A>). 
+Essentially this was the only form of control possible.
+In this environment a common mode of error handling 
+was to declare an <TT>errorcode</TT> variable that would 
+store an integer value. Whenever an error occurred in 
+the program the <TT>errorcode</TT> variable would be set to 
+reflect the problem - couldn't open a file, type mismatch, 
+operator overflow etc
+
+<P>This led to code that looked like this fragment out 
+of a fictitious program:
+<PRE>
+1010 LET DATA = INPUT FILE
+1020 CALL DATA_PROCESSING_FUNCTION
+1030 IF NOT ERRORCODE = 0 GOTO 5000
+1040 CALL ANOTHER_FUNCTION
+1050 IF NOT ERRORCODE = 0 GOTO 5000
+1060 REM CONTINUE PROCESSING LIKE THIS
+...
+5000 IF ERRORCODE = 1 GOTO 5100
+5010 IF ERRORCODE = 2 GOTO 5200
+5020 REM MORE IF STATEMENTS
+...
+5100 REM HANDLE ERROR CODE 1 HERE
+...
+5200 REM HANDLE ERROR CODE 2 HERE
+</PRE>
+<P>As you can see almost half of the main program is 
+concerned with detecting whether an error occurred. 
+Over time a slightly more elegant mechanism was 
+introduced whereby the detection of errors and their 
+handling was partially taken over by the language 
+interpreter, this looked like:
+<PRE>
+1010 LET DATA = INPUTFILE
+1020 ON ERROR GOTO 5000
+1030 CALL DATA_PROCESSING_FUNCTION
+1040 CALL ANOTHER_FUNCTION
+...
+5000 IF ERRORCODE = 1 GOTO 5100
+5010 IF ERRORCODE = 2 GOTO 5200
+</PRE>
+
+<P>This allowed a single line to indicate where the error 
+handling code would reside. It still required the functions 
+which detected the error to set the <TT>ERRORCODE</TT> value 
+but it made writing (and reading!) code much easier.
+
+<P>So how does this affect us? Quite simply Visual Basic 
+still provides this form of error handling although the 
+line numbers have been replaced with more human friendly 
+labels. VBScript as a descendant of Visual Basic provides 
+a severely cut down version of this. In effect VBScript 
+allows us to choose between handling the errors locally 
+or ignoring errors completely.
+
+<P>To ignore errors we use the following code:
+
+<PRE>
+On Error Goto 0  <SPAN class="Comment">' 0 implies go nowhere</SPAN>
+SomeFunction()
+SomeOtherFunction()
+....
+</PRE>
+
+<P>To handle errors locally we use:
+<PRE>
+On Error Resume Next
+SomeFunction()
+If Err.Number = 42 Then
+   <SPAN class="comment">' handle the error here</SPAN>
+SomeOtherFunction()
+...
+</PRE>
+
+<P>This seems slightly back to front but in fact simply 
+reflects the historical process as described above.
+
+<P>The default behavior is for the interpreter to generate 
+a message to the user and stop execution of the program when 
+an error is detected. This is what happens with <TT>GoTo 0</TT> 
+error handling, so in effect <TT>GoTo 0</TT> is a way of 
+turning off local control and allowing the interpreter to 
+function as usual.
+
+<P><TT>Resume Next</TT> error handling allows us to either 
+pretend the error never happened, or to check the Error 
+object (called <TT>Err</TT>) and in particular the number 
+attribute (exactly like the early errorcode technique).
+The <TT>Err</TT> object also has a few other bits of 
+information that might help us to deal with the situation 
+in a less catastrophic manner than simply stopping the 
+program. For example we can find out the source of the 
+error, in terms of an object or function etc. We can also 
+get a textual description that we could use to 
+populate an informational message to the user, or write 
+a note in a log file. Finally we can change error type 
+by using the <TT>Raise</TT> method of the <TT>Err</TT> 
+object. We can also use <TT>Raise</TT> to generate our 
+own errors from within our own Functions.
+
+<P>As an example of using VBScript error handling lets 
+look at the common case of trying to divide by zero:
+<PRE>
+&lt;script language="VBScript">
+Dim x,y,Result
+x = Cint(InputBox("Enter the number to be divided"))
+y = CINt(InputBox("Enter the number to divide by"))
+On Error Resume Next
+Result = x/y
+If Err.Number = 11 Then <SPAN class="comment">' Divide by zero</SPAN>
+   Result = Null
+End If
+On Error GoTo 0 <SPAN class="comment">' turn error handling off again</SPAN>
+If VarType(Result) = vbNull Then
+   MsgBox "ERROR: Could not perform operation"
+Else
+   MsgBox CStr(x) & " divided by " & CStr(y) & " is " & CStr(Result)
+End If
+&lt;/script>
+</PRE>
+
+<P>Frankly that's not very nice and while an appreciation of 
+ancient history may be good for the soul, modern programming 
+languages, including both Python and JavaScript, have much 
+more elegant ways to handle errors, so let's look at them now.
+
+<H3>Error Handling in Python</H3>
+
+<H4>Exception Handling</H4>
+
+<P>In recent programming environments an alternative way of
+dealing with errors known as <I>exception handling</I> works 
+by having functions <I> throw</I> or <I> raise</I> an 
+<I>exception</I>. The system then forces a jump out of
+the current block of code to the nearest exception handling
+block. The system provides a default handler which <I> catches</I>
+all exceptions which have not already been handled elsewhere 
+and usually prints an error message then exits. 
+
+<P>One big advantage of this style of error handling is 
+that the main function of the program is much easier to 
+see because it is not mixed up with the error handling 
+code, you can simply read through the main block without 
+having to look at the error code at all.
+
+<P>Let's see how this style of programming works in practice.
+
+<H4>Try/Catch</H4>
+
+<P>The exception handling block is coded rather like an
+<TT> if...then...else</TT> block:
+
+<PRE>
+try:
+   <SPAN CLASS="comment"># program logic goes here</SPAN>
+except ExceptionType:
+   <SPAN CLASS="comment"># exception processing for named exception goes here</SPAN>
+except AnotherType:
+   <SPAN CLASS="comment"># exception processing for a different exception goes here</SPAN>
+else:
+   <SPAN CLASS="comment"># here we tidy up if NO exceptions are raised</SPAN>
+</PRE>
+<P>Python attempts to execute the statements between the <TT>try</TT> 
+and the first <TT>except</TT> statement. If it encounters an error it 
+will stop execution of the <TT>try</TT> block and jump down to the 
+<TT>except</TT> statements. It will progress down the <TT>except</TT> 
+statements until it finds one which matches the error (or <I>exception</I>) 
+type and if it finds a match it will execute the code in the block 
+immediately following that exception. If no matching except statement 
+if found the error is propagated up to the next level of the program 
+until either a match is found or the top level Python interpreter 
+catches the error and displays an error message and stops program 
+execution - this is what we have seen happening in our programs 
+so far.
+
+<P>If no errors are found in the <TT>try</TT> block then the final 
+<TT>else</TT> block is executed although, in practice, this feature 
+is rarely used. Note that an except statement with no specific 
+error type will catch <U>all</U> error types not already handled. 
+In general this is a bad idea, with the exception of the top level 
+of your program where you may want to avoid presenting Python's 
+fairly technical error messages to your users, you can use a 
+general except statement to catch any uncaught errors and display 
+a friendly "shutting down" type message.
+
+<P>It is worth noting that Python provides a <TT>traceback</TT> 
+module which enables you to extract various bits of information 
+about the source of an error, and this can be useful for 
+creating log files and the like. I won't cover the traceback 
+module here but if you need it the standard module documentation 
+provides a full list of the available features.
+
+<P>Let's look at a real example now, just to see how this works:
+<PRE>
+value = raw_input("Type a divisor: ")
+try:
+   value = int(value)
+   print "42 / %d = %d" % (value, 42/value)
+except ValueError: 
+	print "I can't convert the value to an integer"
+except ZeroDivisionError:
+	print "Your value should not be zero"
+except: 
+	print "Something unexpected happened"
+else: print "Program completed successfully"
+</PRE>
+
+<P>If you run that and enter a non-number, a string say, 
+at the prompt, you will get the <TT>ValueError</TT> message, 
+if you enter <TT>0</TT> you will get the <TT>ZeroDivisionError</TT> 
+message and if you enter a valid number you will get the result 
+plus the "Program completed" message.
+
+<H4>Try/Finally</H4>
+
+<P>There is another type of 'exception' block which allows us
+to tidy up after an error, it's called a <TT> try...finally</TT>
+block and typically is used for closing files, flushing buffers
+to disk etc. The <TT> finally</TT> block is <I>always</I> executed 
+last regardless of what happens in the <TT> try</TT> section.
+<PRE>
+try:
+   <SPAN CLASS="comment"># normal program logic</SPAN>
+finally:
+   <SPAN CLASS="comment"># here we tidy up regardless of the
+   # success/failure of the try block</SPAN>
+</PRE>
+
+<P>This becomes very powerful when combined with a 
+<TT>try/except</TT> block. In this case there is no 
+significant advantage as to which try block sits inside 
+the other, the sequence of processing is the same in 
+either case. Personally I normally put the <TT>try/finally</TT> 
+block on the outside since it reminds me that the finally 
+is done last, but to Python it makes no difference. 
+It looks like this:
+
+<PRE>
+print "Program starting"
+try:
+   try:
+      data = file("data.dat")
+      value = data.readline().split()[2]
+      print "The value is %s" % value/(42-value)
+   except ZeroDevisionError: 
+      print "Value was 42"
+finally:
+   data.close()
+print "Program completed"
+</PRE>
+
+<P>In this case the data file will always be closed regardless 
+of whether an exception is raised in the try/except block or not.
+Note that this is different behavior to the <TT>else</TT> 
+clause of <TT>try/except</TT> because it only gets called if 
+no exception is raised, and equally simply putting the code 
+outside the <TT>try/except</TT> block would mean the file was 
+not closed if the exception was anything other than a 
+<TT>ZeroDivisionError</TT>. Only a <TT>try/finally</TT> construct 
+ensures that the file is <I>always</I> closed.
+<H4>Generating Errors</H4>
+
+<P>What happens when we want to generate exceptions for other
+people to catch, in a module say? In that case we use the
+<TT> raise</TT> keyword in Python:
+
+<PRE>
+numerator = 42
+denominator = input("What value will I divide 42 by?")
+if denominator == 0:
+   raise ZeroDivisionError()
+</PRE>
+
+<P>This raises a <TT>ZeroDivisionError</TT> exception 
+which can be caught by a <TT> try/except</TT> block. 
+To the rest of the program it looks exactly as if 
+Python had generated the error internally. Another 
+use of the <TT>raise</TT> keyword is to propagate an 
+error to a higher level in the program from within 
+an except block. For example we may want to take some 
+local action, log the error in a file say, but 
+then allow the higher level program to decide what 
+ultimate action to take. It looks like this:
+
+<PRE>
+logfile = file("errorlog.txt","w")
+def f(datum)
+  try:
+    return 127/(42-datum)
+  except ZeroDivisionError:
+    logfile.write("datum was 42")
+    raise
+
+try:
+   f(42)
+except ZeroDivisionError:
+   print "Something went wrong, try again"
+</PRE>
+
+<P>Notice how the function <TT>f()</TT> catches the error, 
+logs a message in the error file and then passes the exception 
+back up for the outer <TT>try/except</TT> block to deal with.
+
+<P>We can also define our own exception types for even finer 
+grained control of our programs. We do this by defining a new 
+exception class (we briefly looked at defining classes in the 
+<A href="tutdata.htm#class">Raw Materials</A> topic and will 
+look at it in more detail in the Object Oriented Programming 
+topic later in the tutorial). Usually the class is trivial 
+and contains no content of its own, we simply define it as 
+a sub-class of <TT>Exception</TT> and use it as a kind of 
+"smart label" that can be detected by <TT>except</TT> 
+statements.
+
+A short example will suffice here:
+<PRE>
+err = class BrokenError(Exception): pass
+try:
+   raise BrokenError
+except BrokenError:
+   print "We found a Broken Error"
+</PRE>
+
+<P>Note that we use a naming convention of adding "Error" 
+to the end of the class name and that we <I>inherit</I> 
+the behavior of the generic <TT>Exception</TT> class 
+by including it in parentheses after the name 
+- we'll learn all about inheritance in the OOP topic.
+
+<P>One final point to note on raising errors. Up until now we 
+have quit our programs by importing sys and calling the 
+<TT>exit()</TT> function. Another method that achieves 
+exactly the same result is to raise the <TT>SystemExit</TT> 
+error, like this:
+
+<PRE>
+>>> raise SystemExit
+</PRE>
+
+<P>The main advantage being that we don't need to 
+<TT>import sys</TT> first.
+
+
+<H3>JavaScript</H3>
+
+<P>JavaScript handles errors in a very similar way to Python, 
+using the keywords <TT>try</TT>, <TT>catch</TT> and <TT>throw</TT> 
+in place of Python's <TT>try</TT>, <TT>except</TT> and <TT>raise</TT>.
+
+<P>We'll take a look at some examples but the principles 
+are exactly the same as in Python. Note there is no 
+<TT>try/finally</TT> construct in JavaScript.
+
+<H4>Catching errors</H4>
+
+<P>Catching errors is done by using a <TT>try</TT> block 
+with a set of <TT>catch</TT> statements, almost identically 
+to Python:
+
+<PRE>
+&lt;script language="JavaScript">
+try{
+   var x = NonExistentFunction();
+   document.write(x);
+}
+catch(err){
+   document.write("We got an error in the code");
+}
+&lt;/script>
+</PRE>
+
+<H4>Raising errors</H4>
+
+<P>Similarly we can raise errors by using the <TT>throw</TT>
+keyword just as we used the <TT>raise</TT> keyword in Python.
+We can also create our own error types in JavaScript as we 
+did in Python but a much easier method is just to use a string.
+
+<PRE>
+&lt;script language="JavaScript">
+try{
+   throw("New Error");
+}
+catch(e){
+   if (e == "New Error")
+      document.write("We caught a new error");
+   else
+      document.write("Nothing new here");
+}
+&lt;/script>
+</PRE>
+
+<P>And that's all I'll say about error handling. As we go through 
+the more advanced topics coming up you will see error handling 
+in use, just as you will see the other basic concepts such as 
+sequences, loops and branches. In essence you now have all of 
+the tools at your disposal that you need to create powerful 
+programs. It might be a good idea to take some time out to try 
+creating some programs of your own, just a couple, to try to 
+sound these ideas into your head before we move on to the next 
+set of topics. Here are a few sample ideas:
+<UL>
+<LI>A simple game such as OXO or Hangman
+<LI>A basic database, maybe based on our address book, 
+for storing details of your video, DVD or CD collection.
+<LI>A diary utility that will let you store important 
+events or dates and, if you feel really keen, that 
+automatically pops up a reminder.
+</UL>
+
+<P>To complete any of the above you will need to use all of 
+the language features we have discussed and probably a few of 
+the language modules too. Remember to keep checking the 
+documentation, there will probably be quite a few tools that 
+will make the job easier if you look for them. Also don't 
+forget the power of the Python >>> prompt. Try things out 
+there until you understand how they work then transfer that 
+knowledge into your program - it's how the professionals 
+do it! Most of all, have fun! 
+
+<P>See you in the Advanced section :-)
+
+
+<CENTER>
+<!-- HR WIDTH=60% -->
+
+<P><BR>
+<TABLE BORDER>
+<TR><TH>Things to remember</TH></TR>
+<TR><TD>
+<LI>Check VBScript error codes using an <TT>if</TT> statement
+<LI>Catch exceptions with a Python <TT>except</TT> or JavaScript 
+<TT>catch</TT> clause
+<LI>Generate exceptions using the Python <TT>raise</TT> 
+or JavaScript throw keyword
+<LI>Error types can be a class in Python or a simple string in JavaScript
+</TD></TR></TABLE>
+</P>
+
+<A HREF="tutfiles.htm">Previous</A>&nbsp
+<A HREF="tutname.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

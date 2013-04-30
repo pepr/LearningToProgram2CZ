@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>More Sequences</TITLE>
+</HEAD><BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>More Sequences and Other Things</H2>
+<P>
+<TABLE BORDER> 
+<TR> <TH>What will we cover?</TH> </TR>
+<TR> <TD>
+<LI>We introduce a new tool for entering Python programs. 
+<LI>We review the use of variables to store information until we need it.
+<LI>We discuss comments and why they are needed
+<LI>We combine longer sequences of commands to perform a task.
+</TD> </TR> </TABLE>
+</CENTER>
+
+<P>OK, Now we know how to type simple single entry commands into 
+Python and have started to consider data and what we can do with 
+it. In doing so we typed in a few longer sequences of 5-10 lines.
+We are getting close to being able to write really quite useful 
+programs but with one big snag: every time we exit Python we lose 
+our programs. If you have been doing the VBScript or JavaScript 
+examples you will see that you have stored those examples in 
+files and so can run them repeatedly, we need to do the same 
+with Python. I already mentioned that we can do this using any 
+text editor, like notepad or pico, say, and saving the file 
+with a .py file extension. You can then run the file from the 
+command prompt as described in the <a href="tutstart.htm">
+Getting Started</a> topic. However, there is an easier way.
+
+<H3>The joy of being IDLE</H3>
+
+<P>When you installed Python you also installed a useful application, 
+itself written in Python, called IDLE. IDLE is what is known as an 
+<I>Integrated Development Environment</I>, that is to say it includes 
+several tools that help the programmer all wrapped up in 
+a single application. I won't be looking at IDLE in depth here, 
+but the two features that I want to highlight are the fact that 
+it provides an enhanced version of the Python >>> prompt, complete 
+with <I>syntax highlighting</I> (That is, displaying different 
+features of the language in different colours) and other nice 
+features, plus a nice Python specific text editor which allows 
+you to run your programs directly from within IDLE.
+
+<P>I strongly recommend that, if you haven't already done so, 
+you give IDLE a try. The best place to start, once you find 
+the right way to start IDLE on your Operating System, is to 
+visit <A href="http://hkn.eecs.berkeley.edu/~dyoo/python/idle_intro">
+Danny Yoo's excellent tutorial</A>.
+
+<P>There is also a full tutorial on using IDLE on the Python 
+web site under the 
+<A href="http://www.python.org/idle/doc/idlemain.html">IDLE topic</A>. 
+
+<P>If you are using MS Windows there is yet another option in the
+form of <I>PythonWin</I> which you can download as part of the 
+<I><A href="http://www.python.org/download/download_windows.html">
+win32all</A></I> package. This gives access to all the Windows MFC 
+low level programming functions and importantly, a very good 
+alternative to IDLE. Pythonwin only works in Windows but is, 
+in my opinion, slightly superior to IDLE. On the other hand IDLE 
+is standard with Python so more people tend to use it and it 
+works on most platforms. Whichever you choose, it's nice to be given 
+a choice! 
+
+<P>Finally, if you prefer a simple approach, you can find several 
+text editors that support programming in Python in various ways. 
+The <a href="http://www.vim.org">vim</a> editor provides syntax 
+highlighting (colouring of key words etc), 
+<a href="http://www.gnu.org/software/emacs/emacs.html">
+emacs</a> has a full editing mode for Python and 
+<a href="http://www.scintilla.org/SciTE.html">Scite</a> 
+is a very lightweight editor that provides Python syntax 
+highlighting and other nice features. 
+
+<P>If you go down the text editor route you will likely find it 
+most convenient to have three windows open on your screen at once:
+<OL>
+<LI>The editor where you type in and save your source code
+<LI>A Python session where you try things out at the >>> prompt 
+before adding them to your program in the editor and
+<LI>An operating system command prompt used to run the program 
+to test it.
+</OL>
+<P>Your author personally prefers the 3 window approach, but 
+most beginners seem to prefer the all-in-one style of IDLE or 
+Pythonwin. The choice is entirely up to you.
+
+<P>And if you are using JavaScript or VBScript I recommend 
+using one of the editors mentioned above and a suitable 
+web browser, say Internet Explorer, opened at the file you 
+are working on. To test changes just hit the Reload button 
+in the browser.
+
+<H3>A quick comment</H3>
+
+<P>One of the most important of programming tools is one that
+beginners often feel is useless on first acquaintance - comments.
+Comments are just lines in the program which describe what's
+going on. They have no effect whatsoever on how the program
+operates, they are purely decorative. They do, however, have an important
+role to play - they tell the programmer what's going on and more
+importantly <I>why</I>. This is especially important if the programmer
+reading the code isn't the one who wrote it, or, it's a long time
+since he/she wrote it. Once you've been programming for a while
+you'll really appreciate good comments. I have actually been adding 
+comments to some of the code fragments that you've seen already, 
+they were the blue bits of the lines with a <TT>#</TT> (Python) 
+or <TT>'</TT> (VBScript) symbol in front of them. From now on I'll 
+be commenting the code fragments that I write. Gradually the amount 
+of explanatory text will diminish as the explanation appears in 
+comments instead. 
+
+<P>Every language has a way of indicating comments. In VBScript
+it's <TT> REM</TT> (for Remark) or, more commonly, a single quote 
+<TT>'</TT> at the beginning of a comment. Everything after
+the marker is ignored:
+
+<PRE>
+<SPAN CLASS="comment">REM This never gets displayed</SPAN>
+<SPAN CLASS="comment">' neither does this</SPAN>
+msgBox "This gets displayed"
+</PRE>
+
+<P>You might recognize REM if you have ever written any MSDOS
+batch files, since they use the same comment marker. 
+
+<P>Note that the use of a single quote as a comment marker is the 
+reason you can't start a string with a single quote in VBScript 
+- VBScript thinks it's a comment!
+
+<P>Python uses a <TT> # </TT> symbol as its comment marker. 
+Anything following a <TT> # </TT> is ignored:
+
+<PRE>
+v = 12     <SPAN CLASS="comment"># give v the value 12</SPAN>
+x = v*v    <SPAN CLASS="comment"># x is v squared</SPAN>
+</PRE>
+
+<P>Incidentally this is very <I> bad</I> commenting style. Your
+comment should not merely state what the code does - we can see
+that for ourselves! It should explain <I> why</I> it's doing it:
+
+<PRE>
+v = 3600    <SPAN CLASS="comment"># 3600 is num of secs in an hour</SPAN>
+s = t*3600  <SPAN CLASS="comment"># t holds elapsed time in hours, so convert to secs</SPAN>
+</PRE>
+<P>These are much more helpful comments.
+
+<P>Finally JavaScript uses a double slash: <TT>//</TT> as a comment 
+marker. Once again, everything after the marker gets ignored. 
+
+<P>Some languages allow multi-line comments between a pair of markers, 
+but this can lead to some obscure faults if the terminating marker 
+is not correctly input. JavaScript allows multi-line comments by 
+using the pair of markers: <TT>/*</TT> followed by <TT>*/</TT>, 
+like this:
+<PRE>
+&lt;script language="JavaScript">
+document.write("This gets printed\n");
+
+<SPAN class="comment">// A single line comment</SPAN>
+<SPAN class="comment">
+/* Here is a multi line comment. It continues from this line
+down into this line and even
+onto this third line. It does not appear in the script output.
+It is terminated by a mirror image of the opening marker */
+</SPAN>
+document.write("And so does this");
+&lt;/script>
+</PRE>
+
+<P>The important point about comments is that they are there to 
+explain the code to anyone who tries to read it. With that in mind 
+you should explain any mysterious sections - such as apparently 
+arbitrary values used, or complex arithmetic formulae etc. And 
+remember, the puzzled reader might be yourself in a few weeks or 
+months time!
+
+<H3>Sequences using variables</H3>
+<P>We introduced the concept of variables in the 
+<A href="tutdata.htm">Raw Materials topic</a> topic.
+There we said they were labels with which we marked our data for 
+future reference. We saw some examples of using variables too in 
+the various list and address book examples. However variables are 
+so fundamentally important in programming that I want to do a 
+quick recap of how we use variables before moving onto new things.
+
+<P>Now, either in IDLE or at Python Prompt(>>>) in the DOS (or Unix) 
+command window, try typing this:
+
+<PRE>
+>>> v = 7
+>>> w = 18
+>>> x = v + w    <SPAN CLASS="comment"># use our variables in a calculation</SPAN>
+>>> print x
+</PRE>
+<P>What's happening here is that we are creating variables 
+(<TT> v, w, x </TT>)
+and manipulating them. It's rather like using the <TT> M</TT> button on 
+your pocket calculator to store a result for later use.
+
+<P>We can make this prettier by using a format string to print the result:
+<PRE>
+>>> print "The sum of %d and %d is: %d" % (v,w,x)
+</PRE>
+
+<P>One advantage of format strings is that we can store them in variables too:
+<PRE>
+>>> s = "The sum of %d and %d is: %d"
+>>> print s % (v,w,x)   <SPAN CLASS="comment"># useful if printing same output with different values</SPAN>
+</PRE>
+<P>This makes the print statement much shorter, especially when it 
+contains many values. However it also makes it more cryptic so you 
+have to use your judgment to decide whether very long lines are 
+more or less readable than a stored format value. If you keep the 
+format string beside the print statement, as we did here, then it's 
+not too bad. Finally one other thing that helps is to name your 
+variables in such a way that they explain what they are used for.
+For example instead of calling the format string <TT>s</TT> I 
+could have called it <TT>sumFormat</TT>, so that the code looked 
+like this:
+
+<PRE>
+>>> sumFormat = "The sum of %d and %d is: %d"
+>>> print sumFormat % (v,w,x)   <SPAN CLASS="comment"># useful if printing same output with different values</SPAN>
+</PRE>
+
+<P>Now, in a program with several different format strings in use, 
+we could more easily tell which format is being printed. Meaningful 
+variable names are always a good idea and I'll try to use 
+meaningful names where possible. Up until now our variables haven't 
+had much meaning to convey!
+
+<H3>Order matters</H3>
+
+<P>By now you might be thinking that this sequence construct 
+is a bit over-rated and obvious. You would be right in so far 
+as it's fairly obvious, but it's not quite as simple as it might 
+seem. There can be hidden traps. Consider the case where you 
+want to 'promote' all the headings in an HTML document up a 
+level:
+
+<P>Now in HTML the headings are indicated by surrounding the 
+text with<BR>
+<TT>&lt;H1&gt;</TT>text<TT>&lt;/H1&gt;</TT> for level 1 headings,<BR>
+<TT>&lt;H2&gt;</TT>text<TT>&lt;/H2&gt;</TT> for level 2 headings,<BR>
+<TT>&lt;H3&gt;</TT>text<TT>&lt;/H3&gt;</TT> for level 3 headings and so on.
+
+<P>The problem is that by the time you get to level 5 headings 
+the heading text is often smaller than the body text, which 
+looks odd. Thus you might decide to promote all headings up 
+one level. It's fairly easy to do that with a simple string 
+substitution in a text editor, substitute '&lt;H2' with '&lt;H1'
+and  '&lt;/H2' with '&lt;/H1' and so on.
+
+<P>Consider though what happens if you start with the highest 
+numbers - say H4 -> H3, then do H3 -> H2 and finally H2 -> H1. 
+All of the headings will have moved to H1! Thus the order of 
+the sequence of actions is important. The same is just as 
+true if we wrote a program to do the substitution 
+(which we might well want to do, since promoting headings may
+be a task we do regularly).
+
+<P>We've seen several other examples using variables and sequences
+in the <A href="tutdata.htm">Raw Materials topic</a> - particularly 
+the various address book examples. Why not think up a few examples for 
+yourself? Once you've done that we'll move on to a case study that 
+we will build on as we move through the tutorial, improving it 
+with each new technique we learn.
+
+<H3>A Multiplication Table</H3>
+
+<P>I'm now going to introduce a programming exercise that we 
+will develop over the next few chapters. The solutions will 
+gradually improve as we learn new techniques.
+
+<P>Recall that we can type long strings by enclosing them in triple quotes? 
+Let's use that to construct a multiplication table:
+<PRE>
+>>> s = """
+1 x 12 = %d
+2 x 12 = %d
+3 x 12 = %d
+4 x 12 = %d
+"""     <SPAN CLASS="comment"># be careful - you can't put comments inside </SPAN>
+>>>     <SPAN CLASS="comment"># strings, they'll  become part of the string!</SPAN>
+>>> print s % (12, 2*12, 3*12, 4*12)
+</PRE>
+
+<P>By extending that we could print out the full 12 times table from 1 to 12. 
+But is there a better way? The answer is yes, let's see what it is.</P>
+
+<CENTER>
+<!-- HR WIDTH=60% -->
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>IDLE is a cross platform development tool for writing Python programs.
+<LI>Comments can make programs clearer to read but have no effect on the 
+operation of the program
+<LI>Variables can store intermediate results for later use
+</UL> </TR></TABLE>
+<P>
+<A HREF="tutdata.htm" target="text">Previous</A>&nbsp
+<A HREF="tutloops.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

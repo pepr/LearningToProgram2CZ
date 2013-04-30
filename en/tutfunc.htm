@@ -1,0 +1,835 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>Functions and Modules</TITLE>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Programming with Modules</H2>
+<P>
+<TABLE BORDER>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD>
+<LI>What modules are about
+<LI>Functions as modules
+<LI>Using module files
+<LI>Writing our own functions and modules
+<LI>An introduction to Windows Script Host
+</TD></TR></TABLE>
+</CENTER>
+
+<H3>What's a Module?</H3>
+
+<P>The 4th element of programming involves the use of <I> modules</I>. 
+In fact its not strictly necessary, and using what we've covered 
+so far you can actually write some pretty impressive programs. 
+However as the programs get bigger it becomes harder and harder 
+to keep track of what's happening and where. We really need a way 
+to abstract away some of the details so that we can think about 
+the problems we are trying to solve rather than the minutiae of 
+how the computer works. To some extent that's what Python, 
+VBScript and JavaScript already do for us with their built 
+in capabilities - they prevent us from having to deal with 
+the hardware of the computer, how to read the individual 
+keys on the keyboard etc. 
+
+<P>The idea of programming with modules is to allow the programmer 
+to <I> extend</I> the built in capabilities of the language. 
+It packages up bits of program into modules that we can 'plug in' 
+to our programs. The first form of module was the <I>subroutine</I>
+which was a block of code that you could jump to (rather 
+like the <TT>GOTO</TT> mentioned in the branching section) but
+when the block completed, it could jump back to wherever 
+it was<I> called</I> from. That particular style of modularity 
+is known as a <I> procedure</I> or <I> function</I>. In Python 
+and some other languages the word <I> module</I> has taken on a 
+more specific meaning which we will look at shortly, but first 
+let's consider functions a bit more closely.
+
+<H3>Using Functions</H3>
+
+<P>Before considering how to create functions let's look at 
+how we use the many, many functions that come with any programming 
+language (often called the <I> library</I>).
+
+<P>We've already seen some functions in use and listed others 
+in the operators section. Now we'll consider what these have 
+in common and how we can use them in our programs.
+
+<P>The basic structure of a <I>function call</I> is as follows:
+
+<PRE>
+aValue = someFunction(anArgument, another, etc...)
+</PRE>
+
+<P>That is, the variable <TT>aValue</TT> takes on the value 
+obtained by calling a function called <TT>someFunction</TT>. 
+The function can accept 0 or many <I>arguments</I> which it 
+treats like internal variables. Functions can call other functions 
+internally. In most programming languages (although not all), 
+even if there are no arguments, we must still provide the 
+parentheses when calling a function.
+
+<P>Let's consider some examples in our various
+languages to see how this works:
+
+<H4>VBScript: Mid(aString, start, length)</H4>
+
+<P>This prints the next <TT>length</TT> characters starting at
+the <TT>start</TT> in <TT>string</TT>. (Recall that names ending
+in '$' in BASIC signify a string)
+
+<PRE>
+&lt;script language="VBScript">
+Dim time
+time = "MORNING EVENING AFTERNOON"
+MsgBox "Good" &  Mid(time,8,8)
+&lt;/script>
+</PRE>
+
+<P>This prints out "Good EVENING". One feature to note about 
+VBScript is that it does not use parentheses to group the 
+functions arguments, spaces are sufficient.
+
+<H4>VBScript: Date</H4>
+
+<P>This returns the current system date.
+
+<PRE>
+&lt;script language="VBScript">
+MsgBox Date
+&lt;/script>
+</PRE>
+
+<P>There's not much more I can say about that, except 
+that there's a whole bunch of other date functions 
+for extracting the day, week, hour etc.
+
+<H4>JavaScript: &lt;startString>.replace(searchString, newString)</H4>
+
+<P>Returns a new string with the <TT>searchString</TT> 
+replaced by <TT>newString,</TT> in <TT>&lt;startSring></TT>
+
+<PRE>
+&lt;script language="JavaScript">
+var r,s = "A long and winding road";
+document.write("Original = " + s + "&lt;BR>");
+r = s.replace("long", "short");
+document.write("Result  = " + r);
+&lt;/script>
+</PRE>
+
+<P><B>Note:</B> almost everything in JavaScript is an example 
+of a special type of function called a <I>method</I>. A method 
+is a function that is associated with an <I>object</I> 
+(as discussed in the 
+<A href="tutdata.htm#object">Raw Materials</A> 
+topic and in more detail later. The main thing to note here 
+is that the function is "attached" to the string <TT>s</TT>
+by the dot operator which means that <TT>s</TT> is the 
+string that we will be performing the substitution upon.
+
+<P>This is nothing new. We have been using the <TT>write()</TT> 
+method of the <TT>document</TT> object to display the output 
+from our JavaScript programs (using <TT>document.write()</TT>) 
+since the beginning of the tutorial, I just haven't explained 
+the reason behind the dual name format up until now.
+
+<H4>Python: pow(x,y)</H4>
+
+<P><TT>pow()</TT> raises <TT>x</TT> to the power <TT>y</TT>
+
+<PRE>
+>>> x = 2   <SPAN CLASS="comment">#  we'll use 2 as our base number</SPAN>
+>>> for y in range(0,11):
+...    print pow(x,y)    <SPAN CLASS="comment"># raise 2 to power y, ie 0-10</SPAN>
+</PRE>
+
+<P>Here we generate values of <TT>y</TT> from 0 to 10 and 
+call the built-in <TT> pow()</TT> function passing 2 
+arguments: <TT>x</TT> and <TT>y</TT>. On each iteration 
+of the loop the current values of <TT>x</TT> and <TT>y</TT> 
+are substituted into the <TT>pow()</TT> call and the result 
+is printed. 
+
+<P><B>Note:</B> The Python exponentiation operator, 
+<TT>**</TT> is equivalent to the <TT>pow()</TT> function.
+
+<H4>Python: dir(m)</H4>
+
+<P>Another useful function built in to python is
+<TT> dir</TT> which, when passed the name of a module.
+You will recall that we met the <TT>sys</TT> module 
+away back in our first sequences topic. Python comes 
+with lots of modules, although we haven't really 
+discussed them up till now. The <TT>dir</TT> function gives 
+back a list of valid names - often functions - in
+that module. Try it on the built-in functions:
+<PRE>
+>>> print dir(__builtins__)
+</PRE>
+<P><B>Note:</B> To use it on any other module you need 
+to <TT>import</TT> the module first otherwise Python will 
+complain that it doesn't recognize the name. 
+<PRE>
+>>> import sys
+>>> dir(sys)
+</PRE>
+
+<P>In the output from that last <TT>dir</TT> you should spot our 
+old friend <TT>exit</TT>.
+
+<P>Before doing much else we'd better talk about Python modules 
+in a bit more detail.
+
+<H3>Using Modules</H3>
+
+<P>Python is an extremely extensible language in that you can 
+add new capabilities by <TT>import</TT>ing modules. We'll see 
+how to create modules shortly but for now we'll play with 
+some of the standard modules that ship with Python.
+
+<H4>sys</H4>
+
+<P>We met <TT>sys</TT> already when we used it to <TT>exit</TT> from
+Python. It has a whole bunch of other useful functions too, as we 
+saw with the <TT>dir</TT> function above. To gain access to these 
+we must <TT>import sys</TT>:
+<PRE>
+import sys <SPAN CLASS="comment"># make functions available</SPAN>
+print sys.path() <SPAN CLASS="comment"># show where Python looks for modules</SPAN>
+sys.exit() <SPAN CLASS="comment"># prefix with 'sys'</SPAN>
+</PRE>
+If we know that we will be using the functions a lot and
+that they won't have the same names as functions we have 
+already imported or created then we can do:
+
+<PRE>
+from sys import *  <SPAN CLASS="comment"># import all names in sys </SPAN>
+exit() <SPAN CLASS="comment"># can now use without specifying prefix 'sys'</SPAN>
+</PRE>
+
+<P>If we only want to use a couple of functions then its safer to 
+do it this way:
+
+<PRE>
+from sys import path, exit  <SPAN CLASS="comment"># import the ones we need</SPAN>
+exit() <SPAN CLASS="comment"># use without specifying prefix 'sys'</SPAN>
+</PRE>
+
+<P>Note that the names we specify do not have the parentheses 
+following them. If that was the case we would attempt to execute 
+the functions rather than import them. The name of the function 
+is all that is given.
+
+<H4>Other Python modules and what they contain</H4>
+
+<P>You can import and use any of Python's modules in this way and
+that includes modules you create yourself. We'll see how to do
+that in a moment. First though, I'll give you a quick tour of
+some of Python's standard modules and some of what they offer:</P>
+
+<CENTER>
+<TABLE BORDER="5" Cellpadding="3">
+<TR><TH>Module name</TH><TH>Description</TH></TR>
+<TR><TD valign="top"><TT>sys</TT></TD>
+    <TD>Allows interaction with the Python system: 
+    <LI>exit() - exit!
+    <LI>argv - access command line arguments
+    <LI>path - access the system module search path
+    <LI>ps1 - change the '>>>' python prompt!
+    </TD>
+<TR><TD valign="top"><TT>os</TT></TD>
+    <TD>Allows interaction with the operating system: 
+    <LI>name - the current operating system, useful for portable programs
+    <LI>system - execute a system command
+    <LI>mkdir - create a directory
+    <LI>getcwd - find the <I>current working directory</I>
+    </TD>
+<TR><TD valign="top"><TT>re</TT></TD>
+    <TD>Allows manipulation of strings with Unix style<BR> regular expressions
+    <LI>search - find pattern anywhere in string
+    <LI>match - find at beginning only
+    <LI>findall - find all occurences in a string
+    <LI>split - break into fields separated by pattern
+    <LI>sub,subn - string substitution
+    </TD>
+<TR><TD valign="top"><TT>math</TT> </TD>
+    <TD>Allows access to many mathematical functions:
+    <LI>sin,cos etc - trigonometrical functions
+    <LI>log,log10 - natural and decimal logarithms
+    <LI>ceil,floor - ceiling and floor
+    <LI>pi, e - natural constants
+    </TD>
+<TR><TD valign="top"><TT>time</TT></TD>
+    <TD>time(and date) functions
+    <LI>time - get the current time (expressed in seconds)
+    <LI>gmtime - convert time in secs to UTC (GMT)
+    <LI>localtime - convert to local time instead
+    <LI>mktime - inverse of localtime
+    <LI>sleep - pause program for <I>n</I> seconds
+    </TD>
+<TR><TD valign="top"><TT>random</TT></TD>
+    <TD>random number generators - useful for games programming!
+    <LI>randint - generate random integer between inclusive end points
+    <LI>sample - generate random sublist from a bigger list
+    <LI>seed - reset the number generator key
+    </TD>
+</TABLE>
+</CENTER>
+
+<P>These are just the tip of the iceberg. There are literally
+dozens of modules provided with Python, and as many again that
+you can download. (A good source is the 
+<A HREF="http://www.vex.net/parnassus/">Vaults of Parnassus</A>.)  
+Look at the documentation to find out how to
+do Internet programming, graphics, build databases etc.
+
+<P>The important thing to realize is that most programming
+languages have these basic functions either built in or as part
+of their standard library. Always check the documentation before
+writing a function - it may already be there! Which leads us
+nicely into...
+
+<H3>Defining our own functions</H3>
+
+<P>OK, So we know how to use the existing functions and modules, 
+but how do we create a new function? Simply by <I>defining</I> it. 
+That is we write a statement which tells the interpreter that we are
+defining a block of code that it should execute, on demand,
+elsewhere in our program. 
+
+<H4>VBScript first</H4>
+
+<P>So let's create a function that can print out a
+multiplication table for us for any value that we provide 
+as an argument. In VBScript it looks like:
+
+<PRE>
+&lt;script language="VBScript">
+Sub Times(N)
+Dim I
+For I = 1 To 12
+    MsgBox I & " x " & N & " = " & I * N
+Next 
+End Sub
+&lt;/script>
+</PRE>
+<P>So we use the keyword <TT>Sub</TT> (for Subroutine) and end the 
+definition with <TT>End Sub</TT>, following the normal VBScript 
+block marker style. We provide a list of formal <I>parameters</I> 
+enclosed in parentheses. The code inside the defined block is 
+just normal VBScript code with the exception that it treats 
+the parameters as if they were already-defined local variables.
+
+<P>We can now <I>call</I> the new function like this:
+<PRE>
+&lt;script language="VBScript">
+MsgBox "Here is the 7 times table..."
+Times 7
+&lt;/script>
+</PRE>
+
+<P><B>Note 1:</B> We defined a <I>parameter</I> called <TT> N
+</TT> and passed an <I>argument</I> of <TT> 7 </TT>. The local
+variable <TT>N</TT> inside the function took the value 7 when
+we called it. We can define as many parameters as we want in the
+function definition and the calling programs must provide values
+for each parameter. Some programming languages allow you to
+define <I>default values</I> for a parameter so that if no value is
+provided the function assumes the default. We'll see this in
+Python later.
+
+<P><B>Note 2:</B> We enclosed the parameter, <TT>N</TT>, in 
+parentheses during function definition but, as is usual in 
+VBScript we did not need to use parentheses when calling 
+the function.
+
+<P>This function does not return a value and is really 
+what is called a procedure, which is, quite simply, a function 
+that doesn't return a value! VBScript differentiates between 
+functions and procedures by having a different name for their 
+definitions. Let's look at a true VBScript function that 
+returns the multiplication table as a single, long string:
+
+<PRE>
+&lt;script language="VBScript">
+Function TimesTable (N)
+  Dim I, S
+  S = N & " times table" & vbNewLine
+  For I = 1 to 12
+    S = S & I & " x " & N & " = " & I*N & vbNewLine
+  Next
+  TimesTable = S
+End Function
+
+Dim Multiplier
+Multiplier = InputBox("Which table would you like?")
+MsgBox TimesTable (Multiplier)
+&lt;/script>
+</PRE>
+
+<P>It's very nearly identical to the <TT>Sub</TT> syntax, 
+however notice that you must assign the result to the 
+function name inside the definition. The function returns 
+as a result whatever value the function name contains when 
+it exits:
+
+<PRE>
+  ...
+  TimesTable = S
+End Function
+</PRE>
+
+<P>If you don't assign an explicit value the function will 
+return a default value, usually zero or an empty string.
+
+<P>Notice also that we had to put parentheses around the 
+argument in the <TT>MsgBox</TT> line. Thats because 
+<TT>MsgBox</TT> wouldn't otherwise have been able to 
+work out whether <TT>Multiplier</TT> was to be printed 
+or passed to its first argument <TT>TimesTable</TT>.
+<H4>Python too</H4>
+
+<P>In Python the Times function looks like:
+<PRE>
+def times(n):
+    for i in range(1,13):
+        print "%d x %d = %d" % (i, n, i*n)
+</PRE>
+
+<P>And is called like:
+<PRE>
+print "Here is the 9 times table..."
+times(9)
+</PRE>
+
+<P>Note that in Python procedures are not distinguished from 
+functions and the same name <TT>def</TT> is used to define both. 
+The only difference is that a function which returns a value 
+uses a <TT>return</TT> statement, like this:
+
+<PRE>
+def timesTable(n):
+   s = ""
+   for i in range(1,13):
+       s = S + "%d x %d = %d\n" % (i,n,n*i)
+   return s
+</PRE>
+
+<P>As you see its very simple, just return the result using 
+a <TT>return</TT> statement.
+
+<H4>Default Values</H4>
+
+<P>You might recall that I mentioned the use of default 
+values earlier? This refers to a way of providing function 
+parameters that, if not passed explicitly, take on a default 
+value. One sensible use for these would be in a function 
+which returned the day of the week. If we call it with 
+no value we mean today, otherwise we provide a day number 
+as an argument. Something like this:
+
+<PRE>
+import time
+
+<SPAN CLASS="comment"># a day value of None => today</SPAN>
+def dayOfWeek(DayNum = None):
+    <SPAN class="comment"># match day order to Python's return valuesi</SPAN>
+    days = ['Monday','Tuesday',
+            'Wednesday','Thursday', 
+            'Friday', 'Saturday', 'Sunday']
+                
+    <SPAN CLASS="comment"># check for the default value</SPAN>        
+    if DayNum == None:
+        theTime = time.localtime(time.time())
+        DayNum = theTime[6]<SPAN class="comment"> # extract the day value</SPAN>
+    return days[DayNum]
+</PRE>
+
+<P><B>Note: </B>We only need to use the time module if the
+default parameter value is involved, therefore we could 
+defer the import operation until we need it. This would 
+provide a slight performance improvement if we never 
+had to use the default value feature of the function, but 
+it is so small, and breaks the convention of importing 
+at the top, that the gain isn't worth the extra confusion. 
+
+<P>Now we can call this with:
+<PRE>
+print "Today is: %s" % dayOfWeek()
+<SPAN CLASS="comment"># remember that in computer speak we start from 0
+# and in this case we assume the first day is Monday.</SPAN>
+print "The third day is %s" % dayOfWeek(2)
+</PRE>
+
+<A name="wc">
+<H4>Counting Words</H4>
+
+<P>Another example of a function which returns a value might 
+be one which counts the words in a string. You could use 
+that to calculate the words in a file by adding the totals 
+for each line together.
+
+<P>The code for that might look something like this:
+
+<PRE>
+def numwords(s):
+    s = s.strip()<SPAN class="comment"> # remove "excess" characters from the end</SPAN>
+    list = s.split() <SPAN CLASS="comment"># list with each element a word</SPAN>
+    return len(list)<SPAN CLASS="comment"> # return number of elements in list</SPAN>
+</PRE>
+
+<P>That defines the function, making use of some of the built-in 
+string methods which we mentioned in passing in the 
+<A href="tutdata.htm#string">Raw Materials</A> chapter.
+
+<P>We would use it by doing something like this:
+<PRE>
+for line in file:
+    total = total + numwords(line) <SPAN CLASS="comment"># accumulate totals for each line</SPAN>
+print "File had %d words" % total
+</PRE>
+
+<P>Now if you tried typing that in, you'll know that it didn't work. 
+Sorry!  What I've done is a common design technique which is to sketch 
+out how I think the code should look but not bothered to use the 
+absolutely correct code. This is sometimes known as <I>Pseudo Code</I> 
+or in a slightly more formal style <I>Program Description 
+Language (PDL)</I>. 
+
+<P>Once we've had a closer look at file and string handling, a little
+later in the course, we'll come back to this example and write it 
+for real.
+
+<H4>JavaScript Functions</H4>
+
+<P>We can also create functions in JavaScript, of course, and we do 
+so using the <TT>function</TT> command, like so:</P>
+
+<PRE>
+&lt;script language="JavaScript">
+var i, values;
+
+function times(m) {
+    var results = new Array();
+    for (i = 1; i &lt;= 12; i++) {
+        results[i] = i * m;
+	}
+    return results;
+}
+
+<SPAN class="comment">
+// Use the function</SPAN>
+values = times(8);
+
+for (i=1;i&lt;=12;i++){
+    document.write(values[i] + "&lt;BR>");
+    }
+&lt;/script>
+</PRE>
+
+<P>In this case the function doesn't help much, but 
+hopefully you can see that the basic structure is 
+very similar to the Python and VBScript function 
+definitions. We'll see more complex JavaScript 
+functions as we go through the tutor. In particular 
+JavaScript uses functions to define objects as well 
+as functions, which sounds confusing, and indeed can be!
+
+<P>Before we move on though, now is a good time to 
+look back at the JavaScript example in 
+<A href="tutinput.htm#jscript">Talking to the User</A>, 
+where we used JavaScript to read input from a web form. 
+The code looked like this:
+
+<PRE>
+&lt;script language="JavaScript">
+function myProgram(){
+   alert("We got a value of " + document.entry.data.value);
+}
+&lt;/script>
+
+&lt;form name='entry'>
+&lt;P>Type value then click outside the field with your mouse&lt;/P>
+&lt;Input Type='text' Name='data' onChange='myProgram()'>
+&lt;/form>
+</PRE>
+
+<P>Looking at that we can now see that what we did was 
+define a JavaScript function called <TT>myProgram</TT> 
+and then tell the form to call that function when the 
+<TT>Input</TT> field changed. We'll explain this further in the 
+topic on <A href="tutevent.htm">Event Driven programming</A>
+
+<H4>A Word of Caution</H4>
+
+<P>Functions are very powerful because they allow us to extend 
+the language, they also give us the power to <I>change</I> the 
+language buy defining a new meaning for an existing function
+(some languages don't allow you to do this), but this is 
+usually a bad idea unless carefully controlled (we'll see a 
+way to control it in a minute). By changing the behavior of 
+a standard language function your code can become very 
+difficult for other people (or even you later on) to read, 
+since they expect the function to do one thing but you 
+have redefined it to do another. Thus it is good practice 
+not to change the basic behavior of built in functions.
+
+<P>One way to get round this limitation of not changing 
+built in behavior but still using a meaningful name for 
+our functions is to put the functions inside either an 
+object or a module which provides its own local context. 
+We'll look at the object approach in the OOP topic a little 
+later but for now let's see how we go about creating our 
+own modules.
+
+<H3>Creating our own modules</H3>
+
+<P>So far we have seen how to create our own functions and call 
+these from other parts of our program. That's good because it 
+can save us a lot of typing and, more importantly, makes our 
+programs easier to understand because we can forget about 
+some of the details after we create the function that hides 
+them. (This principle of wrapping up the complex bits of a 
+program inside functions is called <I> information hiding</I> 
+for fairly obvious reasons.) But how can we use these functions 
+in other programs? The answer is that we create a <I>module</I>.
+
+<H4>Python Modules</H4>
+
+<P>A module in Python is nothing special. It's just a plain text
+file full of Python program statements. Usually these statements
+are function definitions. Thus when we type:
+<PRE>
+import sys
+</PRE>
+
+<P>we tell the Python interpreter to read that module, executing 
+the code contained init and making the names that it generated 
+available to us in our file. It is almost like making a copy the 
+contents of <TT> sys.py</TT> into our program, like a cut n' paste 
+operation. (its not really like that but the concept is similar). 
+In fact in some programming languages (noteably C and C++) the 
+translator literally does copy module files into the current 
+program as required.
+
+<P>So to recap, we create a module by creating a Python file
+containing the functions we want to reuse in other programs.
+Then we just import our module exactly like we do the standard
+modules. Easy eh? Let's do it. 
+
+<P>Copy the function below into a file by itself and save the
+file with the name <TT>timestab.py</TT>. You can do this using 
+IDLE or Notepad or any other editor that saves plain text files. 
+Do not use a Word Processing program since they tend to insert 
+all sorts of fancy formatting codes that Python will not 
+understand.
+
+<PRE>
+def print_table(multiplier):
+    print "--- Printing the %d times table ---" % multiplier
+    for n in range(1,13):
+        print "%d x %d = %d" % (n, multiplier, n*multiplier)
+</PRE>
+
+<P>Now at the Python prompt type:
+
+<PRE>
+>>> import timestab
+>>> timestab.print_table(12)
+</PRE>
+
+<P>Heh presto! You've created a module and used it.
+
+<P><B>Important Note:</B>If you didn't start Python from the same 
+directory that you stored the <TT>timestab.py</TT> file then 
+Python might not have been able to find the file and reported 
+an error. If so then you can create an environment variable 
+called PYTHONPATH that holds a list of valid directories to 
+search for modules (in addition to the standard modules 
+supplied with Python).</P>
+
+<CENTER><P><I>Creating environment variables is a platform specific 
+operation which I assume you either know how to do or can find 
+out! For example Windows XP users can use the Start->Help & Support 
+facility to search for Environment Variables and see how to create 
+them.</I></CENTER>
+
+<H4> Modules in VBScript and JavaScript</H4>
+
+<P>What about VBScript? That's more complex.... In VBScript itself 
+and other older varieties there is no real module concept. Instead, 
+VBScript relies on the creation of objects to reuse code between 
+projects. We look at this later in the tutorial. Meantime you will 
+have to manually cut n' paste from previous projects into your 
+current one using your text editor.</P>  
+<P>
+<TABLE>
+<TR><TD>
+<P><B>Note: </B>VBScript's big brother Visual Basic does have 
+a module concept and you can load a module via the 
+<I>Integrated Development Environment (IDE)</I> 
+<TT>File|Open Module...</TT> menu. There are a few restrictions 
+as to what kind of things you can do inside a VB module but 
+since we're not using Visual Basic on this course I won't go 
+into that any further. (Note: there is (or used to be) a cut 
+down version of Visual Basic known as the COM Controls Edition, 
+CCE, available for free download on 
+<A href="http://www.microsoft.com"> Microsoft's website</A> 
+if you feel like experimenting. 
+</TD></TR></TABLE>
+
+<P>Like VBScript, JavaScript does not offer any direct 
+mechanism for reuse of code files as modules. However 
+there are some exceptions to these in specialised 
+environments such as where JavaScript is used outside 
+of a web page (See the <I>Windows Script Host</I> box 
+below for an example).</P>
+
+<P>
+<TABLE<TR><TD>
+<A name="wsh">
+<H4>Windows Script Host</H4>
+
+<P>So far we have looked at VBScript and JavaScript as languages 
+for programming within a web browser. That imposes some 
+restrictions including the lack of a way to include a module 
+of reusable code. There is another way to use VBScript 
+(and JavaScript) within a Windows environment, namely 
+<I>Windows Script Host</I> or <I>WSH</I>. WSH is Microsoft's
+technology to enable usrs to program their PCs in the same 
+way that DOS programmers used Batch files. WSH provides 
+mechanisms for reading files and the registry, accessing 
+networked PCs and Printers etc.</P> 
+<BR>
+<P>In addition WSH v2 includes the ability to include 
+another WSH file and thus provides reusable modules. 
+It works like this, first create a module file called 
+<TT>SomeModule.vbs</TT> containing:
+<PRE>
+Function SubtractTwo(N)
+   SubtractTwo = N - 2
+End function
+</PRE>
+
+<P>Now create a WSH script file called, say, 
+<TT>testModule.wsf</TT>, like this:
+
+<PRE>
+&lt;?xml version="1.0"?>
+
+&lt;job>
+  &lt;script language="VBScript" src="SomeModule.vbs" />
+  &lt;script language="VBScript">
+      Dim value, result
+      WScript.Echo "Type a number"
+      value = WScript.StdIn.ReadLine
+      result = SubtractTwo(CInt(value))
+
+      WScript.Echo "The result was " &amp;amp; CStr(result)
+  &lt;/script>
+&lt;/job>
+</PRE>
+
+<P>You can run it under Windows by starting a DOS session 
+and typing:
+<PRE>
+C:\> cscript testModule.wsf
+</PRE>
+
+<P>The structure of the .wsf file is XML and the program 
+lives inside a pair of <TT>&lt;job>&lt;/job></TT> tags, 
+rather like our <TT>&lt;HTML>&lt;/HTML></TT> tags. Inside 
+the first script tag references a module file called 
+<TT>SomeModule.vbs</TT> and the second script tag contains 
+our program which accesses <TT>SubtractTwo</TT> within 
+the <TT>SomeModule.vbs</TT> file. The <TT>.vbs</TT> file 
+just contains regular VBScript code with no XML or HTML 
+tags whatsoever.</P>
+<BR>
+<P>Notice that to concatenate the strings for the 
+<TT>WScript.Echo</TT> statement we have to <I>escape</I> the 
+ampersand (with <TT>&amp;amp;</TT>) because the statement 
+is part of an XML file! Notice too, that we use the 
+<TT>WScript.Stdin</TT> to read user input, you might 
+recall the sidebar in the 
+<A href="tutinput.htm#stdin">User Input</A> 
+topic that discussed stdin and stdout?</P>
+<BR>
+<P>This technique works with JavaScript too, or more 
+correctly with Microsoft's version of JavaScript called 
+<I>JScript</I>, simply by changing the <TT>language=</TT> 
+attribute. In fact you can even mix languages in WSH by 
+importing a module written in JavaScript and using it 
+in VBScript code or vice-versa! To prove the point here 
+is the equivalent WSH script using JavaScript to access 
+the VBScript module:</P>
+<P>
+<PRE>
+&lt;?xml version="1.0"?>
+
+&lt;job>
+  &lt;script language="VBScript" src="SomeModule.vbs" />
+  &lt;script language="JScript">
+      var value, result;
+      WScript.Echo("Type a number");
+      value = WScript.StdIn.ReadLine();
+      result = SubtractTwo(parseInt(value));
+
+      WScript.Echo("The result was " + result);
+  &lt;/script>
+&lt;/job>
+</PRE>
+<P>You can see how closely related the two versions are, 
+most of the clever stuff is actually done through the 
+WScript objects and apart from a few extra parentheses 
+the scripts are very much alike.</P>
+<BR>
+<P>I won't use WSH very often in this tutor but occasionally 
+we will delve into it when it offers capabilities that I 
+cannot demonstrate using the more restricted web browser 
+environment. For example the next topic will use WSH to 
+show how we can manipulate files using VBScript and 
+JavaScript. There are a few books available on WSH if you 
+are interested, and Microsoft have a large section of 
+their web site dedicated to it, complete with sample 
+programs and development tools etc. You'll find it 
+here: <A href="http:/msdn.microsoft.com/scripting/">
+http://msdn.microsoft.com/scripting/</A>
+</TD></TR></TABLE>
+
+<P>Next we'll take a look at files and text handling and then, 
+as promised, revisit the business of counting words in a file. In
+fact we're eventually going to create a module of text handling
+functions for our convenience.
+
+<CENTER>
+<!-- HR WIDTH=60% -->
+<P>&nbsp;<BR>
+<TABLE BORDER>
+<TR><TH>Things to remember</TH></TR>
+<TR><TD>
+<LI>Functions are a form of module
+<LI>Functions return values, procedures don't
+<LI>Python modules normally consist of function definitions in a file
+<LI>Create new functions with the <TT>def</TT> keyword in Python
+<LI>Use <TT>Sub</TT> or <TT>Function</TT> in VBScript and 
+<TT>function</TT> in JavaScript
+</TD></TR></TABLE>
+<P>&nbsp;<BR>
+
+<A HREF="tutbranch.htm">Previous</A>&nbsp;
+<A HREF="tutcont.htm">Contents</A>&nbsp;
+<A HREF="tutfiles.htm">Next</A>&nbsp;
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

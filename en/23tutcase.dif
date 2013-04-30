@@ -1,0 +1,158 @@
+Index: tutcase.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutcase.htm,v
+retrieving revision 1.2
+retrieving revision 1.4
+diff -r1.2 -r1.4
+11,12c11
+< <h2>
+< A Case Study</h2>
+---
+> <h2>A Case Study</h2>
+25,31c24,26
+< <p>It will be a Python implementation but at least the 
+< initial stages could be written in BASIC or Tcl instead. 
+< As we move to the more complex parts we will make increasing 
+< use of Python's built in data structures and therefore
+< the difficulty in using BASIC will increase, although 
+< Tcl will still be an option. Finally the OO aspects 
+< will only apply to Python. 
+---
+> <p>Although we will be using Python throughout it would be 
+> possible to build JavaScript or VBScript versions of the 
+> program with only a little adaptation.
+34c29
+< be left as excercises for the reader are to 
+---
+> be left as exercises for the reader are to 
+52c47
+< create a new version which analyses RTF files</li>
+---
+> create a new version which analyzes RTF files</li>
+87c82
+< # Get the file name either from the commandline or the user</span>
+---
+> # Get the file name either from the command-line or the user</span>
+95c90
+< # initialise counters to zero; which also creates variables</span>
+---
+> # initialize counters to zero; which also creates variables</span>
+139c134
+<    count the sentence terninators
+---
+>    count the sentence terminators
+144c139,142
+< Lets try turning that into code:
+---
+> We will be using <a href="tutregex.htm">regular expressions</a> 
+> in the solution here, it may be worth going back and reviewing 
+> that topic if you aren't sure how they work. Now lets try turning 
+> our pseudo code into real code:
+149c147
+< <SPAN CLASS="Comments"># Use Regular expressions to find the tokens</SPAN>
+---
+> <SPAN CLASS="Comment"># Use Regular expressions to find the tokens</SPAN>
+162c160
+< <SPAN CLASS="Comment"># Now initialise counters</SPAN>
+---
+> <SPAN CLASS="Comment"># Now initialize counters</SPAN>
+195c193
+< maximise the efficiency of our program by allowing a 
+---
+> maximize the efficiency of our program by allowing a 
+201,202c199,200
+< as clause seperators! After much head scratching it took 
+< a call to the Pyhon community to spot the mistake. A 
+---
+> as clause separators! After much head scratching it took 
+> a call to the Python community to spot the mistake. A 
+205c203
+< it to do. It is less effective from the reusability point 
+---
+> it to do. It is less effective from the re-usability point 
+220c218
+< point about reusability and also start to look at the 
+---
+> point about re-usability and also start to look at the 
+266c264
+< # initialise global variables</span>
+---
+> # initialize global variables</span>
+357c355
+< uses the initialisation functions to make sure the 
+---
+> uses the initialization functions to make sure the 
+372c370
+< programme at the OS prompt as before by typing:</p>
+---
+> program at the OS prompt as before by typing:</p>
+384c382
+< 3 lines, 2 senyences and, hopefully, 
+---
+> 3 lines, 2 sentences and, hopefully, 
+392c390
+< >>> grammer.setCounterREs()
+---
+> >>> grammar.setCounterREs()
+416c414
+< moderately customisable too. Notice too that we were able to 
+---
+> moderately customizable too. Notice too that we were able to 
+471c469
+< and an HTMLDocument for html files.
+---
+> and an HTMLDocument for HTML files.
+548,549c546,547
+< Its quite ilikely that we will use a different set of counters 
+< when analysing HTML files - maybe the number of tags 
+---
+> Its quite likely that we will use a different set of counters 
+> when analyzing HTML files - maybe the number of tags 
+557c555
+< the two regular expressions is a conventience featire for 
+---
+> the two regular expressions is a convenience feature for 
+562c560
+< utilise OOP style we need to deconstruct some of our class 
+---
+> utilize OOP style we need to deconstruct some of our class 
+571c569
+< stopping to consider exactly what we mean by a text doxcument as 
+---
+> stopping to consider exactly what we mean by a text document as 
+695c693
+< reuseable objects is not cheap! Unless you are sure you need 
+---
+> reusable objects is not cheap! Unless you are sure you need 
+698c696
+< will extend the design, as we will be doing in a moiment 
+---
+> will extend the design, as we will be doing in a moment 
+703c701
+< This is a common OOP practice and keeps things well organised, 
+---
+> This is a common OOP practice and keeps things well organized, 
+710c708
+< enough to create a minimal working programme. Thus in our case 
+---
+> enough to create a minimal working program. Thus in our case 
+715c713
+< the TextDocument may inadvertantly affect the Document class 
+---
+> the TextDocument may inadvertently affect the Document class 
+732c730
+< capabilities so that we can analyse HTML documents. We will do 
+---
+> capabilities so that we can analyze HTML documents. We will do 
+799c797
+< in the standard <tt>HTMLParser</tt> module. As an excercise 
+---
+> in the standard <tt>HTMLParser</tt> module. As an exercise 
+836c834
+< visualise how it will look. We will need to specify a filename, 
+---
+> visualize how it will look. We will need to specify a filename, 
+1043c1041
+< to enjoy it and allways remember: the computer is dumb!
+---
+> to enjoy it and always remember: the computer is dumb!

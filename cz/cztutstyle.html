@@ -1,0 +1,642 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Styl zápisu kódu</title>
+</head>
+<body>
+
+<h2>Styl zápisu kódu</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+
+<ul>
+<li>Další možnosti využití komentářů.</li>
+<li>Používání odsazování pro zvýšení čitelnosti programu.</li>
+<li>Úvod k používání modulů pro ukládání našich programů.</li>    
+</ul>
+
+</div>
+
+
+<h3>Komentáře</h3>
+
+<p>V kapitole <a href="cztutseq2.html">Další posloupnosti</a> jsme se již o
+komentářích bavili. Nicméně, s komentáři lze dělat i další věci. O
+některých z nich se zde zmíním.</p>
+
+<h4>Informace o historii verzí</h4>
+
+<p>Bývá dobrým zvykem vytvořit na začátku každého souboru <em>hlavičku</em>.
+Měly by v ní být uvedeny takové detaily, jako je datum vytvoření, jméno
+autora, datum poslední změny, verze a obecný popis, týkající se obsahu. Často se uvádí
+seznam záznamů o změnách. Takový blok textu se uvádí formou komentáře:</p>
+
+<pre><span class="comment">
+# -*- coding: cp1250 -*- 
+#############################
+# Modul: Spam.py
+# Autor: A.J.Gauld
+# Datum: 1999/09/03
+# Verze: Draft 0.4
+u'''
+Tento modul definuje třídu Spam, kterou můžeme kombinovat
+s kteroukoliv jinou variantou třídy Jidlo, abychom vytvořili
+zajímavé  pokrmy.
+'''
+###############################
+# Log:
+# 1999/09/01 AJG - Vytvoření souboru.
+# 1999/09/02 AJG - Opravena chyba v cenové strategii.
+# 1999/09/02 AJG - Tentokrát už jsem to udělal správně!
+# 1999/09/03 AJG - Přidána grilovací metoda (viz požadavek #1234)
+################################</span>
+import sys, string, food
+...
+</pre>
+
+<p>Takže když soubor poprvé otevřete, měli byste na začátku uvidět souhrnnou
+informaci o tom, k čem soubor slouží, co se během času změnilo, kdo a kdy
+změnu provedl. Důležité je to zejména tehdy, když je soubor součástí
+týmového projektu, a vy potřebujete zjistit, koho se máte zeptat na věci
+kolem návrhu a změn. Existují nástroje pro správu verzí, které vám mohou
+pomoci vytváření takové dokumentace zautomatizovat, ale jejich vysvětlování
+přesahuje rámec této učebnice<sup class="trnote" ><a
+href="cztuttrn.html#Pstyle_cvs" id="Bstyle_cvs"
+title="Poznámka&nbsp;o&nbsp;systémech&nbsp;pro&nbsp;správu&nbsp;verzí"
+>[1]</a></sup>.</p>
+
+<p>Povšimněte si, že jsem popis modulu vložil mezi dvě posloupnosti tvořené
+trojicí apostrofů. Jde o pythonovský trik známý jako <em>dokumentační
+řetězec</em>. Za chvíli si ukážeme, jak můžeme jeho obsah zpřístupnit
+prostřednictvím zabudované funkce <code>help()</code></p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Proti anglickému originálu se tato ukázka
+liší ve dvou detailech. Na prvním řádku je uveden komentář ve speciálním
+tvaru:</p>
+
+<pre>
+# -*- coding: cp1250 -*- 
+</pre>
+
+<p>Tento řádek pythonovskému překladači říká, že zdrojový text byl zapsán s
+využitím znakové sady cp1250 (známé také pod normalizovanou zkratkou
+windows-1250). Pokud tedy překladač narazí na znak s kódem, který leží mimo
+definici kódu podle normy ASCII, může ověřit, zda jde o znak z uvedené sady
+(zda je v ní definován) a podle potřeby jej může převést do jiného
+kódování.</p>
+
+<p>Druhá odlišnost spočívá v tom, že úvodní trojici apostrofů předchází
+písmeno <code>u</code>. To znamená, že se dokumentační řetězec v době překladu
+uloží v takzvaném <em>unicode</em> kódování. Zjednodušeně řečeno jde o to, že
+se pro jeden znak vyhradí větší prostor, než pouhý jeden bajt. To umožní
+jedním kódem rozlišit mnohem více různých znaků. Typicky se pro uložení
+používají dva bajty, které umožňují rozlišit přibližně 65 tisíc možností
+(různých znaků). Při 8bitovém kódování znaků se dá rozlišit pouze 256
+možností, přičemž mnohé mají již historickými okolnostmi pevně přidělený
+význam.</p>
+
+<p>Praktický dopad z obecného pohledu je ten, že při zápisu řetězců v
+kódování unicode vystačíme pro všechny nám blízké (i méně blízké) jazyky s
+jediným systémem kódování znaků. Pro budoucí verze Pythonu se počítá s tím, že
+se unicode stane jediným používaným způsobem kódování řetězců uvnitř
+interpretu.</p>
+
+<p>Praktický dopad z pohledu běhu našeho programu je ten, že v případě
+důsledného používání kódování unicode budou zobrazované texty vypadat stejně
+při běhu v anglicky mluvících zemích, v Německu, v Řecku, v Rusku... Případná
+databáze aplikace bude moci dohromady bez omezení kombinovat texty v
+libovolném jazyce. V jednom řetězci můžeme uvést anglický text, jeho český
+ekvivalent, ruskou podobu zapsanou azbukou, atd.</p>
+
+<p>Uvědomte si, že při zápisu zdrojového textu v 8bitovém kódování musí dojít
+k převodu kódování na unicode. To je možné pouze tehdy, když se ví, jaké
+8bitové kódování je při zápisu zdrojového textu použito. Právě proto je první
+řádek velmi důležitý. Pokud není uveden, pak si novější verze Pythonu budou
+stěžovat v případě, že naleznou znak s kódem větším, než 127.</p>
+
+</div>
+
+
+<h4>Zakomentování nadbytečného kódu</h4>
+
+<p>Tato technika se často používá k izolaci chybného úseku kódu.
+Předpokládejme například, že program čte nějaká data, zpracovává je, tiskne
+výstup a potom ukládá výsledek zpět do datového souboru. Pokud výsledky
+neodpovídají našemu očekávání, pak bychom rádi zabránili zpětnému ukládání
+(chybných) dat, abychom tento soubor neporušili. Odpovídající kód bychom
+mohli jednoduše odstranit. Méně radikální přístup spočívá v tom, že dané
+řádky jednoduše změníme na komentář, například takto:</p>
+
+<pre>
+data = ctiData(soubor)
+for polozka in data:
+    vysledky.pridej(vypoctiVysledek(polozka))
+tiskniVysledky(vysledky)
+<span class="comment">######################
+# Následující kód zakomentujeme až do doby,
+# kdy bude opravena chyba ve funkci vypoctiVysledek,
+# která vyhodnocuje výslednou položku.
+#
+# for polozka in vysledky:
+#     soubor.ulozit(polozka)
+######################</span>
+print 'Konec programu'
+</pre>
+
+<p>Jakmile je chyba odstraněna, můžeme jednoduše smazat komentářové značky
+a kód se tím stane znovu aktivním. Některé nástroje pro editaci zdrojových
+textů, včetně IDLE, definují v menu akce pro zakomentování vybraného úseku
+kódu, případně k jeho pozdějšímu odkomentování.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> U některých editorů lze k
+této akci využít vlastností editace sloupcových bloků. Například volně
+dostupný editor <a href="http://www.jedit.org/" target="_blank">jEdit</a>
+vám umožní definovat sloupcový blok o nulové šířce. Jakmile začnete něco
+psát, začne se chovat jako sada pod sebou umístěných kurzorů pro vepisování
+textu &mdash; vše se opisuje na všech řádcích v místě, kde je sloupcový blok
+označen. Vepsáním jediného znaku '<code>#</code>' tedy zakomentujete celý
+úsek, před který jste takový sloupcový blok umístili.</p>
+
+
+<h4>Dokumentační řetězce</h4>
+
+<p>Komentáře, které dokumentují, co daná funkce nebo modul dělají, můžeme
+použít ve všech jazycích. Ale jen pár jazyků &mdash; jako je Python a
+Smalltalk &mdash; jdou o krok dále a umožňují nám dokumentovat funkci
+takovým způsobem, že mohou být použity v integrovaném prostředí pro
+realizaci interaktivní nápovědy během programování. V jazyce Python toho
+dosáhneme použitím <code>"""dokumentačních řetězců"""</code>:</p>
+
+<pre>
+class Spam:
+    """Maso určené ke kombinování s ostatními potravinami.
+ 
+    Ve spojení s jinými potravinami se dají vytvořit zajímavá jídla.
+    Obsahuje mnoho živin a může být připraveno mnoha různými způsoby."""
+    
+    def __init__(self):
+        ...
+
+print Spam.__doc__
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele k českým znakům v ukázce:</b>
+Pokud si bude Python stěžovat, že používáte nepovolené znaky, zkuste je
+nahradit <em>česká</em> písmenka <em>ceskymi</em> (bez diakritiky). K tomuto
+problému se ještě vrátíme na jiných místech.</p>
+
+<p><b>Poznámka:</b> <em>Dokumentační řetězec</em> můžeme vytisknout jako
+obsah speciální proměnné <code>__doc__</code>. Dokumentační řetězce mohou být
+definovány pro moduly, funkce, třídy a metody tříd. Vyzkoušejte
+například:</p>
+
+<pre>
+import sys
+print sys.__doc__
+</pre>
+
+<p>Od verze 2.2 definuje Python i zabudovanou funkci <code>help()</code>,
+která vyhledá a zobrazí veškerou dostupnou dokumentaci k objektu, který je
+zadán parametrem. Pokud například chceme něco zjistit o
+<code>sys.exit</code>, můžeme na pythonovském vyzývacím řádku napsat:</p>
+
+<pre>
+>>> import sys
+>>> help(sys.exit)
+Help on built-in function exit:
+
+exit(...)
+    exit([status])
+    
+    Exit the interpreter by raising SystemExit(status).
+    If the status is omitted or None, it defaults to zero (i.e., success).
+    If the status is numeric, it will be used as the system exit status.
+    If it is another kind of object, it will be printed and the system
+    exit status will be one (i.e., failure).
+
+>>>
+</pre>
+
+<p>Pokud <span class="trnote" title="Poznámka&nbsp;překladatele">tento příkaz
+napíšete v interaktivním režimu Pythonu v DOSovém okně a</span> výpis zabírá
+více, než jednu obrazovku, zobrazuje se další text až po stisku mezerníku. Pokud
+chcete režim výpisu nápovědy ukončit, stiskněte '<code>q</code>' (jako quit).
+Pokud příkaz <code>help</code> napíšete v interaktivním režimu v IDLE nebo v
+jiném integrovaném prostředí, pak se výpis po stránce nezastavuje. Vypíše se
+jednoduše celý text, protože se ke všem řádkům výpisu můžete dostat pomocí
+posouvací lišty na pravé straně okna.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Výše zmíněné chování při výpisu nápovědy
+příkazem <code>help()</code> si můžete vyzkoušet například na dlouhém výpisu k
+modulu <code>array</code>:</p>
+
+<pre>
+>>> import array
+>>> help(array)
+</pre>
+
+<p>Příkaz <code>help()</code> není v Pythonu nijak utajen. Spíše naopak. Po
+interaktivním spuštění Pythonu verze 2.3.4 můžete číst výzvu k tomu, že máte
+napsat "help":</p>
+
+<pre>
+Python 2.3.4 (#53, May 25 2004, 21:17:02) [MSC v.1200 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+</pre>
+
+<p>Když napíšeme <code>help</code> bez závorek, Python nám napoví:</p>
+
+<pre>
+>>> help
+Type help() for interactive help, or help(object) for help about object.
+>>>
+</pre>
+
+<p>Odtud vidíme, že zabudovanou funkci <code>help()</code> (tj. se
+závorkami) můžeme volat i bez parametrů. V takovém případě vstoupíme do
+interaktivního režimu nápovědy. Povšimněte si, že výpis končí vyzývací
+posloupností '<code>help></code>':</p>
+
+<pre>
+>>> help()
+
+Welcome to Python 2.3!  This is the online help utility.
+
+If this is your first time using Python, you should definitely check out
+the tutorial on the Internet at http://www.python.org/doc/tut/.
+
+Enter the name of any module, keyword, or topic to get help on writing
+Python programs and using Python modules.  To quit this help utility and
+return to the interpreter, just type "quit".
+
+To get a list of available modules, keywords, or topics, type "modules",
+"keywords", or "topics".  Each module also comes with a one-line summary
+of what it does; to list the modules whose summaries contain a given word
+such as "spam", type "modules spam".
+
+help> 
+</pre>
+
+<p>Jak nám Python napovídá, interaktivní režim můžeme ukončit napsáním slova
+<code>quit</code> (stačí i jediné písmeno <code>q</code>):</p>
+
+<pre>
+help> quit
+
+You are now leaving help and returning to the Python interpreter.
+If you want to ask for help on a particular object directly from the
+interpreter, you can type "help(object)".  Executing "help('string')"
+has the same effect as typing a particular string at the help> prompt.
+>>> 
+</pre>
+
+<p>Jak vidíte, Python nás informuje o tom, že se dostáváme opět do
+interaktivního <em>příkazového</em> režimu.</p>
+</div>
+
+
+<h3>Odsazování bloku</h3>
+
+<p>Jde o jedno z nejžhavějších témat, o kterém se mezi programátory
+debatuje. Skoro se zdá, že každý programátor má svou vlastní představu o
+nejlepším způsobu odsazování kódu. Byly vypracovány některé studie, které
+ukazují, že přinejmenším některé z faktorů mají význam větší, než kosmetický
+&mdash; usnadňují nám pochopení kódu.</p>
+
+<p>Důvody pro debatu jsou jednoduché. Ve většině programovacích jazyků má
+odsazování čistě kosmetický význam; jde o pomůcku pro čtenáře. (Pokud se
+týká jazyka Python, zde je odsazování nutné a má zásadní vliv na správnou
+funkčnost programu!) Takže například:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+For I = 1 To 10
+    MsgBox I
+Next
+&lt;/script>
+</pre>
+
+<p>Tento zápis je interpretem jazyka VBScript chápán jako naprosto shodný se 
+zápisem:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+For I = 1 To 10
+MsgBox I
+Next
+&lt;/script>
+</pre>
+
+<p>Zápis s odsazením se nám prostě lépe čte.</p> 
+
+<p>Podstatné je, že odsazování by mělo odrážet logickou strukturu kódu. Mělo
+by vizuálně odrážet tok řízení v programu. Tady nám pomáhá, když bloky kódu
+vypadají jako bloky <span class="trnote" title="Poznámka překladatele">(v
+geometrickém smyslu)</span>&hellip;</p>
+
+<pre>
+XXXXXXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXX
+    XXXXXXXXXXXXXXXX
+</pre>
+
+<p>&hellip; což se čte lépe než následující zápis&hellip;</p>
+
+<pre>
+XXXXXXXXXXXXXXXXXXXXX
+  XXXXX
+    XXXXXXXXXXXX
+    XXXXXXXXXXXX
+    XXXXXXXXXXXX
+  XXXXX
+</pre>
+
+<p>protože je lépe vidět, co k bloku patří. Studie prokázaly výrazné
+zlepšení srozumitelnosti v případech, kdy odsazování odráží strukturu
+logických bloků. V malých příkladech, se kterými jsme se dosud setkali, se
+to nemusí zdát důležité. Ale jakmile začnete psát programy se stovkami a
+tisíci řádků, důležitost vhodného odsazování výrazně vzroste.</p>
+
+
+<h3>Jména proměných</h3>
+
+<p>Jména proměných, která jsme dosud používali, nevyjadřovala žádný význam.
+Důvodem bylo především to, že jsme je použili jen pro ilustraci použitých
+technik. Obecně je ale mnohem lepší, kdy jména vašich proměnných vyjadřují
+to, co jimi chcete reprezentovat. Například v naší ukázce programu pro
+generování tabulek násobků jsme použili proměnnou <code>nasobitel</code>,
+která určovala, která z tabulek se tiskne. Je to určitě smysluplnější, než
+kdybychom použili jenom <code>n</code> &mdash; fungovalo by to stejně a
+ušetřili bychom si psaní.</p>
+
+<p>Jde o kompromis mezi srozumitelností a úsilím. Obecně se dá říct, že
+nejlepší je volit krátká, ale výstižná jména. Příliš dlouhá jména by nás
+mátla a opakované zápisy jejich správné podoby by byly obtížné. Místo
+proměnné <code>nasobitel</code> jsme mohli použít například proměnnou
+<code>tabulka_kterou_tiskneme</code>, ale takové jméno je mnohem delší a
+přitom není o nic jasnější.</p>
+
+
+<h3>Ukládání vašich programů</h3>
+
+<p>Použití příkazového řádku interpretu jazyka Python v interaktivním režimu
+(<code>>>></code>)je velmi vhodné pro rychlé vyzkoušení nápadů. Ale jakmile
+činnost interpretu ukončíme, vše je ztraceno. Z dlouhodobého hlediska chceme
+umět napsat programy, které budeme opakovaně spouštět. Dosáhneme toho
+vytvořením textového souboru s připonou <code>.py</code>. (Jde pouze o
+konvenci &mdash; můžete použít jakoukoliv jinou příponu. Ale podle mého
+názoru je dobré takové konvence dodržovat.) Poté můžeme program spustit tím
+že na příkazový řádek operačního systému napíšeme:</p>
+
+<pre>$ python spam.py</pre>
+
+<p>kde <code>spam.py</code> je jméno našeho souboru s pythonovským programem
+a '<code>$</code>' je vyzývacím znakem příkazového řádku operačního systému.
+<span class="trnote" title="Poznámka&nbsp;překladatele">(Znak
+'<code>$</code>' se používá v unixových systémech. V systémech
+MS&nbsp;Windows se jako vyzývací znak používá
+'<code>&gt;</code>'.)</span></p>
+
+<p>Další výhoda ukládání programů do souborů spočívá v tom, že můžete
+opravovat chyby, aniž byste museli znovu napsat celý fragment nebo, to se
+týká IDLE, aniž byste museli kurzor přesunovat nahoru, nad chybová hlášení
+za účelem opakovaného výběru kódu. IDLE umožňuje otevření souboru pro
+editaci a jeho současné spuštění prostřednictvím menu <code>Edit|Run
+module</code>.</p>
+
+<p>Od této chvíle v příkladech obvykle nebudu ukazovat vyzývací posloupnost
+<code>>>></code>. Budu předpokládat, že program zapisujete do souboru a
+soubor spouštíte buď z IDLE nebo z příkazového řádku <span class="trnote"
+title="Poznámka překladatele">shellu nebo DOSového okna,</span> což je můj
+oblíbený způsob.</p>
+
+<div class="details">
+
+<h4>Poznámka pro uživatele systému Windows</h4>
+
+<p>Pod Windows lze v aplikaci Průzkumník nastavit vazbu pro soubory s
+příponou <code>.py</code> tak, abyste mohli pythonovské programy spouštět
+jednoduše poklepáním na ikonu souboru. Instalátor systému Python by to měl
+udělat již dříve za vás. Můžete si to ověřit tím, že naleznete nějaký soubor
+s příponou <code>.py</code> a zkusíte ho takto spustit. Pokud k jeho
+spuštění dojde (a to i v případě, že se objeví pythonovské chybové hlášení),
+je vazba pro příponu nastavena. Problém, se kterým se v takovém případě
+pravděpodobně setkáte, spočívá v tom, že se program spustí v DOSovém okně,
+které se po dokončení programu hned zavře. Někdy to proběhne tak rychle, že
+si vytvoření DOSového okna stěží všimnete. Problém lze vyřešit takto:</p>
+
+<ul>
+<li><p>První, nejjednodušší způsob spočívá ve vložení následujícího řádku na
+    konec každého programu:</p>
+
+<pre>
+raw_input(u'Pro ukončení programu stiskněte Enter')
+</pre>    
+
+    <p>Příkaz prostě zobrazí uvedenou zprávu a čeká, až uživatel stiskne
+    klávesu <code>Enter</code>. O příkazu <code>raw_input()</code> se budeme
+    bavit v jednom z následujících témat.</p>
+</li>
+
+<li><p>Druhý způsob využívá úpravy nastavení Průzkumníka Windows. Nejedná se
+    o nic nestandardního, ale postup, jakým výsledku dosáhneme, se může mírně
+    lišit podle toho, jakou verzi Windows používáte. Níže uvedený postup
+    odpovídá systému Windows XP Home. V menu Průzkumníka vyberte položku
+    <code>Nástroje &mdash; Možnosti&nbsp;složky...</code>. V zobrazeném
+    dialogovém okně vyberte záložku <code>Typy souborů</code>. Posunujte se
+    v seznamu dolů, až uvidíte typ souboru <code>PY</code>. <span
+    class="trnote" title="Poznámka&nbsp;překladatele">(Hledání si můžete
+    usnadnit tím, že nejdříve stiknete klávesu <code>P</code>. Seznam se
+    posune tak, abyste viděli první položku, která začíná na
+    <code>P</code>.)</span> Položku označte tím, že na ni kliknete. Poté
+    klikněte na spodní tlačítko <code>Upřesnit</code>. Objeví se nové
+    dialogové okno. Vyberte v něm akci <code>open</code> <span
+    class="trnote" title="Poznámka&nbsp;překladatele">([oupn] = otevřít;
+    touto položkou je definována akce, která se má provést pro otevření
+    souboru)</span> a klikněte na tlačítko <code>Upravit...</code>. V dalším
+    zobrazeném dialogu uvidíte popis <code>Aplikace použitá k provedení
+    akce</code> a pod ním řádek vypadající přibližně takto:</p>
+    
+<pre>
+C:\Python23\python.exe "%1" %*
+</pre>    
+
+    <p>Upravte jej tak, že za <code>python.exe</code> připíšete
+    <code>-i</code>, takže bude vypadat následovně:</p>
+    
+<pre>
+C:\Python23\python.exe -i "%1" %*
+</pre>    
+
+    <p>Nyní zavřete všechny dialogy. Uvedená úprava zajistí, že Python po
+    dokončení vašeho programu neskončí, ale <span class="trnote"
+    title="Poznámka&nbsp;překladatele">přejde do interaktivního režimu
+    a</span> zobrazí vyzývací posloupnost <code>>>></code>. Poté můžete
+    například zjišťovat obsah proměnných nebo prostě Python ručně ukončit.</p>
+    
+    <p>Jiný možný trik spočívá v tom, že k zmíněné položce <code>open</code>
+    přidáme další, kterou nazveme například <code>Test</code>. Poté budeme
+    moci klinout na ikonu pythonovského souboru pravým tlačítkem myši a
+    vybrat si buď položku <code>open</code>, která program spustí a poté
+    okno automaticky uzavře, nebo si vybereme položku menu
+    <code>Test</code>, která program spustí a po ukončení zůstane v
+    interaktivním režimu Pythonu. Získáme tedy možnost volby.</p>
+    
+    <div class="trnote">
+    
+    <p><b>Poznámka překladatele:</b> Položku <code>Test</code> vytváříme
+    prostřednictvím aplikace Průzkumník podobným způsobem, jako jsme
+    upravovali parametry položky <code>open</code>. Zopakujme raději celý
+    postup: V menu vybereme <code>Nástroje &mdash;
+    Možnosti&nbsp;složky...</code>. V zobrazeném dialogovém okně vybereme
+    záložku <code>Typy souborů</code>. Označíme položku odpovídající typu
+    souboru <code>PY</code>. Klikneme na spodní tlačítko
+    <code>Upřesnit</code>. Objeví se nové dialogové okno. Klikneme do
+    seznamu s akcemi (například na položku <code>open</code>) a poté
+    klikneme na tlačítko <code>Nová...</code>. V dalším dialogovém okně do
+    horní části vepíšeme <code>Test</code> a do spodní části:</p>
+    
+<pre>
+C:\Python23\python.exe -i "%1" %*
+</pre>    
+    
+    <p>Jinými slovy to znamená, že výše popisovanou úpravu nebudeme provádět
+    v rámci akce <code>open</code>, ale že si můžeme pro tento účel vytvořit
+    svoji akci, kterou vyvoláváme pravým tlačítkem myši. Nemusíme ji dokonce
+    pojmenovat <code>Test</code>. Můžeme jí dát popisnější jméno, jako
+    například <code>Test pythonovského programu s ukončením v interaktivním
+    režimu</code>.</p>
+    
+    </div>    
+</li>
+</ul>
+
+</div>
+
+
+
+
+<div class="details">
+
+<h4>Poznámka pro uživatele systému Unix</h4>
+
+<p><span class="trnote" title="Poznámka&nbsp;překladatele">Systém Unix se k
+pythonovským souborům chová jako k ostatním skriptům, proto</span> by první
+řádek pythonovského <em>skriptového souboru</em> měl obsahovat posloupnost
+<code>#!</code> následovanou plnou cestou k aplikaci <code>python</code>
+&mdash; do místa, kde ji máte nainstalovanou ve vašem systému. Plnou cestu
+můžete nalézt tak, že na příkazovém řádku shell napíšete:</p>
+
+<pre>
+$ which python
+</pre>
+
+<p>Na mém systému to pak vypadá takto:</p>
+
+<pre>
+#! /usr/local/bin/python
+</pre>
+
+<p>To vám umožní soubor spouštět aniž byste museli přímo volat Python.
+Souboru ještě musíte příkazem <code>chmod</code> přidělit příznak
+spustitelnosti, ale jsem si jistý, že tohle jste již věděli:</p>
+
+<pre>
+$ spam.py
+</pre>
+
+<p>Na moderních unixových systémech (včetně všech distribucí systému Linux)
+můžete dokonce použít ještě šikovnější trik, kdy zápis cesty k aplikaci
+můžeme nahradit zápisem <code>/usr/bin/env/python</code> takto:</p>
+
+<pre>
+#! /usr/bin/env/python
+</pre>
+
+<p>Tím se zajistí automatické vyhledání Pythonu mezi cestami v
+<code>path</code>. Jediná nepříjemnost, se kterou byste se pak mohli potkat,
+by nastala v případě, kdy máte v systému nainstalovaných více verzí Pythonu
+a skript funguje pouze při použití jedné z nich. (Může například využívat
+zcela nový jazykový rys<span class="trnote"
+title="Poznámka&nbsp;překladatele">, který je podporován jen v poslední
+verzi Pythonu</span>.) V takovém případě je výhodnější zůstat u použití
+plné cesty k aplikaci.</p>
+
+<p>Řádek <code>#!</code> nezpůsobí žádný problém ani při spouštění pod
+Windows nebo Mac. Vypadá prostě jako komentář. To znamená, že tento řádek
+mohou do svých skriptů uvádět i uživatelé systémů Windows nebo Mac pokud
+předpokládají, že by jejich skript mohl být užitečný a použitelný i v
+unixových systémech.</p>
+
+</div>
+
+
+<h4>VBScript a JavaScript</h4>
+
+<p>Pokud chcete používat pouze VBScript a JavaScript, pak výše uvedený text
+můžete ignorovat. Vaše programy jste museli ukládat do souborů již dříve,
+protože to byla jediná možnost, jak je spustit.</p>
+
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+<li>Komentáře můžeme použít k dočasnému zablokování provádění kódu, což je 
+užitečné při testování nebo při ladění kódu.</li>
+
+<li>Komentáře můžeme použít k vytvoření vysvětlující hlavičky souboru a
+seznamu historie změn verzí.</li>
+
+<li>Dokumentační řetězce mohou být použity k poskytnutí informace o
+modulu a objektech uvnitř modulu <em>za běhu</em>.</li>
+
+<li>Odsazování bloků kódů čtenáři pomáhá rozpoznat logickou strukturu
+kódu.</li>
+
+<li>Když program v jazyce Python místo za příkazový řádek interpretu uložíme
+do souboru, můžeme jej podle požadavků spouštět tím, že na příkazový řádek
+napíšeme <code>$&nbsp;python&nbsp;jmeno_programu.py</code> nebo ve Windows
+poklepeme na jméno souboru.</li>
+
+</ul> 
+
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutloops.html" title="Příkazy cyklu">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutinput.html" title="Konverzace s uživatelem">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutstyle.html,v 1.9 2005/03/09 21:09:24 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutstyle.html,v 1.9 2005/03/09 21:09:24 petr Exp $</p>
+</div>
+</body>
+</html>
+

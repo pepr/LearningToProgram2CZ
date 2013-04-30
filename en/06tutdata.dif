@@ -1,0 +1,157 @@
+Index: tutdata.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutdata.htm,v
+retrieving revision 1.4
+retrieving revision 1.6
+diff -r1.4 -r1.6
+66c66
+< but unless the boxes are labelled with the destination address 
+---
+> but unless the boxes are labeled with the destination address 
+81a82,100
+> <P>Variable names follow certain rules dependent on the 
+> programming language. Every language has its own rules about 
+> which characters are allowed or not allowed. Some languages, 
+> including Python and JavaScript, take notice of the <I>case</I> 
+> and are therefore called <i>case sensitive</i> languages, 
+> others, like VBScript don't care. Case sensitive languages 
+> require a little bit more care from the programmer to avoid 
+> mistakes, but a consistent approach to naming variables 
+> will help a lot. One common style which we will use a lot 
+> is to start variable names with a lower case letter and 
+> use a capital letter for each first letter of subsequent 
+> words in the name, like this:
+> <PRE>
+> aVeryLongVariableNameWithCapitalisedStyle
+> </PRE>
+> <P>We won't discuss the specific rules about which characters 
+> are legal in our languages but if you consistently use a style 
+> like that shown you shouldn't have too many problems.
+> 
+106c125
+< <P>Garbage collection can be likened to the mailroom clerk who 
+---
+> <P>Garbage collection can be likened to the mail room clerk who 
+172c191
+< <P>JavaScript also allows you to initialise (or <I>define</I>) the 
+---
+> <P>JavaScript also allows you to initialize (or <I>define</I>) the 
+293c312
+< numeric value treated as a sytring by enclosing it in double 
+---
+> numeric value treated as a string by enclosing it in double 
+366c385
+< it might have ben set). Normally an error condition is raised 
+---
+> it might have been set). Normally an error condition is raised 
+368,369c387,415
+< will exit. Python, VBScript and JavaScript all adopt this 
+< latter approach. 
+---
+> will exit. VBScript and JavaScript both adopt this 
+> latter approach. Recent versions of Python are a little 
+> different in that from version 2.3 onwards Python will 
+> automatically convert an integer into something called 
+> a <i>Long Integer</i>, which is a Python specific feature
+> allowing virtually unlimited size integers. We don't get 
+> these for free of course, they come at the cost of much 
+> slower processing speed - but at least you know your 
+> calculations will complete, eventually. And of course speed 
+> in computer terms is relative, unless you are doing a lot 
+> of processing of these long integers you probably won't notice 
+> the difference! You can tell a long integer because Python 
+> prints it with a training 'L', like this:
+> 
+> <PRE>
+> >>> 1234567 * 3456789
+> >>> 4267637625363L
+> </PRE>
+> <P>Note that we didn't use the print statement here, if 
+> we had the 'L' would be hidden. Python has two ways of 
+> displaying results, the <b>print</b>ed version is usually 
+> prettier, i.e. easier to read, but the plain value as 
+> used here sometimes has more detail. Try typing in the 
+> examples in the previous topic without the print statements 
+> and see how many subtle differences in presentation 
+> you can spot. In general I will use the print statement, 
+> partly because most languages insist on it and I'm trying 
+> to get you used to good general practice not just Python's 
+> cozy way of doing things.
+413c459
+< <P>All the usual artithmetic operators are supported.
+---
+> <P>All the usual arithmetic operators are supported.
+418c464
+< has a numeric type. It too is an object as we'll decribe 
+---
+> has a numeric type. It too is an object as we'll describe 
+451c497
+< is no clear distinction between integeres and real numbers, 
+---
+> is no clear distinction between integers and real numbers, 
+461c507
+< some programming languages, including Python, provide builtin 
+---
+> some programming languages, including Python, provide built in 
+537c583
+< collections and their various behaviours.  Sometimes collections 
+---
+> collections and their various behaviors.  Sometimes collections 
+640c686
+< >>> row2 = ['a','b','c')
+---
+> >>> row2 = ['a','b','c']
+806,809c852,855
+< >>> dict = {}
+< >>> dict['boolean'] = "A value which is either true or false"
+< >>> dict['integer'] = "A whole number"
+< >>> print dict['boolean']
+---
+> >>> dct = {}
+> >>> dct['boolean'] = "A value which is either true or false"
+> >>> dct['integer'] = "A whole number"
+> >>> print dct['boolean']
+812c858
+< <P>Notice that we initialise the dictionary with braces, then 
+---
+> <P>Notice that we initialize the dictionary with braces, then 
+815c861
+< <P>Just as we did with lists we can initialise a dictionary as 
+---
+> <P>Just as we did with lists we can initialize a dictionary as 
+895c941
+< you can at least recognise and recall the concept of using an object 
+---
+> you can at least recognize and recall the concept of using an object 
+1047c1093
+< exploit dynamically resizable data stores. 
+---
+> exploit dynamically re-sizable data stores. 
+1093c1139
+< a value to an index beyong the current maximum, we can see these 
+---
+> a value to an index beyond the current maximum, we can see these 
+1127,1128c1173,1174
+< Stacks are not built in to Python, VBSCript or JavaScript. 
+< You have to write some program code to implement the behaviour. 
+---
+> Stacks are not built in to Python, VBScript or JavaScript. 
+> You have to write some program code to implement the behavior. 
+1143,1144c1189,1190
+< intersect etc). VBSCript and JavaScript do not implement sets 
+< directly but you can approximate the behaviour fairly easily 
+---
+> intersect etc). VBScript and JavaScript do not implement sets 
+> directly but you can approximate the behavior fairly easily 
+1178c1224
+< as <I> First In First Out</I> or <I>FIFO</I> behaviour. 
+---
+> as <I> First In First Out</I> or <I>FIFO</I> behavior. 
+1265c1311
+< <P>The main thing I want you to recognise in all of this is that
+---
+> <P>The main thing I want you to recognize in all of this is that
+1485c1531
+< Pyhon example to work. This note gives a line by line explanation of 
+---
+> Python example to work. This note gives a line by line explanation of 

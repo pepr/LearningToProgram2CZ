@@ -1,0 +1,100 @@
+Index: tutfctnl.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutfctnl.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+15c15
+< <LI> The difference between Functional and more tradional programming styles
+---
+> <LI> The difference between Functional and more traditional programming styles
+376c376
+< ...   return 1 <SPAN CLASS="comment"># boolean TRUE</SPAN>
+---
+> ...   return True
+380c380
+< ...   return 0 <SPAN CLASS="comment"># boolean FALSE</SPAN>
+---
+> ...   return False
+382a383
+> 
+391c392
+< 0
+---
+> False
+395c396
+< 1
+---
+> True
+398c399
+< 0
+---
+> False
+401c402
+< 1
+---
+> True
+405c406
+< 1
+---
+> True
+409c410
+< 0
+---
+> False
+413,414c414,415
+< expression is TRUE then and only then will the second part be
+< evaluated. If the first part is <I>False</I> then the second part
+---
+> expression is <tt>True</tt> then and only then will the second part be
+> evaluated. If the first part is <tt>False</tt> then the second part
+416c417
+< <B>cannot</B> be true. 
+---
+> <B>cannot</B> be <tt>True</tt>. 
+419,420c420,421
+< is True then the second part need not be evaluated since the
+< whole <B>must</B> be true.
+---
+> is <tt>True</tt> then the second part need not be evaluated since the
+> whole <B>must</B> be <tt>True</tt>.
+424,426c425,428
+< an expression Python does not simply return 1 or 0, rather it 
+< returns the actual value of the expression. Thus if testing for 
+< an empty string (which would count as False) like this: 
+---
+> an expression Python does not simply return <tt>True</tt> or 
+> <tt>False</tt>, rather it returns the actual value of the 
+> expression. Thus if testing for an empty string (which would 
+> count as <tt>False</tt>) like this: 
+435c437
+< behaviour. For example suppose we have a piece of code like the
+---
+> behavior. For example suppose we have a piece of code like the
+461,462c463,466
+< functional style factorial program using recursion instead of 
+< a loop and short circuit evaluation instead of if/else:<BR>
+---
+> functional style factorial program using <tt>lambda</tt> 
+> instead of <tt>def</tt>, recursion instead of a loop and 
+> short circuit evaluation instead of <tt>if/else:</tt><BR>
+> 
+464,466c468,471
+< def factorial(n):
+<    return ((n &lt;= 1) and 1) or
+<           (factorial(n-1) * n)
+---
+> >>> factorial = lambda n: ( (n &lt;= 1) and 1) or
+> ...                       (factorial(n-1) * n)
+> >>> factorial(5)
+> 120
+467a473
+> 
+501c507
+< functions and fill up the namespace with names that would only
+---
+> functions and fill up the name space with names that would only
+532c538
+< b3.bind(<Button-1>, lambda ev : write("Pressed"))
+---
+> b3.bind(&lt;Button-1&gt;, lambda ev : write("Pressed"))

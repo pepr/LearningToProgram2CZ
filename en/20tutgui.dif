@@ -1,0 +1,115 @@
+Index: tutgui.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutgui.htm,v
+retrieving revision 1.1
+retrieving revision 1.3
+diff -r1.1 -r1.3
+3c3
+<    <title>Intoduction to GUI Programming</title>
+---
+>    <title>Introduction to GUI Programming</title>
+27c27
+< toolkit, Tkinter. This will not be a full blown Tkinter refence
+---
+> toolkit, Tkinter. This will not be a full blown Tkinter reference
+33c33
+< programming can help organise a GUI application.
+---
+> programming can help organize a GUI application.
+45c45
+< learn these. This is why most programmers try to standardise on
+---
+> learn these. This is why most programmers try to standardize on
+61c61
+< These generally have adaptors to allow them to 
+---
+> These generally have adapters to allow them to 
+68c68,69
+< <LI><A href="www.wxPython.org">wxPython, a Python version of the wxWindows </A>
+---
+> <LI><A href="http://www.wxPython.org">wxPython</a>, a Python 
+> version of the <a href="http://www.wxwidgets.org">wxWidgets </A>
+84c85
+< <P>The standard Python graphics kit(comes with the language) 
+---
+> <P>The standard Python graphics kit (comes with the language) 
+86,87c87,88
+< This is the tookit we will look at most closely, versions of 
+< it are available for Tcl and Perl as well as Python.
+---
+> This is the toolkit we will look at most closely, versions of 
+> it are available for Tcl, Haskell and Perl as well as Python.
+131c132
+<     controls which are visible and can be maniplulated by the
+---
+>     controls which are visible and can be manipulated by the
+147c148
+<          <LI>Image - for displaying BMP, GIF, JPEG and PNG images
+---
+>          <LI>Image - for displaying BUMP, GIF, JPEG and PNG images
+168c169
+<     <TD>GUI applications tend to consist of a heirarchy of
+---
+>     <TD>GUI applications tend to consist of a hierarchy of
+172c173
+<     visualised as a tree structure with each control having a
+---
+>     visualized as a tree structure with each control having a
+183c184
+< the idea of a containment heirarchy. That is the widgets are 
+---
+> the idea of a containment hierarchy. That is the widgets are 
+188c189
+< the event to its parent and so on up tonthe top level. Similarly 
+---
+> the event to its parent and so on up to the top level. Similarly 
+191c192
+< widget will redraw the entire application whereas onre sent 
+---
+> widget will redraw the entire application whereas one sent 
+197c198
+< specify a widgets parent whjen creating it, so that it knows 
+---
+> specify a widgets parent when creating it, so that it knows 
+227c228
+< even within Pythonwin there are certain unexpected behaviours
+---
+> even within Pythonwin there are certain unexpected behaviors
+240c241
+< <P>This creates the top level widget in our widget heirarchy.
+---
+> <P>This creates the top level widget in our widget hierarchy.
+244c245
+< control buttons (iconify, maximise etc). We will now add 
+---
+> control buttons (iconify, maximize etc). We will now add 
+459c460
+< so it is positioned top, centre - the packers default. If you want 
+---
+> so it is positioned top, center - the packers default. If you want 
+466,467c467,468
+< <P>Also note that the widgets stay centred if you resize the window 
+< vertically - again that's the packers default behaviour.
+---
+> <P>Also note that the widgets stay centered if you resize the window 
+> vertically - again that's the packers default behavior.
+505c506
+< <TT>sunken</TT> value on our simple dialogue box. Simply change
+---
+> <TT>sunken</TT> value on our simple dialog box. Simply change
+707c708
+<       fButtons = Frame(fOuter, border=2, relief="groove")
+---
+>       fButtons = Frame(self.mainWindow, border=2, relief="groove")
+749c750
+< for the C++ toolkit wxWindows. wxPython is much more typical
+---
+> for the C++ toolkit wxWidgets. wxPython is much more typical
+865c866
+< <LI>Widgets are assembled in a containment heirarchy
+---
+> <LI>Widgets are assembled in a containment hierarchy
+873c874
+< objects that correspomnd to widget groups and methods that 
+---
+> objects that correspond to widget groups and methods that 

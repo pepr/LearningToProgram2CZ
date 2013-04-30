@@ -1,0 +1,64 @@
+Index: tutname.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutname.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+54c54
+< <P>Another term used to decribe a namespace is <I>scope</I>. 
+---
+> <P>Another term used to describe a namespace is <I>scope</I>. 
+58c58
+< There are a few very subtle diferences between the terms but 
+---
+> There are a few very subtle differences between the terms but 
+71c71
+< classname first. More about that in the OOP topic) 
+---
+> class name first. More about that in the OOP topic) 
+78c78
+< <LI>Builtin scope - names defined within Python itself, these are 
+---
+> <LI>Built in scope - names defined within Python itself, these are 
+92c92
+< <LI>wihin it's local namespace(the current function), 
+---
+> <LI>within it's local namespace(the current function), 
+94c94
+< <LI>the builtin scope. 
+---
+> <LI>the built-in scope. 
+100c100
+< visible in our module namespace. WE can then use themodule name 
+---
+> visible in our module namespace. WE can then use the module name 
+106c106
+< will mask the other causing stringe behaviour in the program.
+---
+> will mask the other causing strange behavior in the program.
+129c129
+< a few modules, suchj as Tkinter which we'lll meet later, which 
+---
+> a few modules, such as Tkinter which we'll meet later, which 
+131c131
+< written in such a way to minimise the risk of name conflicts, 
+---
+> written in such a way to minimize the risk of name conflicts, 
+205c205
+< the original bvariable while also passing it in as an argument. 
+---
+> the original variable while also passing it in as an argument. 
+279c279
+< <P>There are a couple of extra scoping features in VBSCript 
+---
+> <P>There are a couple of extra scoping features in VBScript 
+330,331c330,331
+< <LI>Python has 3 scopes - file(global), function(local) and built-in.
+< <LI>VBScript and JavaScript have 2 scopes - file(global) and function(local).
+---
+> <LI>Python has 3 scopes - file (global), function (local) and built-in.
+> <LI>VBScript and JavaScript have 2 scopes - file (global) and function (local).
+337c337
+< <A HREF="tutclass.htm" target="text">Next</A>&nbsp
+---
+> <A HREF="tutregex.htm" target="text">Next</A>&nbsp

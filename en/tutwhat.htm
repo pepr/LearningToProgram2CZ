@@ -1,0 +1,311 @@
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>What is programming?</TITLE></HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>What is Programming?</H2>
+<P>
+<TABLE BORDER> <TR> <TH align="left">What will we cover?</TH> </TR>
+<TR> <TD>An introduction to the terminology of computing plus some history 
+and a brief look at the structure of a computer program.
+</TD> </TR> </TABLE>
+</CENTER>
+
+<H3>Back to Basics</H3>
+
+<P>Computer Programming is the art of making a computer do what
+you want it to do. 
+
+<P>At the very simplest level it consists of
+issuing a sequence of commands to a computer to achieve an
+objective. In the Microsoft world MS DOS users used to create text
+files with lists of commands called BAT files. These
+simply executed the sequence of commands as a BATCH, hence 
+the name. You can still produce these in Windows environments
+today but in practice they are rarely seen.
+
+<P>For example you might be producing a document (such as this
+tutorial) which comprises lots of separate files. Your word
+processor may produce backup copies of each file as it saves a
+new version. At the end of the day you may want to put the
+current version of the document (all the latest files) into a
+'backup' directory/folder. Finally, to tidy up, delete all the
+backup files ready to start work the next day. A simple BAT file
+to do this would be:
+
+<PRE>
+COPY *.HTM BACKUP
+DEL *.BAK
+</PRE>
+
+<P>If the file were called SAVE.BAT then at the end of each day I
+could simply type SAVE at a DOS prompt and the files would be
+saved and backups deleted. This is a program.
+
+<P><B>Note:</B> Users of Linux or other operating systems have their own
+versions of these files often known as <I>shell scripts</I>. Unix shell
+scripts are much more powerful than DOS BAT files, and
+support most of the programming techniques that we will be
+discussing in this course.
+
+
+<H3>Let me say that again</H3>
+
+<P>If you were a little daunted by that, please don't be. 
+A computer program is simply a set of instructions to tell 
+a computer how to perform a particular task. It's rather 
+like a recipe: a set of instructions to tell a cook how 
+to make a particular dish. It describes the ingredients 
+(the data) and the sequence of steps (the process) needed 
+to convert the ingredients into the cake or whatever. 
+Programs are very similar in concept.
+
+<H3>A little history</H3>
+
+<P>Just as you speak to a friend in a language so you 'speak' to
+the computer in a language. The only language that the computer
+understands is called <I>binary</I> and there are several
+different dialects of it - which is why that cool iMac program
+won't run on your PC and vice versa. Binary is unfortunately 
+very difficult for humans to read or write so we have to use an
+intermediate language and get it translated into binary for us.
+This is rather like watching the American and Russian presidents
+talking at a summit meeting - One speaks in English, then an 
+interpreter repeats what has been said in Russian. The other 
+replies in Russian and the interpreter again repeats the 
+sentence, this time in English.
+
+<P>Surprisingly enough the thing that translates our intermediate
+language into binary is also called an interpreter. And just as
+you usually need a different interpreter to translate English
+into Russian than you do to translate Arabic into Russian so you
+need a different computer interpreter to translate Python into
+binary from the one that translates VBScript into binary. 
+
+<P>The very first programmers actually had to enter the binary 
+codes themselves, this is known as <I>machine code</I> 
+programming and is incredibly difficult. The next stage was to
+create a translator that simply converted English equivalents 
+of the binary codes into binary so that instead of having to 
+remember that the code <TT>001273 05 04</TT> meant 
+<TT> add 5 to 4 </TT> programmers could now write <TT>ADD 5 4</TT>.
+This very simple improvement made life much simpler and these systems 
+of codes were really the first programming languages, one for each 
+type of computer. They were known as <I>assembler</I> languages and 
+<I>Assembler programming</I> is still used for a few specialized 
+programming tasks today. 
+
+<P>Even this was very primitive and still told the computer what to 
+do at the hardware level - move bytes from this memory location to 
+that memory location, add this byte to that byte etc.  
+It was still very difficult and took a lot of programming effort 
+to achieve even simple tasks.
+
+<P>Gradually computer scientists developed higher level computer
+languages to make the job easier. This was just as well because
+at the same time users were inventing ever more complex jobs for
+computers to solve! This competition between the computer
+scientists and the users is still going on and new languages
+keep on appearing. This makes programming interesting but also
+makes it important that as a programmer you understand the
+concepts of programming as well as the pragmatics of doing it in
+one particular language.
+
+<P>I'll discuss some of those common concepts next, but we will
+keep coming back to them as we go through the course.
+
+<H3>The common features of all programs</H3>
+
+<P>A long time ago a man called Edsgar Dijkstra came up with a
+concept called <I>structured programming</I>. This said that all
+programs could be structured in the following four ways:
+
+<UL>
+<LI><B>Sequences of instructions:</B><BR>
+<IMG ALT="sequences" SRC="sequence.gif">
+<P>Here the program flows from one step to the next in strict 
+sequence.
+<BR><HR WIDTH="70%">
+<LI><B>Branches:</B><BR>
+<IMG ALT="branches" SRC="branch.gif">
+<P>Here the program reaches a decision point and if the result 
+of the test is true then the program performs the instructions 
+in <I>Path 1</I>, and if false it performs the actions in 
+<I>Path 2</I>. This is also known as a <I>conditional</I> 
+construct because the program flow is dependent on the result 
+of a test condition.
+
+<BR><HR WIDTH="70%">
+<LI><B>Loops:</B><BR>
+<IMG ALT="loops" SRC="loop.gif">
+<P>In this construct the program steps are repeated continuously 
+until some test condition is reached, at which point control 
+then flows past the loop into the next piece of program logic.
+
+<BR><HR WIDTH="70%">
+<LI><B>Modules:</B><BR>
+<IMG ALT="modules" SRC="module.gif">
+<P>Here the program performs an identical sequence of actions 
+several times. For convenience these common actions are placed 
+in a module, which is a kind of mini-program which can be executed 
+from within the main program. Other names for such a module are: 
+<I>sub-routine</I>, <I>procedure</I> or <I>function</I>.
+<BR><HR WIDTH="70%">
+</UL>
+
+<P>Along with these structures programs also need a few more
+features to make them useful:
+<UL>
+<LI>Data (we take a closer look at data in the 
+<A href="tutdata.htm">Raw Materials</A> topic.)
+<LI>Operations (add, subtract, compare etc.<BR>
+- we also take a look at the operations we can perform on data in the 
+<A href="tutdata.htm">Raw Materials</A> topic.)
+<LI>Input/Output capability (e.g. to display results<BR> - we look at how to read
+data in the <A href="tutinput.htm">"Talking to the User"</A> topic.)
+</UL>
+
+<P>Once you understand those concepts and how a particular
+programming language implements them then you can write a
+program in that language.
+
+<H4>Let's clear up some terminology</H4>
+
+<P>We already said that programming was the art of making
+a computer do what you want, but what is <I>a program</I>? 
+
+<P>In fact there are two distinct concepts of a program. The
+first is the one perceived by the user - an executable file that
+is installed and can be run repeatedly to perform a task. For
+example users speak of running their "word processor program".  The
+other concept is the program as seen by the programmer, this is
+the text file of instructions to the computer, written in some
+programming language, that can be translated into an executable
+file. So when you talk about a program always be clear about
+which concept you mean. 
+
+<P>Basically a programmer writes a program in a high level
+language which is interpreted into the bytes that the computer
+understands. In technical speak the programmer generates
+<I>source code</I> and the interpreter generates <I>object
+code</I>. Sometimes object code has other names like: <I>P-Code,
+binary code</I> or  <I>machine code</I>.
+
+<P>The interpreter has a couple of names, one being the 
+<I>interpreter</I> and the other being the 
+<I>compiler</I>. These terms actually refer to two different  
+techniques of generating object code from source code. It used
+to be the case that compilers produced object code that could be
+run on its own (an <I>executable file</I> - another term)
+whereas an interpreter had to be present to run its program as it
+went along. The difference between these terms is now blurring
+however since some compilers now require interpreters to be
+present to do a final conversion and some interpreters simply
+compile their source code into temporary object code and then
+execute it. 
+
+<P>From our perspective it makes no real difference,
+we write source code and use a tool to allow the computer 
+to read, translate and execute it.
+
+<H3>The structure of a program</H3>
+
+<P>The exact structure of a program depends on the programming
+language and the environment that you run it on. However there
+are some general principles:
+<UL>
+<LI>A loader - every program needs to be loaded into memory by
+the operating system. The loader does this and is usually
+created by the interpreter for you.
+
+<LI>Data definitions - most programs operate on data and
+somewhere in the source code we need to define exactly what type
+of data we will be working with. Different languages do this
+very differently.
+
+<LI>Statements - these are the core of your program. The
+statements actually manipulate the data we define and do the
+calculations, print the output etc.
+</UL>
+
+<P>Most programs follow one of two structures:
+<a name="batch"></a>
+<H4>Batch programs</H4>
+
+<P>These are typically started from a command line (or
+automatically via a scheduler utility) and tend to follow a
+pattern of:<BR>
+<CENTER>
+<img alt="Batch processing" src="batch.gif">
+</CENTER>
+<P>That is, the program will typically start off by setting 
+its internal state, perhaps setting totals to zero, opening 
+the needed files etc. Once it is ready to start work it will 
+read data either from the user by displaying prompts on a 
+screen or from a data file. Most commonly a combination is 
+used whereby the user provides the name of the data file and 
+the real data is read from the file. Then the program does 
+the actual data processing involving math or data conversion 
+or whatever. Finally the results are produced, either to a 
+screen display or, perhaps, by writing them back to a file.
+
+<P>All the programs we write in the early parts of this tutorial 
+will be batch style programs.
+
+<H4>Event driven programs</H4>
+
+<P>Most GUI systems (and embedded control systems - like your
+Microwave, camera etc) are event driven. That is the operating
+system sends events to the program and the program responds to
+these as they arrive. Events can include things a user does -
+like clicking the mouse or pressing a key - or things that the
+system itself does like updating the clock or refreshing the
+screen.
+
+<P>Event driven programs generally look like:<BR>
+<CENTER>
+<IMG ALT="Event Loop" SRC="eventloop.gif">
+</CENTER>
+
+<P>In this configuration the program again starts off by setting 
+up its internal state, but then control is handed off to the 
+event loop - which is usually provided by the operating environment
+(sometimes referred to as <I>the runtime</I>). The program then 
+waits for the event loop to detect user actions which it 
+translates to events. These events are sent to the program 
+to deal with one at a time. Eventually the user will perform an action
+that terminates the program, at which point an Exit Event will be 
+created and sent to the program.
+
+<P>We look at event loops and <A href="tutevent.htm">event driven 
+programming</A> in the "Advanced Topics" section and again in the 
+<A href="tutgui.htm">GUI programming</A> topic.
+
+<CENTER>
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD>
+<UL>
+<LI>Programs control the computer
+<LI>Programming languages allow us to 'speak' to the computer at a level that is 
+closer to how humans think than how computers 'think'
+<LI>Programs <I>operate</I> on <I>data</I>
+<LI>Programs can be either <I>Batch oriented</I> or <I>Event driven</I>
+</UL>
+</TD></TR></TABLE>
+<!--HR WIDTH="60%" -->
+
+<A HREF="tutneeds.htm" target="text">Previous</A>&nbsp
+<A HREF="tutstart.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+
+</BODY>
+</HTML>

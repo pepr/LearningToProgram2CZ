@@ -1,0 +1,50 @@
+Index: tutstyle.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutstyle.htm,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -r1.2 -r1.3
+42,46c42,46
+< #
+< # Description: This module provides a Spam class which can be
+< # combined with any other type of Food object to create
+< # interesting meal combinations.
+< #
+---
+> '''
+> This module provides a Spam class which can be
+> combined with any other type of Food object to create
+> interesting meal combinations.
+> '''
+67a68,74
+> <P>Note that I put the description in between two sets
+> of triple quotes. This is a Python specific trick known 
+> as a <I>documentation string</i> that makes the 
+> description available to Pythons built-in <tt>help</tt> 
+> function as we'll see shortly.
+> 
+> 
+127,128c134,135
+< <P>Since Python version 2.2 there is also a help() function 
+< within Python that will search for and print out any helpful 
+---
+> <P>Since Python version 2.2 there is also a <tt>help()</tt> 
+> function within Python that will search for and print out any helpful 
+231c238
+< Generally the best choice is to go for short but meaningfull
+---
+> Generally the best choice is to go for short but meaningful
+244c251
+< is a convension only, you could use anything you like. But it's a
+---
+> is a convention only, you could use anything you like. But it's a
+368,371c375,378
+< <LI>Comments can be used to proivide an explanatory header 
+< with version history of tye file.
+< <LI>Documentation strings can be usede to provide run-time information about a 
+< module and the objects within it.
+---
+> <LI>Comments can be used to provide an explanatory header 
+> with version history of type file.
+> <LI>Documentation strings can be used to provide run-time 
+> information about a module and the objects within it.

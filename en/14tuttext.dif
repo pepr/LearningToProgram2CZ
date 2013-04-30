@@ -1,0 +1,70 @@
+Index: tuttext.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tuttext.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+3c3
+< <TITLE>File Handling</TITLE>
+---
+> <TITLE>Text Handling</TITLE>
+18c18
+< <LI>How to change case of haracters
+---
+> <LI>How to change case of characters
+44c44
+< text as of version 2.3. This is because in early versins of 
+---
+> text as of version 2.3. This is because in early versions of 
+90c90
+< it removes the sparator characters. Usually that's what 
+---
+> it removes the separator characters. Usually that's what 
+143c143
+< total = 0 <SPAN CLASS="comment"> # initialise to zero; also creates variable</SPAN>
+---
+> total = 0 <SPAN CLASS="comment"> # initializer to zero; also creates variable</SPAN>
+158c158
+< I leave that as an excercise for the reader.</P>
+---
+> I leave that as an exercise for the reader.</P>
+162c162
+< <P>The next common operation we will look at is seaching for 
+---
+> <P>The next common operation we will look at is searching for 
+187c187
+< <P>One option is to use the index of the first occurence to 
+---
+> <P>One option is to use the index of the first occurrence to 
+192c192
+< aString = "Bow wow says the dog, how many ow's are in this string?"
+---
+> aString = "Bow wow says the dog, how many o's are in this string?"
+202c202
+< <P>Here we just counted occurences, but we could just as 
+---
+> <P>Here we just counted occurrences, but we could just as 
+211c211
+< aString = "Bow wow says the dog, how many ow's are in this string?"
+---
+> aString = "Bow wow says the dog, how many o's are in this string?"
+355c355
+< <P>What this means is that we can pretty juch do all 
+---
+> <P>What this means is that we can pretty much do all 
+399c399
+< which makes tssting error conditions a bit more tricky.
+---
+> which makes testing error conditions a bit more tricky.
+430c430
+< how many occurences of the search string should be replaced, 
+---
+> how many occurrences of the search string should be replaced, 
+450c450
+< if you want to find out more check the VBSCript help 
+---
+> if you want to find out more check the VBScript help 
+563c563
+< but the three basic opeations are nearly always available.
+---
+> but the three basic operations are nearly always available.

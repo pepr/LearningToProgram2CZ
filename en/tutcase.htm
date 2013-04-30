@@ -1,0 +1,1053 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <title>A Case Study</title>
+   <LINK REL="stylesheet" type="text/css" href="tutor.css">
+   <LINK REL="stylesheet" type="text/css" href="colors.css">
+</head>
+<body bgcolor="#CCBBCC">
+
+<h2>A Case Study</h2>
+<P>For this case study we are going to expand on the word 
+counting program we developed earlier. We are going to 
+create a program which mimics the Unix <tt>wc</tt> program 
+in that it outputs the number of lines, words and characters 
+in a file. We will go further than that however and also output 
+the number of sentences, clauses and paragraphs. 
+We will follow the development of this program stage by stage 
+gradually increasing its capability then moving it into
+a module to make it reusable, turning it into an OO 
+implementation for maximum extendability and finally 
+wrapping it in a GUI for ease of use.
+
+<p>Although we will be using Python throughout it would be 
+possible to build JavaScript or VBScript versions of the 
+program with only a little adaptation.
+
+<p>Additional features that could be implemented but will 
+be left as exercises for the reader are to 
+<UL>
+<li>calculate the FOG index of the text,where the FOG index can be defined
+(roughly) as:
+<B>
+<PRE>
+(Average words per sentence) + (Percentage of words more than 5 letters) * 0.4
+</PRE>
+</B>
+and indicates the complexity of the text,<BR>
+<BR>
+</li>
+
+<li>
+calculate the number of unique words used and their frequency,<BR><BR>
+</li>
+
+<li>
+create a new version which analyzes RTF files</li>
+</ul>
+
+<h3>Counting lines, words and characters</h3>
+<p>Let's revisit the previous word counter:
+<pre>import string
+def numwords(s):
+    list = string.split(s)
+    return len(list)
+
+inp = open("menu.txt","r")
+total = 0
+<span CLASS="comment">
+# accumulate totals for each line</span>
+for line in inp.readlines():
+    total = total + numwords(line)
+print "File had %d words" % total
+
+inp.close()
+</pre>
+
+<p>We need to add a line and character count. The line count 
+is easy since we loop over each line we just need a variable 
+to increment on each iteration of the loop. The character 
+count is only marginally harder since we can iterate over 
+the list of words adding their lengths in yet another variable.
+<p>We also need to make the program more general purpose by 
+reading the name of the file from the command line or if 
+not provided, prompting the user for the name. (An alternative 
+strategy would be to read from standard input, which is 
+what the real <tt>wc</tt> does.)
+
+<p>So the final <tt>wc</tt> looks like:
+<pre>import sys, string
+<span CLASS="comment">
+# Get the file name either from the command-line or the user</span>
+if len(sys.argv) != 2:
+   name = raw_input("Enter the file name: ")
+else:
+   name = sys.argv[1]
+ 
+inp = open(name,"r")
+<span CLASS="comment">
+# initialize counters to zero; which also creates variables</span>
+words, lines, chars = 0, 0, 0
+
+for line in inp:
+    lines += 1
+    <span CLASS="comment">
+    # Break into a list of words and count them</span>
+    list = line.split()
+    words += len(list)
+    chars += len(line)<span CLASS="comment"> # Use original line which includes spaces etc.</span>
+
+print "%s has %d lines, %d words and %d characters" % (name, lines, words, chars)
+inp.close()
+</pre>
+
+<P>If you are familiar with the Unix <tt>wc</tt> command you 
+know that you can pass it a wild-carded filename to get stats 
+for all matching files as well as a grand total. This program 
+only caters for straight filenames. If you want to extend it 
+to cater for wild cards take a look at the glob module and 
+build a list of names then simply iterate over the file list.
+You'll need temporary counters for each file then cumulative 
+counters for the grand totals. Or you could use a dictionary 
+instead...
+
+<h3>Counting sentences instead of lines</h3>
+<p>When I started to think about how we could extend this to count sentences
+and words rather than 'character groups' as above, my initial idea was
+to first loop through the file extracting the lines into a list then loop
+through each line extracting the words into another list. Finally to process
+each 'word' to remove extraneous characters.
+
+<p>Thinking about it a little further it becomes evident 
+that if we simply collect the lines we can analyze the 
+punctuation characters to count sentences, clauses etc. 
+(by defining what we consider a sentence/clause in terms 
+of punctuation items).  Let's try sketching that in pseudo-code:
+
+<pre>
+foreach line in file:
+   increment line count
+   if line empty:
+      increment paragraph count
+   count the clause terminators
+   count the sentence terminators
+
+report paras, lines, sentences, clauses, groups, words.
+</pre>
+
+We will be using <a href="tutregex.htm">regular expressions</a> 
+in the solution here, it may be worth going back and reviewing 
+that topic if you aren't sure how they work. Now lets try turning 
+our pseudo code into real code:
+
+<pre>
+import re,sys
+
+<SPAN CLASS="Comment"># Use Regular expressions to find the tokens</SPAN>
+sentenceStops = ".?!"
+clauseStops = sentenceStops + ",;:\-"<span class="comment"> # escape '-' to avoid range effect</span>
+sentenceRE = re.compile("[%s]" % sentenceStops)
+clauseRE = re.compile("[%s]" % clauseStops)
+
+<SPAN CLASS="Comment"># Get file name from commandline or user</SPAN>
+if len(sys.argv) != 2:
+   name = raw_input("Enter the file name: ")
+else:
+   name = sys.argv[1]
+ 
+inp = open(name,"r")
+<SPAN CLASS="Comment"># Now initialize counters</SPAN>
+lines, words, chars = 0, 0, 0
+sentences,clauses = 0, 0
+paras = 1  <SPAN CLASS="comment"># assume always at least 1 para</SPAN>
+
+<SPAN CLASS="Comment"># process file</SPAN>
+for line in inp:
+   lines += 1
+   if line == "": <SPAN CLASS="comment"># empty line</SPAN>
+      paras += 1
+   words += len(line.split())
+   chars += len(line.strip())
+   sentences += len(sentenceRE.findall(line))
+   clauses += len(clauseRE.findall(line))
+
+<SPAN CLASS="Comment"># Display results</SPAN>
+print '''
+The file %s contains:
+	%d\t characters
+	%d\t words
+	%d\t lines in
+	%d\t paragraphs with
+	%d\t sentences and
+	%d\t clauses.
+''' % (name, chars, words, lines, paras, sentences, clauses)
+</pre>
+
+<p>There are several points to note about this code:
+<UL>
+<LI>It uses regular expressions to make the searches most 
+efficient. We could have done the same thing using simple 
+string searches, but we would have needed to search for 
+each punctuation character separately. Regular expressions 
+maximize the efficiency of our program by allowing a 
+single search to find all of the items we want. However 
+regular expressions are also easy to mess up. My first 
+attempt I forgot to escape the '-' character and that 
+then got treated as a range by the regular expression, 
+with the result that any numbers in the file got treated 
+as clause separators! After much head scratching it took 
+a call to the Python community to spot the mistake. A 
+quick '\' character inserted and suddenly all was well again.
+<LI>This program is effective in that it does what we want 
+it to do. It is less effective from the re-usability point 
+of view because there are no functions that we can call 
+from other programs, it is not yet a modular program.
+<LI>The sentence tests are less than perfect. For example 
+abbreviated titles such as "Mr." will count as a sentence 
+because of the period. We could improve the regular 
+expression by searching for a period, followed by one or 
+more spaces, followed by an uppercase letter, but our 
+"Mr." example will still fail since "Mr." is usually 
+followed by a name which begins with an uppercase letter!
+This serves to illustrate how difficult it is to 
+<I>parse</I> natural languages effectively.
+</UL>
+
+<p>As the case study progresses we will address the second 
+point about re-usability and also start to look at the 
+issues around parsing text in a little more depth, 
+although even by the end we will not have produced a 
+perfect text parser. That is a task that takes us 
+well beyond the sort of programs a beginner might 
+be expected to write.
+
+<h3>Turning it into a module</h3>
+
+<p>To make the code we have written into a module there are 
+a few basic design principles that we need to follow. 
+First we need to put the bulk of the code into functions 
+so that users of the module can access them. Secondly 
+we need to move the start code (the bit that gets the 
+file name) into a separate piece of code that won't be 
+executed when the function is imported. Finally we will 
+leave the global definitions as module level variables 
+so that users can change their value is they want.
+
+<p>Let's tackle these items one by one. First move the main 
+processing block into a function, we'll call it 
+<TT>analyze()</TT>. We'll pass a file object into the 
+function as a parameter and the function will return
+the list of counter values in a tuple.
+
+<P>It will look like this:
+
+<pre>
+<span CLASS="comment">
+#############################
+# Module: grammar
+# Created: A.J. Gauld, 2004,8,8
+#&nbsp;
+# Function:
+# Provides facilities to count words, lines, characters,
+# paragraphs, sentences and 'clauses' in text files.
+# It assumes that sentences end with [.!?] and paragraphs 
+# have a blank line between them. A 'clause' is simply 
+# a segment of sentence separated by punctuation. The 
+# sentence and clause searches are regular expression 
+# based and the user can change the regex used. Can also 
+# be run as a program.
+#############################</span>
+import re, sys
+<span CLASS="comment">
+############################
+# initialize global variables</span>
+paras = 1 <SPAN CLASS="comment"># We will assume at least 1 paragraph!</SPAN>
+lines, sentences, clauses, words, chars = 0,0,0,0,0
+sentenceMarks = '.?!'
+clauseMarks = '&amp;();:,\-' + sentenceMarks
+sentenceRE = None  <SPAN CLASS="Comment"># set via a function call</Span>
+clauseRE = None
+format = '''
+The file %s contains:
+	%d\t characters
+	%d\t words
+	%d\t lines in
+	%d\t paragraphs with
+	%d\t sentences and
+	%d\t clauses.
+''' 
+
+<span CLASS="comment">
+############################
+# Now define the functions that do the work
+
+# setCounters allows us to recompile the regex if we change 
+# the token lists</span>
+def setCounterREs():
+    global sentenceRE, clauseRE
+    sentenceRE = re.compile('[%s] +' % sentenceMarks)
+    clauseRE = re.compile('[%s] +' % clauseMarks)
+    
+<span class="comment"># reset counters gets called by analyze()</span>
+def resetCounters():
+     chars, words, lines, sentences, clauses = 0,0,0,0,0
+     paras = 1
+<span class="comment">
+# reportStats is intended for the driver 
+# code, it offers a simple text report</span>
+def reportStats(theFile):
+    print format % (theFile.name, chars, words, lines,
+                    paras, sentences, clauses)
+<span class="comment">
+# analyze() is the key function which processes the file</span>
+def analyze(theFile):
+    global chars,words,lines,paras,sentences,clauses
+    <span class="comment"># check if REs already compiled</span>
+    if not (sentenceRE and clauseRE): 
+        setCounterREs()
+    resetCounters()
+    for line in theFile:
+      lines += 1
+      if line == "": <SPAN Class="Comment"># empty line</SPAN>
+         paras += 1
+      words += len(line.split())
+      chars += len(line.strip())
+      sentences += len(sentenceRE.findall(line))
+      clauses += len(clauseRE.findall(line))
+
+<span CLASS="comment">
+# Make it run if called from the command line (in which
+# case the 'magic' __name__ variable gets set to '__main__'</span>
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print "Usage: python grammar.py &lt;filename&gt;"
+        sys.exit()
+    else:
+        aFile = open(sys.argv[1],"r")
+        analyze(aFile)
+	reportStats(aFile)
+	aFile.close()
+
+</pre>
+
+<p>First thing to notice is the commenting at the top. 
+This is common practice to let readers of the file get 
+an idea of what it contains and how it should be used. 
+The version information(Author and date) is useful too 
+if comparing results with someone else who may be using 
+a more or less recent version.
+
+<p>The final section is a feature of Python that calls 
+any module loaded at the command line <tt>"__main__" </tt>. 
+We can test the special, built-in <tt>__name__ </tt>
+variable and if its main we know the module is not just
+being imported but run and so we execute the trigger 
+code inside the <tt>if</tt>.
+
+<p>This trigger code includes a user friendly hint about 
+how the program should be run if no filename is provided, 
+or indeed if too many filenames are provided, it could 
+instead - or in addition - ask the user for a filename 
+using <TT>raw_input()</TT>.
+
+<p>Notice that the <tt>analyze()</tt> function 
+uses the initialization functions to make sure the 
+counters and regular expressions are all set up properly 
+before it starts. This caters for the possibility of a 
+user calling analyze several times, possibly after 
+changing the regular expressions used to count clauses 
+and sentences.
+
+<p>Finally note the use of global to ensure that the 
+module level variables get set by the functions, 
+without global we would create local variables and 
+have no effect on the module level ones.
+
+<h4>Using the grammar module</h4>
+
+<p>Having created a module we can use it as a 
+program at the OS prompt as before by typing:</p>
+<pre>
+C:\> python grammar.py spam.txt
+</pre>
+
+<p>However provided we saved the module in a location 
+where Python can find it, we can also import the module 
+into another program or at the Python prompt. Lets try 
+some experiments based on a test file called spam.txt 
+which we can create and looks like this:
+<pre>
+This is a file called spam. It has
+3 lines, 2 sentences and, hopefully, 
+5 clauses.
+</pre>
+
+Now, let's fire up Python and play a little:
+
+<pre>
+>>> import grammar
+>>> grammar.setCounterREs()
+>>> txtFile = open("spam.txt")
+>>> grammar.analyze(txtFile)
+>>> grammar.reportStats()
+The file spam.txt contains:
+        80       characters
+        16       words
+        3        lines in
+        1        paragraphs with
+        2        sentences and
+        1        clauses.
+
+>>> <span class="comment"> # redefine sentences as ending in vowels!</span>
+>>> grammar.sentenceMarks = 'aeiou'
+>>> grammar.setCounterREs()
+>>> grammar.analyze(txtFile)
+>>> print grammar.sentences
+21
+>>> txtFile.close()
+</pre>
+
+<p>As you can see redefining the sentence tokens changed the 
+sentence count radically. Of course the definition of a sentence 
+is pretty bizarre but it shows that our module is usable and 
+moderately customizable too. Notice too that we were able to 
+print the sentence count directly, we don't need to use the 
+provided <tt>reportStats()</tt> function. This demonstrates 
+the value of an important design principle, namely 
+<i>separation of data and presentation</i>. By keeping the 
+display of data separate from the calculation of the data 
+we make our module much more flexible for our users.
+
+<p>To conclude our course we will rework the grammar module 
+to use OO techniques and then add a simple GUI front end. 
+In the process you will see how an OO approach results 
+in modules which are even more flexible for the user 
+and more extensible too.
+
+<h3>Classes and objects</h3>
+<P>One of the biggest problems for the user of our module is 
+the reliance on global variables. This means that it can only 
+analyze one file at a time, any attempt to handle more 
+than that will result in the global values being over-written.
+
+<p>By moving these globals into a class we can then create 
+multiple instances of the class (one per file) and each 
+instance gets its own set of variables. Further, by making 
+the methods sufficiently granular we can create an architecture 
+whereby it is easy for the creator of a new type of document 
+object to modify the search criteria to cater for the rules 
+of the new type. (eg. by rejecting all HTML tags from the 
+word list we could process HTML files as well as plain 
+ASCII text).
+
+<p>Our first attempt at this creates a Document class 
+to represent the file we are processing:
+<pre>
+<span CLASS="comment">#! /usr/local/bin/python
+################################
+# Module: document.py
+# Author: A.J. Gauld
+# Date:&nbsp;&nbsp; 2004/08/10
+# Version: 3.0
+################################
+# This module provides a Document class which&nbsp;
+# can be subclassed for different categories of&nbsp;
+# Document(text, HTML, Latex etc). Text and HTML are
+# provided as samples.
+#
+# Primary services available include&nbsp;
+#&nbsp;&nbsp;&nbsp; - analyze(),
+#&nbsp;&nbsp;&nbsp; - reportStats().
+################################</span>
+import sys,re
+
+'''
+Provides 2 classes for parsing "text/ files.
+Provides 2 classes for parsing "text/ files.
+A Generic Document class for plain ACII text,
+and an HTMLDocument for HTML files.
+'''
+
+class Document:
+  sentenceMarks = '?!.'
+  clauseMarks = '&amp;()\-;:,' + sentenceMarks
+ 
+  def __init__(self, filename):
+      self.filename = filename
+      self.setREs()
+   
+  def setCounter(self):
+      self.paras = 1
+      self.lines = self.getLines()
+      self.sentences, self.clauses, self.words, self.chars = 0,0,0,0
+   
+  def setREs(self):
+      self.sentenceRE = re.compile('[%s]' % Document.sentenceMarks)
+      self.clauseRE = re.compile('[%s]' % Document.clauseMarks)
+	
+  def getLines(self):
+      infile = open(self.filename)
+      lines = infile.readlines()
+      infile.close()
+      return lines
+	
+  def analyze(self):
+      for line in self.lines:
+          self.sentences += len(self.sentenceRE.findall(line))
+          self.clauses += len(self.clauseRE.findall(line))
+          self.words += len(line.split())
+          self.chars += len(line.strip())
+          if line == "":
+             self.paras += 1
+		
+  def formatResults(self):
+      format = '''
+      The file %s contains:
+	%d\t characters
+	%d\t words
+	%d\t lines in
+	%d\t paragraphs with
+	%d\t sentences and
+	%d\t clauses.
+      ''' 
+      return format % (self.filename, self.chars,
+                       self.words, len(self.lines), 
+                       self.paras, self.sentences, self.clauses)
+
+class TextDocument(Document):
+  pass
+
+class HTMLDocument(Document):
+  pass
+
+
+if __name__ == "__main__":
+       if len(sys.argv) == 2:
+         doc = Document(sys.argv[1])
+         doc.analyze()
+         print doc.formatResults()
+       else:
+         print "Usage: python document3.py "
+         print "Failed to analyze file"
+</pre>
+
+<P>There are several points to notice here. First is the use of 
+<i>class variables</i> at the beginning of the class definition 
+to store the sentence and clause markers. Class variables are 
+shared by all the instances of the class so they are a good 
+place to store common information. They can be accessed by 
+using the class name, as I've done here, or by using the usual 
+self. I prefer to use the class name because it highlights the 
+fact that they are class variables.
+
+<p>I've also added a new method, <tt>setCounters()</TT> for 
+flexibility when we come to deal with other document types. 
+Its quite likely that we will use a different set of counters 
+when analyzing HTML files - maybe the number of tags 
+for example. By pairing up the <tt>setCounters()</tt> and 
+<tt>formatResults()</tt> methods and providing a new 
+<tt>analyze()</tt> method we can pretty much deal with 
+any kind of document.
+
+<p>The other methods are more stable, reading the lines of 
+a file is pretty standard regardless of file type and setting 
+the two regular expressions is a convenience feature for 
+experimenting, if we don't need to we won't.
+
+<p>As it stands we now have functionality identical to our 
+module version but expressed as a class. But now to really 
+utilize OOP style we need to deconstruct some of our class 
+so that the base level or <i>abstract</i>Document only 
+contains the bits that are truly generic. The Text handling 
+bits will move into the more specific, or <i>concrete</i>
+<tt>TextDocument</tt> class. We'll see how to do that next.
+
+<h3>Text Document</h3>
+
+<p>We are all familiar with plain text documents, but its worth 
+stopping to consider exactly what we mean by a text document as 
+compared to a more generic concept of a document. Text documents 
+consist of plain ASCII arranged in lines which contain groups 
+of letters arranged as words separated by spaces and other 
+punctuation marks. Groups of lines form paragraphs which are 
+separated by blank lines (other definitions are possible of 
+course, but these are the ones I will use.) A vanilla document 
+is a file comprising lines of ASCII characters but we know 
+very little about the formatting of those characters within 
+the lines. Thus our vanilla document class should really only 
+be able to open a file, read the contents into a list of lines
+and perhaps return counts of the number of characters and 
+the number of lines. It will provide empty <i>hook methods</i>
+for subclasses of document to implement.
+
+<P>On the basis of what we just described a Document class 
+will look like:
+
+<pre>
+#############################
+# Module: document
+# Created: A.J. Gauld, 2004/8/15
+# 
+# Function:
+# Provides abstract Document class to count lines, characters
+# and provide hook methods for subclasses to use to process 
+# more specific document types
+#############################
+
+class Document:
+   def __init__(self,filename):
+       self.filename = filename
+       self.lines = self.getLines()
+       self.chars = reduce(lambda l1,l2: l1+l2, [len(L) for L in self.lines])
+       self._initSeparators()
+			 
+   def getLines(self):
+       f = open(self.filename,'r')
+       lines = f.readlines()
+       f.close()
+       return lines
+
+   <SPAN CLASS="comment"># list of hook methods to be overridden</SPAN>
+   def formatResults(self):
+   return "%s contains $d lines and %d characters" % (len(self.lines),
+			                              self.chars)
+   def _initSeparators(self): pass 
+   def analyze(self): pass
+</pre>
+
+<p>Note that the <tt>_initSeparators</tt> method has an underscore 
+in front of its name. This is a style convention often used by 
+Python programmers to indicate a method that should only be called 
+from inside the class's methods, it is not intended to be accessed 
+by users of the object. Such a method is sometimes called 
+<i>protected</i> or <i>private</i> in other languages.
+
+<P>Also notice that I have used the functional programming 
+function <tt>reduce()</TT> along with a <tt>lambda</tt> function 
+and a <tt>list comprehension</tt> to calculate the number of 
+characters. Recall that <tt>reduce</tt> takes a list and performs 
+an operation (the <tt>lambda</tt>) on the first two members and 
+inserts the result as the first member, it repeats this until 
+only the final result remains which is returned as the final 
+result of the function. In this case the list is the list of 
+lengths of the lines in the file produced by the <tt>comprehension</tt> 
+and so it replaces the first two lengths with their sum and 
+then gradually adds each subsequent length until all the 
+line lengths are processed.
+
+<p>Finally note that because this is an abstract class we have 
+not provided a runnable option using <tt>if __name__ == etc</tt>
+
+<p>Our text document now looks like:
+<pre>
+class TextDocument(Document):
+   def __init__(self,filename):
+       self.paras = 1
+       self.words, self.sentences, self.clauses = 0,0,0
+       Document.__init__(self, filename)
+			
+   <SPAN Class= "comment"># now override hooks</SPAN>	
+   def formatResults(self):
+       format = '''
+       The file %s contains:
+	    %d\t characters
+	    %d\t words
+	    %d\t lines in
+	    %d\t paragraphs with
+	    %d\t sentences and
+	    %d\t clauses.
+       ''' 
+       return format % (self.filename, self.chars,
+                       self.words, len(self.lines), 
+                       self.paras, self.sentences, self.clauses)
+											 		
+   def _initSeparators(self):
+       sentenceMarks = "[.!?]"
+       clauseMarks = "[.!?,&amp;:;-]"
+       self.sentenceRE = re.compile(sentenceMarks)
+       self.clauseRE = re.compile(clauseMarks)
+			
+   def analyze(self):
+       for line in self.lines:
+          self.sentences += len(self.sentenceRE.findall(line))
+          self.clauses += len(self.clauseRE.findall(line))
+          self.words += len(line.split())
+          self.chars += len(line.strip())
+          if line == "":
+             self.paras += 1
+
+if __name__ == "__main__":
+       if len(sys.argv) == 2:
+         doc = TextDocument(sys.argv[1])
+         doc.analyze()
+         print doc.formatResults()
+       else:
+         print "Usage: python &lt;document&gt; "
+         print "Failed to analyze file"
+</pre>
+
+<p>One thing to notice is that this combination of classes 
+achieves exactly the same as our first non OOP version. 
+Compare the length of this with the original file - building 
+reusable objects is not cheap! Unless you are sure you need 
+to create objects for reuse consider doing a non OOP version 
+it will probably be less work! However if you do think you 
+will extend the design, as we will be doing in a moment 
+then the extra work will repay itself.
+
+<p> The next thing to consider is the physical location of the code.
+We could have shown two files being created, one per class. 
+This is a common OOP practice and keeps things well organized, 
+but at the expense of a lot of small files and a lot of 
+import statements in your code when you come to use those 
+classes/files. 
+
+<p>An alternative scheme, which I have used, is to treat closely 
+related classes as a group and locate them all in one file, at least 
+enough to create a minimal working program. Thus in our case 
+we have combined our Document and TextDocument classes in a 
+single module. This has the advantage that the working class 
+provides a template for users to read as an example of extending 
+the abstract class. It has the disadvantage that changes to 
+the TextDocument may inadvertently affect the Document class 
+and thus break some other code. There is no clear winner here 
+and even in the Python library there are examples of both styles.
+Pick a style and stick to it would be my advice.
+
+<p>One very useful source of information on this kind of text 
+file manipulation is the book by David Mertz called 
+<i>"Text Processing in Python"</i> and it is available in paper 
+form as well as online, 
+<a href="http://gnosis.cx/TPiP/">here</a>. Note however that 
+this is a fairly advanced book aimed at professional programmers 
+so you may find it tough going initially, but persevere because 
+there are some very powerful lessons contained within it.
+
+<h3>HTML Document</h3>
+
+<p>The next step in our application development is to extend the 
+capabilities so that we can analyze HTML documents. We will do 
+that by creating a new class. Since an HTML document is really 
+a text document with lots of HTML tags and a header section at 
+the top we only need to remove those extra elements and then 
+we can treat it as text. Thus we will create a new 
+<tt>HTMLDocument</tt> class derived from <tt>TextDocument</tt>. 
+We will override the <tt>getLines()</tt> method that we 
+inherit from <tt>Document</tt> such that it throws away 
+the header and all the HTML tags.
+
+<p>Thus HTMLDocument looks like:
+
+<pre>
+class HTMLDocument(TextDocument):
+    def getLines(self):
+       lines = TextDocument.getLines(self)
+       lines = self._stripHeader(lines)
+       lines = self._stripTags(lines)
+       return lines
+       
+    def _stripHeader(self,lines):
+       ''' remove all lines up until start of  element '''
+       bodyMark = '<body>'
+       bodyRE = re.compile(bodyMark,re.IGNORECASE)
+       while bodyRE.findall(lines[0]) == []:
+          del lines[0]
+       return lines
+       
+    def _stripTags(self,lines):
+       ''' remove anything between < and >, not perfect but ok for now'''
+       tagMark = '<.+>'
+       tagRE = re.compile(tagMark)
+       lines2 = []
+       for line in lines:
+           line = tagRE.sub('',line).strip()
+           if line: lines2.append(line)
+       return lines2
+</pre>
+
+<p><b>Note 1: </b>We have used the inherited method within 
+<tt>getLines</tt>. This is quite common practice when extending 
+an inherited method. Either we do some preliminary processing 
+or, as here, we call the inherited code then do some extra 
+work in the new class. This was also done in the <tt>__init__</tt> 
+method of the <tt>TextDocument</tt> class above.
+
+<p><b>Note 2: </b>We access the inherited <tt>getLines</tt> 
+method via <tt>TextDocument</tt> not via <tt>Document</tt> 
+(which is where it is actually defined) because (a) we 
+can only 'see' <tt>TextDocument</tt> in our code and 
+(b) <tt>TextDocument</tt> inherits all of 
+<tt>Document</tt>'s features so in effect does have 
+a <tt>getLines</tt> too.
+
+<p><b>Note 3: </b>The other two methods are notionally private 
+(notice the leading underscore?) and are there to keep the 
+logic separate and also to make extending this class easier 
+in the future, for say an XHTML or even XML document class? 
+You might like to try building one of those as an exercise.
+
+<P><b>Note 4: </b>It is very difficult to accurately strip 
+HTML tags using regular expressions due to the ability to 
+nest tags and because bad authoring often results in 
+unescaped '&lt;' and '&gt;' characters looking like tags 
+when they are not. In addition tags can run across lines 
+and all sorts of other nasties. A much better way to convert 
+HTML files to text is to use an HTML parser such as the one 
+in the standard <tt>HTMLParser</tt> module. As an exercise 
+rewrite the <tt>HTMLDocument</tt> class to use the parser module 
+to generate the text lines.
+
+<P>To test our HTMLDocument we need to modify the <i>driver</i>
+code at the bottom of the file to look like this:
+<pre>
+if __name__ == "__main__":
+       if len(sys.argv) == 2:
+         doc = HTMLDocument(sys.argv[1])
+         doc.analyze()
+         print doc.formatResults()
+       else:
+         print "Usage: python &lt;document&gt; "
+         print "Failed to analyze file"
+</pre>
+
+
+<h3>Adding a GUI</h3>
+<p>To create a GUI we will use Tkinter which we introduced briefly 
+in the <a href="tutevent.htm">Event Driven Programming</a> section 
+and further in the <a href="tutgui.htm">GUI Programming</a> topic. 
+This time the GUI will be slightly more sophisticated and use a few 
+more of the <i>widgets</i> that Tkinter provides.
+
+<P>One thing that will help us create the GUI version is that we 
+took great care to avoid putting any print statements in our classes, 
+the display of output is all done in the driver code. This helps 
+when we come to use a GUI because we can use the same output string 
+and display it in a widget instead of printing it on stdout. The 
+ability to more easily wrap an application in a GUI is a major 
+reason to avoid the use of print statements inside data processing 
+functions or methods.
+
+<h4>Designing a GUI</h4>
+
+<P>The first step in building any GUI application is to try to 
+visualize how it will look. We will need to specify a filename, 
+so it will require an <i>Edit</i> or <i>Entry</i> control.
+We also need to specify whether we want textual or HTML analysis, 
+this type of 'one from many' choice is usually represented by 
+a set of <i>Radiobutton</i> controls. These controls should 
+be grouped together to show that they are related.
+
+<p>The next requirement is for some kind of display of the results. We
+could opt for multiple <i>Label</i> controls one per counter. 
+Instead I will use a simple text control into which we can insert 
+strings, this is closer to the spirit of the commandline output, 
+but ultimately the choice is a matter of preference by the designer.
+
+<p>Finally we need a means of initiating the analysis and quitting the
+application. Since we will be using a text control to display results it
+might be useful to have a means of resetting the display too. These 
+command options can all be represented by <i>Button</i> controls.
+
+<p>Sketching these ideas as a GUI gives us something like:
+<center><pre>
++-------------------------+-----------+
+|    FILENAME             | O TEXT    |
+|                         | O HTML    |
++-------------------------+-----------+
+|                                     |
+|                                     |
+|                                     |
+|                                     |
+|                                     |
++-------------------------------------+
+|                                     |
+|   ANALYZE        RESET      QUIT    |
+|                                     |
++-------------------------------------+
+</pre></center>
+
+<p>Now we are ready to write some code. Let's take it step by step:
+
+<pre>
+from Tkinter import *
+import document
+<span CLASS="comment">
+################### CLASS DEFINITIONS ######################</span>
+class GrammarApp(Frame):
+  def __init__(self, parent=0):
+    Frame.__init__(self,parent)
+    self.type = 2    <span CLASS="comment"># create variable with default value</span>
+    self.master.title('Grammar counter')
+    self.buildUI()
+</pre>
+
+<P>Here we have imported the Tkinter and document modules. 
+For the former we have made all of the Tkinter names visible 
+within our current module whereas with the latter we will 
+need to prefix the names with <tt>document.</tt>
+
+<p>We have also defined our application to be a subclass of 
+<tt>Frame</tt> and the <tt>__init__</tt> method calls the 
+<tt>Frame.__init__</tt> superclass method to ensure that 
+Tkinter is set up properly internally. We then create an 
+attribute which will store the document type value and 
+finally call the <tt>buildUI</tt> method which creates 
+all the widgets for us. We'll look at <tt>buildUI()</tt> 
+next:</P>
+
+<pre>
+   def buildUI(self):
+     <span CLASS="comment"># Now the file information: File name and type</span>
+     fFile = Frame(self)
+     Label(fFile, text="Filename: ").pack(side="left")
+     self.eName = Entry(fFile)
+     self.eName.insert(INSERT,"test.htm")
+     self.eName.pack(side=LEFT, padx=5)
+
+     <span CLASS="comment">
+     # to keep the radio buttons lined up with the
+     # name we need another frame</span>
+     fType = Frame(fFile, borderwidth=1, relief=SUNKEN)
+     self.rText = Radiobutton(fType, text="TEXT",
+                              variable = self.type, value=2, 
+                              command=self.doText)
+     self.rText.pack(side=TOP, anchor=W)
+     self.rHTML = Radiobutton(fType, text="HTML",
+                              variable=self.type, value=1,
+                              command=self.doHTML)
+     self.rHTML.pack(side=TOP, anchor=W)
+     <span CLASS="comment"># make TEXT the default selection</span>
+     self.rText.select()
+     fType.pack(side=RIGHT, padx=3)
+     fFile.pack(side=TOP, fill=X)
+
+     <span CLASS="comment">
+     # the text box holds the output, pad it to give a border
+     # and make the parent the application frame (ie. self)</span>
+     self.txtBox = Text(self, width=60, height=10)
+     self.txtBox.pack(side=TOP, padx=3, pady=3)
+     
+     <span CLASS="comment">
+     # finally put some command buttons on to do the real work</span>
+     fButts = Frame(self)
+     self.bAnal = Button(fButts, text="Analyze",
+                         command=self.doAnalyze)
+     self.bAnal.pack(side=LEFT, anchor=W, padx=50, pady=2)
+     self.bReset = Button(fButts, text="Reset",
+                          command=self.doReset)
+     self.bReset.pack(side=LEFT, padx=10)
+     self.bQuit = Button(fButts, text="Quit",
+                         command=self.doQuit)
+     self.bQuit.pack(side=RIGHT, anchor=E, padx=50, pady=2)
+
+     fButts.pack(side=BOTTOM, fill=X)
+     self.pack()
+</pre>
+
+<P>I'm not going to explain all of that, instead I recommend you take a look
+at the 
+<a href="http://www.pythonware.com/library/tkinter/introduction/index.htm">
+Tkinter tutorial and refernce</a> found on the Pythonware web site. 
+This is an excellent introduction and reference to Tkinter going beyond 
+the basics that I cover in my <a href="tutgui.htm">GUI topic</a>. 
+The general principle is that you create widgets from their corresponding 
+classes, providing options as <i>named parameters</i>, then the widget 
+is <i>packed</i> into its containing frame.
+
+<p>The other key points to note are the use of subsidiary <tt>Frame</tt>
+widgets to hold the Radiobuttons and Command buttons. The Radiobuttons
+also take a pair of options called <tt>variable &amp; value</tt>, the former
+links the Radiobuttons together by specifying the same external variable
+(<tt>self.type</tt>) and the latter gives a unique value for each Radiobutton.
+Also notice the <tt>command=xxx</tt> options passed to the button controls.
+These are the methods that will be called by Tkinter when the button is
+pressed. The code for these comes next:
+<pre>
+   <span CLASS="comment">
+   ################# EVENT HANDLING METHODS ####################
+   # time to die...</span>
+   def doQuit(self):
+     self.quit()
+
+   <span CLASS="comment">
+   # restore default settings</span>
+   def doReset(self):
+     self.txtBox.delete(1.0, END)
+     self.rText.select()
+
+   <span CLASS="comment">
+   # set radio values</span>
+   def doText(self):
+     self.type = 2
+
+   def doHTML(self):
+     self.type = 1
+</pre>
+
+<P>These methods are all fairly trivial and hopefully by now are 
+self explanatory. The final event handler is the one which does 
+the analysis:
+<PRE>
+   <span CLASS="comment">
+   # Create appropriate document type and analyze it.
+   # then display the results in the form</span>
+   def doAnalyze(self):
+     filename = self.eName.get()
+     if filename == "":
+        self.txtBox.insert(END,"\nNo filename provided!\n")
+        return
+     if self.type == 2:
+        doc = document.TextDocument(filename)
+     else:
+        doc = document.HTMLDocument(filename)
+     self.txtBox.insert(END, "\nAnalyzing...\n")
+     doc.analyze()
+     resultStr = doc.formatResults()
+     self.txtBox.insert(END, resultStr)
+</pre>
+
+<P>Again you should be able to read this and see what it does. 
+The key points are that:
+<ul>
+<li>it checks for a valid filename before creating the Document object.</li>
+<li>It uses the <tt>self.type</tt> value set by the Radiobuttons 
+to determine which type of Document to create.</li>
+<li>It appends (the <tt>END</tt> argument to <tt>insert</tt>) 
+the results to the Text box which means we can analyze several 
+times and compare results - one advantage of the text box versus 
+the multiple label output approach.</li>
+</ul>
+
+<p><br>All that's needed now is to create an instance of 
+the <tt>GrammarApp</tt> application class and set the 
+event loop running, we do this here:
+<pre>
+myApp = GrammarApp()
+myApp.mainloop()
+</pre>
+
+
+<P>Let's take a look at the final result as seen under MS Windows, 
+displaying the results of analyzing a test HTML file, </P>
+<center><img SRC="GrammarGui.jpg" height=271 width=401></center>
+
+<p>That's it. You can go on to make the HTML processing more 
+sophisticated if you want to. You can create new modules for 
+new document types. You can try swapping the text box for 
+multiple labels packed into a frame. But for our purposes we're 
+done. The next section offers some ideas of where to go next 
+depending on your programming aspirations. The main thing is 
+to enjoy it and always remember: the computer is dumb!
+<center>
+<hr WIDTH="60%"><a href="tutname.htm">Previous</a> <a href="tutrefs.htm">References</a>
+<a href="tutcont.htm">Contents</a>
+<br>&nbsp;
+<p>If you have any questions or feedback on this page send me mail at:
+<ahref="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</a>
+</center>
+
+
+</body>
+</html>

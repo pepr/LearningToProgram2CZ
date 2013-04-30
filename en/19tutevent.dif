@@ -1,0 +1,56 @@
+Index: tutevent.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutevent.htm,v
+retrieving revision 1.1
+retrieving revision 1.3
+diff -r1.1 -r1.3
+17c17
+< <LI>How does an event driven program differ from a batch programme?
+---
+> <LI>How does an event driven program differ from a batch program?
+50,51c50,52
+< Windows version but if you are on Linux just substitute <TT>curses</TT> 
+< for <TT>msvcrt</TT> and it should work just fine.
+---
+> Windows version but if you are on Linux just substitute 
+> <TT>curses.stdscr</TT> for <TT>msvcrt</TT> and it should work 
+> just fine.
+62,63c63
+<     length = len(key)
+<     if key == '\x00' or key == '\xe0' <SPAN CLASS="comment"># non ASCII</SPAN>
+---
+>     if key == '\x00' or key == '\xe0': <SPAN CLASS="comment"># non ASCII</SPAN>
+65,67c65
+<        print ord(key)
+<     else
+<        print ord(key)
+---
+>     print ord(key)
+95c93
+< the event handlers. This independance of event capture and
+---
+> the event handlers. This Independence of event capture and
+105c103
+< projects we would probably include a call to an <I>initialisation</I>
+---
+> projects we would probably include a call to an <I>initialization</I>
+108c106
+< initialisation, processing and cleanup functions.
+---
+> initialization, processing and cleanup functions.
+141c139
+< whose default behaviour is to echo characters typed onto the
+---
+> whose default behavior is to echo characters typed onto the
+182c180
+< That's because the default behaviour of the Text widget is 
+---
+> That's because the default behavior of the Text widget is 
+258c256
+< <P>VBScript can be uised in exactly the same way except that 
+---
+> <P>VBScript can be used in exactly the same way except that 
+275c273
+< <P>Thus we can see that web browsr code can be written in 
+---
+> <P>Thus we can see that web browser code can be written in 

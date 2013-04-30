@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>Text Handling</TITLE>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Manipulating Text</H2>
+<P>
+<TABLE BORDER>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD><UL>
+<LI>How to split lines of text into character groups 
+<LI>How to search for strings of text within other strings
+<LI>How to replace text within a string
+<LI>How to change case of characters
+</UL></TD></TR>
+</TABLE>
+</P>
+</CENTER>
+
+<P>Handling text is one of the most common things that programmers 
+do. As a result there are lots of specific tools in most programming 
+languages to make this easier. In this section we will look at 
+some of these and how we might use them in performing typical 
+programming tasks.
+
+<P>Some of the most common tasks that we can do when working with 
+text are:
+<UL>
+<LI>splitting lines of text into character groups 
+<LI>searching for strings of text within other strings
+<LI>replacing text within a string
+<LI>changing case of characters
+</UL>
+
+<P>We will look at how to do each of these tasks using Python 
+and then briefly consider how VBScript and JavaScript handle 
+text processing.
+
+<P>Python takes a slightly ambiguous approach to processing 
+text as of version 2.3. This is because in early versions of 
+Python all string manipulation was done via a module full 
+of functions and useful constants. In Python version 2.0 
+string methods were introduced which duplicated the functions
+in the module, but the constants were still there. This 
+position has remained through to version 2.3 but work is 
+underway to remove the need for the old <TT>string</TT> 
+module completely. In this topic we will only look at the 
+new object oriented approach to string manipulation, if 
+you do want to try out the module then feel free to read 
+the Python module documentation.
+
+<H3>Splitting strings</H3>
+
+<P>The first task we consider is how to split a string 
+into its constituent parts. This is often necessary when 
+processing files since we tend to read a file line by 
+line, but the data may well be contained within segments 
+of the line. An example of this is our Address Book 
+example, where we might want to access the individual 
+fields of the entries rather than just print the 
+whole entry.
+
+<P>The python method we use for this is called <TT>split()</TT>
+and it is used like this:
+
+<PRE>
+>>> aString = "Here is a (short) String"
+>>> print aString.split()
+['Here', 'is', 'a', '(short)', 'String']
+</PRE>
+
+<P>Notice we get a list back containing the words within 
+<TT>aString</TT> with all the spaces removed. The default
+separator for <TT>''.split()</TT> is <I>whitespace</I> 
+(ie. tabs, newlines and spaces). Let's try using it 
+again but with an opening parenthesis as the separator:
+<PRE>
+>>> print aString.split('(')
+['Here is a ', 'short) String']
+</PRE>
+
+<P>Notice the difference? There are only two elements 
+in the list this time and the opening parenthesis has 
+been removed from the front of <TT>'short)'</TT>. That's
+an important point to note about <tt>''.split()</TT>, that 
+it removes the separator characters. Usually that's what 
+we want, but just occasionally we'll wish it hadn't!
+
+<P>There is also a <TT>''.join()</TT> method which 
+can take a list of strings and join them together. 
+One confusing feature of <TT>''.join()</TT> is that it 
+uses the string on which we call the method as the 
+joining characters. You'll see what I mean from 
+this example:
+
+<PRE>
+>>> lst = ['here','is','a','list','of','words']
+print '-+-'.join(lst)
+here-+-is-+-a-+-list-+-of-+-words
+>>> print ' '.join(lst)
+here is a list of words
+</PRE>
+
+<P>It sort of makes sense when you think about it, but 
+it does look weird when you first see it.
+
+<H4>Counting words</H4>
+
+<P>Let's revisit that word counting program I mentioned in
+the <A href="tutfunc.htm#wc">functions</A> topic. Recall the 
+<I> Pseudo Code</I> looked like:
+<PRE>
+def numwords(aString):
+    list = split(aString) <SPAN CLASS="comment"># list with each element a word</SPAN>
+    return len(list) <SPAN CLASS="comment"># return number of elements in list</SPAN>
+
+for line in file:
+    total = total + numwords(line) <SPAN CLASS="comment"># accumulate totals for each line</SPAN>
+print "File had %d words" % total
+</PRE>
+
+<P>Now we know how to get the lines from the file let's consider
+the body of the <TT> numwords()</TT> function. First we want to
+create a list of words in a line. That's nothing more than applying 
+the default <TT>''.split()</TT> method. Referring to the Python 
+documentation we find that the builtin function <TT>len()</TT> 
+returns the number of elements in a list, which in our case 
+should be the number of words in the string - exactly what we want.
+
+<P>So the final code looks like:
+
+<PRE>
+import string
+def numwords(aString):
+    lst = aString.split() <SPAN CLASS="comment"># split() is a method of the string object aString</SPAN>
+    return len(lst) # return number of elements in the list
+
+inp = file("menu.txt","r")
+total = 0 <SPAN CLASS="comment"> # initializer to zero; also creates variable</SPAN>
+
+for line in inp:
+    total = total + numwords(line) # accumulate totals for each line
+print "File had %d words" % total
+
+inp.close()
+</PRE>
+
+<P>That's not quite right of course because it counts things like 
+an ampersand character as a word (although maybe you think it should...).
+Also, it can only be used on a single file (menu.txt). But it's
+not too hard to convert it to read the filename from the command
+line (<TT> argv[1]</TT>) or via <TT> raw_input()</TT> as we saw in the
+<A href="tutinput.htm">Talking to the user</A> section. 
+I leave that as an exercise for the reader.</P>
+
+<H3>Finding and replacing text</H3>
+
+<P>The next common operation we will look at is searching for 
+a sub-string within a longer string. This is again supported 
+by a Python string method, this time called <TT>''.find()</TT>
+It's basic use is quite simple, you provide a search string 
+and if Python finds it within the main string it returns the 
+index of the first character of the substring, if it doesn't 
+find it, it returns -1:
+<PRE>
+>>> aString = "here is a long string with a substring inside it"
+>>> print aString.find('long')
+10
+>>> print aString.find('oxen')
+-1
+>>> print aString.find('string')
+15
+</PRE>
+
+<P>The first two examples are straightforward, the first returns 
+the index of the start of <TT>'long'</TT> and the second returns 
+<TT>-1</TT> because <TT>'oxen'</TT> does not occur inside 
+<TT>aString</TT>. The third example throws up an interesting point, 
+namely that find only locates the <I>first</I> occurrence of the 
+search string, but what do we do if the search string occurs more 
+than once in the original string?
+
+<P>One option is to use the index of the first occurrence to 
+chop the original string into two pieces and search again. 
+We keep doing this until we get a -1 result. Like this:
+
+<PRE>
+aString = "Bow wow says the dog, how many o's are in this string?"
+count = 0
+index = aString.find('ow')
+while index != -1:
+    count = 1
+    temp = aString(index + 1:) <SPAN class="comment"> # use slicing</SPAN>
+    index = temp.find('ow')
+print "We found %d occurrences of 'ow' in %s" % (count, aString)
+</PRE>
+
+<P>Here we just counted occurrences, but we could just as 
+well have collected the index results into a list for later 
+processing.
+
+<P>The find() method can speed this process up a little 
+by using a couple of its extra optional parameters. These are, 
+respectively, a start location and an end location within 
+the original string:
+<PRE>
+aString = "Bow wow says the dog, how many o's are in this string?"
+count = 0
+index = aString.find('ow')
+while index != -1:
+    count = 1
+    start = index + 1:) <SPAN class="comment"> # set new start</SPAN>
+    index = temp.find('ow',start)
+print "We found %d occurrences of 'ow' in %s" % (count, aString)
+</PRE>
+
+<P>This solution removes the need to create a new string each 
+time, which can be a slow process if the string is long.
+Also, if we know that the substring will definitely only 
+be within the first so many characters(or we aren't 
+interested in later occurrences) we can specify both a 
+start and stop value, like this:
+
+<PRE>
+<SPAN class="comment"> # limit search to the first 20 chars</SPAN>
+aString = "Bow wow says the dog, how many ow's are in this string?"
+print aString.find('ow',0,20)
+</PRE>
+
+<P>To complete our discussion of searching there are a couple 
+of nice extra methods that Python provides to cater for 
+common search situations, namely <TT>''.startswith()</TT> 
+and <TT>''.endswith()</TT>. From the names alone you probably 
+can guess what these do. They return True or False depending 
+on whether the original string starts with or ends with the 
+given search string, like this:
+
+<PRE>
+>>> print "Python rocks!".startswith("Perl")
+False
+>>> print "Python rocks!".startswith('Python')
+True
+>>> print "Python rocks!".endswith('sucks')
+False
+>>> print "Python rocks!".endswith('cks')
+True
+</PRE>
+
+<P>Notice the boolean result, after all you already 
+know where to look if the answer is True! Also notice 
+that the search string doesn't need to be a complete 
+word, a substring is fine. You can also provide a 
+<TT>start</TT> and <TT>stop</TT> position within the 
+string, just like <TT>''.find()</TT> to effectively 
+test for a string at any given location within a string. 
+This is not a feature that is used much in practice.
+
+<P>And finally for a simple test of whether a substring 
+exists anywhere within another string you can use the 
+Python <TT>in</TT> operator, like this:
+<PRE>
+>>> if 'foo' in 'foobar': print 'True'
+True
+>>> if 'baz' in 'foobar': print 'True'
+>>> if 'bar' in 'foobar': print 'True'
+True
+</PRE>
+
+<P>That's all I'll say about searching for now, let's 
+look at how to replace text next.
+
+<H4>Replacing text</H4>
+
+<P>Having found our text we often want to change it to 
+something else. Again the Python string methods provide 
+a solution with the <TT>''.replace()</TT> method.
+It takes two arguments: a search string and a replacement 
+string. The return value is the new string as a result 
+of the replacement.
+
+<PRE>
+>>> aString = "Mary had a little lamb, its fleece was dirty!"
+>>> print aString.replace('dirty','white')
+"Mary had a little lamb, its fleece was white!"
+</PRE>
+
+<P>One interesting difference between <TT>''.find()</TT> 
+and <TT>''.replace</TT> is that replace, by default, 
+replaces <B>all</B> occurrences of the search string, 
+not just the first. An optional <TT>count</TT> argument can 
+limit the number of replacements:
+<PRE>
+>>> aString = "Bow wow wow said the little dog"
+>>> print aString.replace('ow','ark')
+Bark wark wark said the little dog
+>>> print aString.replace('ow','ark',1) <SPAN class="comment"># only one</SPAN>
+Bark wow wow said the little dog
+</PRE>
+
+<P>It is possible to do much more sophisticated search 
+and replace operations using something called a
+<!-- <A href="tutregex"> -->
+<I>regular expression</I>, 
+<!-- </A> -->
+but they are much more complex and get a whole topic 
+to themselves in the "Advanced" section of the tutorial.
+
+<H3>Changing the case of characters</H3>
+
+<P>One final thing to consider is converting case from 
+lower to upper and vice-versa. This isn't such a common 
+operation but Python does provide some helper methods 
+to do it for us:
+
+<PRE>
+>>> print "MIXed Case".lower()
+mixed case
+>>> print "MIXed Case".upper()
+MIXED CASE
+>>> print "MIXed Case".swapcase()
+mixED cASE
+>>> print "MIXed Case".capitalize()
+Mixed case
+>>> print "TEST".isupper()
+True
+>>> print "TEST".islower()
+False
+</PRE>
+
+<P>Note that <TT>''.capitalize()</TT> capitalizes the entire 
+string not each word within it. Also note the two test functions 
+(or <I>predicates</I>) <TT>''.isupper()</TT> and <TT>''.islower()</TT>.
+Python provides a whole bunch of these predicate functions 
+for testing strings, other useful tests include: <TT>''.isdigit()</TT>, 
+<TT>''.isalpha()</TT> and <TT>''.isspace()</TT>. The last 
+checks for all whitespace not just literal space characters!
+
+<P>We will be using many of these string methods as we 
+progress through the tutorial, and in particular the 
+<A href="tutcase.htm">Grammar Counter case study</A> 
+uses several of them.
+
+<H3>Text handling in VBScript</H3>
+
+<P>Because VBScript descends from BASIC it has a wealth 
+of builtin string handling functions. In fact in the 
+reference documentation I counted at least 20 functions 
+or methods, not counting those that are simply there 
+to handle Unicode characters.
+
+<P>What this means is that we can pretty much do all 
+the things we did in Python using VBScript too. 
+I'll quickly run through the options below:
+
+<H4>Splitting text</H4>
+
+<P>We start with the <TT>Split</TT> function:
+
+<PRE>
+&lt;script language="VBScript">
+Dim s
+Dim lst
+s = "Here is a string of words"
+lst = Split(s) <SPAN class="comment">' returns an array</SPAN>
+MsgBox lst(1)
+&lt;/script>
+</PRE>
+
+<P>As with Python you can add a separator value if 
+the default whitespace separation isn't what you need.
+
+<P>Also as with Python there is a <TT>Join</TT> function 
+for reversing the process.
+
+<h4>Searching for and replacing text</H4>
+
+<P>Searching is done with <TT>InStr</TT>, short 
+for "In String", obviously.
+
+<PRE>
+&lt;script language="VBScript">
+Dim s,n
+s = "Here is a long string of text"
+n = InStr(s, "long")
+MsgBox "long is found at position: " &amp; CStr(n)
+&lt;/script>
+</PRE>
+
+<P>The return value is normally the position within 
+the original string that the substring starts. 
+If the substring is not found then zero is returned 
+(this isn't a problem because VBScript starts its 
+indices at 1, so zero is not a valid index). If ether 
+string is a <TT>Null</TT> a <TT>Null</TT> is returned, 
+which makes testing error conditions a bit more tricky.
+
+<P>As with Python we can specify a sub range of the 
+original string to search, using a start value, 
+like this:
+
+<PRE>
+&lt;script language="VBScript">
+Dim s,n
+s = "Here is a long string of text"
+n = InStr(6, s, "long") <SPAN class="comment">' start at position 6</SPAN>
+MsgBox "long is found at position: " &amp; CStr(n)
+&lt;/script>
+</PRE>
+
+<P>Unlike Python we can also specify whether the search 
+should be case-sensitive or not, the default is 
+case-sensitive.
+
+<P>Replacing text is done with the <TT>Replace</TT> function.
+Like this:
+
+<PRE>
+&lt;script language="VBScript">
+Dim s
+s = "The quick yellow fox jumped over the log"
+MsgBox Replace(s, "yellow", "brown")
+&lt;/script>
+</PRE>
+
+<P>We can provide an optional final argument specifying 
+how many occurrences of the search string should be replaced, 
+the default is all of them. We can also specify a start 
+position as for <TT>InStr</TT> above.
+
+<H4>Changing case</H4>
+
+<P>Changing case in VBScript is done with <TT>UCase</TT>
+and <TT>LCase</TT>, there is no equivalent of Python's 
+capitalize method.
+
+<PRE>
+&lt;script language="VBScript">
+Dim s
+s = "MIXed Case"
+MsgBox LCase(s)
+MsgBox UCase(s)
+&lt;/script>
+</PRE>
+
+<P>And that's all I'm going to cover in this tutorial, 
+if you want to find out more check the VBScript help 
+file for the list of functions. 
+
+<H3>Text handling in JavaScript</H3>
+
+<P>JavaScript is the least well equipped for text handling 
+of our three languages. Even so, the basic operations are 
+catered for to some degree, it is only in the number of 
+"bells &amp; whistles" that JavaScript suffers in 
+comparison to VBScript and Python. JavaScript compensates 
+somewhat for its limitations with strong support for 
+<I>regular expressions</I>(which we cover in a 
+<A href="tutregex.htm">later topic</a>) and these extend 
+the apparently primitive functions quite significantly, 
+but at the expense of some added complexity.
+
+Like Python JavaScript takes an object oriented approach 
+to string manipulation, with all the work being done 
+by methods of the <TT>String</TT> class.
+
+<H4>Splitting Text</H4>
+
+<P>Splitting text is done using the <TT>split</TT> method:
+
+<PRE>
+&lt;script language="JavaScript">
+var aList, aString = "Here is a short string";
+aList = aString.split(" ");
+document.write(aList[1]);
+&lt;/script>
+</PRE>
+
+<P>Notice that JavaScript requires the separator character 
+to be provided, there is no default value. The separator 
+can be a <A href=tutregex.htm">>regular expression</A> and 
+so quite sophisticated split operations are possible.
+
+<H4>Searching Text</H4>
+
+<P>Searching for text in JavaScript is done via the 
+<TT>search()</TT> method:
+<PRE>
+&lt;script language="JavaScript">
+var aString = "Round and Round the ragged rock ran a rascal";
+document.write( "ragged is at position: " + aString.search("ragged"));
+&lt;/script>
+</PRE>
+
+<P>Once again the search string argument is actually a 
+regular expression so the searches can be very sophisticated 
+indeed. Notice, however, that there is no way to restrict 
+the range of the original string that is searched by passing 
+a start position.
+
+<P>JavaScript provides another search operation with slightly 
+different behaviour called <TT>match()</TT>, I don't cover 
+the use of <TT>match</TT> here.
+
+<H4>Replacing Text</H4>
+
+<P>To do a replace operation we use the <TT>replace()</TT> 
+method.
+
+<PRE>
+&lt;script language="JavaScript">
+var aString = "Humpty Dumpty sat on a cat";
+document.write(aString.replace("cat","wall"));
+&lt;/script>
+</PRE>
+
+<P>And once again the search string can be a regular 
+expression, you can begin to see the pattern I suspect!
+The replace operation replaces all instances of the 
+search string and, so far as I can tell, there is no way 
+to restrict that to just one occurence without first 
+splitting the string and then joining it back together.
+
+<H4>Changing case</H4>
+<P>Changing case is performed by two functions: 
+<TT>toLowerCase()</TT> and <TT>toUpperCase()</TT>
+<PRE>
+&lt;script language="JavaScript">
+var aString = "This string has Mixed Case";
+document.write(aString.toLowerCase()+ "&lt;BR>");
+document.write(aString.toUpperCase()+ "&lt;BR>");
+&lt;/script>
+</PRE>
+
+<P>There is very little to say about this pair, they 
+do a simple job simply. JavaScript, unlike the other 
+languages we consider provides a wealth of special 
+text functions for processing HTML, this revealing 
+it's roots as a web programming language. We don't 
+consider these here but they are all described in 
+the standard documentation.
+
+<P>That concludes our look at text handling, hopefully 
+it has given you the tools you need to process any text 
+you encounter in your own projects. One final word of 
+advice: always check the documentation for your language 
+when processing text, there are often powerful tools 
+included for this most fundamental of programming tasks.
+
+<CENTER>
+<!-- HR WIDTH=60% -->
+<TABLE BORDER>
+<TR><TH>Things to remember</TH></TR>
+<TR><TD>
+<LI>Text processing is a common operation with powerful 
+support built-in to most languages
+<LI>The most common tasks are splitting text, searching 
+for and replacing text and changing case
+<LI>Each language provides different levels of support 
+but the three basic operations are nearly always available.
+</TD></TR></TABLE>
+
+<A HREF="tutfiles.htm">Previous</A>&nbsp
+<A HREF="tuterrors.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+</BODY>
+</HTML>

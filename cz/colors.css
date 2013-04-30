@@ -1,0 +1,122 @@
+/* This is the color.css file designed originally for the Czech translation
+   of the Alan Gauld's book "Learning to Program". Then it was generalized
+   to be useful also for the English original. Feel free to use 
+   and/or modify it to meet your criteria. 
+                                         Petr Prikryl (prikrylp@skil.cz)   
+$Id: colors.css,v 1.15 2005/10/07 19:06:58 petr Exp $
+*/
+
+/* The following definitions are to be used on screen, the next block is for
+a black and white printer */
+@media screen
+{
+  
+  /* Style for very visible marking of the "ToDo" kind (inverse red). */
+  .ir { color: white; background-color: #d00; font-weight: bold; }
+  .details pre.ir { color: white; background: #d00; font-weight: bold; }
+  body.toc a:link.ir    { color: white; background-color: red; }
+  body.toc a:active.ir  { color: white; background-color: red; }
+  body.toc a:visited.ir { color: white; background-color: red; }
+  body.toc a:hover.ir   { color: white; background-color: red; }
+  
+  /* Color attributes. */
+  
+  body { background-color: #ffe; }
+  pre, code, tt { color: navy; }
+  pre { background-color: #f6f6e6 }
+  
+  table, table td { border-color: #eec; }
+  
+  h1 { color: #456; }
+  h2 { color: white; background-color: #567; }
+  h3 { color: black; background-color: #eec; }
+
+  h2.author, h2.translator { color: black; background-color: #ffe; }
+  
+  .comment  { color: green; }
+  
+  .whatcovered, .remember { background-color: #ffd; border-color: #567; }
+  
+  .details { background-color: #fff5c5; border-color: #789; }
+  .details pre { background-color: #faeaba; }
+  .details .trnote { background-color: #e0e8b0; }
+  .details .trnote pre { background-color: #d8e0a8; }
+  
+  .trnote { background-color: #e8ffe8; }
+  .trnote pre { background-color: #e0f0e0; }
+  .trnote h3 { color: black; background-color: #e3efce; }
+  
+  
+  /* And colors for the Table of Contents. */
+    
+  body.toc, body.toc h2 { background-color: #eec; }
+  body.toc h1 { color: white ; background-color: #567; }
+  
+  body.toc h2 { color: black; }
+  
+  body.toc ul  { color: maroon; }
+  
+  body.toc a:link    { color: red; }
+  body.toc a:active  { background-color: #ffe; }
+  body.toc a:visited { color: maroon; }
+  body.toc a:hover   { background-color: #ffd; }
+  
+  /* Colors of RCS identifiers with the content. They are intentionally made
+     rather invisible -- not that important for the reader.  If you want to 
+     read them, try to select the text in your HTML browser. */
+  .cvs { color: #ccc; }
+}
+
+@media print
+{
+  
+  /* Style for very visible marking of the "ToDo" kind (inverse red). */
+  .ir { color: white; background: black; font-weight: bold; }
+  
+  /* Color attributes. */
+  
+  body { background-color: white; }
+  pre, code, tt { color: black; }
+  pre { background-color: #eee }
+  
+  table, table td { border-color: #ccc }
+  
+  h1 { color: black; }
+  h2 { color: white; background-color: #888; }
+  h3 { color: black; background-color: #ccc; }
+  
+  .comment  { color: #ccc; }
+  
+  .whatcovered, .remember { background-color: #eee; border-color: #888; }
+  
+  .details { background-color: #f8f8f8; border-color: #888; }
+  .details pre { background-color: #f5f5f5; }
+  .details .trnote { background-color: #eee; }
+  
+  .trnote { background-color: #f8f8f8; }
+  .trnote pre { background-color: #e8e8e8; }
+  .trnote h3 { color: white; background-color: #ccc; }
+  
+  a { color: black; text-decoration: underline }
+  
+  /* And colors for the Table of Contents. */
+  
+  body.toc, body.toc h2 { background-color: white; }
+  body.toc h1 { color: #eee ; background-color: black; }
+  
+  body.toc h2 { color: black; }
+  
+  body.toc ul  { color: black; }
+  
+  body.toc a:link    { color: black; text-decoration: underline }
+  body.toc a:active  { color: black; text-decoration: underline }
+  body.toc a:visited { color: black; text-decoration: underline }
+  body.toc a:hover   { color: black; text-decoration: underline }
+  
+  /* Colors of RCS identifiers with the content. They are intentionally made
+     rather invisible -- not that important for the reader.  If you want to 
+     read them, try to select the text in your HTML browser. */
+  .cvs { color: #ccc }
+}
+
+

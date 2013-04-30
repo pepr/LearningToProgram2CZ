@@ -1,0 +1,566 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>Conditionals</TITLE>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Decisions, Decisions</H2>
+
+<P>
+<TABLE BORDER>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD><UL>
+<LI>The 3rd programming construct - Branching
+<LI>Single branches and multiple branches
+<LI>Using Boolean expressions
+</TD></TR></TABLE>
+</CENTER>
+
+<P>The 3rd of our fundamental building blocks is branching or
+<I> conditional statements</I>. These are simply terms to
+describe the ability within our programs to execute one of
+several possible sequences of code(branches) depending on some
+condition.
+
+<P>Back in the early days of Assembler programming the simplest
+branch was a <TT> JUMP</TT> instruction where the program
+literally jumped to a specified memory address, usually if the
+result of the previous instruction was zero. Amazingly complex
+programs were written with virtually no other form of condition
+possible - vindicating Dijkstra's statement about the minimum
+requirements for programming. When high level languages came
+along a new version of the <TT> JUMP</TT> instruction appeared
+called <TT>GOTO</TT>. In fact QBASIC, which is still supplied 
+on the CD ROM with older versions of Windows(pre XP), still 
+provides GOTO and, if you have QBASIC installed, you can try 
+it out by typing the following bit of code:
+
+<PRE>
+10 PRINT "Starting at line 10"
+20 J = 5
+30 IF J &lt 10 GOTO 50
+40 Print "This line is not printed"
+50 STOP
+</PRE>
+
+<P>Notice how even in such a short program it takes a few
+seconds to figure out what's going to happen. There is no
+structure to the code, you have to literally figure it out as
+you read it. In large programs it becomes impossible. For that
+reason most modern programming languages, including Python, 
+VBScript and JavaScript,  either don't have a direct JUMP 
+or GOTO statement or discourage you from using it. So what 
+do we use instead?
+
+<H3>The <I>if</I> statement</H3>
+
+<P>The most intuitively obvious conditional statement is the
+<TT> if, then, else</TT> construct. It follows the logic of English
+in that <I> if</I> some boolean condition (see below for more 
+about this aspect of things) is true <I> then</I> a block of 
+statements is executed, otherwise (or <I>else</I>) a different 
+block is executed. 
+
+<H4>Python</H4>
+<P>It looks like this in Python:
+<PRE>
+import sys  <SPAN CLASS="comment"># only to let us exit</SPAN>
+print "Starting here"
+j = 5
+if j &gt; 10:
+    print "This is never printed"
+else:
+    sys.exit()
+</PRE>
+
+<P>Hopefully that is easier to read and understand than the
+previous <TT> GOTO</TT> example. Of course we can put any test
+condition we like after the if, so long as it evaluates to True
+or False, i.e. a boolean value. Try changing the <TT>></TT> 
+to a <TT>&lt;</TT> and see what happens.
+
+<H4>VBScript</H4>
+<P>VBScript looks quite similar:
+<PRE>
+&lt;script language="VBScript">
+MsgBox "Starting Here"
+DIM J
+J = 5
+If J > 10 Then
+    MsgBox "This is never printed"
+Else
+    MsgBox "End of Program"
+End If
+&lt;/script>
+</PRE>
+
+<P>It's very nearly identical, isn't it? The main difference 
+is the use of <TT>End If</TT> to indicate the end of the construct.
+
+<H4>And JavaScript too</H4>
+<P>And of course JavaScript has an <TT>if</TT> statement too:
+<PRE>
+&lt;script language="JavaScript">
+var j;
+j = 5;
+if (j > 10){
+           document.write("This is never printed");
+           }
+else {
+     document.write("End of program");
+     }
+&lt;/script>
+</PRE>
+<P>Notice that JavaScript uses curly braces to define the 
+blocks of code inside the <TT>if</TT> part and the <TT>else</TT> 
+part. Also the boolean test is contained in parentheses and 
+there is no explicit keyword <tt>then</TT> used. On a point 
+of style, the curly braces can be located anywhere, I have 
+chosen to line them up as shown purely to emphasize the 
+block structure. Also if there is only a single line 
+within the block (as we have here) the braces can be omitted 
+entirely, they are only needed to group lines together into 
+a single block.
+
+<H3>Boolean Expressions</H3>
+
+<P>You might remember that in the <A href='tutdata.htm#Boolean'>
+Raw Materials</A> section we mentioned a <I>Boolean</I> 
+type of data. We said it had only two values: 
+<TT>True</TT> or <TT>False</TT>. We very rarely 
+create a Boolean variable but we often create temporary 
+Boolean values using <I>expressions</I>. An expression 
+is a combination of variables and values combined by 
+operators to produce a resultant value. In the following 
+example:
+
+<PRE>
+if x &lt 5:
+  print x
+</PRE>
+
+<P><TT>x &lt 5</TT> is the expression and the result 
+will be <TT>True</TT> if x is less than 5 and <TT>False</TT> 
+if x is greater than or equal to 5. 
+
+<P>Expressions can be arbitrarily complex provided they evaluate 
+to a single final value. In the case of a branch that value must 
+be either <TT>True</TT> or <TT>False</TT>. However, the definition 
+of these 2 values varies from language to language. In many 
+languages <TT>False</TT> is the same as <TT>0</TT> or a non-existent 
+value (often called <TT>NULL</TT>, <TT>Nil</TT> or <TT>None</TT>). 
+Thus an empty list or string evaluates to false in a Boolean 
+context. Python works this way and this means we can use a 
+<TT>while</TT> loop to process a list until the list is empty, 
+using something like:
+<PRE>
+while aList:
+   <SPAN class="comment"># do something here</SPAN>
+</PRE>
+<P>Or we can use an <TT>if</TT> statement to test whether 
+a list is empty without resorting to the <TT>len()</TT> function 
+like this:
+<PRE>
+if aList:
+   <SPAN class="comment"># do something here</SPAN>
+</PRE>
+
+<P>Finally we can combine Boolean expressions using Boolean 
+operators which can often cut down the number of <TT>if</TT> 
+statements we need to write.
+
+<P>Consider this example:
+<PRE>
+if value > maximum:
+   print "Value is out of range!"
+else if value &lt; minimum:
+   print "Value is out of range!"
+</PRE>
+
+<P>Notice that the block of code executed is identical. We 
+can save some work, both for us and for the computer, by 
+combining both of the tests into a single test like this:
+<PRE>
+if (value &lt; minimum) or (value > maximum):
+   print "Value is out of range!"
+</PRE>
+
+<P>Notice we combined both tests using a boolean <TT>or</TT> 
+operator. This is still a single expression because Python evaluates 
+the first set of parentheses, then the second set of parentheses 
+and finally combines the two calculated values to form the 
+final single value, either True or False.
+
+<P>Very often if we think carefully about the tests we need 
+to carry out in natural language we will find ourselves 
+using conjunctions like and, or and not. If so there's a 
+very good chance we can write a single combined test rather 
+than many separate ones.
+
+<H3>Chaining if statements</H3>
+
+<P>You can go on to chain these if/then/else statements together
+by <I>nesting</I> them one inside the other. Here is an example 
+in Python:
+<PRE>
+<SPAN CLASS="comment"># Assume price created previously...</SPAN>
+price = int(raw_input("What price? "))
+if price == 100:
+    print "I'll take it!" 
+else:
+    if price > 500:
+        print "No way Jose!"
+    else:
+        if price > 200:
+            print "How about throwing in a free mouse mat?"
+        else:
+            print "price is an unexpected value!"
+</PRE>
+
+<P><B>Note 1:</B>we used <TT>==</TT> (that's a double 
+<TT>=</TT> sign) to test for equality in the first 
+<TT>if</TT> statement, whereas we use <TT>=</TT> to 
+assign values to variables. Using <TT>=</TT> when you 
+mean to use <TT>==</TT> is one of the more common mistakes 
+in programming Python, fortunately Python warns you that 
+it's a syntax error, but you might need to look closely 
+to spot the problem. 
+
+<P><B>Note 2:</B>A subtle point to notice is that we perform 
+the greater-than tests from the highest value down to the lowest. 
+If we did it the other way round the first test, which would 
+be <TT>price > 200</TT> would always be true and we would 
+never progress to the <TT>> 500</TT> test. Similarly if using 
+a sequence of less-than tests you must start at the lowest 
+value and work up. This is another very easy trap to fall into.
+
+<H4>VBScript & JavaScript</H4>
+
+<P>You can chain <TT>if</TT> statements in VBScript and JavaScript 
+too but as it's pretty self evident I'll only show a VBScript 
+example here:
+<PRE>
+&lt;script language="VBScript">
+DIM Price
+price = InputBox("What's the price?")
+price = CInt(price)
+If price = 100 Then
+   MsgBox "I'll take it!" 
+Else:
+    if price > 500 Then
+        MsgBox "No way Jose!"
+    else:
+        if price > 200 Then
+            MsgBox "How about throwing in a free mouse mat too?"
+        else:
+            MsgBox "price is an unexpected value!"
+	End If
+    End If
+End If
+&lt;/script>
+</PRE>
+
+<P>The only things to note here are that there is an <TT>End If</TT> 
+statement to match every <TT>If</TT> statement and that we used 
+the VBScript conversion function <TT>CInt</TT> to convert from 
+the input string value to an integer.
+   
+<H3>Case statements</H3>
+
+<P>One snag with chaining, or nesting <TT>if/else</TT> statements 
+is that the indentation causes the code to spread across the page 
+very quickly. A sequence of nested <TT>if/else/if/else...</TT> 
+is such a common construction that many languages provide a 
+special type of branch for it. 
+
+<P>This is often referred to as a <TT> Case </TT> or <TT> Switch </TT> 
+statement and the JavaScript version looks like:
+
+<PRE>
+&lt;script language="JavaScript">
+function doArea(){
+   var shape, breadth, length, area;
+   shape   = document.area.shape.value;
+   breadth = parseInt(document.area.breadth.value);
+   len     = parseInt(document.area.len.value);
+   <B>switch (shape){
+       case 'Square': 
+           area = len * len;
+           alert("Area of " + shape + " = " + area);
+           break;
+       case 'Rectangle': 
+           area = len * breadth;
+           alert("Area of " + shape + " = " + area);
+           break;
+       case 'Triangle':
+           area = len * breadth / 2;
+           alert("Area of " + shape + " = " + area);
+           break;
+       default: alert("No shape matching: " + shape)
+       };
+</B>}
+&lt;/script>
+
+&lt;form name="area">
+Length:  &lt;input type="text" name="len">
+Breadth: &lt;input type="text" name="breadth">
+Shape:   &lt;select name="shape" size=1 onChange="doArea()">
+           &lt;option value="Square">Square
+           &lt;option value="Rectangle">Rectangle
+           &lt;option value="Triangle">Triangle
+         &lt;/select>
+&lt;/form>
+</PRE>
+
+<P>The HTML form code just allows us to capture the details 
+and then when the user selects a shape it calls our 
+JavaScript function. The first few lines simply create 
+some local variables and convert the strings to integers 
+where needed. The bold section is the bit we are really 
+interested in. It selects the appropriate action based on 
+the shape value, notice, by the way, that the parentheses 
+around <TT>shape</TT> are required. Each block of code 
+within the case structure is not marked using curly braces, 
+as you might expect, but is instead terminated by a 
+<TT>break</TT> statement. The entire set of <TT>case</TT> 
+statements for the <TT>switch</TT> is, however, bound 
+together as a block by a single set of curly braces.
+
+<P>Finally note the final condition is <TT>default</TT> 
+which is simply a catch-all for anything not caught 
+in the preceding <TT>Case</TT> statements.
+
+<P>Why not see if you can extend the example to cover 
+circles as well? Remember to add a new option to the 
+HTML form as well as a new case to the switch.
+
+<H4>VBScript Select Case</H4>
+
+<P>VBScript has a version too:</P>
+<PRE>
+&lt;script language="VBScript">
+Dim shape, length, breadth, SQUARE, RECTANGLE, TRIANGLE
+SQUARE = 0
+RECTANGLE = 1
+TRIANGLE = 2
+shape  = CInt(InputBox("Square(0),Rectangle(1) or Triangle(2)?"))
+length = CDbl(InputBox("Length?"))
+breadth  = CDbl(InputBox("Breadth?"))<B>
+Select Case shape 
+ Case SQUARE
+   area = length * length
+   MsgBox "Area = "  & area 
+ Case RECTANGLE
+   area = length * breadth
+   MsgBox "Area = " & area
+ Case TRIANGLE
+   area = length * breadth / 2
+   MsgBox "Area = " & area
+ Case Else 
+   MsgBox "Shape not recognized"
+End Select</B>
+&lt;/script>
+</PRE>
+
+<P>As with the JavaScript example the first few lines 
+simply collect the data from the user and convert 
+it into the right type. The bold <TT>Select</TT> section 
+shows the VBScript case construct with each successive 
+<TT>Case</TT> statement active as a block terminator for 
+the previous one. The whole <TT>Select</TT> construct 
+is closed with the <TT>End Select</TT> statement. 
+Finally there is a <TT>Case Else</TT> clause which, 
+like the <TT>default</TT> in JavaScript catches anything 
+not caught in the <TT>Case</TT>s above.
+
+<P>One other feature worth pointing out is the use of 
+<I>Symbolic Constants</I> instead of numbers. That is 
+the uppercase variables <TT>SQUARE, RECTANGLE</TT> 
+and <TT>TRIANGLE</TT> are there simply to make the 
+code easier to read. The uppercase names are simply 
+a convention to indicate that they are constant values 
+rather than conventional variables, but VBScript allows 
+any variable name you like.
+
+<H4>Python multi-selection</H4>
+
+<P>Python does not provide an explicit case construct but rather
+compromises by providing an easier <TT>if/elseif/else</TT> format:
+
+<PRE>
+menu = """
+Pick a shape(1-3):
+   1) Square
+   2) Rectangle
+   3) Triangle
+"""
+shape = int(raw_input(menu))<B>
+if shape == 1:
+   length = float(raw_input("Length: "))
+   print "Area of square = ", length ** 2
+elif shape == 2:
+   length = float(raw_input("Length: "))
+   width = float(raw_input("Width: ))
+   print "Area of rectangle = ", length * width   
+elif shape == 3:
+   length = float(raw_input("Length: "))
+   width = float(raw_input("Width: ))
+   print "Area of triangle = ", length * width   
+else: 
+   print "Not a valid shape, try again"
+</B>
+</PRE>
+
+<P>Note the use of <TT> elif</TT> and the fact that the
+indentation (all important in Python) does not change (unlike 
+the nested if statement example). It's also worth pointing 
+out that <I> both</I> this technique and the earlier 
+nested <T>if/else</TT> example are equally valid, the 
+<TT>elif</TT> technique is just a little easier to read 
+if there are many tests. The final condition is an 
+<TT>else</TT> which catches anything not caught by the 
+previous tests, just like the <TT>default</TT> in 
+JavaScript and <TT>Case Else</TT> in VBScript.
+
+<P>VBScript also provides a slightly more cumbersome version 
+of this technique with <TT> ElseIf...Then</TT> which is used 
+in exactly the same way as the Python <TT> elif</TT> but is 
+rarely seen since <TT>Select Case</TT> is easier to use.</P>
+
+<H3>Putting it all together</H3>
+
+<P>So far many of our examples have been pretty abstract. 
+To conclude let's take a look at an example that uses nearly
+everything we've learned about so far to introduce a common 
+programming technique, namely displaying menus for controlling 
+user input.
+
+<P>Here is the code, followed by a brief discussion:
+
+<PRE>
+menu = """
+Pick a shape(1-3):
+   1) Square
+   2) Rectangle
+   3) Triangle
+
+<B>   4) Quit</B>
+"""
+shape = int(raw_input(menu))<B>
+while shape != 4:</B>
+   if shape == 1:
+      length = float(raw_input("Length: "))
+      print "Area of square = ", length ** 2
+   elif shape == 2:
+      length = float(raw_input("Length: "))
+      width = float(raw_input("Width: ))
+      print "Area of rectangle = ", length * width   
+   elif shape == 3:
+      length = float(raw_input("Length: "))
+      width = float(raw_input("Width: ))
+      print "Area of triangle = ", length * width   
+   else: 
+      print "Not a valid shape, try again"<B>
+   shape = int(raw_input(menu))</B>
+</PRE>
+
+<P> We've added just three lines (in bold) to the previous 
+Python example but in so doing have significantly enhanced 
+the usability of our program. By adding a Quit option to 
+the menu, plus a while loop we have provided the capability 
+for the user to keep on calculating sizes of different 
+shapes until she has all the information she needs. 
+There is no need to rerun the program manually each time.
+The only other line we added was to repeat the 
+<TT>raw_input(menu)</TT> shape selection so that the 
+user gets the chance to change the shape and, ultimately, 
+to quit.
+
+<P>What the program does is create the illusion to the user that 
+the program knows what they want to do and does it correctly, 
+acting differently depending what they input. In essence the 
+user appears to be in control, whereas in fact, the programmer 
+is in control since the he has anticipated all the valid inputs 
+and how the program will react. The intelligence on display 
+is that of the programmer, not the machine - computers after all 
+are stupid!
+
+<P>You see how easily we can extend our program just by 
+adding a few lines and combining sequences (the blocks 
+that calculate the area), loops (the while loop) and 
+conditionals (the if/elif structure). Dijkstra's three 
+building blocks of programming. Having covered all 
+three you can, in theory, now go out and program anything, 
+but there are a few more techniques we can learn to make 
+things a bit easier, so don't rush off just yet.</P>
+
+<H3>Modifying collections from inside loops</H3>
+
+<P>We mentioned in the looping topic that modifying 
+a collection from inside a loop was a difficult 
+thing to do, but never got round to explaining 
+how to do it! The reason is, we had to wait for 
+branching to be explained first. So here is 
+the solution:
+
+<P>If we need to modify the elements of a collection 
+in place we can use a <tt>while</tt> loop to make 
+the changes as we iterate over it. We can do this 
+because in a <tt>while</tt> construct we have explicit 
+control over the index, unlike the situation in 
+a <tt>for</tt> loop where the index is automatically 
+updated. Let's see how to delete all zeros from a list:
+
+<PRE>
+myList = [1,2,3,0,4,5,0]
+index = 0
+while index &lt; len(myList):
+   if myList[index] == 0:
+      myList.remove(myList[index])
+   else: index += 1
+print myList
+</PRE>
+
+<P>The thing to note here is that we do <b>not</b> increment 
+the index if we remove an item, we rely on the deletion 
+moving everything up so that the old index value now points 
+at the next item in the collection. We use an <tt>if/else</tt> 
+branch to control when we increment the index. It's very 
+easy to make a mistake doing this kind of thing so test 
+your code carefully. There is another set of Python 
+functions which are specifically designed for manipulating 
+list contents and we look at them in the 
+<a href="tutfctnl.htm">Functional Programming</a> 
+topic in the advanced section of the tutorial. 
+
+<BR>
+<CENTER>
+<!-- HR WIDTH=60% -->
+<TABLE BORDER>
+<TR><TH>Things to Remember</TH></TR>
+<TR><TD><UL>
+<LI>Use <TT>if/else</TT> to branch
+<LI>The <TT>else</TT> is optional
+<LI>Multiple decisions can be represented using a <TT>Case</TT> 
+or <TT>if/elif</TT> construct
+<LI>Boolean expressions return <TT>True</TT> or <TT>False</TT>
+<LI>Combining menus with <TT>Case</TT> constructs allows us to build a 
+wide range of user controlled applications.
+</UL></TD></TR></TABLE>
+<P>
+
+<A HREF="tutinput.htm">Previous</A>&nbsp
+<A HREF="tutfunc.htm">Next</A>&nbsp
+<A HREF="tutcont.htm">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

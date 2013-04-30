@@ -1,0 +1,1636 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Data</TITLE>
+</HEAD><BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>The Raw Materials</H2>
+<P>
+<TABLE BORDER> <TR> <TH>What will we cover?</TH> </TR>
+<TR> <TD><LI>What Data is
+<LI>What Variables are
+<LI>Data Types and what to do with them
+<LI>Defining our own data types
+</TD> </TR> </TABLE>
+</CENTER>
+
+<H3>Introduction</H3>
+<P>In any creative activity we need three basic ingredients: 
+tools, materials and techniques. For example when I paint the 
+tools are my brushes, pencils and palettes. The techniques are 
+things like ‘washes’, wet on wet, blending, spraying etc. 
+Finally the materials are the paints, paper and water. 
+Similarly when I program, my tools are the programming 
+languages, operating systems and hardware. The techniques 
+are the programming constructs that we discussed in the 
+previous section and the material is the data that I manipulate. 
+In this chapter we look at the materials of programming.
+
+<P>This is quite a long section and by its nature you might find 
+it a bit dry, the good news is that you don’t need to read it 
+all at once. The chapter starts off by looking at the most 
+basic data types available, then moves on to how we handle collections 
+of items and finally looks at some more advanced material. 
+It should be possible to drop out of the chapter after the 
+collections material, cover a couple of the following chapters 
+and then come back to this one as we start to use the more 
+advanced bits.
+
+<H3>Data</H3>
+
+<P>Data is one of those terms that everyone uses but few really understand.
+My dictionary defines it as:<BR>
+<BLOCKQUOTE><I>"facts or figures from which conclusions can be 
+inferred; information"</I></BLOCKQUOTE>
+
+<a name="type">
+<P>That's not too much help but at least gives a starting point. 
+Let’s see if we can clarify things by looking at how data is used 
+in programming terms. Data is the “stuff”, the raw information, 
+that your program manipulates. Without data a program cannot perform 
+any useful function. Programs manipulate data in many ways, often 
+depending on the <I>type</I> of the data. Each data type also has a number 
+of <I>operations</I> - things that you can do to it. For example we’ve seen 
+that we can add numbers together. Addition is an operation on the 
+number type of data. Data comes in many types and we’ll look at 
+each of the most common types and the operations available for 
+that type:
+
+<H3>Variables</H3>
+
+<P>Data is stored in the memory of your computer. 
+You can liken this to the big wall full of boxes used in 
+mail rooms to sort the mail. You can put a letter in any box 
+but unless the boxes are labeled with the destination address 
+it’s pretty meaningless. Variables are the labels on the boxes 
+in your computer's memory.
+
+<P>Knowing what data looks like is fine so far as it goes but to 
+manipulate it we need to be able to access it and that’s what 
+variables are used for. In programming terms we can create 
+<I>instances</I> of data types and assign them to variables. 
+A variable is a <I>reference</I> to a specific area somewhere in the 
+computers memory. These areas hold the data. In some computer 
+languages a variable must match the type of data that it points 
+to. Any attempt to assign the wrong type of data to such a 
+variable will cause an error. Some programmers prefer this type 
+of system, known as <I>static typing</I> because it can prevent some 
+subtle bugs which are hard to detect.
+
+<P>Variable names follow certain rules dependent on the 
+programming language. Every language has its own rules about 
+which characters are allowed or not allowed. Some languages, 
+including Python and JavaScript, take notice of the <I>case</I> 
+and are therefore called <i>case sensitive</i> languages, 
+others, like VBScript don't care. Case sensitive languages 
+require a little bit more care from the programmer to avoid 
+mistakes, but a consistent approach to naming variables 
+will help a lot. One common style which we will use a lot 
+is to start variable names with a lower case letter and 
+use a capital letter for each first letter of subsequent 
+words in the name, like this:
+<PRE>
+aVeryLongVariableNameWithCapitalisedStyle
+</PRE>
+<P>We won't discuss the specific rules about which characters 
+are legal in our languages but if you consistently use a style 
+like that shown you shouldn't have too many problems.
+
+<P>In Python a variable takes the type of the data assigned to it. 
+It will keep that type and you will be warned if you try to 
+mix data in strange ways - like trying to add a string to a 
+number. (Recall the example error message? It was an example of 
+just that kind of error.) We can change the type of data that a 
+variable points to by reassigning the variable. 
+<PRE>
+>>> q = 7         <SPAN CLASS="Comment"># q is now a number</SPAN>
+>>> print q
+7
+>>> q = "Seven"   <SPAN CLASS="Comment"># reassign q to a string</SPAN>
+>>> print q
+Seven
+</PRE>
+
+<P>Note that <TT>q</TT> was set to point to the number <TT>7</TT> 
+initially. It maintained that value until we made it point at the 
+character string <TT>"Seven"</TT>. Thus, Python variables maintain the 
+type of whatever they point to, but we can change what they 
+point to simply by reassigning the variable. At that point 
+the original data is 'lost' and Python will erase it from 
+memory (unless another variable points at it too) this is known 
+as <I> garbage collection.</I> 
+
+<P>Garbage collection can be likened to the mail room clerk who 
+comes round once in a while and removes any packets that are 
+in boxes with no labels. If he can't find an owner or address on 
+the packets he throws them in the garbage. Let’s take a look at 
+some examples of data types and see how all of this fits together.
+
+<H3>VBScript and JavaScript variables</H3>
+
+<P>Both JavaScript and VBScript introduce a subtle variation 
+in the way we use variables. Both languages require that 
+variables be <I>declared</I> before being used. This is a 
+common feature of compiled languages and of <I>strictly 
+typed</I> languages. There is a big advantage in doing this 
+in that if a spelling error is made when using a variable 
+the translator can detect that an unknown variable has been 
+used and flag an error. The disadvantage is, of course, some 
+extra typing required by the programmer.
+
+<H4>VBScript</H4>
+
+<P>In VBScript the declaration of a variable is done via the 
+<TT>Dim</TT> statement, which is short for Dimension. 
+This is a throwback to VBScript's early roots in BASIC and 
+in turn to Assembler languages before that. In those languages 
+you had to tell the assembler how much memory a variable would 
+use - its dimensions. The abbreviation has carried through 
+from there.
+
+<P>A variable declaration in VBScript looks like this:
+<PRE>
+Dim aVariable
+</PRE>
+
+<P>Once declared we can proceed to assign values to it just like 
+we did in Python. We can declare several variables in the one <TT>Dim</TT> 
+statement by listing them separated by commas:
+
+<PRE>
+Dim aVariable, another, aThird
+</PRE>
+
+<P>Assignment then looks like this:
+<PRE>
+aVariable = 42
+another = "This is a nice short sentence."
+aThird = 3.14159
+</PRE>
+
+<P>There is another keyword, <TT>Let</TT> that you may occasionally see. 
+This is another throwback to BASIC and because it's not really needed you 
+very rarely see it. In case you do, it's used like this:
+<PRE>
+Let aVariable = 22
+</PRE>
+
+<P>I will not be using <TT>Let</TT> in this tutor.
+
+<H4>JavaScript</H4>
+
+<P>In JavaScript you declare variables with the <TT>var</TT> keyword 
+and, like VBScript, you can list several variables in a single 
+<TT>var</TT> statement:
+<PRE>
+var aVariable, another, aThird;
+</PRE>
+
+<P>JavaScript also allows you to initialize (or <I>define</I>) the 
+variables as part of the <TT>var</TT> statement. Like this:
+
+<PRE>
+var aVariable = 42;
+var another = "A short phrase", aThird = 3.14159;
+</PRE>
+
+<P>This saves a little typing but otherwise is no different 
+to VBScript's two step approach to variables. Hopefully this 
+brief look at VBScript and JavaScript variables has 
+demonstrated the difference between <I>declaration</I> 
+and </I>definition</I> of variables. Python variables are 
+<I>declared</I> by defining them.
+
+<H3>Primitive Data Types</H3>
+
+<P>Primitive data types are so called because they are the most 
+basic types of data we can manipulate. More complex data types 
+are really combinations of the primitive types. These are the 
+building blocks upon which all the other types are built, the 
+very foundation of computing. They include letters, numbers and 
+something called a boolean type. 
+
+<A name="string">
+<H3>Character Strings</H3>
+
+<P>We've already seen these. They are literally any string or sequence 
+of characters that can be printed on your screen. (In fact there can 
+even be non-printable <I> control characters</I> too).
+
+<P>In Python, strings can be represented in several ways:
+<P>With single quotes:
+<PRE>'Here is a string'</PRE>
+
+<P>With double quotes:
+<PRE>"Here is a very similar string"</PRE>
+
+<P>With triple double quotes:
+<PRE>
+""" Here is a very long string that can
+    if we wish span several lines and Python will
+    preserve the lines as we type them..."""
+</PRE>
+
+<P>One special use of the latter form is to build in documentation for Python 
+functions that we create ourselves - we'll see this later.
+
+<P>You can access the individual characters in a string by 
+treating it as an array of characters (see arrays below). 
+There are also usually some operations provided by the 
+programming language to help you manipulate strings 
+- find a sub string, join two strings, copy 
+one to another etc.
+
+<P>It is worth pointing out that some languages have a separate 
+type for characters themselves, that is for a single character. 
+In this case strings are literally just collections of these 
+character values. Python by contrast just uses a string of 
+length 1 to store an individual character, no special syntax 
+is required.
+
+<H4>String Operators</H4>
+
+<P>There are a number of operations that can be performed on strings. 
+Some of these are built in to Python but many others are provided 
+by modules that you must import (as we did with sys in the 
+Simple Sequences section).</P>
+
+<CENTER>
+<H4>String operators</H4>
+<TABLE BORDER>
+<TR>
+       <TH>Operator</TH>
+       <TH>Description</TH>
+</TR>
+<TR>
+       <TD>S1 + S2</TD>
+       <TD>Concatenation of S1 and S2</TD>
+</TR>
+<TR>
+       <TD>S1 * N</TD>
+       <TD>N repetitions of S1</TD>
+</TR>
+</TABLE>
+</CENTER>
+	
+
+<P>We can see these in action in the following examples:
+<PRE>
+>>> print 'Again and ' + 'again'    <SPAN CLASS="Comment"># string concatenation</SPAN>
+Again and again
+>>> print 'Repeat ' * 3	            <SPAN CLASS="Comment"># string repetition</SPAN>
+Repeat Repeat Repeat
+>>> print 'Again ' + ('and again ' * 3)  <SPAN CLASS="Comment"># combine '+' and '*'</SPAN>
+Again and again and again and again
+</PRE>
+
+<P>We can also assign character strings to variables:
+<PRE>
+>>> s1 = 'Again '
+>>> s2 = 'and again '
+>>> print s1 + (s2 * 3)
+Again and again and again and again
+</PRE>
+
+<P>Notice that the last two examples produced the same output.
+
+<P>There are lots of other things we can do with strings but 
+we'll look at those in more detail in a later topic after we've
+gained a bit more basic knowledge.
+
+<H4>VBScript String Variables</H4>
+
+<P>In VBScript all variables are called variants, that is they can 
+hold any type of data and VBScript tries to convert it to the 
+appropriate type as needed. Thus you may assign a number to a 
+variable but if you use it as a string VBScript will try to 
+convert it for you. In practice this is similar to what 
+Python's print command does but extended to any VBScript 
+command. You can give VBScript a hint that you want a 
+numeric value treated as a string by enclosing it in double 
+quotes: 
+<PRE>
+&lt;script = "VBScript">
+MyString = "42"
+MsgBox MyString
+&lt;/script>
+</PRE>
+
+<P>We can join VBScript strings together, a process known as 
+<I>concatenation</I>, using the <TT>&amp;</TT> operator:
+
+<PRE>
+&lt;script = "VBScript">
+MyString = "Hello" &amp; "World"
+MsgBox MyString
+&lt;/script>
+</PRE>
+
+<H4>JavaScript Strings</H4>
+
+<P>JavaScript strings are enclosed in either single or double quotes.
+In JavaScript you must <I>declare</I> variables before we use them. 
+This is easily done using the <TT>var</TT> keyword. Thus to declare 
+and <I>define</I> two string variables in JavaScript we do this:<BR>
+<PRE>
+&lt;script="JavaScript">
+var aString, another;
+aString = "Hello ";
+another = "World";
+document.write(aString+another)
+&lt;/script>
+</PRE>
+
+<P>Finally JavaScript also allows us to create String 
+<I>objects</I>. We will discuss objects a little later in 
+this topic but for now just think of String objects as being 
+strings with some extra features. The main difference is that 
+we create them slightly differently:
+
+<PRE>
+&lt;script="JavaScript">
+var aStringObj, another;
+aString = String("Hello ");
+another = String("World");
+document.write(aString + another);
+&lt;/script>
+</PRE>
+
+<H3>Integers</H3>
+
+<P>Integers are whole numbers from a large negative value through 
+to a large positive value. That’s an important point to remember. 
+Normally we don’t think of numbers being restricted in size but 
+on a computer there are upper and lower limits. The size of this 
+upper limit is known as MAXINT and depends on the number of bits 
+used on your computer to represent a number. On most current 
+computers and programming languages it's 32 bits so MAXINT is 
+around 2 billion (however VBScript is limited to about +/-32000). 
+
+<P>Numbers with positive and negative values are known as 
+<I>signed integers</I>. You can also get <I>unsigned integers</I> 
+which are restricted to positive numbers, including zero. 
+This means there is a bigger maximum number available of 
+around 2 * MAXINT or 4 billion on a 32 bit computer since 
+we can use the space previously used for representing 
+negative numbers to represent more positive numbers.
+
+<P>Because integers are restricted in size to MAXINT adding 
+two integers together where the total is greater than MAXINT 
+causes the total to be wrong. On some systems/languages 
+the wrong value is just returned as is (usually with some 
+kind of secret flag raised that you can test if you think 
+it might have been set). Normally an error condition is raised 
+and either your program can handle the error or the program 
+will exit. VBScript and JavaScript both adopt this 
+latter approach. Recent versions of Python are a little 
+different in that from version 2.3 onwards Python will 
+automatically convert an integer into something called 
+a <i>Long Integer</i>, which is a Python specific feature
+allowing virtually unlimited size integers. We don't get 
+these for free of course, they come at the cost of much 
+slower processing speed - but at least you know your 
+calculations will complete, eventually. And of course speed 
+in computer terms is relative, unless you are doing a lot 
+of processing of these long integers you probably won't notice 
+the difference! You can tell a long integer because Python 
+prints it with a training 'L', like this:
+
+<PRE>
+>>> 1234567 * 3456789
+>>> 4267637625363L
+</PRE>
+<P>Note that we didn't use the print statement here, if 
+we had the 'L' would be hidden. Python has two ways of 
+displaying results, the <b>print</b>ed version is usually 
+prettier, i.e. easier to read, but the plain value as 
+used here sometimes has more detail. Try typing in the 
+examples in the previous topic without the print statements 
+and see how many subtle differences in presentation 
+you can spot. In general I will use the print statement, 
+partly because most languages insist on it and I'm trying 
+to get you used to good general practice not just Python's 
+cozy way of doing things.
+
+<H4>Arithmetic Operators</H4>
+
+<P>We've already seen most of the arithmetic operators that you 
+need in the 'Simple Sequences' section, however to recap:
+
+<CENTER><H4>Python Arithmetic Operators</H4>
+<TABLE BORDER>
+<TR><TH>Operator Example</TH><TH>Description</TH></TR>
+<TR><TD>M + N</TD><TD>Addition of M and N</TD></TR>
+<TR><TD>M - N</TD><TD>Subtraction of N from M</TD></TR>
+<TR><TD>M * N</TD><TD>Multiplication of M and N</TD></TR>
+<TR><TD>M / N</TD><TD>Division, either integer or floating point 
+result depending on the types of M and N. If either M or N are 
+real numbers(see below) the result will be real.</TD></TR>
+<TR><TD>M % N</TD><TD>Modulo: find the remainder of M divided by N</TD></TR>
+<TR><TD>M**N</TD><TD>Exponentiation: M to the power N</TD></TR>
+</TABLE>
+</CENTER>
+
+<P>We haven’t seen the last one before so let’s look at an example 
+of creating some integer variables and using the 
+exponentiation operator:
+<PRE>
+>>> i1 = 2     <SPAN CLASS="Comment"># create an integer and assign it to i1</SPAN>
+>>> i2 = 4
+>>> i3 = 2**4  <SPAN CLASS="Comment"># assign the result of 2 to the power 4 to i3</SPAN>
+>>> print i3
+16
+
+</PRE>
+
+<H4>VBScript Integers</H4>
+
+<P>As I said earlier VBScript integers are limited to a lower 
+value of MAXINT corresponding to a 16 bit value, namely 
+about +/- 32000. If you need an integer bigger than that 
+you can use a <TT>long</TT> integer which is the same size 
+as a standard Python integer. There is also a <TT>byte</TT>
+type which is an 8 bit number with a maximum size of 255. 
+In practice you will usually find the standard integer 
+type sufficient.
+
+<P>All the usual arithmetic operators are supported.
+
+<H4>JavaScript Numbers</H4>
+
+<P>It will be no surprise to discover that JavaScript too 
+has a numeric type. It too is an object as we'll describe 
+later and its called a <I>Number</I>, original eh? :-)
+
+<P>A JavaScript number can also be <I>Not a Number</I> or 
+<I>NaN</I>. This is a special version of the Number 
+object which represents invalid numbers, usually the result 
+of some operation which is mathematically impossible. 
+The point of NaN is that it allows us to check for 
+certain kinds of error without actually breaking the 
+program. JavaScript also has special number versions to 
+represent positive and negative infinity, a rare feature 
+in a programming language. JavaScript number objects can 
+be either integers or real numbers, which we look at next.
+
+<H3>Real Numbers</H3>
+
+<P>These are fractions. They can represent very large numbers, much 
+bigger than MAXINT, but with less precision. That is to say that 2 
+real numbers which should be identical may not seem to be when 
+compared by the computer. This is because the computer only 
+approximates some of the lowest details. Thus 4.0 could be represented 
+by the computer as 3.9999999.... or 4.000000....01. These approximations 
+are close enough for most purposes but occasionally they become important! 
+If you get a funny result when using real numbers, bear this in mind.
+
+<P>Real numbers, also known as <I>Floating Point</I> numbers have 
+the same operations as integers with the addition of the 
+capability to truncate the number to an integer value.
+
+<P>Python, VBScript and JavaScript all support real numbers. In 
+Python we create them by simply specifying a number with a 
+decimal point in it, as we saw in the <A href="tutseq1.htm">
+simple sequences</A> topic. In VBScript and JavaScript there 
+is no clear distinction between integers and real numbers, 
+just use them and mostly the language will pretty much sort 
+itself out OK.
+
+<H3>Complex or Imaginary Numbers</H3>
+
+<P>If you have a scientific or mathematical background you may
+be wondering about complex numbers? If you haven't you may not
+even have heard of complex numbers, in which case you can safely 
+jump to the next heading because you don't need them! Anyhow 
+some programming languages, including Python, provide built in 
+support for the complex type while others provide a library of
+functions which can operate on complex numbers. And before you
+ask, the same applies to matrices too.
+
+<P>In Python a complex number is represented as:
+<PRE>
+(real+imaginaryj)
+</PRE>
+
+<P>Thus a simple complex number addition looks like:
+<PRE>
+>>> M = (2+4j)
+>>> N = (7+6j)
+>>> print M + N
+(9+10j)
+</PRE>
+
+<P>All of the integer operations also apply to complex numbers.
+
+<P>Neither VBScript nor JavaScript offer support for complex numbers.
+
+<A name="Boolean">
+<H3>Boolean Values - True and False</H3>
+
+<P>This strange sounding type is named after a 19th century 
+mathematician, George Boole who studied logic. Like the heading 
+says, this type has only 2 values - either <I> true</I> or 
+<I> false</I>. Some languages support Boolean values directly, 
+others use a convention whereby some numeric value (often 0) 
+represents false and another (often 1 or -1) represents true.
+Up until version 2.2 Python did this, however since version 2.3 
+Python supports Boolean values directly, using the values 
+<I>True</I> and <I>False</I>.
+
+<P>Boolean values are sometimes known as "truth values" because
+they are used to test whether something is true or not. For
+example if you write a program to backup all the files in a
+directory you might backup each file then ask the operating
+system for the name of the next file. If there are no more files
+to save it will return an empty string.  You can then test to see
+if the name is an empty string and store the result as a boolean
+value (True if it is empty, False if it isn't). You'll see how 
+we would use that result later on in the course. 
+
+<H4>Boolean (or Logical) Operators</H4>
+
+<TABLE BORDER>
+<TR><TH>Operator Example</TH><TH>Description</TH><TH>Effect</TH></TR>
+<TR><TD>A and B</TD><TD>AND</TD><TD>True if A,B are both True, False otherwise.</TD></TR>
+<TR><TD>A or B</TD><TD>OR</TD><TD>True if either or both of A,B are true. False if both A and B are false</TD></TR>
+<TR><TD>A == B</TD><TD>Equality</TD><TD>True if A is equal to B</TD></TR>
+<TR><TD>
+A != B<BR>
+or<BR>
+A <> B<BR></TD><TD>Inequality</TD><TD>True if A is NOT equal to B.</TD></TR>
+<TR><TD>not B</TD><TD>Negation</TD><TD>True if B is not True</TD></TR>
+</TABLE>
+<P><B>Note:</B> the last one operates on a single value, the others 
+all compare two values. 
+
+<P>VBScript, like Python has a Boolean type with the values True and False.
+
+<P>JavaScript also supports a Boolean type but this time the 
+values are <I>true</I> and <I>false</I> (note, with a lowercase 
+first letter).
+
+<P>Finally the different languages have slightly different names 
+for the Boolean type internally, in Python it is <I>bool</I>, in 
+VBScript and JavaScript it is <I>Boolean</I>. Most of the time 
+you won't need to worry about that because we tend not to create 
+variables of Boolean types but simply use the results in tests.
+
+<H3>Collections</H3>
+
+<P>Computer science has built a whole discipline around studying  
+collections and their various behaviors.  Sometimes collections 
+are called containers. In this section we will look first of all 
+at the collections supported in Python, VBScript and JavaScript, 
+then we’ll conclude with a brief summary of some other collection 
+types you might come across in other languages.
+
+<H4>List</H4>
+
+<P>We are all familiar with lists in everyday life. A list is just
+a sequence of items. We can add items to a list or remove items from 
+the list. Usually, where the list is written paper we can't insert 
+items in the middle of a list only at the end. However if the list 
+is in electronic format - in a word processor say - then we can 
+insert items anywhere in the list.
+
+<P>We can also search a list to check whether something is 
+already in the list or not. But you have to find the item you need 
+by stepping through the list from front to back checking each item 
+to see if it's the item you want. Lists are a fundamental collection 
+type found in many modern programming languages.
+
+<P>Python lists are built into the language. They can do all 
+the basic list operations we discussed above and in addition 
+have the ability to <I>index</I> the elements inside the list. 
+By indexing I mean that we can refer to a list element by 
+its sequence number (assuming the first element starts at zero!).
+
+<P>In VBScript there are no lists as such but other collection 
+types which we discuss later can simulate their features.
+
+<P>In JavaScript there are no lists as such but almost everything 
+you need to do with a list can be done using a JavaScript 
+<I>array</I> which is another collection type that we discuss 
+a little later.
+
+<H4>List operations</H4>
+<P>Python provides many operations on collections. Nearly all of 
+them apply to Lists and a subset apply to other collection types, 
+including strings which are just a special type of list - a list 
+of characters. To create and access a list in Python we use square 
+brackets. You can create an empty list by using a pair of square 
+brackets with nothing inside, or create a list with contents by 
+separating the values with commas inside the brackets:</P>
+<PRE>
+>>> aList = []
+>>> another = [1,2,3]
+>>> print another
+[1, 2, 3]
+</PRE>
+<P>We can access the individual elements using an index number, 
+where the first element is 0, inside square brackets. For example 
+to access the third element, which will be index number 2 since 
+we start from zero, we do this:</P>
+<PRE>
+>>> print another[2]
+3
+</PRE>
+<P>We can also change the values of the elements of a list in a 
+similar fashion:</P>
+<PRE>
+>>> another[2] = 7
+>>> print another
+[1, 2, 7]
+</PRE>
+<P>Notice that the third element (index 2) changed from 3 to 7.
+
+<P>You can use negative index numbers to access members from the 
+end of the list. This is most commonly done using -1 to get the 
+last item:</P>
+<PRE>
+>>> print another[-1]
+7
+</PRE>
+<P>We can add new elements to the end of a list using the 
+<TT>append()</TT> operator:
+<PRE>
+>>> aList.append(42)
+>>> print aList
+[42]
+</PRE>
+<P>We can even hold one list inside another, thus if we append 
+our second list to the first:</P>
+<PRE>
+>>> aList.append(another)
+>>> print aList
+[42, [1, 2, 7]]
+</PRE>
+<P>Notice how the result is a list of two elements but the second 
+element is itself a list (as shown by the []’s around it). 
+We can now access the element 7 by using a double index:
+<PRE>
+>>> print aList[1][2]
+7
+</PRE>
+<P>The first index, 1, extracts the second element which is in 
+turn a list. The second index, 2, extracts the third element of 
+the sublist.</P>
+
+<P>This nesting of lists one inside the other is extremely useful 
+since it effectively allows us to build tables of data, like this:
+
+<PRE>
+>>> row1 = [1,2,3]
+>>> row2 = ['a','b','c']
+>>> table = [row1, row2]
+>>> print table
+[ [1,2,3], ['a','b','c'] ]
+>>> element2 = table[0][1]
+</PRE>
+
+<P>We could use this to create an address book where each entry was 
+a list of name and address details. For example, here is such an 
+address book with two entries:
+
+<PRE>
+>>> addressBook = [
+... ['Fred', '9 Some St',' Anytown', '0123456789'],
+... ['Rose', '11 Nother St', 'SomePlace', '0987654321']
+... ]
+>>>
+</PRE>
+<P>Notice that we constructed the nested list all on one line. 
+That is because Python sees that the number of opening and 
+closing brackets don't match and keeps on reading input until 
+they do. This can be a very effective way of quickly 
+constructing complex data structures while making the 
+overall structure - a list of lists in this case - clear 
+to the reader.
+
+<P>As an exercise try extracting Fred's telephone number 
+- element 3, from the first row - remembering that the indexes 
+start at zero. Also try adding a few new entries of your own 
+using the <tt>append()</tt> operation described above.
+
+<P>Note that when you exit Python your data will be lost, 
+however you will find out how to preserve it once we reach 
+the topic on files.
+
+<P>The opposite of adding elements is, of course, removing them 
+and to do that we use the <TT>del</TT> command:</P>
+<PRE>
+>>> del aList[1]
+>>> print aList
+[42]
+</PRE>
+<P>If we want to join two lists together to make one we can use 
+the same concatenation operator ‘+’ that we saw for strings:</P>
+<PRE>
+>>> newList = aList + another
+>>> print newList
+[42, 1, 2, 7]
+</PRE>
+
+<P>Notice that this is slightly different to when we appended 
+the two lists earlier, then there were 2 elements, the second 
+being a list, this time there are 4 elements because the 
+elements of the second list have each, individually been 
+added to <TT>newList</TT>. This time if we access element 1, 
+instead of getting a sublist, as we did previously, we 
+will only get <TT>1</TT> returned:
+<PRE>
+>>> print newList[1]
+1
+</PRE>
+
+<P>We can also apply the multiplication sign as a repetition 
+operator to populate a list with multiples of the same value:</P>
+<PRE>
+>>> zeroList = [0] * 5
+>>> print zeroList
+[0, 0, 0, 0, 0]
+</PRE>
+
+<P>We can find the index of a particular element in a list 
+using the <TT>index()</TT> operation, like this:
+<PRE>
+>>> print [1,3,5,7].index(5)
+2
+>>> print [1,3,5,7].index(9)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+ValueError: list.index(x): x not in list
+</PRE>
+<P>Notice that trying to find the index of something that's 
+not in the list results in an error. We will look at ways to 
+test whether something is in a list or not in a later topic.
+
+<P>Finally, we can determine the length of a list using the built-in 
+<TT>len()</TT> function:</P>
+<PRE>
+>>> print len(aList)
+1
+>>> print len(newList)
+4
+>>> print len(zeroList)
+5
+</PRE>
+
+<P>Neither JavaScript nor VBScript directly support a list type 
+although as we will see later they do have an Array type that 
+can do many of the things that Python's lists can do.
+
+<H4>Tuple</H4>
+<P>
+Not every language provides a tuple construct but in those that do 
+it’s extremely useful. A tuple is really just an arbitrary collection 
+of values which can be treated as a unit. In many ways a tuple is 
+like a list, but with the significant difference that tuples are 
+<I>immutable</I> which is to say that you can’t change them nor 
+append to them once created. In Python, tuples are simply represented
+by parentheses containing a comma separated list of values, 
+like so:</P>
+<PRE>
+>>> aTuple = (1,3,5)
+>>> print aTuple[1]    <SPAN class="Comment"># use indexing like a list</SPAN>
+3
+>> aTuple[2] = 7       <SPAN class="comment"># error, can’t change a tuple’s elements</SPAN>
+Traceback (innermost last):
+  File "<pyshell#20>", line 1, in ?
+  	aTuple[2] = 7
+TypeError: object doesn't support item assignment
+</PRE>
+
+<P>The main things to remember are that while parentheses are used 
+to define the tuple, square brackets are used to index it and you 
+can’t change a tuple once its created. Otherwise most of the list 
+operations also apply to tuples.
+
+<P>Finally, although you cannot change a tuple you can effectively 
+add members using the addition operator because this actually 
+creates a new tuple. Like this:
+<PRE>
+>>> tup1 = (1,2,3)
+>>> tup2 = tup1 + (4,) <SPAN Class="Comment"># comma to make it a tuple rather than integer</SPAN>
+>>> print tup2
+(1,2,3,4)
+</PRE>
+<P>If we didn't use the trailing comma after the 4 then Python would 
+have interpreted it as the integer 4 inside parentheses, not as a true 
+tuple. But since you can't add integers to tuples it results in an 
+error, so we add the comma to tell Python to treat the parentheses 
+as a tuple. Any time you need to persuade Python that a single 
+entry tuple really is a tuple add a trailing comma as we did here.
+
+<P>Neither VBScript nor JavaScript have any concept of tuples.
+
+<H4>Dictionary or Hash</H4> 
+<P>In the same way that a literal dictionary associates 
+a meaning with a word a dictionary type contains a value 
+associated with a key, which may or may not be a string.
+The value can be retrieved by ‘indexing’ the dictionary 
+with the key. Unlike a literal dictionary, the key doesn’t 
+need to be a character string (although it often is) but 
+can be any immutable type including numbers and tuples. Similarly 
+the values associated with the keys can have any kind of data 
+type. Dictionaries are usually implemented internally using an 
+advanced programming technique known as a <I>hash table</I>. 
+For that reason a dictionary may sometimes be referred to 
+as a hash. This has nothing to do with drugs! :-)
+<A name="addressbook">
+<P>Because access to the dictionary values is via the key, you 
+can only put in elements with unique keys. Dictionaries are 
+immensely useful structures and are provided as a built-in type in 
+Python although in many other languages you need to use a module or 
+even build your own. We can use dictionaries in lots of ways and 
+we'll see plenty examples later, but for now, here's how to 
+create a dictionary in Python, fill it with some entries and 
+read them back:</P>
+<PRE>
+>>> dct = {}
+>>> dct['boolean'] = "A value which is either true or false"
+>>> dct['integer'] = "A whole number"
+>>> print dct['boolean']
+A value which is either true or false
+</PRE>
+<P>Notice that we initialize the dictionary with braces, then 
+use square brackets to assign and read the values.
+
+<P>Just as we did with lists we can initialize a dictionary as 
+we create it using the following format:
+<PRE>
+>>> addressBook = {
+... 'Fred' : ['Fred', '9 Some St',' Anytown', '0123456789'],
+... 'Rose' : ['Rose', '11 Nother St', 'SomePlace', '0987654321']
+... }
+>>>
+</PRE>
+<P>The key and value are separated by a colon and the pairs 
+are separated by commas. This time we have made our address 
+book out of a dictionary which is keyed by name and stores 
+our lists as the values. Rather than work out the numerical 
+index of the entry we want we can just use the name to retrieve 
+all the information, like this:
+<PRE>
+>>> print addressBook['Rose']
+['Rose', '11 Nother St', 'SomePlace', '0987654321']
+>>> print addressBook['Fred'][3]
+0123456789
+</PRE>
+<P>In the second case we indexed the returned list to get 
+only the telephone number. By creating some variables and 
+assigning the appropriate index values we can make this 
+much easier to use:
+<PRE>
+>>> name = 0
+>>> street = 1
+>>> town = 2
+>>> tel = 3
+</PRE>
+<P>And now we can use those variables to find out Rose's town:
+<PRE>
+>>> print addressBook['Rose'][town]
+SomePlace
+</PRE>
+
+<P>Notice that whereas <TT>'Rose'</TT> was in quotes because the key 
+is a string, the <TT>town</TT> is not because it is a variable name 
+and Python will convert it to the index value we assigned, namely 2.
+At this point our Address Book is beginning to resemble a usable 
+database application, thanks largely to the power of dictionaries. 
+It won't take a lot of extra work to save and restore the data and 
+add a query prompt to allow us to specify the data we want. We will do 
+that as we progress through the other tutorial topics.
+
+<P>Due to their internal structure dictionaries do not support 
+very many of the collection operators that we’ve seen so far. 
+None of the concatenation, repetition or appending operations work. 
+To assist us in accessing the dictionary keys there is an operation  
+that we can use, <TT>keys()</TT>, which returns a list of all 
+the keys in a dictionary. For example to get a list of all the names in our address book we could do:
+<PRE>
+>>> print addressBook.keys()
+['Fred','Rose']
+</PRE>
+<P>Note however that dictionaries do not store their keys in the 
+order in which they are inserted so you may find the keys appear 
+in a strange order, indeed the order may even change over time. 
+Don't worry about that, you can still use the keys to access 
+your data and the right value will still come out OK.
+
+<H4>VBScript Dictionaries</H4>
+<P>VBScript provides a dictionary object which offers similar 
+facilities to the Python dictionary but the usage is slightly 
+different. To create a VBScript dictionary we have to declare 
+a variable to hold the object, then create the object, finally 
+we can add entries to the new dictionary, like this:
+<PRE>
+Dim dict     <SPAN Class="Comment">' Create a variable.</SPAN>
+Set dict = CreateObject("Scripting.Dictionary")
+dict.Add "a", "Athens" <SPAN Class="Comment">' Add some keys and items.</SPAN>
+dict.Add "b", "Belgrade"
+dict.Add "c", "Cairo"
+</PRE>
+<P>Notice that the <TT>CreateObject</TT> function specifies that 
+we are creating a <TT>"Scripting.Dictionary"</TT> object, that 
+is a <TT>Dictionary</TT> object from the VBScript's <TT>Scripting</TT> 
+module. Don't worry too much about that for now, we'll discuss it in 
+more depth when we look at objects later in the tutor. Hopefully 
+you can at least recognize and recall the concept of using an object 
+from a module from the <A href="tutseq1.htm">simple sequences</A> 
+topic earlier. The other point to notice is that we must use the 
+keyword <TT>Set</TT> when assigning an object to a variable in VBScript.
+
+<P>Now we access the data like so:
+<PRE>
+item = dict.Item("c") <SPAN Class="Comment">' Get the item.</SPAN>
+dict.Item("c") = "Casablanca" <SPAN Class="Comment">' Change the item</SPAN>
+</PRE>
+
+<P>There are also operations to remove an item, get a list of 
+all the keys, check that a key exists etc.
+
+<P>Here is complete but simplified version of our address book example 
+in VBScript:
+
+<PRE>
+&lt;script language=VBScript>
+Dim addressBook
+Set addressBook = CreateObject("Scripting.Dictionary")
+addressBook.Add "Fred", "Fred, 9 Some St, Anytown, 0123456789"
+addressBook.Add "Rose", "Rose, 11 Nother St, SomePlace, 0987654321"
+
+MsgBox addressBook.Item("Rose")
+&lt;/script>
+</PRE>
+
+<P>This time, instead of using a list, we have stored all the data 
+as a single string. We then access and print Rose's details in a 
+message box.
+
+<H4>JavaScript Dictionaries</H4>
+
+<P>JavaScript doesn't really have a dictionary object of its own, 
+although if you are using Internet Explorer you can get access to the 
+VBScript <TT>Scripting.Dictionary</TT> object discussed above, 
+with all of the same facilities. But since it's really the same 
+object I won't cover it further here. Finally JavaScript arrays can 
+be used very much like dictionaries but we'll discuss that in 
+the array section below.
+
+<CENTER><BLOCKQUOTE><I>
+If you're getting a bit fed up, you can jump to the 
+<A HREF="tutseq2.htm">next chapter</A> at this point. 
+Remember to come back and finish this one when you 
+start to come across types of data we haven't 
+mentioned so far.
+</I></BLOCKQUOTE></CENTER>
+
+<H3>Other Collection Types</H3>
+
+<H4>Array or Vector</H4>
+<P>The array is one of the earlier collection types in computing 
+history. It is basically a list of items which are indexed for 
+easy and fast retrieval. Usually you have to say up front how 
+many items you want to store. It is this fixed size feature 
+which distinguishes it from the list data type discussed above.
+Python supports arrays through a module but it is rarely needed 
+because the built in list type can usually be used instead.
+VBScript and JavaScript both have arrays as a data type, so 
+let's briefly look at how they are used:
+
+<H4>VBScript Arrays</H4>
+
+<P>In VBScript array is a fixed length collection of data 
+accessed by a numerical index. It is declared and accessed 
+like this:
+<PRE>
+Dim AnArray(42)<SPAN Class="comment">    ' A 43! element array</SPAN>
+AnArray(0) = 27<SPAN Class="comment">    ' index starts at 0</SPAN>
+AnArray(1) = 49
+myVariable = AnArray(1)<SPAN Class="comment"> ' read the value</SPAN>
+</PRE>
+
+<P>Note the use of the <TT>Dim</TT> keyword. This <I>dimensions</I> 
+the variable. This is a way of telling VBScript about the variable, 
+if you start your script with <TT>OPTION EXPLICIT</TT> VBScript 
+will expect you to <tt>Dim</tt> any variables you use, which many 
+programming experts believe is good practice and leads to more 
+reliable programs. Also notice that we specify the last valid 
+index, <TT>42</TT> in our example, which means the array actually 
+has 43 elements because it starts at 0.
+
+<P>Notice also that in VBScript we use parentheses to dimension and 
+index the array, not the square brackets used in Python and, as 
+we'll soon see, JavaScript.
+
+<P>As with Python lists we can declare multiple dimensional 
+arrays to model tables of data, for our address book example:
+<PRE>
+Dim MyTable(2,3)<SPAN CLass="comment">  ' 3 rows, 4 columns</SPAN>
+MyTable(0,0) = "Fred"<SPAN CLass="comment">  ' Populate Fred's entry</SPAN>
+MyTable(0,1) = "9 Some Street"
+MyTable(0,2) = "Anytown"
+MyTable(0,3) = "0123456789"
+MyTable(1,0) = "Rose"<SPAN CLass="comment">  ' And now Rose...</SPAN>
+...and so on...
+</PRE>
+
+<P>Unfortunately there is no way to populate the data all in one 
+go as we did with Python's lists, we have to populate each field 
+one by one. If we combine VBScripts dictionary and array capability 
+we get almost the same usability as we did with Python. It looks 
+like this:
+<PRE>
+&lt;script language=VBScript>
+Dim addressBook
+Set addressBook = CreateObject("Scripting.Dictionary")
+Dim Fred(3)
+Fred(0) = "Fred"
+Fred(1) = "9 Some St"
+Fred(2) = "Anytown"
+Fred(3) = "0123456789"
+addressBook.Add "Fred", Fred
+
+MsgBox addressBook.Item("Fred")(3)<SPAN class="comment"> ' Print the Phone Number</Span>
+&lt;/script>
+</PRE>
+
+<P>The final aspect of VBScript arrays  that I want to consider is 
+the fact that they don't need to be fixed in size at all! However 
+this does not mean we can just arbitrarily keep adding elements 
+as we did with  our lists, rather we can explicitly resize an 
+array. For this to happen we need to declare a <I>Dynamic array</I> 
+which we do, quite simply by omitting the size, like this:
+<PRE>
+Dim DynArray()<SPAN Class="comment">  ' no size specified</SPAN>
+</PRE>
+
+<P>To resize it we use the <TT>ReDim</TT> command, like so:
+<PRE>
+&lt;script language="VBScript">
+Dim DynArray()
+ReDim DynArray(5)<SPAN Class="comment">  ' Initial size = 5</SPAN>
+DynArray(0) = 42
+DynArray(4) = 26
+MsgBox "Before: " &amp; DynArray(4)<SPAN Class="comment">  ' prove that it worked</SPAN>
+<SPAN Class = "comment">' Resize to 21 elements keeping the data we already stored</SPAN>
+ReDim Preserve DynArray(20)
+DynArray(15) = 73
+MsgBox "After Preserve: " &amp; DynArray(4) &amp; " " &amp; DynArray(15)<SPAN Class="comment">' Old and new still there</SPAN>
+<SPAN Class="comment">' Resize to 51 items but lose all data</SPAN>
+Redim DynArray(50)
+MsgBox "After: " &amp; DynArray(4) %amp; " Oops, Where did it go?"
+&lt;/script>
+</PRE>
+
+<P>As you can see this is not so convenient as a list which adjusts 
+its length automatically, but it does give the programmer more 
+control over how the program behaves. This level of control can, 
+amongst other things improve security since some viruses can 
+exploit dynamically re-sizable data stores. 
+
+
+<H4>JavaScript Arrays</H4>
+
+<P>Arrays in JavaScript are in many ways a misnomer. They are 
+called arrays but are actually a curious mix of the features of 
+lists, dictionaries and traditional arrays. At the simplest 
+level we can declare a new Array of 10 items of some type, 
+like so:</P>
+<PRE>
+var items = new Array(10);
+</PRE>
+
+<P>We can now populate and access the elements of the array like this:
+<PRE>
+items[4] = 42;
+items[7] = 21;
+var aValue = items[4];
+</PRE>
+<P>However JavaScript arrays are not limited to storing a single 
+type of value, we can assign anything to an array element:
+<PRE>
+items[9] = "A short string";
+var msg = items[9];
+</PRE>
+<P>Also we can create arrays by providing a list of items, like so:</P>
+<PRE>
+var moreItems = new Array("one","two","three",4,5,6);
+aValue = moreItems[3];
+msg = moreItems[0];
+</PRE>
+<P>Another feature of JavaScript arrays is that we can determine 
+the length through a hidden property called <TT>length</TT>. We 
+access the length like this:</P>
+<PRE>
+var size = items.length;
+</PRE>
+<P>Notice that once again the syntax for this uses an 
+<TT>name.property</TT> format and is very like calling 
+a function in a Python module but without the parentheses.
+
+<P>As usual, JavaScript arrays start indexing at zero. However 
+JavaScript array indexes are not limited to numbers, we can use 
+strings too, and in this case they become almost identical to 
+dictionaries! We can also extend an array by simply assigning 
+a value to an index beyond the current maximum, we can see these 
+features in use in the following code segment:</P>
+<PRE>
+items[42] = 7;
+moreItems["foo"] = 42;
+msg = moreItems["foo"];
+</PRE>
+
+<P>Finally, let's look at our address book example again using 
+JavaScript arrays:</P>
+<PRE>
+&lt;script language="JavaScript">
+var addressBook = new Array();
+addressBook["Fred"] = "Fred, 9 Some St, Anytown, 0123456789";
+addressBook["Rose"] = "Rose, 11 Nother St, SomePlace, 0987654321";
+
+document.write(addressBook.Rose);
+&lt;/script>
+
+</PRE>
+<P>Notice that we access the key as if it were a property 
+like <TT>length</TT>.
+
+<H4>Stack</H4>
+<P>Think of a stack of trays in a restaurant. A member of staff 
+puts a pile of clean trays on top and these are removed one by 
+one by customers. The trays at the bottom of the stack get used 
+last (and least!). Data stacks work the same way: you push an 
+item onto the stack or pop one off. The item popped is always 
+the last one pushed. This property of stacks is sometimes called 
+<I>Last In First Out</I> or <I>LIFO</I>. One useful property of 
+stacks is that you can reverse a list of items by pushing 
+the list onto the stack then popping it off again. 
+The result will be the reverse of the starting list. 
+Stacks are not built in to Python, VBScript or JavaScript. 
+You have to write some program code to implement the behavior. 
+Lists are usually the best starting point since like stacks 
+they can grow as needed.
+
+<H4>Bag</H4>
+<P>A bag is a collection of items with no specified order and 
+it can contain duplicates. Bags usually have operators to enable 
+you to add, find and remove items. In our languages bags are 
+just lists. 
+
+<H4>Set</H4>
+<P>A set has the property of only storing one of each item. 
+You can usually test to see if an item is in a set (membership). 
+Add, remove and retrieve items and join two sets together in 
+various ways corresponding to set theory in math (eg union, 
+intersect etc). VBScript and JavaScript do not implement sets 
+directly but you can approximate the behavior fairly easily 
+using dictionaries. 
+
+<P>Since Python version 2.3 sets are supported 
+via the sets module, although this functionality is considered 
+experimental and from version 2.4 will be built in to the 
+Python core language.
+
+<P>The basic usage until then is like this:</P>
+<PRE>
+>>> import sets
+>>> A = sets.Set()  <SPAN CLASS="comment"># create an empty set</SPAN>
+>>> B = sets.Set([1,2,3]) <SPAN CLASS="comment"># a 3 element set</SPAN>
+>>> C = sets.Set([3,4,5])
+>>> D = sets.Set([6,7,8])
+>>> <SPAN CLASS="comment"># Now try out some set operations</SPAN>
+>>> B.union(C)
+Set([1,2,3,4,5])
+>>> B.intersection(C)
+Set([3])
+>>> B.issuperset(sets.Set([2]))
+True
+>>> sets.Set([3]).issubset(C)
+True
+>>> C.intersection(D) == A
+True
+</PRE>
+
+<P>There are quite a number of other set operations but these 
+should be enough for now.
+
+<H4>Queue</H4>
+<P>A queue is rather like a stack except that the first 
+item into a queue is also the first item out. This is known 
+as <I> First In First Out</I> or <I>FIFO</I> behavior. 
+This is usually implemented using a list or array. 
+
+<P>There's a whole bunch of other collection types but the
+ones we have covered are the main ones that you are likely 
+to come across. (And in fact we'll only be using a few of 
+the ones we've discussed in this tutor, but you will see 
+the others mentioned in articles and in programming 
+discussion groups!)
+
+<H3>Files</H3>
+
+<P>As a computer user you should be very familiar with  
+files - they form very basis of nearly everything we do 
+with computers. It should be no surprise then, to discover 
+that most programming languages provide a special 
+<I>file</I> type of data. However files and the processing 
+of them are so important that I will put off discussing
+them till later when they get a whole topic to themselves.
+
+<H3>Dates and Times</H3>
+
+<P>Dates and times are often given dedicated types in
+programming. At other times they are simply represented as a
+large number (typically the number of seconds from some arbitrary
+date/time!). In other cases the data type is what is known as a
+complex type as described in the next section. This usually makes
+it easier to extract the month, day, hour etc. We will take a 
+brief look at using the Python <TT>time</TT> module in a later topic.
+Both VBScript and JavaScript have their own mechanisms for handling 
+time but I won't be discussing them further. 
+
+<A name="class">
+<H3>Complex/User Defined</H3>
+
+<P>Sometimes the basic types described above are inadequate even 
+when combined in collections. Sometimes, what we want to do is 
+group several bits of data together then treat it as a single 
+item. An example might be the description of an address:<BR>
+a house number, a street and a town. Finally there's the 
+post code or zip code.</P>
+
+<P>Most languages allow us to group such information together 
+in a <I>record</I> or <I>structure</I> or with the more modern, 
+object oriented version, a <I>class</I>. 
+
+<H4>VBScript</H4>
+<P>In VBScript such a record definition looks like:
+<PRE>
+Class Address
+     Public HsNumber
+     Public Street
+     Public Town
+     Public ZipCode
+End Class
+</PRE>
+
+<P>The <TT>Public</TT> keyword simply means that the data is accessible 
+to the rest of the program, it's possible to have <TT>Private</TT> data 
+too, but we'll discuss that later in the course.
+
+<H4>Python</H4>
+<P>In Python it's only a little different:
+<PRE>
+>>>class Address:
+...   def __init__(self, Hs, St, Town, Zip):
+...     self.HsNumber = Hs
+...     self.Street = St
+...     self.Town = Town
+...     self.ZipCode = Zip
+...
+</PRE>
+
+<P>That may look a little arcane but don't worry I’ll explain
+what the <TT>def __init__(...)</TT> and <TT>self</TT> bits mean
+in the section on object orientation. One thing to note is that 
+there are <I>two underscores</I> at each end on <TT>__init__</TT>. 
+This is a Python convention that we will discuss later. 
+
+<P>Some people have had problems trying to type this example at 
+the Python prompt.  At the end of this chapter you will find a 
+box with more explanation, but you can just wait till we get the 
+full story later in the course if you prefer. If you do try 
+typing it into Python then please make sure you copy the 
+indentation shown. As you'll see later Python is very particular 
+about indentation levels. 
+
+<P>The main thing I want you to recognize in all of this is that
+we have gathered several pieces of data into a single structure.
+
+<H4>JavaScript</H4>
+
+<P>JavaScript provides a slightly strange name for its 
+structure format, namely <TT>function</TT>! Now functions
+are normally associated with operations not collections 
+of data however in JavaScript's case it can cover either. 
+To create our address object in JavaScript we do this:
+
+<PRE>
+function Address(Hs,St,Town,Zip)
+{
+   this.HsNum = Hs;
+   this.Street = St;
+   this.Town = Town;
+   this.ZipCode = Zip;
+}
+</PRE>
+
+<P>Once again the end result is a group of data items that we 
+can treat as a single unit.
+
+<H3>Accessing Complex Types</H3>
+
+<P>We can assign a complex data type to a variable too, but to
+access the individual <I> fields</I> of the type we must use some
+special access mechanism (which will be defined by the language).
+Usually this is a dot. 
+
+<H4> Using VBScript</H4>
+<P>To consider the case of the address class we defined above we
+would do this in VBScript:
+<PRE>
+Dim Addr
+Set Addr = New Address
+
+Addr.HsNumber = 7
+Addr.Street = "High St"
+Addr.Town = "Anytown"
+Addr.ZipCode = "123 456"
+
+MsgBox Addr.HsNumber &amp; " " &amp; Addr.Street & " " & Addr.Town
+</PRE>
+
+<P>Here we first of all <I>Dimension</I> a new variable, <TT>Addr</TT>, 
+using <TT>Dim</TT> then we use the <TT>Set</TT> keyword to create 
+a new <I>instance</I> of the <TT>Address</TT> class. Next we assign values 
+to the fields of the new address instance and finally we print out 
+the address in a Message Box.
+
+<H4>And in Python</H4>
+
+<P>And in Python, assuming you have already typed in the class
+definition above:
+<PRE>
+Addr = Address(7,"High St","Anytown","123 456")
+print Addr.HsNumber, Addr.Street, Addr.Town
+</PRE>
+
+<P>Which creates an instance of our <TT>Address</TT> type and
+assigns it to the variable <TT>addr</TT>. In Python we can pass 
+the field values to the new <i>object</i> when we create it. 
+We then print out the <TT>HsNumber</TT> and <TT>Street</TT> 
+fields of the newly created instance using the dot operator. 
+You could, of course, create several new Address instances 
+each with their own individual values of house number, 
+street etc. Why not experiment with this yourself? Can you 
+think of how this could be used in our address book example 
+from earlier in the topic?
+
+<H4>JavaScript too</H4>
+
+<P>The JavaScript mechanism is very similar to the others 
+but has a couple of twists, as we'll see in a moment. 
+However the basic mechanism is straightforward and the 
+one I recommend you use:
+<PRE>
+var addr = new Address(7, "High St", "Anytown", "123 456");
+document.write(addr.HsNum + " " + addr.Street + " " + addr.Town);
+</PRE>
+
+<P>One final mechanism that we can use in JavaScript is 
+to treat the object like a dictionary and use the field 
+name as a key:
+<PRE>
+document.write( addr['HsNum'] + " " + addr['Street'] + " " +  addr['Town']);
+</PRE>
+
+<P>I can't really think of any good reason to use this 
+form other than if you were to be given the field name 
+as a string, perhaps after reading a file or input from 
+the user of your program (we'll see how to do that later 
+too).
+
+<A name="object">
+<H3>User Defined Operators</H3>
+
+<P>User defined types can, in some languages, have operations 
+defined too. This is the basis of what is known as <I>object 
+oriented programming</I>. We dedicate a whole section to this 
+topic later but essentially an object is a collection of data 
+elements and the operations associated with that data, 
+wrapped up as a single unit. Python uses objects extensively 
+in its standard library of modules and also allows us as 
+programmers to create our own object types.
+
+<P>Object operations are accessed in the same way as data 
+members of a user defined type, via the dot operator, but 
+otherwise look like functions. These special functions are 
+called <I>methods</I>. We have already seen this with the 
+<TT>append()</TT> operation of a list. Recall that to use 
+it we must tag the function call onto the variable name:</P>
+<PRE>
+>>> listObject = []    <SPAN class="comment"># an empty list</SPAN>
+>>> listObject.append(42) <SPAN class="comment"># a method call of the list object</SPAN>
+>>> print listObject
+[42]
+</PRE>
+<P>When an object type, known as a class, is provided in a Python 
+module we must import the module (as we did with <TT>sys</TT> 
+earlier), then prefix the object type with the module name 
+when creating an instance that we can store in a variable 
+(while still using the parentheses, of course).  We can then use 
+the variable without using the module name. 
+
+<P>We will illustrate this by considering a fictitious module meat 
+which provides a Spam class. We import the module, create an 
+instance of Spam, assigning it the name <tt>mySpam</tt> and 
+then use <tt>mySpam</tt> to access its operations and data 
+like so:</P>
+<PRE>
+>>> import meat
+>>> mySpam = meat.Spam()  <SPAN class="comment"># create an instance, use module name</SPAN>
+>>> mySpam.slice()        <SPAN Class="comment"># use a Spam operation</SPAN>
+>>> print mySpam.ingredients  <SPAN Class="comment"># access Spam data</SPAN>
+{"Pork":"40%", "Ham":"45%", "Fat":"15%"}
+</PRE>
+
+<P>In the first line we import the (non-existent!) module <TT> meat</TT> 
+into the program. In the second line we use the meat module 
+to create an instance of the Spam class - by calling it as if 
+it were a function! In the third line we access one of the 
+Spam class's operations, <TT>slice()</TT>, treating the 
+object (<TT>mySpam</TT>) as if it were a module and the 
+operation were in the module. Finally we access some data 
+from within the <TT>mySpam</Tt> object using the same module 
+like syntax.
+
+<P>Other than the need to create an instance, there’s no real 
+difference between using objects provided within modules and 
+functions found within modules. Think of the object name simply 
+as a label which keeps related functions and variables grouped 
+together. 
+
+<P>Another way to look at it is that objects represent real world 
+things, to which we as programmers can do things. That view is 
+where the original idea of objects in programs came from: 
+writing computer simulations of real world situations.
+
+<P>Both VBScript and JavaScript work with objects and in fact 
+that's exactly what we have been using in each of the Address 
+examples above. We have defined a class and then created an 
+instance which we assigned to a variable so that we could access 
+the instance's properties. Go back and review the previous 
+sections in terms of what we've just said about classes and 
+objects. Think about how classes provide a mechanism for 
+creating new types of data in our programs by binding together 
+the data and operations of the new type.
+
+<H4>Python Specific Operators</H4>
+
+<P>In this tutor my primary objective is to teach you to program 
+and although I use Python in the tutor there is no reason why, 
+having read this, you couldn’t go out and read about another 
+language and use that instead. Indeed that’s exactly what I 
+expect you to do since no single programming language, even Python, 
+can do everything. However because of that objective I do not 
+teach all of the features of Python but focus on those which can 
+generally be found in other languages too. As a result there are 
+several Python specific features which, while they are quite 
+powerful, I don’t describe at all, and that includes special 
+operators. Most programming languages have operations which they 
+support and other languages do not. It is often these 'unique' 
+operators that bring new programming languages into being, and 
+certainly are important factors in determining how popular the 
+language becomes. 
+
+<P>For example Python supports such relatively uncommon operations 
+as list slicing ( <TT>spam[X:Y]</TT> ) for extracting a section
+(or slice) out from the middle of a list(or string, or tuple) and 
+tuple assignment ( <TT>X, Y = 12, 34</TT> ) which allows us to 
+assign multiple variable values at one time.
+
+<P>It also has the facility to perform an operation on every member 
+of a collection using its <TT>map()</TT> function which we describe 
+in the Functional Programming topic. There are many more, it’s often 
+said that "Python comes with the batteries included". For details 
+of how most of these Python specific operations work you’ll need 
+to consult the Python documentation.
+
+<P>Finally, it’s worth pointing out that although I say they are 
+Python specific, that is not to say that they can’t be found in any 
+other languages but rather that they will not <I>all</I> be found 
+in every language.  The operators that we cover in the main text 
+are generally available in some form in virtually all modern 
+programming languages.
+
+<P>That concludes our look at the raw materials of programming, 
+let’s move onto the more exciting topic of technique and see how 
+we can put these materials to work.</P>
+
+<CENTER>
+<TABLE BORDER>
+<TR><TD BGCOLOR="#FFDDAA">
+<H2>More information on the Address example</H2>
+
+<P>Although, as I said earlier, the details of this example are 
+explained later, some readers have found difficulty getting the 
+Python example to work. This note gives a line by line explanation of 
+the Python code. The complete code for the example looks like this:
+<PRE>
+
+>>> class Address:
+...   def __init__(self, Hs, St, Town, Zip):
+...     self.HsNumber = Hs
+...     self.Street = St
+...     self.Town = Town
+...     self.Zip_Code = Zip
+...
+>>> Addr = Address(7,"High St","Anytown","123 456")
+>>> print Addr.HsNumber, Addr.Street
+
+</PRE>
+
+<P>Here is the explanation:</P>
+<P>
+<PRE>
+>>> class Address:
+</PRE>
+
+<P>The <TT>class</TT> statement tells Python that we are about to
+define a new type called, in this case, <TT>Address</TT>. The
+colon indicates that any indented lines following will be part of
+the class definition. The definition will end at the next
+unindented line. If you are using IDLE you should find that the
+editor has indented the next line for you, if working at a
+command line Python prompt in an MS DOS window then you will need
+to manually indent the lines as shown. Python doesn't care how
+much you indent by, just so long as it is consistent.</P>
+
+
+<PRE>...   def __init__(self, Hs, St, Town, Zip):</PRE><BR>
+
+<P>The first item within our class is what is known as a 
+<I>method definition</I>. One very important detail is 
+that the name has a double underscore at each end, this 
+is a Python convention for names that it treats as having 
+special significance. This particular method is called 
+<TT>__init__</TT> and is a special operation, performed 
+by Python, when we create an instance of our new class, 
+we'll see that shortly. The colon, as before, simply 
+tells Python that the next set of indented lines will 
+be the actual definition of the method.</P>
+
+<PRE>...     self.HsNumber = Hs</PRE><BR>
+
+<P>This line plus the next three, all assign values to the internal 
+fields of our object. They are indented from the <TT>def</TT> 
+statement to tell Python that they constitute the actual 
+definition of the <TT>__init__</TT> operation.The blank line 
+tells the Python interpreter that the class definition 
+is finished so that we get the <TT>>>></TT> prompt back.</P>
+
+<PRE>>>> Addr = Address(7,"High St","Anytown","123 456")</PRE><BR>
+
+<P>This creates a new instance of our Address type and Python 
+uses the <TT>__init__</TT> operation defined above to assign the values 
+we provide to the internal fields. The instance is assigned to 
+the <TT>Addr</TT> variable just like an instance of any other 
+data type would be.</P>
+
+<PRE>>>> print Addr.HsNumber, Addr.Street</PRE><BR>
+
+<P>Now we print out the values of two of the internal fields 
+using the dot operator to access them.
+
+<P>As I said we cover all of this in more detail later in 
+the tutorial. The key point to take away is that Python allows 
+us to create our own data types and use them pretty much 
+like the built in ones.</P>
+<BR>
+</TD></TR></TABLE>
+</CENTER>
+<CENTER>
+<P>
+<!-- HR WIDTH="60%" -->
+<TABLE BORDER="1"><TR><TH>Points to remember</TH></TR>
+<TR><TD> <UL>
+<LI>Variables refer to data and may need to be declared before being defined.
+<LI>Data comes in many types and the operations you can successfully 
+perform will depend on the type of data you are using.
+<LI>Simple data types include character strings, numbers, 
+Boolean or 'truth' values.
+<LI>Complex data types include collections, files, dates and 
+user defined data types.
+<LI>There are many operators in every programming language and part 
+of learning a new language is becoming familiar with both its data 
+types and the operators available for those types.
+<LI>The same operator (e.g. addition) may be available for different 
+types, but the results may not be identical, or even apparently related!
+</UL> </TR></TABLE>
+<P>
+<A HREF="tutseq1.htm" target="text">Previous</A>&nbsp
+<A HREF="tutseq2.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>

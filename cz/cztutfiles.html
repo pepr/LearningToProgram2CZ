@@ -1,0 +1,1157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Práce se soubory</title>
+</head>
+<body>
+
+<h2>Práce se soubory</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+<ul>
+<li>Jak se otvírá soubor.</li>
+<li>Jak se čte z otevřeného souboru a jak se do něj zapisuje.</li>
+<li>Jak se soubor zavírá.</li>
+<li>Adresy &mdash; program realizující záznamník na adresy.</li>
+<li>Práce s binárními soubory.</li>
+</ul>
+</div>
+
+<p>Zpracování souborů začátečníky často přivádí do úzkých, ačkoliv důvody
+jsou pro mne tak trochu záhadou. Z pohledu programátora se soubory opravdu
+nijak neliší od souborů, které používáme při práci s textovým editorem nebo
+s jinou aplikací: musíme je <em>otevřít</em>, provedeme nějaké operace s
+obsahem a zase je <em>zavřeme</em>.</p>
+
+<p>Největší rozdíl spočívá v tom, že v programu se k souboru přistupuje
+<em>sekvenčně</em>. To znamená, že čteme od jeho začátku, postupně po jednom
+řádku. Textový editor často dělá totéž, jenže si obsah celého souboru
+nejdříve načte do paměti, kde jej upravujete, a v okamžiku ukončení práce se
+souborem obsah paměti zapíše zpět do souboru a uzavře jej. <span
+class="trnote" title="Poznámka překladatele">(Proto se vám může zdát, že
+textový editor nepoužívá postupné čtení obsahu souboru.)</span> Další rozdíl
+spočívá v tom, že z programu obvykle soubor otvíráme jen pro čtení nebo jen
+pro zápis. Při zápisu můžeme vytvořit zcela nový soubor (nebo můžeme
+přepisovat obsah již existujícího souboru) nebo obsah <em>připojujeme na
+konec</em> (append) existujícího souboru.</p>
+
+<p>Další operace, kterou můžeme při zpracování souboru použít, je skok zpět
+na začátek.</p> 
+
+<h3>Soubory &mdash; vstup a výstup</h3>
+
+<p>Podívejme se na to v praxi. Budeme předpokládat, že existuje soubor zvaný
+<code>menu.txt</code> a že obsahuje seznam jídel:</p>
+
+<pre>
+spam &amp; vajíčka
+spam &amp; opékané brambory
+spam &amp; spam
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Pojem <em>spam</em> jsme si
+již vysvětlovali. Pokud nečtete texty učebnice postupně, naleznete vysvětlení
+<a href="cztuttrn.html#Pdata_spam">zde</a>. V jedné z epizod série <em>Monty
+Python's Flying Circus</em> se slovo <em>spam</em> objevovalo velmi hojně. 
+S&nbsp;překvapivě podobnou frekvencí se v českých titulcích objevovalo slovo
+<em>prejt</em>. Není to totéž. Je to jen podobně stručné, což je pro titulky
+(a pro dabing) asi důležité.</p>
+
+<p>Nyní napíšeme program, který obsah souboru přečte a zobrazí jej na
+výstupu &mdash; podobně jako to v Unixu dělá příkaz <code>cat</code> nebo v
+DOSu příkaz <code>type</code>.</p>
+
+<pre>
+<span class="comment"># Nejdříve soubor otevřeme ke čtení (r jako read).</span>
+vstup = file("menu.txt", "r")
+
+<span class="comment"># Soubor načteme do seznamu řádků a pak
+# každou položku seznamu (řádek) vytiskneme.</span>
+for radek in vstup.readlines():
+    print radek
+<span class="comment"># A nyní soubor zase zavřeme.</span>
+vstup.close()
+</pre>
+
+<p><b>Poznámka 1:</b> Operace <code>file()</code> vyžaduje dva argumenty.
+Prvním z nich je jméno souboru. Můžeme je předat prostřednictvím proměnné
+nebo je můžeme zapsat přímo jako řetězec, jako jsme to učinili zde.
+(Takovému zápisu řetězce se říká literál. <span class="trnote"
+title="Poznámka překladatele">Jde vlastně o přímo zapsanou řetězcovou
+konstantu</span>.) Druhý argument určuje <em>režim</em>. Ten říká, zda
+soubor otvíráme pro čtení (r jako read) nebo pro zápis (w jako write).
+Můžeme též určit, zda se jedná o ASCII text nebo o binární data &mdash;
+přidáním 'b' za 'r' nebo za 'w' takto:
+<code>open(jm_soub,&nbsp;"rb")</code>.</p>
+
+<p class="note"><b>Poznámka 2:</b> K otevření souboru jsme použili funkci
+<code>file()</code>. Starší verze jazyka Python místo ní používaly funkci
+<code>open()</code>. Parametry obou funkcí jsou naprosto shodné. Používání
+<code>open()</code> se stále dává přednost, takže v dalších ukázkách budeme
+obvykle používat <code>open()</code>. Ale pokud se vám zdá používání
+<code>file()</code> logičtější, používejte <code>file()</code>.</p>
+
+
+<div class="trnote">
+
+<p class="trnote"><b>Poznámka překladatele:</b> V dokumentaci se dočteme, že
+<code>open()</code> je alias pro <code>file()</code> a dočteme se zde
+také:</p>
+
+  <blockquote>Záměrem je, aby byla funkci <code>open()</code> i nadále
+  dávána přednost, pokud ji používáme jako <em>factory function</em><sup
+  class="trnote" id="Bfiles_factoryFun" title="Vysvětlení pojmu..." ><a
+  href="cztuttrn.html#Pfiles_factoryFun">[1]</a></sup>, která vrací nový
+  objekt typu soubor. Zápis <code>file</code> se lépe hodí pro testování
+  typu (například při volání
+  <code>isinstance(f,&nbsp;file)</code>).</blockquote>
+
+<p>Z objektového pohledu (viz dále) ale můžeme v zápisu <code>file()</code>
+vidět také vytváření objektu voláním jeho konstruktoru. Záleží tedy na tom,
+jak se na věc chcete dívat. Funkčně jsou obě volání naprosto shodná.</p>
+
+</div>
+
+<p><b>Poznámka 3:</b> Ze souboru jsme četli a uzavírali jsme jej voláním
+funkcí, před které jsme připsali souborovou proměnnou. Tomuto zápisu se říká
+<em>volání metody</em> a je to naše další setkání s <em>objektovou
+orientací</em>. Teď si s tím nelamte hlavu. Jenom si všimněte, že to má svým
+způsobem vztah k modulům. O použité souborové proměnné můžete uvažovat, jako
+kdyby to byla reference na modul, který obsahuje funkce pro práci se soubory
+a který se jakoby automaticky importuje pokaždé, když vytvoříme souborovou
+proměnnou.</p>
+
+<p class="note"><b>Poznámka 4:</b> Na konci soubor uzavíráme voláním metody
+<code>close()</code>. Python <span class="trnote"
+title="Poznámka&nbsp;překladatele">(a nejen Python)</span> sice všechny
+<span class="trnote" title="Poznámka&nbsp;překladatele">otevřené</span>
+soubory na konci programu uzavírá, ale mezi dobré zvyky patří předepisování
+uzavírání souborů přímo. Proč? No, operační systém může odkládat zápis dat
+do souboru až do doby, kdy je soubor uzavírán (kvůli zvýšení výkonu
+systému). Pokud náhodou váš program skončí neočekávaným způsobem, riskujete,
+že vaše drahocenná data nebudou do souboru zapsána vůbec. Takže poučení zní:
+Jakmile ukončíte zápis do souboru, zavřete jej.</p>
+
+<p>A teď uvažme, jak bychom se mohli vypořádat s dlouhými soubory. V prvé
+řadě bychom museli soubor číst řádek po řádku. (V jazyce Python bychom místo
+použití <code>readlines()</code> a cyklu <code>for</code> museli použít
+<code>readline()</code> a cyklus <code>while</code>.) V takové situaci
+bychom mohli bychom použít proměnnou <code>poc_radku</code>, kterou bychom
+zvyšovali při načtení každého řádku a testovali bychom, zda dosáhla
+hodnoty 25 (počet řádku na obrazovce). Pokud by tato situace nastala,
+požádáme uživatele, aby stiskl nějaké tlačítko (dejme tomu Enter). Potom
+bychom <code>poc_radku</code> nastavili na nulu a pokračovali bychom dál.
+Můžete si to vyzkoušet jako cvičení&hellip;.</p>
+
+<p>Od verze 2.2 se Python k souborovému objektu umí chovat, jako kdyby to
+byl seznam <span class="trnote" title="Poznámka&nbsp;překladatele"
+>řádků</span>. To znamená, že v cyklu <code>for</code> nemusíme používat
+<code>readlines()</code>, ale jednoduše procházíme všemi řádky souboru. S
+využitím této vlastnosti můžeme předchozí příklad přepsat takto:</p>
+
+<pre>
+<span class="comment"># Nejdříve soubor otevřeme ke čtení (r jako read).</span>
+vstup = file("menu.txt", "r")
+
+<span class="comment"># Procházíme souborem a tiskneme každou položku (řádek).</span>
+for radek in vstup:
+    print radek
+<span class="comment"># A nyní soubor zase zavřeme.</span>
+vstup.close()
+</pre>
+
+<p>Výhoda tohoto stylu spočívá v tom, že nenarazíme na žádná omezení daná
+velikostí paměti, jako v případě použití <code>readlines()</code>. Takže se
+vlastně kombinují výhody cyklu <code>for</code> a výše zmíněného řešení
+využívajícího <code>while/readline()</code>.</p>
+
+<p>Ukázali jsme si skutečně všechno, co pro zpracování souboru potřebujeme.
+Otevřeme soubor, čteme z něj a manipulujeme <span class="trnote"
+title="Poznámka překladatele">s načtenými daty</span> jak potřebujeme.
+Jakmile skončíme, soubor uzavřeme. V předchozím příkladu jste si mohli
+všimnout jednoho malého zádrhele. Načtené řádky již na konci obsahují znak
+konce řádku, takže když je vytisknete příkazem <code>print</code>, který
+přidá navíc své konce řádků, bude výstup proložen prázdnými řádky. Abychom
+se tomu vyhnuli, můžeme použít metodu zabudovaného řetězcového typu
+<code>rstrip()</code>, která z konce řetězce odstraní všechny <em>bílé
+znaky</em> &mdash; říká se jim také <em>netisknutelné znaky</em>. (Existují
+i příbuzné metody <code>lstrip()</code> a <code>strip()</code>, které
+odstraňují bílé znaky zleva, respektive z obou konců řetězce.) Pokud tedy
+část výše uvedeného příkladu upravíme do podoby...</p>
+
+<pre>
+for radek in vstup:
+    print radek.rstrip()
+</pre>
+
+<p>... mělo by to dopadnout podle očekávání.</p>
+
+<p>Když budeme v jazyce Python chtít zapsat program pro příkaz
+<code>copy</code>, jednoduše otevřeme nový soubor pro zápis a místo tisku
+načtených řádků na displej je budeme zapisovat do tohoto souboru:</p>
+
+<pre>
+<span class="comment"># Vytvoříme obdobu příkazu: COPY MENU.TXT MENU.BAK
+
+# Nejdříve otevřeme soubory pro čtení (r) a pro zápis (w).</span>
+vstup = open("menu.txt", "r")
+vystup = open("menu.bak", "w")
+
+<span class="comment"># Řádky vstupního souboru kopírujeme do nového souboru.</span>
+for radek in vstup:
+    vystup.write(radek)
+
+print "1 soubor okopírován..."
+
+<span class="comment"># Nyní soubory zavřeme.</span>
+vstup.close()
+vystup.close()
+</pre>
+
+<p>Všimli jste si, že jsem na konci použil příkaz <code>print</code> k tomu,
+aby uživatel poznal, že se něco stalo? Podobná <em>zpětná vazba pro
+uživatele</em> je obvykle vhodná.</p>
+
+<p>Protože jsme v tomto případě zapisovali stejný řádek, který jsme před tím
+načetli, nenastanou žádné problémy z konci řádků. <span class="trnote"
+title="Poznámka&nbsp;překladatele">(Metoda <code>write()</code> nepřidává
+další konec řádku.)</span> Pokud bychom ale chtěli zapisovat řetězce, které
+jsme si sami vygenerovali nebo které jsme před tím zbavili pravostranných
+bílých znaků metodou <code>rstrip()</code>, pak bychom museli na konec
+výstupního řetězce znak nového řádku přidat. Udělali bychom to takto:</p>
+
+<pre>
+vystup.write(radek + '\n')  <span class="comment"># \n reprezentuje přechod na nový řádek</span>
+</pre>
+
+<p>Podívejme se, jak <span class="trnote"
+title="Poznámka&nbsp;překladatele">metodu write()</span> využijeme v našem
+kopírovacím programu. Abychom soubor jen nekopírovali, přidáme na začátek
+souboru dnešní datum. Tím z jednoduše upravovatelného textového souboru s
+nabídkou jídel vygenerujeme denní menu. Stačí, když před vlastním kopírováním
+obsahu souboru <code>menu.txt</code> připíšeme na začátek nového souboru pár
+řádků:</p>
+
+
+<pre>
+<span class="comment"># -*- coding: cp1250 -*-</span>
+<span class="comment"># Vytvoříme denní menu podle obsahu souboru menu.txt.</span>
+
+import time
+
+<span class="comment"># Nejdříve otevřeme soubory pro čtení (r) a pro zápis (w).</span>
+vstup = open("menu.txt", "r")
+vystup = open("menu.prn", "w")
+
+<span class="comment"># Připravíme si řetězec s dnešním datem.</span>
+dnes = time.localtime(time.time())
+datum = time.strftime(u"%A %d. %B", dnes)
+
+<span class="comment"># Přidáme řádek s nadpisem a prázdný řádek.</span>
+vystup.write(u"Denní nabídka pro %s\n\n" % datum) 
+
+<span class="comment"># Řádky vstupního souboru kopírujeme do nového souboru.</span>
+for radek in vstup:
+    vystup.write(radek)
+
+print u"Menu pro %s bylo vytvořeno..." % datum
+
+<span class="comment"># Nyní soubory zavřeme.</span>
+vstup.close()
+vystup.close()
+</pre>
+
+<p>Povšimněte si, že jsme použili modul <code>time</code> k získání aktuálního
+data <span class="trnote" title="Poznámka&nbsp;překladatele">a času</span>
+(<code>time.time()</code>) a k převodu na n-tici souvisejících hodnot
+(<code>time.localtime()</code>), které jsou zase použity funkcí
+<code>time.strftime()</code> pro zformátování řetězcové podoby data. Ten je
+přes další formátovací řetězec vložen do nadpisu. <span class="trnote"
+title="Poznámka&nbsp;překladatele">Výsledný soubor pak</span> vypadá nějak
+takto:</p>
+
+<pre>
+Denní nabídka pro Sunday 07. August
+
+spam &amp; vajíčka
+spam &amp; opékané brambory
+spam &amp; spam
+</pre>
+
+<p>Ačkoliv jsme na konec <span class="trnote"
+title="Poznámka&nbsp;překladatele">formátovacího řetězce nadpisu</span>
+vložili dva znaky '<code>\n</code>', objevil se jen jeden prázdný řádek. Je to
+tím, že první znak způsobil ukončení řádku s nadpisem <span class="trnote"
+title="Poznámka&nbsp;překladatele">a teprve ten druhý způsobil vygenerování
+prázdného řádku</span>. Správné vytváření a odstraňování znaků pro nový řádek
+patří při zpracování textových souborů k jedné z těch otravnějších věcí.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Pokud se vám v nadpisu a ve vypisovaném
+upozornění objevily anglické názvy dne a měsíce &mdash; jak je naznačeno v
+příkladu výstupu výše &mdash;, je to tím, že jste Pythonu neoznámili, jaké
+místní jazykové zvyklosti (locale) se mají používat. Zkuste za řádek
+<code>import&nbsp;time</code> přidat následující dva řádky:</p>
+
+<pre>
+import locale
+locale.setlocale(locale.LC_ALL, 'cz')
+</pre>
+
+<p>Výstupní soubor pak nabude o něco lepší české podoby:</p>
+
+<pre>
+Denní nabídka pro neděle 07. srpen
+
+spam &amp; vajíčka
+spam &amp; opékané brambory
+spam &amp; spam
+</pre>
+
+<p>Musíme se však smířit, že Python neumí skloňovat česky. I kdyby to nějakým
+zázrakem uměl, při formátování data jsme stejně nijak neuvedli, v jakém pádu
+se má výsledek objevit, takže jména dne a měsíce budou uvedena v prvním pádu.
+Povšimněte si, že jsme na prvním řádku programu (formou speciálního komentáře)
+uvedli kódování, ve kterém je uložen zdrojový text (zde pro Microsoft Windows,
+podle potřeby je upravte). Povšimněte si také, že řetězce, které obsahují nebo
+mohou obsahovat české znaky, uchováváme v kódování Unicode (před úvodní
+uvozovkou píšeme písmeno <code><b>u</b></code>).</p>
+
+</div>
+
+
+<div class="details">
+
+<h4>Konce řádků v různých operačních systémech</h4>
+
+<p>Celé téma <em>konce řádků v textových souborech</em> patří k temným
+stránkám nestandardizované implementace v různých operačních systémech.
+Rozdíly mají své kořeny v dávných dnech úsvitu datových komunikací, v magii
+ovládání mechanických dálnopisů. Nové řádky se indikují v podstatě třemi
+různými způsoby:</p>
+
+<ol>
+<li>Znak návratu vozíku (Carriage Return &mdash; CR; '\r').</li>
+<li>Znak posunu o řádek (Line Feed &mdash; LF; '\n').</li>
+<li>Dvojice CR/LF ('\r\n').</li>
+</ol>
+
+<p>V různých operačních systémech se používají všechny tři techniky. V
+MS&nbsp;DOS (a odtud i v MS&nbsp;Windows) se používá třetí způsob. Unix
+(včetně Linuxu) používá druhou metodu. Apple ve svém původním systému MacOS
+používá první metodu, ale v současnosti používá metodu druhou. Je to dáno
+tím, že <em>MacOS&nbsp;X</em> je ve skutečnosti variantou systému Unix.</p>
+
+<p>Takže jak se má chudák programátor s takovou rozdílností zakončování
+řádků vyrovnávat? V mnoha jazycích musí prostě více testovat a provádět jiné
+akce v závislosti na konkrétním operačním systému. V modernějších jazycích,
+včetně Pythonu, máme k dispozici prostředky, které nám umožní tento zmatek
+zvládnout. V případě jazyka Python tato pomoc přichází v podobě modulu
+<code>os</code>. Ten definuje proměnnou zvanou <code>linesep</code>, která
+obsahuje posloupnost konce řádku pro daný operační systém. Takže přidávání
+nových řádků není složité. Pokud je chceme naopak odstranit, použijeme
+<code>rstrip()</code>, který při odstraňování konce řádku zohlední
+vlastnosti operačního systému. Takže pokud si chceme při zpracování konců
+řádků zachovat příčetnost: k odstraňování konců řádků používejte vždy
+<code>rstrip()</code> a před zápisem do souboru zakončujte řádky přidáním
+<code>os.linesep</code>.</p>
+
+<p>Stále zde zůstává nepříjemná situace, kdy byl soubor vytvořen v jednom
+operačním systému a zpracovává se naj jiném, neslučitelném. Bohužel s tím
+nic moc nenaděláme. Můžeme jen porovnat konce řádků s
+<code>os.linesep</code> a zjistit, v čem se liší.</p>
+
+<div class="trnote">
+
+<p class="trnote"><b>Poznámka překladatele:</b> Podle mého názoru mají výše
+vyjádřená skepse a uvedené rady smysl pouze v situaci, kdy obsah textového
+souboru načítáme v binárním režimu. V textovém režimu se v&nbsp;systému
+MS&nbsp;Windows posloupnost konců řádků převádí při čtení na <code>\n</code>
+automaticky (a to nejen v Pythonu), při zápisu se zase automaticky provádí
+převod na dvojznakovou posloupnost. Osobně jsem se nikdy nemusel zabývat 
+popisovanou situací a nikdy jsem nemusel přímo používat
+<code>os.linesep</code>.</p>
+
+<p>V systému Unix se s tímto problémem můžeme setkat jen v případě, kdy
+načítáme soubor vytvořený v jiném operačním systému. Aniž bych si to nějak
+ověřoval, předpokládám, že jde o starý problém, který se při práci se
+soubory v textovém režimu řeší už dávno. Se systémem MacOS ovšem nemám žádné
+zkušenosti.</p>
+
+</div>
+
+</div>
+
+<p>Při zpracování souboru byste mohli ještě chtít, aby se načtená data
+přidávala na konec existujícího souboru. Jednou z možností by bylo otevřít
+výstupní soubor pro čtení, načíst jeho obsah do seznamu, připojit k seznamu
+data ze vstupního souboru a nakonec celý seznam zapsat jako novou verzi
+původního výstupního souboru. Pokud by byly soubory krátké, pak to nezpůsobí
+žádné problémy. Ale pokud je výstupní soubor velmi velký, třeba větší než
+100MB, pak vám prostě při vytváření seznamu řádků dojde paměť. <span
+class="trnote" title="Poznámka překladatele">(I kdybyste měli dostatečně
+velkou paměť, takový postup by byl časově náročný.)</span> Naštěstí můžeme
+operaci <code>open()</code> určit další režim <code>"a"</code> (jako
+append), který zajistí připojení dat na konec souboru &mdash; do souboru
+prostě zapisujeme. Je to dokonce ještě vylepšené tím, že pokud soubor
+neexistuje, bude vytvořen nový soubor &mdash; jako kdybyste použili režim
+<code>"w"</code>.</p>
+
+<p>Uveďme si příklad, kdy používáme takzvaný log<sup class="trnote"><a
+href="cztuttrn.html#Pfiles_log" id="Bfiles_log" title="Proč se log-souboru
+říká log-soubor?">[2]</a></sup> soubor, do kterého zapisujeme chybová
+hlášení. Přitom ale nechceme smazat předchozí záznamy, takže nové záznamy
+připisujeme na konec souboru <span class="trnote" title="Poznámka překladatele"
+>(error = chyba; msg = message [mesidž] = zpráva)</span>:</p>
+
+<pre>
+def logError(msg):
+   err = open("Errors.log", "a")
+   err.write(msg)
+   err.close()
+</pre>
+
+<p>V reálném světě bychom ovšem rádi nějakým způsobem omezili velikost
+souboru. Běžně se používá technika, kdy se jméno souboru odvodí z aktuálního
+data. Takže když se datum změní, vytvoří se automaticky nový soubor. Správce
+systému pak může snadno najít chyby, které se staly v určitý den. Může
+snadno rozhodnout, které soubory jsou staré, archivovat je a odstranit v
+případě, kdy už nebudou potřebné. (Připomeňme si, že aktuální datum můžeme
+zjistit pomocí funkcí modulu <code>time</code> &mdash; stejně jako ve výše
+uvedeném příkladu generování denní nabídky.)</p>
+
+
+<h3 id="Address">Oprášený příklad záznamníku s adresami</h3>
+
+<p>Pamatujete si na příklad záznamníku s adresami, který jsme poprvé
+nakousli v tématu <a href="cztutdata.html#address">Data, datové typy a
+proměnné</a> a poté vylepšili v kapitole <a href="cztutinput.html#address"
+>Konverzace s uživatelem</a>? Teď z něj udělám něco opravdu užitečného tím,
+že obsah záznamníku budeme ukládat do souboru. Při startu programu jej
+samozřejmě budeme také načítat. Pro tyto účely si napíšeme pár funkcí. V
+tomto příkladu tedy spojíme několik prvků a dovedností, kterými jsme se
+zabývali v předešlých tématech.</p>
+
+<p>Náš základní návrh bude vyžadovat funkci, která při startu přečte obsah
+souboru, a další funkci, která jej při ukončování programu opět do souboru
+zapíše. Prostřednictvím další funkce uživateli nabídneme možnost volby ze
+zobrazeného menu. A každou volbu položky z menu budou obsluhovat další
+funkce. Menu bude uživateli umožňovat:</p>
+
+<ul>
+<li>Přidání položky do záznamníku s adresami.</li>
+<li>Odstranění položky ze záznamníku.</li>
+<li>Nalezení a zobrazení existující položky.</li>
+<li>Ukončení programu.</li>
+</ul>
+
+
+<h4>Načtení obsahu záznamníku</h4>
+
+<pre>
+jmeno_souboru = 'adresy.dat'
+
+def nactiObsah(zaznamnik):
+    import os
+    if os.path.exists(jmeno_souboru):
+        soubor = open(jmeno_souboru, 'r')
+        for radek in soubor:
+            jmeno = radek.rstrip()
+	    polozka = soubor.next().rstrip()
+            zaznamnik[jmeno] = polozka
+    else:
+        soubor = open(jmeno_souboru, 'w') <span class="comment"># vytvoř nový prázdný soubor</span>
+    soubor.close()
+</pre>
+
+<p>Povšimněte si, že znaky konců řádků odstraňujeme voláním
+<code>rstrip()</code>. Povšimněte si také, že k získání dalšího řádku
+souboru uvnitř těla cyklu využíváme operace <code>next()</code>. A všimněte
+si také toho, že jsme jméno souboru uložili do proměnné, která je definována
+na úrovni modulu. To znamená, že proměnnou <code>jmeno_souboru</code> můžeme
+využít jak při načítání, tak při ukládání dat.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele k příkladu:</b> Osobně nejsem příznivcem řešení,
+kdy se v jednom cyklu <code>for</code> načítají dva řádky souboru najednou.
+První problém spočívá v tom, že by druhý řádek již nemusel být v souboru
+přítomen (například díky chybě při implementaci zápisu do souboru). V
+takovém případě vznikne při volání <code>next()</code> výjimka, kterou zde
+neošetřujeme. To by ale nebylo nejhorší &mdash; chyba by se rychle
+ukázala.</p> 
+
+<p>Za závažnější prohřešek považuji to, že <em>zneužíváme</em> znalosti
+vnitřní implementace cyklu <code>for</code> a spoléháme se, že funguje právě
+tak, jak momentálně funguje. Tuto znalost v kódu zveřejňujeme voláním metody
+<code>next()</code> a mlčky předpokládáme, že je vše v pořádku. Jinými
+slovy, ve zdrojovém textu tím vyjadřujeme přímou souvislost fungování cyklu
+<code>for</code> a metody <code>next()</code>. Úvahy podobného typu se nám
+mohou v budoucnu vymstít, protože by se například chování cyklu
+<code>for</code> mohlo změnit. V tomto případě to není pravděpodobné. Berte
+to jako teoretickou možnost.</p>
+
+<p>V tomto případě bych se pravděpodobně uchýlil k řešení, které by se
+tomuto problému vyhýbalo. Jeden záznam s celou adresou bych ukládal na jeden
+řádek. Jeho části bych vhodným způsobem na řádku při zápisu odděloval a při
+načítání bych je (z jednoho řádku) odpovídajícím způsobem získal.</p>
+
+<p>Za zbytečnou považuji celou větev <code>else</code>. Vytváření souboru
+ani po logické stránce neodpovídá operaci, při které bychom čekali pouze
+čtení ze souboru.</p>
+
+</div>
+
+<h4>Uložení obsahu záznamníku</h4>
+
+<pre>
+def ulozObsah(zaznamnik):
+    soubor = open(jmeno_souboru, 'w')
+    for jmeno, polozka in zaznamnik.items():
+        soubor.write(jmeno + '\n')
+        soubor.write(polozka + '\n')
+    soubor.close()
+</pre>
+
+<p>Povšimněte si, že při zápisu dat musíme přidávat znak konce řádku
+('<code>\n</code>').</p>
+
+
+<h4>Načtení uživatelského vstupu</h4>
+
+<pre>
+def nactiVolbu(menu):
+    print menu
+    volba = int(raw_input(u'Zvolte možnost (1-4): '))
+    return volba
+</pre>
+
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Python verze 2.4.1 a pravděpodobně i
+předchozí verze obsahují chybu v implementaci zabudované funkce
+<code>raw_input()</code>. Pokud použijeme parametr v kódování Unicode a
+program spustíme pod MS&nbsp;Windows v konzolovém okně, vypíše se výzva v
+neočekávaném kódování. Je to dáno tím, že MS&nbsp;Windows z historických
+důvodů používají v konzolovém (DOSovém) okně jiné kódování, než v oknech
+grafického uživatelského rozhraní. Detailní popis chyby můžete nalézt
+(anglicky) na SourceForge u projektu Python pod číslem <a
+href="http://sourceforge.net/tracker/index.php?func=detail&amp;aid=1099364&amp;group_id=5470&amp;atid=105470"
+>1099364</a>.</p>
+
+<p>Jeden z vývojářů Pythonu navrhuje dočasné řešení, kdy řetězec s výzvou
+převedeme do kódování, které používá <code>stdout</code> (souborový objekt
+pro standardní výstup) takto:</p>
+
+<pre>
+import sys
+vyzva.encode(sys.stdout.encoding)
+</pre>
+
+<p>Nyní máme dvě možnosti. Buď si definujeme vlastní funkci, která co do
+funkčnosti nahradí <code>raw_input()</code> a přidělíme jí vlastní jméno,
+nebo upravíme funkčnost původní <code>raw_input()</code> jejím
+předefinováním. Vybral jsem druhou možnost, protože ji lze využít pro opravu
+stávajících programů. Vytvoříme novou stejnojmennou funkci, která bude
+uvnitř volat její zabudovanou variantu (viz předpona
+<code>__builtins__</code>):</p>
+
+<pre>
+def raw_input(vyzva):
+    import sys
+    return __builtins__.raw_input(vyzva.encode(sys.stdout.encoding))
+</pre>
+
+<p>Obecnou nevýhodou tohoto i alternativního přístupu je to, že
+předefinovaná funkce má omezenou oblast platnosti. Pokud se chcete zeptat na
+podrobnosti, učiňte tak odkazem na konci této stránky.</p>
+
+</div>
+
+
+<h4>Přidání položky</h4>
+
+<pre>
+def pridejPolozku(zaznamnik):
+    jmeno = raw_input(u'Vložte jméno: ')
+    polozka = raw_input(u'Vložte ulici, město a telefonní číslo: ')
+    zaznamnik[jmeno] = polozka
+</pre>
+
+
+<h4>Odstranění položky</h4>
+
+
+<pre>
+def odstranPolozku(zaznamnik):
+    jmeno = raw_input(u'Vložte jméno: ')
+    del(zaznamnik[jmeno])
+</pre>
+
+
+<h4>Nalezení položky</h4>
+
+<pre>
+def najdiPolozku(zaznamnik):
+    jmeno = raw_input(u'Vložte jméno: ')
+    if jmeno in zaznamnik: <span class="comment trnote" title="Poznámka&nbsp;překladatele"># v originále je zaznamnik.keys(), ale je to zbytečné</span>
+       print jmeno, zaznamnik[jmeno]
+    else: 
+       print u"Lituji. Pro '%s' nebyla nalezena žádná položka." % jmeno
+</pre>
+
+
+<h4>Ukončení programu</h4>
+
+<p>Pro ukončení programu nebudeme psát nějakou zvláštní funkci. Místo toho
+budeme volbu na ukončení testovat v podmínce cyklu <code>while</code>. Takže
+hlavní program bude vypadat takto:</p>
+
+<pre>
+def main():
+    menu = u'''
+    1) Přidej položku
+    2) Odstraň položku
+    3) Najdi položku
+    4) Uložit a konec
+    '''
+    zaznamnik = {}
+    nactiObsah(zaznamnik)
+    volba = nactiVolbu(menu)
+    while volba != 4:
+        if volba == 1:
+            pridejPolozku(zaznamnik)
+        elif volba == 2:
+            odstranPolozku(zaznamnik)
+        elif volba == 3:
+            najdiPolozku(zaznamnik)
+        else: 
+            print u'Neočekávaná volba. Zkuste to znovu.'
+        volba = nactiVolbu(menu)
+    ulozObsah(zaznamnik)
+</pre>
+
+<p>Teď už zbývá jen zavolat při spuštění programu funkci
+<code>main()</code>. Zajistíme to při použití trošky pythonovské magie:</p>
+
+<pre>
+if __name__ == '__main__':
+    main()
+</pre>
+
+<p>Tento záhadný úsek kódu nám umožní spouštět pythonovský soubor buď jako
+modul tím, že ho <code>import</code>ujeme, nebo jako program tim, že ho
+spustíme. Rozdíl <span class="trnote" title="Poznámka&nbsp;překladatele">při
+uvedených dvou použitích pythonovského souboru</span> spočívá v tom, že při
+importování modulu je vnitřní proměnné <code>__name__</code> <span
+class="trnote" title="Poznámka&nbsp;překladatele">(dva znaky podtržení na
+začátku jména a dva na konci)</span> přiřazeno jméno modulu. Pokud je soubor
+spuštěn <span class="trnote" title="Poznámka&nbsp;překladatele">přímo (tj.
+použit jako samostatný program)</span>, je proměnná <code>__name__</code>
+nastavena na hodnotu <code>'__main__'</code>. Tajemné, že?</p>
+
+<p>Pokud nyní vložíte všechny kousky kódu do nového textového souboru a
+uložíte jej jako <code>adresy.py</code>, mělo by to jít spustit z
+příkazového řádku operačního systému tím, že napíšete:</p>
+
+<pre>
+C:\PROJEKTY> python adresy.py
+</pre>
+
+<p>Nebo prostě v Průzkumníku (Explorer, MS&nbsp;Windows) poklepete na ikonu.
+Mělo by se spustit nové DOSové okno a po ukončení programu by mělo zas
+zmizet.</p>
+
+<p>V Linuxu by to vypadalo podobně:</p>
+
+<pre>
+$ python adresy.py
+</pre>
+
+<p>Prostudujte si uvedený kód, zkuste v něm najít chyby (nechal jsem tam
+přinejmenším dvě, ale může jich tam být i více) a zkuste je opravit.
+Výsledný cca 70 řádkový program je typickým představitelem programů, které
+byste mohli začít psát pro svou vlastní potřebu. Pár věcí se v něm dá
+vylepšit &mdash; dostaneme se k tomu v další části &mdash;, ale i v této
+podobě jde o rozumně užitečný, malý nástroj.</p>
+
+
+<h3>VBScript a JavaScript</h3>
+
+<p>Ani jeden z jazyků VBScript a JavaScript nepodporuje práci se soubory.
+Jde o rys související s bezpečností. Zajišťuje, že nikdo nebude schopen číst
+vaše soubory v situaci, kdy jste si nevinně stáhli nějakou webovou stránku.
+Na druhou stranu se tím však omezuje obecná použitelnost obou jazyků. V
+části zabývající se znovupoužitelností modulů jsme se ale dozvěděli, že si v
+tomto směru můžeme pomoci, když použijeme <a
+href="cztutfunc.html#wsh">Windows Script Host</a>. WSH nám dává k dispozici
+objekt <code>FileSystem</code>, který jakémukoliv WSH jazyku umožní čtení
+souborů. Nejdříve se podíváme na příklad v JavaScript a potom si jej
+srovnáme s řešením v jazyce VBScript. Ale znovu uvidíme, jako v předchozím
+případě, že klíčovými prvky řešení budou volání WScript objektů.</p>
+
+<p>Než se dostaneme k podrobnostem, měli bychom se zmínit o <em>objektovém
+modelu</em> <code>FileSystem</code>. Objektovým modelem rozumíme sadu
+vzájemně souvisejících objektů <span class="trnote"
+title="Poznámka&nbsp;překladatele">(tříd)</span>, které může programátor
+přímo využívat. V rámci WSH se objektový model <code>FileSystem</code>
+skládá z objektů <code>FSO</code> a z řady objektů <span class="trnote"
+title="Poznámka&nbsp;překladatele">typu</span> <code>File</code>, včetně
+objektu <code>TextFile</code>, který budeme používat. Najdeme zde také
+pomocné objekty. Pro naše účely z nich budeme využívat objekt
+<code>TextStream</code>. V podstatě budeme postupovat tak, že vytvoříme
+instanci objektu <span class="trnote"
+title="Poznámka&nbsp;překladatele">třídy</span> <code>FSO</code>, tu
+použijeme pro vytvoření objektů <span class="trnote"
+title="Poznámka&nbsp;překladatele">třídy</span> <code>TextFile</code> a z
+nich vytvoříme objekty <code>TextStream</code>. Do nich budeme zapisovat
+nebo z nich budeme číst. 
+
+<span class="ir">The <TT>TextStream</TT> objects 
+themselves are what we actually read/write from the files.</span>  
+
+</p>
+
+<p>Následující kód uložte do souboru nazvaného <code>zkusSoubory.js</code> a
+spusťe jej pomocí <code>cscript</code> způsobem, který jsme použili v úvodu
+k WSH <span class="trnote" title="Poznámka&nbsp;překladatele">(tedy
+<code>cscript&nbsp;zkusSoubory.js</code>)</span>.</p>
+
+<h4>Otevření souboru</h4>
+
+<p>Abychom ve WSH mohli otevřít soubor, musíme si vytvořit objekt typu
+<code>FSO</code> a poté jeho prostřednictvím vytvořit objekt
+<code>TextFile</code>.</p>
+
+<pre>
+var jmenoSouboru, fso, inSoubor, outSoubor, radek;
+
+<span class="comment">// Získáme jméno souboru.</span>
+fso = new ActiveXObject("Scripting.FileSystemObject");
+WScript.Echo("Jak se bude soubor jmenovat? ");
+jmenoSouboru = WScript.StdIn.Readline();
+
+<span class="comment">// Otevřeme inSoubor pro čtení a outSoubor pro zápis.</span>
+inSoubor = fso.OpenTextFile(jmenoSouboru, 1); <span class="comment">// režim 1 = čtení</span>
+jmenoSouboru = jmenoSouboru + ".BAK"
+outSoubor = fso.CreateTextFile(jmenoSouboru);
+</pre>
+
+<h4>Čtení a zápis</h4>
+
+<pre>
+<span class="comment">// Cyklus přes vstupní soubor, dokud nenarazíme na konec.</span>
+while ( ! inSoubor.AtEndOfStream){
+    radek = inSoubor.ReadLine();
+    WScript.Echo(radek);
+    outSoubor.WriteLine(radek);
+    }
+</pre>
+
+<h4>Uzavření souborů</h4>
+
+<pre>
+inSoubor.close();
+outSoubor.close();
+</pre>
+
+<h4>Teď v jazyce VBScript</h4>
+
+<pre>
+&lt;?xml version="1.0" <span class="trnote" title="Poznámka&nbsp;překladatele">encoding="UTF-8"</span> ?>
+
+&lt;job>
+  &lt;script language="VBScript">
+      Dim fso, inSoubor, outSoubor, inJmenoSouboru, outJmenoSouboru
+      Set fso = CreateObject("Scripting.FileSystemObject")
+      
+      WScript.Echo "Zadejte jméno souboru pro zálohu."
+      inJmenoSouboru = WScript.StdIn.ReadLine
+      outJmenoSouboru = inJmenoSouboru &amp;amp; ".BAK"
+      
+      <span class="comment">' Otevřeme soubory.</span>
+      Set inSoubor = fso.OpenTextFile(inJmenoSouboru, 1)
+      Set outSoubor = fso.CreateTextFile(outJmenoSouboru)
+
+      <span class="comment">' Čteme soubor a vytváříme záložní kopii.</span>
+      While not inSoubor.AtEndOfStream
+         line = inSoubor.ReadLine
+	 outSoubor.WriteLine(line)
+      Wend
+      
+      <span class="comment">' Uzavřeme oba soubory.</span>
+      inSoubor.Close
+      outSoubor.Close
+      
+      WScript.Echo inJmenoSouboru &amp;amp; " zálohován do " &amp;amp; outJmenoSouboru
+  &lt;/script>
+&lt;/job>
+</pre>
+
+
+<div class="trnote">
+<p><b>Poznámka překladatele:</b> Soubor uložíme do souboru
+<code>zkusSoubory.wsf</code> a spustíme:</p>
+                                                 
+<pre>
+C:\PROJEKTY> cscript zkusSoubory.wsf 
+</pre>
+</div>
+
+<h3>Práce s netextovými soubory</h3>
+
+<p>Zpracování textu patří k jednomu z nejběžnějších programátorských úkolů.
+Občas ale potřebujeme zpracovávat i binární data. V jazycích VBScript nebo
+JavaScript se s tímto problémem setkáme velmi zřídka <span class="trnote"
+title="Poznámka&nbsp;překladatele">&mdash; už jen proto, že nemají přímou
+podporu práce se soubory &mdash;</span>, takže se budeme zabývat jen tím,
+jak se s tím vypořádáme v jazyce Python.</p>
+
+<h4>Otvírání a uzavírání binárních souborů</h4>
+
+<p>Klíčový rozdíl mezi textovými a binárními soubory spočívá v tom, že
+textové soubory jsou složené z <em>oktetů</em> (nebo bajtů) s binárními
+daty, kde každý bajt reprezentuje znak. Konec souboru je označen speciálním
+bajtem, kterému se anglicky obecně říká <em>end of file</em> <span
+class="trnote" title="Poznámka&nbsp;překladatele">[end of fajl]</span> nebo 
+<em>eof</em> (čili konec souboru). Binární soubor obsahuje libovolná binární
+data, takže pro identifikaci konce souboru nemůže být použita žádná
+speciální hodnota. Pro čtení takových souborů se proto musí použít jiný
+režim. Pokud tedy v Pythonu (nebo v jiném programovacím jazyce) otvíráme
+binární soubor, musíme jej otevřít v binárním režimu. V opačném případě
+riskujeme, že soubor bude ukončen v místě prvního výskytu znaku
+<code>eof</code>, který Python nalezne mezi binárními daty. Binárního
+otevření souboru v jazyce Python dosáhneme tak, že k parameru režimu
+přidáme <code>'b'</code>:</p>
+
+<pre>
+binarniSoubor = file('binSoubor.bin', 'rb')
+</pre>
+
+<p>Jedinou odlišnost od otvírání textového souboru představuje hodnota
+režimu <code>'rb'</code>. Písmeno <code>'b'</code> můžeme přidat i k
+ostatním režimům: <code>'wb'</code> pro zápis, <code>'ab'</code> pro
+připojování za konec souboru.</p>
+
+<p>Uzavírání binárního souboru se provádí stejně, jako u textového souboru.
+Jednoduše zavoláme metodu otevřeného souborového objektu
+<code>close()</code>:</p>
+
+<pre>
+binarniSoubor.close()
+</pre>
+
+<p>Protože soubor byl otevřen v binárním režimu, nemusíme Pythonu poskytovat
+nějakou další zvláštní informaci &mdash; Python ví, jak má soubor korektně
+uzavřít.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Můj osobní pohled na rozdíl v binárních a
+textových souborech je trochu jiný. Hlavní odlišnost spatřuji v tom, zda
+existuje obecně přijímaná interpretace uložených dat, či nikoliv. Jinými
+slovy se dá říci, že odlišnost spočívá v tom, zda existuje obecně přijímaný
+<em>abstraktní pohled</em> na uložená data. Obecně se přijímá to, že v
+textovém souboru jsou uloženy znaky a že se textový soubor člení na řádky.
+Jde o technický pohled. Z jazykového hlediska bychom mohli text členit na
+odstavce, věty, slova, znaky uvnitř slov a znaky, které nejsou součástí
+slov. Zůstaňme u technického pohledu.</p>
+
+<p><em>Textový soubor</em> lze v současnosti považovat za pouhou variantu
+binárních souborů. Dohodnutá interpretace si vynucuje, aby obsahoval jen
+určitou podmnožinu všech možných binárních kombinací. Pokud víme, že se na
+soubor máme dívat jako na textový, jsme například schopni vytisknout nebo
+jinak zobrazit jeho lidsky čitelnou podobu.</p>
+
+<p>Pokud bychom chtěli být přísní, měl by textový soubor obsahovat pouze
+písmena, další tisknutelné znaky, mezeru a sekvence pro oddělování řádků (CR
+a LF &mdash; viz poznámka výše). Oddělovače řádků patří mezi takzvané
+<em>řídicí znaky</em>. Tento pojem pochází z doby dálnopisů &mdash; tyto
+znaky řídily činnost dálnopisu, pokud zrovna neměl něco tisknout. Historické
+a technické souvislosti způsobily, že se za součást textových souborů
+považují i další řídicí znaky, jako je znak tabulační ('<code>\t</code>'),
+znak zpětného posuvu ('<code>\b</code>' z anglického back), znak
+<em>alarm</em> ('<code>\a</code>', dálnopis cinknul), a další. Patří sem i
+znak, který ukončuje konec souboru, ale v současných textových souborech se
+nepovažuje za povinný.</p>
+
+<p><em>Binární soubor</em> žádnou dohodnutou interpretaci nemá. To znamená,
+že bez dalších znalostí nevíme, co data znamenají, jak s nimi máme zacházet,
+kolik bajtů nebo bitů tvoří jeden informační celek, zda soubor obsahuje
+posloupnost informačních jednotek o stejné velikosti, či nikoliv, atd.</p>
+
+<p><em>Stupně abstrakce</em> se tedy při práci se soubory v binárním a v
+textovém režimu liší. Práci se soubory v binárním režimu musíme z hlediska
+zpracování systémem považovat za práci na nižší úrovni abstrakce. S vyšší
+úrovní abstrakce textových souborů souvisí existence některých operací, jako
+je například načtení jednoho řádku.</p>
+
+</div>
+
+<div class="details">
+
+<h4 id="encoding">Reprezentace dat a jejich ukládání</h4>
+
+<p>Než si řekneme, jak můžeme přistupovat k datům v binárním souboru, měli
+bychom se dozvědět něco o tom, jakým způsobem jsou data reprezentována a
+ukládána v počítači. Veškerá data jsou ukládána jako posloupnosti binárních
+číslic (<em>bi</em>nary digi<em>t</em>), bitů. Bity se sdružují do skupin po
+8 nebo po 16 a nazývají se bajty (bytes), respektive slova (words). (Skupiny
+po 4&nbsp;bitech se někdy nazývají nibble.) Bajt může obsahovat jeden z 256
+různých vzorků, kterým jsou přiřazeny hodnoty 0&ndash;255.</p>
+
+<p>Veškeré informace, se kterými v našich programech manipulujeme &mdash;
+řetězce, čísla a další &mdash;, musí být převedeny na posloupnosti bajtů. To
+znamená, že pro znaky, které jsme použili v řetězci, musíme vyhradit
+odpovídající vzorek bajtů. V minulosti se používalo několik způsobů
+<em>kódování</em>, ale nejpoužívanějším se stalo takzvané <em>ASCII</em>
+kódování (<b>A</b>merican <b>S</b>tandard <b>C</b>oding for
+<b>I</b>nformation <b>I</b>nterchange). Čisté ASCII je naneštěstí definováno
+jen pro 128 hodnot, což nestačí pro použití v neanglických jazycích. Později
+byl navržen nový kódovací standard, známý jako <em>Unicode</em>. Ten pro
+ukládání datové reprezentace znaků používá místo bajtů slova, což umožňuje
+kódovat přes 65000 znaků. Pokud použijeme kódovací formát UTF-8, pak původní
+soubory v ASCII kódování představují korektní reprezentaci Unicode textu.
+Python standardně podporuje kódování ASCII. Pokud před zápis řetězce uvedeme
+písmeno <code><b>u</b></code>, bude se řetězec považovat za řetězec v
+kódování Unicode.</p>
+
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> O věcech souvisejících se standardem
+Unicode se můžeme podrobněji dočíst na stránkách <a
+href="http://www.unicode.org/">http://www.unicode.org/</a>. Technický úvod
+ke standardu Unicode naleznete na stránce <a
+href="http://www.unicode.org/standard/principles.html"
+>http://www.unicode.org/standard/principles.html</a> (principy, formáty).</p>
+
+<p>Výše uvedená informace o počtu bajtů na znak a o počtu kódovaných znaků
+je nepřesná. Standard Unicode verze 4.0 definuje kódy pro 96447 znaků.
+Unicode verze 4.1.0 přidává dalších 1273 znaků. Standard definuje
+jednoznačné kódy pro každý znak. Pro ukládání do souboru se používají
+kódovací formáty UTF-8, UTF-16 a UTF-32. Určují způsob, jakým se jednoznačné
+číslo znaku převede do binární podoby pro uložení v souboru. Pokud použijeme
+formát UTF-32, pak je každý znak kódován na 4 bajtech. Pokud použijeme
+UTF-16, pak je většina znaků kódována na 2 bajtech a některé na 4 bajtech.
+Pokud použijeme kódování UTF-8, pak jsou ASCII znaky kódovány na jednom
+bajtu, ale některé znaky vyžadují až 4 bajty.</p>
+
+<p>Pokud chceme pracovat s Unicode řetězci v neanglických jazycích, musíme
+na začátku zdrojového textu pythonovského programu uvést speciální komentář,
+který říká, v jakém kódování je zdrojový text uložen. Při překladu zápisu
+řetězce pak může dojít ke korektnímu převodu zápisu do Unicode.</p>
+
+</div>
+
+<p>Do binárního kódování musíme převádět i čísla. Pro malá celá čísla stačí
+přímo využít hodnoty jednoho bajtu. Ale pro čísla větší, než 255 (nebo pro
+záporná čísla, nebo pro racionální čísla) musíme učinit něco navíc. Během doby
+se objevila celá řada standardů pro kódování numerických dat. Využívá je
+většina programovacích jazyků a operačních systémů. Řadu způsobů kódování
+čísel s plovoucí řádovou čárkou vydal například americký <em>Institute of
+Electrical and Electronic Engineering</em> (IEEE).</p>
+
+<p>Pointa spočívá v tom, že při čtení binárního souboru musíme v našem
+programu zajistit převod surových bitových vzorků <span class="trnote"
+title="Poznámka&nbsp;překladatele">na hodnotu</span> správného <em>datového
+typu</em>. Sérii bajtů, kterou jsme původně zapsali jako řetězec znaků, můžeme
+klidně načítat jako sérii čísel v plovoucí řádové čárce. Původní význam se tím
+samozřejmě ztratí. <span class="trnote" title="Poznámka&nbsp;překladatele"
+>Chci jen naznačit</span>, že stejný bitový vzorek může reprezentovat oba
+případy. Pokud tedy načítáme binární data, je velmi důležité, abychom je
+převedli na správný datový typ.</p>
+
+</div>
+
+<h4>Modul <code>struct</code></h4>
+
+<p>Pro kódování a dekódování binárních dat můžeme v Pythonu využít modulu
+<code>struct</code> (zkratka pro <em>structure</em>, tedy struktura). Tento
+modul pracuje podobně, jako když jsme používali formátovací řetězec pro tisk
+dat různého typu. Zadáváme řetězec, který reprezentuje typ načítaných dat, a
+ten je použit pro proud bajtů, který se pokoušíme interpretovat. Modul
+<code>struct</code> můžeme použít také pro převod dat na proud bajtů určených
+k zápisu do binárního souboru (nebo dokonce do komunikační linky).</p>
+
+<p>Modul definuje řadu kódů pro převod formátů, ale my zde použijeme jen kódy
+pro celá čísla a pro řetězce. (Ostatní kódy si můžete vyhledat v dokumentaci k
+modulu <code>struct</code>, který je součástí distribuce Pythonu. Kódy pro
+celé číslo a řetězec jsou <code>i</code> respektive <code>s</code>.
+Formátovací řetězec modulu <code>struct</code> se skládá z posloupnosti kódů,
+kterým jsou předřazena čísla, určující kolik prvků příslušného typu chceme
+získat. Tak například zápis <code>4s</code> znamená, že chceme řetězec o délce
+4 znaky.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Číslo před řetězcovou značkou
+se chápe jinak, než čísla před značkami pro jiné typy. U řetězce udává délku
+získávaného řetězce, u značek ostatních typů jde skutečně o počet hodnot
+daného typu. Tak například značka <code>10s</code> vyjadřuje <em>jeden</em>
+řetězec o délce 10 znaků, zatímco značka <code>10c</code> vyjadřuje
+<em>deset</em> jednoznakových řetězců (Python nezná typ <em>znak</em>).</p>
+
+<p>Dejme tomu, že bychom chtěli detaily adresy ve výše zmíněném záznamníku adres
+zapisovat jako binární data, kde by číslo domu bylo uloženo jako celé číslo a
+zbytek by byl uložen jako řetězec. (Z praktického hlediska to zase není tak
+dobrý nápad, protože <em>čísla domů</em> někdy obsahují i písmena.)
+Formátovací řetězec by pak vypadal nějak takto:</p>
+
+<pre>
+'i34s'  <span class="comment"># Předpokládáme, že na adresu je vyhrazeno 34 znaků.</span>
+</pre>
+
+<p>Pokud bychom potřebovali pracovat s různou délkou adresy, mohli bychom si
+napsat funkci, která vytvoří její binární podobu takto:</p>
+
+<pre>
+def formatujAdresu(adresa): 
+    <span class="comment"># split rozdělí řetězec na seznam 'slov'.</span>
+    slova = adresa.split()
+    cislo = int(slova[0])
+    zbytek = ' '.join(slova[1:])
+    format = "i%ds" % len(zbytek) <span class="comment"> # vytvoř formátovací řetězec</span>
+    return struct.pack(format, cislo, zbytek)
+</pre>
+
+<p>Takže adresu jsme rozsekali na kousky metodou <code>split()</code> <span
+class="trnote" title="Poznámka&nbsp;překladatele">zabudovaného typu
+řetězec</span>. První slovo jsme převedli na číslo a ostatní slova jsme opět
+spojili mezerami do jednoho řetězce. Jeho délku potřebujeme pro vygenerování
+formátovacího řetězce pro metodu modulu <code>struct</code>.</p>
+
+<p>Funkce <code>formatujAdresu()</code> vrací posloupnost bajtů, které
+zachycují binární vyjádření zadané adresy. Když už tedy máme potřebná binární
+data, podívejme se, jak je můžeme do binárního souboru zapsat a zase je zpět
+přečíst.</p>
+
+<h4>Čtení a zápis s využitím modulu <code>struct</code></h4>
+
+<p>Vytvoříme si binární soubor, který bude obsahovat jediný řádek adresy <span
+class="trnote" title="Poznámka&nbsp;překladatele">převedený do binární
+podoby</span> výše nadefinovanou funkcí <code>formatujAdresu()</code>. Soubor
+musíme otevřít pro zápis v binárním režimu (<code>'wb'</code>), zakódujeme
+data, zapíšeme je do souboru a ten následně uzavřeme. Vyzkoušejme si to:</p>
+
+<pre>
+import struct
+
+f = file('adresa.bin','wb')
+data = "10 Ulice, Město, 0171 234 8765"
+bindata = formatujAdresu(data)
+f.write(bindata)
+f.close()
+</pre>
+
+<p>Otevřením souboru <code>adresa.bin</code> v Poznámkovém bloku (notepad,
+<span class="trnote" title="Poznámka&nbsp;překladatele">případně v jiném
+editoru</span>) si můžete ověřit, že data byla skutečně zapsána v binárním
+tvaru. Znaky adresy sice budou čitelné, ale neuvidíme zde žádné číslo 10.</p>
+
+<p>Abychom adresu ze souboru opět přečetli, musíme jej otevřít v režimu
+<code>'rb'</code>, načíst data jako posloupnost bajtů, uzavřít soubor a
+nakonec data rozbalit metodou <code>unpack()</code> modulu
+<code>struct</code>. K tomu opět potřebujeme formátovací řetězec. Otázka zní,
+jak by měl vypadat? V našem případě víme, že musí být stejný jako ten, který
+jsme si připravili uvnitř funkce <code>formatujAdresu()</code> &mdash;
+konkrétně <code>iNs</code>, kde N musíme nahradit konkrétním číslem. Ale jak
+hodnotu N zjistíme?</p>
+
+<p>V modulu <code>struct</code> najdeme také pomocné funkce, které vracejí
+velikost každého datového typu. Když si spustíme Python v interaktivním
+režimu, pak po pár pokusech zjistíme, kolik bajtů zabírají hodnoty různého
+datového typu:</p>
+
+<pre>
+>>> import struct
+>>> print struct.calcsize('i')
+4
+>>> print struct.calcsize('s')
+1
+</pre>
+
+<p>Takže teď už víme, že číslo zabere 4 bajty a každý znak řetězce zabere
+jeden bajt. To znamená, že N spočítáme jako délku dat mínus 4. Vyzkoušejme si
+načíst obsah našeho souboru:</p>
+
+<pre>
+import struct
+
+f = file('adresa.bin','rb')
+data = f.read()
+f.close()
+
+format = "i%ds" % (len(data) - 4)
+cislo, zbytek = struct.unpack(format, data)
+adresa = str(cislo) + ' ' + zbytek
+print adresa
+</pre>
+
+<p>Co se týká binárních souborů je to vše, k čemu jsem se chtěl vyjádřit.
+Jistě jste si všimli, že používání binárních dat vede ke komplikacím. Pokud
+k tomu nemáte velmi dobrý důvod, pak uvedený přístup rozhodně nedoporučuji.
+Pokud ovšem skutečně potřebujete číst binární soubor, je to možné. V takovém
+případě ovšem musíte vědět, co data reprezentují.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> V uvedeném příkladu
+předpokládáme, že pracujeme s řetězci, kde je každý znak uložen na jednom
+bajtu. Pokud bychom navíc potřebovali pracovat s Unicode řetězci, pak se při
+použitém kódování UTF-8 může počet bajtů pro uložení znaku měnit. Novější
+verze jazyka Python navíc podporují i celočíselný typ, kde hodnota tohoto typu
+může být větší, než jakou můžeme zachytit na 4 bajtech. Pořadí ukládaných
+bajtů čísla se navíc řídí pravidly konkrétního výpočetního prostředí
+(little/big endian). Pokud tedy chceme zařídit přenositelnost takto
+vygenerovaných binárních souborů do na jiné systémy, musíme si pomoci
+explicitním uvedením dalších formátovacích značek, které předepíší konkrétní
+pořadí ukládání bajtů. Věci mohou být mnohem komplikovanější, než se na první
+pohled zdá.</p>
+
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+<li>Před použitím souborů je musíte otevřít.</li>
+<li>Ze souborů můžeme obvykle jen číst nebo do nich můžeme jen zapisovat,
+  ale ne obojí současně.</li>
+<li>Funkce <code>readlines()</code> jazyka Python přečte všechny řádky
+  souboru najednou, zatímco funkce <code>readline()</code> přečte jen jeden
+  řádek. Může nám to pomoci šetřit pamětí.</li>
+<li>Po použití soubor uzavřete.</li>
+<li>Při práci se soubory v binárním režimu musíme navíc uvést příznak
+  '<code>b</code>'.</li> 
+</ul>
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutfunc.html" title="Moduly a funkce">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztuttext.html" title="Práce s textem">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutfiles.html,v 1.9 2005/10/07 19:16:51 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutfiles.html,v 1.9 2005/10/07 19:16:51 petr Exp $</p>
+</div>
+</body>
+</html>
+

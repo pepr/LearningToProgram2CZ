@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Recursion</TITLE>
+</HEAD>
+<BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Recursion</H2>
+<P><TABLE>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD><UL>
+<LI>A definition of recursion
+<LI>How recursion works
+<LI>How recursion helps simplify some hard problems
+</UL></TD></TR>
+</TABLE>
+
+<h5>Note: This is a fairly advanced topic and for most
+applications you don't need to know anything about it.
+Occasionally, it is so useful that it is invaluable, so I present
+it here for your study. Just don't panic if it doesn't
+make sense straight away.</h5>
+</CENTER>
+
+<H3>What is it?</H3>
+
+<P>Despite what I said earlier about looping being one of the
+cornerstones of programming it is in fact possible to create
+programs without an explicit loop construct. Some languages,
+such as Scheme, do not in fact have an explicit loop construct
+like <TT> For, While, </TT> etc. Instead they use a technique
+known as <I> recursion </I>. This turns out to be a very
+powerful technique for some types of problem, so we'll take a
+look at it now.
+
+<P>Recursion simply means applying a function as a part of the
+definition of that same function. Thus the definition of GNU (the
+source of much free software) is said to be recursive because GNU
+stands for 'GNU's Not Unix'. ie GNU is part of the definition of
+GNU! 
+
+<P>The key to making this work is that there <B>must be a
+terminating condition</B> such that the function branches 
+to a non-recursive solution at some point. (The GNU definition
+fails this test and so gets stuck in an infinite loop).
+
+<P>Let's look at a simple example. The mathematical factorial
+function is defined as being the product of all the numbers
+up to and including the argument, and the factorial of 1 is 1.
+Thinking about this, we see that another way to express this is
+that the factorial of N is equal to N times the factorial of
+(N-1).
+
+<P>Thus:<BR>
+<CODE>
+1! = 1<BR>
+2! = 1 x 2 = 2<BR>
+3! = 1 x 2 x 3 = 2! x 3 = 6<BR>
+N! = 1 x 2 x 3 x .... (N-2) x (N-1) x N = (N-1)! x N
+</CODE>
+
+<P>So we can express this in Python like this:
+<PRE>
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+</PRE>
+<P>Now because we decrement N each time and we test for N equal
+to 1 the function must complete. There is a small bug in this 
+definition however, if you try to call it with a number less than 
+1 it goes into an infinite loop! To fix that change the test to use
+"&lt;=" instead of "==". This goes to show how easy it is to 
+make mistakes with terminating conditions, this is probably the 
+single most common cause of bugs in recursive functions. Make 
+sure you test all the values around your terminating point to
+ensure correct operation.
+
+<P>Let's see how that works when we execute it. Notice that the 
+return statement returns <TT>n * (the result of the next factorial 
+call)</TT> so we get:
+<PRE>
+factorial(4) = 4 * factorial(3)
+factorial(3) = 3 * factorial(2)
+factorial(2) = 2 * factorial(1)
+factorial(1) = 1
+</PRE>
+<P>So Python now works its way back up substituting the values:
+<PRE>
+factorial(2) = 2 * 1 = 2
+factorial(3) = 3 * 2 = 6
+factorial(4) = 4 * 6 = 24
+</PRE>
+
+<P>Writing the factorial function without recursion actually isn't 
+that difficult, try it as an exercise. Basically you need to loop 
+over all the numbers up to N multiplying as you go. However as we'll 
+see below some functions are much harder to write without recursion.
+
+<H3>Recursing over lists</H3>
+
+<P>The other area where recursion is very useful is in
+processing lists. Provided we can test for an empty list, 
+and generate a list minus its first element we can use 
+recursion easily. In Python we do that using a technique 
+called <I>slicing</I>. This is explained fully in the 
+<A href="http://docs.python.org/tut/node5.html">Python manual</A>
+but for our purposes all you need to know 
+is that using an "index" of <TT>[1:]</TT> on a list returns 
+all of the elements from 1 to the end of the list. So to 
+get the first element of a list called L:
+<PRE>
+first = L[0] <SPAN CLASS="comment"># just use normal indexing</SPAN>
+</PRE>
+
+<P>And to get the rest of the list:
+
+<PRE>
+butfirst = L[1:] <SPAN CLASS="comment"># use slicing to get elements 1,2,3,4...</SPAN>
+</PRE>
+
+<P>Let's try it out at the Python prompt, just to reassure 
+ourselves that it works:
+<PRE>
+>>> L =[1,2,3,4,5]
+>>> print L[0]
+1
+>>> print L[1:]
+[2,3,4,5]
+</PRE>
+
+<P> OK, let's get back to using recursion to print lists.
+Consider the trivial case of printing each element of a list
+of strings using a function printList:
+<PRE>
+def printList(L):
+    if L:
+        print L[0]
+	printList(L[1:])
+</PRE>
+
+<P>If L is true - non empty - we print the first element then
+process the rest of the list like this:
+<PRE>
+# NON PYTHON PSEUDO CODE
+PrintList([1,2,3])
+   prints [1,2,3][0] =&gt; 1
+   runs printList([1,2,3][1:]) =&gt; printList([2,3])
+   =&gt; we're now in printList([2,3])
+         prints [2,3][0] =&gt; 2
+         runs printList([2,3][1:]) =&gt; printList([3])
+	 =&gt; we are now in printList([3])
+	       prints [3][0] =&gt; 3
+	       runs printList([3][1:]) =&gt; printList([])
+	       =&gt; we are now in printList([])
+	             "if L" is false for an empty list, so we return None
+	 =&gt; we are back in printList([3])
+	       it reaches the end of the function and returns None
+   =&gt; we are back in printList([2,3])
+	 it reaches the end of the function and returns None
+=&gt; we are back in printList([1,2,3])
+   it reaches the end of the function and returns None
+
+</PRE>
+<H5>[Note: The above explanation is adapted from one given by Zak Arntson on the Python Tutor mailing list, July 2003]</I></H5>
+
+<P>For a simple list that's a trivial thing to do using a simple 
+for loop. But consider what happens if the List is complex and 
+contains other lists within it. If we can test whether an item 
+is a List using the built-in <TT>type()</TT> function and if it 
+is a list then we can call <TT>printList()</TT> recursively. 
+If it wasn't a list we simply print it. Let's try that:
+<PRE>
+def printList(L):
+    <SPAN CLASS="comment"># if its empty do nothing</SPAN>
+    if not L: return<SPAN CLASS="comment">
+    # if it's a list call printList on 1st element</SPAN>
+    if type(L[0]) == type([]):
+        printList(L[0])
+    else:<SPAN CLASS="comment"> #no list so just print</SPAN> 
+        print L[0]<SPAN CLASS="comment"> 
+    # now process the rest of L</SPAN> 
+    printList(L[1:])
+</PRE>
+
+<P>Now if you try to do that using a conventional loop construct
+you'll find it very difficult. Recursion makes a very complex
+task comparatively simple.
+
+<P>There is a catch (of course!). Recursion on large data
+structures tends to eat up memory so if you are short of memory,
+or have very large data structures to process the more 
+complex conventional code may be safer.
+
+<P>Finally, both VBScript and JavaScript support recursion too. 
+However since there is little to say that has not already been 
+said I will leave you with a recursive version of the factorial 
+function in each language:
+
+<PRE>
+&lt;script language="VBScript">
+Function factorial(N)
+   if N &lt;=1 Then
+      Factorial = 1
+   Else
+      Factorial = N * Factorial(N-1)
+   End If
+End Function
+
+Document.Write "7! = " & CStr(Factorial(7))
+&lt;/script>
+
+&lt;script language="Javascript">
+function factorial(n){
+   if (n &lt;= 1)
+      return 1;
+   else
+      return n * factorial(n-1);
+};
+
+document.write("6! = " + factorial(6));
+&lt;/script>
+</PRE>
+
+<P>OK, let's now take another leap into the unknown as we introduce
+Functional Programming.
+
+<CENTER>
+<P><TABLE>
+<TR><TH>Things to Remember</TH></TR>
+<TR><TD><UL>
+<LI> Recursive functions call themselves within their own definition
+<LI> Recursive functions must have a non recursive terminating condition 
+or an infinite loop will occur.
+<LI> Recursion is often, but not always, memory hungry
+</UL></TD></TR>
+</TABLE>
+
+<HR WIDTH="60%">
+
+<A HREF="tuterrors.htm" target="text">Previous</A>&nbsp
+<A HREF="tutfctnl.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,18 @@
+Index: tutseq2.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutseq2.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+39c39
+< <I>Integrated Development Environment</I>, that is to sa,y it includes 
+---
+> <I>Integrated Development Environment</I>, that is to say it includes 
+129c129
+< <P>You might recognise REM if you have ever written any MSDOS
+---
+> <P>You might recognize REM if you have ever written any MSDOS
+219c219
+< have to use your judgement to decide whether very long lines are 
+---
+> have to use your judgment to decide whether very long lines are 

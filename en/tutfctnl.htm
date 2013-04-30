@@ -1,0 +1,609 @@
+<html>
+<head>
+   <title>Introduction to Functional Programming</title>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+</head>
+<body bgcolor="#CCBBCC">
+
+<CENTER>
+<h2>Functional Programming</H2>
+
+<P><TABLE>
+<TR><TH>What will we Cover?</TH></TR>
+<TR><TD><UL>
+<LI> The difference between Functional and more traditional programming styles
+<LI> Python FP functions and techniques
+<LI> Lambda functions
+<LI> Short Circuit Boolean evaluation
+<LI> Programs as expressions
+</UL></TD></TR>
+</TABLE>
+
+<h5>In this topic we look at how Python can support yet another
+programming style: Functional Programming(FP). As with Recursion
+this is a genuinely advanced topic which you may wish to ignore
+for the present. Functional techniques do have some uses in day
+to day programming and the supporters of FP believe it to be a
+fundamentally better way to develop software.</h5>
+</CENTER>
+
+<H3>What is Functional Programming?</H3>
+
+<P>Functional programming should not be confused with
+imperative (or procedural) programming. Neither is it like
+object oriented programming. It is something different. Not
+radically so, since the concepts that we will be exploring are
+familiar programming concepts, just expressed in a different
+way. The philosophy behind how these concepts are applied to
+solving problems is also a little different.
+
+<P>Functional programming is all about <I>expressions</I>.
+In fact another way to describe FP might be to term it
+<I>expression oriented programming</I> since in FP everything
+reduces to an expression. You should recall that an expression
+is a collection of operations and variables that results in a
+single value. Thus <TT> x == 5 </TT> is a boolean expression.
+<TT> 5 + (7-Y) </TT> is an arithmetic expression. And 
+<TT>"Hello world".uppercase() </TT> is a string expression. 
+The latter is also a function call (Or more strictly a method call) 
+on the string object <TT>"Hello world"</TT> and, as we shall 
+see, functions are very important in FP (You might already 
+have guessed that from the name!).
+
+<P>Functions are used as objects in FP. That is they are often
+passed around within a program in much the same way as other 
+variables. We have seen examples of this in our GUI programs
+where we assigned the name of a function to the <TT>command</TT>
+attribute of a Button control. We treated the event handler
+function as an object and assigned a reference to the function
+to the Button. This idea of passing functions around our program
+is key to FP.
+
+<P>Functional Programs also tend to be heavily List oriented.
+
+<P>Finally FP tries to focus on the <I>what</I> rather than the 
+<I>how</I> of problem solving. That is, a functional program 
+should describe the problem to be solved rather than focus on 
+the mechanism of solution. There are several programming languages 
+which aim to work in this way, one of the most widely used is 
+Haskell and the Haskell web site (
+<A href="http://www.haskell.org">www.haskell.org</A>)
+has numerous papers describing the philosophy of FP as well as
+the Haskell language. (My personal opinion is that this goal,
+however laudable,  is rather overstated by FP's advocates.)
+
+<P>A pure functional program is structured by defining an
+expression which captures the intent of the program. Each term
+of the expression is in turn a statement of a characteristic of
+the problem (maybe encapsulated as another expression) and the
+evaluation of each of these terms eventually yields a solution.
+
+<P>Well, that's the theory. Does it work? Yes, sometimes it
+works very well. For some types of problem it is a natural and
+powerful technique. Unfortunately for many other problems it
+requires a fairly abstract thinking style, heavily influenced 
+by mathematical principles. The resultant code is often far from
+readable to the layman programmer. The resultant code is also
+very often much shorter than the equivalent imperative code and
+more reliable.
+
+<P>It is these latter qualities of conciseness and reliability 
+that have drawn many conventional imperative or object oriented 
+programmers to investigate FP. Even if not embraced whole heartedly 
+there are several powerful tools that can be used by all.
+<P><TABLE>
+<TR><TH>FP and Reliability</TH></TR>
+<TR><TD>
+The reliability of Functional Programs comes in part from the 
+very close relationship between FP constructs and formal 
+specification languages such as Z or VDM. If a problem is specified 
+in a formal language it is a fairly straightforward step to 
+translate the specification into an FP language like Haskell.
+Of course if the original specification is wrong then the 
+resultant program will merely accurately reflect the error! 
+<P>This principle is known in computer science as <I>"Garbage In, 
+Garbage Out"</I>. The inherent difficulty of expressing system 
+requirements in a concise and unambiguous manner remains one 
+of the greatest challenges of software engineering.
+</TD></TR></Table>
+
+
+<H3>How does Python do it?</H3>
+
+<P>Python provides several functions which enable a functional
+approach to programming. These functions are all convenience
+features in that they can be written in Python fairly easily.
+What is more important however is the <I>intent</I> implicit in
+their provision, namely to allow the Python programmer to work
+in a FP manner if he/she wishes.
+
+<P>We will look at some of the functions provided and see how
+they operate on some sample data structures that we define as:
+
+<PRE>
+spam = ['pork','ham','spices']
+numbers = [1,2,3,4,5]
+
+def eggs(item): 
+    return item
+</PRE>
+
+<H4>map(aFunction, aSequence)</H4>
+
+<P>This function applies a Python function, <TT>aFunction</TT> 
+to each member of <TT>aSequence</TT>. The expression:
+<PRE>
+L = map(eggs, spam)
+print L
+</PRE>
+
+<P>Results in a new list (in this case identical to spam) 
+being returned in L.
+
+<P>We could have done the same thing by writing:</P>
+<PRE>
+for i in spam:
+   L.append(i)
+print L
+</PRE>
+
+<P>Notice however, that the map function allows us to remove the
+need for a nested block of code. From one point of view that
+reduces the complexity of the program by one level. We'll see
+that as a recurring theme of FP, that use of the FP functions
+reduces the relative complexity of the code by eliminating
+blocks. 
+
+<a name="filter">
+<H4>filter(aFunction, aSequence)</H4>
+
+<P>As the name suggests <TT>filter</TT> extracts each element
+in the sequence for which the function returns <TT>True</TT>. Consider
+our list of numbers. If we want to create a new list of only odd
+numbers we can produce it like so:
+
+<PRE>
+def isOdd(n): return (n%2 != 0) <SPAN CLASS="comment"># use mod operator</SPAN>
+L = filter(isOdd, numbers)
+print L
+</PRE>
+
+<P>Alternatively we can write:
+<PRE>
+def isOdd(n): return (n%2 != 0)
+for i in numbers:
+   if isOdd(i):
+      L.append(i)
+print L
+</PRE>
+
+<P>Again notice that the conventional code requires two levels
+of indentation to achieve the same result. Again the increased
+indentation is an indication of increased code complexity.
+
+<H4>reduce(aFunction, aSequence)</H4>
+
+<P>The <TT>reduce</TT> function is a little less obvious in its
+intent. This function reduces a list to a single value by
+combining elements via a supplied function. For example we could
+sum the values of a list and return the total like this:
+<PRE>
+def add(i,j): return i+j
+print reduce(add, numbers)
+</PRE>
+
+<P>As before we could do this more conventionally like this:
+
+<PRE>
+res = 0
+for i in range(len(numbers)): <SPAN CLASS="Comment"># use indexing</SPAN>
+   res = res + numbers[i]
+print res
+</PRE>
+
+<P>While that produces the same result in this case, it is not
+always so straightforward. What <TT>reduce</TT> <I>actually</I>
+does is call the supplied function passing the first two members
+of the sequence and replaces them with the result. In other words 
+a more accurate representation of reduce is like this:
+
+<PRE>
+def reduce(numbers):
+  L = numbers[:] <SPAN CLASS="comment"># make a copy of original</SPAN>
+  while len(L) >= 2:
+     i,j = L[0],L[1] <SPAN CLASS="comment"># use tuple assignment</SPAN>
+     L = [i+j] + L[2:]
+  return L[0]
+</PRE>
+
+<P>Once more we see the FP technique reducing the complexity of
+the code by avoiding the need for an indented block of code.
+
+<H4>lambda</H4>
+
+<P>One feature you may have noticed in the examples so far
+is that the functions passed to the FP functions tend to be very
+short, often only a single line of code. To save the effort of
+defining lots of very small functions Python provides another
+aid to FP - <TT>lambda</TT>. The name lambda comes from a 
+branch of mathematics called <I>lambda calculus</I> which 
+uses the Greek letter Lambda to represent a similar concept.
+
+<P>Lambda is a term used to refer to an <I>anonymous function</I>, 
+that is, a block of code which can be executed as if it were 
+a function but without a name. Lambdas can be defined anywhere 
+within a program that a legal Python expression can occur, 
+which means we can use them inside our FP functions.
+
+<P>A Lambda looks like this:
+<PRE>
+lambda &lt;aParameterList&gt; : &lt;a Python expression using the parameters&gt;
+</PRE>
+
+<P>Thus the <TT>add</TT> function above could be rewritten as:
+
+<PRE>
+add = lambda i,j: i+j
+</PRE>
+
+And we can avoid the definition line completely by creating the
+<TT>lambda</TT> within the call to <TT>reduce</TT>, like so:
+
+<PRE>
+print reduce(lambda i,j:i+j, numbers)
+</PRE>
+
+<P>Similarly we can rewrite our <TT>map</TT> and <TT>filter</TT>
+examples like so:
+
+<PRE>
+L = map(lambda i: i, spam)
+print L
+L = filter(lambda i: (i%2 != 0), numbers)
+print L
+</PRE>
+
+<H4>List Comprehension</H4>
+<P>List comprehension is a technique for building new lists borrowed 
+from Haskell and introduced in Python since version 2.0. It has a 
+slightly obscure syntax, similar to mathematical set notation. 
+It looks like this:
+<PRE>
+[&lt;expression&gt; for &lt;value&gt; in &lt;collection&gt; if &lt;condition&gt;]
+</PRE>
+
+<P>Which is equivalent to:
+
+<PRE>
+L = []
+for value in collection:
+    if condition:
+        L.append(expression)
+</PRE>
+
+<P>As with the other FP constructs this saves some lines and 
+two levels of indentation. Lets look at some practical examples.
+
+<P>First let's create a list of all the even numbers:
+
+<PRE>
+>>> [n for n in range(10) if n % 2 == 0 ]
+[0, 2, 4, 6, 8]
+</PRE>
+
+<P>That says we want a list of values (<TT>n</TT>) where <TT>n</TT> 
+is selected from the range 0-9 and <TT>n</TT> is even(<TT>i % 2 == 0</TT>).
+
+<P>The condition at the end could, of course, be replaced by a 
+function, provided the function returns a value that Python can 
+interpret as boolean. Thus looking again at the previous example 
+we could rewrite it as:
+
+<PRE>
+>>>def isEven(n): return ((n%2) == 0)
+>>> [ n for n in range(10) if isEven(n) ]
+[0, 2, 4, 6, 8]
+</PRE>
+
+<P>Now let's create a list of the squares of the first 5 numbers:
+<PRE>
+>>> [n*n for n in range(5)]
+[0, 1, 4, 9, 16]
+</PRE>
+
+<P>Notice that the final if clause is not needed in every case.
+Here the initial expression is <tt>n*n</TT> and we use all of 
+the values from the range.</P>
+
+<P>Finally let's use an existing collection instead of the 
+range function:
+
+<PRE>
+>>> values = [1, 13, 25, 7]
+>>> [x for x in values if x &lt; 10]
+[1, 7]
+</PRE>
+
+<P>This could be used to replace the following filter function:
+<PRE>
+>>> filter(lambda x: x &lt; 10, values)
+[1, 7]
+</PRE>
+
+<P>List comprehensions are not limited to one variable or one 
+test however the code starts to become very complex as more 
+variables and tests are introduced.
+
+<P>Whether comprehensions or the traditional functions seem 
+most natural or appropriate to you is purely subjective. 
+When building a new collection based on an existing collection 
+you can use either the previous FP functions or the new list 
+comprehensions. When creating a completely new collection 
+it is usually easier to use a comprehension. 
+
+<P>Remember though that while these constructs may seem appealing, 
+the expressions needed to get the desired result can become so 
+complex that it's easier to just expand them out to their 
+traditional python equivalents. There is no shame in doing 
+so - readability is always better than obscurity, especially 
+if the obscurity is just for the sake of being clever!
+
+<H3>Other constructs</H3>
+
+<P>Of course while these functions are useful in their own right
+they are not sufficient to allow a full FP style within Python.
+The control structures of the language also need to be altered,
+or at least substituted, by an FP approach. One way to achieve
+this is by applying a side effect of how Python evaluates
+boolean expressions.
+
+<H4>Short Circuit evaluation</H4>
+
+<P>Because Python uses <I>short circuit evaluation</I> of
+boolean expressions certain properties of these expressions can
+be exploited. To recap on short-circuit evaluation: when a
+boolean expression is evaluated the evaluation starts at the
+left hand expression and proceeds to the right, stopping when 
+it is no longer necessary to evaluate any further to determine
+the final outcome.
+
+<P>Taking some specific examples let's see how short circuit
+evaluation works:
+<PRE>
+>>> def TRUE():
+...   print 'TRUE'
+...   return True
+...   
+>>>def FALSE():
+...   print 'FALSE'
+...   return False
+...
+</PRE>
+
+<P>First we define two functions that tell us when they are
+being executed and return the value of their names. Now we use
+these to explore how boolean expressions are evaluated:
+
+<PRE>
+>>>print TRUE() and FALSE()
+TRUE
+FALSE
+False
+>>>print TRUE() and TRUE()
+TRUE
+TRUE
+True
+>>>print FALSE() and TRUE()
+FALSE
+False
+>>>print TRUE() or FALSE()
+TRUE
+True
+>>>print FALSE() or TRUE()
+FALSE
+TRUE
+True
+>>>print FALSE() or FALSE()
+FALSE
+FALSE
+False
+</PRE>
+
+<P>Notice that only <B>IF</B> the first part of an <I>AND</I>
+expression is <tt>True</tt> then and only then will the second part be
+evaluated. If the first part is <tt>False</tt> then the second part
+will not be evaluated since the expression as a whole
+<B>cannot</B> be <tt>True</tt>. 
+
+<P>Likewise in an <B>OR</B> based expression if the first part
+is <tt>True</tt> then the second part need not be evaluated since the
+whole <B>must</B> be <tt>True</tt>.
+
+<P>There is one other feature of Pythons evaluation of boolean 
+expressions that we can take advantage of, namely that when evaluating 
+an expression Python does not simply return <tt>True</tt> or 
+<tt>False</tt>, rather it returns the actual value of the 
+expression. Thus if testing for an empty string (which would 
+count as <tt>False</tt>) like this: 
+<PRE>
+if "This string is not empty": print "Not Empty"
+else: print "No string there"
+</PRE>
+
+<P>Python just returns the string itself!
+
+<P>We can use these properties to reproduce branching like
+behavior. For example suppose we have a piece of code like the
+following:
+<PRE>
+if TRUE(): print "It is True"
+else: print "It is False"
+</PRE>
+
+<P>We can replace that with the FP style construct:
+<PRE>
+V =  (TRUE() and "It is True") or ("It is False")
+print V
+</PRE>
+
+<P>Try working through that example and then substitute the call
+to <TT>TRUE()</TT> with a call to <TT>FALSE()</TT>.
+
+Thus by using short circuit evaluation of boolean expressions we
+have found a way to eliminate conventional if/else statements
+from our programs. You may recall that in the recursion topic we
+observed that recursion could be used to replace the loop 
+construct. Thus combining these two effects can remove all
+conventional control structures from our program, replacing them
+with pure expressions. This is a big step towards enabling pure
+FP style solutions.
+
+<P>To put all of this into practice let's write a completely 
+functional style factorial program using <tt>lambda</tt> 
+instead of <tt>def</tt>, recursion instead of a loop and 
+short circuit evaluation instead of <tt>if/else:</tt><BR>
+
+<PRE>
+>>> factorial = lambda n: ( (n &lt;= 1) and 1) or
+...                       (factorial(n-1) * n)
+>>> factorial(5)
+120
+</PRE>
+
+<P>And that really is all there is to it. It may not be quite 
+so intelligible as the more conventional Python code but it 
+does work and is a purely functional style function in that it 
+is a pure expression.
+
+
+<H3>Conclusions</H3>
+
+<P>At this point you may be wondering what exactly is the point
+of all of this? You would not be alone. Although FP appeals to
+many Computer Science academics (and often to mathematicians)
+most practicing programmers seem to use FP techniques sparingly 
+and in a kind of hybrid fashion mixing it with more traditional 
+imperative styles as they feel appropriate. 
+
+<P>When you have to apply operations to elements in a list such
+that <TT>map, reduce or filter</TT> seem the natural way to
+express the solution then by all means use them. Just
+occasionally you may even find that recursion is more appropriate
+than a conventional loop. Even more rarely will you find a use
+for short circuit evaluation rather than conventions if/else -
+particularly if required within an expression. As with any
+programming tool, don't get carried away with the philosophy,
+rather use whichever tool is most appropriate to the task in
+hand. At least you know that alternatives exist! 
+
+<P>There is one final point to make about <TT>lambda</TT>. There
+is one area outside the scope of FP that lambda finds a real use
+and that's for defining event handlers in GUI programming. Event
+handlers are often very short functions, or maybe they simply
+call some larger function with a few hard wired argument values.
+In either case a lambda function can be used as the event
+handler which avoids the need to define lots of small individual
+functions and fill up the name space with names that would only
+be used once. Remember that a lambda statement returns a function
+object. This function object is the one passed to the widget and
+is called at the time the event occurs. If you recall how we
+define a Button widget in Tkinter, then a lambda would appear
+like this:
+
+<PRE>
+def write(s): print s
+b = Button(parent, text="Press Me", 
+           command = lambda : write("I got pressed!"))
+b.pack()
+</PRE>
+
+<P>Of course in this case we could have done the same thing 
+by just assigning a default parameter value to <TT>write()</TT> 
+and assigning <TT>write</TT> to the <TT>command</TT> value of 
+the <TT>Button</TT>. However even here using the <TT>lambda</TT> form 
+gives us the advantage that the single <TT>write()</TT> function can 
+now be used for multiple buttons just by passing a different 
+string from the <TT>lambda</TT>. Thus we can add a second button:
+<PRE>
+b2 = Button(parent, text="Or Me", 
+           command = lambda : write("So did I!"))
+b2.pack()
+</PRE>
+
+<P>We can also employ <TT>lambda</TT> when using the bind technique, 
+which sends an event object as an argument:
+<PRE>
+b3 = Button(parent, text="Press me as well")
+b3.bind(&lt;Button-1&gt;, lambda ev : write("Pressed"))
+</PRE>
+
+<P>Well, that really is that for Functional Programming. There
+are lots of other resources if you want to look deeper into it,
+some are listed below. Neither VBScript nor JavaScript directly 
+support FP but both can be used in a functional style by a 
+determined programmer. The key features being to structure your 
+programs as expressions and not to allow side-effects to modify
+program variables.
+
+<H4>Other resources</H4>
+
+<UL>
+<LI>There is an excellent article by David Mertz on 
+<A href="http://www-106.ibm.com/developerworks/linux/library/l-prog.html">
+the IBM web site</A> about FP in Python. It goes into more 
+detail about control structures and provides more detailed 
+examples of the concept.
+
+<LI>Other languages support FP even better than Python. 
+Examples include:: Lisp, Scheme, Haskell, ML and some others.
+<A href="http://www.haskell.org">The Haskell web site</A> 
+in particular includes a wealth of information about FP.
+
+<LI>There is also a newsgroup, <TT>comp.lang.functional</TT>
+where you can catch up on the latest happenings and find a
+useful FAQ.
+
+<LI>There are several book references to be found on the above
+reference sites. One classic book, which is not entirely about FP
+but does cover the principles well is <I>Structure &amp;
+Interpretation of Computer Programs</I> by Abelman, Sussman and
+Sussman. This text focuses on Scheme an extended version of
+Lisp. My personal primary source has been the book 
+<I>The Haskell School of Expression</I> by Paul Hudak which is, 
+naturally enough, about Haskell.
+</UL>
+
+<P>If anyone else finds a good reference drop me an email via the
+link below. 
+
+<center>
+<TABLE>
+<TR><TH>Things to Remember</TH></TR>
+<TR><TD><UL>
+<LI> Functional programs are pure expressions 
+<LI> Python provides <TT>map</TT>, <TT>filter</TT> and <TT>reduce</TT> 
+     as well as <TT>list comprehensions</TT> to support FP style programming 
+<LI> <TT>lambda</TT> expressions are anonymous (ie unnamed) blocks of code 
+     that can be assigned to variables or used as functions
+<LI> Boolean expressions are evaluated only as far as necessary 
+     to ensure the result, which fact enables them to be used as 
+     control structures
+<LI> By combining the FP features of Python with recursion it is 
+     possible (but usually not advisable) to write almost any 
+     function in an FP style in Python.
+</UL></TD></TR>
+</TABLE>
+
+<p>
+<hr WIDTH="60%">
+<a href="tutgui.htm" target="text">Previous</a> 
+<a href="tutcase.htm" target="text">Next</a>
+<a href="tutcont.htm" target="contents">Contents</a>
+<br>&nbsp;
+<p>If you have any questions or feedback on this page send me mail at:
+<a href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</a></center>
+
+</body>
+</html>

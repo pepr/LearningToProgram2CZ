@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Další posloupnosti</title>
+</head>
+<body>
+
+<h2>Další posloupnosti a jiné věci</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+
+<ul>
+<li>Seznámíme se s novým nástrojem pro psaní programů v jazyce Python.</li>
+<li>Zopakujeme si, jak využívat proměnné k uložení informací, které budeme 
+    chtít použít později.</li>
+<li>Řekneme si něco o komentářích a probereme si, proč je potřebujeme.</li>
+<li>Ukážeme si, jak kombinovat delší posloupnosti příkazů s cílem vyřešit 
+    nějaký úkol.</li>
+</ul>
+</div>
+
+<p>Takže&hellip; Nyní už víme, jak v jazyce Python zapisujeme jednotlivé
+příkazy. Začali jsme také brát v úvahu data a to, co s nimi můžeme dělat.
+Napsali jsme při tom pár delších posloupností s rozsahem, dejme tomu, 5 až
+10 řádků. Přibližujeme se k tomu, abychom začali psát opravdu užitečné
+programy. Je tu ale jeden háček. Naše programy se ztrácejí, kdykoliv
+skončíme práci s Pythonem. Pokud jste zkoušeli příklady v jazycích VBScript
+a JavaScript, museli jste si je uložit do souboru. Proto jste je mohli
+spouštět opakovaně. Totéž bychom potřebovali u programů v jazyce Python. Už
+jsem se zmínil o tom, že k tomu můžete použít libovolný textový editor, jako
+je například Notepad nebo pico, a výsledek uložit do souboru s příponou
+<code>.py</code>. Poté můžete výsledek spustit z příkazového řádku &mdash;
+viz kapitola <a href="cztutstart.html">Začínáme</a>. Ale existuje jednodušší
+způsob.</p>
+
+<h3>The joy of being IDLE<sup class="trnote"><a
+href="cztuttrn.html#Pseq2_idle" id="Bseq2_idle"
+title="IDLE, aneb slovní hříčka...">[1]</a></sup></h3>
+
+<p>Když jste si instalovali Python, nainstalovala se vám současně užitečná
+aplikace, která je sama napsána v jazyce Python. Nazývá se IDLE a je tím,
+čemu se říká <em>integrované vývojové prostředí</em>. To znamená, že jde o
+jednu aplikaci, která v sobě zahrnuje několik programátorských nástrojů. Co
+se týká IDLE, nemíním zde zabíhat do hloubky. Chci vyzvednout jen dvě z jeho
+vlastností. Najdete v něm zdokonalenou verzi <span class="trnote"
+title="Poznámka&nbsp;překladatele">toho, čemu jsme říkali</span> pythonovský
+příkazový řádek (<code>>>></code>), s podporou zvýrazňování syntaxe
+(anglicky syntax highlighting [syntax hailaiting] &mdash; různé prvky jazyka
+zobrazuje různými barvami) a s dalšími šikovnými vlastnostmi. A naleznete
+zde také dobrý textový editor (specializovaný na pythonovské zdrojové
+texty), který vám zprostředkuje spouštění vašich programů přímo z IDLE.</p>
+
+<p>Pokud jste tak již neučinili, pak vám vřele doporučuji, abyste si IDLE
+vyzkoušeli. Jakmile zjistíte, jak se ve vašem operačním systému IDLE
+spouští, pak za nejlepší považuji shlédnout <a
+href="http://hkn.eecs.berkeley.edu/~dyoo/python/idle_intro/index.html"
+target="_blank">vynikající příručku Dannyho Yoo</a> <span class="trnote"
+title="Poznámka&nbsp;překladatele">(anglicky)</span>.</p>
+
+<p>Na domovských stránkách systému Python naleznete pod <a
+href="http://www.python.org/idle/doc/idlemain.html" target="_blank">heslem
+IDLE</a> úplnou učebnici. <span class="trnote"
+title="Poznámka&nbsp;překladatele">(Je ale v angličtině a místy může být
+poněkud zastaralá. Odpovídá verzi IDLE 0.5, přičemž s instalací Python 2.3.4
+byla k dispozici již verze IDLE 1.0.3.)</span></p>
+
+<p>Pokud používáte MS&nbsp;Windows je tu ještě další možnost v podobě
+aplikace <a href="http://www.python.org/windows/pythonwin/"
+target="_blank">Pythonwin</a>, kterou lze stáhnout samostatně nebo jako
+součást balíku <a href="https://sourceforge.net/projects/pywin32/"
+target="_blank">pywin32</a>. Tento balík vám zpřístupní všechny
+nízkoúrovňové funkce <span class="trnote" title="Poznámka&nbsp;překladatele"
+>architektury</span> MFC pro MS&nbsp;Windows <span class="trnote"
+title="Poznámka&nbsp;překladatele">(Microsoft Foundation Classes)</span> a
+&mdash; což je důležité &mdash; představuje velmi dobrou alternativu k IDLE.
+PythonWin lze použít pouze pod MS&nbsp;Windows, ale podle mého názoru je o
+něco lepší, než IDLE. Na druhou stranu, IDLE je standardní součástí
+instalace systému Python, takže jej používá více lidí. Navíc funguje na
+většině platforem. Ať už je to jakkoliv, vždy je lepší mít možnost
+volby.</p>
+
+<p>Pokud dáváte přednost jednoduššímu přístupu, můžete použít některý z
+textových editorů, které různým způsobem programování v Pythonu podporují.
+Editor <a href="http://www.vim.org/" target="_blank">vim</a> podporuje
+zvýrazňování syntaxe (barevné zobrazování klíčových slov, atd.), editor <a
+href="http://www.gnu.org/software/emacs/emacs.html"
+target="_blank">emacs</a> definuje pro Python plnohodnotný editační režim,
+malý editor <a href="http://www.scintilla.org/SciTE.html"
+target="_blank">SciTE</a> podporuje zvýrazňování syntaxe a má další pěkné
+rysy. <span class="trnote">Poznámka&nbsp;překladatele: Za vyzkoušení určitě
+stojí i v Javě napsaný editor <a href="http://www.jedit.org/"
+target="_blank">jEdit</a>.</span></p>
+
+<p>Pokud půjdete cestou používání textového editoru, pak pravděpodobně
+zjistíte, že nejšikovnější bude používat tři najednou otevřená okna:</p>
+
+<ol>
+<li>Editor, kde píšete zdrojový text a ukládáte jej do souboru,</li>
+<li>okno s interaktivně spuštěným Pythonem, ve kterém si na příkazovém  
+    řádku (<code>>>></code>) zkoušíte věci, které poté přidáváte do 
+    zdrojového textu, a</li>
+<li>okno s příkazovým řádkem operačního systému, ve kterém spouštěním
+    testujete vytvářený program.</li>    
+</ol>
+
+<p>Autor této učebnice dává přednost <span class="trnote"
+title="Poznámka&nbsp;překladatele">výše popsanému způsobu</span> používání
+tří oken, ale zdá se, že většina začátečníků dává přednost stylu <em>vše v
+jednom</em> v podobě IDLE nebo Pythonwin. Výběr je pouze na vás.</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Důvodem k používání přístupu <em>se třemi
+okny</em> bývá skutečnost, že pokročilejší uživatelé jsou již zvyklí na svůj
+oblíbený textový editor, ve kterém dokáží pracovat efektivněji, než v jiných
+editorech. Při jeho výběru se uplatňuje tolik vlivů, že prakticky o žádném
+editoru nelze tvrdit, že je nejlepší či horší. Je to jako s auty. Někdo má
+rád pohodlnější limuzíny s automatickou převodovkou a s posilovačem řízení,
+někomu vyhovují standardní přibližovadla s ne příliš výraznými rysy v žádném
+směru, někdo vyznává rychlé sportovní modely, ze kterých vymačká maximální
+akceleraci a výkon, i za cenu toho, že se mu od řadicí páky dělají
+mozoly.</p>
+
+<p>Osobně jsem prošel používáním editorů vi/vim, emacs, JED (v režimu emacs)
+až k momentálně používanému jEdit. Kromě toho jsem používal několik editorů
+z integrovaných prostředí různých jazyků, pár editorů integrovaných do
+nástrojů typu Norton Commander a další malé editory typu Notepad a podobné.
+Ačkoliv bych se asi nechal přesvědčit k vyzkoušení nějakého nového editoru,
+nechtějte po mě, abych se vracel k vim. Nesedí mi, tak jako vi-kingům nebude
+sedět emacs nebo jEdit. Nepřemlouvejte mě. Já taky nebudu nikoho
+přemlouvat.</p>
+
+<p>Pokud ve věci editoru dosud nemáte jasno, vyzkoušejte výše zmíněny SciTE.
+Zdá se, že má v režimu pro Python docela pěkné vlastnosti. Kromě toho se v
+kapitole o používání <a href="cztutgui.html">grafického uživatelského
+rozhraní</a> zmíníme o balíku wxPython, který mimo jiné obsahuje modul
+<code>stc</code>. Nemám s nimi velké zkušenosti, ale jak SciTe, tak modul
+<code>stc</code> využívají stejnou editační komponentu, která se vyvíjí v
+rámci projektu <a href="http://www.scintilla.org/"
+target="_blank">Scintilla</a>. To jinými slovy znamená, že do svých
+pythonovských programů můžete zakomponovat okno fungující podobně, jako
+jinak samostatná aplikace SciTE. Když si spustíte demo k wxPython, pak v
+pravém okně pod záložkou <em>Demo Code</em> uvidíte modul <code>stc</code> v
+akci.</p>
+
+<p>Za zmínku stojí další nástroj, nazývaný <em>PyCrust</em>. Svého času se
+jednalo o samostatný projekt, který měl být ve vztahu k wxPython tím samým,
+čím je IDLE ve vztahu Tkinter. Z původně samostatného projektu se stala
+součást wxPython. V době psaní tohoto textu existoval ve verzi 0.9.4 a na
+první pohled se jevil velice slibně. Konečným cílem projektu je kvalitnější
+náhrada IDLE: Python shell, editor (využívající modul <code>stc</code>) a
+další nástroje, které usnadňují vývoj.</p>
+
+</div>
+
+
+<p>Pokud zkoušíte příklady v JavaScript nebo VBScript, doporučuji využít
+některý z výše zmíněných editorů a nějaký vhodný prohlížeč, dejme tomu
+Internet Explorer, ve kterém si soubor otevřete. Když budete chtít vyzkoušet
+<span class="trnote" title="Poznámka&nbsp;překladatele">v editoru provedené
+úpravy</span>, jednoduše stiskněte tlačítko prohlížeče
+<code>Aktualizovat</code> (Reload). <span class="trnote">Poznámka
+překladatele: Nezapomeňte nejdříve soubor po úpravách v editoru
+uložit.</span></p>
+
+
+<h3>Krátce o komentářích</h3>
+
+<p>K jednomu z nejdůležitějších programátorských nástrojů patří jeden, který
+začátečníci často při prvním seznámení vnímají jako zbytečný &mdash;
+komentáře. Komentáře jsou prostě jen řádky v programu, které popisují, o co
+jde. Nemají žádný vliv na funkčnost programu, jsou v něm <em>na ozdobu</em>.
+Komentáře ovšem hrají velmi důležitou roli. Říkají programátorovi, o co v
+daném místě jde. A co je ještě důležitější, říkají <em>proč</em> to tak má
+být. Zvlášť důležité je to v případě, kdy programátor, který zdrojový text
+studuje, není tím, kdo jej napsal. Případně může jít o jeho dílo, ale od
+jeho vzniku už uplynula dlouhá doba. Význam dobrých komentářů po určitých
+programátorských zkušenostech jistě sami doceníte. Komentáře byly použity
+již u některých dříve uvedených úryvků kódu. Jsou to ony jinou barvou
+zvýrazněné části řádků, které začínají symbolem <span
+class="comment">#&nbsp;pro&nbsp;Python</span> nebo symbolem <span
+class="comment">'&nbsp;pro&nbsp;VBScript</span>. Od tohoto okamžiku budu
+části programu komentovat <span class="trnote"
+title="Poznámka&nbsp;překladatele">pečlivěji</span>. Množství okolního
+vysvětlujícího textu se bude postupně zmenšovat, protože vysvětlení budou
+uvedena právě v komentářích.</p>
+
+<p>Každý jazyk definuje svůj způsob zápisu komentářů. V jazyce VBScript
+komentář začíná slovem <code>REM</code> (zkratka slova <em>remark</em>
+[rimák] = komentář) nebo, což je běžnější, apostrofem <code>'</code>.
+Ignoruje se vše, co se nachází za uvedenou značkou <span class="trnote"
+title="Poznámka&nbsp;překladatele">(do konce řádku)</span>:</p>
+
+<pre>
+<span class="comment">REM print "Tento text se nikdy nevytiskne."</span>
+<span class="comment">' Toto je také komentářový řádek.</span>
+print "Tento text se vytiskne."
+</pre>
+
+<p>Pokud jste někdy psali dávkové soubory v systému MS-DOS <span
+class="trnote" title="Poznámka překladatele">(ty s příponou .bat)</span>,
+může vám být slovo REM povědomé, protože v dávkových souborech se používá
+stejný způsob označování komentářů.</p>
+
+<p>Všimněte si, že možnost používání apostrofu pro označení komentářů
+zabraňuje tomu, aby se apostrof mohl ve VBScript používat pro vymezování
+řetězců. VBScript si prostě myslí, že jde o komentář.</p>
+
+<p>Python používá pro označení komenářů znak <code>#</code>. Následující
+znaky<span class="trnote" title="Poznámka překladatele">, až do konce
+řádku,</span> se ignorují:</p>
+
+<pre>
+v = 12  <span class="comment"># přiřaď do v hodnotu 12</span>
+x = v*v <span class="comment"># x je v na druhou</span>
+</pre>
+
+<p>Uvedený příklad shodou okolností používá velmi <em>špatný</em> styl
+komentování. Vaše poznámka by neměla jenom znovu popisovat význam
+(sémantiku) příkazu. To přece vidíme na první pohled ze zápisu samotného
+příkazu! Komentář by měl vysvětlovat <em>proč</em> se to dělá:</p>
+
+<pre>
+v = 3600   <span class="comment"># 3600 je počet sekund za jednu hodinu</span>
+s = t*3600 <span class="comment"># t obsahuje čas v hodinách, s v sekundách</span>
+</pre>
+
+<p>Takové komentáře jsou mnohem prospěšnější.</p> 
+
+<p>JavaScript používá v roli komentářové značky dvojici lomítek
+<code>//</code>. A jako v předchozích případech, vše za touto značkou se
+ignoruje.</p>
+
+<p>Některé jazyky umožnují používání víceřádkových komentářů, které jsou
+uzavřeny párem komentářových značek. Pokud ovšem není korektně vložena
+značka pro ukončení komentáře, může to vést k podivným chybám. V jazyce
+JavaScript víceřádkové komentáře používat lze. Zahajují se komentářovou
+značkou <code>/*</code>. Následuje <span class="trnote"
+title="Poznámka&nbsp;překladatele">text komentáře a vše je uzavřeno
+značkou</span> <code>*/</code>:</p>
+
+<pre>
+&lt;script type="text/javascript">
+document.write("Tohle se vytiskne.&lt;br>");
+
+<span class="comment">// Toto je jednořádkový komentář</span>
+
+<span class="comment">/* Toto je víceřádkový komentář. Pokračuje od tohoto řádku 
+dále přes tento řádek a dokonce
+na tento, třetí řádek. Neobjeví se na výstupu skriptu.
+Komentář je ukončen zrcadlovým obrazem otevírací značky. */</span>
+
+document.write("Tento text se také vytiskne.");
+&lt;/script>
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Pokud používáme editor se
+zvýrazňováním syntaxe, pak bývají komentáře zobrazovány jinou barvou nebo
+jiným typem písma. V takovém případě se pravděpodobnost toho, že si
+nevšimneme neuzavřeného víceřádkového komentáře, výrazně snižuje.</p>
+
+<p>Na komentářích je důležité především to, aby vysvětlovaly význam částí
+programu komukoliv, kdo se program snaží číst. Měli byste na to vždy
+pamatovat a vysvětlovat všechny záhadné úseky, jako je například používání
+nějakých na první pohled podivných hodnot, složitých matematických výrazů a
+podobně. A&nbsp;myslete na to, že oním zmateným čtenářem můžete být za pár
+týdnů nebo měsíců právě vy.</p>
+
+
+
+<h3>Posloupnosti příkazů používajících proměnné</h3>
+
+<p>V kapitole <a href="cztutdata.html">Data, datové typy a proměnné</a> jsme
+se seznámili s proměnnými. Zmiňovali jsme se o nich jako o nálepkách,
+kterými si označujeme naše data, abychom se na ně mohli později odkazovat.
+V&nbsp;různých příkladech se seznamy a v příkladu kódu pro ukládání adres
+jsme mohli pozorovat příklady použití proměnných. Nicméně, proměnné mají při
+programování tak podstatnou důležitost, že před probíráním dalších věcí
+raději používání proměnných znovu shrneme.</p>
+
+<p>Nyní použijte IDLE nebo příkazový řádek Pythonu spuštěného v okně MS-DOS
+nebo v terminálovém okně systému Unix. Napište následující příkazy:</p>
+
+<pre>
+>>> v = 7
+>>> w = 18
+>>> x = v + w <span class="comment"># využíváme naše proměnné při výpočtu</span>
+>>> print x
+</pre>
+
+<p>V této ukázce jsme vytvořili proměnné (<code>v</code>, <code>w</code> a
+<code>x</code>) a manipulovali jsme s jejich obsahem. Podobá se to
+použití tlačítka <code>M</code> na vaší kalkulačce. Výsledek uložíme do
+paměti s cílem použít tuto hodnotu někdy později.</p>
+
+<p>Tisk výsledku můžeme vylepšit použitím formátovacího řetězce:</p>
+
+<pre>
+>>> print "Soucet cisel %d a %d je: %d" % (v, w, x)
+</pre>
+
+<p>Jednou z výhod formátovacího řetězce je to, že jeho obsah můžeme
+<em>také</em> uložit do proměnné:</p>
+
+<pre>
+>>> s = "Soucet cisel %d a %d je: %d"
+>>> print s % (v, w, x) <span class="comment"># užitečné pro stejný výstup různých hodnot</span>
+</pre>
+
+<p>Příkaz <code>print</code> se tím velmi zkrátí, a to především v
+případech, kdy pracujeme s mnoha hodnotami najednou. Na druhou stranu se tím
+příkaz více zatemní. Rozhodnutí, zda jsou velmi dlouhé řádky lépe nebo hůře
+čitelné (ve srovnání s variantou uložení formátovacího řetězce do proměnné),
+musíte učinit sami. Pokud formátovací řetězec najdete poblíž příkazu
+<code>print</code>, jako v našem případě, pak to není tak špatné. Můžeme si
+pomoci ještě jedním způsobem. Proměnné pojmenováváme takovým způsobem, aby
+vysvětlovaly účel svého použití. Místo jména <code>s</code> bych například
+mohl přidělit naší proměnné pro uložení formátovacího řetězce jméno
+<code>formatProSoucet</code>. Potom by příklad vypadal takto:</p>
+
+<pre>
+>>> formatProSoucet = "Soucet cisel %d a %d je: %d"
+>>> print formatProSoucet % (v, w, x) <span class="comment"># užitečné pro stejný výstup různých hodnot</span>
+</pre>
+
+<p>Pokud pak v programu používáme několik různých formátovacích řetězců,
+můžeme snadněji předepsat, který z formátů se má při tisku použít. Používání
+výstižných názvů proměnných je užitečné za všech okolností. V dalších
+příkladech se toho budeme držet. Prozatím naše proměnné neměly zrovna
+význam, který by určoval, jak by se proměnná měla jmenovat.</p>
+
+
+<h3>Na pořadí záleží</h3>
+
+<p>V tomto okamžiku byste si mohli myslet, že postup konstruování
+posloupnosti příkazů je zřejmý a že mu věnujeme zbytečně velkou pozornost.
+V této chvíli můžete mít pravdu, protože v našem případě je poměrně jasné, o
+co jde. Ale ne vždy je to tak jednoduché, jak to vypadá. Můžeme narazit na
+skrytou léčku. Uvažujme případ, kdy chceme posunout úroveň všech nadpisů v
+HTML dokumentu o jeden stupeň výše.</p> 
+
+<p>V HTML vytváříme nadpisy tím, že jejich text obalíme značkami:</p>
+
+<ul>
+
+<li><code>&lt;h1&gt;text&lt;/h1&gt;</code> pro první (nejvyšší) úroveň nadpisů,</li>
+
+<li><code>&lt;h2&gt;text&lt;/h2&gt;</code> pro druhou úroveň nadpisů,</li>
+
+<li><code>&lt;h3&gt;text&lt;/h3&gt;</code> pro třetí úroveň nadpisů, atd.
+<span class="trnote" title="Poznámka překladatele">(Norma HTML 4.01 definuje
+značky pro 6 úrovní nadpisů.)</span></li>
+
+</ul>
+
+<p>Problém spočívá v tom, že jakmile se dostanete na pátou úroveň nadpisů,
+text v nadpisu je často menší, než text odstavců &mdash; což vypadá divně.
+Takže se můžete například rozhodnout, že posunete všechny úrovně nadpisů o
+jednu nahoru <span class="trnote" title="Poznámka překladatele">(tj. směrem
+k menšímu číslu ve značce)</span>. Můžete to poměrně snadno provést v
+textovém editoru při využití funkce náhrady jednoho řetězce jiným: všechny
+řetězce <code>&lt;h2</code> nahradíte řetězcem <code>&lt;h1</code>, řetězce
+<code>&lt;/h2</code> nahradíte řetězcem <code>&lt;/h1</code> a tak dále.</p>
+
+<p>Ale uvažte, co se stane, když začnete nahrazovat značky s nejvyššími
+čísly &mdash; řekněme <code>h4</code> značkou <code>h3</code>, potom
+<code>h3</code> značkou <code>h2</code> a nakonec <code>h2</code> značkou
+<code>h1</code>. Všechny nadpisy by se posunuly na první úroveň! Takže
+pořadí provedení posloupnosti akcí je důležité. Totéž by platilo, pokud
+bychom napsali program, který by zmíněné náhrady řetězců prováděl za nás
+(což bychom docela dobře mohli chtít udělat, protože posunování úrovní
+nadpisů může být úkol, který potřebujeme řešit velmi často).</p>
+
+<p>V kapitole <a href="cztutdata.html">Data, datové typy a proměnné</a> bylo
+uvedeno několik dalších příkladů používajících proměnné a uvádějících různé
+posloupnosti příkazů &mdash; a to zejména na příkladech s adresami lidí. A
+proč byste si vlastně nemohli vymyslet pár vlastních příkladů? Jakmile s tím
+budete hotovi, budeme pokračovat směrem k případové studii. Budeme ji
+budovat postupně a vylepšovat ji vždy, když se při probírání dalších témat
+naučíme nějakou novou techniku.</p>
+
+
+<h3>Tabulka násobků</h3>
+
+<p>Nyní uvedu příklad, který budeme rozvíjet v průběhu několika
+následujících kapitol. Tak jak se budeme učit novým programovacím technikám,
+řešení příkladu se bude postupně vylepšovat</p>
+
+<p>Vzpomínáte si, že můžeme psát dlouhé řetězce uzavřené v trojitých
+uvozovkách? Využijeme toho k vytvoření tabulky násobků:</p>
+
+<pre>
+>>> s = """
+1 x 12 = %d
+2 x 12 = %d
+3 x 12 = %d
+4 x 12 = %d
+"""
+>>> <span class="comment"># Pozor - komentáře nemůžeme psát dovnitř</span>
+>>> <span class="comment"># řetězce. Staly by se jeho součástí!</span>
+>>> print s % (12, 2*12, 3*12, 4*12)
+
+1 x 12 = 12
+2 x 12 = 24
+3 x 12 = 36
+4 x 12 = 48
+
+>>> 
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Uvedený tvar vstupu a
+výstupu můžete pozorovat, pokud použijete IDLE. Ve skutečnosti by byl
+zobrazený obsah okna o něco barevnější, protože IDLE zvýrazňuje význam
+různých částí zdrojového textu různými barvami. Pokud pro stejný příklad
+použijete interaktivní režim překladače Python (Python spuštěný v okně s
+příkazovým řádkem operačního systému), bude se vzhled lišit tím, že Python
+vypisuje vyzývací řetězec neukončeného příkazu ve tvaru
+'<code>...&nbsp;</code>'. Teprve za tímto řetězcem se zobrazuje text, který
+vkládáte z klávesnice.</p>
+
+<p>Rozšířením tohoto příkladu bychom mohli dosáhnout vytištění celé tabulky 
+násobků čísla 12 od 1 do 12. Ale neexistuje nějaký lepší způsob? Odpověď zní
+ano. Podívejme se, jak na to.</p>
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+
+<li>IDLE je vývojový nástroj pro psaní programů v jazyce Python. IDLE lze
+používat na různých platformách <span class="trnote" title="Poznámka překladatele"
+>(jak pod operačním systémem MS-Windows, tak pod operačním systémem Unix a
+jeho variantami)</span>.</li>
+
+<li>Komentáře mohou zvýšit čitelnost programů, ale nemají žádný vliv na jeho
+funkčnost.</li>
+
+<li>Proměné mohou uchovávat mezivýsledky, které chceme použít později.</li>
+</ul>
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutdata.html" title="Data, datové typy a proměnné">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutloops.html" title="Příkazy cyklu">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutseq2.html,v 1.7 2004/09/06 06:04:27 prikryl Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutseq2.html,v 1.7 2004/09/06 06:04:27 prikryl Exp $</p>
+</div>
+</body>
+</html>
+

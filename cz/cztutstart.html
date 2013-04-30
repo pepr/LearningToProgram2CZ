@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Začínáme</title>
+</head>
+<body>
+
+
+<h2>Začínáme</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+<p>O tom, jak spustit Python a jak vypadají chybová hlášení
+&mdash; to pro případ, že&hellip;</p>
+</div>
+
+<p>Pro následující cvičení budu předpokládat, že máte na vašem počítači
+řádně nainstalovanou verzi Pythonu. Pokud ne, pak můžete nejnovější verzi
+stáhnout <a href="http://www.python.org" target="_blank">z domovského
+serveru jazyka Python</a> a nainstalovat ji podle pokynů příslušejících vaší
+platformě.</p>
+
+<p>Nyní na příkazový řádek napište <code>python</code>. Python by měl
+vypsat výzvu, která vypadá nějak takto:</p>
+
+<pre>
+Python 2.3 (#46, Jul 29 2003, 18:54:32) [MSC v.1200 32 bit (Intel)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+</pre>
+
+
+<p>Jako alternativu můžete ve vašem startovacím menu najít odkaz na něco,
+co se nazývá IDLE (nebo Python GUI). Po spuštění IDLE uvidíte podobnou
+výzvu, jako v případě spuštění <code>python</code> z příkazového řádku, ale
+bude se nacházet ve vlastním okně a <span class="trnote" 
+title="Poznámka překladatele" >text do něj zapsaný</span> bude zobrazován pěkně
+barevně. Prvnímu seznámení s IDLE je věnován docela dobrý <a target="_blank"
+href="http://hkn.eecs.berkeley.edu/~dyoo/python/idle_intro/index.html">IDLE
+Tutorial</a>, který napsal Danny Yoo. Pokud místo základního příkazového
+řádku chcete používat IDLE, doporučuji vám, abyste zmíněnému textu věnovali
+pozornost. Opakují se v něm některé věci, které jste se zde již četli, ale
+opakování je matka moudrosti.</p>
+
+<p>Úplná příručka pro IDLE se nachází <a target="_blank" 
+href="http://www.python.org/idle/doc/idlemain.html">zde</a><sup class="trnote" 
+id="Bstart_IDLE" title="Poznámka k úplné příručce IDLE"><a 
+href="cztuttrn.html#Pstart_IDLE">[1]</a></sup>. Pro tuto chvíli
+bych ale doporučoval zůstat u Dannyho návodu.</p>
+
+<p>Jednou ze zajímavých věcí na programu IDLE je to, že je sám o sobě
+pythonovským programem. Takže jde vlastně o velmi dobrou ukázku možností
+jazyka Python.</p>
+
+<p>Pokud jste verzi Pythonu získali ze serveru ActiveState nebo pokud jste
+si stáhli rozšíření určená pro Windows (balík <em>winall</em>), pak máte k
+dispozici další programátorské prostředí s grafickým uživatelským rozhraním.
+Velmi se podobá IDLE, je možná o něco víc vyšperkované a nazývá se
+Pythonwin. Jak Pythonwin, tak IDLE představují mnohem lepší programátorské
+prostředí než standardní DOSové okno. Pro úplný začátek dávám přesto
+přednost používání nejzákladnějších nástrojů, které nám pomohou soustředit
+se na podstatné principy místo toho, abychom si hráli <span class="trnote"
+title="Poznámka překladatele">s prostředím</span>.</p>
+
+
+<h3>Pár slov o chybových hlášeních</h3>
+
+<p>Pokud budete zapisovat příkazy, které jsou součástí cvičení uvedených v
+této učebnici, pak se dříve či později setkáte s chybovým hlášením. Bude
+vypadat nějak takto:</p>
+
+<pre>
+>>> print 'fred' + 7
+Traceback (most recent call last):
+  File "&lt;stdin>", line 1, in ?
+TypeError: cannot concatenate 'str' and 'int' objects
+>>>
+</pre>
+
+<p>Nebudeme teď bádat nad přesným významem tohoto hlášení<sup class="trnote"
+><a href="cztuttrn.html#Pstart_newerPython" id="Bstart_newerPython" 
+title="Nová verze uvádí přesnější význam chyby">[2]</a></sup>. Zaměřme se raději
+na jeho strukturu.</p>
+
+<p>Řádek '<code>>>> print&nbsp;</code>...' obsahuje chybně zapsaný příkaz.
+Další dva řádky popisují, kde se chyba vyskytla &mdash;
+'<code>line&nbsp;1&nbsp;in&nbsp;?</code>' říká, že to bylo na prvním
+napsaném řádku. Pokud by se jednalo o delší program, uložený ve zdrojovém
+souboru, pak by byl řetězec <code>&lt;stdin&gt;</code> nahrazen jménem
+souboru. Řádek začínající '<code>TypeError</code>&nbsp;...' nám říká, co je
+podle názoru interpretu špatně. Někdy se zde může objevit znak
+<em>stříška</em> (<code>^</code>), který ukazuje na tu část řádku, o které
+si Python myslí, že zde nastala chyba. Naneštěstí budou tyto údaje často
+zavádějící. Chyba se obvykle nachází na řádku někde dříve, než kde ji Python
+označil. Může být dokonce i o řádek nebo dva výše. Nezapomínejte, že počítač
+je hloupý.</p>
+
+<p>Chybová hlášení jsou zde k tomu, abyste zjistili, co <span class="trnote"
+title="Poznámka překladatele">špatného</span> se vlastně děje. Pamatujte si,
+že je velmi pravděpodobně, že jste na omylu vy a ne počítač. Připomeňte si
+také, že počítač je hloupý. Pravděpodobně jste se jenom překlepli nebo jste
+někde zapoměli použít uvozovky nebo něco podobného. Opět si uvědomte, že
+počítač je hloupý. Vše opět pozorně zkontrolujte.</p>
+
+<p>V případě, že jste zvědaví, pak vězte, že jsem se v příkladu dopustil té
+chyby, že jsem se pokoušel sčítat číslo a řetězec. Takovou akci Python
+nepovoluje a proto na tuto situaci poukázal a sdělil mi, že nastala chyba v
+typu (<code>TypeError</code>). Musíte si počkat, až se k typům dostaneme <a
+href="cztutdata.html#type">při povídání o datech</a>. Pak pochopíte, k čemu
+jsou typy dobré.</p>
+
+<p>Ať už si vyberete práci v DOSovém okně nebo budete používat IDLE, nyní
+jsme připraveni vytvářet v jazyce Python některé velmi jednoduché
+programy.</p>
+
+
+<h3>JavaScript</h3>
+
+<p>K vytvoření a spuštění programu v jazyce JavaScript toho musíme udělat
+o&nbsp;něco víc. Musíme vytvořit HTML soubor, který se dá načíst do
+webovského prohlížeče. HTML soubor je ve skutečnosti jen obyčejný textový
+soubor, který můžete vytvořit například editorem <em>Poznámkový blok</em>
+(Notepad) nebo jakýmkoliv jiným textovým editorem. Souborb ude vypadat nějak
+takto:</p>
+
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type="text/javascript"&gt;
+
+document.write('Ahoj, vy tam.\n');
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Náš program je ta část, která se nachází mezi značkami
+<code>&lt;script...&gt;</code> and <code>&lt;/script&gt;</code>. V dalších
+příkladech nebudu pokaždé ukazovat všechny okolní HTML značky. Pokud si se
+budete chtít vyzkoušet, budete si muset okopírovat soubor s nějakým
+příkladem jako šablonu a vyměnit vše mezi značkami <code>script</code> kódem
+nového příkladu.</p>
+
+<h3>VBScript</h3>
+
+<p><span class="trnote" title="Poznámka&nbsp;překladatele">Vložení kódu v
+jazyce</span> VBScript provedeme v podstatě stejně jako v případě <span
+class="trnote" title="Poznámka překladatele">vkládání kódu v jazyce</span>
+JavaScript. Jediný rozdíl, což může být dost překvapivé, spočívá v náhradě
+podřetězce "javascript" uvnitř <code>type=</code> podřetězcem "vbscript":</p>
+
+<pre>
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;script type="text/vbscript"&gt;
+
+MsgBox "Ahoj, vy tam."
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p>Zopakujme si to ještě jednou. Program je ta část mezi značkami
+<code>&lt;script&gt; ...</code> a <code>&lt;/script&gt;</code>.</p>
+
+
+<h4>Chyby v jazycích VBScript a JavaScript</h4>
+
+<P>V jazycích VBScript i JavaScript chyba způsobí zobrazení dialogového okna
+s číslem řádku, na kterém k chybě došlo. Zobrazí se i poněkud
+neproniknutelné chybové hlášení. Podobně jako v Pythonu se při hledání místa
+chyby orientujte spíše zhruba podle čísla řádku, než podle přesného označení
+místa chyby. Po nalezení a opravě místa chyby musíte stránku ve vašem
+webovém prohlížeči znovu načíst (obnovit).
+
+
+<p>Takže, ať už si vyberete jakýkoliv jazyk, jsme připraveni začít.</p>
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+
+<ul>
+
+<li>Python spustíte tím, že na příkazovém řádku napíšete <em>python</em>.</li>
+
+<li>Chybová hlášení nejsou určena k tomu, aby vás děsila. 
+Čtěte je pozorně. Obvykle vás navedou k příčině chyby.</li>
+
+<li>Ale jde pouze o náznak&hellip; Jestliže jste na pochybách, zkontrolujte
+řádky bezprostředně <em>předcházející</em> řádku, který je uveden v chybovém
+hlášení.</li>
+
+</ul>
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutwhat.html" title="Co je to programování?">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutseq1.html" title="Jednoduché posloupnosti">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutstart.html,v 1.10 2004/08/31 11:55:14 prikryl Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutstart.html,v 1.10 2004/08/31 11:55:14 prikryl Exp $</p>
+</div>
+</body>
+</html>
+

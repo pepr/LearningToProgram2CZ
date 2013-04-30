@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Počítačová témata -- UMLComputer Bits</title>
+</head>
+<body>
+
+<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
+se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+
+<h1>Počítačová témata</h1>
+
+<h2>UML &mdash; The Unified Modelling Language</h2>
+
+<p>&hellip; neboli Sjednocený modelovací jazyk</p>
+
+<h3>Historické souvislosti</h3>
+
+<p>Sjednocený modelovací jazyk &mdash; dále jen UML &mdash; byl vyvinut jako
+notace (prostředek pro zápis) pro potřeby softwarového inženýrství autory
+jmény Grady Booch, James Rumbaugh a Ivar Jacobsen ze společnosti Rational
+(Rational Corp.). Každý z těchto tří inženýrů publikoval svou objektově
+orientovanou metodologii. Mezi uživateli těchto metodologií se vytvořily
+vyhraněné názory na to, která z těchto metodologií je <em>nejlepší</em>.</p>
+
+<p>Aby tito <em>tři amigos</em> předešli nadcházejícím sporům, dali se (na
+nějaký čas) dohromady a vytvořili <em>notaci</em>, která v sobě zahrnovala
+to nejlepší z jejich vlastních notací, a která se dala použít pro většinu
+metod objektově orientovaného návrhu. Notace byla postupně vyčištěna a
+rozšířena. Nyní tvoří základ pro téměř libovolný přístup, který se využívá
+v rámci softwarového inženýrství, ať už jde o objektově orientovaný přístup,
+či nikoliv.</p>
+
+<h3>Síla UML</h3>
+
+<p>Jazyk UML vykazuje několik silných stránek, které jej vyzvedávají nad
+ostatní, předcházející metody a notace:</p>
+
+<dl>
+<dt>Šířka záběru</dt>
+<dd><p>UML pokrývá celý softwarový cyklus od zachycení požadavků přes
+  fyzický návrh až po nasazení. Obsahuje v sobě jak dynamické, tak statické
+  prvky a umožní vám soustředit se na systémy, kde je kritickou stránkou
+  jak čas, tak data.</p></dd>
+
+<dt>Standardizace</dt>
+<dd><p>Jazyk UML spojil tři hlavní větve objektově orientované notace. Přijal jej
+  také Coad, který představoval menšinového hráče. Mimo UML nyní stojí pouze
+  Schlaer-Mellor. Pokud se softwarový průmysl chce posunout směrem k
+  důležitějším tématům a pokud se má zahájit výměna myšlenek sjednoceným a
+  srozumitelným způsobem &mdash; jako je tomu v ostatních inženýrských
+  disciplínách &mdash;, je pro něj standardizovaná notace životně
+  důležitá.</p></dd>
+
+<dt>Podpora průmyslu</dt>
+<dd><p>Většina výrobců vývojových nástrojů, která rozpoznala jak vážnost
+  podpory <span class="trnote" title="Poznámka překladatele">(UML)</span>,
+  tak výhody standardizace, nyní jazyk UML podporují v rámci jejich nástrojů
+  CASE <span class="trnote" title="Poznámka překladatele">(Computer Aided
+  Software Engineering, čili počítačem podporované nástroje pro softwarové
+  inženýrství.)</span>. Ostatní se určitě přidají.</p></dd>
+
+<dt>Rozšiřitelnost</dt>
+<dd><p>Jazyk UML poskytuje mechanismus pro rozšiřování notace prostřednictvím
+  takzvaných <em>stereotypů</em>. Jde nepochybně o dobrý nápad, ale vede to
+  k některým nešťastným vedlejším efektům (viz níže).</p></dd>  
+</dl>
+
+<h3>Slabé stránky UML</h3>
+
+<p>Podle mého názoru má UML tři vážné nedostatky:</p>
+
+<dl>
+<dt>Nedostatečné grafické rozlišení</dt>
+<dd><p>UML používá poměrně malý počet tvarů pro vyjadřování velkého množství
+  konceptů. Jako důsledek této skutečnosti vznikají diagramy, ve kterých
+  nelze snadno rozpoznávat obsah. Občas je dokonce obtížné na první pohled
+  určit, co diagram vyjadřuje (zda třídy nebo objekty, statické nebo
+  dynamické vztahy).</p></dd>
+  
+<dt>Nadužívání <em>stereotypů</em></dt>
+<dd><p>Tato připomínka se vztahuje k dříve zmíněnému bodu, ale jde ještě 
+  o krok dále. Mnoho návrhových prvků, které měly v individuálních notacích
+  rozlišitelný vzhled, bylo sloučeno a rozlišeno pouze stereotypovou notací.
+  Jako příklad můžeme uvést metatřídy, kategorie tříd, třídy definující
+  rozhraní, atd. Výsledkem je obtížná vizuální srozumitelnost diagramů.
+  Abychom rozlišili druh jeho prvků, musíme číst jednotlivé popisky. Jak již
+  jsme se zmínili, stereotypy představují skvělý způsob pro přidávání
+  <em>nových</em> rysů do existující notace, ale neměly by být používány pro
+  vyjadřování zásadních rysů v rámci objektově orientovaného návrhu.</p></dd>  
+
+<dt>Snížený důraz na fyzický návrh</dt>
+<dd><p>Navzdory tomu, že Booch navrhl bohatou a užitečnou sadu ikon pro
+  fyzický návrh, a navzdory faktu, že žádná z ostatních notací nenabízela
+  nic podobného, z UML byla většina z nich odstraněna. Ponechán byl pouze
+  <em>balík</em> (package; občas je vyjadřován stereotypem jako podsystém, 
+  případně i s maňásky typu rozhraní COM) a <em>uzel</em> (node). Úlohy,
+  procesy, rozhraní, implementace, moduly &mdash; všechny tyto prvky zmizely
+  jako dodo. Fyzický návrh je softwarovými inženýry často přehlížen a
+  uvedené podlačení jeho významu v UML může tento trend pouze podpořit.</p></dd>  
+</dl>
+
+<h3>Praktické zkušenosti s UML</h3>
+
+<p>Po zvážení pro a proti věřím tomu, že UML patří k dobrým počinům. Použil
+jsem jej u několika malých projektů a naposledy jsem pomocí UML dokumentoval
+rozsáhlý systém, který není objektově orientovaný. Používal jsem zejména
+notaci pro fyzické prvky. Občas jsem však použil i stavové grafy a dokonce
+i objektové diagramy a diagramy tříd, abych s jejich pomocí ilustroval
+koncepci.</p>
+
+<p>Ohlas &mdash; a to dokonce i od těch, kteří UML neznají &mdash; byl
+pozitivní, což upevňuje mé přesvědčení, že UML může tvořit základ jakéhosi
+Sjednoceného modelovacího jazyka pro softwarový průmysl, ať už jde o popis
+objektově orientovaných systémů, či nikoliv.</p>
+
+<p>S tím jak se zlepšuje podpora typu CASE a jak se v odborných článcích
+pokračuje s používáním UML diagramů, seznámí se s touto notací i praktičtí
+programátoři a budou ji používat. Doufejme, že budeme brzy schopni
+porovnávat návrhy stejně snadno, jako to inženýři v elektrotechnice a
+stavitelství dělají už celá desetiletí.</p>
+
+<hr>
+
+<p>Náměty k tomuto článku mi posílejte <a
+href="mailto:alan.gauld@btinternet.com">sem</a>. <span class="trnote"
+title="Poznámka překladatele">(..., ale anglicky.)</span>
+
+<hr>
+<div class="foot">
+<p class="navig">[ <a href="czcomputing.html">zpět</a>  ]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: czuml.html,v 1.5 2004/08/31 11:55:15 prikryl Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: czuml.html,v 1.5 2004/08/31 11:55:15 prikryl Exp $</p>
+</div>
+</body>
+</html>
+

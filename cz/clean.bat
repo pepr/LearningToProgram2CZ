@@ -1,0 +1,1 @@
+rm *~ *.bak *.pyc *.tgz *.zip

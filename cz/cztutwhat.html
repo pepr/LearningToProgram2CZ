@@ -1,0 +1,397 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Co je to programování?</title>
+</head>
+<body>
+
+<h2>Co je programování?</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+<p>Uvedeme si počítačovou terminologii, zmíníme se trochu o historii a 
+stručně se podíváme na strukturu počítačového programu.</p>
+</div>
+
+<h3>Vraťme se k základům</h3>
+
+<p>Počítačové programování spočívá v umění donutit počítač, aby dělal
+to, co chcete aby dělal.</p>
+
+<p>Na nejjednodušší úrovni to znamená předat počítači posloupnost příkazů,
+které vedou k dosažení cíle. Uživatelé systému MS&nbsp;DOS byli zvyklí
+vytvářet textové soubory, do kterých zapisovali seznamy příkazů, jako
+takzvané BAT soubory <span class="trnote" title="Poznámka překladatele"
+>(dávkové soubory)</span>. Ty jednoduše předepisují zpracování posloupnosti
+příkazů jako jednu <em>dávku</em> <span class="trnote" 
+title="Poznámka překladatele">(anglicky <em>batch</em> [beč])</span>, odtud
+jejich název. Dávkové soubory můžete používat i v současném prostředí
+Microsoft Windows, ale v praxi se s tím setkáte zřídka<sup class="trnote"><a
+href="cztuttrn.html#Pwhat_batch" id="Bwhat_batch" title="Proč tomu tak
+je?">[1]</a></sup>.</p>
+
+<p>Dejme tomu že vytváříte dokument (jako je tato učebnice), který se
+skládá z mnoha samostatných souborů <span class="trnote" 
+title="Poznámka překladatele">s příponou HTM</span>. Pokaždé, když uložíte
+novou verzi souboru, může váš textový editor uchovávat záložní kopii souboru
+s původním obsahem <span class="trnote" title="Poznámka překladatele"
+>(anglicky <em>backup</em> [bek ap], odtud BAK)</span>. Dejme tomu, že na
+konci vašeho celodenního snažení chcete aktuální verzi dokumentu (všechny
+soubory v nejnovější podobě) uložit do adresáře, který se jmenuje
+<code>ZALOHA</code>. Nakonec chcete uklidit a smazat všechny záložní soubory
+(BAK), abyste zítra mohli začít <em>od čistého stolu</em>. Jednoduchý
+dávkový soubor, který toto vše zajistí, by mohl vypadat takto:</p>
+
+<pre>
+COPY *.HTM ZALOHA
+DEL *.BAK
+</pre>
+
+<p>Pokud byste soubor nazvali <code>ULOZIT.BAT</code>, pak byste na konci
+každého dne jednoduše na příkazový řádek systému DOS napsali příkaz
+<code>ULOZIT</code>. Nové soubory by se uložily a starší záložní soubory by
+se smazaly. A právě toto je <em>program</em>.</p>
+
+<p><b>Poznámka:</b> Uživatelé systému Linux nebo jiných operačních systémů
+znají své verze podobných souborů jako <em>shell skripty</em>. Shell skripty
+v systému Unix jsou mnohem mocnější, než dávkové soubory systému MS&nbsp;DOS.
+Podporují většinu programovacích technik, které budeme probírat v této
+učebnici.</p>
+
+
+<h3>Dovolte, abych to zopakoval</h3>
+
+<p>Pokud vás předchozí text znepokojil, nemějte obavy. Počítačový program je
+jednoduše sada instrukcí, která počítači říká, jak provést určitý úkol. Je
+to jako kuchařský recept: sada instrukcí, která kuchaři říká, jak připravit
+určité jídlo. Popisuje ingredience (data) a poloupnost kroků (proces), které
+jsou potřebné k tomu, aby se ingredience změnily na dort nebo cokoliv
+jiného. Programy se tomu velmi podobají.</p>
+
+<h3>Malý výlet do historie</h3>
+
+<p>Tak jako používáte určitý jazyk, když mluvíte s kamarádem, musíte nějaký
+jazyk použít se i při <em>hovoru</em> s počítačem. Jediný jazyk, kterému
+počítač rozumí, se nazývá <em>binární</em>. Vyskytuje se v několika
+odlišných dialektech &mdash; to je důvod proč onen skvělý program pro iMac
+nepoběží na vašem PC a naopak. Binární jazyk se naneštěstí lidem obtížně čte
+a obtížný je i z hlediska přímého zápisu. Proto musíme používat nám bližší
+<span class="trnote" title="Poznámka&nbsp;překladatele" >počítačový</span>
+jazyk, který si necháme přeložit do binární podoby. Je to jako kdybyste
+sledovali rozhovor mezi prezidenty U.S.A. a Ruska při setkání na vrcholné
+schůzce &mdash; první něco říká a překladatel to opakuje v ruštině. Druhý
+odpovídá v ruštině a překladatel jeho větu opět opakuje, tentokrát ovšem v
+angličtině.</p>
+
+<p>Překvapující může být skutečnost, že ta věc, která překládá <span
+class="trnote" title="Poznámka&nbsp;překladatele">počítačový</span> jazyk do
+binární podoby, se nazývá překladač. <span class="trnote">(Poznámka
+překladatele: V anglickém originále je jak pro simultánního překladatele
+lidského jazyka, tak pro onen počítačový překladač použito stejné slovo
+<em>interpreter</em>.)</span> A tak jako obvykle potřebujete jednoho
+tlumočníka pro překlad z angličtiny do ruštiny a jiného pro překlad z
+arabštiny do ruštiny, podobně potřebujete jiný překladač pro překlad z
+jazyka Python do binární podoby a jiný pro překlad z jazyka VBScript do
+binárního kódu.</p>
+
+<p>První programátoři museli opravdu binární kód zapisovat ručně. Tato
+činnost je známa jako programování <em>ve strojovém kódu</em> a je velmi
+obtížná. Dalším krokem bylo vytvoření překladače, který jednoduše nahrazoval
+zápis binárních instrukcí zápisem využívajícím anglické ekvivalenty. Takže
+místo toho, aby si programátoři museli pamatovat, že kód
+<code>001273&nbsp;05&nbsp;04</code> znamená <code>sečti 5 a 4</code> <span
+class="trnote" title="Poznámka překladatele">(anglicky <code>add 5 to
+4</code>)</span>, mohli napsat <code>ADD&nbsp;5&nbsp;4</code>. Toto prosté
+zlepšení programátorům velmi zjednodušilo život. Podobné systémy kódů byly
+ve skutečnosti prvními programovacími jazyky &mdash; určeným vždy pro
+konkrétní typ počítače. Pro tento jazyk se používalo označení <em>jazyk
+symbolických instrukcí</em>. <span class="trnote"
+title="Poznámka&nbsp;překladatele" >(V angličtině se takový překladač
+nazýval assembler a stejný pojem se používal i pro samotný jazyk.)</span>
+<em>Programování v assembleru</em> <span class="trnote" title="Poznámka
+překladatele">(nebo v jazyku symbolických instrukcí, chcete-li)</span> se
+při řešení velmi specializovaných úloh používá dodnes.</p>
+
+<p>Dokonce i takový přístup se ukázal jako velmi primitivní. Pořád jste
+museli počítači říkat co má dělat na technické úrovni <span class="trnote"
+title="Poznámka&nbsp;překladatele">(co má provádět jeho procesor)</span>,
+jako například přesuň bajty z této oblasti paměti do jiné, sečti tento bajt
+s tímto, a podobně. Bylo to stále velmi složité a dokonce i vyřešení malých
+úkolů dalo hodně práce.</p>
+
+<p>Aby se programování zjednodušilo, byly postupně vyvinuty počítačové
+jazyky vyšší úrovně. Popudem k jejich vývoji byla také skutečnost, že
+uživatelé ve stejné době přicházeli se stále složitějšími úkoly, pro jejichž
+řešení by se dal počítač využít. Toto soutěžení mezi vědci a uživateli stále
+pokračuje, a proto stále vznikají nové a nové jazyky. Dělá to programování
+zajímavějším. Současně je ale důležité, aby programátoři rozuměli jak
+programátorským konceptům, tak praktickým způsobům používání těchto konceptů
+v jednotlivých jazycích.</p>
+
+<p>O některých běžných konceptech se zmíním v následujícím textu. V průběhu
+kurzu se k nim budeme opakovaně vracet.</p>
+
+<h3 id="Dijkstra">Společné vlastnosti programů</h3>
+
+<p>Před mnoha lety přišel Edsger Dijkstra s konceptem nazývaným
+<em>strukturované programování</em>. Tento koncept říká, že struktura všech
+programů může být vyjádřena pomocí následujících čtyř způsobů <span
+class="trnote" title="Poznámka překladatele">(prostředků, obratů, stavebních
+prvků)</span>: </p>
+
+<hr>
+
+<h4>Posloupnosti instrukcí</h4>
+
+<p>Při provádění <em>posloupnosti instrukcí</em> program provádí jednotlivé
+instrukce v přesně určeném pořadí, jednu za druhou.</p>
+
+<p class="center"><img src="czsequence.png" alt="posloupnost instrukcí"></p>
+
+<h4>Větvení</h4>
+
+<p>V určitém bodě provádění programu dochází k rozhodování. V případě
+pravdivého výsledku prováděného testu se pokračuje instrukcemi v první
+větvi, v opačném případě se přejde k provádění akcí v druhé větvi. Takovému
+větvení se někdy říká i <em>podmíněné větvení</em>, protože další směr běhu
+programu závisí na výsledku testu <em>podmínky</em>.</p>
+
+<p class="center"><img src="czbranch.png" alt="větvení"></p>
+
+<h4>Cykly</h4>
+
+<p>V případě <em>cyklů</em> se opakuje provádění kroků až do doby, kdy je
+splněna určitá podmínka. V tom okamžiku tok řízení programu opouští smyčku a
+přechází se k provádění dalších částí programu.</p>
+
+<p class="center"><img src="czloop.png" alt="cykly"></p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Popsaný a zobrazený typ
+cyklu bývá v jazyce Pascal vyjádřen konstrukcí
+<code>repeat</code>/<code>until</code>. V tomto případě se testování
+podmínky provádí až za tělem cyklu. Instrukce v těle cyklu se tedy provedou
+přinejmenším jednou. Říká se, že pro více než 90&nbsp;% případů se hodí
+spíše cyklus typu <code>while</code>, kdy se podmínka testuje ještě před
+prvním provedením instrukcí v těle cyklu. Při nesplnění podmínky se tedy
+tělo cyklu nemusí provést ani jednou.</p>
+
+<h4>Moduly</h4>
+
+<p>V naznačeném případě program provádí několikrát stejnou posloupnost
+akcí. Ty můžeme umístit do modulu, který můžeme chápat jako miniprogram,
+proveditelný z hlavního programu. Moduly s popsaným charakterem bývají
+nazývány také jako <em>podprogram</em>, <em>procedura</em> nebo
+<em>funkce</em>.</p>
+
+<p class="center"><img src="czmodule.png" alt="moduly"></p>
+
+<div class="trnote">
+
+<p class="trnote"><b>Poznámka překladatele:</b> V tomto okamžiku neuvažujeme
+o modulech ve významu technické realizace <em>samostatných</em> (samostatně
+kompilovaných), opakovatelně použitelných jednotek pro výstavbu
+programu.</p>
+
+<p>Používání modulů v tomto smyslu se anglicky označuje také jako <em>DRY
+principle</em> (Do not Repeat Yourself), který vyjadřuje snahu o to, abychom
+stejný nebo velmi podobný kód nepsali opakovaně. Hlavním důvodem jsou jeho 
+pozdější modifikace. Při opakovaném rozepisování na různých místech programu
+se zvyšuje pravděpodobnost toho, že budoucí úpravy zapomeneme promítnout do
+všech částí. Dalším důvodem je i zjednodušení opakovaného použití takto
+zapsané funkčnosti. Typickým příkladem je používání funkcí ze standardních
+a jiných knihoven. Dostupnost a správná volba vhodných knihoven výrazně
+zvyšuje produktivitu při tvorbě programu.</p>
+
+</div>
+
+<hr>
+
+<p>Kromě těchto strukturálních prvků potřebujeme doplnit několik dalších
+rysů, bez kterých by program ztrácel smysl:</p>
+
+<ul>
+<li>Data (podrobněji se na ně podíváme v části <a href="cztutdata.html">Data,
+  datové typy a proměnné</a>).</li>
+<li>Operace (sčítání, odčítání, porovnávání, atd. &mdash; také na operace se
+  podíváme v části <a href="cztutdata.html">Data...</a>).</li>
+<li>Schopnost vstupu a výstupu údajů (například výstup výsledků na displej 
+  &mdash; touto problematikou se zabývá část <a href="cztutinput.html"
+  >Konverzace s uživatelem</a>).</li>
+</ul>
+
+<p>Jakmile pochopíte tyto koncepty a to, jak se v určitém programovacím
+jazyce vyjadřují, jste schopni v tomto jazyce programovat.</p>
+
+<h4>Vyjasněme si některé pojmy</h4>
+
+<p>Už jsme si řekli, že programování spočívá v umění donutit počítač dělat
+to, co chcete aby dělal.  Ale co to je vlastně <em>program</em>?</p>
+
+<p>Na program se v podstatě můžeme dívat ze dvou různých pohledů. Podle
+prvního pohledu &mdash; jak to vidí uživatel &mdash; jde o spustitelný
+soubor, který může být nainstalován a může být opakovaně spouštěn s cílem
+zpracovat daný úkol. Uživatelé například říkají, že spouštějí svůj textový
+editor. Z druhého pohledu &mdash; jak to vidí programátor &mdash; jde o
+textový soubor s příkazy pro počítač, zapsaný v nějakém programovacím jazyku,
+který může být přeložen do podoby spustitelného souboru. Takže když budete
+mluvit o programu, dejte vždy najevo, který z těchto pohledů máte na
+mysli.</p>
+
+<p>V zásadě lze říci, že programátor píše program ve vyšším programovacím
+jazyce<span class="trnote" title="Poznámka&nbsp;překladatele">,
+srozumitelném pro programátora</span>, a ten je přeložen na soubor bajtů,
+kterým rozumí počítač. Z technického pohledu programátor generuje
+<em>zdrojový kód</em> a překladač z něj generuje <em>cílový kód</em><sup
+class="trnote" ><a href="cztuttrn.html#Pwhat_ObjectCode"
+id="Bwhat_ObjectCode" title="vyjasnění anglického pojmu 'object code'"
+>[2]</a></sup>. Cílový kód bývá někdy nazýván i jinými jmény, jako například
+<em>P-kód</em>, <em>binární kód</em> nebo <em>strojový kód</em>.</p>
+
+<p>Pro překladače se používají dvě různá jména. Jeden typ bývá nazýván jako
+<em>interpret</em> a druhý jako <em>kompilátor</em>. Tyto dva pojmy se ve
+skutečnosti vztahují k dvěma odlišným technikám generování cílového kódu ze
+zdrojového kódu. Za kompilátory <span class="trnote"
+title="Poznámka&nbsp;překladatele">(kompilační překladače)</span> byly
+obvykle považovány takové překladače, které produkovaly přímo spustitelný
+cílový kód (jinými slovy <em>spustitelný soubor</em>), zatímco interpret
+<span class="trnote" title="Poznámka&nbsp;překladatele">(interpretační
+překladač)</span> musí být přítomen při každém spuštění programu. Původně
+ostrá hranice mezi těmito přístupy je nyní stále mlhavější. Některé soudobé
+kompilátory vyžadují přítomnost interpretu, který provádí konečnou konverzi
+kódu, a některé interprety jednoduše kompilují zdrojový kód do podoby
+dočasně existujícího cílového kódu, který poté spustí.</p>
+
+<p>Z našeho pohledu v tom není žádný důležitý rozdíl. Vytvoříme zdrojový kód
+a použijeme nástroj, který počítači umožní, aby jej přečetl, přeložil a
+provedl.</p>
+
+
+<h3>Struktura programu</h3>
+
+<p>Konkrétní struktura programu závisí na programovacím jazyce a na
+prostředí, ve kterém se program spouští. Některé jejich rysy ale mají
+obecnou platnost:</p>
+
+<ul>
+
+<li>Zavaděč <span class="trnote" title="Poznámka překladatele">(loader
+[loudr])</span> &mdash; každý program musí být operačním systémem zaveden
+(načten) do operační paměti. Tento krok zajišťuje takzvaný <em>zavaděč</em>,
+který je obvykle vygenerován překladačem.</li>
+
+<li>Definice dat &mdash; většina programů pracuje s daty a někde ve
+zdrojovém kódu musíme přesně určit, s jakými daty se bude pracovat.
+V&nbsp;různých jazycích se to vyjadřuje velmi různě.</li>
+
+<li>Příkazy &mdash; tvoří jádro celého programu. Jsou to právě příkazy,
+které manipulují s&nbsp;definovanými daty, provádějí výpočty, tisknou výsledky, 
+atd.</li>
+
+</ul>
+
+<p>Většina programů má jednu ze dvou následujících podob:</p>
+
+
+<h4 id="batch_oriented">Dávkové programy</h4>
+
+<p>Programy tohoto typu se typicky spouštějí z příkazového řádku (nebo 
+automaticky prostřednictvím plánovacího programu<sup class="trnote"><a 
+href="cztuttrn.html#Pwhat_scheduler" id="Bwhat_scheduler"
+title="scheduler utility -- plánovací program">[3]</a></sup>) a chovají
+se přibližně podle následujícího vzoru:</p>
+
+<p class="center"><img src="czbatch.png" 
+alt="Program s charakterem dávkového zpracování."></p>
+
+<p>Program typicky zahajuje činnost nastavením svého vnitřního stavu
+(například nastavením celkového součtu na nulu), otevřením potřebných
+souborů atd. Jakmile je připraven, začíná číst data buď zadávaná uživatelem
+v místě, kde program zobrazuje vyzývací text na obrazovce, nebo z datového
+souboru. Často se používá kombinace obou přístupů, kdy uživatel určí jméno
+datového souboru, ze kterého se poté načítají skutečná data. Poté program
+provádí zpracování dat za využití matematických operací, funkcí pro konverzi
+dat nebo jakýchkoliv jiných transformací. Získané výsledky se zobrazují na
+displeji nebo se třeba zapisují do výstupního souboru.</p>
+
+<p>Všechny programy, které budeme vytvářet v rámci prvních částí tohoto
+kurzu, budou mít charakter programů s dávkovým zpracováním.</p>
+
+
+<h4 id="event_driven">Událostmi řízené programy</h4>
+
+<p>Většina systémů s grafickým uživatelským rozhraním <span class="trnote"
+title="Poznámka překladatele">&mdash; anglicky GUI = Graphical User
+Interface &mdash;</span> (a vestavěné řídicí systémy &mdash; jako například
+ty, které řídí činnost vaší mikrovlnné trouby, fotoaparátu a podobně) je
+řízena událostmi. To znamená, že operační systém zasílá zprávy o událostech
+běžícímu programu a ten na ně reaguje v okamžiku, kdy se událost objeví.
+Události mohou být vyvolány uživatelem &mdash; například stisknutím tlačítka
+myši nebo stisknutím klávesy na klávesnici &mdash; nebo je může generovat
+přímo systém, jako například událost aktualizace systémového času nebo
+událost požadavku na překreslení obrazovky.</p>
+
+<p>Událostmi řízené programy se chovají obecně podle následujícího vzoru:</p>
+
+<p class="center"><img src="czeventloop.png" alt="Program řízený událostmi."></p>
+
+<p>Program řízený událostmi rovněž zahajuje svou činnost nastavením svého
+vnitřního stavu. Ale poté je řízení předáno takzvané smyčce událostí (event
+loop), která je obvykle realizována operačním prostředím (někdy je
+označováno jako <em>runtime</em>). Program zde čeká, až je detekována
+uživatelská akce, která se přeloží do podoby události. <span class="trnote"
+title="Poznámka překladatele">Zprávy o</span> těchto událostech jsou jedna
+po druhé zaslány <span class="trnote" title="Poznámka překladatele">jiným
+částem</span> programu, které je zpracovávají. Uživatel nakonec provede
+akci, která program ukončuje. V tomto bodě je vygenerována událost ukončení
+<span class="trnote" title="Poznámka překladatele">(označována jako
+<em>Exit</em> nebo <em>Quit</em>)</span>, která je programu rovněž zaslána.
+<span class="trnote">Poznámka překladatele: Program na jejím základě provede
+své ukončení.</span></p>
+
+<p>Ke smyčkám událostí a k <a href="cztutevent.html">událostmi řízenému
+programování</a> se dostaneme v <em>Tématech pro pokročilé</em> a potom
+ještě jednou v souvislosti s <a href="cztutgui.html">programováním
+grafického uživatelského rozhraní</a>.</p>
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+<li>Programy řídí činnost počítače.</li>
+<li>Programovací jazyky nám umožňují <em>mluvit</em> s počítačem na úrovni,
+která je bližší tomu, jak uvažují lidé, než tomu, jak <em>myslí</em> počítač.</li>
+<li>Program <em>zpracovává data</em>.</li>
+<li>Program může mít buď dávkový charakter nebo může být řízen událostmi.</li>
+</ul>
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutneeds.html" title="Co potřebuji?">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutstart.html" title="Začínáme">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutwhat.html,v 1.16 2005/01/09 19:44:12 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutwhat.html,v 1.16 2005/01/09 19:44:12 petr Exp $</p>
+</div>
+</body>
+</html>
+

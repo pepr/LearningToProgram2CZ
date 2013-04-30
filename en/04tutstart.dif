@@ -1,0 +1,14 @@
+Index: tutstart.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutstart.htm,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -r1.3 -r1.4
+11c11
+< <H3>Getting Started</H3>
+---
+> <H2>Getting Started</H2>
+153c153
+< dialogue box pop up telling you the line number of an error. 
+---
+> dialog box pop up telling you the line number of an error. 

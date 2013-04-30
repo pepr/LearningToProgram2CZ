@@ -1,0 +1,1139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Programování grafického uživatelského rozhraní</title>
+</head>
+<body>
+
+<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
+se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+
+<h2>Programování grafického uživatelského rozhraní s Tkinter</h2>
+
+<div class="whatcovered">
+
+<p>Následující téma se věnuje nejdříve způsobu výstavby programu s grafickým
+uživatelským rozhraním (GUI) v obecném smyslu. Poté se zaměříme na to, jak
+se pro tento účel používá <em>rodná</em> nástrojová sada systému Python pro
+tvorbu grafického uživatelského rozhraní &mdash; Tkinter. Nečekejte, že
+půjde o dokonalou referenční příručku pro Tkinter. Nejedná se dokonce ani o
+ucelenou učebnici. Velmi dobrá a detailní učebnice, která se tomuto
+tématu věnuje, již existuje. Odkaz na ni naleznete na webovských stránkách
+systému Python. Tato kapitola se vás spíše bude snažit provést základy
+programování grafického uživatelského rozhraní (GUI), seznámí vás s jeho
+základními prvky a způsobem jejich použití. Podíváme se také na to, jak nám
+může při výstavbě aplikace s grafickým uživatelským rozhraním pomoci
+objektově orientované programování.</p>
+
+</div>
+
+<h3>Principy grafického uživatelského rozhraní</h3>
+
+<p>Ze všeho nejdříve bych rád řekl, že se zde nenaučíte nic nového, co se
+týká programování. Programování grafického uživatelského rozhraní je stejné
+jako jakýkoliv jiný druh programování. Můžete používat posloupnosti <span
+class="trnote" title="Poznámka překladatele">příkazů</span>, cykly, větvení
+a moduly stejně, jak jsme si ukázali dříve. Čím se programování grafického
+uživatelského rozhraní obvykle liší je to, že obvykle používáme nějakou
+<em>sadu nástrojů</em> (toolkit) a to nás nutí postupovat v souladu se
+vzory, které do návrhu sady nástrojů vnesl její tvůrce. Každá nová sada
+nástrojů definuje své aplikační programátorské rozhraní (API) a množinu
+návrhových pravidel, které se vy, jako programátor, musíte naučit. A právě
+to je ten důvod, proč se většina programátorů snaží tvořit standardy na
+základě pouze několika nástrojových sad, které jsou dostupné pro více
+programovacích jazyků. Zvládnutí nové nástrojové sady (toolkit <span
+class="trnote" title="Poznámka překladatele">[túlkit]</span>) bývá mnohem
+obtížnější, než zvládnutí nového programovacího jazyka.</p>
+
+<p>Většina programovacích jazyků, které se používají pro vytváření aplikací
+s okny, bývá dodávána spolu s toolkitem. (Jde obvykle o tenkou vrstvu nad
+nejjednoduššími nástroji, které jsou zabudovány přímo do systému, který okna
+podporuje.) Příkladem mohou být Visual Basic, Delphi (Kylix) a Visual
+C++/.NET.</p>
+
+<p>Java se od nich odlišuje tím, že se jazyk dodává s jeho vlastním
+grafickým toolkitem (nazývá se Swing). Ten je podporován na každé platformě,
+kde může běžet Java &mdash; což jsou téměř všechny platformy.</p>
+
+<p class="ir"><b>Poznámka překladatele:</b> VB, Delphi jsou jazyky s
+podporou Rapid prototyping, resource, nástroje, podpora pro okna uvnitř
+jazyka. Visual C++ v podstatě standardní překladač jazyka C++ s některými
+nestandardními rozšířeními. .NET je jazykově nezávislá, objektově
+orientovaná platforma, kde část pro okna je jen částí. Longhorn (2005/2006)
+bude překrývat celou množinu funkcí jádra systému (kompatibilita). .Net
+jazykově neutrální, jazyky CLI, CLR se podobá Java runtime, WindowForms lze
+přirovnat k Swingu, ale je jazykově nezávislý, C# lze přirovnat k Javě.
+Celkově má .Net blíže k jádru systému. Stručné vysvětlení ponechat zde,
+detaily do cztuttrn.</p>
+
+<p>Existují ale i další toolkity, které můžete pro konkrétní operační systém
+(Unix, Mac, Windows, atd.) získat samostatně. Jejich součástí jsou obvykle
+adaptéry, které umožňují jejich použití z různých jazyků. Některé z nich
+jsou komerční, ale řada z nich je volně dostupná (freeware). Jako příklad
+uveďme GT/K, Qt, Tk. Všechny mají své webové stránky. Vyzkoušejte
+například:</p>
+
+<ul>
+
+<li><a href="http://www.wxPython.org/" target="_blank">wxPython</a> &mdash; 
+  pythonovská verze toolkitu wxWindows, který je ve skutečnosti napsán v C++.</li>
+
+<li><a href="http://www.trolltech.com/" target="_blank">PyQt</a> &mdash; 
+  pythonovský obal toolkitu Qt, který lze používat s většinou jazyků.</li>
+
+<li><a href="http://www.daa.com.au/~james/software/pygtk/" target="_blank"
+  >pyGTK</a> &mdash; pythonovský obal The Gimp Toolkit neboli GTK+. Jde o
+  volně použitelný projekt (freeware), který je intenzivně využíván v rámci
+  komunity uživatelů systému Linux.</li>
+  
+</ul>
+
+<p>V toolkitech Qt a GT/k je napsána většina linuxových aplikací. Oba jsou
+pro nekomerční použití dostupné zdarma. (To znamená, že je můžete volně
+používat, pokud nechcete své programy prodávat za účelem výdělku.) Pokud
+chcete, můžete pro Qt získat i komerční licenci.</p>
+
+<p>U jazyka Python se za standardní prostředí pro tvorbu grafického
+uživatelského rozhraní považuje Tkinter (je součástí instalace). Prostředí
+Tkinter je založeno na Tk, což je velmi starý toolkit, dostupný pro více
+operačních systémů. A právě na tuto nástrojovou sadu se podíváme blíže. Její
+verze jsou k dispozici i pro jazyky Tcl a Perl.</p>
+
+<p>Principy, na kterých je toolkit Tk založen, se od ostatních nástrojových
+sad mírně liší. Proto si na závěr uvedeme stručný přehled jiného populárního
+nástroje pro tvorbu grafického uživatelského rozhraní v systému Python (a
+také v jazycích C/C++), který je založen na obvyklejších přístupech.
+Nejdříve si ale uveďme obecné principy.</p>
+
+<p>Jak už jsme se dříve několikrát zmínili, přirozenou vlastností aplikací s
+grafickým uživatelským rozhraním je to, že jsou téměř vždy řízeny událostmi.
+Pokud si nevzpomínáte, co se tím myslí, zopakujte si téma <a
+href="cztutevent.html">událostmi řízeného programování.</a></p>
+
+<p>Předpokládám, že <em>z uživatelského hlediska</em> již grafické
+uživatelské rozhraní znáte. Zaměříme se na to, jak takové programy fungují
+<em>z hlediska programátora</em>. Nebudeme zabíhat do takových detailů, jak
+se například tvoří rozsáhlá a složitá grafická uživatelská rozhraní s mnoha
+okny, rozhraní pro práci s více dokumenty (MDI) a podobně. Přidržíme se
+takových základů, jako je vytváření jednoduchého okna aplikace s nějakými
+popisnými texty, s tlačítky, prvky pro vstup textu a s okny pro zobrazování
+zpráv (message box).</p>
+
+<p>Nejdříve si zkontrolujme naši slovní zásobu. Programování grafického
+uživatelského rozhraní používá svou vlastní sadu programátorských pojmů.
+Nejběžnější s nich jsou uvedeny v následující tabulce:</p>
+
+<table summary="Pojmy GUI">
+<tr><th>Pojem</th><th>Vysvětlení</th></tr>
+<tr><td>Okno (Window)</td>
+    <td>Plocha na obrazovce, která je ovládána aplikací. Okna mají obvykle
+    obdélníkový tvar, ale některá prostředí pro tvorbu grafického
+    uživatelského rozhraní dovolují použití i jiných tvarů. Okna mohou
+    obsahovat další okna. Často je každý ovládací prvek grafického
+    uživatelského rozhraní tvořen svým vlastním oknem.</td></tr>
+<tr><td>Ovládací prvek (Control)</td>
+    <td>Ovládací prvek je objekt grafického uživatelského rozhraní, který se
+    používá pro ovládání aplikace. Ovládací prvky mají určité vlastnosti a
+    obvykle generují nějaké události. Ovládací prvky obvykle souvisejí s
+    odpovídajícími objekty na aplikační úrovni a jejich události jsou
+    svázány s metodami aplikačních objektů. Při výskytu události se tedy
+    provede jedna z odpovídajících metod. Prostředí pro tvorbu grafického
+    uživatelského rozhraní obvykle poskytuje mechanismus, kterým se vazba
+    mezi událostí a metodou ustanoví.</td></tr>    
+<tr><td>Widget</td>
+    <td><p>Ovládací prvky mají někdy viditelnou podobu. Některé ovládací 
+    prvky (jako třeba časovače) sice mohou být spojeny s nějakým oknem, ale 
+    samy o sobě nejsou viditelné. Prvky typu widget tvoří tu podmnožinu 
+    ovládacích prvků, které jsou viditelné a se kterými může uživatel nebo
+    programátor manipulovat. Ukážeme si použití následujících prvků typu 
+    widget:</p>
+    
+    <ul>
+    <li>Rámec (frame),</li>
+    <li>popisný text (label),</li>
+    <li>tlačítko (button),</li>
+    <li>pole pro vstup textu (text entry),</li>
+    <li>okno se zprávou (message box).</li>
+    </ul>
+
+    <p>Jinde v této učebnici jsou použity další prvky, kterými se ale v této
+    kapitole nebudeme zabývat:</p>
+    
+    <ul>
+    <li>Okno pro psaní textu (text box),</li>
+    <li>přepínací tlačítko (radio button).</li>
+    </ul>
+    
+    <p>A nakonec si uveďme prvky, kterými se nebudeme zabývat vůbec:</p>
+
+    <ul>
+    <li>Kreslicí plocha (canvas),</li>
+    <li>prvek pro výběr (check button) &mdash; lze vybírat více nabídnutých 
+      možností najednou,</li>
+    <li>obrázek (image) &mdash; pro zobrazování obrázků ve formátu BMP,
+      GIF, JPEG a PNG,</li>
+    <li>okno se seznamem (list box),</li>
+    <li>Menu/MenuButton &mdash; pro tvorbu menu,</li>
+    <li>Scale/Scrollbar &mdash; pro znázornění a úpravu pozice pohledu.</li>
+    </ul>
+    
+    <p class="trnote"><b>Poznámka překladatele:</b> Protože pro pojem
+    <em>widget</em> nemáme dostatečně stručný český ekvivalent, překládám
+    jej v zájmu dobré čitelnosti textu jako <em>ovládací prvek</em>, i když
+    jsem si vědom, že tento pojem je obecnější, než v případě anglického
+    originálu. Pokud by mohly vzniknout nejasnosti kolem charakteru prvku
+    nebo pokud chci naznačit, co obsahoval originální text, uvádím slovo
+    widget jako součást opisu, kterým obcházím nutnost jeho skloňování. 
+    V některých případech slovo widget uvádím v závorkách.</p>
+    </td></tr>
+<tr><td>Rámec (Frame)</td>
+    <td>Jde o prvek typu widget, který se používá k seskupení dalších prvků
+    typu widget dohromady. Rámec se často používá jako reprezentant celého
+    okna. Uvnitř rámce se mohou nacházet další rámce.</td></tr>
+<tr><td>Předpis pro rozložení prvků (Layout)</td>
+    <td>Ovládací prvky jsou uvnitř rámce umístěny podle určitého předpisu.
+    Ten může být definován různým způsobem. Buď se používají souřadnice
+    odpovídající pixelům na obrazovce, nebo se poloha určuje relativně vůči
+    jiným prvkům (zarovnání vlevo, nahoru, atd.), nebo se využívá uspořádání
+    do mřížky nebo do tabulky. Použití souřadnicového systému je sice snadno
+    srozumitelné, ale obtížně se používá například v situaci, kdy dochází
+    ke změnám rozměrů okna. Pokud se umístění prvků předepisuje souřadnicemi, 
+    pak by začátečníci měli používat raději okna, u kterých nelze měnit
+    rozměry.</td></tr>    
+<tr><td>Potomek (Child)</td>
+    <td>Při tvorbě aplikací s grafickým uživatelským rozhraním často vzniká
+    hierarchické uspořádání ovládacích prvků. Rámec na nejvyšší úrovni,
+    který představuje okno aplikace, se skládá z podrámců, které obsahují
+    další rámce nebo ovládací prvky. Vazby mezi ovládacími prvky si můžeme
+    zobrazit jako stromovou strukturu, ve které má každý ovládací prvek
+    nadřazen jeden rodičovský prvek a několik potomků (podřízených prvků).
+    Ve skutečnosti je tato struktura závislostí přímo uložena v jednotlivých
+    prvcích <span class="trnote" title="Poznámka překladatele">(prvek si 
+    udržuje odkazy na své podřízené prvky &mdash; potomky)</span>, takže
+    programátor &mdash; nebo častěji samo prostředí grafického uživatelského
+    rozhraní &mdash; může provádět některé akce nad ovládacím prvkem a všemi
+    jeho potomky najednou.</td></tr>
+</table>
+
+<h3>Exkurze mezi některé běžné ovládací prvky</h3>
+
+<p>V této sekci vytvoříme přes příkazový řádek systému Python jednoduchá
+okna a ovládací prvky (widget). Poznamenejme, že aplikaci, která využívá
+Tkinter, nemůžeme spolehlivě spouštět z prostředí IDLE, protože IDLE samotné
+je aplikací, která Tkinter využívá. Z IDLE samozřejmě můžeme použít jeho
+editor a vytvořit v něm zdrojové texty, ale výsledek musíme spustit z
+příkazového řádku operačního systému. Uživatelé prostředku Pythonwin naopak
+takovou aplikaci spouštět mohou, protože Pythonwin používá jinou nástrojovou
+sadu pro tvorbu grafického uživatelského rozhraní &mdash; MFC <span
+class="trnote" title="Poznámka překladatele">(Microsoft Foundation
+Classes)</span>. Nicméně i v prostředí Pythonwin můžeme u tkinterovských
+aplikací pozorovat jisté neočekávané projevy chování. Proto zde raději
+použijeme příkazový řádek systému Python<span class="trnote" title="Poznámka
+překladatele">, který máme k dispozici po spuštění interpretu jazyka Python
+prostředky operačního systému (v DOSovém okně)</span>.</p>
+
+<h4>>>> from Tkinter import * </h4> 
+
+<p>Mezi první požadavky každého tkinterovského programu patří importování
+jmen ovládacích prvků. Mohli byste samozřejmě importovat jen modul, ale
+velice rychle byste se unavili tím, že byste před každé jméno museli
+připisovat <code>Tkinter</code>.</p>
+
+<h4>>>> top = Tk()</h4>
+
+<p>Tento příkaz vytvoří ovládací prvek na nejvyšší úrovni hierarchie našich
+ovládacích prvků. Všechny ostatní ovladací prvky budou vytvořeny jako jeho
+potomci. Povšimněte si, že se zobrazilo nové prázdné okno s textem
+<code>tk</code> v titulku okna, s ikonou Tk a s obvyklou sadou ovládacích
+tlačítek (zmenšení do ikony, zvětšení přes celou obrazovku, atd.). Tak, jak
+budeme aplikaci postupně vytvářet, budeme do tohoto okna přidávat další
+prvky.</p>
+
+<h4>>>> dir(top)</h4>
+
+<pre>['_tclCommands', 'children', 'master', 'tk']</pre>
+
+<p>Funkce <code>dir</code> nám ukáže všechna jména, která jsou zadanému
+argumentu známa. Můžeme ji použít i pro moduly, ale v tomto případě se
+chceme podívat na vnitřek objektu <code>top</code>, což je instance třídy
+<code>Tk</code>. Jde o jeho atributy. Povšimněte si zejména atributů
+<code>children</code> a <code>master</code>, která zachycují vazby v
+hierarchii ovládacích prvků. Povšimněte si také atributu
+<code>_tclCommands</code>, který má svůj původ ve skutečnosti &mdash; jak si
+můžete vzpomenout &mdash;, že Tkinter je vytvořen nad nástrojovou sadou
+systému Tcl, která se jmenuje Tk.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Vypsaný seznam jmen je ve
+skutečnosti mnohem delší a popíše vám celou obrazovku &mdash; přinejmenším u
+verze Python 2.2.</p>
+
+<h4>>>> F = Frame(top)</h4>
+
+<p>Vytvoří se ovládací prvek (widget) <code>Frame</code>, ve kterém budou
+umístěny ovládací prvky, které budeme používat. <span class="trnote"
+title="Poznámka překladatele">Při vytváření instance</span>
+<code>Frame</code> je jako první argument (a v tomto případě jediný) použit
+<code>top</code>. Tím říkáme, že <code>F</code> bude ovládací prvek,
+vytvořený jako potomek ovládacího prvku <code>top</code>.</p>
+
+<h4>>>> F.pack()</h4>
+
+<p>Povšimněte si, že po provedení tohoto příkazu se okno Tk scvrkne na
+velikost přidaného ovládacího prvku třídy <code>Frame</code>. Ten je v
+současnosti prázdný, takže okno je teď velmi malé. Metoda
+<code>pack()</code> aktivuje <em>správce rozložení</em> (Layout Manager),
+který je znám jako <em>packer</em> (pakovač, stlačovač). Ten se při
+jednoduchých rozloženích prvků používá velmi snadno, ale s tím, jak se
+rozložení prvků stává složitějším, začíná být poněkud neohrabaný. Pro tyto
+chvíle se jej budeme držet &mdash; snadno se používá. Povšimněte si,
+že ovládací prvky (widget) nebudou v naší aplikaci vidět až do té doby, než
+provedeme jejich "spakování" (nebo použijeme jinou metodu správce rozložení
+prvků).</p>
+
+<h4>>>> lHello = Label(F, text="Ahoj, vy tam!")</h4>
+
+<p>Tímto příkazem vytvoříme nový objekt <code>lHello</code> jako instanci
+třídy <code>Label</code>. Rodičovským (nadřízeným) ovládacím prvkem je
+<code>F</code> a atributu <code>text</code> přiřazujeme hodnotu <code>"Ahoj,
+vy tam!"</code>. Konstruktory objektů modulu Tkinter mívají obvykle mnoho
+parametrů (každý z nich má přednastavenou hodnotu). Všimněte si, že se jim
+často předávají argumenty způsobem, kdy využíváme možnosti určení
+příslušného parametru jménem. <span class="trnote" title="Poznámka překladatele"
+>(Srovnejte to s častějším, pozičním způsobem předávání argumentů, kdy
+udáváme pouze hodnotu parametru, ale nikoliv jméno. V takovém případě musíme
+hodnotu uvést na správné pozici.)</span> Povšimněte si rovněž, že objekt
+není dosud viditelný, protože jsme dosud neprovedli "spakování".</p>
+
+<p>Nakonec si uveďme poznámku ke konvenci pro volbu jména: Před jméno
+<code>Hello</code> jsem přidal malé <code>l</code> jako <code>Label</code>,
+které má připomínat význam objektu. Stejně jako u ostatních konvencí pro
+volbu jména je dodržování této konvence věcí vašeho názoru. Podle mě je její
+dodržování užitečné.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> V souvislosti s tvorbou
+programů pro první verze operačního systému Microsoft Windows byl vypracován
+celý systém předpon přidávaných ke jménům proměnných, funkcí a dalších
+prvků. Je znám jako <em>maďarská notace</em>. Podrobnosti můžete najít v <a
+href="http://msdn.microsoft.com/library/en-us/dnvsgen/html/hunganotat.asp"
+target="_blank">Charles Simonyi: "Hungarian notation"</a>. V poslední době
+ovšem převládá názor, že používání podobné notace může způsobovat více
+problémů, než užitku. Týká se to především větších projektů a jazyků s velmi
+silnou typovou kontrolou, jako je například jazyk C++. Používejte proto
+podobných konvencí s mírou. Vhodná volba identifikátoru (tj. jména) může
+potřebu používání podobných předpon zmírnit.</p>
+
+<h4>>>> lHello.pack()</h4>
+
+<p>Teď už výsledek předchozích příkazů vidíme. Měl by vypadat nějak
+takto:</p>
+
+<p class="center"><img src="cztk_hello.png" alt="Okno s popisným textem."></p>
+
+<p>Objektu třídy <code>Label</code> můžeme parametry konstruktoru předepsat
+i další vlastnosti, jako je například typ a barva písma. Tyto vlastnosti si
+ale můžeme zpřístupnit voláním metody <code>configure</code>, kterou
+ovládací prvky (widget) modulu Tkinter podporují:</p>
+
+<h4>>>> lHello.configure(text="Nashledanou.")</h4>
+
+<p>Zpráva se změnila. Bylo to docela snadné, že? Použití metody
+<code>configure</code> je výhodné především v případech, kdy chcete změnit
+několik vlastností najednou, protože je můžeme najednou předepsat jako její
+argumenty. Pokud ovšem chcete změnit jen jedinou vlastnost, jako jsme to
+učinili v naposledy uvedeném případě, můžeme se k objektům chovat, jako
+kdyby se jednalo o slovníky (dictionary, vyhledávací tabulky). Takže můžeme
+psát:</p>
+
+<h4>>>> lHello['text'] = "Ahoj, jsem tady zase!"</h4>
+
+<p>... je to kratší a snad i srozumitelnější.</p>
+
+<p>Objekty typu <code>Label</code> (popisné texty) patří k docela nudným
+ovládacím prvkům. Mohou pouze zobrazit text, který je určen jen ke čtení
+&mdash; i když v různých barvách, různým písmem a v různé velikosti. (Ve
+skutečnosti je lze použít i pro zobrazení jednoduché grafiky, ale jak to
+udělat si ukážeme až později.)</p>
+
+<p>Dříve než se podíváme na další typ objektu, zbývá nám předvést ještě
+jednu věc &mdash; způsob, jak můžeme nastavit titulek okna. Dosáhneme toho
+použitím metody ovládacího prvku na vrcholu hierarchie, objektu
+<code>top</code>:</p>
+
+<h4>>>> F.master.title("Ahoj")</h4>
+
+<p>Stejného efektu jsme mohli dosáhnout přímým použitím objektu
+<code>top</code>, ale technika, využívající přístup prostřednictvím
+vlastnosti <code>master</code> objektu třídy <code>Frame</code>, bývá
+užitečná &mdash; jak uvidíme později.</p>
+
+<h4>>>> bQuit = Button(F, text="Konec", command=F.quit)</h4>
+
+<p>Tímto příkazem vytvoříme nový ovládací prvek, tlačítko (button, čti
+[batn]). Tlačítko nese nápis "<code>Konec</code>" a je spojeno s příkazem
+<code>F.quit</code>. Povšimněte si, že předáváme jméno metody. Neprovádíme
+volání této metody, protože jsme za jméno nepřidali závorky. To znamená, že
+se předává objekt s charakterem funkce ve smyslu chápaném v jazyce Python.
+Může to být vestavěná metoda modulu Tkinter, jako v tomto případě, nebo
+jakákoliv jiná, námi definovaná funkce. Funkce nebo metoda nesmí mít žádné
+argumenty. Metoda <code>quit</code>, podobně jako metoda <code>pack</code>,
+je definována v bázové třídě, kterou dědí všechny ovládací prvky modulu
+Tkinter.</p>
+
+<h4>>>> bQuit.pack()</h4>
+
+<p>Metoda <code>pack</code> opět zajistí zviditelnění tlačítka.</p>
+
+<h4>>>> top.mainloop()</h4>
+
+<p>Tímto odstartujeme provádění tkinterovské smyčky zpráv. Povšimněte si,
+vyzývací znaky '<code>>>>&nbsp;</code>' příkazového řádku systému Python nyní
+zmizely. Podle toho poznáme, že řízení <span class="trnote" 
+title="Poznámka překladatele">další činnosti</span> přešlo do režie Tkinter.
+Pokud stisknete tlačítko <code>Konec</code>, vyzývací znaky příkazového
+řádku se znovu objeví, což je důkaz toho, že zafungoval náš parametr
+<code>command</code>.</p>
+
+<p>Poznamenejme, že pokud totéž provádíme z prostředí Pythonwin nebo IDLE,
+může být chování odlišné. Pokud tomu tak skutečně je, zkuste dosud uvedené
+příkazy zapsat do pythonovského skriptu<span class="trnote" 
+title="Poznámka překladatele">, tedy do textového souboru s příponou
+<code>py</code>,</span> a spusťte jej z příkazového řádku operačního
+systému.</p>
+
+<p>On vlastně nastal příhodný okamžik k tomu, abychom to stejně vyzkoušeli.
+Když se to tak vezme, tímto způsobem se v praxi provozuje většina
+tkinterovských programů. Použijme klíčové příkazy z těch, o kterých jsme se
+zatím bavili:</p>
+
+<pre>
+from Tkinter import *
+
+<span class="comment"># Vytvoříme samotné okno.</span>
+top = Tk()
+F = Frame(top)
+F.pack()
+
+<span class="comment"># Přidáme ovládací prvky.</span>
+lHello = Label(F, text="Ahoj")
+lHello.pack()
+bQuit = Button(F, text="Konec", command=F.quit)
+bQuit.pack()
+
+<span class="comment"># Spustíme smyčku událostí.</span>
+top.mainloop()
+</pre>
+
+<p>Volání metody <code>top.mainloop</code> zahájí provádění tkinterovské
+smyčky událostí. V tomto případě bude jedinou zachycenou událostí ta, která
+odpovídá stisku tlačítka a která je spojena s provedením metody
+<code>F.quit</code>. Její provedení způsobí ukončení aplikace. Vyzkoušejte
+si to. Výsledek by měl vypadat takto:</p>
+
+<p class="center"><img src="cztk_hellbut.png" 
+alt="Popisný text a tlačítko."></p>
+
+
+<h3>Bližší průzkum umísťování prvků (layout)</h3>
+
+<p><b>Poznámka:</b> V následujícím textu budou příklady uváděny v podobě, 
+jakou mají v pythonovských zdrojových souborech. Nebudou tedy uvozeny
+řetězcem '<code>>>>&nbsp;</code>', který se vypisuje na začátku vstupního
+řádku interpretu jazyka Python.</p>
+
+<p>V této části bych se rád zaměřil na to, jak Tkinter umísťuje prvky
+(widget) uvnitř okna. V předchozím textu jsme si již ukázali prvky typu
+<code>Frame</code>, <code>Label</code> a <code>Button</code>. Ty nám pro
+potřeby této části textu postačí. V předchozím příkladu jsme používali
+metodu prvku (widget) zvanou <code>pack</code> k umístění prvku uvnitř jeho
+rodičovského okna. Technicky vzato jsme tím aktivovali <em>správce rozložení
+prvků</em> systému Tk, kterému se říká <em>packer</em>. Úkolem správce
+rozložení prvků (Layout Manager) je určení nejlepšího rozložení prvků, které
+je založeno na nápovědě předepsané programátorem a na omezeních, jako je
+například velikost okna, kterou ovlivňuje uživatel. Některé typy správců
+rozložení prvků používají přesné umístění uvnitř okna, které je předepsáno v
+pixelech<sup class="trnote"><a href="cztuttrn.html#Pgui_pixel"
+id="BPgui_pixel" title="Vysvětlení pojmu pixel.">[1]</a></sup>. S tímto
+přístupem se běžně setkáte v systému Microsoft Windows, například při
+používání programátorského prostředí Visual Basic. V modulu Tkinter
+dosáhneme téhož při použití správce rozložení prvků, kterému se říká
+<em>placer</em> (doslova "umísťovač") &mdash; činíme tak voláním jeho metody
+<code>place</code>. V této učebnici se uvedeným správcem rozložení zabývat
+nebudeme, protože obvykle bývá lepší, když si vybereme jeden ze zbývajících,
+inteligentnějších správců rozložení prvků. Jejich použití zbavuje
+programátory starosti o to, co se stane, když okno změní své rozměry.</p>
+
+<p>V Tkinter je nejjednodušším správcem rozložení prvků takzvaný
+<em>packer</em>, který jsme již používali v předchozím textu.
+<em>Packer</em>, pokud mu neřekneme jinak, jednoduše skládá ovládací prvky
+(widget) jeden na druhý. Z hlediska běžných ovládacích prvků tuto vlastnost
+využijeme velmi zřídka, ale pokud sestavujeme rozhraní naší aplikace z
+rámečků (<code>Frame</code>), pak můžeme považovat skládání rámečků na sebe
+za docela rozumný přístup. Ostatní ovládací prvky můžeme do rámečků
+umísťovat buď s využitím správce rozložení typu <em>packer</em> nebo uvnitř
+rámečku podle potřeby využijeme vlastností jiného správce rozložení. Příklad
+použití takového přístupu můžete najít v <a href="cztutcase.html">případové
+studii</a>.</p>
+
+<p>Ale dokonce i tak jednoduchý správce rozložení prvků, jako je
+<em>packer</em>, poskytuje celou řadu voleb. Například uvedením argumentu
+<code>side</code> (strana, do strany, stranově) můžeme předepsat uspořádání
+našich prvků ve vodorovném, místo ve svislém směru:</p>
+
+<pre>
+lHello.pack(side="left")
+bQuit.pack(side="left")
+</pre>
+
+<p>Tyto příkazy přinutí prvky, aby se skládaly zleva <span class="trnote"
+title="Poznámka překladatele">(left [left], znamená levý nebo vlevo)</span>.
+Takže první prvek (typu <code>Label</code>) se objeví úplně vlevo. Za ním
+následuje další prvek (typu <code>Button</code>). Pokud uvedené řádky
+příkladu upravíme uvedeným způsobem, bude výsledek vypadat takto:</p>
+
+<p class="center"><img src="cztk_leftpack.png" 
+alt="Prvky poskládané zleva." title="Prvky poskládané zleva."></p>
+
+<p>A pokud změníme hodnotu <code>"left"</code> na <code>"right"</code> <span
+class="trnote" title="Poznámka překladatele">([rajt] znamená pravý,
+vpravo)</span>, pak se prvek typu <code>Label</code> objeví úplně vpravo a
+prvek typu <code>Button</code> vlevo od něj<span class="trnote"
+title="Poznámka překladatele">, jinými slovy, co nejvíc vpravo, jak je to za
+aktuálního stavu možné</span>. Výsledek bude vypadat takto:</p>
+
+<p class="center"><img src="cztk_rightpack.png" 
+alt="Prvky poskládané zprava." title="Prvky poskládané zprava."></p>
+
+<p>Jedna z věcí, které si můžete všimnout je, že to nevypadá moc hezky,
+protože pvky jsou příliš nalepeny na sebe. Správce <em>packer</em> nám ale
+nabízí další parametry, které nám umožní vypořádat se i s touto situací.
+Snadno použitelné jsou takzvané <em>vycpávky</em> (také výplně; v originále
+padding, čti pading). Můžeme předepsat vodorovné vycpávky
+(<code>padx</code>) a svislé vycpávky (<code>pady</code>). Jejich hodnoty se
+udávají v pixelech. Doplňme tedy do našeho příkladu vodorovné vycpávky:</p>
+
+<pre>
+lHello.pack(side="left", padx=10)
+bQuit.pack(side='left', padx=10)
+</pre>
+
+<p>Výsledek by měl vypadat nějak takto:</p>
+
+<p class="center"><img src="cztk_padx.png" alt="Vodorovné vycpávky." 
+title="Vodorovné vycpávky."></p>
+
+<p>Pokud zkusíte měnit velikost okna, můžete pozorovat, že oba prvky
+zachovávají svou vzájemnou pozici, ale zůstávají uprostřed okna. Proč tomu
+tak je? Vždyť jsme je přeci nechali poskládat zleva? Odpověď zní: prvky jsme
+poskládali dovnitř obalujícího rámečku (<code>Frame</code>), ale samotný
+rámeček jsme do okna vložili (metodou <code>pack</code>) bez uvedení
+parametru <code>side</code>. Takže rámeček je jako celek v okně umístěn
+nahoře uprostřed, což odpovídá základnímu chování správce rozložení typu
+<em>packer</em>. Pokud bychom chtěli, aby byly prvky umístěny na požadované
+straně okna, musíme i při volání metody <code>pack</code> pro objekt typu
+<code>Frame</code> uvést vhodnou hodnotu parametru <code>side</code>:</p>
+
+<pre>
+F.pack(side='left')
+</pre>
+
+<p>Nyní si můžete všimnout, že při změně svislého rozměru okna zůstávají
+prvky uprostřed výšky okna &mdash; jde opět o základní chování správce
+rozložení typu <em>packer</em>.</p>
+
+<p>Nechám už na vás, abyste si sami pohráli s hodnotami parametrů
+<code>padx</code> a <code>pady</code>. Pozorujte vliv jejich různých hodnot
+a kombinací. Zejména parametry <code>side</code> a
+<code>padx</code>/<code>pady</code> umožňují při použití správce rozložení
+typu <em>packer</em> poměrně pružné možnosti umísťování prvků typu widget.
+Existují ještě další parametry. Každý z nich přidává další, jemnější podobu
+řízení umístění. Detaily hledejte na referenčních stránkách modulu
+Tkinter.</p>
+
+<p>Modul Tkinter poskytuje ještě další správce rozložení, které jsou známy
+jako <em>grid</em> (mžížka) a <em>placer</em> (umísťovač). Použití správce
+typu grid aktivujeme voláním metody <code>grid()</code> místo
+<code>pack()</code>. V případě použití správce typu <em>placer</em> voláme
+místo metody <code>pack()</code> metodu <code>place()</code>. Každá z
+uvedených metod má svou sadu parametrů, ale protože se zde zabýváme pouze
+správcem typu <em>packer</em>, budete muset detaily hledat v učebnici a v
+referenční příručce Tkinter. Zmíním se jen o tom, že správce typu
+<em>grid</em> zařídí uspořádání prvků do mřížky (jaké překvapení!) uvnitř
+okna. Jeho použití je užitečné například v případě dialogových oken se
+zarovnanými poli pro vkládání textu. U správce typu <em>placer</em> můžeme
+použít buď pevné souřadnice v pixelech nebo relativní souřadnice uvnitř
+okna. Posledně zmiňovaná možnost umožňuje, aby vložený prvek měnil své
+rozměry součaně s pvkem například tak, aby vždy zabíral například
+75&nbsp;procent svislého prostoru. Tento správce umožňuje řešit zvláštní
+návrhové požadavky, ale vyžaduje to od nás, abychom si předem vše
+naplánovali. Vřele vám doporučuji, abyste si pro tyto účely obstarali
+čtverečkovaný papír, tužku a gumu.</p>
+
+<h3>Řízení vzhledu za použití rámečků a správce typu <em>packer</em></h3>
+
+<p>U prvku (widget) typu <code>Frame</code> můžeme ve skutečnosti ovlivnit
+několik užitečných vlastností. Když se to tak vezme, není špatné, když
+můžeme prvky uživatelského rozhraní z logického hlediska obalit rámečkem,
+ale někdy navíc chceme také něco vidět. Hodí se nám to zejména v případech
+seskupení ovládacích prvků jako jsou přepínací tlačítka (radio buttons) nebo
+zaškrtávací pole voleb (check boxes). Třída <code>Frame</code> tento problém
+řeší tím, že poskytuje vlastnost <em>relief</em> &mdash; tak jako mnoho
+dalších prvků Tk typu widget. Relief může nabývat libovolné z následujících
+hodnot: <code>sunken</code> ([sankn]; ponořený, vmáčknutý),
+<code>raised</code> ([reizd]; vystouplý, vyzvednutý), <code>groove</code>
+([grúv]; drážka, vyrytý) <code>ridge</code> ([ridž]; hřbet, geometrický opak
+drážky) nebo <code>flat</code> ([flat]; plochý). Vyzkoušejme u našeho
+dialogového okna hodnotu <code>sunken</code>. Jednoduše změníme řádek, na
+kterém se vytváří prvek třídy <code>Frame</code>:</p>
+
+<pre>F = Frame(top, relief="sunken", border=1)</pre>
+
+<p><b>Poznámka 1:</b> Musíme uvést i <span class="trnote" 
+title="Poznámka překladatele" >nenulovou</span> hodnotu parametru
+<code>border</code> ([bódr]; hranice). Pokud tak neučiníme, bude sice plocha
+prvku typu <code>Frame</code> ponořená, ale hranice <span class="trnote"
+title="Poznámka překladatele">mezi ponořenou a okolní plochou</span> bude
+neviditelná, takže nezpozorujeme žádný rozdíl.</p>
+
+<p><b>Poznámka 2:</b> &hellip; o tom, proč tloušťku hranice (border)
+neuvádíme v uvozovkách. Znalost toho, zda máme použít uvozovky kolem hodnoty
+parametru a kdy je vynechávat, patří k jedné z matoucích vlastností Tk.
+Obecně se dá říci, že u číselných nebo jednoznakových hodnot můžeme uvozovky
+vynechávat. Pokud jde o směs číslic a písmen nebo o řetězec, musíme použít
+uvozovky. Podobný problém spočívá v tom, kdy použít malá nebo velká písmena.
+Naneštěstí zde neexistuje jednoduchý návod. Musíte se prostě učit ze
+zkušeností. V případě chyby Python často v chybových hlášeních vypisuje
+seznam přípustných hodnot parametrů.</p>
+
+<div class="trnote">
+<p><b>Poznámka překladatele k poznámce 2:</b> Aby se zvýšila čitelnost
+zdrojových textů, jsou pro vyhrazené řetězcové argumenty definovány
+řetězcové proměnné, které se používají v roli předdefinovaných konstant.
+Jejich jména jsou psána velkými písmeny. Naleznete je v souboru
+<code>Tkconstants.py</code>. Zde definovaná jména jsou zviditelněna v rámci
+importu Tkinter. Ve zdrojových textech proto místo</p>
+
+<pre>F = Frame(top, relief="sunken", border=1)</pre>
+
+<p>můžeme psát:</p>
+
+<pre>F = Frame(top, relief=SUNKEN, border=1)</pre>
+
+<p>Podobně můžeme místo <code>side="left"</code> psát <code>side=LEFT</code>
+a podobně. Uvedené obraty můžete pozorovat dále v textu.</p>
+
+</div>
+
+<p>Další věc, které si můžete všimnout, je ta, že <code>Frame</code>
+nevyplňuje okno. Můžeme to napravit použitím dalšího parametru správce typu
+<em>packer</em>, parameru <code>fill</code> ([fil]; vyplnit). Při volání
+metody <code>pack()</code> tedy zapíšeme:</p>
+
+<pre>F.pack(fill=X)</pre>
+
+<p>Uvedený parametr způsobí vyplnění prostoru ve vodorovném směru. Vyplnění
+prostoru ve svislém směru zajistíme použitím <code>fill=Y</code>. Mezi běžné
+požadavky patří vyplnění prostoru v obou směrech. Pro tyto případy máme k
+dispozici hodnotu parametru <code>BOTH</code>. <span class="trnote"
+title="Poznámka překladatele">(Nechtějte po mě, abych zde normálními
+písmenky zapisoval výslovnost. Každopádně slovo <em>both</em> znamená
+<em>oba</em> &mdash; tedy vyplňování v obou směrech.)</span></p>
+
+<pre>F.pack(fill=BOTH)</pre>
+
+<p>Výsledek by měl vypadat takto:</p>
+
+<p class="center"><img src="cztk_sunken.png" alt="Ponořující rámeček."></p>
+
+<h3>Přidejme další prvky</h3>
+
+<p>Podívejme se nyní na prvek (widget) pro třídy <code>Entry</code>
+([entry]; vstup). Jde o známý prvek pro zadávání jednořádkového textu. Řada
+jeho metod se shoduje s metodami propracovanějšího prvku (widget) třídy
+<code>Text</code>, ale tím se zde zabývat nebudeme. Přesto doufám, že
+používáním metod prvku třídy <code>Entry</code> získáte dobré základy pro
+pozdější experimenty s prvkem třídy <code>Text</code>.</p>
+
+<p>Vrátíme se opět k našemu programu, který zobrazuje <code>Ahoj, vy
+tam!</code>, přidáme do něj prvek pro vkládání textu do samostatného prvku
+typu <code>Frame</code> a také tlačítko, které umí vymazat text, který do
+pole vepisujeme. Tím si ukážeme nejen to, jak se dá vytvořit a používat
+prvek typu <code>Entry</code>, ale také jak můžeme definovat své vlastní
+funkce pro ošetření (zpracování) událostí a jak je navážeme na ovládací
+prvky.</p>
+
+<pre>
+from Tkinter import *
+
+<span class="comment"># Nejdříve vytvoříme funkci pro ošetření události.</span>
+def evVymazat():
+  eTxt.delete(0, END)
+
+<span class="comment"># Vytvoříme hierarchicky nejvyšší okno a rámeček.</span>
+top = Tk()
+F = Frame(top)
+F.pack(expand=True)
+
+<span class="comment"># Nyní vytvoříme rámeček s polem pro vstup textu.</span>
+fVstup = Frame(F, border=1)
+eTxt = Entry(fVstup)
+fVstup.pack(side=TOP, expand=True)
+eTxt.pack(side=LEFT, expand=True)
+
+<span class="comment"># Nakonec vytvoříme rámeček s tlačítky. 
+# Pro zvýraznění jej vytvoříme jako ponořený (vmáčknutý).</span>
+fTlacitka = Frame(F, relief=SUNKEN, border=1)
+bVymazat = Button(fTlacitka, text="Vymazat text", command=evVymazat)
+bVymazat.pack(side=LEFT, padx=5, pady=2)
+bKonec = Button(fTlacitka, text="Konec", command=F.quit)
+bKonec.pack(side=LEFT, padx=5, pady=2)
+fTlacitka.pack(side=TOP, expand=True)
+
+<span class="comment"># Nyní spustíme smyčku zpráv.</span>
+F.mainloop()
+</pre>
+
+<p>Povšimněte si, že jméno funkce pro ošetření události
+(<code>evVymazat</code>) opět předáváme jako hodnotu argumentu
+<code>command</code> při vytváření tlačítka <code>bVymazat</code>.
+Povšimněte si také konvence pro vytváření jména <code>evXXX</code> funkce
+pro ošetření události &mdash; dáváme jí najevo vazbu s odpovídajícím prvkem
+typu widget.</p>
+
+<p>Po spuštění programu obdržíme následující výsledek:</p>
+
+<p class="center"><img src="cztk_entry.png" alt="Prvky typu Entry a Button."
+title="Prvky typu Entry a Button."></p>
+
+<p>Pokud něco napíšeme do vstupního pole a poté stiskneme tlačítko
+"<code>Vymazat&nbsp;text</code>", bude napsaný text opět odstraněn.</p>
+
+<h3>Navázání událostí &mdash; od ovládacích prvků ke kódu</h3>
+
+<p>Doposud jsme pro propojení pythonovských funkcí s událostmi tlačítek
+&mdash; jako prvků grafického uživatelského rozhraní &mdash; používali
+vlastnost tlačítek zvanou <code>command</code>. Někdy ovšem potřebujeme
+zajistit přesněji a přímo vyjádřený způsob ovládání. Chceme například
+zachytit událost stisku zvláštní kombinace kláves. Můžeme toho dosáhnout
+použitím funkce <code>bind</code> ([bajnd]; svázat, spojit), kterou lze
+přímo vyjádřit vazbu mezi nějakou událostí pythonovskou funkcí.</p>
+
+<p>Do předchozího příkladu dodefinujeme "horkou klávesu" (hot key) &mdash;
+dejme tomu <code>Ctrl-c</code> &mdash;, která rovněž způsobí vymazání textu.
+Potřebujeme tedy navázat kombinaci kláves <code>Ctrl-c</code> na stejnou
+funkci pro obsluhu událostí, na kterou se váže událost tlačítka
+<code>Vymazat</code>. Máme tu ale jednu neočekávanou nepříjemnost. Parametru
+<code>command</code> jsme museli předávat jméno funkce, která nesměla mít
+žádné parametry. Pokud chceme použít k provedení stejné činnosti funkci
+<code>bind</code>, musí navazovaná funkce definovat jeden parametr. Proto
+musíme vytvořit novou funkci, která přebírá jeden argument a volá
+<code>evVymazat</code>. Za definici funkce <code>evVymazat</code> proto
+přidejme následující definici:</p>
+
+<pre>
+def evHorkaKlavesa(udalost):
+    evVymazat()
+</pre>
+
+<p>A za definici prvku typu <code>Entry</code> přidejme následující
+řádek:</p> 
+
+<pre>
+<span class="comment"># Definice klávesy je citlivá na velikost písmen.</span>
+eTxt.bind("&lt;Control-c&gt;", evHorkaKlavesa) 
+</pre>
+
+<p>Spusťte znovu upravený program. Nyní můžete text vymazat buď stiskem
+příslušného tlačítka nebo stiskem kombinace kláves <code>Ctrl-c</code>.
+Funkci <code>bind</code> můžeme použít i pro zachycení takových událostí,
+jako jsou kliknutí myši, událost získání nebo ztráty aktivity okna (fokus)
+nebo dokonce událost, která doprovází situaci, kdy se okno stane viditelným.
+Více informací na toto téma naleznete v dokumentaci k Tkinter. Nejsložitější
+obvykle bývá zjistit podobu zápisu požadované události.</p>
+
+<h3>Krátká zpráva</h3>
+
+<p>Chceme-li uživatelům našeho programu zobrazit krátkou zprávu, můžeme k
+tomu využít prvek zvaný <em>Message Box</em> ([mesidž box]; doslova okno se
+zprávou). Při využití Tk je to velmi snadné. Za tímto účelem můžeme použít 
+funkce modulu <code>tkMessageBox</code> například takto:</p>
+
+<pre>
+import tkMessageBox
+tkMessageBox.showinfo("Titulek okna", "Krátká zpráva") 
+</pre>
+
+<p>Pro zobrazování oken chybových hlášení, varování, dotazů typu Ano/Ne nebo
+OK/Storno existují také další funkce nazvané <code>showXXX</code> ([šou];
+ukaž). Příslušná okna se odlišují různými ikonami a tlačítky. Dvě poslední
+zmíněné varianty používají místo názvu tvaru <code>showXXX</code> názvy
+<code>askXXX</code> ([ásk]; zeptej se) a vracejí hodnotu, která říká, jaké
+tlačítko uživatel stiskl:</p>
+
+<pre>
+vysledek = tkMessageBox.askokcancel("Co zvolíte?", "Chcete zastavit činnost?")
+print vysledek
+</pre>
+
+<div class="trnote">
+
+<p id="Bcz_tkinter"><b>Poznámka překladatele k českým textům s
+diakritikou:</b> Více podrobností o problémech hledejte <a
+href="cztuttrn.html#Pinput_noascii">v poznámce, ke vstupu českých znaků</a>,
+která se vztahuje k části učebnice, <a href="cztutinput.html#Binput_noascii"
+>kde jsme se zabývali vstupem z klávesnice</a>. Naleznete v ní ovšem i údaje
+k <a href="cztuttrn.html#Pcz_tkinter">používání českých textů pro prvky
+grafického uživatelského rozhraní</a>. Stručně: pro zobrazení českého textu
+v oknech Tk můžeme využít převodu do kódování Unicode. Využijeme k tomu
+funkci <code>unicode()</code>:</p>
+
+<pre>
+# -*- coding: cp1250 -*-
+import tkMessageBox
+vysledek = tkMessageBox.askokcancel(
+               unicode("Co zvolíte?", "cp1250"), 
+               unicode("Chcete zastavit činnost?", "cp1250"))
+print vysledek
+</pre>
+
+<p>První komentářový řádek říká, že zdrojový text byl programu byl zapsán v
+kódování <code>cp1250</code> &mdash; je známé také jako
+<code>windows-1250</code>. Řádek se uvádí hned na začátku skriptu, obvykle
+jako první nebo druhý. (V unixovém světě se na prvním řádku uvádí jiný typ
+komentáře, který pro skripty s příznakem spustitelnosti určuje jméno
+programu, který má skript interpretovat.) Zvláštní tvar řádku s
+posloupnostmi <code>-*-</code> souvisí s konvencemi, které byly v minulosti
+zavedeny u některých známých textových editorů. Pokud tento řádek neuvedeme,
+pak se při spuštění skriptu (přinejmenším od verze Pythonu 2.3) setkáme s
+varovným hlášením, že byl v řetězci použit znak s kódem větším, než 127 a
+přitom nebylo upřesněno použité kódování.</p>
+
+<p>Abych v dalších příkladech nemusel vymýšlet texty, které vypadají česky a
+přitom neobsahují znaky s diakritikou, budu tento obrat používat. V praxi je
+ale výhodnější nadefinovat si obalující funkce nebo metody tříd (případně
+odvozené třídy), které převody kódování ukrývají a při psaní zdrojového
+textu se nám to pak jeví, jako kdyby Python uměl odjakživa česky.</p>
+
+</div>
+
+<p>A takto vypadají některá okna se zprávami:</p>
+
+<p class="center">
+<img src="cztk_info.png" alt="Okno s informací." title="Okno s informací.">&nbsp;
+<img src="cztk_error.png" alt="Okno s chybou." title="Okno s chybou.">&nbsp;
+<img src="cztk_yesno.png" alt="Okno s dotazem Ano/Ne." 
+title="Okno s dotazem Ano/Ne."></p>
+
+<h3>Z pohledu jazyka Tcl</h3>
+
+<p>V úvodních částech této učebnice jsme srovnávali Python s Tcl. Proto
+považuji za rozumné, abychom si ukázali, jak by úvodní příklad s prvky typu
+<code>Label</code> a <code>Button</code> vypadal v originální podobě zapsané
+v Tcl/Tk:</p>
+
+<pre>
+Label .lHello -text "Ahoj, vy tam!"
+Button .bHello -text Konec -command "exit"
+wm title . Ahoj
+pack .lHello .bHello
+</pre>
+
+<p>Jak sami vidíte, zápis je velmi stručný. Hierarchie prvků typu widget je
+vyjadřována s využitím konvence jejich pojmenování, kde prvek se jménem
+'<code>.</code>' stojí na nejvyšší úrovni. Jak už je v Tcl zvykem, prvky
+typu widget jsou vyjadřovány příkazy, kterým jsou požadované vlastnosti
+předány formou argumentů. Doufám, že je vám převod parametrů prvků do podoby
+pojmenovaných argumentů v jazyce Python docela jasný. Pokud tedy při
+programování s Tkinter potřebujete vyřešit nějaké problémy, můžete použít
+dokumentaci systému Tcl/Tk (které je velmi mnoho). Přepis do Tkinter je
+většinou zřejmý.</p>
+
+<p>Dál už se v tomto místě do Tcl/Tk pouštět nebudeme. V následujícím textu
+si ukážeme běžně používanou techniku pro zabalení aplikací s grafickým
+uživatelským rozhraním využívajících Tkinter do podoby objektů.</p>
+
+<h3>Zabalení aplikací do podoby objektů</h3>
+
+<p>Při programování aplikací s grafickým uživatelským rozhraním se běžně
+celá aplikace obaluje do podoby třídy. To vyvolává otázku, jak do této
+struktury tříd napasujeme prvky typu widget modulu Tkinter? Na výběr máme
+dvě možnosti. Buď se rozhodneme pro odvození třídy aplikace od tkinterovské
+třídy <code>Frame</code>, nebo uložíme referenci na hierarchicky nejvyšší
+okno do členské proměnné. Posledně zmíněný přístup se běžně používá i u
+jiných prostředků (toolkit), takže jej použijeme i my. Pokud byste chtěli
+vidět použití prvního ze zmiňovaných přístupů, vraťte se k příkladu v
+kapitole <a href="cztutevent.html#Tkinter_example">Událostmi řízené
+programování</a>. (Zmíněný příklad mimo jiné ukazuje základy použití
+neuvěřitelně univerzálního tkinterovského prvku (widget) třídy
+<code>Text</code>.)</p>
+
+<div class="trnote">
+
+<p><b>Poznámka překladatele:</b> Přístup, kdy ukládáme referenci na
+hierarchicky nejvyšší okno odpovídá obecnému doporučení při objektově
+orientovaném návrhu aplikací. To říká, že bychom měli <em>dávat přednost
+kompozici před dědičností</em>. Jinými slovy to znamená, že pokud si můžeme
+vybrat, zda spojit funkčnost dvou tříd dohromady, bývá lepší, když nějak
+spojíme <em>objekty</em> dvou jednodušších tříd, než kdybychom vytvářeli
+jednu novou, složitější třídu. Ve svém důsledku to vede k vyšší pružnosti
+při budoucích úpravách návrhu aplikace. Návrh bývá také přehlednější.
+Dědičnost (tj. odvozování jedné třídy objektů z jiné) bychom měli používat
+především tehdy, když pouze <em>upravujeme</em> funkčnost bázové třídy pro
+speciální účel. Neměli bychom ji používat, když chceme propojit funkčnosti
+dvou tříd s odlišným účelem.</p>
+
+</div>
+
+<p>Výše uvedený příklad, využívající vstupní pole typu <code>Entry</code>,
+tlačítko Vymazat a tlačítko Konec, převedeme do objektově orientované
+podoby. Nejdříve si vytvoříme třídu aplikace a v rámci jejího konstruktoru
+poskládáme viditelné části grafického uživatelského rozhraní.</p>
+
+<p>Referenci na výsledný prvek typu <code>Frame</code> přiřadíme do
+<code>self.hlavniOkno</code>. Tím lze zajistit přístup k hierarchicky
+nejvyššímu prvku typu <code>Frame</code> ostatním metodám třídy. Ostatní
+prvky (widget), ke kterým bychom mohli chtít přistupovat (jako je například
+pole typu <code>Entry</code>) jsou podobným způsobem přiřazeny do členských
+proměnných instance třídy <code>Frame</code>. Při využití popsané techniky
+se funkce pro zpracování událostí stanou metodami aplikační třídy a každá z
+těchto metod může přistupovat k libovolným datovým členům aplikace (ačkoliv
+v tomto případě žádné datové členy nevytváříme) prostřednictvím reference
+<code>self</code>. Tím zajistíme přirozené propojení prvků grafického
+uživatelského rozhraní s ostatními aplikačními objekty:</p>
+
+<pre>
+from Tkinter import *
+     
+class AplikaceVymazat:
+    def __init__(self, rodic=0):
+        self.hlavniOkno = Frame(rodic)
+        <span class="comment"># Vytvoříme widget třídy Entry</span>
+        self.vstup = Entry(self.hlavniOkno)
+        self.vstup.insert(0, "Ahoj, vy tam!")
+        self.vstup.pack(fill=X)
+      
+        <span class="comment"># Nyní přidáme dvě tlačítka a použijeme efekt drážky.</span>
+        fTlacitka = Frame(self.hlavniOkno, border=2, relief=GROOVE)
+        bVymazat = Button(fTlacitka, text="Vymazat", 
+                          width=8, height=1, command=self.vymazatText)
+        bKonec = Button(fTlacitka, text="Konec", 
+                        width=8, height=1, command=self.hlavniOkno.quit)
+        bVymazat.pack(side=LEFT, padx=15, pady=1)
+        bKonec.pack(side=RIGHT, padx=15, pady=1)
+        fTlacitka.pack(fill=X)
+        self.hlavniOkno.pack()
+
+        <span class="comment"># Nastavíme nadpis okna.</span>
+        self.hlavniOkno.master.title("Vymazat")
+      
+    def vymazatText(self):
+        self.vstup.delete(0, END)
+      
+aplikace = AplikaceVymazat()
+aplikace.hlavniOkno.mainloop()
+</pre>
+
+<p>Výsledek vypadá takto:</p>
+
+<p class="center"><img src="cztk_oopentry.png" 
+alt="Objektově orientovaná verze příkladu."
+title="Objektově orientovaná verze příkladu."></p>
+
+<p>Stojí za povšimnutí, že výsledek výrazně připomíná předchozí verzi
+příkladu. Trochu jsme upravili spodní rámeček, aby získal pěknější podobu s
+drážkou okolo. Nastavili jsme také šířky tlačítek, abychom se přiblížili
+vzhledu, který bude mít další příklad, využívající nadstavbu wxPython.</p>
+
+<p>Do podoby objektu samozřejmě můžeme zabalit nejen hlavní aplikaci. Mohli
+bychom vytvořit třídu s prvkem typu <code>Frame</code>, který obaluje
+standardní sadu tlačítek. Tu pak můžeme využívat například při vytváření
+dialogových oken. Mohli bychom dokonce vytvořit <span class="trnote"
+title="Poznámka překladatele">třídy pro</span> celé dialogy a ty pak
+používat v několika projektech. Nebo bychom mohli rozšířit schopnosti
+standardních prvků typu widget definicí odvozených tříd. Například bychom
+mohli vytvořit tlačítko, které mění barvu v závislosti na svém stavu. Něco
+takového provádí modul <em>Python Mega Widgets</em> (PMW), což je rozšíření
+Tkinter &mdash; PMW si můžete stáhnout (download).</p>
+
+<h3>Alternativa jménem wxPython</h3>
+
+<p>Pro práci s grafickým uživatelským rozhraním je k dispozici mnoho dalších
+nástrojů (toolkit), ale jedním z nejpopulárnějších je wxPython. Ten je pro
+změnu pythonovskou obálkou kolem nástroje wxWindows pro jazyk C++. Z
+obecného hlediska je wxPython mnohem typičtějším nástrojem pro práci s
+grafickým uživatelským rozhraním, než je Tkinter. V základní podobě také
+poskytuje více standardní funkčnosti, než Tk. Poskytuje prvky jako tooltip
+<span class="trnote" title="Poznámka překladatele">([túltip];
+<em>bublina</em> s textem pro prvek ležící pod kurzorem myši)</span>,
+stavová lišta (status bar) a další, které si v Tkinter musíte vytvořit sami.
+Pomocí wxPython si znovu přepíšeme dříve uvedený příklad "<code>Ahoj, vy
+tam!</code>", který používá prvky typu <code>Label</code> a
+<code>Button</code>.</p>
+
+<p>Co se týká wxPython, nepůjdeme příliš do detailů. Pokud se chcete
+dozvědět více o tom, jak wxPython pracuje, budete si muset stáhnout <span
+class="trnote" title="Poznámka překladatele">instalační</span> balík z <a
+href="http://www.wxPython.org/" target="_blank">webovských stránek
+wxPython</a>.</p>
+
+<p>Obecně se dá říci, že tato nástrojová sada (toolkit) definuje pracovní
+rámec (framework), který nám dovolí vytvářet okna, umísťovat do nich
+ovládací prvky a navazovat na ně metody<span class="trnote" 
+title="Poznámka překladatele">, tj. definovat, které metody se mají volat
+pro obsluhu událostí těchto ovládacích prvků</span>. wxPython je plně
+objektově orientován, takže byste <span class="trnote" 
+title="Poznámka překladatele">pro obsluhu událostí</span> měli používat
+opravdu metody a ne funkce. Příklad použití vypadá následovně:</p>
+
+<pre>
+from wxPython.wx import *
+
+<span class="comment"># --- Definujeme uživatelský rámeček (Frame), který se stane hlavním oknem. ---</span>
+class RamecekAhoj(wxFrame):
+    def __init__(self, rodic, ID, titulek, pozice, velikost):
+        wxFrame.__init__(self, rodic, ID, titulek, pozice, velikost)
+        <span class="comment"># Použití panelu zajistí správné pozadí.</span>
+        panel = wxPanel(self, -1)
+
+        <span class="comment"># Nyní vytvoříme text a tlačítka.</span>
+        self.tAhoj = wxTextCtrl(panel, -1, "Ahoj, vy tam!", (3,3), (185,22))
+        tlacitko = wxButton(panel, 10, "Vymazat", (15, 32))
+        tlacitko = wxButton(panel, 20, "Konec", (100, 32))
+
+        <span class="comment"># Nyní svážeme tlačítka s obslužnými metodami.</span>
+        EVT_BUTTON(self, 10, self.OnVymazat)
+        EVT_BUTTON(self, 20, self.OnKonec)
+        
+    <span class="comment"># Následují naše metody pro obsluhu událostí.</span>
+    def OnVymazat(self, udalost):
+        self.tAhoj.Clear()
+       
+    def OnKonec(self, udalost):
+        self.Destroy()
+
+<span class="comment"># --- Definujeme aplikační objekt. ---
+# Poznamenejme, že všechny wxPythonovské programy MUSÍ definovat 
+# třídu aplikačního objektu jako třídu odvozenou od wxApp.</span>
+class AplikaceAhoj(wxApp):
+    def OnInit(self):
+        frame = RamecekAhoj(NULL, -1, "Ahoj", (200,50), (200,90))
+        frame.Show(True)
+        # self.setTopWindow(frame)
+        return True
+
+<span class="comment"># Vytvoříme instanci třídy a spustíme smyčku zpráv.</span>
+AplikaceAhoj().MainLoop()
+</pre>
+
+<p>Výsledek vypadá takto:</p>
+
+<p class="center"><img src="czwx_hello.png" alt="Program Ahoj ve wxPython"
+title="Program Ahoj ve wxPython"></p>
+
+<p>Za povšimnutí stojí používání konvence pro pojmenování metod, které mají
+být volány z rámce (framework) wxPython &mdash; <code>OnXxxx</code>. <span
+class="trnote" title="Poznámka překladatele">(Předložku <em>On</em> bychom
+pro tento případ mohli doslova překládat jako <em>Při</em>.)</span>
+Povšimněte si také funkcí <code>EVT_XXX</code>, kterými se definuje vazba na
+události prvků. <span class="trnote" title="Poznámka překladatele">(Zkratka
+<code>EVT</code> pochází z anglického <em>event</em> [ivent], tj.
+událost.)</span> Podobných funkcí existuje celá rodina. Systém wxPython
+využívá celou řadu ovládacích prvků (widget) &mdash; mnohem více, než je
+tomu u Tkinter. Lze jimi realizovat poměrně náročná grafická uživatelská
+rozhraní. Naneštěstí se u nich používá převážně rozmisťovací schéma založené
+na souřadnicích, které budete již po chvíli vnímat jako velmi únavné.
+Existuje sice možnost použití schématu, které se velmi podobá tkinterovskému
+správci rozložení zvanému <em>packer</em>, ale tento prostředek není příliš
+dobře dokumentován. Pro tvorbu grafického uživatelského rozhraní existuje
+komerčně dostupný nástroj. Doufejme, že se brzy objeví i nějaká zdarma
+dostupná alternativa.</p>
+
+<p>Za zmínku stojí to, že posledně uvedený příklad a velmi podobný, dříve
+uvedený příklad psaný v Tkinter, mají přibližně stejný počet řádků (<span
+class="trnote" title="Poznámka překladatele">v anglickém originále jich
+je</span> 19 pro Tkinter a 20 pro wxPython &mdash; <span class="trnote"
+title="Poznámka překladatele"> pokud nepočítáme komentářové a prázdné řádky.
+V českém překladu jsem se o dosažení přesně stejného počtu řádků
+nesnažil.)</span></p>
+
+<p>Shrneme-li to, pak v případě, kdy chcete k nějakému textově orientovanému
+nástroji rychle vytvořit jednoduché grafické uživatelské rozhraní, pak by
+měl Tkinter vyhovět vašim požadavkům při současné minimalizaci nutného
+úsilí. Pokud chcete vytvářet aplikace s plnohodnotným grafickým uživatelským
+rozhraním, které mají být použitelné na více platformách, pak byste se měli
+blíže seznámit s wxPython.</p>
+
+<p>Mezi další nástroje pro budování grafického uživatelského rozhraní patří
+MFC, .NET a jsou zde samozřejmě letité <em>curses</em>, což je vlastně
+grafické uživatelské rozhraní realizované v textovém prostředí. <span
+class="ir">Poznámka k .NET.</span></p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Knihovna <em>curses</em>
+Využívá možností textového režimu zobrazovacích adaptérů, kdy lze
+předepisovat zobrazování znaků na daných pozicích textové obrazovky, určení
+barev takto zobrazeného textu, a další. Pokud si pod tímto popisem
+nedovedete nic představit, vzpomeňte si na klasickou verzi aplikace Norton
+Commander, jeho kvalitního windowsovského soupeře zvaného FAR, případně
+linuxovskou variantu zvanou Midnight Commander (mc). Můžete si představit i
+libovolnou <em>klasickou</em> dosovou aplikaci, která používala okénka
+tvořená z rámečkových znaků. Aplikace s podobným vzhledem vznikaly dříve,
+než se objevily první verze Windows. Knihovna <em>curses</em> ale má svůj
+původ v unixovém světě, z jehož promyšlených abstrakcí tvůrci Windows velmi
+často čerpají. Někdy to jde tak daleko, že někteří napůl žertem říkají, že
+až budou jednou MS&nbsp;Windows dokončené, bude to nejlépe dokumentovaný
+Unix na světě.</p>
+
+<p>Řadu věcí, které jsme se naučili v souvislosti s Tkinter, lze aplikovat
+na všechny ze zmíněných prostředků pro tvorbu grafického uživatelského
+rozhraní. Každý z nich má ale své charakterické vlastnosti, zvláštnosti,
+podivnosti a neduhy. Vyberte si některý z nich, naučte se jej a užívejte si
+bláznivého světa návrhu grafického uživatelského rozhraní. Na závěr bych se
+měl zmínit, že pro řadu těchto nástrojů existují grafické prostředky pro
+návrh a tvorbu uživatelského rozhraní. Jako příklad uveďme Blackadder pro Qt
+a Glade pro GTK. Pro wxPython se o zjednodušení procesu výstavby grafického
+uživatelského rozhraní snaží prostředek zvaný <a
+href="http://pythoncard.sourceforge.net/" target="_blank">Python Card</a>.
+
+<p>To nám prozatím stačí. Nechceme zde vytvářet novou referenční příručku
+pro Tkinter. Cílem bylo pouze uvedení nezbytných věcí k tomu, abyste mohli
+učinit první kroky. Odkazy na další zdroje informací o Tkinter naleznete
+v&nbsp;<a href="http://www.python.org/topics/tkinter/" target="_blank">sekci
+Tkinter</a> na webovských stránkách systému Python.</p>
+
+<p>Problematikou používání Tcl/Tk se také zabývá několik knih. Přinejmenším
+jedna se věnuje přímo Tkinter. K Tkinter se nicméně vrátíme v&nbsp;<a
+href="cztutcase.html">případové studii</a>, kde si ukážeme jeden ze
+způsobů, jak obalit program s dávkovým charakterem grafickým uživatelským
+rozhraním. Tím se docílí zlepšení použitelnosti původního programu.</p>
+
+<hr>
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutevent.html" title="Událostmi řízené programování">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutfctnl.html" title="Funkcionální programování">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutgui.html,v 1.6 2004/08/31 11:55:13 prikryl Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutgui.html,v 1.6 2004/08/31 11:55:13 prikryl Exp $</p>
+</div>
+</body>
+</html>
+

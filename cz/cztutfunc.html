@@ -1,0 +1,993 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Moduly a funkce</title>
+</head>
+<body>
+
+<h2>Programování s využitím modulů</h2>
+
+<div class="whatcovered">
+<p class="title">O čem si budeme povídat?</p>
+<ul>
+<li>Co to je modul?</li>
+<li>Funkce jako modul.</li>
+<li>Používání souborů s moduly.</li>
+<li>Zápis našich vlastních funkcí a modulů.</li>
+<li>Úvod do Windows Script Host.</li>
+</ul>
+</div>
+
+<h3>Co to je modul?</h3>
+
+<p>Čtvrtý element programování do hry zapojuje použití <em>modulů</em> <span
+class="trnote" title="Poznámka překladatele">(viz <a
+href="cztutwhat.html#Dijkstra">Společné vlastnosti programů</a>)</span>. Ve
+skutečnosti není naprosto nezbytné a i bez něj, s použitím toho, o čem jsme
+se zatím bavili, můžete vytvořit docela působivé programy. Jenomže s tím,
+jak se program stává větším, stává se stále obtížnějším sledování toho, co a
+kde se v něm děje. Potřebujeme najít způsob jak potlačit nutnost uvažování o
+některých detailech, abychom mohli uvažovat o řešeném problému a abychom
+nemuseli řešit vše, co souvisí s fungováním počítače. Python, VBScript a
+JavaScript a další jazyky to do jisté míry řeší již svými zabudovanými
+schopnostmi &mdash; nemusíme se například zabývat detaily počítačového
+technického vybavení (hardware), nemusíme se zabývat tím, jak se čtou stisky
+jednotlivých kláves na klávesnici a podobně.</p>
+
+<p>Používání modulů má programátorovi umožnit <em>rozšiřování</em>
+zabudovaných schopností jazyka. Zabývá se obalováním kousků programů do
+modulů tak, abychom je mohli využít v našich programech. První formou modulu
+byl <em>podprogram</em>, což byl blok kódu, na který bylo možno skočit
+(něčím jako příkaz <code>GOTO</code>, o kterém jsme se zmínili v kapitole o
+větvení). Jakmile byl blok dokončen, bylo možné skočit zpět do místa odkud
+byl <em>volán</em>. Tato konkrétní podoba modularity je známa pod pojmy
+<em>procedura</em> nebo <em>funkce</em>. V jazyce Python a v některých
+dalších jazycích se slovo <em>modul</em> spojilo s&nbsp;přesněji vymezeným
+významem, o kterém si za chvíli něco povíme. Ale nejdříve se podívejme
+podrobněji na funkce.</p>
+
+<h3>Používání funkcí</h3>
+
+<p>Dříve, než se budeme zabývat tím, jak můžeme funkci vytvořit, podívejme
+se, jak používáme velké množství funkcí, které se k libovolnému
+programovacímu jazyku dodávají (často se dodávají v podobě takzvané
+<em>knihovny</em>).</p>
+
+<p>Použití některých funkcí a seznam dalších funkcí jsme již viděli, když
+jsme se bavili o operátorech. Nyní se zaměříme na to, co mají všechny funkce
+společné a jak je můžeme používat v našich programech. Základní struktura
+<em>volání funkce</em> vypadá následovně:</p>
+
+<pre>
+Promenna = nejakaFunkce(argument, dalsi, atd...)
+</pre>
+
+<p>To znamená, že proměnné <code>Promenna</code> je přiřazena hodnota, která
+je získána jako výsledek volání funkce. Funkce může mít žádný nebo více
+<em>argumentů</em>, ke kterým se chová jako k interním proměnným. Funkce
+mohou uvnitř svého kódu volat další funkce. Ve většině programovacích jazyků
+(i když ne ve všech) musíme v zápisu volání funkce uvádět závorky i v
+případě, kdy nemá žádné argumenty.</p>
+
+<p>Vezměme si některé příklady v našich vybraných jazycích a podívejme se,
+jak to funguje:</p>
+
+
+<h4>VBScript: Mid(retezec, start, delka)</h4>
+
+<p>Tato funkce vrací <code>delka</code> znaků z řetězce <code>retezec</code>,
+počínaje pozicí <code>start</code>.</p>
+
+<pre>
+&lt;script type="text/vbscript">
+Dim cas
+cas = "ráno večer odpoledne"
+MsgBox "Dobrý " &amp;  Mid(cas, 6, 5)
+&lt;/script>
+</pre>
+
+<p>Zobrazí se "Dobrý večer". Poznamenejme, že u VBScript se argumenty funkce
+nemusí uzavírat do závorek. Stačí oddělení mezerou, jak jsme učinili při
+volání <code>MsgBox</code>. Ovšem pokud kombinujeme volání dvou funkcí (jako
+v našem případě), pak vnitřní funkce musí používat závorky. Moje rada zní:
+pokud jste na pochybách, používejte závorky.</p>
+
+
+<h4>VBScript: Date</h4>
+
+<p>Tato funkce vrací aktuální systémové datum.</p>
+
+<pre>
+&lt;script type="text/vbscript">
+MsgBox Date
+&lt;/script>
+</pre>
+
+<p>Asi už se k tomu nedá víc dodat. Snad jen, že existuje celá skupina
+funkcí pro práci s datem, které umožňují získat informaci o dni, týdnu,
+hodině atd.</p>
+
+
+
+<h4>JavaScript: startString.replace(searchString, newString)</h4>
+
+<p>Vrací nový řetězec, který vznikne z řetězce <code>startString</code>
+nahrazením podřetězce <code>searchString</code> novým řetězcem
+<code>newString</code>.</p>
+
+<pre>
+&lt;script type="text/javascript">
+var r, s = "Dlouhá a vítězná cesta.";
+document.write("Originál = " + s + "&lt;BR>");
+r = s.replace("Dlouhá", "Krátká");
+document.write("Výsledek = " + r);
+&lt;/script>
+</pre>
+
+<p class="note"><b>Poznámka:</b> V jazyce JavaScript se téměř všude
+setkáváme se speciálním typem funkce, které říkáme <em>metoda</em>. Metodou
+rozumíme funkci, která je spojena s <em>objektem</em> (viz dříve probírané
+téma <a href="cztutdata.html#object">Data, datové typy a proměnné</a> a viz
+více detailů dále). Za poznámku zde stojí především to, že uvedená funkce je
+<em>připojena</em> k řetězci <code>s</code> tečkovým operátorem. Chápe se to
+tak, že <code>s</code> je řetězcem, nad kterým se provádí náhrada.</p>
+
+<p>Není to nic nového. Už od začátku této učebnice používáme pro zobrazení
+výstupu v našich javascriptových programech metodu <code>write()</code>
+objektu <code>document</code> (zapisujeme <code>document.write()</code>).
+Zatím jsem se pouze nezmiňoval o důvodech, které jsou s touto formou zápisu
+spojeny.</p>
+
+
+
+<h4>Python: pow(x,y)</h4>
+
+<p>Funkce <code>pow()</code> umocňuje základ <code>x</code> na
+<code>y</code>.</p>
+
+<pre>
+>>> x = 2                <span class="comment"># použijeme 2 jako hodnotu základu</span>
+>>> for y in range(0, 11):
+...     print pow(x, y)  <span class="comment"># umocní 2 na y, tj. na 0 až 10</span>
+</pre>
+
+<p>V tomto příkladu generujeme hodnoty <code>y</code> od 0 do 10 a voláme
+zabudovanou funkci <code>pow()</code> s předáváme jí dva argumenty:
+<code>x</code> a <code>y</code>. Aktuální hodnoty <code>x</code> a
+<code>y</code> jsou do volání funkce <code>pow()</code> dosazeny při každé
+obrátce cyklu a výsledek je pokaždé vytištěn.</p>
+
+<p><b>Poznámka:</b> Python definuje také operátor pro umocňování
+<code>**</code>, který je ekvivalentem funkce <code>pow()</code>.</p>
+
+
+<h4>Python: dir(m)</h4>
+
+<p>Další užitečnou zabudovanou funkcí jazyka Python je funkce
+<code>dir()</code>. Když jí předáme jméno modulu, vrátí nám seznam 
+všech jmen, která modul exportuje, včetně všech proměnných a funkcí, 
+které můžeme použít. O modulech jsme se až do tohoto okamžiku nezmiňovali,
+ale Python se dodává spolu s velkým množstvím modulů. Vypišme si
+funkcí <code>dir()</code> seznam jmen zabudovaných funkcí:</p>
+
+<pre>
+print dir(__builtins__)
+</pre>
+
+<p><b>Poznámka 1:</b> <code>builtins</code> je jedním z oněch 
+<em>magických</em> slov systému Python. Takže je opět obklopeno
+dvojicemi znaků podtržení &mdash; dvě podtržení na každé straně.</p> 
+
+<p><b>Poznámka 2:</b> Pokud budete chtít funkci <code>dir()</code> 
+použít pro libovolný jiný modul, musíte jej nejdříve zpřístupnit 
+příkazem <code>import</code>. V opačném případě si Python bude 
+stěžovat, že jméno modulu nezná.</p> 
+
+
+<pre>
+>>> import sys
+>>> dir(sys)
+</pre>
+
+<p>Vzpomeňte si, že s modulem <code>sys</code> jsme se setkali již v našich
+prvních tématech, věnovaných posloupnostem. Ve výstupním seznamu
+posledního volání funkce <code>dir()</code> byste si měli všimnout
+jména naší staré známé funkce <code>exit()</code>.</p>
+
+<p>Dříve, než se pustíme do dalších věcí, měli bychom si o modulech v jazyce
+Python říci více podrobností.</p>
+
+<h3>Používání modulů</h3>
+
+<p>Python je extrémně rozšiřovatelný jazyk v tom smyslu, že můžete přidávat
+nové možnosti tím, že provedete <code>import</code> potřebných modulů.
+Zakrátko si ukážeme, jak můžeme moduly vytvářet. Ale nejdříve si trochu
+pohrajeme z některými standardními moduly, se kterými se Python již
+dodává.</p>
+
+<h4>sys</h4>
+
+<p>S modulem <code>sys</code> jsme se již potkali v okamžiku, kdy jsme z
+kódu v jazyce Python volali funkci <code>exit</code> za účelem ukončení
+programu. Modul obsahuje celou řadu dalších užitečných funkcí &mdash; jak
+jsme si mohli povšimnout ve výstupu funkce <code>dir</code> ve výše uvedeném
+příkladu. Abychom k nim získali přístup, musíme provést příkaz
+<code>import&nbsp;sys</code>:</p>
+
+<pre>
+import sys         <span class="comment"># zpřístupní vnitřní funkce</span>
+print sys.path()   <span class="comment"># ukaž, kde Python hledá moduly</span>
+sys.exit()         <span class="comment"># uvádíme předponu 'sys'</span>
+</pre>
+
+<p>Pokud víme, že budeme funkce modulu používat velmi často a pokud nemají
+stejná jména jako funkce, které jsme již dříve importovali nebo vytvořili,
+pak můžeme psát:</p>
+
+<pre>
+from sys import *  <span class="comment"># import všech jmen z modulu sys </span>
+print path()       <span class="comment"># nyní nemusíme uvádět předponu 'sys'</span>
+exit()
+</pre>
+
+<p>Pokud chceme z modulu používat jen pár funkcí, pak bývá bezpečnější
+použít následující obrat:</p>
+
+<pre>
+from sys import path, exit <span class="comment"># importujeme jen potřebné</span>
+print path()               <span class="comment"># používáme bez předpony 'sys'</span>
+exit()
+</pre>
+
+<p>Povšimněte si, že za jmény vybraných funkcí neuvádíme závorky. Pokud
+bychom tak učinili, bylo by to chápáno jako pokus o spuštění funkcí. Uvádíme
+pouze jméno funkce.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> příkaz
+<code>from...import...</code> je obecný a dá se použít pro zveřejnění
+různých jmen definovaných v modulu, nejen jmen funkcí. Vynechávání závorek
+je proto logické i z&nbsp;tohoto pohledu.</p>
+
+<p>Na závěr bych vám rád ukázal trik, který vám může ušetřit psaní. Pokud
+používáte modul s velmi dlouhým jménem, můžete jej při importování
+přejmenovat. Příklad:</p>
+
+<pre>
+import SimpleXMLRPCServer as m
+m.SimpleXMLRPCRequestHandler()
+</pre>
+
+<p>Pythonu jsme zde řekli, aby považoval <code>m</code> za zkratku pro <span
+class="trnote" title="Poznámka&nbsp;překladatele">modul</span>
+<code>SimpleXMLRPCServer</code>. Pokud nyní chceme použít nějakou funkci z
+tohoto modulu, budeme <span class="trnote"
+title="Poznámka&nbsp;překladatele">před ni</span> psát pouze
+<code>m.</code>, což je mnohem kratší.</p>
+
+
+<h4>Další moduly jazyka Python a jejich obsah</h4>
+
+<p>Uvedeným způsobem můžeme importovat libovolné pythonovské moduly. Týká
+se to i modulů, které si sami vytvoříte. Za okamžik si ukážeme, jak na to.
+Ale nejdříve si uděláme krátkou přehlídku některých standardních modulů
+jazyka Python a představíme si něco z toho, co nabízejí:</p> 
+
+<div class="center">
+<table summary="Přehled vybraných standardních modulů">
+<tr><th>Jméno modulu</th><th>Popis</th></tr>
+<tr><td><code>sys</code></td>
+    <td>Umožňuje interakci se systémem Python: 
+    <ul>
+    <li>exit() &mdash; ukončení běhu programu</li>
+    <li>argv &mdash; seznam argumentů z příkazového řádku</li>
+    <li>path &mdash; seznam cest prohledávaných při práci s moduly</li>
+    <li>ps1 &mdash; mění vyzývací řetězec '<code>>>></code>' příkazového řádku
+        interpretu jazyka Python</li>
+    </ul>
+    </td></tr>
+<tr><td><code>os</code></td>
+    <td>Umožňuje interakci s operačním systémem:
+    <ul>
+    <li>name &mdash; zkratka charakterizující používaný operační systém; 
+                     užitečná při psaní přenositelných programů</li>
+    <li>system &mdash; provedení příkazu systému</li>
+    <li>mkdir &mdash; vytvoření adresáře</li>
+    <li>getcwd &mdash; zjistí současný pracovní adresář (z anglického
+        <b>get</b> <b>c</b>urrent <b>w</b>orking <b>d</b>irectory)</li>
+    </ul>
+    </td></tr>
+<tr><td><code>re</code></td>
+    <td>Umožňuje manipulaci s řetězci předepsanou regulárními výrazy, jaké se
+        používají v systému Unix:
+    <ul>
+    <li>search &mdash; hledej vzorek kdekoliv v řetězci</li>
+    <li>match &mdash; hledej pouze od začátku řetězce</li>
+    <li>findall &mdash; nalezne všechny výskyty vzorku v řetězci</li>
+    <li>split &mdash; rozděl na podřetězce, které jsou odděleny zadaným vzorkem</li>
+    <li>sub, subn &mdash; náhrada řetězců</li>
+    </ul>
+    </td></tr>
+<tr><td><code>math</code></td>
+    <td>Zpřístupňuje řadu matematických funkcí:
+    <ul>
+    <li>sin, cos, atd. &mdash; trigonometrické funkce</li>
+    <li>log, log10 &mdash; přirozený a dekadický logaritmus</li>
+    <li>ceil, floor &mdash; zaokrouhlení na celé číslo nahoru a dolů</li>
+    <li>pi, e &mdash; konstanty</li>
+    </ul>
+    </td></tr>
+<tr><td><code>time</code></td>
+    <td>Funkce pro práci s časem a datem:
+    <ul>
+    <li>time &mdash; vrací současný čas (vyjádřený v sekundách)</li>
+    <li>gmtime &mdash; převod času v sekundách na UTC (tj. na čas v univerzálních
+        časových souřadnicích &mdash; známější pod zkratkou GMT z 
+        anglického Greenwich Mean Time, tedy greenwichský [grinidžský] čas)</li>
+    <li>localtime &mdash; převod do lokálního času (tj. posunutého vůči UTC
+        o celé hodiny)</li>
+    <li>mktime &mdash; opačná operace k localtime</li>
+    <li>sleep &mdash; pozastaví běh programu na zadaný počet sekund</li>
+    </ul>
+    </td></tr>
+<tr><td><code>random</code></td>
+    <td>Generátory náhodných čísel &mdash; užitečné <span class="trnote"
+    title="Poznámka&nbsp;překladatele">nejen</span> pro programování her!
+    <ul>
+    <li>randint &mdash; generování náhodného čísla mezi dvěmi hranicemi (včetně)</li>
+    <li>sample &mdash; generování náhodného podseznamu z jiného seznamu</li>
+    <li>seed &mdash; počáteční nastavení klíče pro generování čísel</li>
+    </ul>
+    </td></tr>
+</table>
+</div>
+
+<p>Uvedené funkce představují pouze špičku ledovce. V distribuci systému
+Python se nacházejí doslova tucty modulů a mnoho dalších si můžete stáhnout
+z Internetu (jejich dobrým zdrojem jsou stránky <a
+href="http://www.vex.net/parnassus/" target="_blank">Vaults of
+Parnassus</a>). Nahlédněte do dokumentace a najdete informace o funcích pro
+přístup na Internet, pro grafiku, pro tvorbu databází, atd.</p>
+
+<p>Je důležité si uvědomit, že u většiny programovacích jazyků jsou tyto
+funkce buď zabudované nebo jsou součástí jejich standardní knihovny. Než
+začnete psát nějakou funkci, vždycky si v dokumentaci ověřte, zda již
+náhodou neexistuje. Tím jsme se pěkně dostali k tématu&hellip;</p>
+
+
+<h3>Definice našich vlastních funkcí</h3>
+
+<p>Nyní již víme, jak používat existující funkce a moduly. Ale jak můžeme
+vytvořit novou funkci? Jednoduše ji <em>definujeme</em>. To znamená, že
+napíšeme příkaz, který interpretu říká, že definujeme blok kódu, který může
+být na požádání proveden na jiném místě našeho programu.</p>
+
+<h4>Nejdříve VBScript</h4>
+
+<p>Vytvořme funkci, která nám vytiskne tabulku násobků libovolného čísla,
+které zadáme jako argument. V jazyce VBScript by to vypadalo takto:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+Sub Nasobky(N)
+Dim I
+For I = 1 To 12
+    MsgBox I &amp; " x " &amp; N &amp; " = " &amp; I * N
+Next 
+End Sub
+&lt;/script>
+</pre>
+
+<p>Za značkou uvádějící blok v jazyce VBScript jsme použili klíčové slovo
+<code>Sub</code> (jako <em>Subroutine</em>, čili podprogram) a celou
+definice jsme ukončili klíčovými slovy <code>End&nbsp;Sub</code>. V kulatých
+závorkách jsme uvedli seznam formálních <em>parametrů</em>. Uvnitř se
+nachází běžný kód v jazyce VBScript až na to, že se parametry chápou jako
+kdyby to byly již definované lokální proměnné.</p>
+
+<p>Nově definovanou funkci můžeme od tohoto okamžiku volat třeba takto:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+MsgBox "Následují hodnoty násobků čísla 7..."
+Nasobky 7
+&lt;/script>
+</pre>
+
+<p><b>Poznámka 1:</b> V uvedené funkci jsme definovali <em>parametr</em>
+označený <code>N</code> a při jejím volání jsme předali <em>argument</em>
+o&nbsp;hodnotě <code>7</code>. Když je funkce zavolána, pak její lokální
+proměnná <code>N</code> získá hodnotu <code>7</code>. U funkce můžeme
+definovat tolik parametrů, kolik potřebujeme. Při jejím volání ale musí být
+každému parametru přiřazena hodnota. Některé programovací jazyky vám
+umožňují definovat <em>přednastavené hodnoty</em> parametrů (default value),
+takže pokud není jejich hodnota při volání určena, použije se přednastavená
+hodnota. <span class="trnote" title="Poznámka překladatele">(V odborné
+terminologii se používá pojem <em>implicitní</em> hodnota parametru, která
+se použije, pokud hodnota parametru není <em>explicitně</em> určena.)</span>
+Za chvíli si ukážeme, jak se to dělá v jazyce Python.</p>
+
+<p class="note"><b>Poznámka 2:</b> V definici funkce je parametr
+<code>N</code> uzavřen v kulatých závorkách, ale &mdash; jak je u VBScript
+zvykem &mdash; při volání funkce jsme kulaté závorky nepoužili.</p>
+
+
+<p>Uvedená funkce nevrací žádnou hodnotu a je ve skutečnosti tím, čemu se
+říká <em>procedura</em>. Je to jednoduše funkce, která nevrací hodnotu.
+Jazyk VBScript procedury a funkce rozlišuje. <span class="trnote"
+title="Poznámka&nbsp;překladatele">Syntakticky tak činí</span> používáním
+jiného klíčového slova v definici. Podívejme se na zápis skutečné funkce
+zapsané v jazyke VBScript, která vrací tabulku násobku jako jeden dlouhý
+řetězec:</p>
+
+<pre>
+&lt;script type="text/vbscript">
+Function TabulkaNasobku(N)
+    Dim I, S
+    S = "Tabulka násobků čísla " &amp; N &amp; ":" &amp; vbNewLine
+    For I = 1 to 12
+        S = S &amp; I &amp; " x " &amp; N &amp; " = " &amp; I * N &amp; vbNewLine
+    Next
+    TabulkaNasobku = S
+End Function
+
+Dim Nasobitel
+Nasobitel = InputBox("Zadejte násobitele, pro který má být tabulka generována:?")
+MsgBox TabulkaNasobku(Nasobitel)
+&lt;/script>
+</pre>
+
+<p>Zápis funkce <span class="trnote"
+title="Poznámka&nbsp;překladatele">(používá klíčové slovo
+<code>Function</code>)</span> je téměř stejný, jako <span class="trnote"
+title="Poznámka&nbsp;překladatele">zápis procedury</span> (klíčové slovo
+<code>Sub</code>). Ale všimněte si, že uvnitř definice funkce musíme navíc
+výsledek přiřadit jménu funkce. Jakmile funkce skončí, vrátí hodnotu, která
+byla jejímu jménu přiřazena:</p>
+
+<pre>
+    ...
+    TabulkaNasobku = S
+End Function
+</pre>
+
+<p>Pokud neprovedeme přiřazení konkrétní hodnoty, funkce vrátí implicitní
+hodnotu (default), což je obvykle nula nebo prázdný řetězec.</p>
+
+<p>Povšimněte si také, že jsme na řádku <code>MsgBox</code> museli argument
+uzavřít do kulatých závorek. Kdybychom tak neučinili, funkce
+<code>MsgBox</code> by neuměla rozlišit, zda se má <code>Nasobitel</code>
+vytisknout, nebo zda se má předat funkci <code>TabulkaNasobku</code> jako
+první argument.</p>
+
+
+<h4>A teď v Pythonu</h4>
+
+<p>V jazyce Python by funkce pro tisk tabulky násobků vypadala takto:</p>
+<pre>
+def nasobky(n):
+    for i in range(1, 13):
+        print "%d x %d = %d" % (i, n, i*n)
+</pre>
+
+<p>A volali bychom ji takto:</p>
+<pre>
+print "Tady je tabulka násobků číslem 9 ..."
+nasobky(9)
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Místo funkce
+<code>range()</code> by se měla přednostně používat funkce efektivnější
+funkce <code>xrange()</code>. Funkce <code>range()</code> nejdříve
+vygeneruje celý seznam čísel a teprve ten se prochází v cyklu
+<code>for</code>. Funkce <code>xrange()</code> existenci seznamu při použití
+v cyklu <code>for</code> simuluje (vrací vždy další hodnotu), ale seznam
+nevytváří. Důležité je to zejména při generování velkého rozsahu indexů. Ve
+vzdálené budoucnosti se implementace <code>range()</code> změní na něco
+podobného <code>xrange()</code>. Do té doby používejte přednostně
+<code>xrange()</code>. V jednoduchých případech funguje stejně jako
+<code>range()</code>, v extrémních případech je výkonnější a paměťově
+nenáročná.</p>
+
+<p>Povšimněte si, že v jazyce Python se mezi procedurami a funkcemi nedělá
+rozdíl. Při jejich definici se používá stejné klíčové slovo
+<code>def</code>. Jediný rozdíl spočívá v tom, že se k návratu funkční
+hodnoty používá příkaz <code>return</code>:</p>
+
+<pre>
+def tabulkaNasobku(n):
+    s = ""
+    for i in range(1, 13):
+        s = s + "%d x %d = %d\n" % (i, n, i*n)
+    return s
+</pre>
+
+<p>Jak vidíte, je to velmi jednoduché. Výsledek prostě vrátíme příkazem
+<code>return</code>. Výsledek funkce si můžeme vytisknout:</p>
+
+<pre>
+print tabulkaNasobku(7)
+</pre>
+
+<h4>Implicitní hodnoty</h4>
+
+<p>Možná si vzpomenete, že jsem se již zmínil o použití implicitních hodnot
+(default). U funkcí můžeme předepsat implicitní hodnotu parametru, který
+nebyl při volání funkce zadán přímo (explicitně). Smysluplnou ukázku tohoto
+rysu může představovat funkce, která vrací den v týdnu. Pokud ji zavoláme
+bez parametru, míníme tím <em>dnes</em>. V ostatních případech předáváme
+požadovaný den číslem:</p>
+
+<pre>
+<span class="comment"># -*- coding: cp1250 -*-</span>
+import time
+
+<span class="comment"># Hodnota dne -1 znamená 'dnes'.</span>
+def denTydne(CisloDne = -1):
+    <span class="comment"># Výčet dnů musí být uveden v pořadí, v jakém je používá Python.</span>
+    dny = [u'pondělí', u'úterý',
+           u'středa', u'čtvrtek', 
+           u'pátek', u'sobota', u'neděle']
+                
+    <span class="comment"># Zkontrolujeme, zda nejde o přednastavenou hodnotu.</span>        
+    if CisloDne == -1:<span class="comment">
+        # Použij funkce modulu <code>time</code> k získání současného času
+        # -- viz oficiální dokumentace modulu.</span>
+        cas = time.localtime(time.time())
+        CisloDne = cas[6] <span class="comment"># získáme číslo dne</span>
+    return dny[CisloDne]
+</pre>
+
+<p><b>Poznámka:</b> Modul <code>time</code> potřebujeme použít jen v
+případě, kdy se uplatní přednastavená (implicitní) hodnota parametru.
+Operaci <code>import</code> bychom proto mohli odložit až na dobu, kdy modul
+skutečně potřebujeme. V případech, kdy přednastavená hodnota není nikdy
+použita, by pak náš program mohl být o něco výkonnější. Ale úspora výkonu by
+byla velmi malá a navíc bychom porušili konvenci, která říká, že import máme
+uvádět na začátku souboru. V podobných případech raději dáme přednost vyšší
+přehlednosti zdrojového textu před zanedbatelně vyšším výkonem při běhu.</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Úvodní řádek <code
+class="comment">#&nbsp;-*-&nbsp;coding:&nbsp;cp1250&nbsp;-*-</code> říká, že
+zdrojový text v souboru byl pořízen v kódování 1250 (přesněji
+<code>windows-1250</code>, ale Python vyžaduje uvedený tvar zápisu). Pokud
+jej neuvedeme, bude si Python při překladu stěžovat, že nalezl znaky s kódem
+větším než 128 (tj. mimo ASCII).</p>
+
+<p>Nyní můžeme funkci zavolat:</p>
+
+<pre>
+print "Dnes je %s." % denTydne()
+<span class="comment"># Zapamatujte si, že v počítačové řeči začínáme nulou.
+# Nula odpovídá prvnímu dni -- pondělí.</span>
+print "Třetím dnem je %s." % denTydne(2)
+</pre>
+
+<h4 id="wc">Počítání slov</h4>
+
+<p>Jako další příklad funkce, která vrací hodnotu, si uvedeme funkci
+počítající slova v zadaném řetězci. Mohli bychom ji použít i pro zjištění
+počtu slov v souboru tak, že bychom sečetli počty slov za jednotlivé
+řádky. Kód by mohl vypadat nějak takto:</p>
+
+<pre>
+def pocetSlov(s):
+    s = s.strip()      <span class="comment"># odstraníme mezery na začátku a na konci</span>
+    seznam = s.split() <span class="comment"># seznam, kde prvkem je vždy slovo</span>
+    return len(seznam) <span class="comment"># vrátíme počet prvků seznamu</span>
+</pre>
+
+<p>Tím jsme nadefinovali funkci, která využívá některé metody zabudovaného
+typu řetězec. Zmínili jsme se o něm v kapitole <a
+href="cztutdata.html#string">Data, datové typy a proměnné</a>. Teď bychom
+funkci rádi použili nějak takto:</p>
+
+<pre>
+for radek in soubor:
+    celkem = celkem + pocetSlov(radek) <span class="comment"># sečti počty za každý řádek</span>
+print "Soubor má %d slov." % celkem
+</pre>
+
+<p>Pokud byste uvedený kód vyzkoušeli, zjistili byste, že nefunguje. To, co
+jsme si právě předvedli, je běžná technika návrhu programu. Spočívá v
+načrtnutí našich představ o tom, jak by kód měl vypadat, ale netrápíme se s
+tím, aby byl kód absolutně správný. Takovému zápisu se někdy říká
+<em>pseudo kód</em> nebo &mdash; při dodržení formálnějšího stylu &mdash;
+zápis v <em>jazyce pro popis programu</em> (z anglického <em>Program
+Description Language</em> nebo zkráceně <em>PDL</em>).</p>
+
+<p>Až se blíže podíváme na práci se soubory a s řetězci (v další části
+učebnice), vrátíme se k tomuto příkladu a přepíšeme jej do funkční
+podoby.</p>
+
+<h4>Funkce v JavaScript</h4>
+
+<p>V jazyce JavaScript můžeme vytvářet funkce samozřejmě také. Používáme k
+tomu příkaz <code>function</code>:</p>
+
+<pre>
+&lt;script type="text/javascript">
+var i, hodnoty;
+
+function nasobky(m) {
+    var vysledky = new Array();
+    for (i = 1; i &lt;= 12; ++i) {
+        vysledky[i] = i * m;
+        }
+    return vysledky;
+}
+<span class="comment">// Použití funkce.</span>
+hodnoty = nasobky(8);
+
+for (i = 1; i &lt;= 12; ++i) {
+    document.write(hodnoty[i] + "&lt;br>");
+    }
+&lt;/script>
+</pre>
+
+<p>V tomto případě není uvedená funkce příliš užitečná. Přesto doufám, že
+jste si všimli podobnosti její základní struktury s definicemi funkcí v
+jazycích Python a VBScript. Se složitějšími funkcemi v jazyce JavaScript se
+setkáme v dalších částech učebnice. Zmiňme se například o tom, že v
+JavaScript se funkce používají jednak jako funkce a jednak k definici
+objektů. Zní to zmateně a ke zmatkům zde také může docházet.</p>
+
+<p>Než se pustíme do dalších věcí, podívejme se zpět na příklad v
+JavaScript, který jsme si uvedli v kapitole <a
+href="cztutinput.html#jscript">Konverzace s uživatelem</a>. Právě teď k tomu
+nastal ten správný čas. JavaScript jsme v něm použili pro čtení vstupu z
+webového formuláře. Kód vypadal takto:</p>
+
+<pre>
+&lt;script type="text/javascript">
+function mujProgram(){
+    alert("Získali jsme hodnotu " + document.formular.pole.value);
+}
+&lt;/script>
+
+&lt;form name='formular'>
+&lt;p>Zadej hodnotu a potom klikni myší mimo vstupní pole&lt;/p>
+&lt;input type='text' name='pole' onChange='mujProgram()'>
+&lt;/form>
+</pre>
+
+<p>Když se na to podíváme s našimi nově nabytými znalostmi, vidíme, že jsme
+nadefinovali funkci nazvanou <code>mujProgram</code>. Ve formuláři jsme
+předepsali, že se tato funkce má zavolat, když ze změní obsah vstupního
+<code>pole</code>. Další vysvětlení si uvedeme v tématu <a
+href="cztutevent.html">Událostmi řízené programování</a>.</p>
+
+<h4>Malé varování</h4>
+
+<p><span class="trnote" title="Poznámka&nbsp;překladatele">Možnost
+definovat</span> funkce představuje mocný nástroj, protože nám to umožňuje
+rozšiřovat schopnosti jazyka. Můžeme dokonce <em>změnit</em> chování jazyka
+tím, že pro předdefinované funkce uvedeme novou definici, s novým významem
+(některé jazyky to neumožňují). Obvykle se to nepovažuje za příliš dobrý
+nápad. Každopádně musíme velmi pečlivě kontrolovat dopady podobného činu (za
+chvíli si ukážeme, jak na to). Předefinováním chování standardních funkcí
+daného jazyka můžeme velmi ztížit srozumitelnost zdrojových textů. Čtenář
+očekává, že se taková funkce chová určitým způsobem, ale vy jste toto
+chování změnili. V praxi se proto změna základního chování zabudovaných
+funkcí považuje za nevhodnou.</p>
+
+<p>Jedna z možností, jak dodržet zásadu <em>neměnit chování zabudovaných
+funkcí</em> a přitom použít jméno funkce pro naše vlastní účely, spočívá ve
+vložení nové definice do objektu nebo do modulu, které platnost takové
+funkce definují ve svém vlastním kontextu. K objektové variantě se dostaneme
+později &mdash; v tématu <a href="cztutclass.html">Objektově orientované
+programování</a>. Nyní se podívejme na možnost vytvoření našich vlastních
+modulů.</p>
+
+
+<h3>Vytváření našich vlastních modulů</h3>
+
+<p>Zatím jsme si ukázali, jak můžeme vytvářet naše vlastní funkce a volat je
+z jiných částí našeho programu. Vytváření vlastních funkcí nám ušetří hodně
+psaní a &mdash; což je mnohem důležitější &mdash; učiní naše programy
+srozumitelnějšími. Je to dáno tím, že do vytvořených funkcí ukryjeme některé
+detaily, na které pak při jejich použití nemusíme myslet. (Tento princip
+obalování složitých úseků programu funkcemi se z docela zřejmých důvodů
+nazývá <em>ukrývání informací</em> [<em>information hiding</em>].) Ale jak
+můžeme tyto funkce používat v jiných programech? Odpověď zní &mdash;
+vytvoříme <em>modul</em>.</p>
+
+
+<h4>Moduly v jazyce Python</h4>
+
+<p>V jazyce Python není modul ničím zvláštním. Je to prostý textový soubor s
+příkazy programu v jazyce Python. Obvykle jsou to definice funkcí. Takže,
+když napíšeme&hellip;</p>
+
+<pre>
+import sys
+</pre>
+
+<p>tak tím interpretu jazyka Python říkáme, že má načíst obsah tohoto
+modulu, provést inicializaci jeho kódu a zpřístupnit jeho vygenerovaná jména
+pro použití v <em>našem</em> souboru. Je to téměř jako kdybychom okopírovali
+obsah souboru <code>sys.py</code> do našeho souboru například přes schránku
+(clipboard) operacemi Kopírovat a Vložit (copy/paste). (No, ve skutečnosti
+to takhle není, ale koncepčně to můžeme tak chápat.) Překladače některých
+jazyků (z význačných jmenujme C a C++) kopírují na základě požadavků obsah
+souborů s moduly do aktuálního programu doslova<sup class="trnote"><a
+href="cztuttrn.html#Pfunc_include" id="Bfunc_include" title="Poznámka k
+příkazu #include v C a C++">[1]</a></sup>.</p>
+
+
+<p>Takže si to zrekapitulujme. Modul vznikne vytvořením pythonovského
+souboru <span class="trnote" title="Poznámka překladatele"
+>(<code>.py</code>)</span>, který obsahuje funkce, které chceme používat v
+jiných programech. Potom jednoduše provedeme <code>import</code> našeho
+modulu přesně stejným způsobem, jako to děláme se standardními moduly.
+Snadné, co? Tak pojďme na to.</p>
+
+<p>Okopírujte si níže uvedenou funkci a uložte ji do svého souboru se jménem
+<code>nasobky.py</code>. Můžeme to provést prostřednictvím editoru z IDLE,
+editoru Notepad (Poznámkový blok) nebo jiného editoru, který ukládá prosté
+textové soubory. Nepoužívejte aplikace typu textový procesor <span
+class="trnote" title="Poznámka&nbsp;překladatele">(nepoužívejte tedy
+například Microsoft Word nebo Microsoft WordPad)</span>, protože ty navíc do
+souboru ukládají všelijaké formátovací značky, kterým by Python
+nerozuměl.</p>
+
+<pre>
+def tisk_tabulky(nasobitel):
+    print "--- Tisk tabulky násobků číslem %d ---" % nasobitel
+    for n in range(1, 13):
+        print "%d x %d = %d" % (n, nasobitel, n * nasobitel)
+</pre>
+
+<p>Nyní na příkazový řádek systému Python napište:</p>
+
+<pre>
+>>> import nasobky
+>>> nasobky.tisk_tabulky(12)
+</pre>
+
+<p>No vida! Právě jste vytvořili modul a použili jste ho.</p>
+
+<p><b>Důležitá poznámka:</b> Pokud jste Python nespustili ze stejného
+adresáře, ve kterém je uložen váš soubor <code>nasobky.py</code>, pak jej
+Python možná nenašel a zahlásil chybu. Pokud tomu tak skutečně je, můžete
+vytvořit proměnnou prostředí nazvanou <code>PYTHONPATH</code>, která
+obsahuje seznam adresářů, ve kterých se budou hledat moduly (tedy ty, které
+nejsou dodávány jako standardní spolu se sytémem Python).</p>
+
+<blockquote>Způsob vytváření proměnných prostředí je závislý na platformě.
+Předpokládám, že příslušné operace buď znáte nebo si je umíte zjistit.
+Například uživatelé Windows&nbsp;XP mohou použít tlačítko <em>Start</em> a
+najít si informace o proměnných prostředí. Dozví se, jak si je mohou
+vytvářet. <span class="trnote"><b>Poznámka&nbsp;překladatele:</b> Konkrétně
+lze po stisku <em>Start</em> vybrat položky <em>Nastavení</em> &mdash;
+<em>Ovládací panely</em>, poklepat na ikonu <em>Systém</em>, přepnout se na
+záložku <em>Upřesnit</em> a stisknout tlačítko <em>Proměnné prostředí</em>.
+Další podrobnosti viz dokumentace.</span></blockquote>
+
+<h4>Moduly ve VBScript a v JavaScript</h4>
+
+<p>A jak je na tom VBScript? Tady to bude složitější. V samotném jazyce
+VBScript a v dalších starších variantách <span class="trnote"
+title="Poznámka&nbsp;překladatele">jazyka BASIC</span> koncepce modulu vůbec
+neexistuje. VBScript místo toho staví na opakovaném použití kódu mezi
+objekty, který je založen na vytváření objektů. Dostaneme se k tomu později.
+Prozatím budeme muset potřebný kód okopírovat z dřívějších projektů do
+aktuálního projektu pomocí funkcí textového editoru. </p>
+
+<p class="note"><b>Poznámka:</b> Větší bratr jazyka VBScript &mdash; jazyk
+Visual Basic &mdash; ovšem koncept modulu podporuje. Modul můžeme načíst
+příkazem menu <code>File|Open Module...</code> <span class="trnote"
+title="Poznámka&nbsp;překladatele">v <em>integrovaném vývojovém prostředí
+(IDE)</em></span>. Pro moduly jazyka Visual Basic existují určitá omezení v
+tom smyslu, že do něj nemůžeme umístit cokoliv. Do detailů se zde pouštět
+nebudeme, protože se zde tímto jazykem nezabýváme. (Pokud chcete
+experimentovat, existuje (nebo alespoň tomu tak bylo) volně dostupná verze
+jazyka Visual Basic, která je známa jako <em>Visual Basic 5.0 Control
+Creation Edition</em>, čili <em>VBCCE</em>. Dala se zdarma stáhnout ze
+stránek společnosti <a href="http://www.microsoft.com"
+target="_blank">Microsoft</a>. Pokud máte chuť na pokusy, pak více
+podrobností naleznete <a
+href="http://support.microsoft.com/default.aspx?scid=kb;en-us;165524"
+target="_blank">na této stránce</a>.</p>
+
+<p>JavaScript (podobně jako VBScript) nenabízí žádný mechanismus pro
+používání modulů v podobě souborů s kódem. Ale existují zde určité výjimky a
+to ve specializovaných prostředích, kde se JavaScript nepoužívá jen uvnitř
+webových stránek. Jde například o <em>Windows Script Host</em> &mdash; viz
+dále.</p>
+
+<h4 id="wsh">Windows Script Host</h4>
+
+<p>Prozatím jsme se na jazyky VBScript a JavaScript dívali jako na jazyky
+pro programování uvnitř webového prohlížeče. Ten si však vynucuje určitá
+omezení, včetně nemožnosti používat moduly. V prostředí Microsoft Windows
+však existuje i jiný způsob používání VBScript (a JavaScript), konkrétně
+<em>Windows Script Host</em>, zkráceně <em>WSH</em>. Jde o technologii firmy
+Microsoft, která uživatelům umožňuje programovat své osobní počítače stejným
+způsobem, jakým programátoři v systému DOS používali dávkové soubory <span
+class="trnote" title="Poznámka&nbsp;překladatele">(s příponou .bat)</span>.
+WSH poskytuje mechanismy pro čtení ze souborů, ze systémového registru,
+umožňuje přístup k počítačům v síti, k tiskárnám, atd.</p>
+
+<p>WSH verze 2 navíc umožňuje používat (include) jiný WSH soubor, takže
+zavádí možnost používání modulů. Ukažme si, jak to funguje. Nejdříve si
+vytvoříme soubor modulu nazvaný <code>NejakyModul.vbs</code>, který
+obsahuje:</p>
+
+<pre>
+Function OdectiDvojku(N)
+   OdectiDvojku = N - 2
+End Function
+</pre>
+
+<p>Teď vytvoříme WSH skript, který nazveme například
+<code>testModulu.wsf</code>:</p>
+
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?>
+
+&lt;job>
+  &lt;script language="VBScript" src="NejakyModul.vbs" />
+  &lt;script language="VBScript">
+      Dim hodnota, vysledek
+      WScript.Echo "Vložte číslo"
+      hodnota = WScript.StdIn.ReadLine
+      vysledek = OdectiDvojku(CInt(hodnota))
+
+      WScript.Echo "Výsledek je " &amp;amp; CStr(vysledek)
+  &lt;/script>
+&lt;/job>
+</pre>
+
+<p class="trnote"><b>Poznámka překladatele 1:</b> V hlavičce XML dokumentu
+můžeme uvést, v jakém kódování je soubor uložen. Pokud bychom tak neučinili,
+pak se předpokládá, že je použito kódování UTF-8 nebo UTF-16. V případě, že
+se v dokumentu vyskytují pouze ASCII znaky, je obsah dokumentu v kódování
+UTF-8 totožný s obsahem užívajícím kódování ASCII. U českých dokumentů se
+ale objeví znaky s kódem větším než 127 a binární podoba souboru
+v&nbsp;kódování UTF-8 se přestane podobat jiným způsobům kódování, které
+používají 8bitové znaky. V takovém případě je nutné dokument skutečně uložit
+v&nbsp;kódování UTF-8 (musí to umět editor), protože některé znaky budou
+uloženy speciálním způsobem. Alternativně můžete v hlavičce XML dokumentu
+uvést jiné kódování (<code>windows-1250</code>, <code>ISO-8859-2</code> a
+podobně). Pak musíte dokument v tomto kódování skutečně uložit. U českých
+dokumentů se dá obecně říci, že je vhodnější v hlavičce způsob kódování
+dokumentu uvádět.</p>
+
+<p class="trnote"><b>Poznámka překladatele 2:</b> Narozdíl od HTML, které
+pro předpis jazyka v elementu <code>&lt;script&nbsp;...></code> předepisuje
+atribut <code>type="text/<em>jazyk</em>"</code>, v XML předpisu pro WSH se
+uvádí forma <code>language="<em>jazyk</em>"</code>, která se kdysi používala
+i v HTML.</p>
+
+<p>Teď to můžeme spustit v DOSovém okně:</p>
+
+<pre>
+C:\> cscript testModulu.wsf
+</pre>
+
+<p>Soubor <code>.wsf</code> na sebe bere podobu XML souboru. Program se
+nachází mezi značkami <code>&lt;job></code> a <code>&lt;/job></code>. První
+značka <code>&lt;script&nbsp;...&nbsp;/&gt;</code> odkazuje na soubor modulu
+s názem <code>NejakyModul.vbs</code>. Druhá značka
+<code>&lt;script&nbsp;...></code> obsahuje náš program, který volá funkci
+<code>OdectiDvojku()</code>, definovanou v modulu
+<code>NejakyModul.vbs</code>. <span class="trnote"
+title="Poznámka&nbsp;překladatele">(První ze značek <code>script</code> je
+nepárová &mdash; její zápis končí <code>/></code>. Veškeré informace jsou
+zapsány uvnitř této značky. Naopak druhý element <code>script</code> je
+vymezen dvěmi značkami, které obklopují příslušný obsah.)</span> Soubor s
+příponou <code>.vbs</code> obsahuje běžný kód v jazyce VBScript bez
+jakýchkoliv XML či HTML značek.</p>
+
+<p>Povšimněte si příkazu <code>WScript.Echo</code>, ve kterém spojujeme
+řetězce. Znak ampersand jsme museli zapsat zvláštním způsobem (escape), a
+sice <code>&amp;amp;</code>, protože příkaz je součástí XML souboru.
+Povšimněte si také, že ke čtení vstupu od uživatele používáme
+<code>WScript.Stdin</code>. Vzpomínáte si na poznámku o <em>stdin</em> a
+<code>stdout</code> v tématu <a href="cztutinput.html#stdin">Konverzace s
+uživatelem</a>?</p>
+
+<p class="trnote"><b>Poznámka překladatele:</b> Pozor! Vytvořený soubor
+musíme skutečně spustit přes <code>cscript</code> na příkazovém řádku.
+Určitou činnost sice můžeme pozorovat i při prostém poklepání na ikonu
+<code>.wsf</code> souboru, ale v tomto případě by došlo ke spuštění v
+okénkovém režimu. Příkaz <code>WScript.Echo</code> by se projevil v podobě
+okna se zprávou a tlačítkem <span class="btn">OK</span> (Message Box).
+Nemáme ale vytvořenou vazbu na <code>WScript.Stdin</code> a nepodaří se nám
+zadat vstupní hodnotu. Po stisku tlačítka <span class="btn">OK</span> se
+objeví okno s chybovým hlášením a program skončí.</p>
+
+<p>Stejnou techniku můžeme použít i pro JavaScript, přesněji řečeno pro
+verzi jazyka JavaScript firmy Microsoft, která se nazývá <em>JScript</em>.
+Stačí změnit atribut <span class="trnote"
+title="Poznámka&nbsp;překladatele">značky <code>script</code></span>, který
+určuje jazyk. Při použití WSH můžeme dokonce jazyky míchat. Můžeme
+importovat moduly v JavaScript a používat je v kódu VBScript a naopak. Jako
+důkaz si uvedeme odpovídající WSH skript, který přistupuje k VBScriptovému
+modulu z JavaScriptu:</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?>
+
+&lt;job>
+  &lt;script language="VBScript" src="NejakyModul.vbs" />
+  &lt;script language="JScript">
+      var hodnota, vysledek;
+      WScript.Echo("Vložte číslo");
+      hodnota = WScript.StdIn.ReadLine();
+      vysledek = OdectiDvojku(parseInt(hodnota));
+
+      WScript.Echo("Výsledek je " + vysledek);
+  &lt;/script>
+&lt;/job>
+</pre>
+
+<p>Vidíte, jak moc jsou si obě verze podobné? Většina chytrých věcí se
+vlastně dělá přes objekty WScript a až na těch pár závorek <span
+class="trnote" title="Poznámka&nbsp;překladatele">a středníků</span> jsou
+skripty v podstatě stejné.</p>
+
+<p>V této učebnici nebudeme WSH používat příliš často. Přesto se k němu
+občas uchýlíme a sice v situacích, kdy nám více omezující prostředí webového
+prohlížeče neumožní demonstrovat některé vlastnosti. Tak například v dalším
+tématu s pomocí WSH ukážeme jak lze v jazycích VBScript a JavaScript
+pracovat se soubory. Pokud máte zájem, pak o WSH bylo napsáno pár knih. Je
+mu věnována rozsáhlá sekce webového serveru firmy Microsoft. Naleznete tam i
+ukázky programů, vývojové nástroje, atd. Vše se nachází zde: <a
+target="_blank" href="http://msdn.microsoft.com/scripting/"
+>http://msdn.microsoft.com/scripting/</a>.</p>
+
+<p>V další části se podíváme na soubory a na zpracování textu. A potom, jak
+jsme si slíbili, se znovu podíváme na problém počítání slov v souboru. Ve
+skutečnosti si nakonec pro naše potřeby vytvoříme modul s funkcemi pro
+zpracování textu.</p>
+
+
+<div class="remember">
+<p class="title">Zapamatujte si</p>
+<ul>
+<li>Funkce jsou formou modulu.</li>
+<li>Funkce vracejí hodnoty, procedury ne.</li>
+<li>V jazyce Python jsou moduly obvykle tvořeny definicemi funkcí,
+    uloženými v souboru.</li>
+<li>Nové funkce se v jazyce Python uvádějí klíčovým slovem
+    <code>def</code>.</li>
+<li>V jazyce VBScript se pro stejný účel používají klíčová slova
+    <code>Sub</code> nebo <code>Function</code>, v jazyce JavaScript se
+    používá <code>function</code>.</li>
+</ul>
+</div>
+
+<div class="foot">
+<p class="navig">[ 
+<a href="cztutbranch.html" title="Větvení">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutfiles.html" title="Práce se soubory">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutfunc.html,v 1.10 2005/09/15 18:23:57 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutfunc.html,v 1.10 2005/09/15 18:23:57 petr Exp $</p>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+Index: tutloops.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutloops.htm,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -r1.1 -r1.2
+115c115
+< in many programming languages, being modelled on C. 
+---
+> in many programming languages, being modeled on C. 
+129c129
+< <LI>an <I>initialising</I> part: <TT>i = 1</TT> 
+---
+> <LI>an <I>initializing</I> part: <TT>i = 1</TT> 
+184c184
+< (because range() generates a list) but for completeness 
+---
+> (because <tt>range()</tt> generates a list) but for completeness 
+189a190,220
+> 
+> <P>There is one caveat when using foreach style loops 
+> like this. The loop gives you a copy of what was in 
+> the collection, you can't modify the contents of the 
+> collection directly. So if you need to modify the 
+> collection you have to use an awkward kludge 
+> involving the index of the collection, like this:
+> 
+> <PRE>
+> myList = [1,2,3,4]
+> for index in range(len(myList)):
+>     myList[index] += 1
+> print myList
+> </PRE>
+> 
+> <P>That will increment each entry in <tt>myList</TT>.
+> If we had not used the index trick we would simply 
+> have incremented the copied items but not changed 
+> the original list.
+> 
+> <P>The other gotcha with for loops is that you can't 
+> delete items from the collection that you are iterating 
+> over, otherwise the loop will get confused. It's a bit 
+> like the old cartoon character cutting off the branch 
+> of a tree while sitting on it! The best way to deal with 
+> this situation is to use a different kind of loop, 
+> which we are going to discuss next. However to understand 
+> how to remove elements safely we need to wait until 
+> we cover yet another topic, that of <a href="tutbranch.htm">
+> branching</a>, so we will explain this subject when we get there.
+> 
+228c259
+< <LI>First we initialise <TT>j</TT> to 1, initialising the 
+---
+> <LI>First we initialize <TT>j</TT> to 1, initializing the 
+265c296
+< <P>Let's look at VBScripts version of the while loop:
+---
+> <P>Let's look at VBScript's version of the while loop:
+300c331
+< neither VBScript nor Javacript need any indentation, 
+---
+> neither VBScript nor JavaScript need any indentation, 
+303c334
+< <P>FInally its worth comnparing the JavaScript for 
+---
+> <P>Finally its worth comparing the JavaScript for 
+305a337
+> 
+308a341
+> 
+311c344
+< The initialiser, the test condition and the 
+---
+> The initializer, the test condition and the 
+321,324c354,359
+< <P>Coming back to our 12 times table at the beginning of this section.
+< The loop we created is all very well for printing out the 12
+< times table. But what about other values? Can you modify the
+< loop to make it do the 7 times table say? It should look like this:</P>
+---
+> <P>Coming back to our 12 times table at the 
+> beginning of this section. The loop we created 
+> is all very well for printing out the 12
+> times table. But what about other values? 
+> Can you modify the loop to make it do the 
+> 7 times table say? It should look like this:</P>
+437c472
+< <I>body</I> of the loop idf the terminating condition is false 
+---
+> <I>body</I> of the loop if the terminating condition is false 

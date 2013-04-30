@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<LINK REL="stylesheet" type="text/css" href="tutor.css">
+<LINK REL="stylesheet" type="text/css" href="colors.css">
+<TITLE>Namespaces</TITLE>
+</HEAD>
+</HEAD><BODY BGCOLOR="#CCBBCC">
+
+<CENTER>
+<H2>Namespaces</H2>
+<P>
+<TABLE>
+<TR><TH>What will we cover?</TH></TR>
+<TR><TD>
+<UL>
+<LI>The meaning of namespace and scope and why they are important
+<LI>How namespaces work in Python
+<LI>Namespaces in VBScript and JavaScript
+</UL>
+</TD></TR>
+</TABLE>
+</CENTER>
+
+<H3>Introduction</H3>
+
+<P>What's a <I> namespace</I>? I hear you ask. Well, it's kinda hard to
+explain. Not because they are especially complicated, but because every
+language does them differently. The concept is pretty straightforward, a
+namespace is a space or region, within a program, where a name 
+(variable, class etc) is valid. We actually use this idea in everyday 
+life. Suppose you work in a big company and there is a colleague 
+called Joe. In the accounts department there is another guy called 
+Joe who you see occasionally but not often. In that case you refer
+to your colleague as "Joe" and the other one as "Joe in Accounts". 
+You also have a colleague called Susan and there is another Susan 
+in Engineering with whom you work closely. When referring to them 
+you might say "Our Susan" or "Susan from Engineering". Do you see 
+how you use the department name as a qualifier? That's what 
+namespaces do in a program, they tell both programmers and the 
+translator which of several identical names is being referred to.
+
+<P>They came about because early programming languages (like BASIC) only
+had <I> Global Variables</I>, that is, ones which could be seen
+throughout the program - even inside functions. This made maintenance of
+large programs difficult since it was easy for one bit of a program to
+modify a variable without other parts of the program realizing it - this
+was called a <I>side-effect</I>. To get round this, later languages
+(including modern BASICs) introduced the concept of namespaces. (C++ has
+taken this to extremes by allowing the programmer to create their own
+namespaces anywhere within a program. This is useful for library
+creators who might want to keep their function names unique when mixed
+with libraries provided by another supplier)
+
+<P>Another term used to describe a namespace is <I>scope</I>. 
+The scope of a name is the extent of a program whereby that name 
+can be unambiguously used, for example inside a function or a 
+module. A name's namespace is exactly the same as it's scope. 
+There are a few very subtle differences between the terms but 
+only a Computer Scientist pedant would argue with you, and for 
+our purposes namespace and scope are identical.
+
+<H3>Python's approach</H3>
+
+<P>In Python every module creates it's own namespace. To access those
+names we have to either precede them with the name of the module or
+explicitly import the names we want to use into our modules namespace.
+Nothing new there, we've been doing it with the <TT>sys</TT> and <TT>
+time</TT> modules already. (In a sense a class definition also creates
+its own namespace. Thus, to access a method or property of a
+class, we need to use the name of the instance variable or the 
+class name first. More about that in the OOP topic) 
+
+<P>In Python there are only ever 3 namespaces (or <I> scopes</I>):
+<OL>
+<LI>Local scope - names defined within a function or a class method
+<LI>Module scope - names defined within a file, confusingly this is 
+often referred to as <I>global</I> scope in Python
+<LI>Built in scope - names defined within Python itself, these are 
+always available.
+</OL>
+
+<P>So far so good. Now how does this come together when variables in
+different namespaces have the same name? Or when we need to reference 
+a name that is not in the current namespace? 
+
+<H4>Accessing Names outside the Current Namespace</H4>
+
+<P>Here we look in more detail at exactly how Python locates 
+names even when the names we are using if the are not in the 
+immediate namespace. It is resolved as follows, Python will look: 
+<OL>
+<LI>within it's local namespace(the current function), 
+<LI>within the module scope (the current file), 
+<LI>the built-in scope. 
+</OL>
+
+<P>But what if the name is in a different module? Well, 
+we <TT>import</TT> the module, as we've already seen many times in 
+the tutorial. Importing the module actually makes the module <I>name</I> 
+visible in our module namespace. WE can then use the module name 
+to access the variable names within the module using our familiar
+<TT>module.name</TT> style. This explains why, in general, it is 
+not a good idea to import all the names from a module into the 
+current file: there is a danger that a module variable will 
+have the same name as one of your variables and one of them 
+will mask the other causing strange behavior in the program.
+
+<P>For example let's define two modules, where the second 
+imports the first:
+
+<PRE>
+##### module first.py #########
+spam = 42
+def print42(): print spam
+###############################
+</PRE>
+<PRE>
+##### module second.py ########
+from first import *  <SPAN CLASS="comment"># import all names from first</SPAN>
+
+spam = 101   <SPAN CLASS="comment"># create spam variable, hiding first's version</SPAN>
+print42()    <SPAN class="comment"># now prints 101!</SPAN>
+
+################################
+</PRE>
+
+<P>So although it's more typing it is much safer to access 
+names in foreign modules using the dot notation. There are 
+a few modules, such as Tkinter which we'll meet later, which 
+are commonly used by importing all of the names, but they are 
+written in such a way to minimize the risk of name conflicts, 
+although the risk always exists and can create very hard to 
+find bugs.
+
+<P>Finally there is another safe way to import a single name from 
+a module, like this:
+
+<PRE>
+from sys import exit
+</PRE>
+
+<P>Here we only bring the <TT> exit </TT> function into the 
+local namespace. We cannot use any other <TT> sys </TT> names, 
+not even <TT> sys </TT> itself!
+
+<H4>Avoiding Name Clashes</H4>
+
+<P>If a function refers to a variable called X and there exists an 
+X within the function (local scope) then that is the one that 
+will be seen and used by Python. It's the programmer's job to 
+avoid name clashes such that a local variable and module variable 
+of the same name are not both required in the same function - the 
+local variable will mask the module name. 
+
+<P>There is no problem if we just want to read a global variable 
+inside a function, Python simply looks for the name locally, 
+and not finding it will look globally (and if need be at the 
+built-in namespace too). The problem arises when we want to 
+assign a value to a global variable. That would normally create 
+a new local variable inside the function. So, how can we assign 
+a value to a global variable without creating a local variable 
+of the same name?  We can achieve this by use of the 
+<TT>global</TT> keyword:
+
+<PRE>
+var = 42
+def modGlobal():
+   global var  <SPAN CLASS="comment"># prevent creation of a local var</SPAN>
+   var = var - 21
+
+def modLocal():
+   var = 101
+   
+print var   <SPAN CLASS="comment"># prints 42</SPAN>
+modGlobal()
+print var   <SPAN CLASS="comment"># prints 21</SPAN>
+modLocal()
+print var   <SPAN CLASS="comment"># still prints 21</SPAN>
+
+</PRE>
+
+<P>Here we see the global variable being changed by the 
+<TT>modGlobal</TT> function but not changed by the <TT>modLocal</TT> 
+function. The latter simply created its own internal variable and 
+assigned it a value. At the end of the function that variable 
+was garbage collected and its existence was unseen at the module 
+level.
+
+<P>In general you should minimize the use of 'global' statements, it's
+usually better to pass the variable in as a parameter and then return
+the modified variable. Here is the <TT>modGlobal</TT> function above 
+rewritten to avoid using a <TT>global</TT> statement:
+
+<PRE>
+var = 42
+def modGlobal(aVariable):
+    return aVariable - 21
+
+print var
+var = modGlobal(var)
+print var
+</PRE>
+
+<P>In this case we assign the return value from the function to 
+the original variable while also passing it in as an argument. 
+The result is the same but the function now has no dependencies 
+on any code outside itself - this makes it much easier to reuse 
+in other programs. It also makes it much easier to see how the 
+global value gets changed - we can see the explicit assignment 
+taking place.
+
+<P>We can see all of this at work in this example (which is 
+purely about illustrating the point!):
+
+<PRE>
+<SPAN class="comment"># variables with module scope</SPAN>
+W = 5
+Y = 3
+<SPAN class="comment"> 
+#parameters are like function variables 
+#so X has local scope</SPAN>
+def spam(X):
+   <SPAN class="comment"> 
+   #tell function to look at module level and not create its own W</SPAN>
+   global W
+   
+   Z = X*2 <SPAN CLASS="comment"># new variable Z created with local scope</SPAN>
+   W = X+5 <SPAN CLASS="comment"># use module W as instructed above</SPAN>
+
+   if Z > W:
+      <SPAN CLASS="comment"># pow is a 'builtin-scope' name</SPAN>
+      print pow(Z,W)
+      return Z
+   else:
+      return Y <SPAN class="comment"># no local Y so uses module version</SPAN>
+</PRE>
+
+<H3>VBScript</H3>
+
+<P>VBScript takes a fairly straightforward approach to scoping 
+rules: if a variable is outside a function or subroutine then 
+it is globally visible, if a variable is inside a function or 
+subroutine it is local to that module. The programmer is 
+responsible for managing all naming conflicts that might arise.
+Because all VBScript variables are created using the <TT>Dim</TT> 
+statement there is never any ambiguity about which variable is 
+meant as is the case with Python.
+
+<P>There are some slight twists that are unique to web pages, 
+namely that regardless of <TT>&lt;script></TT> tag boundaries 
+global variables are visible across an entire file, not just 
+within the <TT>&lt;script></TT> tag in which they are defined.
+
+<P>We will illustrate those points in the following code:
+<PRE>
+&lt;script language="VBScript">
+Dim aVariable
+Dim another
+aVariable = "This is global in scope"
+another = "A Global can be visible from a function"
+&lt;/script>
+
+&lt;script language="VBScript">
+Sub aSubroutine
+   Dim aVariable
+   aVariable = "Defined within a subroutine"
+   MsgBox aVariable
+   MsgBox another
+End Sub
+&lt;/script>
+
+&lt;script language="VBScript">
+MsgBox aVariable
+aSubroutine
+MsgBox aVariable
+&lt;/script>
+</PRE>
+
+<P>There are a couple of extra scoping features in VBScript 
+that allow you to make variables accessible across files 
+on a web page (e.g from an index frame to a content frame 
+and vice-versa). However we won't be going into that level 
+of web page programming here so I'll simply alert you to 
+the existence of the <TT>Public</TT> and <TT>Private</TT> 
+keywords.
+
+<H3>And JavaScript too</H3>
+
+<P>JavaScript follows much the same rules, variables 
+declared inside a function are only visible within the 
+function. Variables outside a function can be seen 
+inside the function as well as by code on the outside.
+As with VBScript there are no conflicts as to which 
+variable is intended because variables are explicitly 
+created with the <TT>var</TT> statement.
+
+<P>Here is the equivalent example as above but written 
+in JavaScript:
+
+<PRE>
+&lt;script language="JavaScript">
+var aVariable, another;  <SPAN CLASS="Comment">// global variables</SPAN>
+aVariable = "This is Global in scope&lt;BR>";
+another = "A global variable can be seen inside a function&lt;BR>";
+
+function aSubroutine(){
+   var aVariable;        <SPAN CLASS="Comment">// local variable</SPAN>
+   aVariable = "Defined within a function&lt;BR>";
+   document.write(aVariable);
+   document.write(another);
+}
+
+document.write(aVariable);
+aSubroutine();
+document.write(aVariable);
+
+&lt;/script>
+</PRE>
+
+<P>This should, by now be straightforward. 
+
+<CENTER>
+<P>
+<TABLE>
+<TR><TH>Things to Remember</TH>
+<TR><TD>
+<UL>
+<LI>Scoping and Namespaces are different terms for the same thing.
+<LI>The concepts are the same in every language but the precise rules can vary.
+<LI>Python has 3 scopes - file (global), function (local) and built-in.
+<LI>VBScript and JavaScript have 2 scopes - file (global) and function (local).
+</UL>
+</TD></TR></TABLE>
+<HR WIDTH="60%">
+
+<A HREF="tuterrors.htm" target="text">Previous</A>&nbsp
+<A HREF="tutregex.htm" target="text">Next</A>&nbsp
+<A HREF="tutcont.htm" target="contents">Contents</A>
+
+<P><BR>If you have any questions or feedback on this page
+send me mail at:
+<A href="mailto:alan.gauld@btinternet.com">
+alan.gauld@btinternet.com</A>
+<BR>
+
+
+</BODY>
+</HTML>
+

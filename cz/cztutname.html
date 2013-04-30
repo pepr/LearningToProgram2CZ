@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <link rel="stylesheet" type="text/css" href="tutor.css" >
+  <link rel="stylesheet" type="text/css" href="colors.css" >
+  <title>Jak se naučit programovat: Prostory jmen</title>
+</head>
+<body>
+
+<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
+se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+
+<h2>Prostory jmen</h2>
+
+<h3>Úvod</h3>
+
+<p>Už slyším, jak se ptáte&hellip; Co to je ten <em>prostor jmen</em>
+(namespace)? No, dá se to těžko vysvětlit. Ne proto, že by to bylo nějak
+zvlášť komplikované, ale spíš proto, že se k tomu každý jazyk staví trochu
+jinak. Samotný koncept je docela přímočarý. Prostor jmen je prostor nebo
+oblast uvnitř programu, kde je jméno (proměnné, třídy, atd.) platné.</p>
+
+<p>Dřívější programovací jazyky (jako třeba BASIC) pracovaly pouze s
+<em>globálními proměnnými</em>, to znamená s takovými proměnnými, které byly
+vidět z celého programu &mdash; dokonce uvnitř funkcí. To činilo
+udržovatelnost programů velmi obtížnou, protože pro každý kousek programu
+bylo velmi snadné změnit nějakou proměnnou, aniž by se to ostatní části
+programu nějak dozvěděly. Tomuto jevu se říká <em>vedlejší efekt</em>.
+Novější jazyky (včetně moderních verzí jazyka BASIC) tento problém obcházejí
+zavedením prostorů jmen. (Jazyk C++ jde v tomto směru do extrému tím, že
+umožňuje programátorovi vytvořit svůj vlastní prostor jmen kdekoliv uvnitř
+programu. To ocení zvláště tvůrci knihoven, kteří chtějí dosáhnout
+jednoznačnosti jmen svých funkcí i v případě, kdy se současně použijí
+knihovny jiných tvůrců.)</p>
+
+<h3>Jak to řeší Python?</h3>
+
+<p>V systému Python vytváří každý modul svůj vlastní prostor jmen. Pokud
+chceme používat jména jeho částí, musíme jim buď předřadit jméno modulu,
+nebo musíme explicitně importovat požadovaná jména dovniř prostoru jmen
+našeho modulu. Není to pro nás nic nového. Už jsme to dělali při práci s
+moduly <code>sys</code> a <code>string</code>. V určitém smyslu vytváří svůj
+prostor jmen i definice třídy. Takže pokud chceme zpřístupnit metodu nebo
+vlastnost třídy, musíme nejdříve použít jméno instance nebo třídy.</p>
+
+<p>V Pythonu existují jen 3 prostory jmen (nebo <em>rozsahy platnosti</em>
+&mdash; scopes):</p>
+
+<ol>
+<li>Lokální rozsah &mdash; jména definovaná uvnitř funkce nebo metody.</li>
+<li>Rozsah v rámci modulu &mdash; jména definovaná uvnitř souboru <span
+    class="trnote" title="Poznámka překladatele">modulu</span>.</li>
+<li>Zabudovaná jména &mdash; jména definovaná uvnitř samotného systému
+    Python, která jsou přístupná vždy.</li>
+</ol>
+
+<p>No dobrá. Ale jak to vše dáme dohromady, když proměnné v různých
+prostorech jmen mají stejné jméno? A nebo, jak se odkazujeme na jméno, které
+se nenachází v aktuálním prostoru jmen? Podívejme se nejdříve na první
+případ: Pokud se funkce odvolává na proměnnou nazvanou <code>X</code> a
+uvnitř funkce existuje nějaká proměnná <code>X</code> (tj. uvnitř prostoru s
+lokálními proměnnými), pak to bude právě tato lokální proměnná, kterou
+Python uvidí a použije. Je věcí programátora, aby se vyhnul střetům jmen,
+kdy má nějaká lokální proměnná stejné jméno jako proměnná modulu a kdy
+bychom mohli chtít zpřístupnit obě najednou. Existence lokální proměnné v
+takovém případě maskuje existenci globální proměnné.</p>
+
+<p>Obecně bychom měli globální proměnné používat co nejméně. Obvykle bývá
+lepší, když <span class="trnote" title="Poznámka překladatele">běžnou,
+lokální</span> proměnnou předáváme jako parametr <span class="trnote"
+title="Poznámka překladatele">volané funkce</span> a vrací se nám s
+modifikovaným obsahem.</p>
+
+<div class="trnote" id="globvar">
+
+<p><b>Poznámka překladatele ke globálním proměnným:</b> Z pohledu
+začátečníka se může zdát používání globálních proměnných velmi výhodné.
+Jednoduše přece uvedeme jméno proměnné, které je známé ve všech místech
+programu! V čem je problém? Postupně zjistíte, že těch problémů může být
+hned několik. Zdánlivá jednoduchost může později věci zkomplikovat:</p>
+
+<ul>
+<li>Při zvětšování programu používáme čím dál víc jmen a začnou se nám 
+  špatně vymýšlet. Pokud chceme jméno proměnné později změnit, musíme je 
+  měnit na mnoha různých místech. Pro vhodný textový editor to nemusí být
+  velký problém, ale...</li>
+  
+<li>Pokud jazyk umožňuje práci s lokálními proměnnými, pak obvykle
+  existence lokální proměnné zamaskuje existenci stejnojmenné globální
+  proměnné &mdash; platí to i pro Python. Při čtení zdrojového textu si
+  vůbec nemusíme všimnout toho, že je stejnojmenná lokální proměnná již
+  definována. A najednou se program začne chovat jinak, než bychom
+  čekali.</li>
+
+<li>Použitím jména globální proměnné někde v kódu vytváříme obtížně
+  kontrolovatelnou vazbu na zbytek systému. Nejde jen o to, že existuje
+  vazba na globálně pojmenovanou proměnnou, ale jejím prostřednictvím se
+  najednou ovlivňuje činnost všech ostatních částí kódu, které s globální
+  proměnnou pracují. Jinými slovy, někdy je velmi obtížné zajistit, aby v
+  globální proměnné byla uložena právě ta hodnota, která tam má být uložena.
+  Zdánlivě nevinná změna obsahu, provedená v jednom místě, může neočekávaným
+  způsobem ovlivnit činnost jiných částí aplikace.</li>
+ 
+</ul>
+
+</div>
+
+<p>Druhý případ, kdy se odkazujeme na jméno, které se nenachází mezi
+lokálními, se řeší následujícím způsobem: Funkce prohlédne svůj lokální
+prostor. Pokud zde požadované jméno nenalezne, hledá v prostoru modulu. A
+pokud není nalezeno ani zde, hledá se v prostoru zabudovaných jmen (builtin
+scope). Jediná nepříjemnost nastane v situaci, kdy chceme přiřadit hodnotu
+externí proměnné. Při normálním postupu by vznikla nová proměnná tohoto
+jména, ale tomu se chceme vyhnout. Takže aby se nevytvořila lokální proměnná 
+daného jména, musíme určit, že se jedná o jméno globální.</p>
+
+<p>Vše si ukážeme v akci na následujícím příkladu (jde o čistě ilustrační
+příklad):</p>
+
+<pre>
+<span class="comment"># Proměnné na úrovni modulu.</span>
+W = 5
+Y = 3
+<span class="comment"> 
+# Parametry se chovají jako proměnné náležející funkci. Takže X patří
+# do lokálního prostoru.</span>
+def spam(X):
+   <span class="comment"> 
+   # Funkci oznámíme, že má W hledat na úrovni modulu a nevytvářet svou 
+   # proměnnou W.</span>
+   global W
+   
+   Z = X*2 <span class="comment"># Nová proměnná Z je vytvořena jako lokální.</span>
+   W = X+5 <span class="comment"># Práce s W na úrovni modulu -- viz výše.</span>
+
+   if Z > W:
+      <span class="comment"># pow je jméno 'zabudované' funkce.</span>
+      print pow(Z, W)
+      return Z
+   else:
+      return Y <span class="comment"># Lokální Y neexistuje, takže se použije globální.</span>
+</pre>
+
+<p>Pokud importujeme modul, jako je například <code>sys</code>, stane se
+jméno <code>sys</code> lokálně dostupným jménem. Poté můžeme jména uvnitř
+prostoru jmen modulu <code>sys</code> zpřístupnit použitím takzvaného
+<em>kvalifikovaného jména</em>, jak jsme si ukázali dříve. <span
+class="trnote" title="Poznámka překladatele">(Kvalifikované jméno se od
+holého liší tím, že holému jménu předřadíme takzvaný kvalifikátor, který má
+podobu dalšího jména, vhodně spojeného s&nbsp;původním holým jménem. V
+jazyce Python se obě části oddělují tečkou. Například v jazyce C++ se
+oddělují dvěma dvojtečkami.)</span></p>
+
+<p>Pokud napíšeme</p>
+
+<pre>
+from sys import exit
+</pre>
+
+<p>pak v lokálním prostoru jmen zpřístupníme pouze funkci <code>exit</code>.
+Nemůžeme použít žádné jiné jméno z modulu <code>sys</code> a dokonce ani
+samotné jméno modulu <code>sys</code>.</p>
+
+<h3>Ještě v jazyce BASIC...</h3>
+
+<p>BASIC volí ve srovnání z jazykem Python opačný přístup. Všechny vytvořené
+proměnné se automaticky stávají globálními (aby byla zachována
+kompatibilita<span class="trnote" title="Poznámka překladatele">, tedy
+slučitelnost,</span> s programy psanými pro starší verze jazyka BASIC), ale
+programátor může vytvářet i proměnné, které jsou lokální uvnitř funkcí<span
+class="trnote" title="Poznámka překladatele">, jejich označením klíčovým
+slovem</span> &mdash; <code>LOCAL</code>.</p>
+
+
+<h3>Tcl</h3>
+
+<p>Asi si mohu dovolit tvrdit, že v Tcl neexistuje žádný mechanismus pro
+přístup k různým úrovním viditelnosti jmen. Důvodem je asi zvláštní způsob,
+jakým Tcl program provádí. Všechny proměnné se v každém případě jeví jako
+lokální vzhledem k jejich nejbližšímu okolí &mdash; proměnné na úrovni
+souboru jsou viditelné pouze pro příkazy uvnitř stejného souboru a proměnné
+procedur jsou viditelné pouze uvnitř procedur. Komunikaci mezi těmito
+prostory jmen můžeme zajistit pouze předáváním hodnot v podobě
+parametrů<span class="trnote" title="Poznámka překladatele">, při volání
+zmíněných procedur</span>.</p>
+
+<hr>
+<div class="foot">
+<p class="navig">[ 
+<a href="cztuterrors.html" title="Práce s chybami">předchozí</a> |
+<a href="cztutcont.html">obsah</a> | 
+<a href="cztutregex.html" title="Regulární výrazy">další</a> 
+]</p>
+<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
+vylepšit, zašlete e-mail odklepnutím
+
+<script type="text/javascript">
+var id = new String('$Id: cztutname.html,v 1.6 2005/09/15 18:24:08 petr Exp $');
+var ma = new String('prikryl at skil dot cz');
+ma = ma.replace(/ at /, '@');
+ma = ma.replace(/ dot /, '.');
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+               + '%0d%0dPoznámky:%0d" '
+               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+               + '>tohoto odkazu<' + '/a>.');
+</script> 
+
+Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+
+<p class="cvs">$Id: cztutname.html,v 1.6 2005/09/15 18:24:08 petr Exp $</p>
+</div>
+</body>
+</html>
+

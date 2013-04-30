@@ -1,0 +1,18 @@
+Index: tutseq1.htm
+===================================================================
+RCS file: e:/cvsrootPython/LeToPro2/en/tutseq1.htm,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -r1.4 -r1.5
+108c108
+< can change this behaviour to always produce real numbers from 
+---
+> can change this behavior to always produce real numbers from 
+225c225
+< the simple commands we used above into a single html file 
+---
+> the simple commands we used above into a single HTML file 
+305c305
+< or by visiting this <a href="http://wwww.asciitable.com">
+---
+> or by visiting this <a href="http://www.asciitable.com">
