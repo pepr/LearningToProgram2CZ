@@ -1,0 +1,254 @@
+Níže uvedený text pochází z prvního vydání.
+Nad tímto textem se nachází aktuální stav po revizi směřující k druhému vydání.
+Programovací jazyky, které jsem používal
+V tomto dokumentu uvádím některé z programovacích jazyků, které jsem používal nebo zkoumal (tj. hrál jsem si s nimi) běhe předchozích let.
+Jde o velmi osobní pohled.
+Někdy se vyjádřená hlediska mohou zdát protikladná nebo dokonce zcela překroucená.
+Je to tím, že odrážejí můj stav mysli v době, kdy jsem ten který jazyk používal.
+Jazyky jsem uspořádal to těchto skupin:
+Ty, které jsem používal a se kterými jsem se zlobil v práci .
+Malé jazyky , které jsem používal (často i v práci) pro řešení malých úkolů (méně, než 1000 řádků zdrojového textu).
+Jazyky, se kterými jsem pouze experimentoval a které jsem nikdy nepoužíval během opravdových vývojových prací.
+Tam, kde to bude dávat smysl, uvedu v daném jazyce program 'Hello World'.
+Poznámka překladatele: Dalo by se přeložit jako 'Ahoj světe!', 'Ahoj lidi!' a podobně.
+Samotný text není důležitý.
+Jde o klasický program, který použili autoři jazyka C ve své knize.
+Program má za úkol pouze vypsat tento řetězec a skončit.
+Dá se říci, že je to ustálený, klasický demonstrační program.
+Patří obvykle k nejjednodušším programům, který lze v libovolném jazyce napsat.
+Jeho zdrojový kód jasně ukazuje minimum, které musíme jako programátoři napsat, aby program začal navenek komunikovat.
+Jazyky používané v práci
+Tím v práci myslím to, že jsem byl za tuto práci placen a že výsledný program používá více jiných lidí.
+Mám zde na mysli také to, že tyto programy byly vyvíjeny s použitím průmyslových standardů pro vývoj software, pro jeho dokumentování a podobně.
+C Když jsem poprvé začal používat jazyk C (během prázdninového projektu, v době studia na univerzitě), bylo to jako závan svěžího vzduchu po všech těch omezeních, kladených jazykem ANSI Pascal .
+Jazyk C umožňoval rychlé vyjadřování myšlenek s právě takovou mírou typové kontroly, která vám dá poznat, že něco děláte špatně, ale ne zase s tak přísnou typovou kontrolou, která by vás vyčerpávala, jako v jazyce Pascal.
+Používání jazyka C současně znamenalo omezení výletů do Assembleru jen na ty oblasti, kde bylo používání Assembleru hračkou.
+O několik let později jsem přešel k C++.
+Během času však shledávám, že jazyk C++ používám jako lepší C, přičemž příležitostně dávám přednost originálu.
+C++ pozvedává typovou kontrolu téměř na úroveň jazyka Pascal a přidává celou řadu nových rysů, které jazyk komplikují a zpomalují překladač.
+Jazyk C patří k mým oblíbeným jazykům.
+Není to jen shoda okolností, ani to není nijak překvapující, že operační systém, o kterém každý mluví — Linux — je napsán v čistém C a ne v C++.
+Poznámka překadatele: No jo!
+Jenže Unix, jehož odrůdou je i Linux, vznikl současně s jazykem C, v jedné dílně a v jedněch hlavách.
+Je to velmi klasický systém.
+To jinými slovy znamená, že vznikal v době, kdy objektově orientované programování nebylo ani v plenkách.
+Jádro operačního systému unixového typu je založeno na volání funkcí a práci s datovými strukturami (MS Windows v tomto smyslu spadá do stejné kategorie).
+S objekty se zde nesetkáme a použití jakéhokoliv objektově orientovaného programovacího jazyka pro zápis jádra systému proto nemůže přinést velké výhody.
+Hello World #include <stdio.h> void main() { char* msg="Hello World!"; /* podobný obrat, jako v OO příkladech */ puts(msg); } Poznámka překladatele: Funkce main() by podle normy jazyka C měla vracet výsledek typu int .
+Měli bychom proto psát int main() nebo pouze main() .
+Mnohé překladače sice zápis void main() tolerují, ale v podstatě je nesprávný.
+C++
+Jazyk C++ lze přirovnat k jazyku C s přidanými zvonečky.
+Ty ze začátku cinkaly jen příležitostně a tvořily sladkou hudbu.
+Ale v současnosti je těch zvonečků už tolik, že přes ten hluk už není hudba slyšet!
+(A některé moderní programy v C++ podle toho vypadají!)
+K jazyku C++ chovám hluboký obdiv a pro tvorbu velmi velkých systémů nebo prostředí, kde se používá mnoho odlišných způsobů návrhu a programování, je nepřekonatelný.
+Jeho pružnost naneštěstí přináší i problémy.
+Bez intimního porozumění jeho vnitřním mechanismům se tvorba dobrých programů v C++ stala téměř nemožnou.
+Ironií je, že jedním z primárních cílů jeho návrhu je umožnit programátorovi práci na vyšší úrovni abstrakce.
+Hello World #include <string.h> #include <stdio.h> class Message // definuj třídu pro zprávu { private: char msg[50]; public: Message(char* s) {strcpy(msg,s);}; void print() {puts(msg);}; }; void main() { m = new Message("Hello World!"); m->print(); delete m; }
+Poznámka překladatele: Podle mého názoru to není C++, které činí uvedený příklad nepřehledným — viz následující protipříklad.
+Jazyk C++ zcela jistě, v souladu s původními záměry, umožňuje efektivní práci na vyšších úrovních abstrakce.
+Problém spočívá v tom, že to nelze ztotožňovat s jednoduchostí jazyka.
+Hello World 2 — céčková verze v kabátě C++ #include <iostream> #include <string> using namespace std; int main() { string msg("Hello World!"); /* podobný obrat, jako v OO příkladech */ cout << msg; return 0; } Delphi
+Delphi ve skutečnosti není programovacím jazykem.
+Jde o vývojové prostředí.
+Ale v rámci tohoto vývojového prostředí mají všichni tendenci nazývat takto i jazyk, se kterým v prostředí pracují — takže popluji s proudem.
+Skutečné jméno jazyka uvnitř Delphi je Object Pascal.
+Jde o (v mnoha směrech odlišnou) verzi jazyka, kterou firma Apple používala pro programování prvních počítačů Macintosh.
+Firma Apple ke standardnímu Pascalu přidala rysy související s objektově orientovaným programováním.
+(Podrobnější popis jazyka a ukázky v jazyce Object Pascal v applovské podobě můžete nalézt v prvním vydání Boochovy knihy OOAD, 1992.)
+Varianta jazyka Object Pascal, která se používá v prostředí Delphi, v podstatě přidává k jazyku Pascal ty nejlepší rysy z jazyka C++, ale nesnaží se o úplnou zpětnou kompatibilitu nebo o nekompromisní přístup z pohledu výkonnosti a podobně.
+Výsledkem je z lidského hlediska mnohem čitelnější a jednodušší jazyk.
+Pro vážné programování ve Windows je Object Pascal jazykem, kterému dávám přednost.
+Prostředí Delphi je navíc nejlepším integrovaným vývojovým prostředím, které jsem kdy používal.
+(Momentálně používám verzi 3, ačkoliv v době psaní tohoto textu je má poslední verze číslo 4.)
+Hello World program hello; {--------- Definice třídy ---------} type class=TMessage msg : String; public: constructor Create(s : String); procedure Print; end; constructor TMessage.Create(s : String); begin msg := s; end; procedure TMessage.Print; begin writeln(msg); end; {------------ Konec definice třídy -----------} var m : TMessage // deklarace reference na instanci begin m := TMessage.Create('Hello World'); // vytvoříme instanci m.Print; m.Free; end.
+Poznámka překladatele: Opět si dovolím upozornit na to, že v každém jazyce lze napsat program dobře a špatně.
+Jazyk C++ vám možná umožní program napsat více špatnými způsoby.
+Bez jeho dobré znalosti možná ten správný způsob zapsání programu možná obtížněji naleznete.
+Ale když se použijí jen ty správné zvonečky , lze z něj stále vyloudit pěknou hudbu.
+Ale pravda je, že hrát na flašinet typu Visual Basic je asi snazší, než hrát na vícemanuálové varhany C++.
+Pro každý účel se má používat takový nástroj, který je nejvhodnější.
+Zkuste si představit žebráka hrajícího na varhany.
+Na stejném příkladu bych rád ukázal sílu jazyka C++, která nemusí nezbytně vést k menší přehlednosti, než je tomu u Object Pascalu.
+V následujícím příkladu se snažím o co nejpodobnější zápis výše uvedeného příkladu, včetně shodných identifikátorů a podobně umístěných komentářů:
+#include <iostream> #include <string> // --------- definice třídy --------- class TMessage { private: std::string msg; public: TMessage(const std::string & s); // konstruktor void Print(); }; TMessage::TMessage(const std::string & s) { msg = s; } void TMessage::Print() { std::cout << msg << std::endl; } // ------------ Konec definice třídy ----------- int main() { TMessage m("Hello World"); // vytvoříme inicializovanou instanci m.Print(); return 0; // tento obrat je doporučen normou }
+Ale osobně bych stejný příklad napsal spíše takto:
+#include <iostream> #include <string> // Class definition class TMessage { public: TMessage(const std::string & s) { m_msg = s; } void Print() { std::cout << m_msg << std::endl; } private: std::string m_msg; // m_ předpona pro datové členy (member) }; int main() { TMessage m("Hello World"); // vytvoříme inicializovanou instanci m.Print(); return 0; } COBOL
+COBOL patří k jednomu z prvních počítačových jazyků.
+Světlo světa spatřil v roce 1959, právě jeden rok po mně.
+Je to jeden z posledních počítačových jazyků, které jsem používal.
+Tím ho ovšem nechci nijak obhajovat.
+Mezi programátory nepatří zrovna k populárním jazykům.
+A ačkoliv se snažím o neutrální postoj, nezbývá mi, než s tím souhlasit.
+COBOL se vyznačuje několika dobrými rysy, především těmi, které se vztahují k jeho dennímu chlebu — zpracování dat, číselné výpočty a práce se soubory.
+Zejména jeho schopnosti generování sestav zastiňují jeho současníky.
+Jeho práce se soubory patří prostě k nejlepším.
+To ovšem nevyvažuje jeho negativní vlastosti: používání velkých písmen, pevné pozice klíčových slov a ukecanost až k zbláznění.
+Budu docela šťastný, když už s jazykem COBOL nebudu muset nikdy víc pracovat.
+Hello World IDENTIFICATION DIVISION.
+PROGRAM-ID.
+HELLO-PROG. ******************************* ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+SOURCE-COMPUTER.
+IBM-PC.
+OBJECT-COMPUTER.
+IBM-PC. ******************************** DATA DIVISION. ******************************** PROCEDURE DIVISION.
+DISPLAY-PARA.
+DISPLAY "HELLO WORLD FROM COBOL!".
+END-PARA.
+STOP RUN.
+Malé jazyky
+Vyčerpávající popis malých jazyků naleznete v sérii článků, které byly publikovány v časopise Dr. Dobbs a v ICM.
+Doporučuji sejména sérii knih Programming Pearls , kterou napsal Jon Bentley.
+Malými jazyky zde rozumím skriptovací jazyky.
+Některé z nich se však ve skutečnosti staly velmi rozsáhlými.
+awk
+Jde o první malý jazyk, se kterým jsem se setkal, a stále patří mezi mé oblíbené.
+Pomáhá řešit principiálně jednoduché úkoly jednoduchým a rozumně rychlým způsobem.
+Měl by se jej naučit každý !
+Základní princip zpracování v awk je založen na vyhledávání vzorků.
+Awk čte textový soubor řádek po řádku a vyhledává vzorky.
+Pokud nalezne některý z předepsaných vzorků, provede libovolnou akci, která pro něj byla definována.
+Standardně (default) je touto akcí tisk řádku.
+Program v awk se tedy skládá z množiny dvojic vzorek/akce.
+Mezi jeho typická použití patří extrahování sloupců z datových souborů, generování souhrnných zpráv a podobně.
+Hello world
+Poznámka: Tato verze tiskne řetězec " Hello World " pokaždé, když na řádku vstupního souboru nalezne řetězec " Hello " nebo " hello ".
+Na závěr zobrazí počet úspěšných rozpoznání vzorků.
+#!/bin/awk BEGIN {msg="Hello World"} /[Hh]ello/ {print msg; count++} END {print "Hello bylo v souboru ", FILENAME, " nalezeno ", count, "krat."} Perl
+Perl dal příchuť několika posledním rokům, plus mínus nějaký ten měsíc.
+Jde o mocný nástroj.
+Škoda jen, že jeho řádky vypadají, jako kdyby někdo rozsypal písmenka — s velmi škodolibým záměrem.
+Jazyku Perl jsem nikdy nepřišel tak úplně na chuť.
+Vidím sice jeho sílu, ale nějakým způsobem prostě uráží mé smysly.
+Všechno v něm tak trochu (nebo i trochu víc), jako kdyby to drželo pohromadě spíše díky lepicí pásce a lepidlu, než díky srozumitelnému, logickému návrhu.
+(Jeho mechanismu pro objektové programování se to týká především.)
+Nelze popřít, že svět WWW je řízen Perlem do značné míry.
+Pokud vás přitahuje, nenechte se mnou zastavit!
+Místo toho navštivte stránky http://www.perl.org/ .
+Hello World $msg = "Hello World"; print $msg; Python
+Je to Perl pro puristy — zejména pro objektově orientované puristy.
+Miluji jej do posledního bitu!
+Python je objektově orientovaný skrz naskrz.
+Jeho součástí je rozsáhlý systém modulů.
+Python je navržen tak, aby dovoloval skriptování ve velkém [1] .
+Ačkoliv je mnohem méně známý, než Perl, můžete v jazyce Python dosáhnout stejných výsledků při srovnatelném úsilí — a výslednému kódu budete pravděpodobně rozumět dokonce i po šesti měsících.
+Hello World #!/local/bin/python class Message: def __init__(self, str="No message provided"): self.text = str def printIt(self): print self.text if __name__ = "__main__": m = Message("Hello World") m.printIt()
+Poznámka překladatele: Uvedený příklad v jazyce Python odpovídá variantám, kdy tvoříme samostatnou třídu pro zprávu (message).
+V Pythonu můžeme samozřejmě napsat i jednodušší ekvivalent perlovského programu, který vznikne pouhým odmazáním dvou znaků $ a dvou středníků:
+msg = "Hello World" print msg
+Pokud ale trochu znáte Perl, musíte uznat, že vytvoření verze programu, která by definovala třídu Message, je přinejmenším krkolomné.
+V Perlu potřebujete k vytvoření třídy doslova požehnání (klíčové slovo bless ).
+O přehlednosti mechanismu práce s objekty nemůže být při srovnání s jazykem Python ani řeč.
+Unixový shell
+sh, csh, tcsh, ksh, bash.
+Vyberte si váš oblíbený.
+Jde o příkazový procesor s opravdovou silou.
+Můžete v něm realizovat větvení if , case , i cykly while a for .
+Můžete v něm testovat typ souboru (zda se jedná o adresář, systémový soubor, přístupová práva, atd.)
+Udržuje historii použitých příkazů, podporuje automatické doplňování jména souboru nebo příkazu, umožňuje provádění úloh v popředí nebo v pozadí, a tak dále, a tak dále.
+Hello World #! /bin/sh message="Hello World" echo $message Dávkový jazyk pro DOS a Window
+Co bych k němu mohl říci?
+Příkazový procesor s mizernou silou?
+Některým lidem se podařilo vymáčnout z něj maximum a dosáhnout neuvěřitlené věci.
+Přesto jej nemám rád a přál bych si, aby Microsoft poskytnul opravdu užitečný dávkový jazyk pro Windows NT.
+(Ale pánové, dodávání instalace jazyka Perl jako součást Resource Kit, se nepočítá!)
+Hello World SET MSG="Hello World" ECHO %MSG% Experimentální jazyky
+Označení experimentální se zde vztahuje k mé osobě — experimetnoval jsem s nimi.
+To ovšem neznamená, že tyto jazyky představují nějaký experiment z pohledu počítačové vědy.
+Spíše by se dalo říct, že jsem v těchto jazycích napsal svým způsobem minimalistické aplikace jen proto, abych se o těchto jazycích něco dozvěděl.
+Dělící čára mezi těmito jazyky a jazyky, které jsem označil jako malé, je velmi tenká.
+V malých jazycích jsem ovšem vytvořil nástroje, které skutečně používám.
+V experimentálních jazycích jsem vytvořil nástroje, které běžně nepoužívám.
+Tím ovšem nechci tvrdit, že jde o nějaké podřadné jazyky.
+Každý z nich je jinými programátory používán pro tvorbu aplikací.
+A každý z nich mi dal cenné lekce, týkající se programování.
+Každému, kdo chce být programátorem, srdečně doporučuji, aby si vyzkoušel co nejvíce různých stylů programování.
+Všechny tyto jazyky v sobě mají něco, čím se liší od jazyků hlavního proudu, o kterých jsme se zmínili výše.
+BASIC
+BASIC byl v podstatě mým prvním programovacím jazykem.
+Ale věci, které jsem v něm dělal, byly tak jednoduché, že je ani nepovažuji za programování.
+BASIC jsem začal používat na svém mikropočítači s operačním systémem CP/M.
+Seznámil jsem se přes něj se soubory s náhodným přístupem.
+Občas si ještě s jazykem BASIC hraji — zejména, když pracuji na nějakém počítači, kde je to jediný programátorský nástroj, který je tam nainstalovaný.
+Nadšenci spojení pupeční šňůrou s jazykem Visual Basic mne neustále přesvědčují o tom, že kvalita moderního dialektu tohoto jazyka je dobrá.
+Ale přesto, že jsem si stáhl jeho zdarma dostupné vydání zvané CCE a vytvořil jsem pár jednoduchých aplikací, nevyvolal ve mně žádné opravdové nadšení.
+Bejziku, je mi líto.
+Hello World LET MSG$ = "Hello World" PRINT MSG$; Lisp
+Fanoušci jazyka Lisp jej popisují jako jediný krásný programovací jazyk .
+Jeho zavilí kritici říkají, že Lisp znamená Lots of Irrelevant Silly Parentheses .
+(Tj. mnoho zbytečných pitomých závorek .
+Setkal jsem se také s vysvětlením Lost In Stupid Parentheses , neboli ztracen v hloupých závorkách .)
+Sympatizuji s oběma názory.
+Slovo Lisp ve skutečnosti znamená List Processing (čili zpracování seznamů).
+Tento jazyk je velmi názorný v tom smyslu jak vypadá a jak funguje.
+V jazyce Lisp je vše buď seznam nebo atom.
+Atomem se rozumí prvek seznamu, který sám o sobě není seznamem.
+Právě zmíněná zásadní čistota formy a jednoduchá syntaxe představují vlastnosti, které provokují k výše zmíněnému postoji o kráse jazyka .
+U Lispu jsem se naučil jiné způsoby strukturování problému, používat rekurzi (tedy něco, čemu jsem se dříve vyhýbal jako příliš komplikovanému) a oceňovat nápad, že data mohou být použita jako program a naopak.
+Další věc, která u jazyka Lisp stojí za zmínku, je skutečnost, že jde o jeden z prvních počítačových jazyků, spolu s jazyky COBOL a Fortran.
+Považuji za zajímavé, že všechny tyto nejrannější jazyky jsou ve svých oblastech nasazení stále vnímány jako mocné, zatímco některé modernější jazyky (Algol, PL/1, CORAL a dokonce ADA) prošly obdobím rozmachu a pak zmizely z očí.
+Mohli tvůrci oněch prvních jazyků vědět něco, co tvůrcům pozdějších jazyků uniklo?
+Na závěr uveďme, že jazyk Lisp má spoustu variant.
+Osobně jsem nejvíce pracoval s verzí Elisp, což je makrojazyk editoru Emacs, XLISP, což je experimentální objektově orientovaná verze a Flavors, což je velmi ranný experimentální objektově orientovaný dialekt.
+Hlavní proud jazyka Lisp se dočkal standardu jménem Common Lisp a objektově orientovaného systému, zvaného CLOS.
+CLOS patří snad k nejúplnějším objektově orientovaným prostředím, která jsou dnes k dispozici, i když je to prostředí docela ukecané a velmi složité.
+Z tohoto důvodu jsem se ani nepokusil o objektově orienovanou verzi programu Hello world.
+Hello World
+Poznámka: Lispovský program je sám o sobě seznamem.
+Každý prvek seznamu je seznam insrukcí.
+Seznamy s instrukcemi mohou být zanořené.
+Tímto způsobem se implementují podmíněné části, cykly atd.
+( (setq msg "Hello World") (print 'msg)) Logo
+S jazykem Logo jsem se poprvé setkal na svém mikropočítači s CP/M.
+Byl to trochu podivný přídavek v rámci dodávaného softwarového balíku.
+Jde o jednoduchý programovací jazyk, který byl navržen pro výuku programování pro děti.
+Používá sadu příkazů, kterými se po podlaze vodí robot zvaný želva .
+Želva má k dispozici tužku, kterou může kreslit různé tvary.
+(Poznámka překladatele: Želva může na základě příkazů tužku spustit nebo zvednout a tak za sebou může zanechávat stopu svého pohybu, nebo ne.)
+Tento způsob kreslení vešel ve známost jako želví grafika a byl přenesen do mnoha jiných jazyků, včetně jazyků Pascal a Smalltalk.
+Logo ale má i svou vážnou tvář.
+Zahrnuje v sobě plné schopnosti zpracování seznamů a vlastní mnoho rysů jazyka Lisp, včetně konceptu, kdy se program skládá ze seznamů a sám o sobě je seznamem.
+Tím se Logo stává vhodným nástrojem pro výuku (a implementování) technik umělé inteligence, osvobozující studenty od hromady závorek a neobvyklé syntaxe (z pohledu procedurálních programátorů), tedy rysů, které jsou vlastní jazyku Lisp.
+Modernější verze jazyka Logo si přinášejí objektově orientované vlastnosti.
+Existují dokonce i verze pro programování aplikací s okny (dodávají se s objektovými knihovnami pro tvorbu grafického uživatelského rozhraní).
+Hello World To Hello MAKE "Message [Hello World] PRINT :Message End Hello Prolog
+Prolog je jiný.
+Velmi jiný!
+V Prologu definujete pravidla, kterými popisujete, co se má stát , a necháte systém aby si sám našel způsob jak se toho má dosáhnout .
+Začátečníkům se to jeví jako velmi intuitivní a programátorům, kteří prošli výukou libovolného jiného jazyka, se to zdá velmi podivné.
+Prolog je hlavním pilířem výzkumu umělé inteligence, zejména v Evropě a v Japonsku.
+Japonci, v rámci pokusu o soupeření s USA na poli počítačů, v osmdesátých letech oznámili, že do roku 1990 vyrobí počítač páté generace , který bude založen na jazyku Prolog.
+Nikdy sice nespatřil světlo světa, ale Japonci uspěli v ovládnutí výpočetní oblasti díky mnohem jednodušší strategii — vyrábějí více a lepších paměťových čipů, než kdokoliv jiný.
+S jazykem Prolog jsem si mohl pohrát, protože byl k dispozici na počítači VAX, který jsem používal ve svém prvním zaměstnání.
+Vždycky jsem se divil, proč tam ten Prolog je.
+Zcela určitě jsme jej nikdy nepoužili při řešení úkolů, kterými jsme se živili.
+V Prologu jsem vlastně nikdy nenapsal nějaký důležitý program, ale jeho celková koncepce mne fascinuje.
+Jednoho dne pro něj možná najdu nějaké opravdové použití.
+Do té doby si s ním budu zatím jen hrát — když mě přepadne špatná nálada.
+Hello World Message is "Hello World" Message?
+Smalltalk
+Smalltalk, to jsou objekty.
+Všude.
+Vždycky.
+Ačkoliv se uznává, že prvním objektově orientovaným jazykem byla Simula 67, prvním opravdu rozšířeným se stal Smalltalk.
+Během 70. let se Smalltalk vyvinul v něco, co se mělo stát úplným objektově orientovaným prostředím: Smalltalk 80.
+Pokud si chcete vyzkoušet Smalltalk 80, stáhněte si kopii Squeak z disney.com.
+Jeho prostředí je věrnou kopií programového prostředí Smalltalk 80, včetně GUI.
+Jeho grafické uživatelské rozhraní je sice při srovnání s moderními standardy zjevně excentrické, ale stalo se katalyzátorem pro vznik prostředí počítačů Macintosh, pro vznik Windows...
+Mou preferovanou implementací jazyka Smalltalk je Dolphin Smalltalk pro Windows 95.
+Neobvyklé na něm je to, že vývojové prostředí je k dispozici zdarma.
+Pokud ale chcete výsledný program dodávat v podobě EXE, musíte si koupit nástroj pro jeho vytvoření.
+Zdá se, že je to rozumná alternativa k shareware v rámci přístupu vyzkoušej si, než si koupíš .
+Vývojové prostředí je dobré a dokumentace i učebnice ve formátu HTML jsou velmi čtivě napsané.
+Existuje i skupina, která se zabývá podporou.
+Fanoušci jazyka Smalltalk si libují v konzistentnosti jazyka (jak jsem řekl, vše je objekt) a v tom, že existuje jen malá množina syntaktických konstrukcí — odtud vyplývá snadné naučení se jazyku.
+To má tedy být základní myšlenka.
+Osobně jsem musel absolvovat tři pokusy ve dvou různých prostředích, než mi to vlezlo do hlavy.
+Občas je Smalltalk zdatným soupeřem jazyků C a Perl — při používání záhadných a přetížených symbolů ( @, # , [ , ] , atd.).
+Hello World message := string new: "Hello World". message display.
+Pokud k uvedeným pohledům chcete doplnit nějaké připomínky, napište mi , prosím. (..., ale anglicky.)
+[ zpět ]
+Pokud vás napadne, co by se dalo na překladu této kapitoly vylepšit, zašlete e-mail odklepnutím
