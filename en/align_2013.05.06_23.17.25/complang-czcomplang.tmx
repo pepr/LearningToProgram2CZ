@@ -33,12 +33,12 @@
 <tuv xml:lang="CS"><seg>Jazyky jsem uspořádal to těchto skupin:</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
-<tuv xml:lang="EN"><seg>Those that I have used &apos;in anger&apos; on production work .</seg></tuv>
-<tuv xml:lang="CS"><seg>Ty, které jsem používal a se kterými jsem se zlobil v práci .</seg></tuv> </tu>
+<tuv xml:lang="EN"><seg>Those that I have used &apos;in anger&apos; on production work.</seg></tuv>
+<tuv xml:lang="CS"><seg>Ty, které jsem používal a se kterými jsem se zlobil v práci.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Little languages used (often in production projects) for small tasks (less than 1000 lines of code).</seg></tuv>
-<tuv xml:lang="CS"><seg>Malé jazyky , které jsem používal (často i v práci) pro řešení malých úkolů (méně, než 1000 řádků zdrojového textu).</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Malé jazyky, které jsem používal (často i v práci) pro řešení malých úkolů (méně, než 1000 řádků zdrojového textu).</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Languages which I have only experimented with, never used on real development work.</seg></tuv>
@@ -61,7 +61,7 @@
 <tuv xml:lang="CS"><seg>C</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
-<tuv xml:lang="EN"><seg>When I first started using C (on a vacation project while at university) it came as a breath of fresh air after the restrictions of ANSI Pascal .</seg></tuv>
+<tuv xml:lang="EN"><seg>When I first started using C (on a vacation project while at university) it came as a breath of fresh air after the restrictions of ANSI Pascal.</seg></tuv>
 <tuv xml:lang="CS"><seg>Když jsem poprvé začal používat jazyk C (během prázdninového projektu, v době studia na univerzitě), bylo to jako závan svěžího vzduchu po všech těch omezeních, kladených jazykem ANSI Pascal.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
@@ -250,7 +250,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>In particular I recommend the Programming Pearls series of books by Jon Bentley.</seg></tuv>
-<tuv xml:lang="CS"><seg>Doporučuji sejména sérii knih Programming Pearls , kterou napsal Jon Bentley.</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Doporučuji sejména sérii knih Programming Pearls, kterou napsal Jon Bentley.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>In the context of this discussion I really mean scripting languages ans some of these have actually become pretty big! awk</seg></tuv>
@@ -322,7 +322,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Instead visit: http://www.perl.org Hello World $msg = &quot;Hello World&quot;; print $msg;</seg></tuv>
-<tuv xml:lang="CS"><seg>Místo toho navštivte stránky http://www.perl.org/ . Hello World $msg = &quot;Hello World&quot;; print $msg;</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Místo toho navštivte stránky http://www.perl.org/. Hello World $msg = &quot;Hello World&quot;; print $msg;</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Python</seg></tuv>
@@ -334,7 +334,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Python is object oriented throughout, it has an extensive module system and is designed to allow scripting on a large scale.</seg></tuv>
-<tuv xml:lang="CS"><seg>Python je objektově orientovaný skrz naskrz. Jeho součástí je rozsáhlý systém modulů. Python je navržen tak, aby dovoloval skriptování ve velkém [1] .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Python je objektově orientovaný skrz naskrz. Jeho součástí je rozsáhlý systém modulů. Python je navržen tak, aby dovoloval skriptování ve velkém [1].</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Although much less well known than Perl you can achieve pretty much the same results for the same effort in Python as you can with Perl - and you might even understand the resultant code 6 months later.</seg></tuv>
@@ -362,7 +362,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>You can do if, case, while and for loops.</seg></tuv>
-<tuv xml:lang="CS"><seg>Můžete v něm realizovat větvení if , case , i cykly while a for .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Můžete v něm realizovat větvení if, case, i cykly while a for.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>You can test for file type(directory, system file, access etc) There&apos;s command history access, filename and command completion, executing jobs in foreground or background etc etc.</seg></tuv>
@@ -450,11 +450,11 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Lisp is described by its fans as &apos;the only beautiful programming language&apos;.</seg></tuv>
-<tuv xml:lang="CS"><seg>Fanoušci jazyka Lisp jej popisují jako jediný krásný programovací jazyk .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Fanoušci jazyka Lisp jej popisují jako jediný krásný programovací jazyk.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Its detractors say Lisp stands for &apos;Lots of Irrelevant Silly Parentheses&apos;.</seg></tuv>
-<tuv xml:lang="CS"><seg>Jeho zavilí kritici říkají, že Lisp znamená Lots of Irrelevant Silly Parentheses .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Jeho zavilí kritici říkají, že Lisp znamená Lots of Irrelevant Silly Parentheses.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>I sympathize with both views.</seg></tuv>
@@ -470,7 +470,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>It is this fundamental cleanness of form and its simple syntax which provokes the &apos;beautiful language&apos; reaction above.</seg></tuv>
-<tuv xml:lang="CS"><seg>Právě zmíněná zásadní čistota formy a jednoduchá syntaxe představují vlastnosti, které provokují k výše zmíněnému postoji o kráse jazyka .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Právě zmíněná zásadní čistota formy a jednoduchá syntaxe představují vlastnosti, které provokují k výše zmíněnému postoji o kráse jazyka.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>What I learned from Lisp is a different way to structure problems, use of recursion (something I had previously avoided as too complicated) and an appreciation of the notion that data can be a program and vice versa.</seg></tuv>
@@ -530,7 +530,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>It was a strange inclusion in the software bundle: a simple programming language designed to teach children about computing using a set of commands for guiding a robot &apos;turtle&apos; about the floor with a pen tracing the shapes.</seg></tuv>
-<tuv xml:lang="CS"><seg>Byl to trochu podivný přídavek v rámci dodávaného softwarového balíku. Jde o jednoduchý programovací jazyk, který byl navržen pro výuku programování pro děti. Používá sadu příkazů, kterými se po podlaze vodí robot zvaný želva . Želva má k dispozici tužku, kterou může kreslit různé tvary.</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Byl to trochu podivný přídavek v rámci dodávaného softwarového balíku. Jde o jednoduchý programovací jazyk, který byl navržen pro výuku programování pro děti. Používá sadu příkazů, kterými se po podlaze vodí robot zvaný želva. Želva má k dispozici tužku, kterou může kreslit různé tvary.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>This became known as turtle graphics and has been ported to many other languages, including Pascal and Smalltalk.</seg></tuv>
@@ -562,7 +562,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>In Prolog you define rules of what you want to happen and leave the system to figure out how the system should do it.</seg></tuv>
-<tuv xml:lang="CS"><seg>V Prologu definujete pravidla, kterými popisujete, co se má stát , a necháte systém aby si sám našel způsob jak se toho má dosáhnout .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>V Prologu definujete pravidla, kterými popisujete, co se má stát, a necháte systém aby si sám našel způsob jak se toho má dosáhnout.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>This is very intuitive to beginners, and very strange to programmers trained in just about any other language.</seg></tuv>
@@ -574,7 +574,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Indeed the Japanese, in an attempt to compete with the USA in computing announced in the mid &apos;80s that they would produce a &quot;Fifth Generation&quot; computer based on Prolog by 1990.</seg></tuv>
-<tuv xml:lang="CS"><seg>Japonci, v rámci pokusu o soupeření s USA na poli počítačů, v osmdesátých letech oznámili, že do roku 1990 vyrobí počítač páté generace , který bude založen na jazyku Prolog.</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Japonci, v rámci pokusu o soupeření s USA na poli počítačů, v osmdesátých letech oznámili, že do roku 1990 vyrobí počítač páté generace, který bude založen na jazyku Prolog.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Such a machine never appeared but the Japanese did succeed in dominating computing by the much simpler strategy of building more and better memory chips than anyone else!</seg></tuv>
@@ -642,7 +642,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>This seems to be a reasonable alternative to shareware as a try-before-you-buy scheme.</seg></tuv>
-<tuv xml:lang="CS"><seg>Zdá se, že je to rozumná alternativa k shareware v rámci přístupu vyzkoušej si, než si koupíš .</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Zdá se, že je to rozumná alternativa k shareware v rámci přístupu vyzkoušej si, než si koupíš.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>The environment is good and the HTML format documentation and tutorial is very readable.</seg></tuv>
@@ -662,7 +662,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>At times Smalltalk rivals C and Perl in the use of obscure and overloaded symbols (@,#,[,], etc).</seg></tuv>
-<tuv xml:lang="CS"><seg>Občas je Smalltalk zdatným soupeřem jazyků C a Perl — při používání záhadných a přetížených symbolů ( @, # , [ , ] , atd.).</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Občas je Smalltalk zdatným soupeřem jazyků C a Perl — při používání záhadných a přetížených symbolů (@, #, [, ], atd.).</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Hello World message := string new: &quot;Hello World&quot;. message print.</seg></tuv>
@@ -670,7 +670,7 @@
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>If you want to comment on these views please mail me.</seg></tuv>
-<tuv xml:lang="CS"><seg>Pokud k uvedeným pohledům chcete doplnit nějaké připomínky, napište mi , prosím.</seg></tuv> </tu>
+<tuv xml:lang="CS"><seg>Pokud k uvedeným pohledům chcete doplnit nějaké připomínky, napište mi, prosím.</seg></tuv> </tu>
 
 <tu creationdate="20130506T211725Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">complang-czcomplang</prop>
 <tuv xml:lang="EN"><seg>Back to the top</seg></tuv>
