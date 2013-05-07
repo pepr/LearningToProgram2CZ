@@ -1,37 +1,36 @@
-# -*- coding: cp1250 -*-
+#!python3
+# -*- coding: utf-8 -*-
 
-"""Skript pro generování a vkládání referencí na zaèátek cztuttrn.html.
+"""Skript pro generovÃ¡nÃ­ a vklÃ¡dÃ¡nÃ­ referencÃ­ na zaÄÃ¡tek cztuttrn.html.
 
-Zmínìné reference se sbírají pouze ze souboru cztuttrn.html a tvoøí obsah
-dokumentu -- pro rychlou navigaci a pøehled.
+ZmÃ­nÄ›nÃ© reference se sbÃ­rajÃ­ pouze ze souboru cztuttrn.html a tvoÅ™Ã­ obsah
+dokumentu -- pro rychlou navigaci a pÅ™ehled.
 """
-# $Id: cztuttrn.py,v 1.1 2004/07/02 08:12:10 prikryl Exp $
 import re, sys, os
 
 filename = 'cztuttrn.html'
 
-# Naèteme všechny øádky souboru jako jeden øetìzec. Originální obsah 
-# ponecháme v promìnné content nedotèenı a do finální fáze.
-f = file(filename)
-content = f.read()
-f.close()
+# NaÄteme vÅ¡echny Å™Ã¡dky souboru jako jeden Å™etÄ›zec. OriginÃ¡lnÃ­ obsah
+# ponechÃ¡me v promÄ›nnÃ© content nedotÄenÃ½ aÅ¾ do finÃ¡lnÃ­ fÃ¡ze.
+with open(filename, encoding='utf-8') as f:
+    content = f.read()
 
-# Konce øádkù zmìníme na mezery. Od tohoto okamiku budeme pracovat
-# s promìnnou cont.
+# Konce Å™Ã¡dkÅ¯ zmÄ›nÃ­me na mezery. Od tohoto okamÅ¾iku budeme pracovat
+# s promÄ›nnou cont.
 cont = content.replace('\n', ' ')
 
-# Zrušíme zakomentované èásti.
+# ZruÅ¡Ã­me zakomentovanÃ© ÄÃ¡sti.
 cont = re.sub('<!--.+?-->', ' ', cont)
 
-# Zkonstruujeme regulární vıraz pro extrakci nadpisù tøetí úrovnì a pro 
-# extrakci poloek oznaèkovanıch dt. Tyto texty nás zajímají. Všechny 
-# zajímavé texty vyextrahujeme do seznamu. Bude to seznam n-tic odpovídajících
-# jednotlivım skupinám. 
-texts = re.findall(r'((<h3(\s.+?)?>.+?</h3>)|(<dt>.+?</dt>))', cont) 
+# Zkonstruujeme regulÃ¡rnÃ­ vÃ½raz pro extrakci nadpisÅ¯ tÅ™etÃ­ ÃºrovnÄ› a pro
+# extrakci poloÅ¾ek oznaÄkovanÃ½ch dt. Tyto texty nÃ¡s zajÃ­majÃ­. VÅ¡echny
+# zajÃ­mavÃ© texty vyextrahujeme do seznamu. Bude to seznam n-tic odpovÃ­dajÃ­cÃ­ch
+# jednotlivÃ½m skupinÃ¡m.
+texts = re.findall(r'((<h3(\s.+?)?>.+?</h3>)|(<dt>.+?</dt>))', cont)
 
-# Ze seznamu n-tic vybíráme pouze první z nich a upravíme ji do podoby n-tic.
-# První poloka bude indikovat, zda jde o hlavièku nebo pojem. Druhá poloka 
-# bude obsahovat text a pøípadná tøetí poloka bude obsahovat id.
+# Ze seznamu n-tic vybÃ­rÃ¡me pouze prvnÃ­ z nich a upravÃ­me ji do podoby n-tic.
+# PrvnÃ­ poloÅ¾ka bude indikovat, zda jde o hlaviÄku nebo pojem. DruhÃ¡ poloÅ¾ka
+# bude obsahovat text a pÅ™Ã­padnÃ¡ tÅ™etÃ­ poloÅ¾ka bude obsahovat id.
 res = []
 rexh3 = re.compile(r'<h3(\sid="(?P<id>.+?)")?>(?P<txt>.+?)</h3>')
 rexdt = re.compile(r'<dt>.+?\sid="(?P<id>\S+?)".+?</a>\s*(?P<txt>.+?)\s*:?\s*</dt>')
@@ -45,9 +44,9 @@ for t in texts:
         if m:
             res.append(('i', m.group('id'), m.group('txt')))
 
-# Zkonstruujeme miniobsah do promìnné result jako jeden øetìzec.             
+# Zkonstruujeme miniobsah do promÄ›nnÃ© result jako jeden Å™etÄ›zec.
 result = ''
-for t in res: 
+for t in res:
     if t[0] == 'h':
         if t[1]:
             result += '<p><a href="#%s"><b>%s</b></a><br>\n' % (t[1], t[2])
@@ -56,19 +55,18 @@ for t in res:
     else:
         result += ' - <a href="#%s">%s</a><br>\n' % (t[1], t[2])
 
-# V obraze pùvodního dokumentu nalezneme pùvodní miniobsah a nahradíme jej
-# novım.
+# V obraze pÅ¯vodnÃ­ho dokumentu nalezneme pÅ¯vodnÃ­ miniobsah a nahradÃ­me jej
+# novÃ½m.
 rex_minitoc = re.compile(r'(?s)<div class="minitoc">.+?</div>')
 content = rex_minitoc.sub('<div class="minitoc">\n%s</div>' % result, content)
 
-# Pøejmenujeme pùvodní soubor na záloní.
+# PÅ™ejmenujeme pÅ¯vodnÃ­ soubor na zÃ¡loÅ¾nÃ­.
 backup_filename = filename.replace('.html', '.bak')
 if os.path.isfile(backup_filename):
     os.remove(backup_filename)
 os.rename(filename, backup_filename)
 
-# Pùvodní soubor otevøeme pro zápis a zapíšeme do nìj novı obsah.
-f = file(filename, 'w')
-f.write(content)
-f.close()
+# PÅ¯vodnÃ­ soubor otevÅ™eme pro zÃ¡pis a zapÃ­Å¡eme do nÄ›j novÃ½ obsah.
+with open(filename, 'w', encoding='utf-8') as f:
+    f.write(content)
 
