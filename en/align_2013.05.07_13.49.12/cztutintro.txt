@@ -1,0 +1,149 @@
+Jak se naučit programovat autor: Alan Gauld překlad: Petr Přikryl *) (Originální anglická verze.)
+Nejnovější zprávy!
+Webové stránky
+Vítejte na inovovaných stránkách učebnice Jak se naučit programovat .
+Obsah byl zcela přepracován.
+Kromě příkladů v jazyce Python zde nyní naleznete také příklady v jazycích VBScript a JavaScript.
+Vysvětlení byla navíc rozšířena — přibylo téměř 30 % textu.
+V následujících měsících budu přidávat další témata.
+Zaměřím se na praktické používání programátorských dovedností.
+Starší verze této učebnice je stále dostupná zde .
+O knize
+Mezi poslední zprávy k mé knize patří to, že se přesunula do kategorie tisk na vyžádání .
+Znamená to, že další výtisky vznikají pouze na základě pevných objednávek od prodejců.
+Logicky z toho vyplývá, že již na ni v obchodech nenarazíte tak často.
+Ale stále si ji ještě můžete objednat a bude vám zaslána.
+Bude to jen trvat o něco déle.
+Knižní podoba se nyní od obsahu webové verze výrazně liší, ačkoliv základ zůstává shodný.
+Kniha zůstala u Pythonu verze 1.5 a neobsahuje nově přidaná témata.
+Na druhou stranu v ní naleznete víc příkladů a několik kapitol navíc.
+Je mezi nimi i případová studie objektově orientovaného prostředí (framework) pro psaní her [2] .
+(Plně komentovaná verze tohoto prostředí je nyní dostupná na webových stránkách Useless Python jako hmgui.zip .)
+Knihu si můžete objednat přes Amazon .
+Má ji k dispozici i většina dalších internetových obchodů s knihami.
+Japonská pobočka mého vydavatele nabízí rovněž japonský překlad knihy .
+V současnosti jsou k dispozici webové stránky , na kterých naleznete seznam chyb a které vám umožní zasílat ohlasy a dotazy.
+Pokud jste si knihu zakoupili, věnujte jim, prosím, pozornost.
+O věcech budoucích
+Jak už jsem se zmínil, hodlám v budoucnu přidat několik nových témat.
+Budou součástí nového oddílu, který bude zaměřen na praktické programování.
+Chci tím reagovat na připomínky čtenářů, kteří říkají: "No dobrá.
+Teď vím, jak se programuje.
+Ale k čemu vlastně mohu své nově získané dovednosti použít?"
+Připravuje se polský překlad.
+Pracuje se na úpravách českého překladu s cílem zachytit změny v nové verzi učebnice.
+Petr byl mým nejpřísnějším recenzentem a patří mu díky za řadu oprav.
+Zbývající chyby padají výlučně na mou hlavu.
+Obávám se, že kniha poněkud stagnuje.
+Jakmile však dokončím nová témata, pokusím se s vydavatelem dohodnout na druhém vydání.
+Mělo by odpovídat poslední verzi Pythonu (v době vydání) a měla by se zde objevit právě tato nová témata.
+Ale doporučuji vám, abyste se na nové vydání knihy v tomto okamžiku příliš neupínali.
+Překlady z angličtiny do jiných jazyků
+Prvním překladatelem této učebnice (do španělštiny) byl Martin Pozzi.
+Poté následovali další.
+V současnosti jsou k dispozici verze v následujících jazycích:
+Jazyk Překladatel Česky Petr Přikryl Německy Bruno Schaefer Korejsky johnsonj Italsky Luca Fini Portugalsky Wilson Edgar Španělsky Martin Pozzi
+Všechny z výše uvedených překladů jsou použitelné, ale ve srovnání s originálními stránkami se nacházejí v různých fázích.
+Je to dáno tím, že odrážejí stav webových stánek z doby, kdy byly přeloženy.
+Zejména český překlad je ale zpracován velmi profesionálně, včetně atraktivního vzhledu.
+Zapůsobil na mne natolik, že jsem Petrovy definice stylů použil jako základ nové anglické verze.
+Doufám, že se mi podobně podaří pozměnit i ostatní jazyková vydání.
+Domnívám se, že si všichni překladatelé zaslouží poděkování za úsilí, které překladu věnovali.
+Čtení i staršího překladu učebnice je vždy jednodušší, než pracné louskání nové verze v cizím jazyce.
+Pokud je někdo další ochoten vytvořit zcela nový překlad nebo aktualizovat některý z existujících, zašlete mi email .
+Novinky
+Plánuji zařazení několika nových témat, která se týkají použití jazyka Python pro řešení problémů z praxe.
+Ukazuje se, že mi to zabere mnohem více času, než jsem čekal.
+Právě jsem dokončil kapitolu týkající se databází.
+Další témata budou věnována programování síťových aplikací a webu.
+K posledním zprávám patří to, že máme dva nové překladatele.
+Jeden z nich pracuje na inovovaném vydání španělského překladu, druhý na polském překladu.
+Změna podoby archivního balíku pro stažení
+Čas od času zveřejním podobu učebnice ve tvaru zip a tgz archívů.
+Neslibuji, že budou vždy nejčersvější, ale budu se snažit, aby nebyly příliš zastaralé.
+Poslední podoba učebnice bude vždy dostupná on-line.
+Uživatelé systému Linux si mohou stáhnout verzi tar/gzip .
+Uživatelé Windows budou moci použít tutéž verzi, protože programy winzip a volně dostupný archivační program Quick Zip autora jménem Joseph Leung si oba s formátem tgz poradí.
+Formát tgz je použit také pro neanglické překlady.
+Odkaz na archivní balíky naleznete v dolní části panelu s obsahem.
+Poznámka překladatele: Česká verze je rovněž dostupná v obou formátech.
+Archivační programy pro vytváření archivních souborů v obou formátech jsou dostupné jak pro Linux, tak pro Windows.
+Programy tar a gzip — případně novější verze programu tar , která při zadání příslušného parametru přímo volá program gzip —, jsou standardní součástí distribuce systému Linux.
+U systému Windows doporučuji nainstalovat alespoň nejzákladnější balíky sady unixových utilit pro Windows — Cygwin .
+Ten se dodává v podobě instalátoru setup.exe (asi 300 KB) a rozsáhlé sady balíčků.
+Naleznete mezi nimi i programy tar a gzip .
+Pro systémy typu Unix i Windows existuje i volně dostupná distribuce Info-ZIP , která obsahuje programy zip a unzip .
+Poznámka překladatele: Součástí anglické verze je i učebnice ve formátu PDF.
+Je vytvořena z HTML souborů a nevyužívá možností hypertextových odkazů (tj. nejde o "klikací" podobu PDF souboru).
+Český překlad tuto variantu neobsahuje.
+A také něco pro uživatele Palm… Poznámka překladatele: Součástí distibuce starší anglické verze je i soubor tutor.pdb , tj. podoba tohoto textu ve formátu dokumentačního souboru pro Palm.
+Podrobnosti hledejte v originálním textu.
+Úvod — Co, Proč, Kdo atd. Proč to píšu?
+Pracuji na vytváření této učebnice, protože se mi zdá, že úplní začátečníci v programování toho na Webu [3] mohou nalézt velmi málo.
+Přitom samotná existence Internetu [4] a Webu vzbuzuje zájem o počítače a tento zájem přirozeně vede k touze po jejich ovládnutí .
+To ovšem znamená naučit se programovat !
+Proč jsem to napsal právě já?
+Tak tedy, jsem profesionálním programátorem se vzděláním v oblasti elektro inženýr.
+Naučil jsem se (a stále používám) několik programovacích jazyků , ale nemám žádný osobní zájem podporovat některý konkrétní z nich.
+V době, kdy jsem s tím začal, se zdálo, že ještě nikdo jiný nic takového nenapsal.
+Postupně se objevilo několik dalších příruček pro začátečníky, ale zdá se, že právě tato k sobě přitáhla dost fanoušků na to, abych se rozhodl v ní pokračovat.
+Čím se budu zabývat?
+V rámci svých schopností budu vysvětlovat základy počítačového programování — co to je, něco o historii a o základních technikách, které potřebujete pro řešení problémů.
+Nebudu zde vysvětlovat esoterické techniky nebo detaily jednotlivých programovacích jazyků.
+Budu spíše používat několik odlišných jazyků, neboť věřím, že je důležité si uvědomit, že různé jazyky jsou vhodné pro různé věci.
+Abych to shrnul, většina obsahu učebnice bude věnována programovacímu jazyku, který se nazývá Python.
+Kdo by to měl číst?
+Koukněme se na to z jiné stránky: co očekávám, ze čtenář již zná?
+Očekávám, že čtenář je zkušeným uživatelem počítačového systému, pravděpodobně systému MS DOS, Windows nebo Unix, ačkoliv ostatní by si s tím také měli umět poradit.
+Dále očekávám znalost základních matematických pojmů jako jsou geometrické souřadnice, množiny a základy algebry.
+Toto vše je v soudobých programovacích prostředích důležité a mnoho koncepcí programování je založeno právě na těchto myšlenkách.
+Nicméně úroveň požadovaných znalostí není vysoká.
+Pokud se vám přesto bude zdát matematická část příliš složitá, jednoduše přeskočte několik odstavců, vyzkoušejte kód tak, jak je vám předložen.
+Snad vám to něco přinese i v případě, kdy pro vás bude matematická část stále záhadou.
+Určitě byste ale měli vědět, jak se ve vašem operačním systému dostanete k systémové příkazové řádce.
+V systému Windows se můžete setkat s pojmy jako DOSové okno nebo příkazové okno MS-DOS.
+Jde v podstatě o černé okno s bílým vyzývacím textem, jako například C:\WINDOWS> .
+Dostanete se k němu přes tlačítko Start a dialogové okno Spustit... — do vstupního pole napište command a stiskněte tlačítko OK .
+Poznámka překladatele: Příkaz command spustí program command.com , což je příkazový interpret pocházející původně ještě ze systému MS-DOS.
+Pokud pracujete s verzí systému Windows NT, Windows 2000 nebo Windows XP, zkuste použít modernější cmd.exe .
+Napsat cmd je také o něco kratší ;)
+Pokud používáte Linux, pak asi víte, co je to terminálové okno.
+Na MacOS můžete pod Mac OS X spustit program Terminal (naleznete jej ve složce Aplikace -> Nástroje ).
+Nebudu se zde zabývat problémy typu jak vytvořit nebo zkopírovat textový soubor, jak instalovat software, nebo jakým způsobem se v počítači ukládají soubory.
+Upřímně řečeno, pokud se potřebujete dozvědět tyto věci, pak pravděpodobně ještě nejste schopni programovat — bez ohledu na to, jak moc po tom toužíte.
+Naučte se nejdříve něco o svém počítači a teprve až budete u výše uvedených pojmů cítit větší jistotu, vraťte se k tomuto textu.
+Proč Python?
+Python je krásný jazyk na učení.
+Jeho syntaxe [5] je jednoduchá a tento programovací jazyk má v sobě zabudované velmi silné rysy.
+Podporuje mnoho programovacích stylů, od velmi jednoduchých až po současný vrchol v podobě technik objektově orientovaného programování.
+Funguje na mnoha platformách — Unix/Linux, MS Windows, Macintosh atd. Zformovala se kolem něj velmi přátelská společnost uživatelů, kteří jsou ochotni pomoci [6] .
+Toto všechno je velmi důležité pro jazyk, ve kterém se má naučit programovat začátečník.
+Nicméně Python není jazyk jenom pro začátečníky.
+Během růstu vašich programátorských zkušeností zjistíte, že jazyka Python můžete používat jako koncový aplikační jazyk nebo jako jazyk pro rychlé prototypování [7] .
+Existují problémy, pro jejichž řešení se Python moc nehodí, ale je jich relativně málo.
+Jako alternativní jazyky budu používat také VBScript a JavaScript.
+Chci na nich ukázat hlavně to, že zákadní techniky nejsou závislé na jazykových detailech.
+Jakmile se naučíte programovat v jednom jazyce, můžete se další jazyk naučit během několika dní.
+Proč jsem si vybral zrovna tyto jazyky?
+Jejich styl se od Pythonu liší a tím vytvářejí užitečný kontrast.
+A je tu ještě jeden důvod.
+Pokud přijmeme myšlenku, že většina začátečníků, kteří se brouzdají webovými stránkami, používají osobní počítače s nainstalovanými Microsoft Windows, pak mají k dispozici zabudované programátorské prostředí nazývané Windows Scripting Host , které podporuje VBScript a JScript (což je varianta JavaScript od firmy Microsoft).
+Kdokoliv používá prohlížeč firmy Microsoft, může tyto jazyky používat přímo v něm.
+A navíc, JavaScript by měl fungovat v téměř libovolném prohlížeči.
+Zaměříme se pouze na to, jak VBScript a JavaScript spustíme ve svém prohlížeči.
+Detailní studium WSH nechť zůstane domácím úkolem pro ty uživatele Windows, kteří o to mají zájem.
+Další zdroje
+Existují další webové stránky, které se pokoušejí o totéž, v jiném programovacím jazyce.
+(Od doby vzniku těchto stránek se objevilo i několik webových míst věnovaných přímo Pythonu).
+Existuje řada učebnic pro ty, kteří už umějí programovat, ale chtějí se naučit nový jazyk.
+Uvádím zde několik odkazů o nichž si myslím, že jsou užitečné:
+The official Python language website s aktuální dokumentací, poskytující instalaci poslední verze atd. The official Perl web site — jazyk Perl je co do schopností přirozeným konkurentem jazyka Python, ale, podle mého mínění, se obtížněji učí.
+JavaScript — odkaz vede na centrální stránku s informacemi o tomto jazyce.
+Pokud se vám můj styl příliš nelíbí, vyzkoušejte stránky How to think like a Computer Scientist (anglicky).
+Vytvořil je za podobným účelem Jeff Elkner, který využívá jazyka Python ve svých kurzech na střední škole (high school) .
+Tyto stránky jsou, zdá se, méně srozumitelné, než moje, ale možná jsem jen zaujatý :-) Od doby vzniku této učebnice se objevila celá řada příruček pro neprogramátory.
+Odkazy naleznete na webovém serveru jazyka Python.
+Většina z nich je zaměřena přímo na programování v jazyce Python a nevysvětluje pojmy do té míry, jako tato příručka.
+Neuvádějí rovněž vysvětlení teoretických základů výpočetní techniky (Computer Science), jak činí například Jeff.
+Stránku naleznete zde . [ obsah | další ]
+Pokud vás napadne, co by se dalo na překladu této kapitoly vylepšit, zašlete e-mail odklepnutím

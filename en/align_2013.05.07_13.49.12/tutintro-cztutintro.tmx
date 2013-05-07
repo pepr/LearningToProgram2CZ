@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+  <header
+    creationtool="LF Aligner"
+    creationtoolversion="4.04"
+    datatype="unknown"
+    segtype="sentence"
+    adminlang="EN"
+    srclang="EN"
+    o-tmf="TW4Win 2.0 Format"
+  >
+  </header>
+  <body>
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Learning to Program</seg></tuv>
+<tuv xml:lang="CS"><seg>Jak se naučit programovat</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>by Alan Gauld</seg></tuv>
+<tuv xml:lang="CS"><seg>autor: Alan Gauld</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Stop Press!</seg></tuv>
+<tuv xml:lang="CS"><seg>Nejnovější zprávy!</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The Web Site</seg></tuv>
+<tuv xml:lang="CS"><seg>Webové stránky</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Welcome to the new Learning to Program web tutor!</seg></tuv>
+<tuv xml:lang="CS"><seg>Vítejte na inovovaných stránkách učebnice Jak se naučit programovat.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The site has been completely updated in content and now features VBScript and JavaScript as well as Python as example languages.</seg></tuv>
+<tuv xml:lang="CS"><seg>Obsah byl zcela přepracován. Kromě příkladů v jazyce Python zde nyní naleznete také příklady v jazycích VBScript a JavaScript.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The explanations have been expanded too - almost 30% more material - and I&apos;ll be adding a whole set of new topics over the coming months focusing on practical applications of your programming skills.</seg></tuv>
+<tuv xml:lang="CS"><seg>Vysvětlení byla navíc rozšířena — přibylo téměř 30 % textu. V následujících měsících budu přidávat další témata. Zaměřím se na praktické používání programátorských dovedností.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Oh, and if you still need to see the old version of the tutor, its still available here.</seg></tuv>
+<tuv xml:lang="CS"><seg>Starší verze této učebnice je stále dostupná zde.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The Book</seg></tuv>
+<tuv xml:lang="CS"><seg>O knize</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Latest news on my book is that it has moved to print-on-demand.</seg></tuv>
+<tuv xml:lang="CS"><seg>Mezi poslední zprávy k mé knize patří to, že se přesunula do kategorie tisk na vyžádání.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Basically this means that copies are only printed when firm orders are received from retailers.</seg></tuv>
+<tuv xml:lang="CS"><seg>Znamená to, že další výtisky vznikají pouze na základě pevných objednávek od prodejců.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Logically this means you are less likely to see it in the shops but you can still place an order and it will be delivered, it just takes a little longer is all.</seg></tuv>
+<tuv xml:lang="CS"><seg>Logicky z toho vyplývá, že již na ni v obchodech nenarazíte tak často. Ale stále si ji ještě můžete objednat a bude vám zaslána. Bude to jen trvat o něco déle.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The book is now significantly different to the new web site although the basics remain the same.</seg></tuv>
+<tuv xml:lang="CS"><seg>Knižní podoba se nyní od obsahu webové verze výrazně liší, ačkoliv základ zůstává shodný.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>It is stuck at Python version 1.5 and doesn&apos;t have the new material, although it has extra examples of its own plus several extra chapters compared to the web site.</seg></tuv>
+<tuv xml:lang="CS"><seg>Kniha zůstala u Pythonu verze 1.5 a neobsahuje nově přidaná témata. Na druhou stranu v ní naleznete víc příkladů a několik kapitol navíc.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>These include an additional case study for an OO games framework.</seg></tuv>
+<tuv xml:lang="CS"><seg>Je mezi nimi i případová studie objektově orientovaného prostředí (framework) pro psaní her.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>(A fully commented version of the framework is available on the Useless Python website as hmgui.zip.)</seg></tuv>
+<tuv xml:lang="CS"><seg>(Plně komentovaná verze tohoto prostředí je nyní dostupná na webových stránkách Useless Python jako hmgui.zip.)</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>You can order the book on Amazon by clicking here.</seg></tuv>
+<tuv xml:lang="CS"><seg>Knihu si můžete objednat přes Amazon.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Most of the other online bookshops have it in stock too.</seg></tuv>
+<tuv xml:lang="CS"><seg>Má ji k dispozici i většina dalších internetových obchodů s knihami.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>There is also a Japanese version available from the Japanese branch of my publishers.</seg></tuv>
+<tuv xml:lang="CS"><seg>Japonská pobočka mého vydavatele nabízí rovněž japonský překlad knihy.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I now have a web site set up listing errata and providing opportunities to send feedback and questions.</seg></tuv>
+<tuv xml:lang="CS"><seg>V současnosti jsou k dispozici webové stránky, na kterých naleznete seznam chyb a které vám umožní zasílat ohlasy a dotazy.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Please pay a visit if you&apos;ve bought the book!</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud jste si knihu zakoupili, věnujte jim, prosím, pozornost.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The Future</seg></tuv>
+<tuv xml:lang="CS"><seg>O věcech budoucích</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>As I said above there will be several new topics added as part of a completely new section looking at practical applications of programming.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jak už jsem se zmínil, hodlám v budoucnu přidat několik nových témat. Budou součástí nového oddílu, který bude zaměřen na praktické programování.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>This is in response to many requests from readers who say - &quot;OK, Now I know how to program, but what exactly can I do with my new found skills?&quot;</seg></tuv>
+<tuv xml:lang="CS"><seg>Chci tím reagovat na připomínky čtenářů, kteří říkají: &quot;No dobrá. Teď vím, jak se programuje. Ale k čemu vlastně mohu své nově získané dovednosti použít?&quot;</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>There is a Polish translation underway and the Czech version is being updated to reflect the new version.</seg></tuv>
+<tuv xml:lang="CS"><seg>Připravuje se polský překlad. Pracuje se na úpravách českého překladu s cílem zachytit změny v nové verzi učebnice.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>As ever, Petr has been my most exacting reviewer and I thank him for his many corrections.</seg></tuv>
+<tuv xml:lang="CS"><seg>Petr byl mým nejpřísnějším recenzentem a patří mu díky za řadu oprav.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Any remaining errors are entirely my fault!</seg></tuv>
+<tuv xml:lang="CS"><seg>Zbývající chyby padají výlučně na mou hlavu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The book is stagnant I&apos;m afraid, but once I get the new topics written I might sound the publishers out about a second edition updating it to the latest version of Python, whatever that will be by then, and adding the new material.</seg></tuv>
+<tuv xml:lang="CS"><seg>Obávám se, že kniha poněkud stagnuje. Jakmile však dokončím nová témata, pokusím se s vydavatelem dohodnout na druhém vydání. Mělo by odpovídat poslední verzi Pythonu (v době vydání) a měla by se zde objevit právě tato nová témata.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>But don&apos;t hold your breath waiting on that one...</seg></tuv>
+<tuv xml:lang="CS"><seg>Ale doporučuji vám, abyste se na nové vydání knihy v tomto okamžiku příliš neupínali.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Non English Editions now available!</seg></tuv>
+<tuv xml:lang="CS"><seg>Překlady z angličtiny do jiných jazyků</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Martin Pizza was the first to translate the tutor (into Spanish) and he has now been followed by several others.</seg></tuv>
+<tuv xml:lang="CS"><seg>Prvním překladatelem této učebnice (do španělštiny) byl Martin Pozzi. Poté následovali další.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The following versions are available:</seg></tuv>
+<tuv xml:lang="CS"><seg>V současnosti jsou k dispozici verze v následujících jazycích:</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Language</seg></tuv>
+<tuv xml:lang="CS"><seg>Jazyk</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Translator</seg></tuv>
+<tuv xml:lang="CS"><seg>Překladatel</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Czech version</seg></tuv>
+<tuv xml:lang="CS"><seg>Česky</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Petr Přikryl</seg></tuv>
+<tuv xml:lang="CS"><seg>Petr Přikryl</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>German</seg></tuv>
+<tuv xml:lang="CS"><seg>Německy</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Bruno Schaefer</seg></tuv>
+<tuv xml:lang="CS"><seg>Bruno Schaefer</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Korean</seg></tuv>
+<tuv xml:lang="CS"><seg>Korejsky</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>johnsonj</seg></tuv>
+<tuv xml:lang="CS"><seg>johnsonj</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Italian</seg></tuv>
+<tuv xml:lang="CS"><seg>Italsky</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Luca Fini</seg></tuv>
+<tuv xml:lang="CS"><seg>Luca Fini</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Portuguese</seg></tuv>
+<tuv xml:lang="CS"><seg>Portugalsky</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Wilson Edgar</seg></tuv>
+<tuv xml:lang="CS"><seg>Wilson Edgar</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Spanish</seg></tuv>
+<tuv xml:lang="CS"><seg>Španělsky</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Martin Pozzi</seg></tuv>
+<tuv xml:lang="CS"><seg>Martin Pozzi</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The tutors above are all usable but at different stages of completeness compared to the web site.</seg></tuv>
+<tuv xml:lang="CS"><seg>Všechny z výše uvedených překladů jsou použitelné, ale ve srovnání s originálními stránkami se nacházejí v různých fázích.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>That&apos;s because they reflect the state of the web site at the time of translation.</seg></tuv>
+<tuv xml:lang="CS"><seg>Je to dáno tím, že odrážejí stav webových stánek z doby, kdy byly přeloženy.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The Czech one in particular is very professionally presented including a very attractive appearance.</seg></tuv>
+<tuv xml:lang="CS"><seg>Zejména český překlad je ale zpracován velmi profesionálně, včetně atraktivního vzhledu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I was so impressed with the style that I have used Petr&apos;s stylesheets as the basis for this new English version.</seg></tuv>
+<tuv xml:lang="CS"><seg>Zapůsobil na mne natolik, že jsem Petrovy definice stylů použil jako základ nové anglické verze.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Hopefully I&apos;ll get round to changing the other language editions too.</seg></tuv>
+<tuv xml:lang="CS"><seg>Doufám, že se mi podobně podaří pozměnit i ostatní jazyková vydání.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I think all of the translators deserve a vote of thanks for their efforts in putting this together.</seg></tuv>
+<tuv xml:lang="CS"><seg>Domnívám se, že si všichni překladatelé zaslouží poděkování za úsilí, které překladu věnovali.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>It&apos;s always better to read a translation of an old tutorial than to struggle reading a new one in a foreign language!</seg></tuv>
+<tuv xml:lang="CS"><seg>Čtení i staršího překladu učebnice je vždy jednodušší, než pracné louskání nové verze v cizím jazyce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>If anyone else wishes to do a translation, or update any of the existing ones, just send me an email.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud je někdo další ochoten vytvořit zcela nový překlad nebo aktualizovat některý z existujících, zašlete mi email.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note"></prop>
+<tuv xml:lang="EN"><seg>Format Change I&apos;ll be posting both zip and tgz versions of the site from time to time.</seg></tuv>
+<tuv xml:lang="CS"><seg>Změna podoby archivního balíku pro stažení Čas od času zveřejním podobu učebnice ve tvaru zip a tgz archívů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I don&apos;t promise that they will be perfectly up to date but I&apos;ll try not to let them get too far adrift.</seg></tuv>
+<tuv xml:lang="CS"><seg>Neslibuji, že budou vždy nejčersvější, ale budu se snažit, aby nebyly příliš zastaralé.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>If you want the latest then check the online version.</seg></tuv>
+<tuv xml:lang="CS"><seg>Poslední podoba učebnice bude vždy dostupná on-line.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Linux users can download the tar/gzip version.</seg></tuv>
+<tuv xml:lang="CS"><seg>Uživatelé systému Linux si mohou stáhnout verzi tar/gzip.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Windows users should be able to use that version too since winzip and the freeware archiver Quick Zip by Joseph Leung can both cope with tgz format.</seg></tuv>
+<tuv xml:lang="CS"><seg>Uživatelé Windows budou moci použít tutéž verzi, protože programy winzip a volně dostupný archivační program Quick Zip autora jménem Joseph Leung si oba s formátem tgz poradí.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I&apos;ll also be using tgz format for the non English versions, just look at the bottom of the contents frame for a link.</seg></tuv>
+<tuv xml:lang="CS"><seg>Formát tgz je použit také pro neanglické překlady. Odkaz na archivní balíky naleznete v dolní části panelu s obsahem.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Finally I have made a basic PDF version available too, it doesn&apos;t have any fancy navigation features like bookmarks and it won&apos;t be updated as often as the zip/tgz files (because its much more work to do so!). But if you like PDF its here.</seg></tuv>
+<tuv xml:lang="CS"><seg>Poznámka překladatele: Součástí anglické verze je i učebnice ve formátu PDF. Je vytvořena z HTML souborů a nevyužívá možností hypertextových odkazů (tj. nejde o &quot;klikací&quot; podobu PDF souboru). Český překlad tuto variantu neobsahuje.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>And Palm Users Too...</seg></tuv>
+<tuv xml:lang="CS"><seg>A také něco pro uživatele Palm…</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Introduction - What, Why, Who etc.</seg></tuv>
+<tuv xml:lang="CS"><seg>Úvod — Co, Proč, Kdo atd.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Why am I writing this?</seg></tuv>
+<tuv xml:lang="CS"><seg>Proč to píšu?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The reason I am creating this tutorial is that there seems to be very little for the absolute beginner to programming on the Web.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pracuji na vytváření této učebnice, protože se mi zdá, že úplní začátečníci v programování toho na Webu mohou nalézt velmi málo.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Yet the Internet and the Web encourage interest in computers and that interest naturally leads to a desire to &quot;take control&quot;, which means learning to program!</seg></tuv>
+<tuv xml:lang="CS"><seg>Přitom samotná existence Internetu a Webu vzbuzuje zájem o počítače a tento zájem přirozeně vede k touze po jejich ovládnutí. To ovšem znamená naučit se programovat!</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Why me?</seg></tuv>
+<tuv xml:lang="CS"><seg>Proč jsem to napsal právě já?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Well I am a professional programmer who came to programming from an electronic engineering background.</seg></tuv>
+<tuv xml:lang="CS"><seg>Tak tedy, jsem profesionálním programátorem se vzděláním v oblasti elektro inženýr.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I have used (and continue to use) several computer languages and don&apos;t have any personal interest in promoting any particular tool or language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Naučil jsem se (a stále používám) několik programovacích jazyků, ale nemám žádný osobní zájem podporovat některý konkrétní z nich.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Oh, and when I started, nobody else seemed to be doing it!</seg></tuv>
+<tuv xml:lang="CS"><seg>V době, kdy jsem s tím začal, se zdálo, že ještě nikdo jiný nic takového nenapsal.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>What will I cover</seg></tuv>
+<tuv xml:lang="CS"><seg>Čím se budu zabývat?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>As much as I can. I will cover the basic theory of computer programming - what it is, some of its history and the basic techniques needed to solve problems.</seg></tuv>
+<tuv xml:lang="CS"><seg>V rámci svých schopností budu vysvětlovat základy počítačového programování — co to je, něco o historii a o základních technikách, které potřebujete pro řešení problémů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I will not be teaching esoteric techniques or the details of any particular programming language, in fact I&apos;ll be using several different languages, since I believe its important to realize that different languages do different things well.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nebudu zde vysvětlovat esoterické techniky nebo detaily jednotlivých programovacích jazyků. Budu spíše používat několik odlišných jazyků, neboť věřím, že je důležité si uvědomit, že různé jazyky jsou vhodné pro různé věci.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>That said, the majority of the course will be in the language called Python.</seg></tuv>
+<tuv xml:lang="CS"><seg>Abych to shrnul, většina obsahu učebnice bude věnována programovacímu jazyku, který se nazývá Python.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Who should read it?</seg></tuv>
+<tuv xml:lang="CS"><seg>Kdo by to měl číst?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Put another way: what do I expect the reader to know already?</seg></tuv>
+<tuv xml:lang="CS"><seg>Koukněme se na to z jiné stránky: co očekávám, ze čtenář již zná?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I expect the reader of this tutorial to be an experienced user of a computer system, probably MS DOS, Windows or Unix although others should be able to cope too.</seg></tuv>
+<tuv xml:lang="CS"><seg>Očekávám, že čtenář je zkušeným uživatelem počítačového systému, pravděpodobně systému MS DOS, Windows nebo Unix, ačkoliv ostatní by si s tím také měli umět poradit.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I also expect them to understand some very basic mathematical concepts such as geometric coordinates, sets, and basic algebra.</seg></tuv>
+<tuv xml:lang="CS"><seg>Dále očekávám znalost základních matematických pojmů jako jsou geometrické souřadnice, množiny a základy algebry.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>These are all important in todays programming environments, and many programming concepts are based on these ideas.</seg></tuv>
+<tuv xml:lang="CS"><seg>Toto vše je v soudobých programovacích prostředích důležité a mnoho koncepcí programování je založeno právě na těchto myšlenkách.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>However the depth of knowledge needed is very low and if you do find the math getting too hard, you can usually just skip over a few paragraphs, try the code as it is and hopefully the penny will drop even if the math still confuses you.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nicméně úroveň požadovaných znalostí není vysoká. Pokud se vám přesto bude zdát matematická část příliš složitá, jednoduše přeskočte několik odstavců, vyzkoušejte kód tak, jak je vám předložen. Snad vám to něco přinese i v případě, kdy pro vás bude matematická část stále záhadou.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>One thing you should know is how to run commands from your operating system&apos;s command prompt.</seg></tuv>
+<tuv xml:lang="CS"><seg>Určitě byste ale měli vědět, jak se ve vašem operačním systému dostanete k systémové příkazové řádce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>In Windows this is variously known as a DOS box, the MS DOS Window or MS-DOS Prompt.</seg></tuv>
+<tuv xml:lang="CS"><seg>V systému Windows se můžete setkat s pojmy jako DOSové okno nebo příkazové okno MS-DOS.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Basically it&apos;s a black window with a white text prompt that usually says C:\WINDOWS&gt; and you can start it by going to the Start-&gt;Run dialog and typing COMMAND into the entry box and hitting OK.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jde v podstatě o černé okno s bílým vyzývacím textem, jako například C:\WINDOWS&gt;. Dostanete se k němu přes tlačítko Start a dialogové okno Spustit... — do vstupního pole napište command a stiskněte tlačítko OK.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>If you use Linux then you should know all about terminal windows and on MacOS you can run the Terminal program under Mac OS X (which is found in the Applications-&gt;Utilities folder).</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud používáte Linux, pak asi víte, co je to terminálové okno. Na MacOS můžete pod Mac OS X spustit program Terminal (naleznete jej ve složce Aplikace -&gt; Nástroje ).</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I will not be covering issues like how to create or copy text files, how to install software, or the organization of files on a computer storage system.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nebudu se zde zabývat problémy typu jak vytvořit nebo zkopírovat textový soubor, jak instalovat software, nebo jakým způsobem se v počítači ukládají soubory.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Frankly if you need to know those things you probably are not at the stage of being able to program, regardless of your desire to do so.</seg></tuv>
+<tuv xml:lang="CS"><seg>Upřímně řečeno, pokud se potřebujete dozvědět tyto věci, pak pravděpodobně ještě nejste schopni programovat — bez ohledu na to, jak moc po tom toužíte.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Find a tutorial for your computer first, then when you&apos;re confident with the above concepts revisit this site.</seg></tuv>
+<tuv xml:lang="CS"><seg>Naučte se nejdříve něco o svém počítači a teprve až budete u výše uvedených pojmů cítit větší jistotu, vraťte se k tomuto textu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Why Python?</seg></tuv>
+<tuv xml:lang="CS"><seg>Proč Python?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Python happens to be a nice language to learn.</seg></tuv>
+<tuv xml:lang="CS"><seg>Python je krásný jazyk na učení.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Its syntax is simple and it has some very powerful features built into the language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jeho syntaxe je jednoduchá a tento programovací jazyk má v sobě zabudované velmi silné rysy.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>It supports lots of programming styles from the very simple through to state of the art Object Oriented techniques.</seg></tuv>
+<tuv xml:lang="CS"><seg>Podporuje mnoho programovacích stylů, od velmi jednoduchých až po současný vrchol v podobě technik objektově orientovaného programování.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>It runs on lots of platforms - Unix/Linux, MS Windows, Macintosh etc.</seg></tuv>
+<tuv xml:lang="CS"><seg>Funguje na mnoha platformách — Unix/Linux, MS Windows, Macintosh atd.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>It also has a very friendly and helpful user community.</seg></tuv>
+<tuv xml:lang="CS"><seg>Zformovala se kolem něj velmi přátelská společnost uživatelů, kteří jsou ochotni pomoci.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>All of these are important features for a beginner&apos;s language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Toto všechno je velmi důležité pro jazyk, ve kterém se má naučit programovat začátečník.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Python however is not just a beginner&apos;s language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nicméně Python není jazyk jenom pro začátečníky.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>As your experience grows you can keep on using Python either as an end in itself or as a rapid prototyping language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Během růstu vašich programátorských zkušeností zjistíte, že jazyka Python můžete používat jako koncový aplikační jazyk nebo jako jazyk pro rychlé prototypování.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>There are a few things that Python is not well suited to, but these are comparatively few and far between.</seg></tuv>
+<tuv xml:lang="CS"><seg>Existují problémy, pro jejichž řešení se Python moc nehodí, ale je jich relativně málo.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>I will also use VBScript and JavaScript as alternatives.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jako alternativní jazyky budu používat také VBScript a JavaScript.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The reason for this is to show that the same basic techniques apply regardless of the language details.</seg></tuv>
+<tuv xml:lang="CS"><seg>Chci na nich ukázat hlavně to, že zákadní techniky nejsou závislé na jazykových detailech.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Once you can program in one language you can easily pick up a new one in a few days.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jakmile se naučíte programovat v jednom jazyce, můžete se další jazyk naučit během několika dní.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Why those languages?</seg></tuv>
+<tuv xml:lang="CS"><seg>Proč jsem si vybral zrovna tyto jazyky?</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Well, for a start they have very different styles to Python so form a useful contrast, and more prosaically if we accept that most Web surfers who are also beginners are using PCs with Microsoft Windows installed, there is a programming environment built in to the operating system called Windows Scripting Host which has support for VBScript and JScript (which is Microsoft&apos;s variant of JavaScript).</seg></tuv>
+<tuv xml:lang="CS"><seg>Jejich styl se od Pythonu liší a tím vytvářejí užitečný kontrast. A je tu ještě jeden důvod. Pokud přijmeme myšlenku, že většina začátečníků, kteří se brouzdají webovými stránkami, používají osobní počítače s nainstalovanými Microsoft Windows, pak mají k dispozici zabudované programátorské prostředí nazývané Windows Scripting Host, které podporuje VBScript a JScript (což je varianta JavaScript od firmy Microsoft).</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>In addition anyone using Microsoft&apos;s web browser can also use these languages within their browser, and in fact JavaScript should work in almost any browser.</seg></tuv>
+<tuv xml:lang="CS"><seg>Kdokoliv používá prohlížeč firmy Microsoft, může tyto jazyky používat přímo v něm. A navíc, JavaScript by měl fungovat v téměř libovolném prohlížeči.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>We&apos;ll only look at how to run VBScript and JavaScript inside a browser, investigating WSH I&apos;ll leave as an exercise for the interested Windows user!</seg></tuv>
+<tuv xml:lang="CS"><seg>Zaměříme se pouze na to, jak VBScript a JavaScript spustíme ve svém prohlížeči. Detailní studium WSH nechť zůstane domácím úkolem pro ty uživatele Windows, kteří o to mají zájem.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Other resources</seg></tuv>
+<tuv xml:lang="CS"><seg>Další zdroje</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>There are other Web sites trying to do this in other languages (and in the time since I originally created this site a few other Python sites have appeared).</seg></tuv>
+<tuv xml:lang="CS"><seg>Existují další webové stránky, které se pokoušejí o totéž, v jiném programovacím jazyce. (Od doby vzniku těchto stránek se objevilo i několik webových míst věnovaných přímo Pythonu).</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>There are also lots of tutorials for those who already know how to program but want to learn a new language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Existuje řada učebnic pro ty, kteří už umějí programovat, ale chtějí se naučit nový jazyk.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>This section contains links to some of those that I think are worthwhile!</seg></tuv>
+<tuv xml:lang="CS"><seg>Uvádím zde několik odkazů o nichž si myslím, že jsou užitečné:</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>The official Python language website with online documentation, latest downloads etc. The official Perl web site - Perl is a natural competitor to Python in capability but is, I think, harder to learn.</seg></tuv>
+<tuv xml:lang="CS"><seg>The official Python language website s aktuální dokumentací, poskytující instalaci poslední verze atd. The official Perl web site — jazyk Perl je co do schopností přirozeným konkurentem jazyka Python, ale, podle mého mínění, se obtížněji učí.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>JavaScript. is the source for information about JavaScript.</seg></tuv>
+<tuv xml:lang="CS"><seg>JavaScript — odkaz vede na centrální stránku s informacemi o tomto jazyce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>If you don&apos;t much like my style a web site with similar aims is the How to think like a Computer Scientist produced by Jeff Elkner who uses Python in his high School classes.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud se vám můj styl příliš nelíbí, vyzkoušejte stránky How to think like a Computer Scientist (anglicky). Vytvořil je za podobným účelem Jeff Elkner, který využívá jazyka Python ve svých kurzech na střední škole (high school).</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>It seems a little bit less comprehensive than mine, but maybe I&apos;m just biased :-) Since I first wrote this tutor a whole bunch of non programmer&apos;s tutorials have appeared and they are listed on the Python web site, so you can take your pick.</seg></tuv>
+<tuv xml:lang="CS"><seg>Tyto stránky jsou, zdá se, méně srozumitelné, než moje, ale možná jsem jen zaujatý :-) Od doby vzniku této učebnice se objevila celá řada příruček pro neprogramátory. Odkazy naleznete na webovém serveru jazyka Python.</seg></tuv> </tu>
+
+<tu creationdate="20130507T114912Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutintro-cztutintro</prop>
+<tuv xml:lang="EN"><seg>Most of them focus on just getting you programming in Python so they don&apos;t explain so much of the jargon as I do, nor do they explain the Computer Science theory like Jeff does.</seg></tuv>
+<tuv xml:lang="CS"><seg>Většina z nich je zaměřena přímo na programování v jazyce Python a nevysvětluje pojmy do té míry, jako tato příručka. Neuvádějí rovněž vysvětlení teoretických základů výpočetní techniky (Computer Science), jak činí například Jeff.</seg></tuv> </tu>
+
+
+</body>
+</tmx>

@@ -1,0 +1,119 @@
+﻿Learning to Program	Jak se naučit programovat	tutintro-cztutintro
+by Alan Gauld	autor: Alan Gauld	tutintro-cztutintro
+	překlad: Petr Přikryl *)	tutintro-cztutintro
+	(Originální anglická verze.)	tutintro-cztutintro
+Stop Press!	Nejnovější zprávy!	tutintro-cztutintro
+The Web Site	Webové stránky	tutintro-cztutintro
+Welcome to the new Learning to Program web tutor!	Vítejte na inovovaných stránkách učebnice Jak se naučit programovat.	tutintro-cztutintro
+The site has been completely updated in content and now features VBScript and JavaScript as well as Python as example languages.	Obsah byl zcela přepracován. Kromě příkladů v jazyce Python zde nyní naleznete také příklady v jazycích VBScript a JavaScript.	tutintro-cztutintro
+The explanations have been expanded too - almost 30% more material - and I'll be adding a whole set of new topics over the coming months focusing on practical applications of your programming skills.	Vysvětlení byla navíc rozšířena — přibylo téměř 30 % textu. V následujících měsících budu přidávat další témata. Zaměřím se na praktické používání programátorských dovedností.	tutintro-cztutintro
+Oh, and if you still need to see the old version of the tutor, its still available here .	Starší verze této učebnice je stále dostupná zde .	tutintro-cztutintro
+The Book	O knize	tutintro-cztutintro
+Latest news on my book is that it has moved to print-on-demand.	Mezi poslední zprávy k mé knize patří to, že se přesunula do kategorie tisk na vyžádání.	tutintro-cztutintro
+Basically this means that copies are only printed when firm orders are received from retailers.	Znamená to, že další výtisky vznikají pouze na základě pevných objednávek od prodejců.	tutintro-cztutintro
+Logically this means you are less likely to see it in the shops but you can still place an order and it will be delivered, it just takes a little longer is all.	Logicky z toho vyplývá, že již na ni v obchodech nenarazíte tak často. Ale stále si ji ještě můžete objednat a bude vám zaslána. Bude to jen trvat o něco déle.	tutintro-cztutintro
+The book is now significantly different to the new web site although the basics remain the same.	Knižní podoba se nyní od obsahu webové verze výrazně liší, ačkoliv základ zůstává shodný.	tutintro-cztutintro
+It is stuck at Python version 1.5 and doesn't have the new material, although it has extra examples of its own plus several extra chapters compared to the web site.	Kniha zůstala u Pythonu verze 1.5 a neobsahuje nově přidaná témata. Na druhou stranu v ní naleznete víc příkladů a několik kapitol navíc.	tutintro-cztutintro
+These include an additional case study for an OO games framework.	Je mezi nimi i případová studie objektově orientovaného prostředí (framework) pro psaní her [2] .	tutintro-cztutintro
+(A fully commented version of the framework is available on the Useless Python website as hmgui.zip.)	(Plně komentovaná verze tohoto prostředí je nyní dostupná na webových stránkách Useless Python jako hmgui.zip .)	tutintro-cztutintro
+You can order the book on Amazon by clicking here.	Knihu si můžete objednat přes Amazon .	tutintro-cztutintro
+Most of the other online bookshops have it in stock too.	Má ji k dispozici i většina dalších internetových obchodů s knihami.	tutintro-cztutintro
+There is also a Japanese version available from the Japanese branch of my publishers.	Japonská pobočka mého vydavatele nabízí rovněž japonský překlad knihy .	tutintro-cztutintro
+I now have a web site set up listing errata and providing opportunities to send feedback and questions.	V současnosti jsou k dispozici webové stránky , na kterých naleznete seznam chyb a které vám umožní zasílat ohlasy a dotazy.	tutintro-cztutintro
+Please pay a visit if you've bought the book!	Pokud jste si knihu zakoupili, věnujte jim, prosím, pozornost.	tutintro-cztutintro
+The Future	O věcech budoucích	tutintro-cztutintro
+As I said above there will be several new topics added as part of a completely new section looking at practical applications of programming.	Jak už jsem se zmínil, hodlám v budoucnu přidat několik nových témat. Budou součástí nového oddílu, který bude zaměřen na praktické programování.	tutintro-cztutintro
+This is in response to many requests from readers who say - "OK, Now I know how to program, but what exactly can I do with my new found skills?"	Chci tím reagovat na připomínky čtenářů, kteří říkají: "No dobrá. Teď vím, jak se programuje. Ale k čemu vlastně mohu své nově získané dovednosti použít?"	tutintro-cztutintro
+There is a Polish translation underway and the Czech version is being updated to reflect the new version.	Připravuje se polský překlad. Pracuje se na úpravách českého překladu s cílem zachytit změny v nové verzi učebnice.	tutintro-cztutintro
+As ever, Petr has been my most exacting reviewer and I thank him for his many corrections.	Petr byl mým nejpřísnějším recenzentem a patří mu díky za řadu oprav.	tutintro-cztutintro
+Any remaining errors are entirely my fault!	Zbývající chyby padají výlučně na mou hlavu.	tutintro-cztutintro
+The book is stagnant I'm afraid, but once I get the new topics written I might sound the publishers out about a second edition updating it to the latest version of Python, whatever that will be by then, and adding the new material.	Obávám se, že kniha poněkud stagnuje. Jakmile však dokončím nová témata, pokusím se s vydavatelem dohodnout na druhém vydání. Mělo by odpovídat poslední verzi Pythonu (v době vydání) a měla by se zde objevit právě tato nová témata.	tutintro-cztutintro
+But don't hold your breath waiting on that one...	Ale doporučuji vám, abyste se na nové vydání knihy v tomto okamžiku příliš neupínali.	tutintro-cztutintro
+Non English Editions now available!	Překlady z angličtiny do jiných jazyků	tutintro-cztutintro
+Martin Pizza was the first to translate the tutor (into Spanish) and he has now been followed by several others.	Prvním překladatelem této učebnice (do španělštiny) byl Martin Pozzi. Poté následovali další.	tutintro-cztutintro
+The following versions are available:	V současnosti jsou k dispozici verze v následujících jazycích:	tutintro-cztutintro
+Language	Jazyk	tutintro-cztutintro
+Translator	Překladatel	tutintro-cztutintro
+Czech version	Česky	tutintro-cztutintro
+Petr Přikryl	Petr Přikryl	tutintro-cztutintro
+German	Německy	tutintro-cztutintro
+Bruno Schaefer	Bruno Schaefer	tutintro-cztutintro
+Korean	Korejsky	tutintro-cztutintro
+johnsonj	johnsonj	tutintro-cztutintro
+Italian	Italsky	tutintro-cztutintro
+Luca Fini	Luca Fini	tutintro-cztutintro
+Portuguese	Portugalsky	tutintro-cztutintro
+Wilson Edgar	Wilson Edgar	tutintro-cztutintro
+Spanish	Španělsky	tutintro-cztutintro
+Martin Pozzi	Martin Pozzi	tutintro-cztutintro
+The tutors above are all usable but at different stages of completeness compared to the web site.	Všechny z výše uvedených překladů jsou použitelné, ale ve srovnání s originálními stránkami se nacházejí v různých fázích.	tutintro-cztutintro
+That's because they reflect the state of the web site at the time of translation.	Je to dáno tím, že odrážejí stav webových stánek z doby, kdy byly přeloženy.	tutintro-cztutintro
+The Czech one in particular is very professionally presented including a very attractive appearance.	Zejména český překlad je ale zpracován velmi profesionálně, včetně atraktivního vzhledu.	tutintro-cztutintro
+I was so impressed with the style that I have used Petr's stylesheets as the basis for this new English version.	Zapůsobil na mne natolik, že jsem Petrovy definice stylů použil jako základ nové anglické verze.	tutintro-cztutintro
+Hopefully I'll get round to changing the other language editions too.	Doufám, že se mi podobně podaří pozměnit i ostatní jazyková vydání.	tutintro-cztutintro
+I think all of the translators deserve a vote of thanks for their efforts in putting this together.	Domnívám se, že si všichni překladatelé zaslouží poděkování za úsilí, které překladu věnovali.	tutintro-cztutintro
+It's always better to read a translation of an old tutorial than to struggle reading a new one in a foreign language!	Čtení i staršího překladu učebnice je vždy jednodušší, než pracné louskání nové verze v cizím jazyce.	tutintro-cztutintro
+If anyone else wishes to do a translation, or update any of the existing ones, just send me an email.	Pokud je někdo další ochoten vytvořit zcela nový překlad nebo aktualizovat některý z existujících, zašlete mi email.	tutintro-cztutintro
+Format Change I'll be posting both zip and tgz versions of the site from time to time.	Změna podoby archivního balíku pro stažení Čas od času zveřejním podobu učebnice ve tvaru zip a tgz archívů.	
+I don't promise that they will be perfectly up to date but I'll try not to let them get too far adrift.	Neslibuji, že budou vždy nejčersvější, ale budu se snažit, aby nebyly příliš zastaralé.	tutintro-cztutintro
+If you want the latest then check the online version.	Poslední podoba učebnice bude vždy dostupná on-line.	tutintro-cztutintro
+Linux users can download the tar/gzip version .	Uživatelé systému Linux si mohou stáhnout verzi tar/gzip .	tutintro-cztutintro
+Windows users should be able to use that version too since winzip and the freeware archiver Quick Zip by Joseph Leung can both cope with tgz format.	Uživatelé Windows budou moci použít tutéž verzi, protože programy winzip a volně dostupný archivační program Quick Zip autora jménem Joseph Leung si oba s formátem tgz poradí.	tutintro-cztutintro
+I'll also be using tgz format for the non English versions, just look at the bottom of the contents frame for a link.	Formát tgz je použit také pro neanglické překlady. Odkaz na archivní balíky naleznete v dolní části panelu s obsahem.	tutintro-cztutintro
+	Pro systémy typu Unix i Windows existuje i volně dostupná distribuce Info-ZIP , která obsahuje programy zip a unzip .	
+Finally I have made a basic PDF version available too, it doesn't have any fancy navigation features like bookmarks and it won't be updated as often as the zip/tgz files (because its much more work to do so!). But if you like PDF its here .	Poznámka překladatele: Součástí anglické verze je i učebnice ve formátu PDF. Je vytvořena z HTML souborů a nevyužívá možností hypertextových odkazů (tj. nejde o "klikací" podobu PDF souboru). Český překlad tuto variantu neobsahuje.	tutintro-cztutintro
+And Palm Users Too...	A také něco pro uživatele Palm…	tutintro-cztutintro
+Introduction - What, Why, Who etc.	Úvod — Co, Proč, Kdo atd.	tutintro-cztutintro
+Why am I writing this?	Proč to píšu?	tutintro-cztutintro
+The reason I am creating this tutorial is that there seems to be very little for the absolute beginner to programming on the Web.	Pracuji na vytváření této učebnice, protože se mi zdá, že úplní začátečníci v programování toho na Webu mohou nalézt velmi málo.	tutintro-cztutintro
+Yet the Internet and the Web encourage interest in computers and that interest naturally leads to a desire to "take control", which means learning to program!	Přitom samotná existence Internetu a Webu vzbuzuje zájem o počítače a tento zájem přirozeně vede k touze po jejich ovládnutí. To ovšem znamená naučit se programovat!	tutintro-cztutintro
+Why me?	Proč jsem to napsal právě já?	tutintro-cztutintro
+Well I am a professional programmer who came to programming from an electronic engineering background.	Tak tedy, jsem profesionálním programátorem se vzděláním v oblasti elektro inženýr.	tutintro-cztutintro
+I have used (and continue to use) several computer languages and don't have any personal interest in promoting any particular tool or language.	Naučil jsem se (a stále používám) několik programovacích jazyků, ale nemám žádný osobní zájem podporovat některý konkrétní z nich.	tutintro-cztutintro
+Oh, and when I started, nobody else seemed to be doing it!	V době, kdy jsem s tím začal, se zdálo, že ještě nikdo jiný nic takového nenapsal.	tutintro-cztutintro
+What will I cover	Čím se budu zabývat?	tutintro-cztutintro
+As much as I can. I will cover the basic theory of computer programming - what it is, some of its history and the basic techniques needed to solve problems.	V rámci svých schopností budu vysvětlovat základy počítačového programování — co to je, něco o historii a o základních technikách, které potřebujete pro řešení problémů.	tutintro-cztutintro
+I will not be teaching esoteric techniques or the details of any particular programming language, in fact I'll be using several different languages, since I believe its important to realize that different languages do different things well.	Nebudu zde vysvětlovat esoterické techniky nebo detaily jednotlivých programovacích jazyků. Budu spíše používat několik odlišných jazyků, neboť věřím, že je důležité si uvědomit, že různé jazyky jsou vhodné pro různé věci.	tutintro-cztutintro
+That said, the majority of the course will be in the language called Python.	Abych to shrnul, většina obsahu učebnice bude věnována programovacímu jazyku, který se nazývá Python.	tutintro-cztutintro
+Who should read it?	Kdo by to měl číst?	tutintro-cztutintro
+Put another way: what do I expect the reader to know already?	Koukněme se na to z jiné stránky: co očekávám, ze čtenář již zná?	tutintro-cztutintro
+I expect the reader of this tutorial to be an experienced user of a computer system, probably MS DOS, Windows or Unix although others should be able to cope too.	Očekávám, že čtenář je zkušeným uživatelem počítačového systému, pravděpodobně systému MS DOS, Windows nebo Unix, ačkoliv ostatní by si s tím také měli umět poradit.	tutintro-cztutintro
+I also expect them to understand some very basic mathematical concepts such as geometric coordinates, sets, and basic algebra.	Dále očekávám znalost základních matematických pojmů jako jsou geometrické souřadnice, množiny a základy algebry.	tutintro-cztutintro
+These are all important in todays programming environments, and many programming concepts are based on these ideas.	Toto vše je v soudobých programovacích prostředích důležité a mnoho koncepcí programování je založeno právě na těchto myšlenkách.	tutintro-cztutintro
+However the depth of knowledge needed is very low and if you do find the math getting too hard, you can usually just skip over a few paragraphs, try the code as it is and hopefully the penny will drop even if the math still confuses you.	Nicméně úroveň požadovaných znalostí není vysoká. Pokud se vám přesto bude zdát matematická část příliš složitá, jednoduše přeskočte několik odstavců, vyzkoušejte kód tak, jak je vám předložen. Snad vám to něco přinese i v případě, kdy pro vás bude matematická část stále záhadou.	tutintro-cztutintro
+One thing you should know is how to run commands from your operating system's command prompt.	Určitě byste ale měli vědět, jak se ve vašem operačním systému dostanete k systémové příkazové řádce.	tutintro-cztutintro
+In Windows this is variously known as a DOS box, the MS DOS Window or MS-DOS Prompt.	V systému Windows se můžete setkat s pojmy jako DOSové okno nebo příkazové okno MS-DOS.	tutintro-cztutintro
+Basically it's a black window with a white text prompt that usually says C:\WINDOWS> and you can start it by going to the Start->Run dialog and typing COMMAND into the entry box and hitting OK.	Jde v podstatě o černé okno s bílým vyzývacím textem, jako například C:\WINDOWS> . Dostanete se k němu přes tlačítko Start a dialogové okno Spustit... — do vstupního pole napište command a stiskněte tlačítko OK .	tutintro-cztutintro
+	Poznámka překladatele: Příkaz command spustí program command.com , což je příkazový interpret pocházející původně ještě ze systému MS-DOS.	tutintro-cztutintro
+	Pokud pracujete s verzí systému Windows NT, Windows 2000 nebo Windows XP, zkuste použít modernější cmd.exe .	tutintro-cztutintro
+	Napsat cmd je také o něco kratší ;)	tutintro-cztutintro
+If you use Linux then you should know all about terminal windows and on MacOS you can run the Terminal program under Mac OS X (which is found in the Applications->Utilities folder).	Pokud používáte Linux, pak asi víte, co je to terminálové okno. Na MacOS můžete pod Mac OS X spustit program Terminal (naleznete jej ve složce Aplikace -> Nástroje ).	tutintro-cztutintro
+I will not be covering issues like how to create or copy text files, how to install software, or the organization of files on a computer storage system.	Nebudu se zde zabývat problémy typu jak vytvořit nebo zkopírovat textový soubor, jak instalovat software, nebo jakým způsobem se v počítači ukládají soubory.	tutintro-cztutintro
+Frankly if you need to know those things you probably are not at the stage of being able to program, regardless of your desire to do so.	Upřímně řečeno, pokud se potřebujete dozvědět tyto věci, pak pravděpodobně ještě nejste schopni programovat — bez ohledu na to, jak moc po tom toužíte.	tutintro-cztutintro
+Find a tutorial for your computer first, then when you're confident with the above concepts revisit this site.	Naučte se nejdříve něco o svém počítači a teprve až budete u výše uvedených pojmů cítit větší jistotu, vraťte se k tomuto textu.	tutintro-cztutintro
+Why Python?	Proč Python?	tutintro-cztutintro
+Python happens to be a nice language to learn.	Python je krásný jazyk na učení.	tutintro-cztutintro
+Its syntax is simple and it has some very powerful features built into the language.	Jeho syntaxe je jednoduchá a tento programovací jazyk má v sobě zabudované velmi silné rysy.	tutintro-cztutintro
+It supports lots of programming styles from the very simple through to state of the art Object Oriented techniques.	Podporuje mnoho programovacích stylů, od velmi jednoduchých až po současný vrchol v podobě technik objektově orientovaného programování.	tutintro-cztutintro
+It runs on lots of platforms - Unix/Linux, MS Windows, Macintosh etc.	Funguje na mnoha platformách — Unix/Linux, MS Windows, Macintosh atd.	tutintro-cztutintro
+It also has a very friendly and helpful user community.	Zformovala se kolem něj velmi přátelská společnost uživatelů, kteří jsou ochotni pomoci.	tutintro-cztutintro
+All of these are important features for a beginner's language.	Toto všechno je velmi důležité pro jazyk, ve kterém se má naučit programovat začátečník.	tutintro-cztutintro
+Python however is not just a beginner's language.	Nicméně Python není jazyk jenom pro začátečníky.	tutintro-cztutintro
+As your experience grows you can keep on using Python either as an end in itself or as a rapid prototyping language.	Během růstu vašich programátorských zkušeností zjistíte, že jazyka Python můžete používat jako koncový aplikační jazyk nebo jako jazyk pro rychlé prototypování.	tutintro-cztutintro
+There are a few things that Python is not well suited to, but these are comparatively few and far between.	Existují problémy, pro jejichž řešení se Python moc nehodí, ale je jich relativně málo.	tutintro-cztutintro
+I will also use VBScript and JavaScript as alternatives.	Jako alternativní jazyky budu používat také VBScript a JavaScript.	tutintro-cztutintro
+The reason for this is to show that the same basic techniques apply regardless of the language details.	Chci na nich ukázat hlavně to, že zákadní techniky nejsou závislé na jazykových detailech.	tutintro-cztutintro
+Once you can program in one language you can easily pick up a new one in a few days.	Jakmile se naučíte programovat v jednom jazyce, můžete se další jazyk naučit během několika dní.	tutintro-cztutintro
+Why those languages?	Proč jsem si vybral zrovna tyto jazyky?	tutintro-cztutintro
+Well, for a start they have very different styles to Python so form a useful contrast, and more prosaically if we accept that most Web surfers who are also beginners are using PCs with Microsoft Windows installed, there is a programming environment built in to the operating system called Windows Scripting Host which has support for VBScript and JScript (which is Microsoft's variant of JavaScript).	Jejich styl se od Pythonu liší a tím vytvářejí užitečný kontrast. A je tu ještě jeden důvod. Pokud přijmeme myšlenku, že většina začátečníků, kteří se brouzdají webovými stránkami, používají osobní počítače s nainstalovanými Microsoft Windows, pak mají k dispozici zabudované programátorské prostředí nazývané Windows Scripting Host , které podporuje VBScript a JScript (což je varianta JavaScript od firmy Microsoft).	tutintro-cztutintro
+In addition anyone using Microsoft's web browser can also use these languages within their browser, and in fact JavaScript should work in almost any browser.	Kdokoliv používá prohlížeč firmy Microsoft, může tyto jazyky používat přímo v něm. A navíc, JavaScript by měl fungovat v téměř libovolném prohlížeči.	tutintro-cztutintro
+We'll only look at how to run VBScript and JavaScript inside a browser, investigating WSH I'll leave as an exercise for the interested Windows user!	Zaměříme se pouze na to, jak VBScript a JavaScript spustíme ve svém prohlížeči. Detailní studium WSH nechť zůstane domácím úkolem pro ty uživatele Windows, kteří o to mají zájem.	tutintro-cztutintro
+Other resources	Další zdroje	tutintro-cztutintro
+There are other Web sites trying to do this in other languages (and in the time since I originally created this site a few other Python sites have appeared).	Existují další webové stránky, které se pokoušejí o totéž, v jiném programovacím jazyce. (Od doby vzniku těchto stránek se objevilo i několik webových míst věnovaných přímo Pythonu).	tutintro-cztutintro
+There are also lots of tutorials for those who already know how to program but want to learn a new language.	Existuje řada učebnic pro ty, kteří už umějí programovat, ale chtějí se naučit nový jazyk.	tutintro-cztutintro
+This section contains links to some of those that I think are worthwhile!	Uvádím zde několik odkazů o nichž si myslím, že jsou užitečné:	tutintro-cztutintro
+The official Python language website with online documentation, latest downloads etc. The official Perl web site - Perl is a natural competitor to Python in capability but is, I think, harder to learn.	The official Python language website s aktuální dokumentací, poskytující instalaci poslední verze atd. The official Perl web site — jazyk Perl je co do schopností přirozeným konkurentem jazyka Python, ale, podle mého mínění, se obtížněji učí.	tutintro-cztutintro
+JavaScript. is the source for information about JavaScript.	JavaScript — odkaz vede na centrální stránku s informacemi o tomto jazyce.	tutintro-cztutintro
+If you don't much like my style a web site with similar aims is the How to think like a Computer Scientist produced by Jeff Elkner who uses Python in his high School classes.	Pokud se vám můj styl příliš nelíbí, vyzkoušejte stránky How to think like a Computer Scientist (anglicky). Vytvořil je za podobným účelem Jeff Elkner, který využívá jazyka Python ve svých kurzech na střední škole (high school) .	tutintro-cztutintro
+It seems a little bit less comprehensive than mine, but maybe I'm just biased :-) Since I first wrote this tutor a whole bunch of non programmer's tutorials have appeared and they are listed on the Python web site, so you can take your pick.	Tyto stránky jsou, zdá se, méně srozumitelné, než moje, ale možná jsem jen zaujatý :-) Od doby vzniku této učebnice se objevila celá řada příruček pro neprogramátory. Odkazy naleznete na webovém serveru jazyka Python.	tutintro-cztutintro
+Most of them focus on just getting you programming in Python so they don't explain so much of the jargon as I do, nor do they explain the Computer Science theory like Jeff does.	Většina z nich je zaměřena přímo na programování v jazyce Python a nevysvětluje pojmy do té míry, jako tato příručka. Neuvádějí rovněž vysvětlení teoretických základů výpočetní techniky (Computer Science), jak činí například Jeff.	tutintro-cztutintro
