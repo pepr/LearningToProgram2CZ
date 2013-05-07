@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+  <header
+    creationtool="LF Aligner"
+    creationtoolversion="4.04"
+    datatype="unknown"
+    segtype="sentence"
+    adminlang="EN"
+    srclang="EN"
+    o-tmf="TW4Win 2.0 Format"
+  >
+  </header>
+  <body>
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>Computing Topics</seg></tuv>
+<tuv xml:lang="CS"><seg>Počítačová témata</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>Current Topics</seg></tuv>
+<tuv xml:lang="CS"><seg>Aktuální témata</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>You can read short papers about: A beginners guide to the IBM ISPF editor.</seg></tuv>
+<tuv xml:lang="CS"><seg>Můžete si přečíst následující krátké články: Příručka pro začátečníky k editoru IBM ISPF.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>My opinions on UML.</seg></tuv>
+<tuv xml:lang="CS"><seg>Můj pohled a názory na UML.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>My personal experiences and view of various programming languages.</seg></tuv>
+<tuv xml:lang="CS"><seg>Mé osobní zkušenosti a pohledy na různé programovací jazyky.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>My Computing Background</seg></tuv>
+<tuv xml:lang="CS"><seg>Mé znalosti kolem počítačů</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>I started on computing in 1974 with a dial up link from my school to Stirling University campus computer.</seg></tuv>
+<tuv xml:lang="CS"><seg>S počítači jsem začal v roce 1974 prostřednictvím vytáčené linky z mé školy na počítač v areálu Stirlingovy univerzity.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>We wrote BASIC programs on a paper-tape punch.</seg></tuv>
+<tuv xml:lang="CS"><seg>Na děrovači děrné pásky jsme psali programy v jazyce BASIC.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>The tapes were sent down the wire overnight and our output came back in the mail about 3 days later.</seg></tuv>
+<tuv xml:lang="CS"><seg>Obsah pásek se po lince posílal během noci a výsledky přicházely zpět poštou asi o tři dny později.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>As you can imagine our programs were boring and very short!</seg></tuv>
+<tuv xml:lang="CS"><seg>Jak si jistě dovedete představit, naše programy byly nudné a velmi krátké.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>My next encounter was when Clive Sinclair produced the amazing ZX81 which many millions of people bought, including one of my friends.</seg></tuv>
+<tuv xml:lang="CS"><seg>Mé další setkání s počítačem se vztahuje k době, kdy Clive Sinclair vytvořil ohromující ZX81. Koupily si jej milióny lidí, včetně jednoho z mých kamarádů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>We actually wrote a very basic stock control program on it - in BASIC, of course!</seg></tuv>
+<tuv xml:lang="CS"><seg>Vlastně jsme v něm napsali velmi jednoduchý skladový program — samozřejmě v jazyku BASIC.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">computing-czcomputing</prop>
+<tuv xml:lang="EN"><seg>I started getting serious when I went to university to do a BEng in Electronics.</seg></tuv>
+<tuv xml:lang="CS"><seg>Vážněji jsem se o počítače začal zajímat v době, kdy jsem se začal na univerzitě usilovat o bakalářský titul v oboru elektroniky.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note"></prop>
+<tuv xml:lang="EN"><seg>Computing was part of the course so there was no escape but gradually I came to enjoy the purely abstract nature of the beast.</seg></tuv>
+<tuv xml:lang="CS"><seg>Programování bylo součástí kurzu, takže jsem neměl možnost úniku. Ale postupně mě jeho čistě abstraktní přirozenost začala bavit.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note"></prop>
+<tuv xml:lang="EN"><seg>Once I learned how to hook a micro up to hardware and get it to do real work I was hooked!</seg></tuv>
+<tuv xml:lang="CS"><seg>A jakmile jsem se naučil, jak připojit mikroprocesor k nějakému jinému technickému zařízení a přinutit je dělat něco opravdového, byl jsem programováním polapen.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note"></prop>
+<tuv xml:lang="EN"><seg>I have worked with the following systems/languages (in approximate order of use): Commodore PET/Pascal Rockwell AIM65/6502 Assembler Sinclair ZX Spectrum/Pascal IBM PC/C and 8086 assembler Sinclair QL/Pascal Amstrad PCW8256(CP/M)/Pascal, C, Prolog, Logo and 8085 assembler IBM PC/Turbo Pascal IBM PC(running OS-9)/C VAX VMS and PSOS/C VAX VMS/C++ BT M5000(Unix)/C Sun Sparc1/C, Bourne shell, elisp and awk Sun Sparc2/all above plus C++ and ksh IBM PC/Borland Delphi IBM PC(with Linux)/C, C++, Perl, Tcl/Tk and Python.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pracoval jsem s následujícími systémy/jazyky (přibližně v uvedeném pořadí): Commodore PET/Pascal Rockwell AIM65/Assembler 6502 Sinclair ZX Spectrum/Pascal IBM PC/C a assembler 8086 Sinclair QL/Pascal Amstrad PCW8256 (CP/M)/Pascal, C, Prolog, Logo a assembler 8085 IBM PC/Turbo Pascal IBM PC (se systémem OS-9)/C VAX VMS a PSOS/C VAX VMS/C++ BT M5000 (Unix)/C Sun Sparc1/C, Bourne shell, elisp a awk Sun Sparc2/jako u předchozího a navíc C++ a ksh IBM PC/Borland Delphi IBM PC (se systémem Linux)/C, C++, Perl, Tcl/Tk a Python.</seg></tuv> </tu>
+
+<tu creationdate="20130507T062044Z" creationid="LF Aligner 4.04"><prop type="Txt::Note"></prop>
+<tuv xml:lang="EN"><seg>IBM MVS mainframe/COBOL and JCL</seg></tuv>
+<tuv xml:lang="CS"><seg>IBM MVS (sálový počítač)/COBOL a JCL</seg></tuv> </tu>
+
+
+</body>
+</tmx>
