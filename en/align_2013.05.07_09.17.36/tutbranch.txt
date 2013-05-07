@@ -1,0 +1,124 @@
+Decisions, Decisions
+What will we cover?
+The 3rd programming construct - Branching Single branches and multiple branches Using Boolean expressions
+The 3rd of our fundamental building blocks is branching or conditional statements .
+These are simply terms to describe the ability within our programs to execute one of several possible sequences of code(branches) depending on some condition.
+Back in the early days of Assembler programming the simplest branch was a JUMP instruction where the program literally jumped to a specified memory address, usually if the result of the previous instruction was zero.
+Amazingly complex programs were written with virtually no other form of condition possible - vindicating Dijkstra's statement about the minimum requirements for programming.
+When high level languages came along a new version of the JUMP instruction appeared called GOTO .
+In fact QBASIC, which is still supplied on the CD ROM with older versions of Windows(pre XP), still provides GOTO and, if you have QBASIC installed, you can try it out by typing the following bit of code: 10 PRINT "Starting at line 10" 20 J = 5 30 IF J
+Notice how even in such a short program it takes a few seconds to figure out what's going to happen.
+There is no structure to the code, you have to literally figure it out as you read it.
+In large programs it becomes impossible.
+For that reason most modern programming languages, including Python, VBScript and JavaScript, either don't have a direct JUMP or GOTO statement or discourage you from using it.
+So what do we use instead?
+The if statement
+The most intuitively obvious conditional statement is the if, then, else construct.
+It follows the logic of English in that if some boolean condition (see below for more about this aspect of things) is true then a block of statements is executed, otherwise (or else ) a different block is executed.
+Python
+It looks like this in Python: import sys # only to let us exit print "Starting here" j = 5 if j > 10: print "This is never printed" else: sys.exit()
+Hopefully that is easier to read and understand than the previous GOTO example.
+Of course we can put any test condition we like after the if, so long as it evaluates to True or False, i.e. a boolean value.
+Try changing the > to a < and see what happens.
+VBScript
+VBScript looks quite similar: <script language="VBScript"> MsgBox "Starting Here" DIM J J = 5 If J > 10 Then MsgBox "This is never printed" Else MsgBox "End of Program" End If </script>
+It's very nearly identical, isn't it?
+The main difference is the use of End If to indicate the end of the construct.
+And JavaScript too
+And of course JavaScript has an if statement too: <script language="JavaScript"> var j; j = 5; if (j > 10){ document.write("This is never printed"); } else { document.write("End of program"); } </script>
+Notice that JavaScript uses curly braces to define the blocks of code inside the if part and the else part.
+Also the boolean test is contained in parentheses and there is no explicit keyword then used.
+On a point of style, the curly braces can be located anywhere, I have chosen to line them up as shown purely to emphasize the block structure.
+Also if there is only a single line within the block (as we have here) the braces can be omitted entirely, they are only needed to group lines together into a single block.
+Boolean Expressions
+You might remember that in the Raw Materials section we mentioned a Boolean type of data.
+We said it had only two values: True or False .
+We very rarely create a Boolean variable but we often create temporary Boolean values using expressions .
+An expression is a combination of variables and values combined by operators to produce a resultant value.
+In the following example: if x
+x is the expression and the result will be True if x is less than 5 and False if x is greater than or equal to 5.
+Expressions can be arbitrarily complex provided they evaluate to a single final value.
+In the case of a branch that value must be either True or False .
+However, the definition of these 2 values varies from language to language.
+In many languages False is the same as 0 or a non-existent value (often called NULL , Nil or None ).
+Thus an empty list or string evaluates to false in a Boolean context.
+Python works this way and this means we can use a while loop to process a list until the list is empty, using something like: while aList: # do something here
+Or we can use an if statement to test whether a list is empty without resorting to the len() function like this: if aList: # do something here
+Finally we can combine Boolean expressions using Boolean operators which can often cut down the number of if statements we need to write.
+Consider this example: if value > maximum: print "Value is out of range!" else if value < minimum: print "Value is out of range!"
+Notice that the block of code executed is identical.
+We can save some work, both for us and for the computer, by combining both of the tests into a single test like this: if (value < minimum) or (value > maximum): print "Value is out of range!"
+Notice we combined both tests using a boolean or operator.
+This is still a single expression because Python evaluates the first set of parentheses, then the second set of parentheses and finally combines the two calculated values to form the final single value, either True or False.
+Very often if we think carefully about the tests we need to carry out in natural language we will find ourselves using conjunctions like and, or and not.
+If so there's a very good chance we can write a single combined test rather than many separate ones.
+Chaining if statements
+You can go on to chain these if/then/else statements together by nesting them one inside the other.
+Here is an example in Python: # Assume price created previously... price = int(raw_input("What price? ")) if price == 100: print "I'll take it!" else: if price > 500: print "No way Jose!" else: if price > 200: print "How about throwing in a free mouse mat?" else: print "price is an unexpected value!"
+Note 1: we used == (that's a double = sign) to test for equality in the first if statement, whereas we use = to assign values to variables.
+Using = when you mean to use == is one of the more common mistakes in programming Python, fortunately Python warns you that it's a syntax error, but you might need to look closely to spot the problem.
+Note 2: A subtle point to notice is that we perform the greater-than tests from the highest value down to the lowest.
+If we did it the other way round the first test, which would be price > 200 would always be true and we would never progress to the > 500 test.
+Similarly if using a sequence of less-than tests you must start at the lowest value and work up.
+This is another very easy trap to fall into.
+VBScript & JavaScript
+You can chain if statements in VBScript and JavaScript too but as it's pretty self evident I'll only show a VBScript example here: <script language="VBScript"> DIM Price price = InputBox("What's the price?") price = CInt(price) If price = 100 Then MsgBox "I'll take it!"
+Else: if price > 500 Then MsgBox "No way Jose!" else: if price > 200 Then MsgBox "How about throwing in a free mouse mat too?" else: MsgBox "price is an unexpected value!" 	End If End If End If </script>
+The only things to note here are that there is an End If statement to match every If statement and that we used the VBScript conversion function CInt to convert from the input string value to an integer.
+Case statements
+One snag with chaining, or nesting if/else statements is that the indentation causes the code to spread across the page very quickly.
+A sequence of nested if/else/if/else... is such a common construction that many languages provide a special type of branch for it.
+This is often referred to as a Case or Switch statement and the JavaScript version looks like: <script language="JavaScript"> function doArea(){ var shape, breadth, length, area; shape = document.area.shape.value; breadth = parseInt(document.area.breadth.value); len = parseInt(document.area.len.value); switch (shape){ case 'Square': area = len * len; alert("Area of " + shape + " = " + area); break; case 'Rectangle': area = len * breadth; alert("Area of " + shape + " = " + area); break; case 'Triangle': area = len * breadth / 2; alert("Area of " + shape + " = " + area); break; default: alert("No shape matching: " + shape) }; } </script> <form name="area"> Length: <input type="text" name="len"> Breadth: <input type="text" name="breadth"> Shape: <select name="shape" size=1 onChange="doArea()"> <option value="Square">Square <option value="Rectangle">Rectangle <option value="Triangle">Triangle </select> </form>
+The HTML form code just allows us to capture the details and then when the user selects a shape it calls our JavaScript function.
+The first few lines simply create some local variables and convert the strings to integers where needed.
+The bold section is the bit we are really interested in.
+It selects the appropriate action based on the shape value, notice, by the way, that the parentheses around shape are required.
+Each block of code within the case structure is not marked using curly braces, as you might expect, but is instead terminated by a break statement.
+The entire set of case statements for the switch is, however, bound together as a block by a single set of curly braces.
+Finally note the final condition is default which is simply a catch-all for anything not caught in the preceding Case statements.
+Why not see if you can extend the example to cover circles as well?
+Remember to add a new option to the HTML form as well as a new case to the switch.
+VBScript Select Case
+VBScript has a version too:
+<script language="VBScript"> Dim shape, length, breadth, SQUARE, RECTANGLE, TRIANGLE SQUARE = 0 RECTANGLE = 1 TRIANGLE = 2 shape = CInt(InputBox("Square(0),Rectangle(1) or Triangle(2)?")) length = CDbl(InputBox("Length?")) breadth = CDbl(InputBox("Breadth?")) Select Case shape Case SQUARE area = length * length MsgBox "Area = " & area Case RECTANGLE area = length * breadth MsgBox "Area = " & area Case TRIANGLE area = length * breadth / 2 MsgBox "Area = " & area Case Else MsgBox "Shape not recognized" End Select </script>
+As with the JavaScript example the first few lines simply collect the data from the user and convert it into the right type.
+The bold Select section shows the VBScript case construct with each successive Case statement active as a block terminator for the previous one.
+The whole Select construct is closed with the End Select statement.
+Finally there is a Case Else clause which, like the default in JavaScript catches anything not caught in the Case s above.
+One other feature worth pointing out is the use of Symbolic Constants instead of numbers.
+That is the uppercase variables SQUARE, RECTANGLE and TRIANGLE are there simply to make the code easier to read.
+The uppercase names are simply a convention to indicate that they are constant values rather than conventional variables, but VBScript allows any variable name you like.
+Python multi-selection
+Python does not provide an explicit case construct but rather compromises by providing an easier if/elseif/else format: menu = """ Pick a shape(1-3): 1) Square 2) Rectangle 3) Triangle """ shape = int(raw_input(menu)) if shape == 1: length = float(raw_input("Length: ")) print "Area of square = ", length ** 2 elif shape == 2: length = float(raw_input("Length: ")) width = float(raw_input("Width: )) print "Area of rectangle = ", length * width elif shape == 3: length = float(raw_input("Length: ")) width = float(raw_input("Width: )) print "Area of triangle = ", length * width else: print "Not a valid shape, try again"
+Note the use of elif and the fact that the indentation (all important in Python) does not change (unlike the nested if statement example).
+It's also worth pointing out that both this technique and the earlier nested if/else example are equally valid, the elif technique is just a little easier to read if there are many tests.
+The final condition is an else which catches anything not caught by the previous tests, just like the default in JavaScript and Case Else in VBScript.
+VBScript also provides a slightly more cumbersome version of this technique with ElseIf...Then which is used in exactly the same way as the Python elif but is rarely seen since Select Case is easier to use.
+Putting it all together
+So far many of our examples have been pretty abstract.
+To conclude let's take a look at an example that uses nearly everything we've learned about so far to introduce a common programming technique, namely displaying menus for controlling user input.
+Here is the code, followed by a brief discussion: menu = """ Pick a shape(1-3): 1) Square 2) Rectangle 3) Triangle 4) Quit """ shape = int(raw_input(menu)) while shape != 4: if shape == 1: length = float(raw_input("Length: ")) print "Area of square = ", length ** 2 elif shape == 2: length = float(raw_input("Length: ")) width = float(raw_input("Width: )) print "Area of rectangle = ", length * width elif shape == 3: length = float(raw_input("Length: ")) width = float(raw_input("Width: )) print "Area of triangle = ", length * width else: print "Not a valid shape, try again" shape = int(raw_input(menu))
+We've added just three lines (in bold) to the previous Python example but in so doing have significantly enhanced the usability of our program.
+By adding a Quit option to the menu, plus a while loop we have provided the capability for the user to keep on calculating sizes of different shapes until she has all the information she needs.
+There is no need to rerun the program manually each time.
+The only other line we added was to repeat the raw_input(menu) shape selection so that the user gets the chance to change the shape and, ultimately, to quit.
+What the program does is create the illusion to the user that the program knows what they want to do and does it correctly, acting differently depending what they input.
+In essence the user appears to be in control, whereas in fact, the programmer is in control since the he has anticipated all the valid inputs and how the program will react.
+The intelligence on display is that of the programmer, not the machine - computers after all are stupid!
+You see how easily we can extend our program just by adding a few lines and combining sequences (the blocks that calculate the area), loops (the while loop) and conditionals (the if/elif structure).
+Dijkstra's three building blocks of programming.
+Having covered all three you can, in theory, now go out and program anything, but there are a few more techniques we can learn to make things a bit easier, so don't rush off just yet.
+Modifying collections from inside loops
+We mentioned in the looping topic that modifying a collection from inside a loop was a difficult thing to do, but never got round to explaining how to do it!
+The reason is, we had to wait for branching to be explained first.
+So here is the solution:
+If we need to modify the elements of a collection in place we can use a while loop to make the changes as we iterate over it.
+We can do this because in a while construct we have explicit control over the index, unlike the situation in a for loop where the index is automatically updated.
+Let's see how to delete all zeros from a list: myList = [1,2,3,0,4,5,0] index = 0 while index < len(myList): if myList[index] == 0: myList.remove(myList[index]) else: index += 1 print myList
+The thing to note here is that we do not increment the index if we remove an item, we rely on the deletion moving everything up so that the old index value now points at the next item in the collection.
+We use an if/else branch to control when we increment the index.
+It's very easy to make a mistake doing this kind of thing so test your code carefully.
+There is another set of Python functions which are specifically designed for manipulating list contents and we look at them in the Functional Programming topic in the advanced section of the tutorial.
+Things to Remember Use if/else to branch The else is optional Multiple decisions can be represented using a Case or if/elif construct Boolean expressions return True or False Combining menus with Case constructs allows us to build a wide range of user controlled applications.
+Previous Next Contents
+If you have any questions or feedback on this page send me mail at: alan.gauld@btinternet.com

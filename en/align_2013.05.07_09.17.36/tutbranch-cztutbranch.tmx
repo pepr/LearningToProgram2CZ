@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tmx SYSTEM "tmx14.dtd">
+<tmx version="1.4">
+  <header
+    creationtool="LF Aligner"
+    creationtoolversion="4.04"
+    datatype="unknown"
+    segtype="sentence"
+    adminlang="EN"
+    srclang="EN"
+    o-tmf="TW4Win 2.0 Format"
+  >
+  </header>
+  <body>
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Decisions, Decisions</seg></tuv>
+<tuv xml:lang="CS"><seg>Větvení, aneb nechť padne rozhodnutí</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>What will we cover?</seg></tuv>
+<tuv xml:lang="CS"><seg>O čem si budeme povídat?</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The 3rd programming construct - Branching</seg></tuv>
+<tuv xml:lang="CS"><seg>Třetí programová konstrukce — větvení.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Single branches and multiple branches</seg></tuv>
+<tuv xml:lang="CS"><seg>Jednoduché a násobné větvení.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Using Boolean expressions</seg></tuv>
+<tuv xml:lang="CS"><seg>Použití boolovských výrazů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The 3rd of our fundamental building blocks is branching or conditional statements.</seg></tuv>
+<tuv xml:lang="CS"><seg>Třetím z našich základních stavebních kamenů je větvení nebo také podmíněný příkaz.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>These are simply terms to describe the ability within our programs to execute one of several possible sequences of code(branches) depending on some condition.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jde jednoduše o pojmy, které popisují schopnost provést jednu z několika možných posloupností příkazů (jednu z větví) a to v závislosti na nějaké podmínce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Back in the early days of Assembler programming the simplest branch was a JUMP instruction where the program literally jumped to a specified memory address, usually if the result of the previous instruction was zero.</seg></tuv>
+<tuv xml:lang="CS"><seg>Dříve, v době programování v assembleru, bylo větvení realizováno nejjednodušším možným způsobem — použitím instrukce JUMP. Program v tomto místě doslova skočil na určenou adresu v paměti. Obvykle to bylo podmíněno tím, že výsledkem předchozí instrukce byla nula.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Amazingly complex programs were written with virtually no other form of condition possible - vindicating Dijkstra&apos;s statement about the minimum requirements for programming.</seg></tuv>
+<tuv xml:lang="CS"><seg>I když nebylo možné použít jiný způsob realizace podmíněného příkazu, byly takto napsány úžasně složité programy. To potvrzovalo správnost Dijkstrových tvrzení o minimálních požadavcích potřebných pro programování.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>When high level languages came along a new version of the JUMP instruction appeared called GOTO.</seg></tuv>
+<tuv xml:lang="CS"><seg>Když se objevily vyšší programovací jazyky, objevila se i nová podoba instrukce JUMP pod názvem GOTO.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>In fact QBASIC, which is still supplied on the CD ROM with older versions of Windows(pre XP), still provides GOTO and, if you have QBASIC installed, you can try it out by typing the following bit of code:</seg></tuv>
+<tuv xml:lang="CS"><seg>V jazyce QBASIC, který byl dodáván na instalačních CD ROM starších verzí Windows (před XP), lze GOTO stále používat. Pokud máte QBASIC nainstalován, můžete si vyzkoušet následující úsek kódu:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>10 PRINT &quot;Starting at line 10&quot; 20 J = 5 30 IF J</seg></tuv>
+<tuv xml:lang="CS"><seg>10 PRINT &quot;Začínáme na řádku 10&quot; 20 J = 5 30 IF J</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Notice how even in such a short program it takes a few seconds to figure out what&apos;s going to happen.</seg></tuv>
+<tuv xml:lang="CS"><seg>Povšimněte si, že dokonce i u tak krátkého programu trvá několik sekund, než přijdete na to co se stane.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>There is no structure to the code, you have to literally figure it out as you read it. In large programs it becomes impossible.</seg></tuv>
+<tuv xml:lang="CS"><seg>Kód nemá žádnou strukturu. Musíte si ji během čtení doslova vytvořit. U velkých programů to začne být prakticky nemožné.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>For that reason most modern programming languages, including Python, VBScript and JavaScript, either don&apos;t have a direct JUMP or GOTO statement or discourage you from using it.</seg></tuv>
+<tuv xml:lang="CS"><seg>Z tohoto důvodu většina moderních programovacích jazyků — včetně jazyků Python, VBScript a JavaScript — buď příkazy skoku JUMP nebo GOTO nemají, nebo vás od jejich používání odrazují.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>So what do we use instead?</seg></tuv>
+<tuv xml:lang="CS"><seg>Takže co bychom vlastně místo nich měli použít?</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The if statement</seg></tuv>
+<tuv xml:lang="CS"><seg>Příkaz if</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The most intuitively obvious conditional statement is the if, then, else construct.</seg></tuv>
+<tuv xml:lang="CS"><seg>Intuitivně nejzřejmější podobou podmíněného příkazu je konstrukce if, then, else.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>It follows the logic of English in that if some boolean condition (see below for more about this aspect of things) is true then a block of statements is executed, otherwise (or else ) a different block is executed.</seg></tuv>
+<tuv xml:lang="CS"><seg>Sleduje logiku anglické věty v tom smyslu, že if (jestliže) je nějaká boolovská podmínka splněna (o boolovských podmínkách se zmíníme dále v textu), then (pak) se provede blok příkazů, v opačném případě (nebo else (jinak)) se provede jiný blok.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Python</seg></tuv>
+<tuv xml:lang="CS"><seg>Python</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>It looks like this in Python:</seg></tuv>
+<tuv xml:lang="CS"><seg>V jazyce Python vypadá zápis takto:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>import sys # only to let us exit print &quot;Starting here&quot; j = 5 if j &gt; 10: print &quot;This is never printed&quot; else: sys.exit()</seg></tuv>
+<tuv xml:lang="CS"><seg>import sys # jen proto, abychom mohli program ukončit print &quot;Začínáme zde&quot; j = 5 if j &gt; 10: print &quot;Toto se nikdy nevytiskne&quot; else: sys.exit()</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Hopefully that is easier to read and understand than the previous GOTO example.</seg></tuv>
+<tuv xml:lang="CS"><seg>Takový zápis se ve srovnání s předchozím příkazem s GOTO lépe čte a je srozumitelnější.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Of course we can put any test condition we like after the if, so long as it evaluates to True or False, i.e. a boolean value.</seg></tuv>
+<tuv xml:lang="CS"><seg>Za slovo if můžeme samozřejmě dosadit libovolnou podmínku testu za předpokladu, že ji lze vyhodnotit jako True nebo False — to znamená jako boolovskou hodnotu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Try changing the &gt; to a &lt; and see what happens.</seg></tuv>
+<tuv xml:lang="CS"><seg>Zkuste změnit operátor &gt; na &lt; a pozorujte, co se stane.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>VBScript</seg></tuv>
+<tuv xml:lang="CS"><seg>VBScript</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>VBScript looks quite similar:</seg></tuv>
+<tuv xml:lang="CS"><seg>Zápis v jazyce VBScript vypadá podobně:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>&lt;script language=&quot;VBScript&quot;&gt; MsgBox &quot;Starting Here&quot; DIM J J = 5 If J &gt; 10 Then MsgBox &quot;This is never printed&quot; Else MsgBox &quot;End of Program&quot; End If &lt;/script&gt;</seg></tuv>
+<tuv xml:lang="CS"><seg>&lt;script type=&quot;text/vbscript&quot;&gt; MsgBox &quot;Začínáme zde&quot; Dim J J = 5 If J &gt; 10 Then MsgBox &quot;Toto se nikdy nevytiskne.&quot; Else MsgBox &quot;Konec programu.&quot; End If &lt;/script&gt;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>It&apos;s very nearly identical, isn&apos;t it?</seg></tuv>
+<tuv xml:lang="CS"><seg>Vždyť je to téměř shodné, že ano?</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The main difference is the use of End If to indicate the end of the construct.</seg></tuv>
+<tuv xml:lang="CS"><seg>Hlavní rozdíl spočívá v použití End If pro označení konce konstrukce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>And JavaScript too</seg></tuv>
+<tuv xml:lang="CS"><seg>A ještě v JavaScript</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>And of course JavaScript has an if statement too:</seg></tuv>
+<tuv xml:lang="CS"><seg>V jazyce JavaScript nalezneme samozřejmě příkaz if také:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>&lt;script language=&quot;JavaScript&quot;&gt; var j; j = 5; if (j &gt; 10){ document.write(&quot;This is never printed&quot;); } else { document.write(&quot;End of program&quot;); } &lt;/script&gt;</seg></tuv>
+<tuv xml:lang="CS"><seg>&lt;script type=&quot;text/javascript&quot;&gt; var j; j = 5; if (j &gt; 10){ document.write(&quot;Toto se nikdy nevytiskne.&quot;); } else { document.write(&quot;Konec programu.&quot;); } &lt;/script&gt;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Notice that JavaScript uses curly braces to define the blocks of code inside the if part and the else part.</seg></tuv>
+<tuv xml:lang="CS"><seg>Povimněte si, že JavaScript používá uvnitř částí if a else pro vymezení bloku kódu složené závorky.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Also the boolean test is contained in parentheses and there is no explicit keyword then used.</seg></tuv>
+<tuv xml:lang="CS"><seg>Boolovský test je rovněž uzavřen v závorkách. Klíčové slovo then se zde nepoužívá.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>On a point of style, the curly braces can be located anywhere, I have chosen to line them up as shown purely to emphasize the block structure.</seg></tuv>
+<tuv xml:lang="CS"><seg>Co se týká stylu, složené závorky můžeme umístit na libovolnou pozici. Rozhodl jsem se, že je zarovnám pod sebe prostě proto, abych zdůraznil strukturu bloku.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Also if there is only a single line within the block (as we have here) the braces can be omitted entirely, they are only needed to group lines together into a single block.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud se v bloku nachází jen jediný řádek (jako v našem případě), můžeme závorky úplně vynechat. Potřebujeme je jen v případech, kdy mají ohraničit skupinu řádků, které patří do jednoho bloku.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Boolean Expressions You might remember that in the Raw Materials section we mentioned a Boolean type of data.</seg></tuv>
+<tuv xml:lang="CS"><seg>Boolovské výrazy Možná si ještě vzpomínáte, že jsme se v kapitole o datech zmínili o datovém typu boolean.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We said it had only two values: True or False.</seg></tuv>
+<tuv xml:lang="CS"><seg>Řekli jsme si, že má pouze dvě hodnoty: True a False.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We very rarely create a Boolean variable but we often create temporary Boolean values using expressions.</seg></tuv>
+<tuv xml:lang="CS"><seg>Boolovské proměnné vytváříme velmi zřídka, ale dočasné boolovské hodnoty často vznikají jako výsledek vyhodnocení výrazů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>An expression is a combination of variables and values combined by operators to produce a resultant value.</seg></tuv>
+<tuv xml:lang="CS"><seg>Výrazem rozumíme kombinaci proměnných a hodnot, spojených operátory s cílem vyprodukovat výslednou hodnotu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>In the following example: if x x is the expression and the result will be True if x is less than 5 and False if x is greater than or equal to 5.</seg></tuv>
+<tuv xml:lang="CS"><seg>V následujícím příkladu if x &lt; 5: print x je zápis x &lt; 5 výrazem. Pokud je x menší než 5, bude jeho výsledkem hodnota True. Pokud je x větší nebo rovno 5, bude výsledkem výrazu hodnota False.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Expressions can be arbitrarily complex provided they evaluate to a single final value.</seg></tuv>
+<tuv xml:lang="CS"><seg>Výrazy mohou být libovolně složité s tím, že výsledkem jejich vyhodnocení musí být nakonec vždy jediná hodnota.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>In the case of a branch that value must be either True or False.</seg></tuv>
+<tuv xml:lang="CS"><seg>V případě větvení musí být výsledkem pravdivostní hodnota True nebo False.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>However, the definition of these 2 values varies from language to language.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nicméně, definice těchto dvou pravdivostních hodnot se jazyk od jazyka liší.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>In many languages False is the same as 0 or a non-existent value (often called NULL, Nil or None).</seg></tuv>
+<tuv xml:lang="CS"><seg>V mnoha jazycích je hodnota false ztotožněna s hodnotou 0 nebo s hodnotou vyjadřující neexistenci (té se často říká NULL, Nil nebo None).</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Thus an empty list or string evaluates to false in a Boolean context.</seg></tuv>
+<tuv xml:lang="CS"><seg>Takže v boolovském kontextu bude například prázdný seznam nebo prázdný řetězec vyhodnocen jako False.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Python works this way and this means we can use a while loop to process a list until the list is empty, using something like:</seg></tuv>
+<tuv xml:lang="CS"><seg>Takovým způsobem se chová i Python. To znamená, že například můžeme využít cyklu while pro zpracování seznamu, které má skončit v okamžiku, kdy je seznam prázdný:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>while aList: # do something here</seg></tuv>
+<tuv xml:lang="CS"><seg>while seznam: # Proveď nějakou operaci, která vede ke zkrácení seznamu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Or we can use an if statement to test whether a list is empty without resorting to the len() function like this: if aList: # do something here</seg></tuv>
+<tuv xml:lang="CS"><seg>V příkazu if můžeme tento obrat použít k testování prázdnosti seznamu, aniž bychom použili funkci len() : if seznam: # něco zde udělej (seznam je prázdný)</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Finally we can combine Boolean expressions using Boolean operators which can often cut down the number of if statements we need to write.</seg></tuv>
+<tuv xml:lang="CS"><seg>Boolovské výrazy můžeme kombinovat pomocí boolovských operátorů. Často tím můžeme zmenšit počet příkazů if.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Consider this example:</seg></tuv>
+<tuv xml:lang="CS"><seg>Uvažujme následující příklad:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>if value &gt; maximum: print &quot;Value is out of range!&quot; else if value &lt; minimum: print &quot;Value is out of range!&quot;</seg></tuv>
+<tuv xml:lang="CS"><seg>if hodnota &gt; maximum: print &quot;Hodnota je mimo rozsah!&quot; else: if hodnota &lt; minimum: print &quot;Hodnota je mimo rozsah!&quot;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Notice that the block of code executed is identical.</seg></tuv>
+<tuv xml:lang="CS"><seg>Povšimněte si, že blok prováděného kódu je v obou případech shodný.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We can save some work, both for us and for the computer, by combining both of the tests into a single test like this:</seg></tuv>
+<tuv xml:lang="CS"><seg>Zkombinováním obou testů do jednoho dosáhneme úspory práce jak pro počítač, tak pro nás:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>if (value &lt; minimum) or (value &gt; maximum): print &quot;Value is out of range!&quot;</seg></tuv>
+<tuv xml:lang="CS"><seg>if (hodnota &gt; maximum) or (hodnota &lt; minimum): print &quot;Hodnota je mimo rozsah!&quot;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Notice we combined both tests using a boolean or operator.</seg></tuv>
+<tuv xml:lang="CS"><seg>Oba testy jsme spojili operátorem or (nebo, čili logickým součtem).</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>This is still a single expression because Python evaluates the first set of parentheses, then the second set of parentheses and finally combines the two calculated values to form the final single value, either True or False.</seg></tuv>
+<tuv xml:lang="CS"><seg>Dostáváme jediný výraz. Python nejdříve vyhodnotí výraz uzavřený v první dvojici závorek, potom výraz v druhých závorkách a nakonec vypočtené hodnoty zpracuje do podoby jediné hodnoty — True nebo False.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Very often if we think carefully about the tests we need to carry out in natural language we will find ourselves using conjunctions like and, or and not.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud o prováděných testech uvažujeme v pojmech přirozeného jazyka, velmi často používáme spojky jako a (anglicky and), nebo (or), negace (ne, není, anglicky not).</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>If so there&apos;s a very good chance we can write a single combined test rather than many separate ones.</seg></tuv>
+<tuv xml:lang="CS"><seg>V takovém případě je velmi pravděpodobné, že se nám místo více jednoduchých testů podaří zapsat jeden složený.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Chaining if statements</seg></tuv>
+<tuv xml:lang="CS"><seg>Zřetězení příkazů if</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>You can go on to chain these if/then/else statements together by nesting them one inside the other.</seg></tuv>
+<tuv xml:lang="CS"><seg>Příkazy if/then/else můžeme do sebe vnořovat.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Here is an example in Python:</seg></tuv>
+<tuv xml:lang="CS"><seg>V jazyce Python to můžeme vyjádřit následovně:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg># Assume price created previously... price = int(raw_input(&quot;What price? &quot;)) if price == 100: print &quot;I&apos;ll take it!&quot; else: if price &gt; 500: print &quot;No way Jose!&quot; else: if price &gt; 200: print &quot;How about throwing in a free mouse mat?&quot; else: print &quot;price is an unexpected value!&quot;</seg></tuv>
+<tuv xml:lang="CS"><seg># Předpokládáme, že cena byla předem stanovena... cena = int(raw_input(u&quot;Kolik to stojí? &quot;)) if cena == 100: print u&quot;Vezmu si to.&quot; else: if cena &gt; 500: print u&quot;Tak to nechci ani náhodou!&quot; else: if cena &gt; 200: print u&quot;Co kdybyste přihodil zdarma podložku pod myš?&quot; else: print u&quot;Neočekávaná cena.&quot;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Note 1: we used == (that&apos;s a double = sign) to test for equality in the first if statement, whereas we use = to assign values to variables.</seg></tuv>
+<tuv xml:lang="CS"><seg>Poznámka 1: V prvním příkazu if jsme pro test na rovnost použili operátor == (tj. zdvojený znak =). Jednoduchý znak = se používá pro přiřazování hodnot proměnným.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Using = when you mean to use == is one of the more common mistakes in programming Python, fortunately Python warns you that it&apos;s a syntax error, but you might need to look closely to spot the problem.</seg></tuv>
+<tuv xml:lang="CS"><seg>Při programování v Pythonu (a také v C a v C++) patří použití jednoduchého = v místě, kde bychom chtěli použít == k nejčastějším chybám. Python vás v takovém případě naštěstí varuje, že jste se dopustili syntaktické chyby. Někdy se ale musíte pořádně podívat, než si všimnete, o co vlastně jde.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note"></prop>
+<tuv xml:lang="EN"><seg>Note 2: A subtle point to notice is that we perform the greater-than tests from the highest value down to the lowest.</seg></tuv>
+<tuv xml:lang="CS"><seg>Poznámka 2: Za povšimnutí stojí ještě jeden detail. Testy větší než provádíme od největší hodnoty k nejmenší.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>If we did it the other way round the first test, which would be price &gt; 200 would always be true and we would never progress to the &gt; 500 test.</seg></tuv>
+<tuv xml:lang="CS"><seg>Kdybychom postupovali obráceně a začali bychom testem cena &gt; 200, pak bychom se nikdy nedostali k testu cena &gt; 500.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Similarly if using a sequence of less-than tests you must start at the lowest value and work up.</seg></tuv>
+<tuv xml:lang="CS"><seg>Při používání po sobě jdoucích testů menší než musíme naopak začít testovat na nejmenší hodnotu a postupovat směrem k hodnotám vyšším.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>This is another very easy trap to fall into.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jde o další past, do které se můžeme při troše nepozornosti snadno chytit.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>VBScript &amp; JavaScript</seg></tuv>
+<tuv xml:lang="CS"><seg>VBScript &amp; JavaScript</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>You can chain if statements in VBScript and JavaScript too but as it&apos;s pretty self evident I&apos;ll only show a VBScript example here:</seg></tuv>
+<tuv xml:lang="CS"><seg>Příkazy if můžeme řetězit i v jazycích VBScript a JavaScript. Postup je zcela zřejmý. Proto si to ukážeme jen na příkladu v jazyce VBScript:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>&lt;script language=&quot;VBScript&quot;&gt; DIM Price price = InputBox(&quot;What&apos;s the price?&quot;) price = CInt(price) If price = 100 Then MsgBox &quot;I&apos;ll take it!&quot; Else: if price &gt; 500 Then MsgBox &quot;No way Jose!&quot; else: if price &gt; 200 Then MsgBox &quot;How about throwing in a free mouse mat too?&quot; else: MsgBox &quot;price is an unexpected value!&quot; End If End If End If &lt;/script&gt;</seg></tuv>
+<tuv xml:lang="CS"><seg>&lt;script type=&quot;text/vbscript&quot;&gt; DIM Cena cena = InputBox(&quot;Kolik to stojí?&quot;) cena = CInt(cena) If cena = 100 Then MsgBox &quot;Vezmu si to.&quot; Else: if cena &gt; 500 Then MsgBox &quot;Tak to nechci ani náhodou!&quot; else: if cena &gt; 200 Then MsgBox &quot;Co kdybyste přihodil zdarma podložku pod myš?&quot; else: MsgBox &quot;Neočekávaná cena.&quot; End If End If End If &lt;/script&gt;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The only things to note here are that there is an End If statement to match every If statement and that we used the VBScript conversion function CInt to convert from the input string value to an integer.</seg></tuv>
+<tuv xml:lang="CS"><seg>Za zmínku zde stojí jedině to, že ke každému příkazu if musíme uvést odpovídající příklaz End If. Poznamenejme ještě, že pro převod řetězcové hodnoty na celočíselnou jsme použili funkci CInt().</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Case statements</seg></tuv>
+<tuv xml:lang="CS"><seg>Příkazy typu Case</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>One snag with chaining, or nesting if/else statements is that the indentation causes the code to spread across the page very quickly.</seg></tuv>
+<tuv xml:lang="CS"><seg>S používáním zanořených příkazů if/else souvisí jedna potíž. Postupné odsazování způsobí, že se zdrojový text rychle roztáhne přes celou šířku stránky.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>A sequence of nested if/else/if/else... is such a common construction that many languages provide a special type of branch for it.</seg></tuv>
+<tuv xml:lang="CS"><seg>Posloupnost zanořených if/else/if/else… však patří k tak běžným konstrukcím, že některé jazyky poskytují speciální způsob větvení.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>This is often referred to as a Case or Switch statement and the JavaScript version looks like:</seg></tuv>
+<tuv xml:lang="CS"><seg>Zmíněné speciální konstrukce se často označují jako příkazy case nebo switch. V jazyce JavaScript vypadá příkaz switch následovně:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>&lt;script language=&quot;JavaScript&quot;&gt; function doArea(){ var shape, breadth, length, area; shape = document.area.shape.value; breadth = parseInt(document.area.breadth.value); len = parseInt(document.area.len.value); switch (shape){ case &apos;Square&apos;: area = len * len; alert(&quot;Area of &quot; + shape + &quot; = &quot; + area); break; case &apos;Rectangle&apos;: area = len * breadth; alert(&quot;Area of &quot; + shape + &quot; = &quot; + area); break; case &apos;Triangle&apos;: area = len * breadth / 2; alert(&quot;Area of &quot; + shape + &quot; = &quot; + area); break; default: alert(&quot;No shape matching: &quot; + shape) }; } &lt;/script&gt;</seg></tuv>
+<tuv xml:lang="CS"><seg>&lt;script type=&quot;text/javascript&quot;&gt; function vypoctiPlochu() { var tvar, sirka, delka, plocha; tvar = document.plocha.tvar.value; sirka = parseInt(document.plocha.sirka.value); delka = parseInt(document.plocha.delka.value); switch (tvar) { case &apos;ctverec&apos;: plocha = delka * delka; alert(&quot;Plocha tvaru &quot; + tvar + &quot; = &quot; + plocha); break; case &apos;obdelnik&apos;: plocha = delka * sirka; alert(&quot;Plocha tvaru &quot; + tvar + &quot; = &quot; + plocha); break; case &apos;trojuhelnik&apos;: plocha = delka * sirka / 2; alert(&quot;Plocha tvaru &quot; + tvar + &quot; = &quot; + plocha); break; default: alert(&quot;Neznámý tvar: &quot; + tvar) }; } &lt;/script&gt;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>&lt;form name=&quot;area&quot;&gt; Length: &lt;input type=&quot;text&quot; name=&quot;len&quot;&gt; Breadth: &lt;input type=&quot;text&quot; name=&quot;breadth&quot;&gt; Shape: &lt;select name=&quot;shape&quot; size=1 onChange=&quot;doArea()&quot;&gt; &lt;option value=&quot;Square&quot;&gt;Square &lt;option value=&quot;Rectangle&quot;&gt;Rectangle &lt;option value=&quot;Triangle&quot;&gt;Triangle &lt;/select&gt; &lt;/form&gt;</seg></tuv>
+<tuv xml:lang="CS"><seg>&lt;form name=&quot;plocha&quot;&gt; Délka: &lt;input type=&quot;text&quot; name=&quot;delka&quot;&gt; Šířka: &lt;input type=&quot;text&quot; name=&quot;sirka&quot;&gt; Tvar: &lt;select name=&quot;tvar&quot; size=&quot;1&quot; onChange=&quot;vypoctiPlochu()&quot;&gt; &lt;option value=&quot;ctverec&quot;&gt;čtverec &lt;option value=&quot;obdelnik&quot;&gt;obdélník &lt;option value=&quot;trojuhelnik&quot;&gt;trojúhelník &lt;/select&gt; &lt;/form&gt;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The HTML form code just allows us to capture the details and then when the user selects a shape it calls our JavaScript function.</seg></tuv>
+<tuv xml:lang="CS"><seg>Detaily jsou zachyceny v rámci HTML kódu formuláře. Jakmile si uživatel vybere tvar, zavolá se naše funkce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The first few lines simply create some local variables and convert the strings to integers where needed.</seg></tuv>
+<tuv xml:lang="CS"><seg>Na prvních řádcích se vytvářejí lokální proměnné a podle potřeby se řetězce převádějí na čísla.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The bold section is the bit we are really interested in.</seg></tuv>
+<tuv xml:lang="CS"><seg>Zajímá nás úsek, který je vyznačen tučně.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>It selects the appropriate action based on the shape value, notice, by the way, that the parentheses around shape are required.</seg></tuv>
+<tuv xml:lang="CS"><seg>Podle vybraného tvaru se v něm vybírá příslušná akce. Povšimněte si kulatých závorek kolem identifikátoru tvar za klíčovým slovem switch. Jsou povinné — musí být uvedeny.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Each block of code within the case structure is not marked using curly braces, as you might expect, but is instead terminated by a break statement.</seg></tuv>
+<tuv xml:lang="CS"><seg>Mohli byste předpokládat, že bloky kódu uvnitř case by měly být uzavřeny do složených závorek, ale není tomu tak. Místo toho jsou ukončovány příkazem break.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The entire set of case statements for the switch is, however, bound together as a block by a single set of curly braces.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nicméně celá sada příkazů case, která odpovídá části switch, již je svázána do podoby bloku jedním párem složených závorek.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Finally note the final condition is default which is simply a catch-all for anything not caught in the preceding Case statements.</seg></tuv>
+<tuv xml:lang="CS"><seg>Povšimněte si, že poslední podmínka v příkladu má podobu default . V této části se zachytí všechny případy, které se nezachytily v předchozích částech case.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Why not see if you can extend the example to cover circles as well?</seg></tuv>
+<tuv xml:lang="CS"><seg>Vyzkoušejte si, zda byste uměli výše uvedený příklad rozšířit tak, aby pracoval i s kruhem.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Remember to add a new option to the HTML form as well as a new case to the switch.</seg></tuv>
+<tuv xml:lang="CS"><seg>Do HTML formuláře nezapomeňte přidat novou volbu a do příkazu switch přidejte další variantu case.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>VBScript Select Case</seg></tuv>
+<tuv xml:lang="CS"><seg>Příkaz Select Case v jazyce VBScript</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>VBScript has a version too:</seg></tuv>
+<tuv xml:lang="CS"><seg>Verzi příkazu pro výběr jedné z několika variant nalezneme i v jazyce VBScript:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>&lt;script language=&quot;VBScript&quot;&gt; Dim shape, length, breadth, SQUARE, RECTANGLE, TRIANGLE SQUARE = 0 RECTANGLE = 1 TRIANGLE = 2 shape = CInt(InputBox(&quot;Square(0),Rectangle(1) or Triangle(2)?&quot;)) length = CDbl(InputBox(&quot;Length?&quot;)) breadth = CDbl(InputBox(&quot;Breadth?&quot;)) Select Case shape Case SQUARE area = length * length MsgBox &quot;Area = &quot; &amp; area Case RECTANGLE area = length * breadth MsgBox &quot;Area = &quot; &amp; area Case TRIANGLE area = length * breadth / 2 MsgBox &quot;Area = &quot; &amp; area Case Else MsgBox &quot;Shape not recognized&quot; End Select &lt;/script&gt;</seg></tuv>
+<tuv xml:lang="CS"><seg>&lt;script type=&quot;text/vbscript&quot;&gt; Dim tvar, delka, sirka, CTVEREC, OBDELNIK, TROJUHELNIK CTVEREC = 0 OBDELNIK = 1 TROJUHELNIK = 2 tvar = CInt(InputBox(&quot;Čtverec(0), obdélník(1) nebo trojúhelník(2)?&quot;)) delka = CDbl(InputBox(&quot;Délka?&quot;)) sirka = CDbl(InputBox(&quot;Šířka?&quot;)) Select Case tvar Case CTVEREC plocha = delka * delka MsgBox &quot;Plocha = &quot; &amp; plocha Case OBDELNIK plocha = delka * sirka MsgBox &quot;Plocha = &quot; &amp; plocha Case TROJUHELNIK plocha = delka * sirka / 2 MsgBox &quot;Plocha = &quot; &amp; plocha Case Else MsgBox &quot;Neznámý tvar&quot; End Select &lt;/script&gt;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>As with the JavaScript example the first few lines simply collect the data from the user and convert it into the right type.</seg></tuv>
+<tuv xml:lang="CS"><seg>Na několika prvních řádcích se od uživatele získávají data a převádějí se na správný typ — stejně, jako tomu bylo u příkladu v jazyce JavaScript.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The bold Select section shows the VBScript case construct with each successive Case statement active as a block terminator for the previous one.</seg></tuv>
+<tuv xml:lang="CS"><seg>Tučně vyznačená část Select znázorňuje konstrukci typu case, jak se používá v jazyce VBScript. Zasebou uvedené příkazy Case vždy ukončují blok předchozího.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The whole Select construct is closed with the End Select statement.</seg></tuv>
+<tuv xml:lang="CS"><seg>Celou konstrukci Select uzavírá příkaz End Select.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Finally there is a Case Else clause which, like the default in JavaScript catches anything not caught in the Case s above.</seg></tuv>
+<tuv xml:lang="CS"><seg>Nalezneme zde také část Case Else, ve které se (jako v části default jazyka JavaScript) zachytí vše, co nebylo zpracováno dříve uvedenými částmi Case.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>One other feature worth pointing out is the use of Symbolic Constants instead of numbers.</seg></tuv>
+<tuv xml:lang="CS"><seg>Za zmínku stojí ještě použití symbolických konstant místo čísel.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>That is the uppercase variables SQUARE, RECTANGLE and TRIANGLE are there simply to make the code easier to read.</seg></tuv>
+<tuv xml:lang="CS"><seg>Proměnné zapsané velkými písmeny CTVEREC , OBDELNIK a TROJUHELNIK jsou zde jen kvůli tomu, aby se zdrojový text snadněji četl.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The uppercase names are simply a convention to indicate that they are constant values rather than conventional variables, but VBScript allows any variable name you like.</seg></tuv>
+<tuv xml:lang="CS"><seg>Použití proměnných zapsaných velkými písmeny je předepsáno pouze konvencí. Dáváme tím najevo, že bychom je neměli chápat jako běžné proměnné, ale jako proměnné udržující konstantní hodnoty. Jazyk VBScript vám ale dovolí pojmenovat si proměnné podle své libosti.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Python multi-selection</seg></tuv>
+<tuv xml:lang="CS"><seg>case v jazyce Python</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Python does not provide an explicit case construct but rather compromises by providing an easier if/elseif/else format:</seg></tuv>
+<tuv xml:lang="CS"><seg>Python explicitní konstrukci typu case nepodporuje. Místo toho nabízí kompromis v podobě if/elif/else:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>menu = &quot;&quot;&quot; Pick a shape(1-3): 1) Square 2) Rectangle 3) Triangle &quot;&quot;&quot; shape = int(raw_input(menu)) if shape == 1: length = float(raw_input(&quot;Length: &quot;)) print &quot;Area of square = &quot;, length ** 2 elif shape == 2: length = float(raw_input(&quot;Length: &quot;)) width = float(raw_input(&quot;Width: )) print &quot;Area of rectangle = &quot;, length * width elif shape == 3: length = float(raw_input(&quot;Length: &quot;)) width = float(raw_input(&quot;Width: )) print &quot;Area of triangle = &quot;, length * width else: print &quot;Not a valid shape, try again&quot;</seg></tuv>
+<tuv xml:lang="CS"><seg>menu = &quot;&quot;&quot; Vyberte si tvar (1-3): 1) Ctverec 2) Obdelnik 3) Trojuhelnik &quot;&quot;&quot; tvar = int(raw_input(menu)) if tvar == 1: strana = float(raw_input(&quot;Strana: &quot;)) print &quot;Plocha ctverce = &quot;, strana ** 2 elif tvar == 2: delka = float(raw_input(&quot;Delka: &quot;)) sirka = float(raw_input(&quot;Sirka: &quot;)) print &quot;Plocha obdelniku = &quot;, delka * sirka elif tvar == 3: zakladna = float(raw_input(&quot;Zakladna: &quot;)) vyska = float(raw_input(&quot; Vyska: &quot;)) print &quot;Plocha trojuhelniku = &quot;, zakladna * vyska / 2 else: print &quot;Neplatny tvar. Zkute to znovu&quot;</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Note the use of elif and the fact that the indentation (all important in Python) does not change (unlike the nested if statement example). It&apos;s also worth pointing out that both this technique and the earlier nested if/else example are equally valid, the elif technique is just a little easier to read if there are many tests.</seg></tuv>
+<tuv xml:lang="CS"><seg>Povšimněte si použití elif a skutečnosti, že se (v porovnání s příkladem se zanořenými if) nemění odsazení, které je v Pythonu tak důležité. Za zmínku stojí i to, že oba zápisy — jak poslední zápis, tak dříve uvedený zápis využívající vnořených konstrukcí if/else — jsou funkčně shodné. Zápis využívající elif zvyšuje čitelnost v případech, kdy použijeme větší množství testů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The final condition is an else which catches anything not caught by the previous tests, just like the default in JavaScript and Case Else in VBScript.</seg></tuv>
+<tuv xml:lang="CS"><seg>V koncové větvi else se zachytí všechny případy, které nebyly zachyceny v předchozích testech. Odpovídá to použití default v JavaScript nebo Case Else v jazyce VBScript.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>VBScript also provides a slightly more cumbersome version of this technique with ElseIf...Then which is used in exactly the same way as the Python elif but is rarely seen since Select Case is easier to use.</seg></tuv>
+<tuv xml:lang="CS"><seg>O něco těžkopádnější podobu stejné konstrukce naleznete i v jazyce VBScript. Konstrukce ElseIf...Then se používá naprosto stejným způsobem, jako elif v jazyce Python. Ale setkáte se s ní zřídka, protože použití alternativního příkazu Select Case je jednodušší.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Putting it all together</seg></tuv>
+<tuv xml:lang="CS"><seg>Teď to dáme všechno dohromady</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>So far many of our examples have been pretty abstract.</seg></tuv>
+<tuv xml:lang="CS"><seg>Až dosud byly mnohé z našich příkladů velmi abstraktní.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>To conclude let&apos;s take a look at an example that uses nearly everything we&apos;ve learned about so far to introduce a common programming technique, namely displaying menus for controlling user input.</seg></tuv>
+<tuv xml:lang="CS"><seg>Na závěr se podívejme na příklad, který používá téměř vše, co jsme se zatím naučili. Uvedeme si běžnou programovací techniku, konkrétně zobrazení menu pro řízení uživatelského vstupu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Here is the code, followed by a brief discussion: menu = &quot;&quot;&quot; Pick a shape(1-3): 1) Square 2) Rectangle 3) Triangle 4) Quit &quot;&quot;&quot; shape = int(raw_input(menu)) while shape != 4: if shape == 1: length = float(raw_input(&quot;Length: &quot;)) print &quot;Area of square = &quot;, length ** 2 elif shape == 2: length = float(raw_input(&quot;Length: &quot;)) width = float(raw_input(&quot;Width: )) print &quot;Area of rectangle = &quot;, length * width elif shape == 3: length = float(raw_input(&quot;Length: &quot;)) width = float(raw_input(&quot;Width: )) print &quot;Area of triangle = &quot;, length * width else: print &quot;Not a valid shape, try again&quot; shape = int(raw_input(menu))</seg></tuv>
+<tuv xml:lang="CS"><seg>Zde máme kód, za kterým následuje krátká diskuse. menu = &quot;&quot;&quot; Vyberte si tvar (1-3): 1) Ctverec 2) Obdelnik 3) Trojuhelnik 4) Konec &quot;&quot;&quot; tvar = int(raw_input(menu)) while tvar != 4: if tvar == 1: strana = float(raw_input(&quot;Strana: &quot;)) print &quot;Plocha ctverce = &quot;, strana ** 2 elif tvar == 2: delka = float(raw_input(&quot;Delka: &quot;)) sirka = float(raw_input(&quot;Sirka: &quot;)) print &quot;Plocha obdelniku = &quot;, delka * sirka elif tvar == 3: zakladna = float(raw_input(&quot;Zakladna: &quot;)) vyska = float(raw_input(&quot; Vyska: &quot;)) print &quot;Plocha trojuhelniku = &quot;, zakladna * vyska / 2 else: print &quot;Neplatny tvar. Zkute to znovu&quot; tvar = int(raw_input(menu))</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We&apos;ve added just three lines (in bold) to the previous Python example but in so doing have significantly enhanced the usability of our program.</seg></tuv>
+<tuv xml:lang="CS"><seg>K předchozímu příkladu jsme přidali pouhé tři řádky (označeny tučně), ale tato jednoduchá úprava výrazně zvýšila použitelnost našeho programu.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>By adding a Quit option to the menu, plus a while loop we have provided the capability for the user to keep on calculating sizes of different shapes until she has all the information she needs.</seg></tuv>
+<tuv xml:lang="CS"><seg>Doplněním volby Konec a přidáním cyklu jsme uživateli umožnili pokračovat ve výpočtech ploch různých tvarů až do doby, kdy získá všechny potřebné informace.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>There is no need to rerun the program manually each time.</seg></tuv>
+<tuv xml:lang="CS"><seg>Program již nemusí pokaždé ručně znovu a znovu spouštět.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The only other line we added was to repeat the raw_input(menu) shape selection so that the user gets the chance to change the shape and, ultimately, to quit.</seg></tuv>
+<tuv xml:lang="CS"><seg>Kromě již zmíněných řádků jsme přidali pouze jeden řádek s raw_input(menu), který uživateli umožní volit různé tvary a na závěr také činnost programu ukončit.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>What the program does is create the illusion to the user that the program knows what they want to do and does it correctly, acting differently depending what they input.</seg></tuv>
+<tuv xml:lang="CS"><seg>Program tedy uživateli vytváří iluzi, že ví, co uživatel potřebuje. Na základě jeho volby se chová různým způsobem a správně provede odpovídající činnost.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>In essence the user appears to be in control, whereas in fact, the programmer is in control since the he has anticipated all the valid inputs and how the program will react.</seg></tuv>
+<tuv xml:lang="CS"><seg>Uživateli se v podstatě zdá, že postup řídí, zatímco ve skutečnosti má řízení v rukou programátor, který předvídal, jak mají vypadat všechny platné vstupy a jak má na ně program reagovat.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The intelligence on display is that of the programmer, not the machine - computers after all are stupid!</seg></tuv>
+<tuv xml:lang="CS"><seg>Projevovaná inteligence tedy patří programátorovi, nikoliv stroji. Počítače jsou ve své podstatě hloupé!</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>You see how easily we can extend our program just by adding a few lines and combining sequences (the blocks that calculate the area), loops (the while loop) and conditionals (the if/elif structure).</seg></tuv>
+<tuv xml:lang="CS"><seg>Povšimněte si jak snadno můžeme svůj program zdokonalit přidání pouhých pár řádků a zkombinováním posloupností (bloků pro výpočet plochy), cyklů (zde cyklus while) a podmíněných příkazů (konstrukce if/elif/else).</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Dijkstra&apos;s three building blocks of programming.</seg></tuv>
+<tuv xml:lang="CS"><seg>Jde o tři z Dijkstrových základních programátorských stavebních kamenů.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Having covered all three you can, in theory, now go out and program anything, but there are a few more techniques we can learn to make things a bit easier, so don&apos;t rush off just yet.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud zvládnete všechny tři, můžete teoreticky naprogramovat cokoliv. Ale můžeme se naučit ještě několik technik, které nám programování dále usnadní. Takže zatím mějte ještě trochu strpení.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Modifying collections from inside loops</seg></tuv>
+<tuv xml:lang="CS"><seg>Změny v kolekci během provádění cyklu</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We mentioned in the looping topic that modifying a collection from inside a loop was a difficult thing to do, but never got round to explaining how to do it!</seg></tuv>
+<tuv xml:lang="CS"><seg>Když jsme se bavili o cyklech, zmínili jsme se o tom, že úprava kolekce během průchodu cyklem, konkrétné rušení prvků v procházené kolekci, nemusí být zcela jednoduché. Ale nevysvětlili jsme proč!</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The reason is, we had to wait for branching to be explained first.</seg></tuv>
+<tuv xml:lang="CS"><seg>Důvodem pro tento odklad byla skutečnost, že jsme museli nejdříve vysvětlit pojem větvení.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>So here is the solution:</seg></tuv>
+<tuv xml:lang="CS"><seg>Vraťme se tedy k řešení problému.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>If we need to modify the elements of a collection in place we can use a while loop to make the changes as we iterate over it.</seg></tuv>
+<tuv xml:lang="CS"><seg>Pokud potřebujeme měnit obsah kolekce během jejího zpracování (bez kopírování do jiné kolekce), můžeme k tomu využít vlastností cyklu while.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We can do this because in a while construct we have explicit control over the index, unlike the situation in a for loop where the index is automatically updated.</seg></tuv>
+<tuv xml:lang="CS"><seg>Při použití konstrukce while totiž přímo pracujeme s obsahem indexové proměnné. Srovnejte to se situací, kdy se použije cyklus for, který indexovou proměnnou upravuje automaticky.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Let&apos;s see how to delete all zeros from a list:</seg></tuv>
+<tuv xml:lang="CS"><seg>Podívejme se, jak můžeme ze seznamu vypustit všechny prvky s nulovou hodnotou:</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>myList = [1,2,3,0,4,5,0] index = 0 while index &lt; len(myList): if myList[index] == 0: myList.remove(myList[index]) else: index += 1 print myList</seg></tuv>
+<tuv xml:lang="CS"><seg>seznam = [1, 2, 3, 0, 4, 5, 0] index = 0 while index &lt; len(seznam): if seznam[index] == 0: del seznam[index] else: index += 1 print seznam</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The thing to note here is that we do not increment the index if we remove an item, we rely on the deletion moving everything up so that the old index value now points at the next item in the collection.</seg></tuv>
+<tuv xml:lang="CS"><seg>Povšimněte si, že v případě odstraňování prvku neprovádíme zvyšování indexu. Spoléháme na to, že se při smazání položky vše posune, takže původní hodnota indexu bude poté ukazovat na další prvek kolekce.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>We use an if/else branch to control when we increment the index.</seg></tuv>
+<tuv xml:lang="CS"><seg>Zvyšování indexu se tedy provádí jen v jedné větvi konstrukce if/else.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>It&apos;s very easy to make a mistake doing this kind of thing so test your code carefully.</seg></tuv>
+<tuv xml:lang="CS"><seg>Při podobných obratech se můžeme velice snadno dopustit chyby, proto vždy funkčnost pečlivě otestujte.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>There is another set of Python functions which are specifically designed for manipulating list contents and we look at them in the Functional Programming topic in the advanced section of the tutorial.</seg></tuv>
+<tuv xml:lang="CS"><seg>V Pythonu můžeme používat jistou sadu funkcí, které byly přímo navrženy pro manipulaci s obsahy senamů. Seznámíme se s nimi v rámci tématu Funkcionální programování, tedy v části pro pokročilé.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Things to Remember</seg></tuv>
+<tuv xml:lang="CS"><seg>Zapamatujte si</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Use if/else to branch</seg></tuv>
+<tuv xml:lang="CS"><seg>Pro větvení používáme if/else.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>The else is optional</seg></tuv>
+<tuv xml:lang="CS"><seg>Část else je nepovinná.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Multiple decisions can be represented using a Case or if/elif construct</seg></tuv>
+<tuv xml:lang="CS"><seg>K rozhodnutí podle více z možných hodnot lze využít konstrukci typu Case nebo konstrukci if/elif.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Boolean expressions return True or False</seg></tuv>
+<tuv xml:lang="CS"><seg>Boolovské výrazy vracejí hodnoty True nebo False.</seg></tuv> </tu>
+
+<tu creationdate="20130507T071736Z" creationid="LF Aligner 4.04"><prop type="Txt::Note">tutbranch-cztutbranch</prop>
+<tuv xml:lang="EN"><seg>Combining menus with Case constructs allows us to build a wide range of user controlled applications.</seg></tuv>
+<tuv xml:lang="CS"><seg>Kombinování menu s konstrukcemi Case nám umožňuje vytvářet širokou škálu aplikací řízených uživatelem.</seg></tuv> </tu>
+
+
+</body>
+</tmx>

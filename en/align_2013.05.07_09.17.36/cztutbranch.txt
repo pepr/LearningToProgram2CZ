@@ -1,0 +1,202 @@
+Větvení, aneb nechť padne rozhodnutí O čem si budeme povídat?
+Třetí programová konstrukce — větvení.
+Jednoduché a násobné větvení.
+Použití boolovských výrazů.
+Třetím z našich základních stavebních kamenů je větvení nebo také podmíněný příkaz .
+Jde jednoduše o pojmy, které popisují schopnost provést jednu z několika možných posloupností příkazů (jednu z větví) a to v závislosti na nějaké podmínce.
+Dříve, v době programování v assembleru, bylo větvení realizováno nejjednodušším možným způsobem — použitím instrukce JUMP .
+Program v tomto místě doslova skočil na určenou adresu v paměti.
+Obvykle to bylo podmíněno tím, že výsledkem předchozí instrukce byla nula.
+I když nebylo možné použít jiný způsob realizace podmíněného příkazu, byly takto napsány úžasně složité programy.
+To potvrzovalo správnost Dijkstrových tvrzení o minimálních požadavcích potřebných pro programování.
+Když se objevily vyšší programovací jazyky, objevila se i nová podoba instrukce JUMP pod názvem GOTO .
+V jazyce QBASIC, který byl dodáván na instalačních CD ROM starších verzí Windows (před XP), lze GOTO stále používat.
+Pokud máte QBASIC nainstalován, můžete si vyzkoušet následující úsek kódu:
+10 PRINT "Začínáme na řádku 10" 20 J = 5 30 IF J < 10 GOTO 50 40 Print "Tento řádek se nevytiskne" 50 STOP
+Povšimněte si, že dokonce i u tak krátkého programu trvá několik sekund, než přijdete na to co se stane.
+Kód nemá žádnou strukturu.
+Musíte si ji během čtení doslova vytvořit.
+U velkých programů to začne být prakticky nemožné.
+Z tohoto důvodu většina moderních programovacích jazyků — včetně jazyků Python, VBScript a JavaScript — buď příkazy skoku JUMP nebo GOTO nemají, nebo vás od jejich používání odrazují.
+Takže co bychom vlastně místo nich měli použít?
+Příkaz if
+Intuitivně nejzřejmější podobou podmíněného příkazu je konstrukce if, then, else .
+Sleduje logiku anglické věty v tom smyslu, že if (jestliže) je nějaká boolovská podmínka splněna (o boolovských podmínkách se zmíníme dále v textu), then (pak) se provede blok příkazů, v opačném případě (nebo else (jinak)) se provede jiný blok.
+Python
+V jazyce Python vypadá zápis takto:
+import sys # jen proto, abychom mohli program ukončit print "Začínáme zde" j = 5 if j > 10: print "Toto se nikdy nevytiskne" else: sys.exit()
+Takový zápis se ve srovnání s předchozím příkazem s GOTO lépe čte a je srozumitelnější.
+Za slovo if můžeme samozřejmě dosadit libovolnou podmínku testu za předpokladu, že ji lze vyhodnotit jako True nebo False — to znamená jako boolovskou hodnotu.
+Zkuste změnit operátor > na < a pozorujte, co se stane.
+VBScript
+Zápis v jazyce VBScript vypadá podobně:
+<script type="text/vbscript"> MsgBox "Začínáme zde" Dim J J = 5 If J > 10 Then MsgBox "Toto se nikdy nevytiskne." Else MsgBox "Konec programu." End If </script>
+Vždyť je to téměř shodné, že ano?
+Hlavní rozdíl spočívá v použití End If pro označení konce konstrukce.
+A ještě v JavaScript
+V jazyce JavaScript nalezneme samozřejmě příkaz if také:
+<script type="text/javascript"> var j; j = 5; if (j > 10){ document.write("Toto se nikdy nevytiskne."); } else { document.write("Konec programu."); } </script>
+Povimněte si, že JavaScript používá uvnitř částí if a else pro vymezení bloku kódu složené závorky.
+Boolovský test je rovněž uzavřen v závorkách.
+Klíčové slovo then se zde nepoužívá.
+Co se týká stylu, složené závorky můžeme umístit na libovolnou pozici.
+Rozhodl jsem se, že je zarovnám pod sebe prostě proto, abych zdůraznil strukturu bloku.
+Pokud se v bloku nachází jen jediný řádek (jako v našem případě), můžeme závorky úplně vynechat.
+Potřebujeme je jen v případech, kdy mají ohraničit skupinu řádků, které patří do jednoho bloku.
+Boolovské výrazy
+Možná si ještě vzpomínáte, že jsme se v kapitole o datech zmínili o datovém typu boolean .
+Řekli jsme si, že má pouze dvě hodnoty: True a False .
+Boolovské proměnné vytváříme velmi zřídka [1] , ale dočasné boolovské hodnoty často vznikají jako výsledek vyhodnocení výrazů .
+Výrazem rozumíme kombinaci proměnných a hodnot, spojených operátory s cílem vyprodukovat výslednou hodnotu.
+V následujícím příkladu
+if x < 5: print x
+je zápis x < 5 výrazem.
+Pokud je x menší než 5, bude jeho výsledkem hodnota True .
+Pokud je x větší nebo rovno 5, bude výsledkem výrazu hodnota False .
+Výrazy mohou být libovolně složité s tím, že výsledkem jejich vyhodnocení musí být nakonec vždy jediná hodnota.
+V případě větvení musí být výsledkem pravdivostní hodnota True nebo False .
+Nicméně, definice těchto dvou pravdivostních hodnot se jazyk od jazyka liší.
+V mnoha jazycích je hodnota false [2] ztotožněna s hodnotou 0 nebo s hodnotou vyjadřující neexistenci (té se často říká NULL , Nil nebo None ).
+Takže v boolovském kontextu bude například prázdný seznam nebo prázdný řetězec vyhodnocen jako False .
+Takovým způsobem se chová i Python.
+To znamená, že například můžeme využít cyklu while pro zpracování seznamu, které má skončit v okamžiku, kdy je seznam prázdný:
+while seznam: # Proveď nějakou operaci, která vede ke zkrácení seznamu.
+V příkazu if můžeme tento obrat použít k testování prázdnosti seznamu, aniž bychom použili funkci len() :
+if seznam: # něco zde udělej (seznam je prázdný)
+Boolovské výrazy můžeme kombinovat pomocí boolovských operátorů.
+Často tím můžeme zmenšit počet příkazů if .
+Uvažujme následující příklad:
+if hodnota > maximum: print "Hodnota je mimo rozsah!" else: if hodnota < minimum: print "Hodnota je mimo rozsah!"
+Povšimněte si, že blok prováděného kódu je v obou případech shodný.
+Zkombinováním obou testů do jednoho dosáhneme úspory práce jak pro počítač, tak pro nás:
+if (hodnota > maximum) or (hodnota < minimum): print "Hodnota je mimo rozsah!"
+Oba testy jsme spojili operátorem or ( nebo , čili logickým součtem) .
+Dostáváme jediný výraz.
+Python nejdříve vyhodnotí výraz uzavřený v první dvojici závorek, potom výraz v druhých závorkách a nakonec vypočtené hodnoty zpracuje do podoby jediné hodnoty — True nebo False .
+Poznámka překladatele: Výše uvedený odstavec chápejte spíše z obecného pohledu.
+Python ve skutečnosti zpracovává boolovský výraz zleva doprava a skončí v okamžiku, kdy už následující části výrazu nemohou ovlivnit výsledek.
+Říká se tomu zkrácené vyhodnocování výrazu.
+Pokud v uvedeném příkladu získáváme vyhodnocením první závorky hodnotu True , pak při použití operátoru or nemá výsledek vyhodnocování druhé závorky na celkový výsledek vliv.
+Proto se vůbec neprovádí.
+Zkráceného vyhodnocování boolovských výrazů se většinou spíš výhodně využívá.
+Mohou však nastat případy, kdy díky tomuto jevu vzniká obtížněji odhalitelná chyba.
+Pokud bychom v místě druhé části výrazu volali funkci, která vrací boolovský výsledek, ale kromě toho má nějaký vedlejší efekt (například něco vypisuje), pak musíme myslet na to, že se také nemusí vůbec zavolat.
+Na dosažení zmíněného vedlejšího efektu proto nemůžeme při vyhodnocování výrazu spoléhat.
+Pokud o prováděných testech uvažujeme v pojmech přirozeného jazyka, velmi často používáme spojky jako a (anglicky and), nebo (or), negace (ne, není, anglicky not).
+V takovém případě je velmi pravděpodobné, že se nám místo více jednoduchých testů podaří zapsat jeden složený.
+Poznámka překladatele: Pokud uvažujeme v českém jazyce, pak vám doporučuji, abyste si operátor and překládali jako a zároveň .
+Pouhé a může vést k chybám, kdy tuto spojku můžeme chápat ve významu nebo .
+Překlad a zároveň zdůrazní význam operátoru and a pomůže nám snadněji vytvořit mentální obraz situace.
+Zřetězení příkazů if
+Příkazy if /then /else můžeme do sebe vnořovat .
+V jazyce Python to můžeme vyjádřit následovně:
+# Předpokládáme, že cena byla předem stanovena... cena = int(raw_input(u"Kolik to stojí? ")) if cena == 100: print u"Vezmu si to." else: if cena > 500: print u"Tak to nechci ani náhodou!" else: if cena > 200: print u"Co kdybyste přihodil zdarma podložku pod myš?" else: print u"Neočekávaná cena."
+Poznámka 1: V prvním příkazu if jsme pro test na rovnost použili operátor == (tj. zdvojený znak = ).
+Jednoduchý znak = se používá pro přiřazování hodnot proměnným.
+Při programování v Pythonu (a také v C a v C++) patří použití jednoduchého = v místě, kde bychom chtěli použít == k nejčastějším chybám.
+Python vás v takovém případě naštěstí varuje, že jste se dopustili syntaktické chyby.
+Někdy se ale musíte pořádně podívat, než si všimnete, o co vlastně jde.
+Poznámka 2: Za povšimnutí stojí ještě jeden detail.
+Testy větší než provádíme od největší hodnoty k nejmenší.
+Kdybychom postupovali obráceně a začali bychom testem cena > 200 , pak bychom se nikdy nedostali k testu cena > 500 .
+Při používání po sobě jdoucích testů menší než musíme naopak začít testovat na nejmenší hodnotu a postupovat směrem k hodnotám vyšším.
+Jde o další past, do které se můžeme při troše nepozornosti snadno chytit.
+VBScript & JavaScript
+Příkazy if můžeme řetězit i v jazycích VBScript a JavaScript.
+Postup je zcela zřejmý.
+Proto si to ukážeme jen na příkladu v jazyce VBScript:
+<script type="text/vbscript"> DIM Cena cena = InputBox("Kolik to stojí?") cena = CInt(cena) If cena = 100 Then MsgBox "Vezmu si to." Else: if cena > 500 Then MsgBox "Tak to nechci ani náhodou!" else: if cena > 200 Then MsgBox "Co kdybyste přihodil zdarma podložku pod myš?" else: MsgBox "Neočekávaná cena." 	End If End If End If </script>
+Za zmínku zde stojí jedině to, že ke každému příkazu if musíme uvést odpovídající příklaz End If .
+Poznamenejme ještě, že pro převod řetězcové hodnoty na celočíselnou jsme použili funkci CInt() .
+Příkazy typu Case
+S používáním zanořených příkazů if /else souvisí jedna potíž.
+Postupné odsazování způsobí, že se zdrojový text rychle roztáhne přes celou šířku stránky.
+Posloupnost zanořených if/else/if/else… však patří k tak běžným konstrukcím, že některé jazyky poskytují speciální způsob větvení.
+Zmíněné speciální konstrukce se často označují jako příkazy case nebo switch .
+V jazyce JavaScript vypadá příkaz switch následovně:
+<script type="text/javascript"> function vypoctiPlochu() { var tvar, sirka, delka, plocha; tvar = document.plocha.tvar.value; sirka = parseInt(document.plocha.sirka.value); delka = parseInt(document.plocha.delka.value); switch (tvar) { case 'ctverec': plocha = delka * delka; alert("Plocha tvaru " + tvar + " = " + plocha); break; case 'obdelnik': plocha = delka * sirka; alert("Plocha tvaru " + tvar + " = " + plocha); break; case 'trojuhelnik': plocha = delka * sirka / 2; alert("Plocha tvaru " + tvar + " = " + plocha); break; default: alert("Neznámý tvar: " + tvar) }; } </script> <form name="plocha"> Délka: <input type="text" name="delka"> Šířka: <input type="text" name="sirka"> Tvar: <select name="tvar" size="1" onChange="vypoctiPlochu()"> <option value="ctverec">čtverec <option value="obdelnik">obdélník <option value="trojuhelnik">trojúhelník </select> </form>
+Detaily jsou zachyceny v rámci HTML kódu formuláře.
+Jakmile si uživatel vybere tvar, zavolá se naše funkce.
+Na prvních řádcích se vytvářejí lokální proměnné a podle potřeby se řetězce převádějí na čísla.
+Zajímá nás úsek, který je vyznačen tučně.
+Podle vybraného tvaru se v něm vybírá příslušná akce.
+Povšimněte si kulatých závorek kolem identifikátoru tvar za klíčovým slovem switch .
+Jsou povinné — musí být uvedeny.
+Mohlí byste předpokládat, že bloky kódu uvnitř case by měly být uzavřeny do složených závorek, ale není tomu tak.
+Místo toho jsou ukončovány příkazem break .
+Nicméně celá sada příkazů case , která odpovídá části switch , již je svázána do podoby bloku jedním párem složených závorek.
+Povšimněte si, že poslední podmínka v příkladu má podobu default .
+V této části se zachytí všechny případy, které se nezachytily v předchozích částech case .
+Vyzkoušejte si, zda byste uměli výše uvedený příklad rozšířit tak, aby pracoval i s kruhem.
+Do HTML formuláře nezapomeňte přidat novou volbu a do příkazu switch přidejte další variantu case .
+Příkaz Select Case v jazyce VBScript
+Verzi příkazu pro výběr jedné z několika variant nalezneme i v jazyce VBScript:
+<script type="text/vbscript"> Dim tvar, delka, sirka, CTVEREC, OBDELNIK, TROJUHELNIK CTVEREC = 0 OBDELNIK = 1 TROJUHELNIK = 2 tvar = CInt(InputBox("Čtverec(0), obdélník(1) nebo trojúhelník(2)?")) delka = CDbl(InputBox("Délka?")) sirka = CDbl(InputBox("Šířka?")) Select Case tvar Case CTVEREC plocha = delka * delka MsgBox "Plocha = " & plocha Case OBDELNIK plocha = delka * sirka MsgBox "Plocha = " & plocha Case TROJUHELNIK plocha = delka * sirka / 2 MsgBox "Plocha = " & plocha Case Else MsgBox "Neznámý tvar" End Select </script>
+Na několika prvních řádcích se od uživatele získávají data a převádějí se na správný typ — stejně, jako tomu bylo u příkladu v jazyce JavaScript.
+Tučně vyznačená část Select znázorňuje konstrukci typu case, jak se používá v jazyce VBScript.
+Zasebou uvedené příkazy Case vždy ukončují blok předchozího.
+Celou konstrukci Select uzavírá příkaz End Select .
+Nalezneme zde také část Case Else , ve které se (jako v části default jazyka JavaScript) zachytí vše, co nebylo zpracováno dříve uvedenými částmi Case .
+Za zmínku stojí ještě použití symbolických konstant místo čísel.
+Proměnné zapsané velkými písmeny CTVEREC , OBDELNIK a TROJUHELNIK jsou zde jen kvůli tomu, aby se zdrojový text snadněji četl.
+Použití proměnných zapsaných velkými písmeny je předepsáno pouze konvencí.
+Dáváme tím najevo, že bychom je neměli chápat jako běžné proměnné, ale jako proměnné udržující konstantní hodnoty.
+Jazyk VBScript vám ale dovolí pojmenovat si proměnné podle své libosti.
+case v jazyce Python
+Python explicitní konstrukci typu case nepodporuje.
+Místo toho nabízí kompromis v podobě if/elif/else :
+menu = """ Vyberte si tvar (1-3): 1) Ctverec 2) Obdelnik 3) Trojuhelnik """ tvar = int(raw_input(menu)) if tvar == 1: strana = float(raw_input("Strana: ")) print "Plocha ctverce = ", strana ** 2 elif tvar == 2: delka = float(raw_input("Delka: ")) sirka = float(raw_input("Sirka: ")) print "Plocha obdelniku = ", delka * sirka elif tvar == 3: zakladna = float(raw_input("Zakladna: ")) vyska = float(raw_input(" Vyska: ")) print "Plocha trojuhelniku = ", zakladna * vyska / 2 else: print "Neplatny tvar.
+Zkute to znovu" Poznámka překladatele: Abychom se zatím vyhnuli problémům s českými znaky, použili jsme texty bez diakritických znamének.
+Způsob řešení, kdy používáme i české znaky s diakritikou, můžete nalézt v dalších kapitolách.
+Povšimněte si použití elif a skutečnosti, že se (v porovnání s příkladem se zanořenými if ) nemění odsazení, které je v Pythonu tak důležité.
+Za zmínku stojí i to, že oba zápisy — jak poslední zápis, tak dříve uvedený zápis využívající vnořených konstrukcí if/else — jsou funkčně shodné.
+Zápis využívající elif zvyšuje čitelnost v případech, kdy použijeme větší množství testů.
+V koncové větvi else se zachytí všechny případy, které nebyly zachyceny v předchozích testech.
+Odpovídá to použití default v JavaScript nebo Case Else v jazyce VBScript.
+O něco těžkopádnější podobu stejné konstrukce naleznete i v jazyce VBScript.
+Konstrukce ElseIf...Then se používá naprosto stejným způsobem, jako elif v jazyce Python.
+Ale setkáte se s ní zřídka, protože použití alternativního příkazu Select Case je jednodušší.
+Teď to dáme všechno dohromady
+Až dosud byly mnohé z našich příkladů velmi abstraktní.
+Na závěr se podívejme na příklad, který používá téměř vše, co jsme se zatím naučili.
+Uvedeme si běžnou programovací techniku, konkrétně zobrazení menu pro řízení uživatelského vstupu.
+Zde máme kód, za kterým následuje krátká diskuse.
+menu = """ Vyberte si tvar (1-3): 1) Ctverec 2) Obdelnik 3) Trojuhelnik 4) Konec """ tvar = int(raw_input(menu)) while tvar != 4: if tvar == 1: strana = float(raw_input("Strana: ")) print "Plocha ctverce = ", strana ** 2 elif tvar == 2: delka = float(raw_input("Delka: ")) sirka = float(raw_input("Sirka: ")) print "Plocha obdelniku = ", delka * sirka elif tvar == 3: zakladna = float(raw_input("Zakladna: ")) vyska = float(raw_input(" Vyska: ")) print "Plocha trojuhelniku = ", zakladna * vyska / 2 else: print "Neplatny tvar.
+Zkute to znovu" tvar = int(raw_input(menu))
+K předchozímu příkladu jsme přidali pouhé tři řádky (označeny tučně), ale tato jednoduchá úprava výrazně zvýšila použitelnost našeho programu.
+Doplněním volby Konec a přidáním cyklu jsme uživateli umožnili pokračovat ve výpočtech ploch různých tvarů až do doby, kdy získá všechny potřebné informace.
+Program již nemusí pokaždé ručně znovu a znovu spouštět.
+Kromě již zmíněných řádků jsme přidali pouze jeden řádek s raw_input(menu) , který slouží k opakovanému výběru tvaru.
+To znamená že uživatel může volit různé tvary a na závěr také činnost programu ukončit.
+Program tedy uživateli vytváří iluzi, že ví, co uživatel potřebuje.
+Na základě jeho volby se chová různým způsobem a správně provede odpovídající činnost.
+Uživateli se v podstatě zdá, že postup řídí, zatímco ve skutečnosti má řízení v rukou programátor, který předvídal, jak mají vypadat všechny platné vstupy a jak má na ně program reagovat.
+Projevovaná inteligence tedy patří programátorovi, nikoliv stroji.
+Počítače jsou ve své podstatě hloupé!
+Povšimněte si jak snadno můžeme svůj program zdokonalit přidání pouhých pár řádků a zkombinováním posloupností (bloků pro výpočet plochy), cyklů (zde cyklus while ) a podmíněných příkazů (konstrukce if /elif /else ).
+Jde o tři z Dijkstrových základních programátorských stavebních kamenů .
+Pokud zvládnete všechny tři, můžete teoreticky naprogramovat cokoliv.
+Ale můžeme se naučit ještě několik technik, které nám programování dále usnadní.
+Takže zatím mějte ještě trochu strpení.
+Změny v kolekci během provádění cyklu Když jsme se bavili o cyklech, zmínili jsme se o tom, že úprava kolekce během průchodu cyklem , konkrétné rušení prvků v procházené kolekci , nemusí být zcela jednoduché.
+Ale nevysvětlili jsme proč!
+Důvodem pro tento odklad byla skutečnost, že jsme museli nejdříve vysvětlit pojem větvení .
+Vraťme se tedy k řešení problému.
+Pokud potřebujeme měnit obsah kolekce během jejího zpracování (bez kopírování do jiné kolekce), můžeme k tomu využít vlastností cyklu while .
+Při použití konstrukce while totiž přímo pracujeme s obsahem indexové proměnné.
+Srovnejte to se situací, kdy se použije cyklus for , který indexovou proměnnou upravuje automaticky.
+Podívejme se, jak můžeme ze seznamu vypustit všechny prvky s nulovou hodnotou:
+seznam = [1, 2, 3, 0, 4, 5, 0] index = 0 while index < len(seznam): if seznam[index] == 0: del seznam[index] else: index += 1 print seznam
+Povšimněte si, že v případě odstraňování prvku neprovádíme zvyšování indexu .
+Spoléháme na to, že se při smazání položky vše posune, takže původní hodnota indexu bude poté ukazovat na další prvek kolekce.
+Zvyšování indexu se tedy provádí jen v jedné větvi konstrukce if/else .
+Při podobných obratech se můžeme velice snadno dopustit chyby, proto vždy funkčnost pečlivě otestujte.
+V Pythonu můžeme používat jistou sadu funkcí, které byly přímo navrženy pro manipulaci s obsahy senamů.
+Seznámíme se s nimi v rámci tématu Funkcionální programování , tedy v části pro pokročilé.
+Zapamatujte si
+Pro větvení používáme if/else .
+Část else je nepovinná.
+K rozhodnutí podle více z možných hodnot lze využít konstrukci typu Case nebo konstrukci if/elif .
+Boolovské výrazy vracejí hodnoty True nebo False .
+Kombinování menu s konstrukcemi Case nám umožňuje vytvářet širokou škálu aplikací řízených uživatelem. [ předchozí | obsah | další ]
+Pokud vás napadne, co by se dalo na překladu této kapitoly vylepšit, zašlete e-mail odklepnutím
