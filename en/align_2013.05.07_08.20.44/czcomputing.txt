@@ -1,0 +1,23 @@
+Níže uvedený text pochází z prvního vydání.
+Nad tímto textem se nachází aktuální stav po revizi směřující k druhému vydání.
+Počítačová témata Aktuální témata
+Můžete si přečíst následující krátké články:
+Příručka pro začátečníky k editoru IBM ISPF .
+Můj pohled a názory na UML .
+Mé osobní zkušenosti a pohledy na různé programovací jazyky .
+Mé znalosti kolem počítačů
+S počítači jsem začal v roce 1974 prostřednictvím vytáčené linky z mé školy na počítač v areálu Stirlingovy univerzity.
+Na děrovači děrné pásky jsme psali programy v jazyce BASIC.
+Obsah pásek se po lince posílal během noci a výsledky přicházely zpět poštou asi o tři dny později.
+Jak si jistě dovedete představit, naše programy byly nudné a velmi krátké.
+Mé další setkání s počítačem se vztahuje k době, kdy Clive Sinclair vytvořil ohromující ZX81.
+Koupily si jej milióny lidí, včetně jednoho z mých kamarádů.
+Vlastně jsme v něm napsali velmi jednoduchý skladový program — samozřejmě v jazyku BASIC.
+Vážněji jsem se o počítače začal zajímat v době, kdy jsem se začal na univerzitě usilovat o bakalářský titul v oboru elektroniky.
+Programování bylo součástí kurzu, takže jsem neměl možnost úniku.
+Ale postupně mě jeho čistě abstraktní přirozenost začala bavit.
+A jakmile jsem se naučil, jak připojit mikroprocesor k nějakému jinému technickému zařízení a přinutit je dělat něco opravdového, byl jsem programováním polapen.
+Pracoval jsem s následujícími systémy/jazyky (přibližně v uvedeném pořadí):
+Commodore PET/Pascal Rockwell AIM65/Assembler 6502 Sinclair ZX Spectrum/Pascal IBM PC/C a assembler 8086 Sinclair QL/Pascal Amstrad PCW8256 (CP/M)/Pascal, C, Prolog, Logo a assembler 8085 IBM PC/Turbo Pascal IBM PC (se systémem OS-9)/C VAX VMS a PSOS/C VAX VMS/C++ BT M5000 (Unix)/C Sun Sparc1/C, Bourne shell, elisp a awk Sun Sparc2/jako u předchozího a navíc C++ a ksh IBM PC/Borland Delphi IBM PC (se systémem Linux)/C, C++, Perl, Tcl/Tk a Python.
+IBM MVS (sálový počítač)/COBOL a JCL [ zpět ]
+Pokud vás napadne, co by se dalo na překladu této kapitoly vylepšit, zašlete e-mail odklepnutím

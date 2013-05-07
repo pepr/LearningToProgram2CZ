@@ -1,0 +1,17 @@
+Computing Topics Scotland The rest of the World Me again Current Topics
+You can read short papers about: A beginners guide to the IBM ISPF editor My opinions on UML .
+My personal experiences and view of various programming languages
+There's also a beginners introduction to programming .
+This is still under construction but any feedback is welcome.
+My Computing Background
+I started on computing in 1974 with a dial up link from my school to Stirling University campus computer.
+We wrote BASIC programs on a paper-tape punch.
+The tapes were sent down the wire overnight and our output came back in the mail about 3 days later.
+As you can imagine our programs were boring and very short!
+My next encounter was when Clive Sinclair produced the amazing ZX81 which many millions of people bought, including one of my friends.
+We actually wrote a very basic stock control program on it - in BASIC, of course!
+I started getting serious when I went to university to do a BEng in Electronics.
+Computing was part of the course so there was no escape but gradually I came to enjoy the purely abstract nature of the beast.
+Once I learned how to hook a micro up to hardware and get it to do real work I was hooked!
+I have worked with the following systems/languages (in approximate order of use): Commodore PET/Pascal Rockwell AIM65/6502 Assembler Sinclair ZX Spectrum/Pascal IBM PC/C and 8086 assembler Sinclair QL/Pascal Amstrad PCW8256(CP/M)/Pascal, C, Prolog, Logo and 8085 assembler IBM PC/Turbo Pascal IBM PC(running OS-9)/C VAX VMS and PSOS/C VAX VMS/C++ BT M5000(Unix)/C Sun Sparc1/C, Bourne shell, elisp and awk Sun Sparc2/all above plus C++ and ksh IBM PC/Borland Delphi IBM PC(with Linux)/C, C++, Perl, Tcl/Tk and Python.
+IBM MVS mainframe/COBOL and JCL

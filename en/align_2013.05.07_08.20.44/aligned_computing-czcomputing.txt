@@ -1,0 +1,25 @@
+﻿	Níže uvedený text pochází z prvního vydání.	computing-czcomputing
+	Nad tímto textem se nachází aktuální stav po revizi směřující k druhému vydání.	computing-czcomputing
+Computing Topics	Počítačová témata	computing-czcomputing
+Scotland		computing-czcomputing
+The rest of the World		computing-czcomputing
+Me again		computing-czcomputing
+Current Topics	Aktuální témata	computing-czcomputing
+You can read short papers about: A beginners guide to the IBM ISPF editor.	Můžete si přečíst následující krátké články: Příručka pro začátečníky k editoru IBM ISPF.	computing-czcomputing
+My opinions on UML.	Můj pohled a názory na UML.	computing-czcomputing
+My personal experiences and view of various programming languages.	Mé osobní zkušenosti a pohledy na různé programovací jazyky.	computing-czcomputing
+There's also a beginners introduction to programming.		computing-czcomputing
+This is still under construction but any feedback is welcome.		computing-czcomputing
+My Computing Background	Mé znalosti kolem počítačů	computing-czcomputing
+I started on computing in 1974 with a dial up link from my school to Stirling University campus computer.	S počítači jsem začal v roce 1974 prostřednictvím vytáčené linky z mé školy na počítač v areálu Stirlingovy univerzity.	computing-czcomputing
+We wrote BASIC programs on a paper-tape punch.	Na děrovači děrné pásky jsme psali programy v jazyce BASIC.	computing-czcomputing
+The tapes were sent down the wire overnight and our output came back in the mail about 3 days later.	Obsah pásek se po lince posílal během noci a výsledky přicházely zpět poštou asi o tři dny později.	computing-czcomputing
+As you can imagine our programs were boring and very short!	Jak si jistě dovedete představit, naše programy byly nudné a velmi krátké.	computing-czcomputing
+My next encounter was when Clive Sinclair produced the amazing ZX81 which many millions of people bought, including one of my friends.	Mé další setkání s počítačem se vztahuje k době, kdy Clive Sinclair vytvořil ohromující ZX81. Koupily si jej milióny lidí, včetně jednoho z mých kamarádů.	computing-czcomputing
+We actually wrote a very basic stock control program on it - in BASIC, of course!	Vlastně jsme v něm napsali velmi jednoduchý skladový program — samozřejmě v jazyku BASIC.	computing-czcomputing
+I started getting serious when I went to university to do a BEng in Electronics.	Vážněji jsem se o počítače začal zajímat v době, kdy jsem se začal na univerzitě usilovat o bakalářský titul v oboru elektroniky.	computing-czcomputing
+Computing was part of the course so there was no escape but gradually I came to enjoy the purely abstract nature of the beast.	Programování bylo součástí kurzu, takže jsem neměl možnost úniku. Ale postupně mě jeho čistě abstraktní přirozenost začala bavit.	
+Once I learned how to hook a micro up to hardware and get it to do real work I was hooked!	A jakmile jsem se naučil, jak připojit mikroprocesor k nějakému jinému technickému zařízení a přinutit je dělat něco opravdového, byl jsem programováním polapen.	
+I have worked with the following systems/languages (in approximate order of use): Commodore PET/Pascal Rockwell AIM65/6502 Assembler Sinclair ZX Spectrum/Pascal IBM PC/C and 8086 assembler Sinclair QL/Pascal Amstrad PCW8256(CP/M)/Pascal, C, Prolog, Logo and 8085 assembler IBM PC/Turbo Pascal IBM PC(running OS-9)/C VAX VMS and PSOS/C VAX VMS/C++ BT M5000(Unix)/C Sun Sparc1/C, Bourne shell, elisp and awk Sun Sparc2/all above plus C++ and ksh IBM PC/Borland Delphi IBM PC(with Linux)/C, C++, Perl, Tcl/Tk and Python.	Pracoval jsem s následujícími systémy/jazyky (přibližně v uvedeném pořadí): Commodore PET/Pascal Rockwell AIM65/Assembler 6502 Sinclair ZX Spectrum/Pascal IBM PC/C a assembler 8086 Sinclair QL/Pascal Amstrad PCW8256 (CP/M)/Pascal, C, Prolog, Logo a assembler 8085 IBM PC/Turbo Pascal IBM PC (se systémem OS-9)/C VAX VMS a PSOS/C VAX VMS/C++ BT M5000 (Unix)/C Sun Sparc1/C, Bourne shell, elisp a awk Sun Sparc2/jako u předchozího a navíc C++ a ksh IBM PC/Borland Delphi IBM PC (se systémem Linux)/C, C++, Perl, Tcl/Tk a Python.	
+IBM MVS mainframe/COBOL and JCL	IBM MVS (sálový počítač)/COBOL a JCL	
+	[ zpět ] Pokud vás napadne, co by se dalo na překladu této kapitoly vylepšit, zašlete e-mail odklepnutím	
