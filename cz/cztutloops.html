@@ -1,37 +1,37 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Příkazy cyklu</title>
+  <title>Jak se nauÄŤit programovat: PĹ™Ă­kazy cyklu</title>
 </head>
 <body>
 
-<h2>Příkazy cyklu, aneb umění opakování se</h2>
+<h2>PĹ™Ă­kazy cyklu, aneb umÄ›nĂ­ opakovĂˇnĂ­ se</h2>
 
 <div class="whatcovered">
-<p class="title">O čem si budeme povídat?</p>
+<p class="title">O ÄŤem si budeme povĂ­dat?</p>
 
 <ul>
-<li>Řekneme si, jak užívat cykly, abychom se vyhnuli opakovanému psaní
-    příkazů.</li>
-<li>Ukážeme si různé typy cyklů a to, kdy je máme použít.</li>    
+<li>Ĺekneme si, jak uĹľĂ­vat cykly, abychom se vyhnuli opakovanĂ©mu psanĂ­
+    pĹ™Ă­kazĹŻ.</li>
+<li>UkĂˇĹľeme si rĹŻznĂ© typy cyklĹŻ a to, kdy je mĂˇme pouĹľĂ­t.</li>
 </ul>
 
 </div>
 
-<p>Na konci předchozí kapitoly jsme si vytiskli část tabulky násobků čísla
-12. Ale stálo nás to mnoho psaní a pokud bychom potřebovali tabulku
-rozšířit, bylo by to velmi časově náročné. Naštěstí existuje lepší způsob a
-na něm si ukážeme opravdovou sílu, kterou nám programovací jazyky
-nabízejí.</p>
+<p>Na konci pĹ™edchozĂ­ kapitoly jsme si vytiskli ÄŤĂˇst tabulky nĂˇsobkĹŻ ÄŤĂ­sla
+12. Ale stĂˇlo nĂˇs to mnoho psanĂ­ a pokud bychom potĹ™ebovali tabulku
+rozĹˇĂ­Ĺ™it, bylo by to velmi ÄŤasovÄ› nĂˇroÄŤnĂ©. NaĹˇtÄ›stĂ­ existuje lepĹˇĂ­ zpĹŻsob a
+na nÄ›m si ukĂˇĹľeme opravdovou sĂ­lu, kterou nĂˇm programovacĂ­ jazyky
+nabĂ­zejĂ­.</p>
 
 <h3>Cyklus typu FOR</h3>
 
-<p>Nyní si ukážeme, jak v programovacím jazyku zapíšeme, že se něco má
-opakovat. Budeme dosazovat hodnotu proměnné a při každém opakování ji
-současně budeme zvyšovat. Zápis v jazyce Python vypadá takto:</p>
+<p>NynĂ­ si ukĂˇĹľeme, jak v programovacĂ­m jazyku zapĂ­Ĺˇeme, Ĺľe se nÄ›co mĂˇ
+opakovat. Budeme dosazovat hodnotu promÄ›nnĂ© a pĹ™i kaĹľdĂ©m opakovĂˇnĂ­ ji
+souÄŤasnÄ› budeme zvyĹˇovat. ZĂˇpis v jazyce Python vypadĂˇ takto:</p>
 
 <pre>
 >>> for i in range(1, 13):
@@ -39,61 +39,61 @@ současně budeme zvyšovat. Zápis v jazyce Python vypadá takto:</p>
 ...
 </pre>
 
-<p><b>Poznámka 1:</b> V příkazu <code>range(1,&nbsp;13)</code> musíme použít 13,
-protože <code>range()</code> generuje čísla od dolní hranice včetně až po
-horní zadanou hranici vyjma. Na první pohled se vám to může zdát podivné,
-ale jsou pro to dobré důvody a časem si na to zvyknete.</p>
+<p><b>PoznĂˇmka 1:</b> V pĹ™Ă­kazu <code>range(1,&nbsp;13)</code> musĂ­me pouĹľĂ­t 13,
+protoĹľe <code>range()</code> generuje ÄŤĂ­sla od dolnĂ­ hranice vÄŤetnÄ› aĹľ po
+hornĂ­ zadanou hranici vyjma. Na prvnĂ­ pohled se vĂˇm to mĹŻĹľe zdĂˇt podivnĂ©,
+ale jsou pro to dobrĂ© dĹŻvody a ÄŤasem si na to zvyknete.</p>
 
-<p><b>Poznámka 2:</b> Operátor <code>for</code> jazyka Python je ve
-skutečnosti operátorem, který bývá označován jako <em>foreach</em> <span
-class="trnote" title="Poznámka překladatele">(doslova <em>pro
-každý</em>)</span>. Následující posloupnost příkazů je provedena pro každý
-prvek kolekce. V našem případě je touto kolekcí seznam čísel generovaných
-funkcí <code>range()</code>. Můžete si to ověřit zapsáním příkazu
-<code>print&nbsp;range(1,&nbsp;13)</code> na příkazový řádek interpretu
-jazyka Python. Uvidíte, co se vytiskne.</p>
+<p><b>PoznĂˇmka 2:</b> OperĂˇtor <code>for</code> jazyka Python je ve
+skuteÄŤnosti operĂˇtorem, kterĂ˝ bĂ˝vĂˇ oznaÄŤovĂˇn jako <em>foreach</em> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(doslova <em>pro
+kaĹľdĂ˝</em>)</span>. NĂˇsledujĂ­cĂ­ posloupnost pĹ™Ă­kazĹŻ je provedena pro kaĹľdĂ˝
+prvek kolekce. V naĹˇem pĹ™Ă­padÄ› je touto kolekcĂ­ seznam ÄŤĂ­sel generovanĂ˝ch
+funkcĂ­ <code>range()</code>. MĹŻĹľete si to ovÄ›Ĺ™it zapsĂˇnĂ­m pĹ™Ă­kazu
+<code>print&nbsp;range(1,&nbsp;13)</code> na pĹ™Ă­kazovĂ˝ Ĺ™Ăˇdek interpretu
+jazyka Python. UvidĂ­te, co se vytiskne.</p>
 
-<p><b>Poznámka 3:</b> Řádek s příkazem <code>print</code> je
-<em>odsazen</em> více, než předcházející řádek s příkazem <code>for</code>.
-To je velmi důležité, protože tím překladači jazyka Python dáváme najevo, že
-chceme opakovat právě příkaz <code>print</code>. Mohou následovat i další
-odsazené řádky. Python bude pro každý prvek z kolekce opakovat všechny
-odsazené řádky. Nezáleží na tom, jak velké odsazení použijete, ale zvolenou
-hodnotu odsazení musíte dodržovat.</p>
+<p><b>PoznĂˇmka 3:</b> ĹĂˇdek s pĹ™Ă­kazem <code>print</code> je
+<em>odsazen</em> vĂ­ce, neĹľ pĹ™edchĂˇzejĂ­cĂ­ Ĺ™Ăˇdek s pĹ™Ă­kazem <code>for</code>.
+To je velmi dĹŻleĹľitĂ©, protoĹľe tĂ­m pĹ™ekladaÄŤi jazyka Python dĂˇvĂˇme najevo, Ĺľe
+chceme opakovat prĂˇvÄ› pĹ™Ă­kaz <code>print</code>. Mohou nĂˇsledovat i dalĹˇĂ­
+odsazenĂ© Ĺ™Ăˇdky. Python bude pro kaĹľdĂ˝ prvek z kolekce opakovat vĹˇechny
+odsazenĂ© Ĺ™Ăˇdky. NezĂˇleĹľĂ­ na tom, jak velkĂ© odsazenĂ­ pouĹľijete, ale zvolenou
+hodnotu odsazenĂ­ musĂ­te dodrĹľovat.</p>
 
-<p><b>Poznámka 4:</b> Pokud s překladačem jazyka Python pracujete v
-interaktivním režimu, spustí se program až po dvojím stisku klávesy Enter.
-Důvod spočívá v tom, že po prvním stisku překladač jazyka Python nepozná,
-zda chcete k posloupnosti opakovaných příkazů přidat další řádek, či
-nikoliv. Pokud stisknete klávesu Enter podruhé, Python předpokládá, že jste
-již dokončili vkládání příkazů a program spustí.</p>
+<p><b>PoznĂˇmka 4:</b> Pokud s pĹ™ekladaÄŤem jazyka Python pracujete v
+interaktivnĂ­m reĹľimu, spustĂ­ se program aĹľ po dvojĂ­m stisku klĂˇvesy Enter.
+DĹŻvod spoÄŤĂ­vĂˇ v tom, Ĺľe po prvnĂ­m stisku pĹ™ekladaÄŤ jazyka Python nepoznĂˇ,
+zda chcete k posloupnosti opakovanĂ˝ch pĹ™Ă­kazĹŻ pĹ™idat dalĹˇĂ­ Ĺ™Ăˇdek, ÄŤi
+nikoliv. Pokud stisknete klĂˇvesu Enter podruhĂ©, Python pĹ™edpoklĂˇdĂˇ, Ĺľe jste
+jiĹľ dokonÄŤili vklĂˇdĂˇnĂ­ pĹ™Ă­kazĹŻ a program spustĂ­.</p>
 
-<p>Takže jak uvedený program pracuje? Projdeme si jej krok po kroku.</p>
+<p>TakĹľe jak uvedenĂ˝ program pracuje? Projdeme si jej krok po kroku.</p>
 
-<p>Python nejdříve použije funkci <code>range()</code> pro vytvoření seznamu
-čísel od 1 do 12. Poté přiřadí proměnné <code>i</code> první hodnotu
-seznamu. Následuje provedení odsazeného kódu při použití hodnoty
+<p>Python nejdĹ™Ă­ve pouĹľije funkci <code>range()</code> pro vytvoĹ™enĂ­ seznamu
+ÄŤĂ­sel od 1 do 12. PotĂ© pĹ™iĹ™adĂ­ promÄ›nnĂ© <code>i</code> prvnĂ­ hodnotu
+seznamu. NĂˇsleduje provedenĂ­ odsazenĂ©ho kĂłdu pĹ™i pouĹľitĂ­ hodnoty
 <code>i&nbsp;=&nbsp;1</code>:</p>
 
 <pre>
     print "%d x 12 = %d" % (1, 1*12)
 </pre>
 
-<p>Potom se Python vrátí zpět na řádek příkazem <code>for</code> a přiřadí
-<code>i</code> další hodnotu se seznamu, tentokrát 2. Opět se provede
-odsazený kus kódu, tentokrát s hodnotou <code>i&nbsp;=&nbsp;2</code>:</p>
+<p>Potom se Python vrĂˇtĂ­ zpÄ›t na Ĺ™Ăˇdek pĹ™Ă­kazem <code>for</code> a pĹ™iĹ™adĂ­
+<code>i</code> dalĹˇĂ­ hodnotu se seznamu, tentokrĂˇt 2. OpÄ›t se provede
+odsazenĂ˝ kus kĂłdu, tentokrĂˇt s hodnotou <code>i&nbsp;=&nbsp;2</code>:</p>
 <pre>
     print "%d x 12 = %d" % (2, 2*12)
 </pre>
 
-<p>Python bude odsazenou posloupnost příkazů opakovat až do doby, kdy byly
-proměnné <code>i</code> přiřazeny všechny hodnoty seznamu. V ten
-okamžik<span class="trnote" title="Poznámka překladatele">, po provedení
-těla cyklu s poslední hodnotou v proměnné <code>i</code>,</span> se
-provádění přesune na další příkaz, který <em>není</em> odsazen. V našem
-příkladu žádné další příkazy nemáme, takže dojde k ukončení programu.</p>
+<p>Python bude odsazenou posloupnost pĹ™Ă­kazĹŻ opakovat aĹľ do doby, kdy byly
+promÄ›nnĂ© <code>i</code> pĹ™iĹ™azeny vĹˇechny hodnoty seznamu. V ten
+okamĹľik<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">, po provedenĂ­
+tÄ›la cyklu s poslednĂ­ hodnotou v promÄ›nnĂ© <code>i</code>,</span> se
+provĂˇdÄ›nĂ­ pĹ™esune na dalĹˇĂ­ pĹ™Ă­kaz, kterĂ˝ <em>nenĂ­</em> odsazen. V naĹˇem
+pĹ™Ă­kladu ĹľĂˇdnĂ© dalĹˇĂ­ pĹ™Ă­kazy nemĂˇme, takĹľe dojde k ukonÄŤenĂ­ programu.</p>
 
-<h4>Stejný cyklus v jazyce VBScript</h4>
+<h4>StejnĂ˝ cyklus v jazyce VBScript</h4>
 
 <pre>
 &lt;script type="text/vbscript">
@@ -103,21 +103,21 @@ Next
 &lt;/script>
 </pre>
 
-<p>V tomto zápisu je mnohem lépe na první pohled vidět, co se děje. Hodnota
-<code>I</code> se mění od 1 až do 12 a provádí se kód uvedený před klíčovým
-slovem <code>Next</code>. V našem případě se výsledky jednoduše zobrazují v
-dialogovém okně. Odsazení <span class="trnote"
-title="Poznámka&nbsp;překladatele">příkazu <code>MsgBox</code></span> je
-nepovinné, ale díky němu se kód čte snadněji.</p>
+<p>V tomto zĂˇpisu je mnohem lĂ©pe na prvnĂ­ pohled vidÄ›t, co se dÄ›je. Hodnota
+<code>I</code> se mÄ›nĂ­ od 1 aĹľ do 12 a provĂˇdĂ­ se kĂłd uvedenĂ˝ pĹ™ed klĂ­ÄŤovĂ˝m
+slovem <code>Next</code>. V naĹˇem pĹ™Ă­padÄ› se vĂ˝sledky jednoduĹˇe zobrazujĂ­ v
+dialogovĂ©m oknÄ›. OdsazenĂ­ <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">pĹ™Ă­kazu <code>MsgBox</code></span> je
+nepovinnĂ©, ale dĂ­ky nÄ›mu se kĂłd ÄŤte snadnÄ›ji.</p>
 
-<p>Poznamenejme, že ačkoliv zápis v jazyce VBScript vypadá jasněji,
-pythonovská verze je mnohem pružnější. Proč, to uvidíme za chvíli.</p>
+<p>Poznamenejme, Ĺľe aÄŤkoliv zĂˇpis v jazyce VBScript vypadĂˇ jasnÄ›ji,
+pythonovskĂˇ verze je mnohem pruĹľnÄ›jĹˇĂ­. ProÄŤ, to uvidĂ­me za chvĂ­li.</p>
 
-<div class="trnote" title="Poznámka&nbsp;překladatele">
+<div class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">
 
-<p><b>Poznámka překladatele:</b> Zápis příkladu v jazyce Python můžeme
-přiblížit podobě příkladu v jazyce VBScript tím, že nevyužijeme výhod
-použití formátovacího řetězce:</p>
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> ZĂˇpis pĹ™Ă­kladu v jazyce Python mĹŻĹľeme
+pĹ™iblĂ­Ĺľit podobÄ› pĹ™Ă­kladu v jazyce VBScript tĂ­m, Ĺľe nevyuĹľijeme vĂ˝hod
+pouĹľitĂ­ formĂˇtovacĂ­ho Ĺ™etÄ›zce:</p>
 
 <pre>
 >>> for i in range(1, 13):
@@ -125,9 +125,9 @@ použití formátovacího řetězce:</p>
 ...
 </pre>
 
-<p>Jednou z výhod použití formátovacího řetězce je ale například možnost
-předepsat, jak se má číslo naformátovat &mdash; tj. na kolik pozic se má
-tisknout. Vyzkoušejte:</p>
+<p>Jednou z vĂ˝hod pouĹľitĂ­ formĂˇtovacĂ­ho Ĺ™etÄ›zce je ale napĹ™Ă­klad moĹľnost
+pĹ™edepsat, jak se mĂˇ ÄŤĂ­slo naformĂˇtovat &mdash; tj. na kolik pozic se mĂˇ
+tisknout. VyzkouĹˇejte:</p>
 
 <pre>
 >>> for i in range(1, 13):
@@ -137,10 +137,10 @@ tisknout. Vyzkoušejte:</p>
 </div>
 
 
-<h4>A totéž v JavaScript</h4>
+<h4>A totĂ©Ĺľ v JavaScript</h4>
 
-<p>Konstrukci <code>for</code>, která je běžná ve více programovacích
-jazycích, přebírá JavaScript z jazyka C. Vypadá takto:</p>
+<p>Konstrukci <code>for</code>, kterĂˇ je bÄ›ĹľnĂˇ ve vĂ­ce programovacĂ­ch
+jazycĂ­ch, pĹ™ebĂ­rĂˇ JavaScript z jazyka C. VypadĂˇ takto:</p>
 
 <pre>
 &lt;script type="text/javascript">
@@ -150,54 +150,54 @@ for (i = 1; i &lt;= 12; i++) {
 &lt;/script>
 </pre>
 
-<p><b>Poznámka:</b> Tato konstrukce má v kulatých závorkách uvedeny tři
-části:</p>
+<p><b>PoznĂˇmka:</b> Tato konstrukce mĂˇ v kulatĂ˝ch zĂˇvorkĂˇch uvedeny tĹ™i
+ÄŤĂˇsti:</p>
 
 <ul>
-<li><em>Inicializační část</em> <code>i&nbsp;=&nbsp;1</code> se provede 
-    pouze jednou, před vším ostatním.</li>
+<li><em>InicializaÄŤnĂ­ ÄŤĂˇst</em> <code>i&nbsp;=&nbsp;1</code> se provede
+    pouze jednou, pĹ™ed vĹˇĂ­m ostatnĂ­m.</li>
 
-<li><em>Část s testem <span class="trnote"
-title="Poznámka&nbsp;překladatele">(podmínková část)</span></em>
-<code>i&nbsp;&lt;=&nbsp;12</code> se vykonává před každou iterací<span
-class="trnote" title="Poznámka&nbsp;překladatele">, tj. před každou obrátkou
+<li><em>ÄŚĂˇst s testem <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(podmĂ­nkovĂˇ ÄŤĂˇst)</span></em>
+<code>i&nbsp;&lt;=&nbsp;12</code> se vykonĂˇvĂˇ pĹ™ed kaĹľdou iteracĂ­<span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">, tj. pĹ™ed kaĹľdou obrĂˇtkou
 cyklu</span>.</li>
 
-<li><em>Přírůstková část</em> <code>i++</code>, což je zkrácený zápis
-    příkazu pro "zvýšení proměnné <code>i</code> o jedničku", se vykonává po
-    každé iteraci.</li>
+<li><em>PĹ™Ă­rĹŻstkovĂˇ ÄŤĂˇst</em> <code>i++</code>, coĹľ je zkrĂˇcenĂ˝ zĂˇpis
+    pĹ™Ă­kazu pro "zvĂ˝ĹˇenĂ­ promÄ›nnĂ© <code>i</code> o jedniÄŤku", se vykonĂˇvĂˇ po
+    kaĹľdĂ© iteraci.</li>
 
 </ul>
 
-<p>Povšimněte si, že v JavaScript uzavíráme příkazy, které se mají opakovat
-(<em>tělo cyklu</em>) do složených závorek <code>{}</code>. Ačkoliv z
-technického hlediska je to vše, co musíme s tělem cyklu udělat, z
-praktického hlediska se považuje za vhodné, aby byl kód v závorkách odsazen.
-Zvyšuje se tím čitelnost <span class="trnote"
-title="Poznámka&nbsp;překladatele">zdrojového textu</span>.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe v JavaScript uzavĂ­rĂˇme pĹ™Ă­kazy, kterĂ© se majĂ­ opakovat
+(<em>tÄ›lo cyklu</em>) do sloĹľenĂ˝ch zĂˇvorek <code>{}</code>. AÄŤkoliv z
+technickĂ©ho hlediska je to vĹˇe, co musĂ­me s tÄ›lem cyklu udÄ›lat, z
+praktickĂ©ho hlediska se povaĹľuje za vhodnĂ©, aby byl kĂłd v zĂˇvorkĂˇch odsazen.
+ZvyĹˇuje se tĂ­m ÄŤitelnost <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">zdrojovĂ©ho textu</span>.</p>
 
-<p><em>Tělo cyklu</em> se provede pouze v případě, kdy je podmínka v
-<em>testové</em> části splněna. Každá z uvedených částí může obsahovat
-libovolný kód, ale výsledkem výrazu v testové části musí být boolovská
+<p><em>TÄ›lo cyklu</em> se provede pouze v pĹ™Ă­padÄ›, kdy je podmĂ­nka v
+<em>testovĂ©</em> ÄŤĂˇsti splnÄ›na. KaĹľdĂˇ z uvedenĂ˝ch ÄŤĂˇstĂ­ mĹŻĹľe obsahovat
+libovolnĂ˝ kĂłd, ale vĂ˝sledkem vĂ˝razu v testovĂ© ÄŤĂˇsti musĂ­ bĂ˝t boolovskĂˇ
 hodnota.</p>
 
-<div class="trnote" title="Poznámka&nbsp;překladatele">
+<div class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">
 
-<p><b>Poznámka překladatele:</b> Povšimněte si použití operátoru pro zvýšení
-proměnné cyklu o jedničku <code>i++</code>. V tomto případě se jedná o
-takzvaný <em>postfixový</em> operátor <code>++</code>. To znamená, že je
-zapsán až <em>za</em> identifikátor proměnné. Kromě toho existuje
-<em>prefixová</em> varianta téhož operátoru <code>++i</code> &mdash;
-operátor je uveden <em>před</em> identifikátorem proměnné. Oba zvýší obsah
-proměnné o jedničku. V čem se tedy jejich použití liší? V tomto případě v
-ničem, ale...</p>
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> PovĹˇimnÄ›te si pouĹľitĂ­ operĂˇtoru pro zvĂ˝ĹˇenĂ­
+promÄ›nnĂ© cyklu o jedniÄŤku <code>i++</code>. V tomto pĹ™Ă­padÄ› se jednĂˇ o
+takzvanĂ˝ <em>postfixovĂ˝</em> operĂˇtor <code>++</code>. To znamenĂˇ, Ĺľe je
+zapsĂˇn aĹľ <em>za</em> identifikĂˇtor promÄ›nnĂ©. KromÄ› toho existuje
+<em>prefixovĂˇ</em> varianta tĂ©hoĹľ operĂˇtoru <code>++i</code> &mdash;
+operĂˇtor je uveden <em>pĹ™ed</em> identifikĂˇtorem promÄ›nnĂ©. Oba zvĂ˝ĹˇĂ­ obsah
+promÄ›nnĂ© o jedniÄŤku. V ÄŤem se tedy jejich pouĹľitĂ­ liĹˇĂ­? V tomto pĹ™Ă­padÄ› v
+niÄŤem, ale...</p>
 
-<p>Operátory <code>++</code> a <code>--</code> pocházejí z jazyka C. V něm
-celá řada příkazů může vystupovat jako výraz. To znamená, že vracejí nějakou
-hodnotu a mohou tedy být použity například na pravé straně přiřazovacího
-příkazu. Mimo jiné se to týká i samotného příkazu přiřazení a zmíněných
-operátorů pro zvýšení a snížení o jedničku. Místo jinak běžného
-zápisu...</p>
+<p>OperĂˇtory <code>++</code> a <code>--</code> pochĂˇzejĂ­ z jazyka C. V nÄ›m
+celĂˇ Ĺ™ada pĹ™Ă­kazĹŻ mĹŻĹľe vystupovat jako vĂ˝raz. To znamenĂˇ, Ĺľe vracejĂ­ nÄ›jakou
+hodnotu a mohou tedy bĂ˝t pouĹľity napĹ™Ă­klad na pravĂ© stranÄ› pĹ™iĹ™azovacĂ­ho
+pĹ™Ă­kazu. Mimo jinĂ© se to tĂ˝kĂˇ i samotnĂ©ho pĹ™Ă­kazu pĹ™iĹ™azenĂ­ a zmĂ­nÄ›nĂ˝ch
+operĂˇtorĹŻ pro zvĂ˝ĹˇenĂ­ a snĂ­ĹľenĂ­ o jedniÄŤku. MĂ­sto jinak bÄ›ĹľnĂ©ho
+zĂˇpisu...</p>
 
 <pre>
 a = 0;
@@ -206,22 +206,22 @@ c = 0;
 d = 0;
 </pre>
 
-<p>...tedy můžeme psát:</p>
+<p>...tedy mĹŻĹľeme psĂˇt:</p>
 
 <pre>
 d = c = b = a = 0;
 </pre>
 
-<p>V tomto okamžiku nabývá prefixová a postfixová varianta zmíněných
-operátorů svůj význam. Výsledkem postfixové varianty <code>i++</code> je
-totiž původní hodnota proměnné <code>i</code> (nejdříve se získá hodnota a
-<em>potom</em> se provádí zvýšení o jedničku), zatímco výsledkem prefixové
-varianty <code>++i</code> je nová hodnota proměnné <code>i</code>
-(<em>nejdříve</em> se provádí zvýšení o jedničku a pak se vrací hodnota
-proměnné <code>i</code>). Pokud v předchozím případě místo nuly použijeme
-další proměnnou, jejíž obsah upravujeme variantami operátoru
-<code>++</code>, dostaneme po provedení příkazů na řádku v proměnných
-hodnoty, které jsou uvedeny v komentářích:</p>
+<p>V tomto okamĹľiku nabĂ˝vĂˇ prefixovĂˇ a postfixovĂˇ varianta zmĂ­nÄ›nĂ˝ch
+operĂˇtorĹŻ svĹŻj vĂ˝znam. VĂ˝sledkem postfixovĂ© varianty <code>i++</code> je
+totiĹľ pĹŻvodnĂ­ hodnota promÄ›nnĂ© <code>i</code> (nejdĹ™Ă­ve se zĂ­skĂˇ hodnota a
+<em>potom</em> se provĂˇdĂ­ zvĂ˝ĹˇenĂ­ o jedniÄŤku), zatĂ­mco vĂ˝sledkem prefixovĂ©
+varianty <code>++i</code> je novĂˇ hodnota promÄ›nnĂ© <code>i</code>
+(<em>nejdĹ™Ă­ve</em> se provĂˇdĂ­ zvĂ˝ĹˇenĂ­ o jedniÄŤku a pak se vracĂ­ hodnota
+promÄ›nnĂ© <code>i</code>). Pokud v pĹ™edchozĂ­m pĹ™Ă­padÄ› mĂ­sto nuly pouĹľijeme
+dalĹˇĂ­ promÄ›nnou, jejĂ­Ĺľ obsah upravujeme variantami operĂˇtoru
+<code>++</code>, dostaneme po provedenĂ­ pĹ™Ă­kazĹŻ na Ĺ™Ăˇdku v promÄ›nnĂ˝ch
+hodnoty, kterĂ© jsou uvedeny v komentĂˇĹ™Ă­ch:</p>
 
 <pre>
 i = 1;
@@ -231,14 +231,14 @@ c = ++i;    <span class="comment">/* c: 4, i: 4 */</span>
 d = i++;    <span class="comment">/* d: 4, i: 5 */</span>
 </pre>
 
-<p>Při použití postfixové verze operátoru <code>++</code> musí překladač
-jazyka udělat jeden krok navíc &mdash; původní hodnotu proměnné si musí
-někam uložit (do registru nebo do jiné, skryté, pomocné proměnné) a teprve
-potom může provést zvýšení původní proměnné o jedničku. Pokud překladač
-neprování optimalizaci, pak je v případě, kdy se můžeme rozhodnout pro
-prefixovou nebo postfixovou variantu příkazu <code>++</code>, vždy
-efektivnější použít <em>prefixovou</em> variantu, tedy <code>++i</code>.
-Výše uvedený příklad cyklu v JavaScript bychom tedy měli psát spíše
+<p>PĹ™i pouĹľitĂ­ postfixovĂ© verze operĂˇtoru <code>++</code> musĂ­ pĹ™ekladaÄŤ
+jazyka udÄ›lat jeden krok navĂ­c &mdash; pĹŻvodnĂ­ hodnotu promÄ›nnĂ© si musĂ­
+nÄ›kam uloĹľit (do registru nebo do jinĂ©, skrytĂ©, pomocnĂ© promÄ›nnĂ©) a teprve
+potom mĹŻĹľe provĂ©st zvĂ˝ĹˇenĂ­ pĹŻvodnĂ­ promÄ›nnĂ© o jedniÄŤku. Pokud pĹ™ekladaÄŤ
+neprovĂˇnĂ­ optimalizaci, pak je v pĹ™Ă­padÄ›, kdy se mĹŻĹľeme rozhodnout pro
+prefixovou nebo postfixovou variantu pĹ™Ă­kazu <code>++</code>, vĹľdy
+efektivnÄ›jĹˇĂ­ pouĹľĂ­t <em>prefixovou</em> variantu, tedy <code>++i</code>.
+VĂ˝Ĺˇe uvedenĂ˝ pĹ™Ă­klad cyklu v JavaScript bychom tedy mÄ›li psĂˇt spĂ­Ĺˇe
 takto:</p>
 
 <pre>
@@ -249,77 +249,77 @@ for (i = 1; i &lt;= 12; ++i) {
 &lt;/script>
 </pre>
 
-<p><b>Ale v jazyce Python musíme dát pozor!</b> Ten totiž operátory
-<code>++</code> a <code>--</code> vůbec nezná. A zatímco pro výrazy
-<code>i++</code> nebo <code>i--</code> zahlásí chybu, pro výrazy
-<code>++i</code> nebo <code>--i</code> nezahlácí vůbec nic. Pokud jsme z
-jazyků rodiny C zvyklí používat <code>++i</code>, budeme se divit, proč to
-nefunguje. Python jednoduše rozdělí jeden operátor na dvojici znamének. Na
-zápis se tedy dívá jako na výraz <code>(+(+i))</code> nebo
-<code>(-(-i))</code>, což z matematického hlediska znamená prázdnou
+<p><b>Ale v jazyce Python musĂ­me dĂˇt pozor!</b> Ten totiĹľ operĂˇtory
+<code>++</code> a <code>--</code> vĹŻbec neznĂˇ. A zatĂ­mco pro vĂ˝razy
+<code>i++</code> nebo <code>i--</code> zahlĂˇsĂ­ chybu, pro vĂ˝razy
+<code>++i</code> nebo <code>--i</code> nezahlĂˇcĂ­ vĹŻbec nic. Pokud jsme z
+jazykĹŻ rodiny C zvyklĂ­ pouĹľĂ­vat <code>++i</code>, budeme se divit, proÄŤ to
+nefunguje. Python jednoduĹˇe rozdÄ›lĂ­ jeden operĂˇtor na dvojici znamĂ©nek. Na
+zĂˇpis se tedy dĂ­vĂˇ jako na vĂ˝raz <code>(+(+i))</code> nebo
+<code>(-(-i))</code>, coĹľ z matematickĂ©ho hlediska znamenĂˇ prĂˇzdnou
 operaci.</p>
 
 </div>
 
-<h3>Další informace o pythonovské konstrukci <em>for</em></h3>
+<h3>DalĹˇĂ­ informace o pythonovskĂ© konstrukci <em>for</em></h3>
 
-<p>Pythonovský cyklus <code>for</code> prochází <span class="trnote"
-title="Poznámka&nbsp;překladatele">(říkáme také, že <em>iteruje</em>)</span>
-přes všechny prvky posloupnosti. Posloupností v jazyce Python &mdash; pro
-případ, že byste zapoměli &mdash; je řetězec, seznam nebo n-tice. To
-tedy znamená, že můžeme psát cykly <code>for</code>, které zpracovávají
-libovolný ze zmíněných typů. Vytiskněme si na zkoušku jednotlivá písmena
-slova s využitím cyklu <code>for</code> aplikovaného na řetězec:</p>
+<p>PythonovskĂ˝ cyklus <code>for</code> prochĂˇzĂ­ <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(Ĺ™Ă­kĂˇme takĂ©, Ĺľe <em>iteruje</em>)</span>
+pĹ™es vĹˇechny prvky posloupnosti. PosloupnostĂ­ v jazyce Python &mdash; pro
+pĹ™Ă­pad, Ĺľe byste zapomÄ›li &mdash; je Ĺ™etÄ›zec, seznam nebo n-tice. To
+tedy znamenĂˇ, Ĺľe mĹŻĹľeme psĂˇt cykly <code>for</code>, kterĂ© zpracovĂˇvajĂ­
+libovolnĂ˝ ze zmĂ­nÄ›nĂ˝ch typĹŻ. VytisknÄ›me si na zkouĹˇku jednotlivĂˇ pĂ­smena
+slova s vyuĹľitĂ­m cyklu <code>for</code> aplikovanĂ©ho na Ĺ™etÄ›zec:</p>
 
 <pre>
 >>> for znak in 'slovo': print znak
 ...
 </pre>
 
-<p>Povšimněte si, že se každé písmeno vytiskne na jeden řádek. Povšimněte si
-také, že pokud se tělo cyklu skládá z jediného řádku, můžeme je napsat na
-ten samý řádek, za dvojtečku. Právě dvojtečka říká překladači jazyka Python,
-že bude následovat blok kódu.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe se kaĹľdĂ© pĂ­smeno vytiskne na jeden Ĺ™Ăˇdek. PovĹˇimnÄ›te si
+takĂ©, Ĺľe pokud se tÄ›lo cyklu sklĂˇdĂˇ z jedinĂ©ho Ĺ™Ăˇdku, mĹŻĹľeme je napsat na
+ten samĂ˝ Ĺ™Ăˇdek, za dvojteÄŤku. PrĂˇvÄ› dvojteÄŤka Ĺ™Ă­kĂˇ pĹ™ekladaÄŤi jazyka Python,
+Ĺľe bude nĂˇsledovat blok kĂłdu.</p>
 
-<p>Iterovat můžeme i přes n-tici:</p>
+<p>Iterovat mĹŻĹľeme i pĹ™es n-tici:</p>
 
 <pre>
 >>> for slovo in ('jedno', 'slovo', 'a', 'zas', 'jine'): print slovo
 ...
 </pre>
 
-<p>Tentokrát se nám na řádcích objeví jednotlivá slova. Mohli bychom je
-samozřejmě <span class="trnote" title="Poznámka&nbsp;překladatele">při
-tisku</span> spojit na jeden řádek. Využijeme triku s uvedením čárky na
-konci příkazu <code>print</code>. Pokud zde uvedeme čárku, nebude Python
-přecházet na další řádek a další tisk bude pokračovat tam, kde předchozí
-skončil. <span class="trnote">Poznámka překladatele: Každá čárka v příkazu
-<code>print</code> vygeneruje oddělovací mezeru. Platí to i pro čárku na
-konci příkazu <code>print</code>. Vypsaná slova tedy budou uvedena na jednom
-řádku a budou oddělena mezerou.</span></p>
+<p>TentokrĂˇt se nĂˇm na Ĺ™ĂˇdcĂ­ch objevĂ­ jednotlivĂˇ slova. Mohli bychom je
+samozĹ™ejmÄ› <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">pĹ™i
+tisku</span> spojit na jeden Ĺ™Ăˇdek. VyuĹľijeme triku s uvedenĂ­m ÄŤĂˇrky na
+konci pĹ™Ă­kazu <code>print</code>. Pokud zde uvedeme ÄŤĂˇrku, nebude Python
+pĹ™echĂˇzet na dalĹˇĂ­ Ĺ™Ăˇdek a dalĹˇĂ­ tisk bude pokraÄŤovat tam, kde pĹ™edchozĂ­
+skonÄŤil. <span class="trnote">PoznĂˇmka pĹ™ekladatele: KaĹľdĂˇ ÄŤĂˇrka v pĹ™Ă­kazu
+<code>print</code> vygeneruje oddÄ›lovacĂ­ mezeru. PlatĂ­ to i pro ÄŤĂˇrku na
+konci pĹ™Ă­kazu <code>print</code>. VypsanĂˇ slova tedy budou uvedena na jednom
+Ĺ™Ăˇdku a budou oddÄ›lena mezerou.</span></p>
 
 <pre>
 >>> for slovo in ('jedno', 'slovo', 'a', 'zas', 'jine'): print slovo,
 ...
 </pre>
 
-<p>Vidíte, jak se slova poskládala na jeden řádek?</p>
+<p>VidĂ­te, jak se slova posklĂˇdala na jeden Ĺ™Ăˇdek?</p>
 
-<p>Použití příkazu <code>for</code> nad seznamem jsme již viděli, protože
-<span class="trnote" title="Poznámka&nbsp;překladatele">dříve použitá
-funkce</span> <code>range()</code> generuje právě seznam. Ale pro úplnost si
-uveďme příklad s přímo zapsaným seznamem:</p>
+<p>PouĹľitĂ­ pĹ™Ă­kazu <code>for</code> nad seznamem jsme jiĹľ vidÄ›li, protoĹľe
+<span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">dĹ™Ă­ve pouĹľitĂˇ
+funkce</span> <code>range()</code> generuje prĂˇvÄ› seznam. Ale pro Ăşplnost si
+uveÄŹme pĹ™Ă­klad s pĹ™Ă­mo zapsanĂ˝m seznamem:</p>
 
 <pre>
 >>> for prvek in ['jedna', 2, 'tri']: print prvek
 ...
 </pre>
 
-<p>S uvedeným typem cyklu, který slouží k průchodu všemi prvky, je spojen
-jeden zádrhel. V průběhu dostáváte <em>kopii</em> toho, co se v procházené
-kolekci nachází. Obsah kolekce nemůžete měnit přímo. Pokud kolekci modifikovat
-potřebujeme, musíme použít nevzhledný obrat, který do hry zatahuje indexy
-prvků v kolekci:</p>
+<p>S uvedenĂ˝m typem cyklu, kterĂ˝ slouĹľĂ­ k prĹŻchodu vĹˇemi prvky, je spojen
+jeden zĂˇdrhel. V prĹŻbÄ›hu dostĂˇvĂˇte <em>kopii</em> toho, co se v prochĂˇzenĂ©
+kolekci nachĂˇzĂ­. Obsah kolekce nemĹŻĹľete mÄ›nit pĹ™Ă­mo. Pokud kolekci modifikovat
+potĹ™ebujeme, musĂ­me pouĹľĂ­t nevzhlednĂ˝ obrat, kterĂ˝ do hry zatahuje indexy
+prvkĹŻ v kolekci:</p>
 
 <pre>
 mujSeznam = [1, 2, 3, 4]
@@ -328,36 +328,36 @@ for index in range(len(mujSeznam)):
 print mujSeznam
 </pre>
 
-<p>Uvedený program zvětšuje každou položku uvnitř <code>mujSeznam</code> o
-jedničku. Pokud bychom nepoužili trik s indexem, pak bychom pouze zvyšovali
-hodnoty okopírovaných prvků, ale neměnili bychom prvky originálního
+<p>UvedenĂ˝ program zvÄ›tĹˇuje kaĹľdou poloĹľku uvnitĹ™ <code>mujSeznam</code> o
+jedniÄŤku. Pokud bychom nepouĹľili trik s indexem, pak bychom pouze zvyĹˇovali
+hodnoty okopĂ­rovanĂ˝ch prvkĹŻ, ale nemÄ›nili bychom prvky originĂˇlnĂ­ho
 seznamu.</p>
 
 <div class="trnote">
 
-<p><b>Poznámka překladatele 1:</b> Ono to ve skutečnosti není tak přímočaré.
-Problematika modifikace seznamu souvisí s tím, že u některých objektů můžeme
-měnit hodnotu a u některých ne. Do seznamu se vždy vkládají <em>odkazy</em> na
-objekty. V uvedeném příkladu jsou těmito objekty celočíselné hodnoty, které
-nikdy nemůžeme měnit. Můžeme se na ně dívat jako na konstanty. Přičtením
-jedničky k číselné konstantě dostaneme jiné číslo &mdash; jinou konstantu,
-odkaz na zcela jiný objekt. Tento nový odkaz však s původním odkazem v seznamu
-nemá nic společného.</p>
+<p><b>PoznĂˇmka pĹ™ekladatele 1:</b> Ono to ve skuteÄŤnosti nenĂ­ tak pĹ™Ă­moÄŤarĂ©.
+Problematika modifikace seznamu souvisĂ­ s tĂ­m, Ĺľe u nÄ›kterĂ˝ch objektĹŻ mĹŻĹľeme
+mÄ›nit hodnotu a u nÄ›kterĂ˝ch ne. Do seznamu se vĹľdy vklĂˇdajĂ­ <em>odkazy</em> na
+objekty. V uvedenĂ©m pĹ™Ă­kladu jsou tÄ›mito objekty celoÄŤĂ­selnĂ© hodnoty, kterĂ©
+nikdy nemĹŻĹľeme mÄ›nit. MĹŻĹľeme se na nÄ› dĂ­vat jako na konstanty. PĹ™iÄŤtenĂ­m
+jedniÄŤky k ÄŤĂ­selnĂ© konstantÄ› dostaneme jinĂ© ÄŤĂ­slo &mdash; jinou konstantu,
+odkaz na zcela jinĂ˝ objekt. Tento novĂ˝ odkaz vĹˇak s pĹŻvodnĂ­m odkazem v seznamu
+nemĂˇ nic spoleÄŤnĂ©ho.</p>
 
-<p>Pokud chceme dosáhnout toho, že se v seznamu objeví jiná čísla, musíme na
-příslušné pozice v seznamu uložit odkazy na jiné konstantní objekty s
-číslem. Situace by byla jiná, pokud bychom do seznamu zařadili objekty, které
-mohou během své existence měnit svůj stav. O tom ale až později.</p>
+<p>Pokud chceme dosĂˇhnout toho, Ĺľe se v seznamu objevĂ­ jinĂˇ ÄŤĂ­sla, musĂ­me na
+pĹ™Ă­sluĹˇnĂ© pozice v seznamu uloĹľit odkazy na jinĂ© konstantnĂ­ objekty s
+ÄŤĂ­slem. Situace by byla jinĂˇ, pokud bychom do seznamu zaĹ™adili objekty, kterĂ©
+mohou bÄ›hem svĂ© existence mÄ›nit svĹŻj stav. O tom ale aĹľ pozdÄ›ji.</p>
 
-<p>Pokud této poznámce nerozumíte nebo vás děsí, nepropadejte panice. Je to
-úplně normální. Časem vám to bude jasné. Chtěl jsem jen, aby nad tím
-nesouhlasně nekroutili hlavou ti, kteří už tomu trochu víc rozumí.</p>
+<p>Pokud tĂ©to poznĂˇmce nerozumĂ­te nebo vĂˇs dÄ›sĂ­, nepropadejte panice. Je to
+ĂşplnÄ› normĂˇlnĂ­. ÄŚasem vĂˇm to bude jasnĂ©. ChtÄ›l jsem jen, aby nad tĂ­m
+nesouhlasnÄ› nekroutili hlavou ti, kteĹ™Ă­ uĹľ tomu trochu vĂ­c rozumĂ­.</p>
 
 
-<p><b>Poznámka překladatele 2:</b> V Pythonu verze 2.3 se objevil nový rys,
-kterému bychom měli při řešení podobného problému dávat přednost. Místo
-nepěkného obratu pro získání seznamu indexů bychom měli vždy použít mnohem
-elegantnější a také výkonnější verzi, využívající zabudované funkce
+<p><b>PoznĂˇmka pĹ™ekladatele 2:</b> V Pythonu verze 2.3 se objevil novĂ˝ rys,
+kterĂ©mu bychom mÄ›li pĹ™i Ĺ™eĹˇenĂ­ podobnĂ©ho problĂ©mu dĂˇvat pĹ™ednost. MĂ­sto
+nepÄ›knĂ©ho obratu pro zĂ­skĂˇnĂ­ seznamu indexĹŻ bychom mÄ›li vĹľdy pouĹľĂ­t mnohem
+elegantnÄ›jĹˇĂ­ a takĂ© vĂ˝konnÄ›jĹˇĂ­ verzi, vyuĹľĂ­vajĂ­cĂ­ zabudovanĂ© funkce
 <code>enumerate()</code>:
 
 <pre>
@@ -367,50 +367,50 @@ for index, hodnota in enumerate(mujSeznam):
 print mujSeznam
 </pre>
 
-<p>Použitím funkce <code>enumerate()</code> se zajistí, že v každé obrátce
-cyklu získáme sobě odpovídající dvojici <code>(index,&nbsp;hodnota)</code>. V
-uvedeném příkladu její složky přiřazujeme do stejnojmenných proměnných a
-následně používáme. (... <em>Nepropadejte panice!</em>)</p>
+<p>PouĹľitĂ­m funkce <code>enumerate()</code> se zajistĂ­, Ĺľe v kaĹľdĂ© obrĂˇtce
+cyklu zĂ­skĂˇme sobÄ› odpovĂ­dajĂ­cĂ­ dvojici <code>(index,&nbsp;hodnota)</code>. V
+uvedenĂ©m pĹ™Ă­kladu jejĂ­ sloĹľky pĹ™iĹ™azujeme do stejnojmennĂ˝ch promÄ›nnĂ˝ch a
+nĂˇslednÄ› pouĹľĂ­vĂˇme. (... <em>Nepropadejte panice!</em>)</p>
 
 </div>
 
-<p id="loopDelProblem">Další problém s cykly typu <code>for</code> spočívá v
-tom, že nemůžeme rušit prvky kolekce, přes kterou procházíme. Došlo by ke
-zmatku. Podobá se to trochu situaci postavy ze starých grotesek, která
-odřezává větev, na níž sedí. K řešení podobných situací se lépe hodí jiný typ
-cyklu, o kterém si něco řekneme za chvíli. K porozumění problému bezpečného
-odstraňování prvků kolekce však budeme potřebovat znalosti z další tématické
-kapitoly, která je věnovaná <a href="cztutbranch.html">větvení</a>. Vysvětlení
-naznačeného problému tedy uvedeme <a
-href="cztutbranch.html#loopDelProblem">později</a>.</p>
+<p id="loopDelProblem">DalĹˇĂ­ problĂ©m s cykly typu <code>for</code> spoÄŤĂ­vĂˇ v
+tom, Ĺľe nemĹŻĹľeme ruĹˇit prvky kolekce, pĹ™es kterou prochĂˇzĂ­me. DoĹˇlo by ke
+zmatku. PodobĂˇ se to trochu situaci postavy ze starĂ˝ch grotesek, kterĂˇ
+odĹ™ezĂˇvĂˇ vÄ›tev, na nĂ­Ĺľ sedĂ­. K Ĺ™eĹˇenĂ­ podobnĂ˝ch situacĂ­ se lĂ©pe hodĂ­ jinĂ˝ typ
+cyklu, o kterĂ©m si nÄ›co Ĺ™ekneme za chvĂ­li. K porozumÄ›nĂ­ problĂ©mu bezpeÄŤnĂ©ho
+odstraĹovĂˇnĂ­ prvkĹŻ kolekce vĹˇak budeme potĹ™ebovat znalosti z dalĹˇĂ­ tĂ©matickĂ©
+kapitoly, kterĂˇ je vÄ›novanĂˇ <a href="cztutbranch.html">vÄ›tvenĂ­</a>. VysvÄ›tlenĂ­
+naznaÄŤenĂ©ho problĂ©mu tedy uvedeme <a
+href="cztutbranch.html#loopDelProblem">pozdÄ›ji</a>.</p>
 
-<p>Od verze Python 2.2 byly do jazyka přidány další triky, které činí cyklus
-<code>for</code> ještě mocnějším. Budeme se jimi zabývat později. Prozatím
-stojí za to poznamenat, že i v jazycích VBScript a JavaScript existují
-konstrukce cyklu pro průchod všemi prvky kolekce. Detaily se zde zabývat
-nebudeme. Zápis konstrukce ve VBScript vypadá symbolicky takto:
-<code>for&nbsp;each&nbsp;...&nbsp;in&nbsp;...</code>. Zápis v jazyce
-JavaScript vypadá takto: <code>for&nbsp;...&nbsp;in&nbsp;...</code>. Pokud
-máte zájem, můžete detailní popis nalézt na odpovídajících stránkách s
-nápovědou.</p>
+<p>Od verze Python 2.2 byly do jazyka pĹ™idĂˇny dalĹˇĂ­ triky, kterĂ© ÄŤinĂ­ cyklus
+<code>for</code> jeĹˇtÄ› mocnÄ›jĹˇĂ­m. Budeme se jimi zabĂ˝vat pozdÄ›ji. ProzatĂ­m
+stojĂ­ za to poznamenat, Ĺľe i v jazycĂ­ch VBScript a JavaScript existujĂ­
+konstrukce cyklu pro prĹŻchod vĹˇemi prvky kolekce. Detaily se zde zabĂ˝vat
+nebudeme. ZĂˇpis konstrukce ve VBScript vypadĂˇ symbolicky takto:
+<code>for&nbsp;each&nbsp;...&nbsp;in&nbsp;...</code>. ZĂˇpis v jazyce
+JavaScript vypadĂˇ takto: <code>for&nbsp;...&nbsp;in&nbsp;...</code>. Pokud
+mĂˇte zĂˇjem, mĹŻĹľete detailnĂ­ popis nalĂ©zt na odpovĂ­dajĂ­cĂ­ch strĂˇnkĂˇch s
+nĂˇpovÄ›dou.</p>
 
 
 <h3>Cyklus typu WHILE</h3>
 
-<p>Cykly typu <code>FOR</code> nepředstavují jediný možný typ konstrukce
-cyklu. A to je dobře, protože u cyklu <code>FOR</code> musíme vědět, nebo
-musíme být schopni předem vypočítat, počet prováděných iterací. Takže co
-máme dělat v případech, kdy chceme pokračovat v provádění určitého úkolu až
-do doby, kdy nastane určitá situace, ale když přitom nevíme, kdy k dané
-situaci dojde? Můžeme například chtít načítat a zpracovávat data ze souboru,
-ale předem nevíme, kolik datových položek soubor obsahuje. Chtěli bychom
-prostě pokračovat ve zpracování dat až do dosažení konce souboru. Lze k tomu
-sice použít i cyklus <code>FOR</code>, ale je to obtížnější.</p>
+<p>Cykly typu <code>FOR</code> nepĹ™edstavujĂ­ jedinĂ˝ moĹľnĂ˝ typ konstrukce
+cyklu. A to je dobĹ™e, protoĹľe u cyklu <code>FOR</code> musĂ­me vÄ›dÄ›t, nebo
+musĂ­me bĂ˝t schopni pĹ™edem vypoÄŤĂ­tat, poÄŤet provĂˇdÄ›nĂ˝ch iteracĂ­. TakĹľe co
+mĂˇme dÄ›lat v pĹ™Ă­padech, kdy chceme pokraÄŤovat v provĂˇdÄ›nĂ­ urÄŤitĂ©ho Ăşkolu aĹľ
+do doby, kdy nastane urÄŤitĂˇ situace, ale kdyĹľ pĹ™itom nevĂ­me, kdy k danĂ©
+situaci dojde? MĹŻĹľeme napĹ™Ă­klad chtĂ­t naÄŤĂ­tat a zpracovĂˇvat data ze souboru,
+ale pĹ™edem nevĂ­me, kolik datovĂ˝ch poloĹľek soubor obsahuje. ChtÄ›li bychom
+prostÄ› pokraÄŤovat ve zpracovĂˇnĂ­ dat aĹľ do dosaĹľenĂ­ konce souboru. Lze k tomu
+sice pouĹľĂ­t i cyklus <code>FOR</code>, ale je to obtĂ­ĹľnÄ›jĹˇĂ­.</p>
 
-<p>K řešení tohoto problému se hodí jiný typ cyklu &mdash; cyklus typu
+<p>K Ĺ™eĹˇenĂ­ tohoto problĂ©mu se hodĂ­ jinĂ˝ typ cyklu &mdash; cyklus typu
 <em>WHILE</em>.</p>
 
-<p>Zápis v jazyce Python vypadá takto:</p>
+<p>ZĂˇpis v jazyce Python vypadĂˇ takto:</p>
 
 <pre>
 >>> j = 1
@@ -419,49 +419,49 @@ sice použít i cyklus <code>FOR</code>, ale je to obtížnější.</p>
 ...     j = j + 1
 </pre>
 
-<p>Projděme si, co jednotlivé příkazy dělají.</p>
+<p>ProjdÄ›me si, co jednotlivĂ© pĹ™Ă­kazy dÄ›lajĂ­.</p>
 
 <ol>
-<li>Nejdříve inicializujeme proměnnou <code>j</code> na <code>1</code>.
-    Nastavení počáteční hodnoty <em>řídicí proměnné</em> cyklu
-    <code>while</code> představuje velmi důležitý první krok. Jeho opomenutí
-    bývá častou příčinou chyb.</li>
-<li>Poté začneme provádět samotný příkaz <code>while</code>. V něm se
-    vyhodnocuje <em>boolovský výraz</em>.</li>
-<li>Pokud je výsledkem výrazu hodnota <code>True</code>, dochází k
-    provedení následujícího odsazeného bloku. V našem případě nabývá
-    proměnná <code>j</code> hodnoty menší než 12, takže zahájíme provádění
-    bloku kódu.</li>
-<li>Provede se příkaz <code>print</code>, který vytiskne první řádek naší
+<li>NejdĹ™Ă­ve inicializujeme promÄ›nnou <code>j</code> na <code>1</code>.
+    NastavenĂ­ poÄŤĂˇteÄŤnĂ­ hodnoty <em>Ĺ™Ă­dicĂ­ promÄ›nnĂ©</em> cyklu
+    <code>while</code> pĹ™edstavuje velmi dĹŻleĹľitĂ˝ prvnĂ­ krok. Jeho opomenutĂ­
+    bĂ˝vĂˇ ÄŤastou pĹ™Ă­ÄŤinou chyb.</li>
+<li>PotĂ© zaÄŤneme provĂˇdÄ›t samotnĂ˝ pĹ™Ă­kaz <code>while</code>. V nÄ›m se
+    vyhodnocuje <em>boolovskĂ˝ vĂ˝raz</em>.</li>
+<li>Pokud je vĂ˝sledkem vĂ˝razu hodnota <code>True</code>, dochĂˇzĂ­ k
+    provedenĂ­ nĂˇsledujĂ­cĂ­ho odsazenĂ©ho bloku. V naĹˇem pĹ™Ă­padÄ› nabĂ˝vĂˇ
+    promÄ›nnĂˇ <code>j</code> hodnoty menĹˇĂ­ neĹľ 12, takĹľe zahĂˇjĂ­me provĂˇdÄ›nĂ­
+    bloku kĂłdu.</li>
+<li>Provede se pĹ™Ă­kaz <code>print</code>, kterĂ˝ vytiskne prvnĂ­ Ĺ™Ăˇdek naĹˇĂ­
     tabulky.</li>
-<li>Na dalším řádku se zvyšuje (inkrementuje) hodnota řídicí proměnné
-    <code>j</code>. V našem případě je to poslední <span class="trnote"
-    title="Poznámka&nbsp;překladatele">stejně</span> odsazený řádek, což
-    znamená, že blok cyklu <code>while</code> končí.</li>
-<li>Vracíme se opět k příkazu <code>while</code> a provádíme kroky
-    4&nbsp;až&nbsp;6, vždy s novými hodnotami proměnné <code>j</code>.</li>
-<li>Uvedená posloupnost akcí se opakuje až do doby, kdy <code>j</code>
-    dosáhne hodnoty 13.</li>
-<li>V tom okamžiku vrátí test cyklu <code>while</code> hodnotu
-    <code>False</code> a provádění odsazeného bloku se přeskočí. Pokračovat
-    se bude řádkem, který má stejné odsazení, jako řádek s příkazem
+<li>Na dalĹˇĂ­m Ĺ™Ăˇdku se zvyĹˇuje (inkrementuje) hodnota Ĺ™Ă­dicĂ­ promÄ›nnĂ©
+    <code>j</code>. V naĹˇem pĹ™Ă­padÄ› je to poslednĂ­ <span class="trnote"
+    title="PoznĂˇmka&nbsp;pĹ™ekladatele">stejnÄ›</span> odsazenĂ˝ Ĺ™Ăˇdek, coĹľ
+    znamenĂˇ, Ĺľe blok cyklu <code>while</code> konÄŤĂ­.</li>
+<li>VracĂ­me se opÄ›t k pĹ™Ă­kazu <code>while</code> a provĂˇdĂ­me kroky
+    4&nbsp;aĹľ&nbsp;6, vĹľdy s novĂ˝mi hodnotami promÄ›nnĂ© <code>j</code>.</li>
+<li>UvedenĂˇ posloupnost akcĂ­ se opakuje aĹľ do doby, kdy <code>j</code>
+    dosĂˇhne hodnoty 13.</li>
+<li>V tom okamĹľiku vrĂˇtĂ­ test cyklu <code>while</code> hodnotu
+    <code>False</code> a provĂˇdÄ›nĂ­ odsazenĂ©ho bloku se pĹ™eskoÄŤĂ­. PokraÄŤovat
+    se bude Ĺ™Ăˇdkem, kterĂ˝ mĂˇ stejnĂ© odsazenĂ­, jako Ĺ™Ăˇdek s pĹ™Ă­kazem
     <code>while</code>.</li>
-<li>V našem případě žádné další řádky nenásledují, takže program skončí.</li>    
+<li>V naĹˇem pĹ™Ă­padÄ› ĹľĂˇdnĂ© dalĹˇĂ­ Ĺ™Ăˇdky nenĂˇsledujĂ­, takĹľe program skonÄŤĂ­.</li>
 </ol>
 
 
-<p>V tomto okamžiku už by se vám to mohlo zdát docela jasné. Chtěl bych vás
-jen upozornit na jednu věc. Vidíte tu dvojtečku na konci řádku s příkazem
-<code>while</code> a před tím na konci řádku s <code>for</code>? Právě ta
-překladači jazyka Python říká, že bude následovat úsek kódu (<em>blok</em>).
-Jiné jazyky, jak uvidíme za chvíli, definují své vlastní způsoby, jak
-naznačit překladači skutečnost, že skupina řádků patří k sobě. Python
-používá kombinaci dvojtečky a odsazení.</p>
+<p>V tomto okamĹľiku uĹľ by se vĂˇm to mohlo zdĂˇt docela jasnĂ©. ChtÄ›l bych vĂˇs
+jen upozornit na jednu vÄ›c. VidĂ­te tu dvojteÄŤku na konci Ĺ™Ăˇdku s pĹ™Ă­kazem
+<code>while</code> a pĹ™ed tĂ­m na konci Ĺ™Ăˇdku s <code>for</code>? PrĂˇvÄ› ta
+pĹ™ekladaÄŤi jazyka Python Ĺ™Ă­kĂˇ, Ĺľe bude nĂˇsledovat Ăşsek kĂłdu (<em>blok</em>).
+JinĂ© jazyky, jak uvidĂ­me za chvĂ­li, definujĂ­ svĂ© vlastnĂ­ zpĹŻsoby, jak
+naznaÄŤit pĹ™ekladaÄŤi skuteÄŤnost, Ĺľe skupina Ĺ™ĂˇdkĹŻ patĹ™Ă­ k sobÄ›. Python
+pouĹľĂ­vĂˇ kombinaci dvojteÄŤky a odsazenĂ­.</p>
 
 
 <h4>VBScript</h4>
 
-<p>Podívejme se, jak vypadá zápis cyklu <code>while</code> v jazyce
+<p>PodĂ­vejme se, jak vypadĂˇ zĂˇpis cyklu <code>while</code> v jazyce
 VBScript:</p>
 
 <pre>
@@ -475,10 +475,10 @@ Wend
 &lt;/script>
 </pre>
 
-<p>Uvedený příklad produkuje stejné výsledky. Povšimněte si, že blok příkazů
-cyklu je tentokrát uzavřen klíčovým slovem <code>Wend</code> (což je
-samozřejmě zkratka pro <code>While&nbsp;End</code>). Až na tento rozdíl
-příklad funguje naprosto stejně, jako jeho pythonovská verze.</p>
+<p>UvedenĂ˝ pĹ™Ă­klad produkuje stejnĂ© vĂ˝sledky. PovĹˇimnÄ›te si, Ĺľe blok pĹ™Ă­kazĹŻ
+cyklu je tentokrĂˇt uzavĹ™en klĂ­ÄŤovĂ˝m slovem <code>Wend</code> (coĹľ je
+samozĹ™ejmÄ› zkratka pro <code>While&nbsp;End</code>). AĹľ na tento rozdĂ­l
+pĹ™Ă­klad funguje naprosto stejnÄ›, jako jeho pythonovskĂˇ verze.</p>
 
 
 <h4>JavaScript</h4>
@@ -493,62 +493,62 @@ while (j &lt;= 12) {
 &lt;/script>
 </pre>
 
-<p>Jak vidíte, struktura programu je velmi podobná. Jen místo
-<code>Wend</code> (VBScript) se objevily složené závorky. Ani VBScript, ani
-JavaScript (na rozdíl od Pythonu) nevyžadují jakékoliv odsazování. Kód se
-odsazuje jen proto, aby byl čitelnější.</p>
+<p>Jak vidĂ­te, struktura programu je velmi podobnĂˇ. Jen mĂ­sto
+<code>Wend</code> (VBScript) se objevily sloĹľenĂ© zĂˇvorky. Ani VBScript, ani
+JavaScript (na rozdĂ­l od Pythonu) nevyĹľadujĂ­ jakĂ©koliv odsazovĂˇnĂ­. KĂłd se
+odsazuje jen proto, aby byl ÄŤitelnÄ›jĹˇĂ­.</p>
 
-<p>V JavaScript ještě stojí za to, abychom porovnali cykly <code>for</code>
-a <code>while</code>. Připomeňme, že cyklus <code>for</code> vypadal nějak
+<p>V JavaScript jeĹˇtÄ› stojĂ­ za to, abychom porovnali cykly <code>for</code>
+a <code>while</code>. PĹ™ipomeĹme, Ĺľe cyklus <code>for</code> vypadal nÄ›jak
 takto:</p>
 
 <pre>
 for (j = 1; j &lt;= 12; j++) {....}
 </pre>
 
-<p>Má tedy naprosto stejnou strukturu, jako cyklus <code>while</code>, jen s
-tím rozdílem, že je vše stlačeno do jednoho řádku. Jasně zde vidíme
-inicializační část, testovanou podmínku a část úprav pro další obrátku
-cyklu. Takže v jazyce JavaScript představuje cyklus <code>for</code> pouze
-kompaktnější formu cyklu <code>while</code>. Bez cyklu <code>for</code>
-bychom se mohli zcela obejít. Stačí nám pouze cyklus <code>while</code>.
-Některé jazyky volí právě takový přístup.</p>
+<p>MĂˇ tedy naprosto stejnou strukturu, jako cyklus <code>while</code>, jen s
+tĂ­m rozdĂ­lem, Ĺľe je vĹˇe stlaÄŤeno do jednoho Ĺ™Ăˇdku. JasnÄ› zde vidĂ­me
+inicializaÄŤnĂ­ ÄŤĂˇst, testovanou podmĂ­nku a ÄŤĂˇst Ăşprav pro dalĹˇĂ­ obrĂˇtku
+cyklu. TakĹľe v jazyce JavaScript pĹ™edstavuje cyklus <code>for</code> pouze
+kompaktnÄ›jĹˇĂ­ formu cyklu <code>while</code>. Bez cyklu <code>for</code>
+bychom se mohli zcela obejĂ­t. StaÄŤĂ­ nĂˇm pouze cyklus <code>while</code>.
+NÄ›kterĂ© jazyky volĂ­ prĂˇvÄ› takovĂ˝ pĹ™Ă­stup.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Podoba cyklu
-<code>for</code> je do JavaScript převzata z jazyka C. To, že kopíruje
-činnost cyklu <code>while</code> je známkou jeho nižší úrovně abstrakce.
-(Jazyk C je někdy nazýván <em>vysokoúrovňovým assemblerem</em>.) Porovnejte
-si stejný příklad opět s jazykem Python, kdy naopak musíme převést abstrakci
-jednoduchého čísla na <em>posloupnost</em> hodnot, abychom vůbec mohli
-konstrukci <code>for</code> použít. Pythonovský cyklus <code>for</code> je z
-jazykového hlediska modernější. Až poznáte všechny jeho možnosti, určitě
-nebudete ve většině případů dávat přednost cyklu <code>while</code>.
-Užitečnost cyklu pracujícího s vyššími abstrakcemi je také důvodem, proč
-VBScript a JavaScript definují i dříve zmíněné formy cyklu pro iteraci přes
-všechny prvky kolekce.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Podoba cyklu
+<code>for</code> je do JavaScript pĹ™evzata z jazyka C. To, Ĺľe kopĂ­ruje
+ÄŤinnost cyklu <code>while</code> je znĂˇmkou jeho niĹľĹˇĂ­ ĂşrovnÄ› abstrakce.
+(Jazyk C je nÄ›kdy nazĂ˝vĂˇn <em>vysokoĂşrovĹovĂ˝m assemblerem</em>.) Porovnejte
+si stejnĂ˝ pĹ™Ă­klad opÄ›t s jazykem Python, kdy naopak musĂ­me pĹ™evĂ©st abstrakci
+jednoduchĂ©ho ÄŤĂ­sla na <em>posloupnost</em> hodnot, abychom vĹŻbec mohli
+konstrukci <code>for</code> pouĹľĂ­t. PythonovskĂ˝ cyklus <code>for</code> je z
+jazykovĂ©ho hlediska modernÄ›jĹˇĂ­. AĹľ poznĂˇte vĹˇechny jeho moĹľnosti, urÄŤitÄ›
+nebudete ve vÄ›tĹˇinÄ› pĹ™Ă­padĹŻ dĂˇvat pĹ™ednost cyklu <code>while</code>.
+UĹľiteÄŤnost cyklu pracujĂ­cĂ­ho s vyĹˇĹˇĂ­mi abstrakcemi je takĂ© dĹŻvodem, proÄŤ
+VBScript a JavaScript definujĂ­ i dĹ™Ă­ve zmĂ­nÄ›nĂ© formy cyklu pro iteraci pĹ™es
+vĹˇechny prvky kolekce.</p>
 
-<h3>Pružnější zápis cyklů</h3>
+<h3>PruĹľnÄ›jĹˇĂ­ zĂˇpis cyklĹŻ</h3>
 
-<p>Vraťme se zpět k naší tabulce násobení číslem 12 ze začátku této
-kapitoly. Cyklus, který jsme vytvořili, se pro tisk takové tabulky velmi
-dobře hodí. Ale jak by to bylo s jinými hodnotami? Mohli bychom cyklus
-upravit tak, aby produkoval tabulku násobků třeba číslem 7? Mělo by to
-vypadat nějak takto:</p>
+<p>VraĹĄme se zpÄ›t k naĹˇĂ­ tabulce nĂˇsobenĂ­ ÄŤĂ­slem 12 ze zaÄŤĂˇtku tĂ©to
+kapitoly. Cyklus, kterĂ˝ jsme vytvoĹ™ili, se pro tisk takovĂ© tabulky velmi
+dobĹ™e hodĂ­. Ale jak by to bylo s jinĂ˝mi hodnotami? Mohli bychom cyklus
+upravit tak, aby produkoval tabulku nĂˇsobkĹŻ tĹ™eba ÄŤĂ­slem 7? MÄ›lo by to
+vypadat nÄ›jak takto:</p>
 
 <pre>
 >>> for j in range(1, 13):
 ...     print "%d x 7 = %d" % (j, j*7)
 </pre>
 
-<p>Při úpravě jsme museli hodnotu 12 změnit na hodnotu 7 a to na dvou
-místech. A pokud bychom chtěli použít jinou hodnotu, museli bychom ji<span
-class="trnote" title="Poznámka překladatele">, opět na dvou místech,</span>
-změnit znovu. Nebylo by lepší, kdybychom mohli nějakým <span class="trnote"
-title="Poznámka překladatele">obecnějším</span> způsobem zadat požadovaného
-násobitele?</p>
+<p>PĹ™i ĂşpravÄ› jsme museli hodnotu 12 zmÄ›nit na hodnotu 7 a to na dvou
+mĂ­stech. A pokud bychom chtÄ›li pouĹľĂ­t jinou hodnotu, museli bychom ji<span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">, opÄ›t na dvou mĂ­stech,</span>
+zmÄ›nit znovu. Nebylo by lepĹˇĂ­, kdybychom mohli nÄ›jakĂ˝m <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">obecnÄ›jĹˇĂ­m</span> zpĹŻsobem zadat poĹľadovanĂ©ho
+nĂˇsobitele?</p>
 
-<p>Můžeme toho dosáhnout tím, že místo konkrétní hodnoty použijeme další
-proměnnou. Hodnotu této proměnné nastavíme před zahájením cyklu:</p>
+<p>MĹŻĹľeme toho dosĂˇhnout tĂ­m, Ĺľe mĂ­sto konkrĂ©tnĂ­ hodnoty pouĹľijeme dalĹˇĂ­
+promÄ›nnou. Hodnotu tĂ©to promÄ›nnĂ© nastavĂ­me pĹ™ed zahĂˇjenĂ­m cyklu:</p>
 
 <pre>
 >>> nasobitel = 12
@@ -556,22 +556,22 @@ proměnnou. Hodnotu této proměnné nastavíme před zahájením cyklu:</p>
 ...     print "%d x %d = %d" % (j, nasobitel, j*nasobitel)
 </pre>
 
-<p>Takto získáme naši starou známou tabulku násobení číslem 12. Ale pokud
-nyní budeme chtít násobit sedmi, stačí, když změníme pouze hodnotu proměnné
+<p>Takto zĂ­skĂˇme naĹˇi starou znĂˇmou tabulku nĂˇsobenĂ­ ÄŤĂ­slem 12. Ale pokud
+nynĂ­ budeme chtĂ­t nĂˇsobit sedmi, staÄŤĂ­, kdyĹľ zmÄ›nĂ­me pouze hodnotu promÄ›nnĂ©
 <code>nasobitel</code>.</p>
 
-<p>Povšimněte si, že zde kombinujeme zápis posloupnosti příkazů a příkaz
-cyklu. Nejdříve jsme použili jednoduchý příkaz
-<code>nasobitel&nbsp;=&nbsp;12</code>, za kterým následuje <em>v pořadí
-další</em> příkaz cyklu <code>for</code>.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe zde kombinujeme zĂˇpis posloupnosti pĹ™Ă­kazĹŻ a pĹ™Ă­kaz
+cyklu. NejdĹ™Ă­ve jsme pouĹľili jednoduchĂ˝ pĹ™Ă­kaz
+<code>nasobitel&nbsp;=&nbsp;12</code>, za kterĂ˝m nĂˇsleduje <em>v poĹ™adĂ­
+dalĹˇĂ­</em> pĹ™Ă­kaz cyklu <code>for</code>.</p>
 
 
-<h3>Vnořené cykly</h3>
+<h3>VnoĹ™enĂ© cykly</h3>
 
-<p>Použijme nyní předchozí příklad k dalšímu kroku. Dejme tomu, že chceme
-vytisknout všechny tabulky násobků čísel od 2 do 12 (násobení číslem 1 je
-příliš jednoduché než abychom se jím zabývali). Jediné, co musíme učinit, je
-použít proměnnou <code>nasobitel</code> jako součást dalšího cyklu:</p>
+<p>PouĹľijme nynĂ­ pĹ™edchozĂ­ pĹ™Ă­klad k dalĹˇĂ­mu kroku. Dejme tomu, Ĺľe chceme
+vytisknout vĹˇechny tabulky nĂˇsobkĹŻ ÄŤĂ­sel od 2 do 12 (nĂˇsobenĂ­ ÄŤĂ­slem 1 je
+pĹ™Ă­liĹˇ jednoduchĂ© neĹľ abychom se jĂ­m zabĂ˝vali). JedinĂ©, co musĂ­me uÄŤinit, je
+pouĹľĂ­t promÄ›nnou <code>nasobitel</code> jako souÄŤĂˇst dalĹˇĂ­ho cyklu:</p>
 
 <pre>
 >>> for nasobitel in range(2, 13):
@@ -579,23 +579,23 @@ použít proměnnou <code>nasobitel</code> jako součást dalšího cyklu:</p>
 ...         print "%d x %d = %d" % (j, nasobitel, j*nasobitel)
 </pre>
 
-<p>Všimněte si, že odsazená část uvnitř prvního cyklu <code>for</code> je
-zápisem přesně téhož cyklu, s kterým jsme začínali. Funguje to
-následovně:</p>
+<p>VĹˇimnÄ›te si, Ĺľe odsazenĂˇ ÄŤĂˇst uvnitĹ™ prvnĂ­ho cyklu <code>for</code> je
+zĂˇpisem pĹ™esnÄ› tĂ©hoĹľ cyklu, s kterĂ˝m jsme zaÄŤĂ­nali. Funguje to
+nĂˇsledovnÄ›:</p>
 
 <ol>
-<li>Nastavíme <code>nasobitel</code> na první hodnotu (2) a provedeme druhý
+<li>NastavĂ­me <code>nasobitel</code> na prvnĂ­ hodnotu (2) a provedeme druhĂ˝
     cyklus.</li>
-<li>Poté hodnotu proměnné <code>nasobitel</code> změníme na následující
-    hodnotu (3) a znovu provedeme vnitřní cyklus,</li>
-<li>a tak dále.</li>
+<li>PotĂ© hodnotu promÄ›nnĂ© <code>nasobitel</code> zmÄ›nĂ­me na nĂˇsledujĂ­cĂ­
+    hodnotu (3) a znovu provedeme vnitĹ™nĂ­ cyklus,</li>
+<li>a tak dĂˇle.</li>
 </ol>
 
-<p>Tato technika je známa jako <em>vnořování</em> cyklů.</p>
+<p>Tato technika je znĂˇma jako <em>vnoĹ™ovĂˇnĂ­</em> cyklĹŻ.</p>
 
-<p>Drobnou nepříjemností je to, že se nám všechny tabulky spojí dohromady.
-Můžeme ji odstranit tím, že na konci prvního cyklu vytiskneme oddělovací
-čáru:</p>
+<p>Drobnou nepĹ™Ă­jemnostĂ­ je to, Ĺľe se nĂˇm vĹˇechny tabulky spojĂ­ dohromady.
+MĹŻĹľeme ji odstranit tĂ­m, Ĺľe na konci prvnĂ­ho cyklu vytiskneme oddÄ›lovacĂ­
+ÄŤĂˇru:</p>
 
 <pre>
 >>> for nasobitel in range(2, 13):
@@ -604,14 +604,14 @@ Můžeme ji odstranit tím, že na konci prvního cyklu vytiskneme oddělovací
 ...     print "-------------------"
 </pre>
 
-<p>Všimněte si, že druhý příkaz <code>print</code> je odsazený o stejnou
-hodnotu, jako řádek s druhým cyklem <code>for</code> &mdash; jde tedy o
-druhý příkaz v posloupnosti příkazů cyklu. <span class="trnote"
-title="Poznámka překladatele">(Prvním příkazem je zde vnořený
-cyklus.)</span> Zapamatujte si, že úroveň odsazení je v jazyce Python velmi
-důležitá.</p>
+<p>VĹˇimnÄ›te si, Ĺľe druhĂ˝ pĹ™Ă­kaz <code>print</code> je odsazenĂ˝ o stejnou
+hodnotu, jako Ĺ™Ăˇdek s druhĂ˝m cyklem <code>for</code> &mdash; jde tedy o
+druhĂ˝ pĹ™Ă­kaz v posloupnosti pĹ™Ă­kazĹŻ cyklu. <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(PrvnĂ­m pĹ™Ă­kazem je zde vnoĹ™enĂ˝
+cyklus.)</span> Zapamatujte si, Ĺľe ĂşroveĹ odsazenĂ­ je v jazyce Python velmi
+dĹŻleĹľitĂˇ.</p>
 
-<p>Jen pro porovnání uveďme, jak by to vypadalo v jazyce JavaScript:</p>
+<p>Jen pro porovnĂˇnĂ­ uveÄŹme, jak by to vypadalo v jazyce JavaScript:</p>
 
 <pre>
 &lt;script type="text/javascript">
@@ -624,79 +624,79 @@ for (nasobitel = 2; nasobitel &lt; 13; nasobitel++) {
 &lt;/script>
 </pre>
 
-<p>Pokuste se vytvořit oddělovač tabulek, který by říkal, jaká tabulka mu
-předchází &mdash; popis pod tabulkou. Nápověda: Pravděpodobně budete muset
-použít proměnnou <code>nasobitel</code> a pythonovský formátovací
-řetězec.</p>
+<p>Pokuste se vytvoĹ™it oddÄ›lovaÄŤ tabulek, kterĂ˝ by Ĺ™Ă­kal, jakĂˇ tabulka mu
+pĹ™edchĂˇzĂ­ &mdash; popis pod tabulkou. NĂˇpovÄ›da: PravdÄ›podobnÄ› budete muset
+pouĹľĂ­t promÄ›nnou <code>nasobitel</code> a pythonovskĂ˝ formĂˇtovacĂ­
+Ĺ™etÄ›zec.</p>
 
-<h3>Ostatní typy cyklů</h3>
+<h3>OstatnĂ­ typy cyklĹŻ</h3>
 
-<p>Některé jazyky umožňují více typů konstrukcí cyklu, ale obvykle podporují
-něco jako <code>for</code> a <code>while</code>. (Modula&nbsp;2 a Oberon
-poskytují pouze cykly typu <code>while</code>, protože cykly
-<code>for</code> jimi můžeme nasimulovat &mdash; jak jsme viděli výše.) Jiné
-typy cyklů, se kterými se můžete setkat jsou:</p>
+<p>NÄ›kterĂ© jazyky umoĹľĹujĂ­ vĂ­ce typĹŻ konstrukcĂ­ cyklu, ale obvykle podporujĂ­
+nÄ›co jako <code>for</code> a <code>while</code>. (Modula&nbsp;2 a Oberon
+poskytujĂ­ pouze cykly typu <code>while</code>, protoĹľe cykly
+<code>for</code> jimi mĹŻĹľeme nasimulovat &mdash; jak jsme vidÄ›li vĂ˝Ĺˇe.) JinĂ©
+typy cyklĹŻ, se kterĂ˝mi se mĹŻĹľete setkat jsou:</p>
 
 <dl>
 
 <dt>do-while</dt>
-<dd>Tento typ cyklu je stejný jako <code>while</code>, ale test se provádí
-až na konci<span class="trnote" title="Poznámka překladatele">, za tělem
-cyklu</span>. To znamená, že se cyklus provede vždy alespoň jednou.</dd>
+<dd>Tento typ cyklu je stejnĂ˝ jako <code>while</code>, ale test se provĂˇdĂ­
+aĹľ na konci<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">, za tÄ›lem
+cyklu</span>. To znamenĂˇ, Ĺľe se cyklus provede vĹľdy alespoĹ jednou.</dd>
 
 <dt>repeat-until</dt>
-<dd>Podobá se předchozímu typu s tím, že logika testu je opačná.</dd>
+<dd>PodobĂˇ se pĹ™edchozĂ­mu typu s tĂ­m, Ĺľe logika testu je opaÄŤnĂˇ.</dd>
 
 <dt>GOTO, JUMP, LOOP, atd.</dt>
-<dd>Lze se s nimi setkat hlavně ve starších jazycích. V kódu se obvykle definuje
-značka a skáče se přímo na takto označené místo.</dd>
+<dd>Lze se s nimi setkat hlavnÄ› ve starĹˇĂ­ch jazycĂ­ch. V kĂłdu se obvykle definuje
+znaÄŤka a skĂˇÄŤe se pĹ™Ă­mo na takto oznaÄŤenĂ© mĂ­sto.</dd>
 </dl>
- 
+
 
 <div class="remember">
 <p class="title">Zapamatujte si</p>
 <ul>
 
-<li>Cyklus <code>FOR</code> opakuje sadu příkazů při pevně daném počtu
-iterací (obrátek cyklu).</li>
+<li>Cyklus <code>FOR</code> opakuje sadu pĹ™Ă­kazĹŻ pĹ™i pevnÄ› danĂ©m poÄŤtu
+iteracĂ­ (obrĂˇtek cyklu).</li>
 
-<li>Cyklus <code>WHILE</code> opakuje sadu příkazů dokud je splněna
-podmínka. Může se stát, že se <em>tělo</em> cyklu neprovede nikdy. Stane se
-tak v případě, kdy se pokračovací podmínka hned na začátku vyhodnotí jako
+<li>Cyklus <code>WHILE</code> opakuje sadu pĹ™Ă­kazĹŻ dokud je splnÄ›na
+podmĂ­nka. MĹŻĹľe se stĂˇt, Ĺľe se <em>tÄ›lo</em> cyklu neprovede nikdy. Stane se
+tak v pĹ™Ă­padÄ›, kdy se pokraÄŤovacĂ­ podmĂ­nka hned na zaÄŤĂˇtku vyhodnotĂ­ jako
 <em>false</em> (nepravda).</li>
 
-<li>Existují i jiné typy cyklů, ale <code>FOR</code> a <code>WHILE</code>
-jsou k dispozici téměř ve všech jazycích.</li>
+<li>ExistujĂ­ i jinĂ© typy cyklĹŻ, ale <code>FOR</code> a <code>WHILE</code>
+jsou k dispozici tĂ©mÄ›Ĺ™ ve vĹˇech jazycĂ­ch.</li>
 
-<li>Cyklus <code>for</code> v jazyce Python je skutečnosti cyklem typu
-<code>foreach</code> &mdash; pracuje nad položkami seznamu.</li>
+<li>Cyklus <code>for</code> v jazyce Python je skuteÄŤnosti cyklem typu
+<code>foreach</code> &mdash; pracuje nad poloĹľkami seznamu.</li>
 
-<li>Cykly lze do sebe vnořovat.</li>
+<li>Cykly lze do sebe vnoĹ™ovat.</li>
 </ul>
 </div>
 
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutseq2.html" title="Další posloupnosti">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutstyle.html" title="Styl zápisu kódu">další</a> 
+<p class="navig">[
+<a href="cztutseq2.html" title="DalĹˇĂ­ posloupnosti">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutstyle.html" title="Styl zĂˇpisu kĂłdu">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutloops.html,v 1.11 2005/10/20 20:52:28 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutloops.html,v 1.11 2005/10/20 20:52:28 petr Exp $</p>
 </div>

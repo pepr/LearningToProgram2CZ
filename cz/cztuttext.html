@@ -1,68 +1,68 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Zpracování textu</title>
+  <title>Jak se nauÄŤit programovat: ZpracovĂˇnĂ­ textu</title>
 </head>
 <body>
 
-<h2>Zpracování textu</h2>
+<h2>ZpracovĂˇnĂ­ textu</h2>
 
 <div class="whatcovered">
-<p class="title">O čem si budeme povídat?</p>
+<p class="title">O ÄŤem si budeme povĂ­dat?</p>
 <ul>
-<li>Jak rozdělit řádky textu na skupiny znaků.</li>
-<li>Jak vyhledávat textové řetězce uvnitř jiných řetězců.</li>
-<li>Jak nahradit text uvnitř řetězce.</li>
-<li>Jak měnit velikost písmen (malá za velká a naopak).</li>
+<li>Jak rozdÄ›lit Ĺ™Ăˇdky textu na skupiny znakĹŻ.</li>
+<li>Jak vyhledĂˇvat textovĂ© Ĺ™etÄ›zce uvnitĹ™ jinĂ˝ch Ĺ™etÄ›zcĹŻ.</li>
+<li>Jak nahradit text uvnitĹ™ Ĺ™etÄ›zce.</li>
+<li>Jak mÄ›nit velikost pĂ­smen (malĂˇ za velkĂˇ a naopak).</li>
 </ul>
 </div>
 
-<p>Zpracování textu patří mezi nejběžnější programátorské činnosti. Díky
-tomu nám většina programovacích jazyků nabízí řadu specifických nástrojů,
-které mají zpracování textu usnadnit. V této části se podíváme na některé
-z&nbsp;nich a na to, jak je můžeme využít při realizaci typických
-programátorských úloh.</p>
+<p>ZpracovĂˇnĂ­ textu patĹ™Ă­ mezi nejbÄ›ĹľnÄ›jĹˇĂ­ programĂˇtorskĂ© ÄŤinnosti. DĂ­ky
+tomu nĂˇm vÄ›tĹˇina programovacĂ­ch jazykĹŻ nabĂ­zĂ­ Ĺ™adu specifickĂ˝ch nĂˇstrojĹŻ,
+kterĂ© majĂ­ zpracovĂˇnĂ­ textu usnadnit. V tĂ©to ÄŤĂˇsti se podĂ­vĂˇme na nÄ›kterĂ©
+z&nbsp;nich a na to, jak je mĹŻĹľeme vyuĹľĂ­t pĹ™i realizaci typickĂ˝ch
+programĂˇtorskĂ˝ch Ăşloh.</p>
 
-<p>Mezi nejběžnější akce při práci s textem patří:</p>
+<p>Mezi nejbÄ›ĹľnÄ›jĹˇĂ­ akce pĹ™i prĂˇci s textem patĹ™Ă­:</p>
 
 <ul>
-<li>Rozdělování řádků textu na skupiny znaků,</li>
-<li>hledání podřetězců v řetězcích,</li>
-<li>náhrada textu uvnitř řetězce,</li>
-<li>změna velikosti písmen (malá na velká a naopak).</li>
+<li>RozdÄ›lovĂˇnĂ­ Ĺ™ĂˇdkĹŻ textu na skupiny znakĹŻ,</li>
+<li>hledĂˇnĂ­ podĹ™etÄ›zcĹŻ v Ĺ™etÄ›zcĂ­ch,</li>
+<li>nĂˇhrada textu uvnitĹ™ Ĺ™etÄ›zce,</li>
+<li>zmÄ›na velikosti pĂ­smen (malĂˇ na velkĂˇ a naopak).</li>
 </ul>
 
-<p>Podíváme se, jak se uvedené úkoly řeší v jazyce Python. Poté se stručně
-seznámíme s tím, jaké možnosti zpracování textu poskytují jazyky VBScript a
+<p>PodĂ­vĂˇme se, jak se uvedenĂ© Ăşkoly Ĺ™eĹˇĂ­ v jazyce Python. PotĂ© se struÄŤnÄ›
+seznĂˇmĂ­me s tĂ­m, jakĂ© moĹľnosti zpracovĂˇnĂ­ textu poskytujĂ­ jazyky VBScript a
 JavaScript.</p>
 
-<p>Od verze 2.3 Python při zpracování textu postupuje trošku nejednoznačně.
-Příčina spočívá v tom, že starší verze jazyka Python prováděly veškeré
-manipulace prostřednictvím modulu, který byl napěchovaný funkcemi a
-užitečnými konstantami. Python verze 2.0 zavedl pro typ řetězec metody,
-které nahrazují funkce ve zmíněném modulu, ale konstanty byly dostupné stále
-jen prostřednictvím modulu. Tato situace trvala až do verze 2.3. Další vývoj
-směřuje k tomu, aby potřeba používat starý modul <code>string</code> byla
-zcela odstraněna. V tomto tématu se zaměříme výlučně na nový, objektově
-orientovaný přístup k manipulaci s řetězci. Pokud si chcete vyzkoušet práci
-s původním modulem, hledejte potřebné informace v jeho dokumentaci.</p>
+<p>Od verze 2.3 Python pĹ™i zpracovĂˇnĂ­ textu postupuje troĹˇku nejednoznaÄŤnÄ›.
+PĹ™Ă­ÄŤina spoÄŤĂ­vĂˇ v tom, Ĺľe starĹˇĂ­ verze jazyka Python provĂˇdÄ›ly veĹˇkerĂ©
+manipulace prostĹ™ednictvĂ­m modulu, kterĂ˝ byl napÄ›chovanĂ˝ funkcemi a
+uĹľiteÄŤnĂ˝mi konstantami. Python verze 2.0 zavedl pro typ Ĺ™etÄ›zec metody,
+kterĂ© nahrazujĂ­ funkce ve zmĂ­nÄ›nĂ©m modulu, ale konstanty byly dostupnĂ© stĂˇle
+jen prostĹ™ednictvĂ­m modulu. Tato situace trvala aĹľ do verze 2.3. DalĹˇĂ­ vĂ˝voj
+smÄ›Ĺ™uje k tomu, aby potĹ™eba pouĹľĂ­vat starĂ˝ modul <code>string</code> byla
+zcela odstranÄ›na. V tomto tĂ©matu se zamÄ›Ĺ™Ă­me vĂ˝luÄŤnÄ› na novĂ˝, objektovÄ›
+orientovanĂ˝ pĹ™Ă­stup k manipulaci s Ĺ™etÄ›zci. Pokud si chcete vyzkouĹˇet prĂˇci
+s pĹŻvodnĂ­m modulem, hledejte potĹ™ebnĂ© informace v jeho dokumentaci.</p>
 
 
-<h3>Rozdělování řetězců</h3>
+<h3>RozdÄ›lovĂˇnĂ­ Ĺ™etÄ›zcĹŻ</h3>
 
-<p>Nejdříve se budeme zabývat tím, jak můžeme řetězec rozdělit na části, z
-kterých se skládá. Při zpracování textových souborů se s takovým požadavkem
-setkáváme často. Obsah souboru se obvykle snažíme číst po řádcích, ale
-požadovaná data mohou být uložena v určitých částech řádků. Jako příklad si
-můžeme uvést náš záznamník s adresami. Místo tisku celé adresy bychom mohli
-chtít přistupovat například jen k částem adresy.</p>
+<p>NejdĹ™Ă­ve se budeme zabĂ˝vat tĂ­m, jak mĹŻĹľeme Ĺ™etÄ›zec rozdÄ›lit na ÄŤĂˇsti, z
+kterĂ˝ch se sklĂˇdĂˇ. PĹ™i zpracovĂˇnĂ­ textovĂ˝ch souborĹŻ se s takovĂ˝m poĹľadavkem
+setkĂˇvĂˇme ÄŤasto. Obsah souboru se obvykle snaĹľĂ­me ÄŤĂ­st po Ĺ™ĂˇdcĂ­ch, ale
+poĹľadovanĂˇ data mohou bĂ˝t uloĹľena v urÄŤitĂ˝ch ÄŤĂˇstech Ĺ™ĂˇdkĹŻ. Jako pĹ™Ă­klad si
+mĹŻĹľeme uvĂ©st nĂˇĹˇ zĂˇznamnĂ­k s adresami. MĂ­sto tisku celĂ© adresy bychom mohli
+chtĂ­t pĹ™istupovat napĹ™Ă­klad jen k ÄŤĂˇstem adresy.</p>
 
-<p>V Pythonu pro tento účel použijeme metodu <code>split()</code> <span
-class="trnote" title="Poznámka překladatele">(rozdělit na části,
-rozštípnout)</span> následujícím způsobem:</p>
+<p>V Pythonu pro tento ĂşÄŤel pouĹľijeme metodu <code>split()</code> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(rozdÄ›lit na ÄŤĂˇsti,
+rozĹˇtĂ­pnout)</span> nĂˇsledujĂ­cĂ­m zpĹŻsobem:</p>
 
 <pre>
 >>> retezec = 'Toto je (kratky) retezec.'
@@ -70,28 +70,28 @@ rozštípnout)</span> následujícím způsobem:</p>
 ['Toto', 'je', '(kratky)', 'retezec.']
 </pre>
 
-<p>Povšimněte si, že se nám vrací seznam, který obsahuje slova z řetězcové
-proměnné <code>retezec</code>. Všechny mezery byly odstraněny.
-Předdefinovaným oddělovačem metody <code>split()</code> jsou totiž <em>bílé
-znaky</em> (tj. tabulátory, znaky přechodu na nový řádek a mezery). Zkusme
-to znovu, ale tentokrát si jako oddělovač vybereme otvírací závorku:</p>
+<p>PovĹˇimnÄ›te si, Ĺľe se nĂˇm vracĂ­ seznam, kterĂ˝ obsahuje slova z Ĺ™etÄ›zcovĂ©
+promÄ›nnĂ© <code>retezec</code>. VĹˇechny mezery byly odstranÄ›ny.
+PĹ™eddefinovanĂ˝m oddÄ›lovaÄŤem metody <code>split()</code> jsou totiĹľ <em>bĂ­lĂ©
+znaky</em> (tj. tabulĂˇtory, znaky pĹ™echodu na novĂ˝ Ĺ™Ăˇdek a mezery). Zkusme
+to znovu, ale tentokrĂˇt si jako oddÄ›lovaÄŤ vybereme otvĂ­racĂ­ zĂˇvorku:</p>
 
 <pre>
 >>> print retezec.split('(')
 ['Toto je ', 'kratky) retezec.']
 </pre>
 
-<p>Vidíte ten rozdíl? Seznam obsahuje tentokrát jen dva prvky a otvírací
-závorka na začátku <code>'kratky)'</code> byla odstraněna. Důležitou
-vlastností metody <code>split()</code> je to, že odstraňuje oddělovací
-znaky. Většinou takové chování požadujeme, ale občas bychom si přáli, aby
+<p>VidĂ­te ten rozdĂ­l? Seznam obsahuje tentokrĂˇt jen dva prvky a otvĂ­racĂ­
+zĂˇvorka na zaÄŤĂˇtku <code>'kratky)'</code> byla odstranÄ›na. DĹŻleĹľitou
+vlastnostĂ­ metody <code>split()</code> je to, Ĺľe odstraĹuje oddÄ›lovacĂ­
+znaky. VÄ›tĹˇinou takovĂ© chovĂˇnĂ­ poĹľadujeme, ale obÄŤas bychom si pĹ™Ăˇli, aby
 tomu tak nebylo.</p>
 
-<p>K dispozici máme i metodu <code>join()</code>, která přebírá seznam (nebo
-také jinou podobu posloupnosti) řetězců a spojuje je dohromady. Jednou z
-matoucích vlastností metody <code>join()</code> je to, že řetězec, jehož
-metodu <code>join()</code> voláme, je použit v roli spojovacích znaků.
-Následující příklad ukazuje, co mám na mysli:</p>
+<p>K dispozici mĂˇme i metodu <code>join()</code>, kterĂˇ pĹ™ebĂ­rĂˇ seznam (nebo
+takĂ© jinou podobu posloupnosti) Ĺ™etÄ›zcĹŻ a spojuje je dohromady. Jednou z
+matoucĂ­ch vlastnostĂ­ metody <code>join()</code> je to, Ĺľe Ĺ™etÄ›zec, jehoĹľ
+metodu <code>join()</code> volĂˇme, je pouĹľit v roli spojovacĂ­ch znakĹŻ.
+NĂˇsledujĂ­cĂ­ pĹ™Ă­klad ukazuje, co mĂˇm na mysli:</p>
 
 <pre>
 >>> lst = ['Tohle', 'je', 'seznam', 'slov.']
@@ -101,28 +101,28 @@ Tohle-+-je-+-seznam-+-slov.
 Tohle je seznam slov.
 </pre>
 
-<p>Když o tom začnete přemýšlet, dává to smysl. Ale na první pohled to
-vypadá divně.</p>
+<p>KdyĹľ o tom zaÄŤnete pĹ™emĂ˝Ĺˇlet, dĂˇvĂˇ to smysl. Ale na prvnĂ­ pohled to
+vypadĂˇ divnÄ›.</p>
 
 <div class="trnote">
-<p><b>Poznámka překladatele:</b> Na první pohled by se zdálo přirozenější,
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> Na prvnĂ­ pohled by se zdĂˇlo pĹ™irozenÄ›jĹˇĂ­,
 kdyby metoda <code>join()</code> byla metodou typu <em>seznam</em> a jako
-parametr by přebírala řetězec, který se použije pro spojení prvků seznamu:</p>
+parametr by pĹ™ebĂ­rala Ĺ™etÄ›zec, kterĂ˝ se pouĹľije pro spojenĂ­ prvkĹŻ seznamu:</p>
 
 <pre>
 >>> lst.join('-+-')    <span class="comment"># Tohle NEFUNGUJE!</span>
 </pre>
 
-<p>Ale argumentem metody <code>join()</code> nemusí být přímo
-<em>seznam</em> řetězců. Může to být libovolný iterovatelný objekt, tj.
-objekt který podporuje průchod jednotlivými řetězcovými položkami. (Typicky
-to bývá kontejner, ale může to být například i generátor s omezeným počtem
-generovaných řetězcových hodnot.) Pokud si to uvědomíme, nevypadá už
-rozhodnutí o příslušnosti metody <code>join()</code> k řetězcovému typu tak
-nezvykle. V opačném případě by metoda <code>join()</code> musela být
-implementována pro všechny typy kontejnerů, jejichž obsah bychom chtěli
-spojovat. Následující příklad uvádí převod seznamu na n-tici a na množinu a
-spojení jejich obsahu mezerou:</p>
+<p>Ale argumentem metody <code>join()</code> nemusĂ­ bĂ˝t pĹ™Ă­mo
+<em>seznam</em> Ĺ™etÄ›zcĹŻ. MĹŻĹľe to bĂ˝t libovolnĂ˝ iterovatelnĂ˝ objekt, tj.
+objekt kterĂ˝ podporuje prĹŻchod jednotlivĂ˝mi Ĺ™etÄ›zcovĂ˝mi poloĹľkami. (Typicky
+to bĂ˝vĂˇ kontejner, ale mĹŻĹľe to bĂ˝t napĹ™Ă­klad i generĂˇtor s omezenĂ˝m poÄŤtem
+generovanĂ˝ch Ĺ™etÄ›zcovĂ˝ch hodnot.) Pokud si to uvÄ›domĂ­me, nevypadĂˇ uĹľ
+rozhodnutĂ­ o pĹ™Ă­sluĹˇnosti metody <code>join()</code> k Ĺ™etÄ›zcovĂ©mu typu tak
+nezvykle. V opaÄŤnĂ©m pĹ™Ă­padÄ› by metoda <code>join()</code> musela bĂ˝t
+implementovĂˇna pro vĹˇechny typy kontejnerĹŻ, jejichĹľ obsah bychom chtÄ›li
+spojovat. NĂˇsledujĂ­cĂ­ pĹ™Ă­klad uvĂˇdĂ­ pĹ™evod seznamu na n-tici a na mnoĹľinu a
+spojenĂ­ jejich obsahu mezerou:</p>
 
 <pre>
 >>> lst = ['Tohle', 'je', 'seznam', 'slov.']
@@ -134,9 +134,9 @@ Tohle je seznam slov.
 je seznam Tohle slov.
 </pre>
 
-<p>Povšimněte si, že v případě množiny není dodrženo pořadí, ve kterém se
-prvky množiny vkládaly (z množinového hlediska není pořadí položek
-důležité). Z prvků množiny ovšem můžeme nějakou funkcí vytvořit uspořádanou
+<p>PovĹˇimnÄ›te si, Ĺľe v pĹ™Ă­padÄ› mnoĹľiny nenĂ­ dodrĹľeno poĹ™adĂ­, ve kterĂ©m se
+prvky mnoĹľiny vklĂˇdaly (z mnoĹľinovĂ©ho hlediska nenĂ­ poĹ™adĂ­ poloĹľek
+dĹŻleĹľitĂ©). Z prvkĹŻ mnoĹľiny ovĹˇem mĹŻĹľeme nÄ›jakou funkcĂ­ vytvoĹ™it uspoĹ™Ăˇdanou
 posloupnost:</p>
 
 <pre>
@@ -144,12 +144,12 @@ posloupnost:</p>
 Tohle je seznam slov.
 </pre>
 
-<p>Zdánlivě správné pořadí slov je dáno pouze náhodou, protože uvedená slova
-ve větě náhodou odpovídají svému lexikografickému pořadí. Dokažme si to na
-jiném příkladě:</p>
+<p>ZdĂˇnlivÄ› sprĂˇvnĂ© poĹ™adĂ­ slov je dĂˇno pouze nĂˇhodou, protoĹľe uvedenĂˇ slova
+ve vÄ›tÄ› nĂˇhodou odpovĂ­dajĂ­ svĂ©mu lexikografickĂ©mu poĹ™adĂ­. DokaĹľme si to na
+jinĂ©m pĹ™Ă­kladÄ›:</p>
 
 <pre>
->>> lst = ['tohle', 'je', 'neusporadany', 'salat', 'z', 'ceskych', 
+>>> lst = ['tohle', 'je', 'neusporadany', 'salat', 'z', 'ceskych',
 ...        'slov', 'bez', 'diakritickych', 'znamenek']
 >>> se = set(lst)
 >>> print ' '.join(se)
@@ -161,70 +161,70 @@ bez ceskych diakritickych je neusporadany salat slov tohle z znamenek
 </div>
 
 
-<h4 id="word_count">Počítání slov</h4>
-                                                                       
-<p>Nyní se znovu podívejme na program pro počítání slov, o kterém jsem se
-zmínil v předchozí podkapitole <a href="cztutfunc.html#wc"
->o&nbsp;funkcích</a>. Připomeňme si, že <em>pseudo kód</em> vypadal
+<h4 id="word_count">PoÄŤĂ­tĂˇnĂ­ slov</h4>
+
+<p>NynĂ­ se znovu podĂ­vejme na program pro poÄŤĂ­tĂˇnĂ­ slov, o kterĂ©m jsem se
+zmĂ­nil v pĹ™edchozĂ­ podkapitole <a href="cztutfunc.html#wc"
+>o&nbsp;funkcĂ­ch</a>. PĹ™ipomeĹme si, Ĺľe <em>pseudo kĂłd</em> vypadal
 takto:</p>
 
 <pre>
 def pocetSlov(s):
-    seznam = split(s)  <span class="comment"># seznam, kde prvkem je vždy slovo</span>
-    return len(seznam) <span class="comment"># vrátíme počet prvků seznamu</span>
+    seznam = split(s)  <span class="comment"># seznam, kde prvkem je vĹľdy slovo</span>
+    return len(seznam) <span class="comment"># vrĂˇtĂ­me poÄŤet prvkĹŻ seznamu</span>
 
 for radek in soubor:
-    celkem = celkem + pocetSlov(radek) <span class="comment"># sečti počty za každý řádek</span>
-print "Soubor má %d slov." % celkem
+    celkem = celkem + pocetSlov(radek) <span class="comment"># seÄŤti poÄŤty za kaĹľdĂ˝ Ĺ™Ăˇdek</span>
+print "Soubor mĂˇ %d slov." % celkem
 </pre>
 
-<p>Nyní již víme, jak lze načítat řádky souboru. Podívejme se blíže na tělo
-funkce <code>pocetSlov()</code>. Nejdříve chceme z daného řádku vytvořit
-seznam slov. Stačí, když na řádek aplikujeme standardní metodu
-<code>split()</code>. Nahlédnutím do dokumentace zjistíme, že zabudovaná
-funkce <code>len()</code> vrací pro seznam počet v něm umístěných prvků. V
-našem případě to bude počet slov v řetězci, což je přesně to, co
-potřebujeme.</p>
+<p>NynĂ­ jiĹľ vĂ­me, jak lze naÄŤĂ­tat Ĺ™Ăˇdky souboru. PodĂ­vejme se blĂ­Ĺľe na tÄ›lo
+funkce <code>pocetSlov()</code>. NejdĹ™Ă­ve chceme z danĂ©ho Ĺ™Ăˇdku vytvoĹ™it
+seznam slov. StaÄŤĂ­, kdyĹľ na Ĺ™Ăˇdek aplikujeme standardnĂ­ metodu
+<code>split()</code>. NahlĂ©dnutĂ­m do dokumentace zjistĂ­me, Ĺľe zabudovanĂˇ
+funkce <code>len()</code> vracĂ­ pro seznam poÄŤet v nÄ›m umĂ­stÄ›nĂ˝ch prvkĹŻ. V
+naĹˇem pĹ™Ă­padÄ› to bude poÄŤet slov v Ĺ™etÄ›zci, coĹľ je pĹ™esnÄ› to, co
+potĹ™ebujeme.</p>
 
-<p>Takže konečná podoba zdrojového kódu vypadá takto:</p>
+<p>TakĹľe koneÄŤnĂˇ podoba zdrojovĂ©ho kĂłdu vypadĂˇ takto:</p>
 
 <pre>
 <span class="comment"># -*- coding: cp1250 -*-</span>
 import string
 def pocetSlov(s):
-    seznam = s.split() <span class="comment"># split() je metodou řetězcového objektu <code>s</code></span>
-    return len(seznam) <span class="comment"># vrátíme počet prvků seznamu</span>
+    seznam = s.split() <span class="comment"># split() je metodou Ĺ™etÄ›zcovĂ©ho objektu <code>s</code></span>
+    return len(seznam) <span class="comment"># vrĂˇtĂ­me poÄŤet prvkĹŻ seznamu</span>
 
 vstup = open('menu.txt', 'r')
-celkem = 0 <span class="comment"># vytvoříme proměnnou a nastavíme jí počáteční hodnotu nula</span>
+celkem = 0 <span class="comment"># vytvoĹ™Ă­me promÄ›nnou a nastavĂ­me jĂ­ poÄŤĂˇteÄŤnĂ­ hodnotu nula</span>
 
 for radek in vstup:
-    celkem = celkem + pocetSlov(radek) <span class="comment"># sečti počty za každý řádek</span>
-print u'Soubor má %d slov.' % celkem
+    celkem = celkem + pocetSlov(radek) <span class="comment"># seÄŤti poÄŤty za kaĹľdĂ˝ Ĺ™Ăˇdek</span>
+print u'Soubor mĂˇ %d slov.' % celkem
 
 vstup.close()
 </pre>
 
-<p>Tento program není tak docela správný, protože například započítá <span
-class="trnote" title="Poznámka překladatele">samostatně stojící</span> znak
-'&amp;' (ampersand) jako slovo (ačkoliv si vlastně můžete myslet, že je to
-správné). Program navíc zpracovává jediný soubor (<code>menu.txt</code>).
-Ale není příliš obtížné upravit jej tak, aby jméno souboru četl z
-příkazového řádku (<code>argv[1]</code>) nebo prostřednictvím
-<code>raw_input()</code>, jak jsme si ukázali v podkapitole <a
-href="cztutinput.html">Konverzace s uživatelem</a>. Řešení ponechávám za
-domácí úkol.</p>
+<p>Tento program nenĂ­ tak docela sprĂˇvnĂ˝, protoĹľe napĹ™Ă­klad zapoÄŤĂ­tĂˇ <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">samostatnÄ› stojĂ­cĂ­</span> znak
+'&amp;' (ampersand) jako slovo (aÄŤkoliv si vlastnÄ› mĹŻĹľete myslet, Ĺľe je to
+sprĂˇvnĂ©). Program navĂ­c zpracovĂˇvĂˇ jedinĂ˝ soubor (<code>menu.txt</code>).
+Ale nenĂ­ pĹ™Ă­liĹˇ obtĂ­ĹľnĂ© upravit jej tak, aby jmĂ©no souboru ÄŤetl z
+pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku (<code>argv[1]</code>) nebo prostĹ™ednictvĂ­m
+<code>raw_input()</code>, jak jsme si ukĂˇzali v podkapitole <a
+href="cztutinput.html">Konverzace s uĹľivatelem</a>. ĹeĹˇenĂ­ ponechĂˇvĂˇm za
+domĂˇcĂ­ Ăşkol.</p>
 
 
-<h3>Vyhledávání textu</h3>
+<h3>VyhledĂˇvĂˇnĂ­ textu</h3>
 
-<p>Další běžnou operací, na kterou se teď podíváme, je vyhledávání
-podřetězce v delším řetězci. V Pythonu pro ni opět nalezneme podporu v
-podobě metody zabudovaného řetězcového typu &mdash; tentokrát se jmenuje
-<code>find()</code>. Její základní způsob použití je velmi jednoduchý.
-Předáte jí vyhledávaný podřetězec, a pokud jej Python v hlavním řetězci
-najde, vrátí index prvního znaku, na kterém podřetězec začíná. Pokud
-podřetězec nalezen není, vrací se hodnota <code>-1</code>:</p>
+<p>DalĹˇĂ­ bÄ›Ĺľnou operacĂ­, na kterou se teÄŹ podĂ­vĂˇme, je vyhledĂˇvĂˇnĂ­
+podĹ™etÄ›zce v delĹˇĂ­m Ĺ™etÄ›zci. V Pythonu pro ni opÄ›t nalezneme podporu v
+podobÄ› metody zabudovanĂ©ho Ĺ™etÄ›zcovĂ©ho typu &mdash; tentokrĂˇt se jmenuje
+<code>find()</code>. JejĂ­ zĂˇkladnĂ­ zpĹŻsob pouĹľitĂ­ je velmi jednoduchĂ˝.
+PĹ™edĂˇte jĂ­ vyhledĂˇvanĂ˝ podĹ™etÄ›zec, a pokud jej Python v hlavnĂ­m Ĺ™etÄ›zci
+najde, vrĂˇtĂ­ index prvnĂ­ho znaku, na kterĂ©m podĹ™etÄ›zec zaÄŤĂ­nĂˇ. Pokud
+podĹ™etÄ›zec nalezen nenĂ­, vracĂ­ se hodnota <code>-1</code>:</p>
 
 
 <pre>
@@ -237,74 +237,74 @@ podřetězec nalezen není, vrací se hodnota <code>-1</code>:</p>
 15
 </pre>
 
-<p>První dva příklady použití jsou přímočaré. První z nich vrací index
-začátku podřetězce <code>'dlouhy'</code>. Druhý příklad použití vrací
-hodnotu <code>-1</code>, protože podřetězec <code>'moc'</code> se v řetězci
-nevyskytuje. U třetího příkladu použití narazíme na jeden detail &mdash;
-vyhledal se <em>první</em> výskyt zadaného podřetězce. Ale co vlastně můžeme
-dělat v případech, kdy se hledaný vzorek vyskytuje v původním řetězci více
-než jednou?</p>
+<p>PrvnĂ­ dva pĹ™Ă­klady pouĹľitĂ­ jsou pĹ™Ă­moÄŤarĂ©. PrvnĂ­ z nich vracĂ­ index
+zaÄŤĂˇtku podĹ™etÄ›zce <code>'dlouhy'</code>. DruhĂ˝ pĹ™Ă­klad pouĹľitĂ­ vracĂ­
+hodnotu <code>-1</code>, protoĹľe podĹ™etÄ›zec <code>'moc'</code> se v Ĺ™etÄ›zci
+nevyskytuje. U tĹ™etĂ­ho pĹ™Ă­kladu pouĹľitĂ­ narazĂ­me na jeden detail &mdash;
+vyhledal se <em>prvnĂ­</em> vĂ˝skyt zadanĂ©ho podĹ™etÄ›zce. Ale co vlastnÄ› mĹŻĹľeme
+dÄ›lat v pĹ™Ă­padech, kdy se hledanĂ˝ vzorek vyskytuje v pĹŻvodnĂ­m Ĺ™etÄ›zci vĂ­ce
+neĹľ jednou?</p>
 
-<p>Jedna z možností spočívá v použití indexu prvního výskytu a rozseknutí
-původního řetězce na dvě části. Poté můžeme hledat znovu. Takto pokračujeme
-až do doby, kdy se nám vrátí výsledek <code>-1</code>:</p>
+<p>Jedna z moĹľnostĂ­ spoÄŤĂ­vĂˇ v pouĹľitĂ­ indexu prvnĂ­ho vĂ˝skytu a rozseknutĂ­
+pĹŻvodnĂ­ho Ĺ™etÄ›zce na dvÄ› ÄŤĂˇsti. PotĂ© mĹŻĹľeme hledat znovu. Takto pokraÄŤujeme
+aĹľ do doby, kdy se nĂˇm vrĂˇtĂ­ vĂ˝sledek <code>-1</code>:</p>
 
 
 <pre>
 <span class="comment"># -*- coding: cp1250 -*-</span>
-retezec = u"'Haf, ňaf', říká pes. Kolik 'af' je v řetězci?"
-s = retezec            <span class="comment"># Na začátku se odkazujeme na stejný řetězec.</span>
+retezec = u"'Haf, Ĺaf', Ĺ™Ă­kĂˇ pes. Kolik 'af' je v Ĺ™etÄ›zci?"
+s = retezec            <span class="comment"># Na zaÄŤĂˇtku se odkazujeme na stejnĂ˝ Ĺ™etÄ›zec.</span>
 pocet = 0
 index = s.find('af')
 while index != -1:
     pocet += 1
-    s = s[index + 1:]  <span class="comment"># Budeme pracovat s druhou částí řetězce (slicing).</span>
+    s = s[index + 1:]  <span class="comment"># Budeme pracovat s druhou ÄŤĂˇstĂ­ Ĺ™etÄ›zce (slicing).</span>
     index = s.find('af')
-print u"V řetězci \"%s\" jsme našli %d výskyty vzorku 'af'." % (retezec, pocet)   
+print u"V Ĺ™etÄ›zci \"%s\" jsme naĹˇli %d vĂ˝skyty vzorku 'af'." % (retezec, pocet)
 </pre>
 
-<p>V příkladu jsme pouze výskyty vzorku pouze počítali. Stejně dobře bychom
-ale mohli nalezené indexy sbírat do seznamu, který bychom využili při dalším
-zpracování.</p>
+<p>V pĹ™Ă­kladu jsme pouze vĂ˝skyty vzorku pouze poÄŤĂ­tali. StejnÄ› dobĹ™e bychom
+ale mohli nalezenĂ© indexy sbĂ­rat do seznamu, kterĂ˝ bychom vyuĹľili pĹ™i dalĹˇĂ­m
+zpracovĂˇnĂ­.</p>
 
-<p>Pokud použijeme nepovinné parametry metody <code>find()</code>, můžeme
-proces urychlit. Těmito nepovinnými parametry je určení počáteční a koncové
-pozice v původním řetězci:</p>
+<p>Pokud pouĹľijeme nepovinnĂ© parametry metody <code>find()</code>, mĹŻĹľeme
+proces urychlit. TÄ›mito nepovinnĂ˝mi parametry je urÄŤenĂ­ poÄŤĂˇteÄŤnĂ­ a koncovĂ©
+pozice v pĹŻvodnĂ­m Ĺ™etÄ›zci:</p>
 
 <pre>
 <span class="comment"># -*- coding: cp1250 -*-</span>
-retezec = u"'Haf, ňaf', říká pes. Kolik 'af' je v řetězci?"
+retezec = u"'Haf, Ĺaf', Ĺ™Ă­kĂˇ pes. Kolik 'af' je v Ĺ™etÄ›zci?"
 pocet = 0
 index = retezec.find('af')
 while index != -1:
     pocet += 1
-    start = index + 1  <span class="comment"># Připravíme nový začátek.</span>
+    start = index + 1  <span class="comment"># PĹ™ipravĂ­me novĂ˝ zaÄŤĂˇtek.</span>
     index = retezec.find('af', start)
-print u"V řetězci \"%s\" jsme našli %d výskyty vzorku 'af'." % (retezec, pocet)   
+print u"V Ĺ™etÄ›zci \"%s\" jsme naĹˇli %d vĂ˝skyty vzorku 'af'." % (retezec, pocet)
 </pre>
 
-<p>U tohoto řešení nemusíme pokaždé vytvářet nový řetězec, což může být v
-případě dlouhých řetězců časově náročné. Pokud chceme vyhledávat výskyt
-podřetězce jen v několika prvních znacích (a další případné výskyty nás
-nezajímají), můžeme určit počáteční a koncové pozice <span class="trnote"
-title="Poznámka&nbsp;překladatele">prohledávané části řetězce</span>
+<p>U tohoto Ĺ™eĹˇenĂ­ nemusĂ­me pokaĹľdĂ© vytvĂˇĹ™et novĂ˝ Ĺ™etÄ›zec, coĹľ mĹŻĹľe bĂ˝t v
+pĹ™Ă­padÄ› dlouhĂ˝ch Ĺ™etÄ›zcĹŻ ÄŤasovÄ› nĂˇroÄŤnĂ©. Pokud chceme vyhledĂˇvat vĂ˝skyt
+podĹ™etÄ›zce jen v nÄ›kolika prvnĂ­ch znacĂ­ch (a dalĹˇĂ­ pĹ™Ă­padnĂ© vĂ˝skyty nĂˇs
+nezajĂ­majĂ­), mĹŻĹľeme urÄŤit poÄŤĂˇteÄŤnĂ­ a koncovĂ© pozice <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">prohledĂˇvanĂ© ÄŤĂˇsti Ĺ™etÄ›zce</span>
 takto:</p>
 
 <pre>
 <span class="comment"># -*- coding: cp1250 -*-</span>
-retezec = u"'Haf, ňaf', říká pes. Kolik 'af' je v řetězci?"
+retezec = u"'Haf, Ĺaf', Ĺ™Ă­kĂˇ pes. Kolik 'af' je v Ĺ™etÄ›zci?"
 print retezec.find('af', 0, 20)
 </pre>
 
-<p>V souvislosti s vyhledáváním Python nabízí navíc několik pěkných, speciálních
-metod, které se nám hodí v nejčastějších případech &mdash; jde zejména o
+<p>V souvislosti s vyhledĂˇvĂˇnĂ­m Python nabĂ­zĂ­ navĂ­c nÄ›kolik pÄ›knĂ˝ch, speciĂˇlnĂ­ch
+metod, kterĂ© se nĂˇm hodĂ­ v nejÄŤastÄ›jĹˇĂ­ch pĹ™Ă­padech &mdash; jde zejmĂ©na o
 metody <code>startswith()</code> a <code>endswith()</code> <span
-class="trnote" title="Poznámka&nbsp;překladatele">(dalo by se přeložit jako
-<em>začíná tímhle</em> a <em>končí tímhle</em>)</span>. Samotná jména
-napovídají, so metody asi dělají. Vracejí hodnoty <code>True</code> nebo
-<code>False</code> v závislosti na to, zda původní řetězec <span
-class="trnote" title="Poznámka&nbsp;překladatele">(tj. objekt jehož metodu
-voláme)</span> začíná nebo končí vyhledávaným podřetězcem. Příklad:</p>
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(dalo by se pĹ™eloĹľit jako
+<em>zaÄŤĂ­nĂˇ tĂ­mhle</em> a <em>konÄŤĂ­ tĂ­mhle</em>)</span>. SamotnĂˇ jmĂ©na
+napovĂ­dajĂ­, so metody asi dÄ›lajĂ­. VracejĂ­ hodnoty <code>True</code> nebo
+<code>False</code> v zĂˇvislosti na to, zda pĹŻvodnĂ­ Ĺ™etÄ›zec <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(tj. objekt jehoĹľ metodu
+volĂˇme)</span> zaÄŤĂ­nĂˇ nebo konÄŤĂ­ vyhledĂˇvanĂ˝m podĹ™etÄ›zcem. PĹ™Ă­klad:</p>
 
 <pre>
 >>> print 'Python jede!'.startswith('Perl')
@@ -316,16 +316,16 @@ False
 >>> print 'Python jede!'.endswith('de!')
 True
 </pre>
-                         
-<p>Povšimněte si, že výsledek je boolovského typu. Povšimněte si také, že
-vyhledávací řetězec nemusí mít podobu celého slova, stačí prostě podřetězec.
-Pokud chcete testovat na výskyt podřetězce jen v učité části řetězce, můžeme
-upřesnit počáteční a koncovou pozici části, která se má prohledávat &mdash;
-stejně jako u metody <code>find()</code>. V praxi se ale tenhle rys moc
-nepoužívá.</p>
 
-<p>Na závěr si uveďme, že pro prosté otestování, zda se podřetězec nachází
-kdekoliv v řetězci můžeme použít pythonovský operátor <code>in</code>
+<p>PovĹˇimnÄ›te si, Ĺľe vĂ˝sledek je boolovskĂ©ho typu. PovĹˇimnÄ›te si takĂ©, Ĺľe
+vyhledĂˇvacĂ­ Ĺ™etÄ›zec nemusĂ­ mĂ­t podobu celĂ©ho slova, staÄŤĂ­ prostÄ› podĹ™etÄ›zec.
+Pokud chcete testovat na vĂ˝skyt podĹ™etÄ›zce jen v uÄŤitĂ© ÄŤĂˇsti Ĺ™etÄ›zce, mĹŻĹľeme
+upĹ™esnit poÄŤĂˇteÄŤnĂ­ a koncovou pozici ÄŤĂˇsti, kterĂˇ se mĂˇ prohledĂˇvat &mdash;
+stejnÄ› jako u metody <code>find()</code>. V praxi se ale tenhle rys moc
+nepouĹľĂ­vĂˇ.</p>
+
+<p>Na zĂˇvÄ›r si uveÄŹme, Ĺľe pro prostĂ© otestovĂˇnĂ­, zda se podĹ™etÄ›zec nachĂˇzĂ­
+kdekoliv v Ĺ™etÄ›zci mĹŻĹľeme pouĹľĂ­t pythonovskĂ˝ operĂˇtor <code>in</code>
 takto:</p>
 
 <pre>
@@ -339,16 +339,16 @@ True
 
 <div class="trnote">
 
-<p><b>Poznámka překladatele:</b> Podle mého názoru uvedený příklad zbytečně
-kombinuje přímo nesouvisející věci a svádí tak začátečníky na scestí.</p>
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> Podle mĂ©ho nĂˇzoru uvedenĂ˝ pĹ™Ă­klad zbyteÄŤnÄ›
+kombinuje pĹ™Ă­mo nesouvisejĂ­cĂ­ vÄ›ci a svĂˇdĂ­ tak zaÄŤĂˇteÄŤnĂ­ky na scestĂ­.</p>
 
 <ol>
-<li>Pro demonstraci není vůbec nutné používat konstrukci <code>if</code>.</li>
-<li>Tisknout <code>True</code>, pokud je výsledek výrazu <code>True</code>
-  navozuje představu, že jinak to není možné ukázat.</li>
+<li>Pro demonstraci nenĂ­ vĹŻbec nutnĂ© pouĹľĂ­vat konstrukci <code>if</code>.</li>
+<li>Tisknout <code>True</code>, pokud je vĂ˝sledek vĂ˝razu <code>True</code>
+  navozuje pĹ™edstavu, Ĺľe jinak to nenĂ­ moĹľnĂ© ukĂˇzat.</li>
 </ol>
 
-<p>Za didaktičtější pokládám přímé zobrazení výsledku výrazu:</p>
+<p>Za didaktiÄŤtÄ›jĹˇĂ­ poklĂˇdĂˇm pĹ™Ă­mĂ© zobrazenĂ­ vĂ˝sledku vĂ˝razu:</p>
 
 <pre>
 >>> print 'foo' in 'foobar'
@@ -359,9 +359,9 @@ False
 True
 </pre>
 
-<p>Liší se to sice tím, že se v druhém případě tiskne <code>False</code>,
-zatímco v původním příkladu se netiskne nic, ale asi to není na závadu. V
-interaktivním režimu můžeme dokonce vynechat příkaz <code>print</code>: </p>
+<p>LiĹˇĂ­ se to sice tĂ­m, Ĺľe se v druhĂ©m pĹ™Ă­padÄ› tiskne <code>False</code>,
+zatĂ­mco v pĹŻvodnĂ­m pĹ™Ă­kladu se netiskne nic, ale asi to nenĂ­ na zĂˇvadu. V
+interaktivnĂ­m reĹľimu mĹŻĹľeme dokonce vynechat pĹ™Ă­kaz <code>print</code>: </p>
 
 <pre>
 >>> 'foo' in 'foobar'
@@ -374,405 +374,405 @@ True
 
 </div>
 
-<p>K vyhledávání je to zatím vše. Teď se podívejme, jak můžeme provádět
-náhrady textu.</p>
+<p>K vyhledĂˇvĂˇnĂ­ je to zatĂ­m vĹˇe. TeÄŹ se podĂ­vejme, jak mĹŻĹľeme provĂˇdÄ›t
+nĂˇhrady textu.</p>
 
 
-<h3>Náhrada textu</h3>
+<h3>NĂˇhrada textu</h3>
 
-<p>Když nalezneme hledaný podřetězec, často jej chceme změnit na něco
-jiného. Řešení se nám nabízí v podobě metody <code>replace()</code>, kterou
-nalezneme mezi metodami pro pythonovský typ řetězec. Vyžaduje zadání dvou
-argumentů: vyhledávaný podřetězec a řetězec, kterým bude nahrazen. Metoda
-vrací nový řetězec, který je výsledkem náhrady.</p>
+<p>KdyĹľ nalezneme hledanĂ˝ podĹ™etÄ›zec, ÄŤasto jej chceme zmÄ›nit na nÄ›co
+jinĂ©ho. ĹeĹˇenĂ­ se nĂˇm nabĂ­zĂ­ v podobÄ› metody <code>replace()</code>, kterou
+nalezneme mezi metodami pro pythonovskĂ˝ typ Ĺ™etÄ›zec. VyĹľaduje zadĂˇnĂ­ dvou
+argumentĹŻ: vyhledĂˇvanĂ˝ podĹ™etÄ›zec a Ĺ™etÄ›zec, kterĂ˝m bude nahrazen. Metoda
+vracĂ­ novĂ˝ Ĺ™etÄ›zec, kterĂ˝ je vĂ˝sledkem nĂˇhrady.</p>
 
 <pre>
->>> retezec = 'Jedna, dvě / Honza jde / nese pytel s brouky'
+>>> retezec = 'Jedna, dvÄ› / Honza jde / nese pytel s brouky'
 >>> print retezec.replace('s brouky', 'mouky')
-Jedna, dvě / Honza jde / nese pytel mouky
+Jedna, dvÄ› / Honza jde / nese pytel mouky
 </pre>
 
-<p>Zajímavé je, že metoda <code>replace()</code> standardně nahrazuje
-<em>všechny výskyty</em> vyhledaného řetězce a ne jen první výskyt, narozdíl
+<p>ZajĂ­mavĂ© je, Ĺľe metoda <code>replace()</code> standardnÄ› nahrazuje
+<em>vĹˇechny vĂ˝skyty</em> vyhledanĂ©ho Ĺ™etÄ›zce a ne jen prvnĂ­ vĂ˝skyt, narozdĂ­l
 od metody <code>find()</code>. <span class="trnote"
-title="Poznámka&nbsp;překladatele">(Není to zase tak překvapující, pokud si
-uvědomíme, že <code>find()</code> by při vyhledávání všech výskytů musela
-vracet seznam pozic. Bráno z opačného konce, u metody <code>replace()</code>
-&mdash; pokud by nahrazovala standardně jen první výskyt &mdash; bychom zase
-nějakým způsobem museli umět předepsat náhradu všech výskytů.)</span>
-Maximální počet náhrad můžeme omezit zadáním nepovinného argumentu
-<code>count</code> (tj. počet):</p>
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(NenĂ­ to zase tak pĹ™ekvapujĂ­cĂ­, pokud si
+uvÄ›domĂ­me, Ĺľe <code>find()</code> by pĹ™i vyhledĂˇvĂˇnĂ­ vĹˇech vĂ˝skytĹŻ musela
+vracet seznam pozic. BrĂˇno z opaÄŤnĂ©ho konce, u metody <code>replace()</code>
+&mdash; pokud by nahrazovala standardnÄ› jen prvnĂ­ vĂ˝skyt &mdash; bychom zase
+nÄ›jakĂ˝m zpĹŻsobem museli umÄ›t pĹ™edepsat nĂˇhradu vĹˇech vĂ˝skytĹŻ.)</span>
+MaximĂˇlnĂ­ poÄŤet nĂˇhrad mĹŻĹľeme omezit zadĂˇnĂ­m nepovinnĂ©ho argumentu
+<code>count</code> (tj. poÄŤet):</p>
 
 <pre>
->>> retezec = 'Haf, ňaf, blaf, řekl pejsek.'
+>>> retezec = 'Haf, Ĺaf, blaf, Ĺ™ekl pejsek.'
 >>> print retezec.replace('af', 'afiky')
-Hafiky, ňafiky, blafiky, řekl pejsek.
->>> print retezec.replace('af', 'afiky', 1) <span class="comment"># jen první výskyt</span>
-Hafiky, ňaf, blaf, řekl pejsek.
+Hafiky, Ĺafiky, blafiky, Ĺ™ekl pejsek.
+>>> print retezec.replace('af', 'afiky', 1) <span class="comment"># jen prvnĂ­ vĂ˝skyt</span>
+Hafiky, Ĺaf, blaf, Ĺ™ekl pejsek.
 </pre>
 
-<p>Mnohem důmyslnější operace vyhledávání a náhrad můžeme provádět pomocí
-nástroje zvaného <em>regulární výrazy</em>. Ale práce regulárními výrazy je
-mnohem složitější, a proto si zaslouží <a href="cztutregex.html">vlastní
-téma</a> v části <em>Témata pro pokročilé</em>.</p>
+<p>Mnohem dĹŻmyslnÄ›jĹˇĂ­ operace vyhledĂˇvĂˇnĂ­ a nĂˇhrad mĹŻĹľeme provĂˇdÄ›t pomocĂ­
+nĂˇstroje zvanĂ©ho <em>regulĂˇrnĂ­ vĂ˝razy</em>. Ale prĂˇce regulĂˇrnĂ­mi vĂ˝razy je
+mnohem sloĹľitÄ›jĹˇĂ­, a proto si zaslouĹľĂ­ <a href="cztutregex.html">vlastnĂ­
+tĂ©ma</a> v ÄŤĂˇsti <em>TĂ©mata pro pokroÄŤilĂ©</em>.</p>
 
-<h3>Změna velikosti písmen</h3>
+<h3>ZmÄ›na velikosti pĂ­smen</h3>
 
-<p>Poslední věc, kterou se v této části budeme zabývat, je změna malých
-písmen na velá a naopak. Není to tak úplně běžná operace, ale Python nám pro
-tento účel nabízí pár metod:</p>
+<p>PoslednĂ­ vÄ›c, kterou se v tĂ©to ÄŤĂˇsti budeme zabĂ˝vat, je zmÄ›na malĂ˝ch
+pĂ­smen na velĂˇ a naopak. NenĂ­ to tak ĂşplnÄ› bÄ›ĹľnĂˇ operace, ale Python nĂˇm pro
+tento ĂşÄŤel nabĂ­zĂ­ pĂˇr metod:</p>
 
 <pre>
->>> print u'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.lower()
-smíšený případ: ěščřžýáíéúůó ěščřžýáíéúů
->>> print u'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.upper()
-SMÍŠENÝ PŘÍPAD: ĚŠČŘŽÝÁÍÉÚŮÓ ĚŠČŘŽÝÁÍÉÚŮ
->>> print u'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.swapcase()
-smíŠENý přÍPAD: ĚŠČŘŽÝÁÍÉÚŮÓ ěščřžýáíéúů
->>> print u'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.capitalize()
-Smíšený případ: ěščřžýáíéúůó ěščřžýáíéúů
+>>> print u'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.lower()
+smĂ­ĹˇenĂ˝ pĹ™Ă­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻ
+>>> print u'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.upper()
+SMĂŤĹ ENĂť PĹĂŤPAD: ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®Ă“ ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®
+>>> print u'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.swapcase()
+smĂ­Ĺ ENĂ˝ pĹ™ĂŤPAD: ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®Ă“ Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻ
+>>> print u'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.capitalize()
+SmĂ­ĹˇenĂ˝ pĹ™Ă­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻ
 >>> print u'TEST'.isupper()
 True
 >>> print u'TEST'.islower()
 False
 </pre>
 
-<p>Povšimněte si, že metoda <code>capitalize()</code> <span class="trnote"
-title="Poznámka&nbsp;překladatele">(z anglického <em>capital letter</em>,
-čili velké písmeno)</span> provádí zvětšení prvního písmene pro řetězec jako
-celek, nikoliv pro každé slovo zvlášť. Všimněte si také dvou funcí pro
-otestování řetězce <span class="trnote" title="Poznámka&nbsp;překladatele"
->na určitou vlastnost</span> (neboli <em>predikátů</em>). K dalším užitečným
-testům patří <code>isalpha()</code> a <code>isspace()</code>. Poslední
-zmíněná funkce kontroluje, zda se v řetězci vyskytují jen <em>bílé
+<p>PovĹˇimnÄ›te si, Ĺľe metoda <code>capitalize()</code> <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(z anglickĂ©ho <em>capital letter</em>,
+ÄŤili velkĂ© pĂ­smeno)</span> provĂˇdĂ­ zvÄ›tĹˇenĂ­ prvnĂ­ho pĂ­smene pro Ĺ™etÄ›zec jako
+celek, nikoliv pro kaĹľdĂ© slovo zvlĂˇĹˇĹĄ. VĹˇimnÄ›te si takĂ© dvou funcĂ­ pro
+otestovĂˇnĂ­ Ĺ™etÄ›zce <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele"
+>na urÄŤitou vlastnost</span> (neboli <em>predikĂˇtĹŻ</em>). K dalĹˇĂ­m uĹľiteÄŤnĂ˝m
+testĹŻm patĹ™Ă­ <code>isalpha()</code> a <code>isspace()</code>. PoslednĂ­
+zmĂ­nÄ›nĂˇ funkce kontroluje, zda se v Ĺ™etÄ›zci vyskytujĂ­ jen <em>bĂ­lĂ©
 znaky</em>, tedy nejen mezery <span class="trnote"
-title="Poznámka&nbsp;překladatele">(tj. také tabulátory, konce
-řádků...)</span>.</p>
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(tj. takĂ© tabulĂˇtory, konce
+Ĺ™ĂˇdkĹŻ...)</span>.</p>
 
-<p>V dalších částech kurzu budeme mnohé z uvedených řetězcových metod
-používat. Zejména <a href="cztutcase.html">Případová studie gramatického
-počítadla</a> jich používá několik najednou.</p>
+<p>V dalĹˇĂ­ch ÄŤĂˇstech kurzu budeme mnohĂ© z uvedenĂ˝ch Ĺ™etÄ›zcovĂ˝ch metod
+pouĹľĂ­vat. ZejmĂ©na <a href="cztutcase.html">PĹ™Ă­padovĂˇ studie gramatickĂ©ho
+poÄŤĂ­tadla</a> jich pouĹľĂ­vĂˇ nÄ›kolik najednou.</p>
 
 <div class="trnote">
 
-<p><b>Poznámka překladatele:</b> Povšimněte si, že ve výše uvedené ukázce
-řetězcových metod jsou všechny literály (řetězcové konstanty) zapsány jako
-Unicode řetězce &mdash; na začátku, před prvním apostrofem mají uvedeno
-písmeno <code><b>u</b></code>. V originálním anglickém textu tomu tak není.
-Ale čeština používá znaky, které nepatří do kódu ASCII, a proto význam kódu
-znaku závisí na tom, jaké kódování používáme.</p>
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> PovĹˇimnÄ›te si, Ĺľe ve vĂ˝Ĺˇe uvedenĂ© ukĂˇzce
+Ĺ™etÄ›zcovĂ˝ch metod jsou vĹˇechny literĂˇly (Ĺ™etÄ›zcovĂ© konstanty) zapsĂˇny jako
+Unicode Ĺ™etÄ›zce &mdash; na zaÄŤĂˇtku, pĹ™ed prvnĂ­m apostrofem majĂ­ uvedeno
+pĂ­smeno <code><b>u</b></code>. V originĂˇlnĂ­m anglickĂ©m textu tomu tak nenĂ­.
+Ale ÄŤeĹˇtina pouĹľĂ­vĂˇ znaky, kterĂ© nepatĹ™Ă­ do kĂłdu ASCII, a proto vĂ˝znam kĂłdu
+znaku zĂˇvisĂ­ na tom, jakĂ© kĂłdovĂˇnĂ­ pouĹľĂ­vĂˇme.</p>
 
-<p>Pythonovský string, který není uložen v kódování Unicode, s sebou nenese
-žádnou informaci o použitém kódování. Python takový řetězec chápe jako
-posloupnost bajtů. Nemá odkud vzít informaci o tom, že velké písmeno k znaku
-s kódem 249 má kód 217. Například v kódování <code>windows-1250</code> jde o
-znaky <code>ůŮ</code>. V jiných kódováních ovšem uvedené kódy mohou patřit
-zcela jiným znakům, nemusí vůbec tvořit pár malé/velké písmeno a dokonce
-vůbec nemusí patřit mezi písmena.</p>
+<p>PythonovskĂ˝ string, kterĂ˝ nenĂ­ uloĹľen v kĂłdovĂˇnĂ­ Unicode, s sebou nenese
+ĹľĂˇdnou informaci o pouĹľitĂ©m kĂłdovĂˇnĂ­. Python takovĂ˝ Ĺ™etÄ›zec chĂˇpe jako
+posloupnost bajtĹŻ. NemĂˇ odkud vzĂ­t informaci o tom, Ĺľe velkĂ© pĂ­smeno k znaku
+s kĂłdem 249 mĂˇ kĂłd 217. NapĹ™Ă­klad v kĂłdovĂˇnĂ­ <code>windows-1250</code> jde o
+znaky <code>ĹŻĹ®</code>. V jinĂ˝ch kĂłdovĂˇnĂ­ch ovĹˇem uvedenĂ© kĂłdy mohou patĹ™it
+zcela jinĂ˝m znakĹŻm, nemusĂ­ vĹŻbec tvoĹ™it pĂˇr malĂ©/velkĂ© pĂ­smeno a dokonce
+vĹŻbec nemusĂ­ patĹ™it mezi pĂ­smena.</p>
 
-<p>ASCII znaky &mdash; tj. ty, které mají kód v rozsahu 0 až 127 &mdash;
-představují výjimku v tom smyslu, že mají stejný kód ve všech odvozených
-kódováních (kódy ASCII znaků jsou zachovány i v Unicode). Metody pro změnu
-velikosti písmen tedy mohou bez problémů nad těmito znaky fungovat i bez
-znalosti používaného kódování pro písmena s větším kódem. Podívejme se, co
-Python provede, když bychom v příkladu neuvedli řetězce v Unicode:</p>
+<p>ASCII znaky &mdash; tj. ty, kterĂ© majĂ­ kĂłd v rozsahu 0 aĹľ 127 &mdash;
+pĹ™edstavujĂ­ vĂ˝jimku v tom smyslu, Ĺľe majĂ­ stejnĂ˝ kĂłd ve vĹˇech odvozenĂ˝ch
+kĂłdovĂˇnĂ­ch (kĂłdy ASCII znakĹŻ jsou zachovĂˇny i v Unicode). Metody pro zmÄ›nu
+velikosti pĂ­smen tedy mohou bez problĂ©mĹŻ nad tÄ›mito znaky fungovat i bez
+znalosti pouĹľĂ­vanĂ©ho kĂłdovĂˇnĂ­ pro pĂ­smena s vÄ›tĹˇĂ­m kĂłdem. PodĂ­vejme se, co
+Python provede, kdyĹľ bychom v pĹ™Ă­kladu neuvedli Ĺ™etÄ›zce v Unicode:</p>
 
 <pre>
->>> print 'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.lower()
-smÍšenÝ pŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ
->>> print 'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.upper()
-SMÍšENÝ PŘíPAD: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ
->>> print 'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.swapcase()
-smÍšENÝ pŘíPAD: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ
->>> print 'SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ'.capitalize()
-SmÍšenÝ pŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ
->>> print 'ĚŠČŘŽÝÁÍÉ'.islower()
+>>> print 'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.lower()
+smĂŤĹˇenĂť pĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®
+>>> print 'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.upper()
+SMĂŤĹˇENĂť PĹĂ­PAD: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®
+>>> print 'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.swapcase()
+smĂŤĹˇENĂť pĹĂ­PAD: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®
+>>> print 'SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®'.capitalize()
+SmĂŤĹˇenĂť pĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®
+>>> print 'ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰'.islower()
 False
->>> print 'ĚŠČŘŽÝÁÍÉ'.isupper()
+>>> print 'ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰'.isupper()
 False
 </pre>
 
-<p>Všechna písmena v rozsahu ASCII jsou správně převedena, ale všechna
-ostatní písmena byla ponechána beze změny. Metoda neví, co s nimi, proto je
-ponechá v původním tvaru. Uvědomte si, že je to přirozené chování metod v
-případech, kdy zpracovávají znaky, která nejsou písmenem. Existují také
-písmena, která nemají definováno odpovídající malé nebo velké písmeno
-(například německé ostré s). Všimněte si, že predikáty
-<code>islower()</code> a <code>isupper()</code> zde nepovažují testované
-řetěze ani za malá ani za velká písmena.</p>
+<p>VĹˇechna pĂ­smena v rozsahu ASCII jsou sprĂˇvnÄ› pĹ™evedena, ale vĹˇechna
+ostatnĂ­ pĂ­smena byla ponechĂˇna beze zmÄ›ny. Metoda nevĂ­, co s nimi, proto je
+ponechĂˇ v pĹŻvodnĂ­m tvaru. UvÄ›domte si, Ĺľe je to pĹ™irozenĂ© chovĂˇnĂ­ metod v
+pĹ™Ă­padech, kdy zpracovĂˇvajĂ­ znaky, kterĂˇ nejsou pĂ­smenem. ExistujĂ­ takĂ©
+pĂ­smena, kterĂˇ nemajĂ­ definovĂˇno odpovĂ­dajĂ­cĂ­ malĂ© nebo velkĂ© pĂ­smeno
+(napĹ™Ă­klad nÄ›meckĂ© ostrĂ© s). VĹˇimnÄ›te si, Ĺľe predikĂˇty
+<code>islower()</code> a <code>isupper()</code> zde nepovaĹľujĂ­ testovanĂ©
+Ĺ™etÄ›ze ani za malĂˇ ani za velkĂˇ pĂ­smena.</p>
 
-<p>Unicode řetězce jsou ovšem speciálnější, informačně bohatší. Písmena jsou
-určena jednoznačně a existuje i jednoznačný vztah mezi malým a velkým
-písmenem (pokud to u znaku dává smysl). Metody pro převody písmen z malých
-na velká a naopak nemusí zohledňovat žádné nejednoznačnosti. Při použití
-Unicode se tedy i u ostatních lidských jazyků dostáváme do stejně pohodové
-situace, v jaké o podobných řetězcových operacích píší anglicky mluvící
-autoři ;-)</p>
+<p>Unicode Ĺ™etÄ›zce jsou ovĹˇem speciĂˇlnÄ›jĹˇĂ­, informaÄŤnÄ› bohatĹˇĂ­. PĂ­smena jsou
+urÄŤena jednoznaÄŤnÄ› a existuje i jednoznaÄŤnĂ˝ vztah mezi malĂ˝m a velkĂ˝m
+pĂ­smenem (pokud to u znaku dĂˇvĂˇ smysl). Metody pro pĹ™evody pĂ­smen z malĂ˝ch
+na velkĂˇ a naopak nemusĂ­ zohledĹovat ĹľĂˇdnĂ© nejednoznaÄŤnosti. PĹ™i pouĹľitĂ­
+Unicode se tedy i u ostatnĂ­ch lidskĂ˝ch jazykĹŻ dostĂˇvĂˇme do stejnÄ› pohodovĂ©
+situace, v jakĂ© o podobnĂ˝ch Ĺ™etÄ›zcovĂ˝ch operacĂ­ch pĂ­ĹˇĂ­ anglicky mluvĂ­cĂ­
+autoĹ™i ;-)</p>
 
 </div>
 
-<h3>Zpracování textu v jazyce VBScript</h3>
+<h3>ZpracovĂˇnĂ­ textu v jazyce VBScript</h3>
 
-<p>VBScript vychází z jazyka BASIC. Díky tomu disponuje celou řadou
-zabudovaných funkcí pro práci s řetězci. V referenční příručce jsem jich
-napočítal nejméně 20 a to jsem nepočítal ty, které se vztahují k zpracování
-znaků v Unicode.</p>
+<p>VBScript vychĂˇzĂ­ z jazyka BASIC. DĂ­ky tomu disponuje celou Ĺ™adou
+zabudovanĂ˝ch funkcĂ­ pro prĂˇci s Ĺ™etÄ›zci. V referenÄŤnĂ­ pĹ™Ă­ruÄŤce jsem jich
+napoÄŤĂ­tal nejmĂ©nÄ› 20 a to jsem nepoÄŤĂ­tal ty, kterĂ© se vztahujĂ­ k zpracovĂˇnĂ­
+znakĹŻ v Unicode.</p>
 
-<p>To znamená, že v jazyce VBScript můžeme <span class="trnote"
-title="Poznámka&nbsp;překladatele">s&nbsp;řetězci</span> dělat v podstatě vše,
-co jsme si ukazovali v jazyce Python. V rychlosti si ukážeme jeho
-možnosti:</p>
+<p>To znamenĂˇ, Ĺľe v jazyce VBScript mĹŻĹľeme <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">s&nbsp;Ĺ™etÄ›zci</span> dÄ›lat v podstatÄ› vĹˇe,
+co jsme si ukazovali v jazyce Python. V rychlosti si ukĂˇĹľeme jeho
+moĹľnosti:</p>
 
 
-<h4>Rozdělování textu</h4>
+<h4>RozdÄ›lovĂˇnĂ­ textu</h4>
 
-<p>Začneme funkcí <code>Split</code>:</p>
+<p>ZaÄŤneme funkcĂ­ <code>Split</code>:</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim retezec
 Dim seznam
 retezec = "Toto je seznam slov."
-seznam = Split(retezec) <span class="comment">' vrací pole</span>
+seznam = Split(retezec) <span class="comment">' vracĂ­ pole</span>
 MsgBox seznam(1)
 &lt;/script>
 </pre>
 
-<p>Pokud nám rozdělování řetězce v místech s bílými znaky (zde mezerami)
-nevyhovuje, můžeme stejně jako v Pythonu předepsat hodnotu oddělovače.</p>
+<p>Pokud nĂˇm rozdÄ›lovĂˇnĂ­ Ĺ™etÄ›zce v mĂ­stech s bĂ­lĂ˝mi znaky (zde mezerami)
+nevyhovuje, mĹŻĹľeme stejnÄ› jako v Pythonu pĹ™edepsat hodnotu oddÄ›lovaÄŤe.</p>
 
-<p>Pro opačný postup zde máme funkci <code>Join</code> &mdash; stejně jako v
+<p>Pro opaÄŤnĂ˝ postup zde mĂˇme funkci <code>Join</code> &mdash; stejnÄ› jako v
 jazyce Python.</p>
 
 
-<h4>Vyhledávání a náhrada v textu</h4>
+<h4>VyhledĂˇvĂˇnĂ­ a nĂˇhrada v textu</h4>
 
-<p>K vyhledávání podřetězce slouží funkce <code>InStr</code>, což je zjevně
-zkratka z anglického <em>In&nbsp;String</em>, tedy
-<em>v&nbsp;řetězci</em>.</p>
-
-<pre>
-&lt;script type="text/vbscript">
-Dim s, n
-s = "Toto je dlouhý textový řetězec."
-n = InStr(s, "dlouhý")
-MsgBox "Slovo 'dlouhý' bylo nalezeno na pozici: " &amp; CStr(n)
-&lt;/script>
-</pre>
-
-<p>Návratová hodnota obvykle udává pozici v původním řetězci, na které začíná
-vyhledávaný podřetězec. Pokud není nalezen, vrací se nula. (V jazyce VBScript
-to nepůsobí žádný problém, protože se v něm indexuje od jedničky. To znamená,
-že hodnota nula nereprezentuje platnou hodnotu indexu.) Pokud má řetězec
-hodnotu <code>Null</code>, vrací se hodnota <code>Null</code>. Tím se poněkud
-komplikuje ověřování, zda nedošlo k chybě.</p>
-
-<p>Stejně jako v Pythonu můžeme i v jazyce VBScript vymezit část původního
-řetězce, která se má prohledávat. Můžeme uvést index, od kterého se má začít
-vyhledávat:</p>
-
+<p>K vyhledĂˇvĂˇnĂ­ podĹ™etÄ›zce slouĹľĂ­ funkce <code>InStr</code>, coĹľ je zjevnÄ›
+zkratka z anglickĂ©ho <em>In&nbsp;String</em>, tedy
+<em>v&nbsp;Ĺ™etÄ›zci</em>.</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim s, n
-s = "Toto je dlouhý textový řetězec."
-n = InStr(6, s, "dlouhý")  <span class="comment">' Hledej od pozice 6.</span>
-MsgBox "Slovo 'dlouhý' bylo nalezeno na pozici: " &amp; CStr(n)
+s = "Toto je dlouhĂ˝ textovĂ˝ Ĺ™etÄ›zec."
+n = InStr(s, "dlouhĂ˝")
+MsgBox "Slovo 'dlouhĂ˝' bylo nalezeno na pozici: " &amp; CStr(n)
 &lt;/script>
 </pre>
 
-<p>Narozdíl od Pythonu můžeme v jazyce VBScript předepsat také to, zda se mají
-při vyhledávání rozlišovat velká a malá písmena, či nikoliv. Pokud to
-neurčíme, velká a malá písmena se rozlišují.</p>
+<p>NĂˇvratovĂˇ hodnota obvykle udĂˇvĂˇ pozici v pĹŻvodnĂ­m Ĺ™etÄ›zci, na kterĂ© zaÄŤĂ­nĂˇ
+vyhledĂˇvanĂ˝ podĹ™etÄ›zec. Pokud nenĂ­ nalezen, vracĂ­ se nula. (V jazyce VBScript
+to nepĹŻsobĂ­ ĹľĂˇdnĂ˝ problĂ©m, protoĹľe se v nÄ›m indexuje od jedniÄŤky. To znamenĂˇ,
+Ĺľe hodnota nula nereprezentuje platnou hodnotu indexu.) Pokud mĂˇ Ĺ™etÄ›zec
+hodnotu <code>Null</code>, vracĂ­ se hodnota <code>Null</code>. TĂ­m se ponÄ›kud
+komplikuje ovÄ›Ĺ™ovĂˇnĂ­, zda nedoĹˇlo k chybÄ›.</p>
 
-<p>Náhrady textu se provádějí prostřednictvím funkce <code>Replace</code>:</p>
+<p>StejnÄ› jako v Pythonu mĹŻĹľeme i v jazyce VBScript vymezit ÄŤĂˇst pĹŻvodnĂ­ho
+Ĺ™etÄ›zce, kterĂˇ se mĂˇ prohledĂˇvat. MĹŻĹľeme uvĂ©st index, od kterĂ©ho se mĂˇ zaÄŤĂ­t
+vyhledĂˇvat:</p>
+
+
+<pre>
+&lt;script type="text/vbscript">
+Dim s, n
+s = "Toto je dlouhĂ˝ textovĂ˝ Ĺ™etÄ›zec."
+n = InStr(6, s, "dlouhĂ˝")  <span class="comment">' Hledej od pozice 6.</span>
+MsgBox "Slovo 'dlouhĂ˝' bylo nalezeno na pozici: " &amp; CStr(n)
+&lt;/script>
+</pre>
+
+<p>NarozdĂ­l od Pythonu mĹŻĹľeme v jazyce VBScript pĹ™edepsat takĂ© to, zda se majĂ­
+pĹ™i vyhledĂˇvĂˇnĂ­ rozliĹˇovat velkĂˇ a malĂˇ pĂ­smena, ÄŤi nikoliv. Pokud to
+neurÄŤĂ­me, velkĂˇ a malĂˇ pĂ­smena se rozliĹˇujĂ­.</p>
+
+<p>NĂˇhrady textu se provĂˇdÄ›jĂ­ prostĹ™ednictvĂ­m funkce <code>Replace</code>:</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim s
-s = "Příšerně zeleňoučký kůň úpěl ďábelské ódy."
-MsgBox Replace(s, "zeleňoučký", "žluťoučký")
+s = "PĹ™Ă­ĹˇernÄ› zeleĹouÄŤkĂ˝ kĹŻĹ ĂşpÄ›l ÄŹĂˇbelskĂ© Ăłdy."
+MsgBox Replace(s, "zeleĹouÄŤkĂ˝", "ĹľluĹĄouÄŤkĂ˝")
 &lt;/script>
 </pre>
 
-<p>Poslední nepovinný argument určuje, kolik výskytů vyhledávaného vrorku se
-má nahradit. Pokud neurčíme jinak, nahrazují se všechny výskyty. Můžeme určit
-i počáteční pozici pro prohledávání a náhradu, jako u výše zmíněné funkce
+<p>PoslednĂ­ nepovinnĂ˝ argument urÄŤuje, kolik vĂ˝skytĹŻ vyhledĂˇvanĂ©ho vrorku se
+mĂˇ nahradit. Pokud neurÄŤĂ­me jinak, nahrazujĂ­ se vĹˇechny vĂ˝skyty. MĹŻĹľeme urÄŤit
+i poÄŤĂˇteÄŤnĂ­ pozici pro prohledĂˇvĂˇnĂ­ a nĂˇhradu, jako u vĂ˝Ĺˇe zmĂ­nÄ›nĂ© funkce
 <code>InStr</code>.</p>
 
 
-<h4>Změna velikosti písmen</h4>
+<h4>ZmÄ›na velikosti pĂ­smen</h4>
 
-<p>Změnu velikosti písmen provádíme v jazyce VBScript funkcemi
-<code>UCase</code> a <code>LCase</code>. Ekvivalent pythonovské metody
+<p>ZmÄ›nu velikosti pĂ­smen provĂˇdĂ­me v jazyce VBScript funkcemi
+<code>UCase</code> a <code>LCase</code>. Ekvivalent pythonovskĂ© metody
 <code>capitalize()</code> tady nenajdeme.</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim s
-s = "SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ"
+s = "SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®"
 MsgBox LCase(s)
 MsgBox UCase(s)
 &lt;/script>
 </pre>
 
-<p>To je vše, čím se budeme v této učebnici zabývat. Pokud se chcete dozvědět
-více, projděte si seznam funkcí v nápovědě k VBScript.</p>
+<p>To je vĹˇe, ÄŤĂ­m se budeme v tĂ©to uÄŤebnici zabĂ˝vat. Pokud se chcete dozvÄ›dÄ›t
+vĂ­ce, projdÄ›te si seznam funkcĂ­ v nĂˇpovÄ›dÄ› k VBScript.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> V tomto případě (narozdíl od
-stejného řetězce v pythonovském příkladu, kdy řetězec nebyl uveden v Unicode)
-dojde ke korektnímu převodu na malá i velká písmena i u znaků s diakritikou.
-Je to dáno tím, že VBScript s řetězci jednoznačně spojuje určité kódování.
-Pokud je skript vložen do HTML souboru, pak bývá kódování předepsáno v jeho
-hlavičce. Stejně je tomu i u XML souborů. Pokud kódování není předepsáno
-vůbec, pak VBScript předpokládá, že se používá kódování definované v
-systému.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> V tomto pĹ™Ă­padÄ› (narozdĂ­l od
+stejnĂ©ho Ĺ™etÄ›zce v pythonovskĂ©m pĹ™Ă­kladu, kdy Ĺ™etÄ›zec nebyl uveden v Unicode)
+dojde ke korektnĂ­mu pĹ™evodu na malĂˇ i velkĂˇ pĂ­smena i u znakĹŻ s diakritikou.
+Je to dĂˇno tĂ­m, Ĺľe VBScript s Ĺ™etÄ›zci jednoznaÄŤnÄ› spojuje urÄŤitĂ© kĂłdovĂˇnĂ­.
+Pokud je skript vloĹľen do HTML souboru, pak bĂ˝vĂˇ kĂłdovĂˇnĂ­ pĹ™edepsĂˇno v jeho
+hlaviÄŤce. StejnÄ› je tomu i u XML souborĹŻ. Pokud kĂłdovĂˇnĂ­ nenĂ­ pĹ™edepsĂˇno
+vĹŻbec, pak VBScript pĹ™edpoklĂˇdĂˇ, Ĺľe se pouĹľĂ­vĂˇ kĂłdovĂˇnĂ­ definovanĂ© v
+systĂ©mu.</p>
 
 
-<h3>Zpracování textu v JavaScript</h3>
+<h3>ZpracovĂˇnĂ­ textu v JavaScript</h3>
 
-<p>JavaScript je z našich tří jazyků pro zpracování textu vybaven nejhůře.
-I&nbsp;přesto jsou základní operace do určité míry podporovány. Ve srovnání s
-jazyky Python a VBScript jazyk JavaScript trpí nedostatky, které tkví spíše
-jen v množství <span title="bells &amp; whistles">"cingrlátek"</span>.
-JavaScript tato omezení kompenzuje silnou podporou <em>regulárních
-výrazů</em>. (Budeme se jimi zabývat <a href="cztutregex.html">v jednom z
-dalších témat</a>.) Regulární výrazy výrazně rozšiřují možnosti, které
-poskytují výše zmíněné primitivní funkce, ale platíme za to zvýšením
-složitosti.</p>
+<p>JavaScript je z naĹˇich tĹ™Ă­ jazykĹŻ pro zpracovĂˇnĂ­ textu vybaven nejhĹŻĹ™e.
+I&nbsp;pĹ™esto jsou zĂˇkladnĂ­ operace do urÄŤitĂ© mĂ­ry podporovĂˇny. Ve srovnĂˇnĂ­ s
+jazyky Python a VBScript jazyk JavaScript trpĂ­ nedostatky, kterĂ© tkvĂ­ spĂ­Ĺˇe
+jen v mnoĹľstvĂ­ <span title="bells &amp; whistles">"cingrlĂˇtek"</span>.
+JavaScript tato omezenĂ­ kompenzuje silnou podporou <em>regulĂˇrnĂ­ch
+vĂ˝razĹŻ</em>. (Budeme se jimi zabĂ˝vat <a href="cztutregex.html">v jednom z
+dalĹˇĂ­ch tĂ©mat</a>.) RegulĂˇrnĂ­ vĂ˝razy vĂ˝raznÄ› rozĹˇiĹ™ujĂ­ moĹľnosti, kterĂ©
+poskytujĂ­ vĂ˝Ĺˇe zmĂ­nÄ›nĂ© primitivnĂ­ funkce, ale platĂ­me za to zvĂ˝ĹˇenĂ­m
+sloĹľitosti.</p>
 
-<p>JavaScript, stejně jako Python, využívá k manipulaci s řetězci objektově
-orientovaný přístup. Všechny operace se provádějí prostřednictvím metod
-třídy <code>String</code>.</p>
+<p>JavaScript, stejnÄ› jako Python, vyuĹľĂ­vĂˇ k manipulaci s Ĺ™etÄ›zci objektovÄ›
+orientovanĂ˝ pĹ™Ă­stup. VĹˇechny operace se provĂˇdÄ›jĂ­ prostĹ™ednictvĂ­m metod
+tĹ™Ă­dy <code>String</code>.</p>
 
-<h4>Rozdělování textu</h4>
+<h4>RozdÄ›lovĂˇnĂ­ textu</h4>
 
-<p>Rozdělování textu se provádí metodou <code>split()</code>:</p>
+<p>RozdÄ›lovĂˇnĂ­ textu se provĂˇdĂ­ metodou <code>split()</code>:</p>
 
 <pre>
 &lt;script type="text/javascript">
-var seznam, retezec = "Toto je krátký řetězec";
+var seznam, retezec = "Toto je krĂˇtkĂ˝ Ĺ™etÄ›zec";
 seznam = retezec.split(" ");
 document.write(seznam[1]);
 &lt;/script>
 </pre>
 
-<p>Povšimněte si, že JavaScript vyžaduje zadání oddělovacího znaku.
-Neexistuje zde žádná předdefinovaná hodnota. Oddělovač může být definován i
-<a href="cztutregex.html">regulárním výrazem</a>, takže operace rozdělení
-může být velmi důmyslná.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe JavaScript vyĹľaduje zadĂˇnĂ­ oddÄ›lovacĂ­ho znaku.
+Neexistuje zde ĹľĂˇdnĂˇ pĹ™eddefinovanĂˇ hodnota. OddÄ›lovaÄŤ mĹŻĹľe bĂ˝t definovĂˇn i
+<a href="cztutregex.html">regulĂˇrnĂ­m vĂ˝razem</a>, takĹľe operace rozdÄ›lenĂ­
+mĹŻĹľe bĂ˝t velmi dĹŻmyslnĂˇ.</p>
 
-<h4>Vyhledávání textu</h4>
+<h4>VyhledĂˇvĂˇnĂ­ textu</h4>
 
-<p>K vyhledávání textu se v jazyce JavaScript používá metoda
+<p>K vyhledĂˇvĂˇnĂ­ textu se v jazyce JavaScript pouĹľĂ­vĂˇ metoda
 <code>search()</code>:</p>
 
 <pre>
 &lt;script type="text/javascript">
-var retezec = "Na Nilu ibisi kvílili bílí...";
-document.write("'ibisi' se nachází na pozici: " + retezec.search(/ibisi/));
+var retezec = "Na Nilu ibisi kvĂ­lili bĂ­lĂ­...";
+document.write("'ibisi' se nachĂˇzĂ­ na pozici: " + retezec.search(/ibisi/));
 &lt;/script>
 </pre>
 
-<p class="ir">zmatky řetězec/vzorek</p>
+<p class="ir">zmatky Ĺ™etÄ›zec/vzorek</p>
 
-<p>Znovu platí, že vyhledávaný řetězcový vzorek je ve skutečnosti
-regulárním výrazem. To znamená, že vyhledávání může mít velmi důmyslná
-pravidla. Na druhou stranu neexistuje možnost vymezit část původního
-řetězce, která se má prohledávat, zadáním počáteční pozice (ačkoliv i tuto
-možnost můžeme simulovat prostřednictvím regulárního výrazu).</p>
+<p>Znovu platĂ­, Ĺľe vyhledĂˇvanĂ˝ Ĺ™etÄ›zcovĂ˝ vzorek je ve skuteÄŤnosti
+regulĂˇrnĂ­m vĂ˝razem. To znamenĂˇ, Ĺľe vyhledĂˇvĂˇnĂ­ mĹŻĹľe mĂ­t velmi dĹŻmyslnĂˇ
+pravidla. Na druhou stranu neexistuje moĹľnost vymezit ÄŤĂˇst pĹŻvodnĂ­ho
+Ĺ™etÄ›zce, kterĂˇ se mĂˇ prohledĂˇvat, zadĂˇnĂ­m poÄŤĂˇteÄŤnĂ­ pozice (aÄŤkoliv i tuto
+moĹľnost mĹŻĹľeme simulovat prostĹ™ednictvĂ­m regulĂˇrnĂ­ho vĂ˝razu).</p>
 
-<p>JavaScript podporuje i jinou vyhledávací operaci s mírně odlišným
-chováním. Nazývá ze <code>match()</code> <span class="trnote"
-title="Poznámka&nbsp;překladatele">([meč], zde ve smyslu <em>odpovídat</em>,
-<em>pasovat</em>)</span>. V této částí se metodou <code>match()</code>
-nebudeme zabývat.</p>
+<p>JavaScript podporuje i jinou vyhledĂˇvacĂ­ operaci s mĂ­rnÄ› odliĹˇnĂ˝m
+chovĂˇnĂ­m. NazĂ˝vĂˇ ze <code>match()</code> <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">([meÄŤ], zde ve smyslu <em>odpovĂ­dat</em>,
+<em>pasovat</em>)</span>. V tĂ©to ÄŤĂˇstĂ­ se metodou <code>match()</code>
+nebudeme zabĂ˝vat.</p>
 
-<h4>Náhrada textu</h4>
+<h4>NĂˇhrada textu</h4>
 
-<p class="ir">zmatky řetězec/vzorek</p>
+<p class="ir">zmatky Ĺ™etÄ›zec/vzorek</p>
 
-<p>K nahrazování textu se používá metoda <code>replace()</code>.</p>
+<p>K nahrazovĂˇnĂ­ textu se pouĹľĂ­vĂˇ metoda <code>replace()</code>.</p>
 
 <pre>
 &lt;script type="text/javascript">
-var retezec = "Kočka leze dírou, pes dveřmi...";
-document.write(retezec.replace(/dveřmi/, "oknem"));
+var retezec = "KoÄŤka leze dĂ­rou, pes dveĹ™mi...";
+document.write(retezec.replace(/dveĹ™mi/, "oknem"));
 &lt;/script>
 </pre>
 
-<p>A znovu připomeňme, že vyhledávaný vzorek může být zadán regulárním
-výrazem. Myslím, že už vidíte ten obecný vzor. Operace náhrady nahrazuje
-všechny výskyty vyhledávaného vzorku a, pokud mohu říci, neexistuje žádný
-způsob, jak dosáhnout náhrady pouze jednoho výskytu, aniž byste řetězec
-nejdříve rozdělili a pak jej opět pospojovali dohromady.</p>
+<p>A znovu pĹ™ipomeĹme, Ĺľe vyhledĂˇvanĂ˝ vzorek mĹŻĹľe bĂ˝t zadĂˇn regulĂˇrnĂ­m
+vĂ˝razem. MyslĂ­m, Ĺľe uĹľ vidĂ­te ten obecnĂ˝ vzor. Operace nĂˇhrady nahrazuje
+vĹˇechny vĂ˝skyty vyhledĂˇvanĂ©ho vzorku a, pokud mohu Ĺ™Ă­ci, neexistuje ĹľĂˇdnĂ˝
+zpĹŻsob, jak dosĂˇhnout nĂˇhrady pouze jednoho vĂ˝skytu, aniĹľ byste Ĺ™etÄ›zec
+nejdĹ™Ă­ve rozdÄ›lili a pak jej opÄ›t pospojovali dohromady.</p>
 
-<p class="ir">zmatky řetězec/vzorek, počet náhrad</p>
+<p class="ir">zmatky Ĺ™etÄ›zec/vzorek, poÄŤet nĂˇhrad</p>
 
 
-<h4>Změna velikosti písmen</h4>
+<h4>ZmÄ›na velikosti pĂ­smen</h4>
 
-<p>Pro změnu velikosti písmen máme k dispozici dvě funkce:
+<p>Pro zmÄ›nu velikosti pĂ­smen mĂˇme k dispozici dvÄ› funkce:
 <code>toLowerCase()</code> a <code>toUpperCase()</code>.
 </p>
 
 <pre>
 &lt;script type="text/javascript">
-var retezec = "SMÍšenÝ PŘípad: ěščřžýáíéúůó ĚŠČŘŽÝÁÍÉÚŮ";
+var retezec = "SMĂŤĹˇenĂť PĹĂ­pad: Ä›ĹˇÄŤĹ™ĹľĂ˝ĂˇĂ­Ă©ĂşĹŻĂł ÄšĹ ÄŚĹĹ˝ĂťĂĂŤĂ‰ĂšĹ®";
 document.write(retezec.toLowerCase()+ "&lt;br>");
 document.write(retezec.toUpperCase()+ "&lt;br>");
 &lt;/script>
 </pre>
 
-<p>K těmto funkcím můžeme stěží co dodat. Jednoduchým způsobem provádějí
-jednoduchou činnost. JavaScript &mdash; narozdíl od ostatních jazyků, o
-kterých se bavíme &mdash; nabízí řadu speciálních textových funkcí pro
-zpracování HTML. Odhaluje tím své kořeny jazyka určeného pro programování ve
-webovém prostředí. Nebudeme se jimi zabývat. Popis naleznete ve standardní
+<p>K tÄ›mto funkcĂ­m mĹŻĹľeme stÄ›ĹľĂ­ co dodat. JednoduchĂ˝m zpĹŻsobem provĂˇdÄ›jĂ­
+jednoduchou ÄŤinnost. JavaScript &mdash; narozdĂ­l od ostatnĂ­ch jazykĹŻ, o
+kterĂ˝ch se bavĂ­me &mdash; nabĂ­zĂ­ Ĺ™adu speciĂˇlnĂ­ch textovĂ˝ch funkcĂ­ pro
+zpracovĂˇnĂ­ HTML. Odhaluje tĂ­m svĂ© koĹ™eny jazyka urÄŤenĂ©ho pro programovĂˇnĂ­ ve
+webovĂ©m prostĹ™edĂ­. Nebudeme se jimi zabĂ˝vat. Popis naleznete ve standardnĂ­
 dokumentaci.</p>
 
-<p>Tím uzavíráme pohled do světa zpracování textu. Doufám, že jste tím
-získali nástroje, které potřebujete ke zpracování textu ve vašich
-projektech. Závěrečná rada zní: Při zpracování textu si vždy pročtěte
-dokumentaci zvoleného jazyka.Řešení nejzákladnějších programátorských
-úloh je často podpořeno mocnými nástroji.</p>
+<p>TĂ­m uzavĂ­rĂˇme pohled do svÄ›ta zpracovĂˇnĂ­ textu. DoufĂˇm, Ĺľe jste tĂ­m
+zĂ­skali nĂˇstroje, kterĂ© potĹ™ebujete ke zpracovĂˇnĂ­ textu ve vaĹˇich
+projektech. ZĂˇvÄ›reÄŤnĂˇ rada znĂ­: PĹ™i zpracovĂˇnĂ­ textu si vĹľdy proÄŤtÄ›te
+dokumentaci zvolenĂ©ho jazyka.ĹeĹˇenĂ­ nejzĂˇkladnÄ›jĹˇĂ­ch programĂˇtorskĂ˝ch
+Ăşloh je ÄŤasto podpoĹ™eno mocnĂ˝mi nĂˇstroji.</p>
 
-                            
+
 <div class="remember">
 <p class="title">Zapamatujte si</p>
 <ul>
-<li>Soubory musíme před použitím otevřít.</li>
-<li>Ze souborů můžeme obvykle jen číst nebo do nich můžeme jen zapisovat,
-  ale ne obojí současně.</li>
-<li>Funkce <code>readlines()</code> jazyka Python přečte všechny řádky
-  souboru najednou, zatímco funkce <code>readline()</code> přečte jen jeden
-  řádek. Může nám to pomoci šetřit pamětí.</li>
-<li>Po použití soubor uzavřete.</li>
+<li>Soubory musĂ­me pĹ™ed pouĹľitĂ­m otevĹ™Ă­t.</li>
+<li>Ze souborĹŻ mĹŻĹľeme obvykle jen ÄŤĂ­st nebo do nich mĹŻĹľeme jen zapisovat,
+  ale ne obojĂ­ souÄŤasnÄ›.</li>
+<li>Funkce <code>readlines()</code> jazyka Python pĹ™eÄŤte vĹˇechny Ĺ™Ăˇdky
+  souboru najednou, zatĂ­mco funkce <code>readline()</code> pĹ™eÄŤte jen jeden
+  Ĺ™Ăˇdek. MĹŻĹľe nĂˇm to pomoci ĹˇetĹ™it pamÄ›tĂ­.</li>
+<li>Po pouĹľitĂ­ soubor uzavĹ™ete.</li>
 </ul>
 </div>
 
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutfiles.html" title="Práce se soubory">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztuterrors.html" title="Práce s chybami">další</a> 
+<p class="navig">[
+<a href="cztutfiles.html" title="PrĂˇce se soubory">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztuterrors.html" title="PrĂˇce s chybami">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztuttext.html,v 1.6 2005/10/20 20:52:40 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztuttext.html,v 1.6 2005/10/20 20:52:40 petr Exp $</p>
 </div>

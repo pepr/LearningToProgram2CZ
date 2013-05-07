@@ -1,202 +1,202 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Data, datové typy a proměnné</title>
+  <title>Jak se nauÄŤit programovat: Data, datovĂ© typy a promÄ›nnĂ©</title>
 </head>
 <body>
 
 
-<h2>Data, datové typy a proměnné</h2>
+<h2>Data, datovĂ© typy a promÄ›nnĂ©</h2>
 
 <div class="whatcovered">
-<p class="title">O čem si budeme povídat?</p>
+<p class="title">O ÄŤem si budeme povĂ­dat?</p>
 <ul>
 <li>Co jsou data.</li>
-<li>Co jsou proměnné.</li>
-<li>Datové typy a co se s nimi dá dělat.</li>
-<li>Definování našich vlastních datových typů.</li>
+<li>Co jsou promÄ›nnĂ©.</li>
+<li>DatovĂ© typy a co se s nimi dĂˇ dÄ›lat.</li>
+<li>DefinovĂˇnĂ­ naĹˇich vlastnĂ­ch datovĂ˝ch typĹŻ.</li>
 </ul>
 </div>
 
-<h3>Úvod</h3>
+<h3>Ăšvod</h3>
 
-<p>Při jakékoliv kreativní tvorbě potřebujeme tři základní položky:
-nástroje, suroviny a techniky (postupy). Když si například budeme chtít něco
-namalovat, našimi nástroji budou štětce, tužky a paleta. Technikami budeme
-rozumět malování vlhkým do vlhkého, rozmývání, sprejování a podobně. A
-konečně surovinami budou barvy, papír a voda. Při programování je to
-podobné. Našimi nástroji jsou programovací jazyky, operační systémy a
-hardware. Za techniky budeme považovat používání programových konstrukcí, o
-kterých jsme se zmínili v předchozí části <span class="trnote"
-title="Poznámka překladatele">(Koncepty &mdash; <a href="cztutwhat.html">Co
-je to <em>programování</em>?</a> &mdash; <a
-href="cztutwhat.html#Dijkstra">Společné vlastnosti programů</a>)</span>.
-Surovinami budou data, se kterými budeme manipulovat. V této kapitole se
-zaměříme právě na tyto suroviny.</p>
+<p>PĹ™i jakĂ©koliv kreativnĂ­ tvorbÄ› potĹ™ebujeme tĹ™i zĂˇkladnĂ­ poloĹľky:
+nĂˇstroje, suroviny a techniky (postupy). KdyĹľ si napĹ™Ă­klad budeme chtĂ­t nÄ›co
+namalovat, naĹˇimi nĂˇstroji budou ĹˇtÄ›tce, tuĹľky a paleta. Technikami budeme
+rozumÄ›t malovĂˇnĂ­ vlhkĂ˝m do vlhkĂ©ho, rozmĂ˝vĂˇnĂ­, sprejovĂˇnĂ­ a podobnÄ›. A
+koneÄŤnÄ› surovinami budou barvy, papĂ­r a voda. PĹ™i programovĂˇnĂ­ je to
+podobnĂ©. NaĹˇimi nĂˇstroji jsou programovacĂ­ jazyky, operaÄŤnĂ­ systĂ©my a
+hardware. Za techniky budeme povaĹľovat pouĹľĂ­vĂˇnĂ­ programovĂ˝ch konstrukcĂ­, o
+kterĂ˝ch jsme se zmĂ­nili v pĹ™edchozĂ­ ÄŤĂˇsti <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(Koncepty &mdash; <a href="cztutwhat.html">Co
+je to <em>programovĂˇnĂ­</em>?</a> &mdash; <a
+href="cztutwhat.html#Dijkstra">SpoleÄŤnĂ© vlastnosti programĹŻ</a>)</span>.
+Surovinami budou data, se kterĂ˝mi budeme manipulovat. V tĂ©to kapitole se
+zamÄ›Ĺ™Ă­me prĂˇvÄ› na tyto suroviny.</p>
 
-<p>Tato kapitola je docela dlouhá a ze své podstaty poněkud nezáživná. Dobrá
-zpráva je, že si ji nemusíte přečíst celou najednou. Kapitola začíná
-pohledem na nezákladnější datové typy, které máme k dispozici. Dále si
-řekneme něco o tom, jak zacházet s kolekcemi položek. A nakonec se podíváme
-na některá pokročilejší témata. Čtení kapitoly můžete přerušit po přečtení
-části o kolekcích. Poté si můžete přečíst několik dalších kapitol a dočíst
-ji můžete v okamžiku, kdy začneme používat složitější věci.</p>
+<p>Tato kapitola je docela dlouhĂˇ a ze svĂ© podstaty ponÄ›kud nezĂˇĹľivnĂˇ. DobrĂˇ
+zprĂˇva je, Ĺľe si ji nemusĂ­te pĹ™eÄŤĂ­st celou najednou. Kapitola zaÄŤĂ­nĂˇ
+pohledem na nezĂˇkladnÄ›jĹˇĂ­ datovĂ© typy, kterĂ© mĂˇme k dispozici. DĂˇle si
+Ĺ™ekneme nÄ›co o tom, jak zachĂˇzet s kolekcemi poloĹľek. A nakonec se podĂ­vĂˇme
+na nÄ›kterĂˇ pokroÄŤilejĹˇĂ­ tĂ©mata. ÄŚtenĂ­ kapitoly mĹŻĹľete pĹ™eruĹˇit po pĹ™eÄŤtenĂ­
+ÄŤĂˇsti o kolekcĂ­ch. PotĂ© si mĹŻĹľete pĹ™eÄŤĂ­st nÄ›kolik dalĹˇĂ­ch kapitol a doÄŤĂ­st
+ji mĹŻĹľete v okamĹľiku, kdy zaÄŤneme pouĹľĂ­vat sloĹľitÄ›jĹˇĂ­ vÄ›ci.</p>
 
 
 <h3>Data</h3>
 
-<p>Pojem <em>data</em> je jedním z těch, který lidé často používají, ale
-málokdo rozumí jeho přesnému významu. V mém slovníku je pojem data definován
+<p>Pojem <em>data</em> je jednĂ­m z tÄ›ch, kterĂ˝ lidĂ© ÄŤasto pouĹľĂ­vajĂ­, ale
+mĂˇlokdo rozumĂ­ jeho pĹ™esnĂ©mu vĂ˝znamu. V mĂ©m slovnĂ­ku je pojem data definovĂˇn
 takto:</p>
 
  <blockquote>
- <em>"fakta nebo údaje, ze kterých je možné odvodit závěry; informace"</em>
+ <em>"fakta nebo Ăşdaje, ze kterĂ˝ch je moĹľnĂ© odvodit zĂˇvÄ›ry; informace"</em>
  </blockquote>
 
-<a name="type"></a> <p>Příliš nám to sice nepomůže, ale tuto definici můžeme
-použít alespoň jako odrazový můstek. Uvidíme, zda se věci neozřejmí, když se
-podíváme na to, jak je pojem data používán v oblasti programování. Data jsou
-oním <em>materiálem</em>, surovými informacemi, se kterými manipuluje váš
-program. Bez dat nemůže program provádět žádnou užitečnou činnost. Programy
-mohou s&nbsp;daty manipulovat různými způsoby. Často to závisí na
-<em>typu</em> dat. S každým datovým typem je spojena skupina
-<em>operací</em> &mdash; tj. činností, které lze s daty <span class="trnote"
-title="Poznámka překladatele">daného typu</span> provést. U čísel jsme si
-například ukázali, že je můžeme sčítat. Sčítání je tedy operace, kterou
-můžeme použít pro data typu číslo. Datových typů může být velké množství.
-Postupně se podíváme na nejběžnější z nich a na operace, které lze pro ně
-použít.</p>
+<a name="type"></a> <p>PĹ™Ă­liĹˇ nĂˇm to sice nepomĹŻĹľe, ale tuto definici mĹŻĹľeme
+pouĹľĂ­t alespoĹ jako odrazovĂ˝ mĹŻstek. UvidĂ­me, zda se vÄ›ci neozĹ™ejmĂ­, kdyĹľ se
+podĂ­vĂˇme na to, jak je pojem data pouĹľĂ­vĂˇn v oblasti programovĂˇnĂ­. Data jsou
+onĂ­m <em>materiĂˇlem</em>, surovĂ˝mi informacemi, se kterĂ˝mi manipuluje vĂˇĹˇ
+program. Bez dat nemĹŻĹľe program provĂˇdÄ›t ĹľĂˇdnou uĹľiteÄŤnou ÄŤinnost. Programy
+mohou s&nbsp;daty manipulovat rĹŻznĂ˝mi zpĹŻsoby. ÄŚasto to zĂˇvisĂ­ na
+<em>typu</em> dat. S kaĹľdĂ˝m datovĂ˝m typem je spojena skupina
+<em>operacĂ­</em> &mdash; tj. ÄŤinnostĂ­, kterĂ© lze s daty <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">danĂ©ho typu</span> provĂ©st. U ÄŤĂ­sel jsme si
+napĹ™Ă­klad ukĂˇzali, Ĺľe je mĹŻĹľeme sÄŤĂ­tat. SÄŤĂ­tĂˇnĂ­ je tedy operace, kterou
+mĹŻĹľeme pouĹľĂ­t pro data typu ÄŤĂ­slo. DatovĂ˝ch typĹŻ mĹŻĹľe bĂ˝t velkĂ© mnoĹľstvĂ­.
+PostupnÄ› se podĂ­vĂˇme na nejbÄ›ĹľnÄ›jĹˇĂ­ z nich a na operace, kterĂ© lze pro nÄ›
+pouĹľĂ­t.</p>
 
-<h3>Proměnné</h3>
+<h3>PromÄ›nnĂ©</h3>
 
-<p>Data jsou uložena v paměti vašeho počítače. Můžeme ji přirovnat k velké
-stěně plné skříněk, která se na poštách používá k třídění poštovních
-zásilek. Dopis můžete strčit do libovolné skříňky, ale pokud by na těchto
-skříňkách nebyly štítky s konkrétní cílovou adresou, nedávalo by jejich
-použití smysl. Proměnné přestavují ty popisné štítky<sup
+<p>Data jsou uloĹľena v pamÄ›ti vaĹˇeho poÄŤĂ­taÄŤe. MĹŻĹľeme ji pĹ™irovnat k velkĂ©
+stÄ›nÄ› plnĂ© skĹ™Ă­nÄ›k, kterĂˇ se na poĹˇtĂˇch pouĹľĂ­vĂˇ k tĹ™Ă­dÄ›nĂ­ poĹˇtovnĂ­ch
+zĂˇsilek. Dopis mĹŻĹľete strÄŤit do libovolnĂ© skĹ™Ă­Ĺky, ale pokud by na tÄ›chto
+skĹ™Ă­ĹkĂˇch nebyly ĹˇtĂ­tky s konkrĂ©tnĂ­ cĂ­lovou adresou, nedĂˇvalo by jejich
+pouĹľitĂ­ smysl. PromÄ›nnĂ© pĹ™estavujĂ­ ty popisnĂ© ĹˇtĂ­tky<sup
 class="trnote"><a href="cztuttrn.html#Pdata_variable" id="Bdata_variable"
-title="Poznámka k odlišnosti chápání pojmu proměnná v různých jazycích."
->[1]</a></sup> na skříňkách a ony skříňky jsou vytvořeny v paměti vašeho
-počítače.</p>
+title="PoznĂˇmka k odliĹˇnosti chĂˇpĂˇnĂ­ pojmu promÄ›nnĂˇ v rĹŻznĂ˝ch jazycĂ­ch."
+>[1]</a></sup> na skĹ™Ă­ĹkĂˇch a ony skĹ™Ă­Ĺky jsou vytvoĹ™eny v pamÄ›ti vaĹˇeho
+poÄŤĂ­taÄŤe.</p>
 
-<p>Zatím tedy víme, jak data vypadají. To je sice pěkné, ale k tomu, abychom
-s nimi mohli manipulovat, musíme být schopni se k nim dostat. Právě k tomuto
-účelu se používají proměnné. V programátorské terminologii říkáme, že
-vytváříme <em>instance</em> datových typů a přiřazujeme je do proměnných<sup
-class="trnote" id="Bdata_refinstance" title="Instance a její identifikace"
-><a href="cztuttrn.html#Pdata_refinstance">[2]</a></sup>. Proměnná
-představuje <em>odkaz</em> (nebo jinými slovy <em>referenci</em>) na určitou
-oblast, která leží někde v paměti počítače. V těchto paměťových oblastech
-jsou data uložena. V některých počítačových jazycích musí proměnná odpovídat
-typu dat, na která odkazuje. Jakýkoliv pokus o přiřazení chybného typu dat
-do takové proměnné způsobí ohlášení chyby. Někteří programátoři dávají
-takovým jazykům přednost &mdash; říká se jim jazyky se <em>statickou typovou
-kontrolou</em><sup class="trnote" id="Bdata_stattype" 
-title="Statická typová kontrola..."><a href="cztuttrn.html#Pdata_stattype"
->[3]</a></sup> &mdash;, protože umožňují předcházet určitým záludným chybám,
-které se obtížně hledají.</p>
+<p>ZatĂ­m tedy vĂ­me, jak data vypadajĂ­. To je sice pÄ›knĂ©, ale k tomu, abychom
+s nimi mohli manipulovat, musĂ­me bĂ˝t schopni se k nim dostat. PrĂˇvÄ› k tomuto
+ĂşÄŤelu se pouĹľĂ­vajĂ­ promÄ›nnĂ©. V programĂˇtorskĂ© terminologii Ĺ™Ă­kĂˇme, Ĺľe
+vytvĂˇĹ™Ă­me <em>instance</em> datovĂ˝ch typĹŻ a pĹ™iĹ™azujeme je do promÄ›nnĂ˝ch<sup
+class="trnote" id="Bdata_refinstance" title="Instance a jejĂ­ identifikace"
+><a href="cztuttrn.html#Pdata_refinstance">[2]</a></sup>. PromÄ›nnĂˇ
+pĹ™edstavuje <em>odkaz</em> (nebo jinĂ˝mi slovy <em>referenci</em>) na urÄŤitou
+oblast, kterĂˇ leĹľĂ­ nÄ›kde v pamÄ›ti poÄŤĂ­taÄŤe. V tÄ›chto pamÄ›ĹĄovĂ˝ch oblastech
+jsou data uloĹľena. V nÄ›kterĂ˝ch poÄŤĂ­taÄŤovĂ˝ch jazycĂ­ch musĂ­ promÄ›nnĂˇ odpovĂ­dat
+typu dat, na kterĂˇ odkazuje. JakĂ˝koliv pokus o pĹ™iĹ™azenĂ­ chybnĂ©ho typu dat
+do takovĂ© promÄ›nnĂ© zpĹŻsobĂ­ ohlĂˇĹˇenĂ­ chyby. NÄ›kteĹ™Ă­ programĂˇtoĹ™i dĂˇvajĂ­
+takovĂ˝m jazykĹŻm pĹ™ednost &mdash; Ĺ™Ă­kĂˇ se jim jazyky se <em>statickou typovou
+kontrolou</em><sup class="trnote" id="Bdata_stattype"
+title="StatickĂˇ typovĂˇ kontrola..."><a href="cztuttrn.html#Pdata_stattype"
+>[3]</a></sup> &mdash;, protoĹľe umoĹľĹujĂ­ pĹ™edchĂˇzet urÄŤitĂ˝m zĂˇludnĂ˝m chybĂˇm,
+kterĂ© se obtĂ­ĹľnÄ› hledajĂ­.</p>
 
-<p>Pravidla pro tvorbu jmen proměnných jsou závislá na konkrétním
-programovacím jazyce. Každý jazyk předepisuje, které znaky mohou být součástí
-jména proměnné, a které ne. V některých jazycích &mdash; a patří k nim i
-Python a JavaScript &mdash; záleží na <em>velikosti</em> písmen a v angličtině
-jsou označovány jako <em>case sensitive</em> [keis sensitiv], čili <em>citlivé
-na velikost</em>. Jiné jazyky, jako například VBScript, velká a malá písmena
-nerozlišují. Jazyky citlivé na velikost písmen po programátorovi vyžadují
-trošku pečlivější přístup. Velmi nám pomůže, když budeme při volbě jmen
-proměnných používat určitý systém. Jeden z běžných stylů, který budeme často
-používat, zahajuje jméno proměnné malými písmeny a u každého dalšího slova
-uvádí první písmeno velké:</p>
+<p>Pravidla pro tvorbu jmen promÄ›nnĂ˝ch jsou zĂˇvislĂˇ na konkrĂ©tnĂ­m
+programovacĂ­m jazyce. KaĹľdĂ˝ jazyk pĹ™edepisuje, kterĂ© znaky mohou bĂ˝t souÄŤĂˇstĂ­
+jmĂ©na promÄ›nnĂ©, a kterĂ© ne. V nÄ›kterĂ˝ch jazycĂ­ch &mdash; a patĹ™Ă­ k nim i
+Python a JavaScript &mdash; zĂˇleĹľĂ­ na <em>velikosti</em> pĂ­smen a v angliÄŤtinÄ›
+jsou oznaÄŤovĂˇny jako <em>case sensitive</em> [keis sensitiv], ÄŤili <em>citlivĂ©
+na velikost</em>. JinĂ© jazyky, jako napĹ™Ă­klad VBScript, velkĂˇ a malĂˇ pĂ­smena
+nerozliĹˇujĂ­. Jazyky citlivĂ© na velikost pĂ­smen po programĂˇtorovi vyĹľadujĂ­
+troĹˇku peÄŤlivÄ›jĹˇĂ­ pĹ™Ă­stup. Velmi nĂˇm pomĹŻĹľe, kdyĹľ budeme pĹ™i volbÄ› jmen
+promÄ›nnĂ˝ch pouĹľĂ­vat urÄŤitĂ˝ systĂ©m. Jeden z bÄ›ĹľnĂ˝ch stylĹŻ, kterĂ˝ budeme ÄŤasto
+pouĹľĂ­vat, zahajuje jmĂ©no promÄ›nnĂ© malĂ˝mi pĂ­smeny a u kaĹľdĂ©ho dalĹˇĂ­ho slova
+uvĂˇdĂ­ prvnĂ­ pĂ­smeno velkĂ©:</p>
 
 <pre>
 velmiDlouheJmenoPromenneSOddelovanimSlovVelkymiPismeny
 </pre>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Pro jména proměnných musíme
-v&nbsp;jazyce Python volit písmena bez diakritických znamének.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Pro jmĂ©na promÄ›nnĂ˝ch musĂ­me
+v&nbsp;jazyce Python volit pĂ­smena bez diakritickĂ˝ch znamĂ©nek.</p>
 
-<p>Nebudeme zde podrobněji probírat pravidla popisující, které znaky můžeme v
-našich jazycích používat. Při dodržování stylu používaného v
-ukázkách byste se neměli setkat s nějakými problémy.</p>
+<p>Nebudeme zde podrobnÄ›ji probĂ­rat pravidla popisujĂ­cĂ­, kterĂ© znaky mĹŻĹľeme v
+naĹˇich jazycĂ­ch pouĹľĂ­vat. PĹ™i dodrĹľovĂˇnĂ­ stylu pouĹľĂ­vanĂ©ho v
+ukĂˇzkĂˇch byste se nemÄ›li setkat s nÄ›jakĂ˝mi problĂ©my.</p>
 
-<p>V jazyce Python proměnná získává typ podle do ní přiřazených dat. Datový
-typ si tato proměnná zapamatuje a pokud se pokusíte kombinovat data různého
-typu nedovoleným způsobem &mdash; jako je například sčítání řetězce a čísla
-&mdash;, budete varováni. (Vzpomínáte si na dříve uvedený příklad s chybovým
-hlášením? Ten byl příkladem právě takového typu chyby.) Pokud později
-proměnné přiřadíte data jiného typu, pak se typ proměnné změní. <span
-class="trnote" title="Poznámka&nbsp;překladatele">(To není například u výše
-zmíněných jazyků se statickou typovou kontrolou možné.)</span></p>
+<p>V jazyce Python promÄ›nnĂˇ zĂ­skĂˇvĂˇ typ podle do nĂ­ pĹ™iĹ™azenĂ˝ch dat. DatovĂ˝
+typ si tato promÄ›nnĂˇ zapamatuje a pokud se pokusĂ­te kombinovat data rĹŻznĂ©ho
+typu nedovolenĂ˝m zpĹŻsobem &mdash; jako je napĹ™Ă­klad sÄŤĂ­tĂˇnĂ­ Ĺ™etÄ›zce a ÄŤĂ­sla
+&mdash;, budete varovĂˇni. (VzpomĂ­nĂˇte si na dĹ™Ă­ve uvedenĂ˝ pĹ™Ă­klad s chybovĂ˝m
+hlĂˇĹˇenĂ­m? Ten byl pĹ™Ă­kladem prĂˇvÄ› takovĂ©ho typu chyby.) Pokud pozdÄ›ji
+promÄ›nnĂ© pĹ™iĹ™adĂ­te data jinĂ©ho typu, pak se typ promÄ›nnĂ© zmÄ›nĂ­. <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(To nenĂ­ napĹ™Ă­klad u vĂ˝Ĺˇe
+zmĂ­nÄ›nĂ˝ch jazykĹŻ se statickou typovou kontrolou moĹľnĂ©.)</span></p>
 
 <pre>
->>> q = 7       <span class="comment"># v q je nyní číslo</span>
+>>> q = 7       <span class="comment"># v q je nynĂ­ ÄŤĂ­slo</span>
 >>> print q
 7
->>> q = "Sedm"  <span class="comment"># do q jsme přiřadili řetězec</span>
+>>> q = "Sedm"  <span class="comment"># do q jsme pĹ™iĹ™adili Ĺ™etÄ›zec</span>
 >>> print q
 Sedm
 </pre>
 
-<p>Povšimněte si, že na začátku byl proměnné <code>q</code> přiřazen odkaz
-na <em>číslo</em> <code>7</code>. V proměnné se hodnota odkazu udržovala až
-do té doby, než jsme ji přinutili, aby ukazovala na řetězec "Sedm". Takže
-ještě jednou: proměnné jazyka Python si uchovávají typ dat, na která
-ukazují. Ale to, na co ukazují, můžeme změnit jednoduše dalším přiřazením do
-této proměnné. V tomto okamžiku jsou původní data prohlášena za 'ztracená' a
-Python je odstraní z paměti (pokud na ně současně neodkazuje jiná proměnná).
-Tento proces je znám jako <em>garbage collection</em>. <span
-class="trnote">(Poznámka překladatele: Čti gábidž kolekšn. Tento pojem je
-natolik specifický, že se obvykle nepřekládá; doslova by se dal přeložit
-jako <em>sbírání smetí</em>.)</span></p>
+<p>PovĹˇimnÄ›te si, Ĺľe na zaÄŤĂˇtku byl promÄ›nnĂ© <code>q</code> pĹ™iĹ™azen odkaz
+na <em>ÄŤĂ­slo</em> <code>7</code>. V promÄ›nnĂ© se hodnota odkazu udrĹľovala aĹľ
+do tĂ© doby, neĹľ jsme ji pĹ™inutili, aby ukazovala na Ĺ™etÄ›zec "Sedm". TakĹľe
+jeĹˇtÄ› jednou: promÄ›nnĂ© jazyka Python si uchovĂˇvajĂ­ typ dat, na kterĂˇ
+ukazujĂ­. Ale to, na co ukazujĂ­, mĹŻĹľeme zmÄ›nit jednoduĹˇe dalĹˇĂ­m pĹ™iĹ™azenĂ­m do
+tĂ©to promÄ›nnĂ©. V tomto okamĹľiku jsou pĹŻvodnĂ­ data prohlĂˇĹˇena za 'ztracenĂˇ' a
+Python je odstranĂ­ z pamÄ›ti (pokud na nÄ› souÄŤasnÄ› neodkazuje jinĂˇ promÄ›nnĂˇ).
+Tento proces je znĂˇm jako <em>garbage collection</em>. <span
+class="trnote">(PoznĂˇmka pĹ™ekladatele: ÄŚti gĂˇbidĹľ kolekĹˇn. Tento pojem je
+natolik specifickĂ˝, Ĺľe se obvykle nepĹ™eklĂˇdĂˇ; doslova by se dal pĹ™eloĹľit
+jako <em>sbĂ­rĂˇnĂ­ smetĂ­</em>.)</span></p>
 
-<p>Garbage collection můžeme přirovnat k činnosti poštovního úředníka, který
-jednou a čas odstraní všechny dopisy a balíčky ze skříněk, které nemají
-žádný nápis. Pokud tyto dopisy na sobě nemají cílovou adresu nebo adresu 
-odesílatele, hodí je do smetí.</p>
+<p>Garbage collection mĹŻĹľeme pĹ™irovnat k ÄŤinnosti poĹˇtovnĂ­ho ĂşĹ™ednĂ­ka, kterĂ˝
+jednou a ÄŤas odstranĂ­ vĹˇechny dopisy a balĂ­ÄŤky ze skĹ™Ă­nÄ›k, kterĂ© nemajĂ­
+ĹľĂˇdnĂ˝ nĂˇpis. Pokud tyto dopisy na sobÄ› nemajĂ­ cĂ­lovou adresu nebo adresu
+odesĂ­latele, hodĂ­ je do smetĂ­.</p>
 
 
-<h3>Proměnné v jazycích VBScript a JavaScript</h3>
+<h3>PromÄ›nnĂ© v jazycĂ­ch VBScript a JavaScript</h3>
 
-<p>Při používání proměnných v jazycích VBScript a JavaScript se navíc 
-setkáváme s drobnou odlišností. Oba uvedené jazyky vyžadují, abychom
-proměnnou před jejím použitím <em>deklarovali</em>. Jde o obecný rys, se
-kterým se setkáme u kompilovaných jazyků a u jazyků se <em>silnou typovou
-kontrolou</em>. Jednou z velkých výhod tohoto přístupu je to, že překladač
-může odhalit pokus o použití neznámé proměnné. K této situaci může dojít
-tím, že se při zápisu použití proměnné dopustíme překlepu v jejím jméně.
-Nevýhodou je samozřejmě to, že programátor toho musí napsat o něco víc.</p>
+<p>PĹ™i pouĹľĂ­vĂˇnĂ­ promÄ›nnĂ˝ch v jazycĂ­ch VBScript a JavaScript se navĂ­c
+setkĂˇvĂˇme s drobnou odliĹˇnostĂ­. Oba uvedenĂ© jazyky vyĹľadujĂ­, abychom
+promÄ›nnou pĹ™ed jejĂ­m pouĹľitĂ­m <em>deklarovali</em>. Jde o obecnĂ˝ rys, se
+kterĂ˝m se setkĂˇme u kompilovanĂ˝ch jazykĹŻ a u jazykĹŻ se <em>silnou typovou
+kontrolou</em>. Jednou z velkĂ˝ch vĂ˝hod tohoto pĹ™Ă­stupu je to, Ĺľe pĹ™ekladaÄŤ
+mĹŻĹľe odhalit pokus o pouĹľitĂ­ neznĂˇmĂ© promÄ›nnĂ©. K tĂ©to situaci mĹŻĹľe dojĂ­t
+tĂ­m, Ĺľe se pĹ™i zĂˇpisu pouĹľitĂ­ promÄ›nnĂ© dopustĂ­me pĹ™eklepu v jejĂ­m jmĂ©nÄ›.
+NevĂ˝hodou je samozĹ™ejmÄ› to, Ĺľe programĂˇtor toho musĂ­ napsat o nÄ›co vĂ­c.</p>
 
 <div class="trnote">
 
-<p><b>Poznámka překladatele:</b> Uvedená nevýhoda je zanedbatelná tím více,
-čím větší projekt se realizuje. V takových případech programátor věnuje
-mnohem více úsilí ostatním věcem, než je jednoduché klapání do klávesnice.
-Za skutečnou nevýhodu můžeme považovat nutnost deklarace proměnných pouze u
-jazyků, kde musíme deklaraci uvést na výrazně jiném místě zdrojového textu,
-než se objevuje její první použití. (Při pohledu do zdrojového textu &mdash;
-typicky přes okno editoru s omezeným počtem řádků na obrazovce &mdash; může
-programátor ztratit přehled o deklaraci proměnné. Musí ji dohledávat a
-ztrácí tím část svého času a mentální kapacity.) Příkladem takového jazyka
-je například jazyk <code>C</code>. Naproti tomu například modernější jazyk
-<code>C++</code> dovoluje uvést deklaraci přímo v místě prvního použití
-proměnné.</p>
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> UvedenĂˇ nevĂ˝hoda je zanedbatelnĂˇ tĂ­m vĂ­ce,
+ÄŤĂ­m vÄ›tĹˇĂ­ projekt se realizuje. V takovĂ˝ch pĹ™Ă­padech programĂˇtor vÄ›nuje
+mnohem vĂ­ce ĂşsilĂ­ ostatnĂ­m vÄ›cem, neĹľ je jednoduchĂ© klapĂˇnĂ­ do klĂˇvesnice.
+Za skuteÄŤnou nevĂ˝hodu mĹŻĹľeme povaĹľovat nutnost deklarace promÄ›nnĂ˝ch pouze u
+jazykĹŻ, kde musĂ­me deklaraci uvĂ©st na vĂ˝raznÄ› jinĂ©m mĂ­stÄ› zdrojovĂ©ho textu,
+neĹľ se objevuje jejĂ­ prvnĂ­ pouĹľitĂ­. (PĹ™i pohledu do zdrojovĂ©ho textu &mdash;
+typicky pĹ™es okno editoru s omezenĂ˝m poÄŤtem Ĺ™ĂˇdkĹŻ na obrazovce &mdash; mĹŻĹľe
+programĂˇtor ztratit pĹ™ehled o deklaraci promÄ›nnĂ©. MusĂ­ ji dohledĂˇvat a
+ztrĂˇcĂ­ tĂ­m ÄŤĂˇst svĂ©ho ÄŤasu a mentĂˇlnĂ­ kapacity.) PĹ™Ă­kladem takovĂ©ho jazyka
+je napĹ™Ă­klad jazyk <code>C</code>. Naproti tomu napĹ™Ă­klad modernÄ›jĹˇĂ­ jazyk
+<code>C++</code> dovoluje uvĂ©st deklaraci pĹ™Ă­mo v mĂ­stÄ› prvnĂ­ho pouĹľitĂ­
+promÄ›nnĂ©.</p>
 
-<p>Zajímavější diskusi lze vést na téma <em>silná</em> versus <em>slabá
-typová kontrola</em>. Donedávna se tradovalo, že silná typová kontrola je
-vždy a jednoznačně lepší, protože umožňuje odhalit určitou kategorii chyb
-již při překladu. V poslední době již nejsou názory tak vyhraněné. Silná
-typová může mít i nevýhody (komplikuje například <em>generické
-programování</em>) a navíc nezaručí odhalení jiné kategorie chyb &mdash;
-špatnou interpretaci hodnoty formálně správného typu. Odpovědi na tyto
-problémy se nyní nehledají pouze v technikách fungování překladačů, ale i v
-technologiích a technikách vývoje aplikací, v postupech programátorů. Jedním
-z přístupů, který prokázal svou užitečnost, je psaní <em>testů
-funkčnosti</em> (<em>unit testing</em> &mdash; jednotkové testy a
-<em>acceptance testing</em> &mdash; uživatelské testy). Poučení i zajímavé
-náměty k zamyšlení naleznete v článku <a
+<p>ZajĂ­mavÄ›jĹˇĂ­ diskusi lze vĂ©st na tĂ©ma <em>silnĂˇ</em> versus <em>slabĂˇ
+typovĂˇ kontrola</em>. DonedĂˇvna se tradovalo, Ĺľe silnĂˇ typovĂˇ kontrola je
+vĹľdy a jednoznaÄŤnÄ› lepĹˇĂ­, protoĹľe umoĹľĹuje odhalit urÄŤitou kategorii chyb
+jiĹľ pĹ™i pĹ™ekladu. V poslednĂ­ dobÄ› jiĹľ nejsou nĂˇzory tak vyhranÄ›nĂ©. SilnĂˇ
+typovĂˇ mĹŻĹľe mĂ­t i nevĂ˝hody (komplikuje napĹ™Ă­klad <em>generickĂ©
+programovĂˇnĂ­</em>) a navĂ­c nezaruÄŤĂ­ odhalenĂ­ jinĂ© kategorie chyb &mdash;
+Ĺˇpatnou interpretaci hodnoty formĂˇlnÄ› sprĂˇvnĂ©ho typu. OdpovÄ›di na tyto
+problĂ©my se nynĂ­ nehledajĂ­ pouze v technikĂˇch fungovĂˇnĂ­ pĹ™ekladaÄŤĹŻ, ale i v
+technologiĂ­ch a technikĂˇch vĂ˝voje aplikacĂ­, v postupech programĂˇtorĹŻ. JednĂ­m
+z pĹ™Ă­stupĹŻ, kterĂ˝ prokĂˇzal svou uĹľiteÄŤnost, je psanĂ­ <em>testĹŻ
+funkÄŤnosti</em> (<em>unit testing</em> &mdash; jednotkovĂ© testy a
+<em>acceptance testing</em> &mdash; uĹľivatelskĂ© testy). PouÄŤenĂ­ i zajĂ­mavĂ©
+nĂˇmÄ›ty k zamyĹˇlenĂ­ naleznete v ÄŤlĂˇnku <a
 href="http://www.artima.com/intv/strongweak.html" target="_blank">Strong
 versus Weak Typing</a>.</p>
 
@@ -204,162 +204,162 @@ versus Weak Typing</a>.</p>
 
 <h4>VBScript</h4>
 
-<p>Deklaraci proměnné zajistíme v jazyce VBScript použitím příkazu
-<code>Dim</code>, což je zkratka slova <em>Dimension</em> <span
-class="trnote" title="Poznámka překladatele">([dajmenžn] = rozměr)</span>.
-Jde o projev dávných kořenů jazyka VBScript v jazyce BASIC a přes něj ještě
-dále v jazycích typu assembler. V těchto jazycích jste museli uvést, jak
-velký paměťový prostor bude proměnná vyžadovat &mdash; tedy její rozměr,
-velikost. Zkratka <code>Dim</code> se dochovala z těchto dob.</p>
+<p>Deklaraci promÄ›nnĂ© zajistĂ­me v jazyce VBScript pouĹľitĂ­m pĹ™Ă­kazu
+<code>Dim</code>, coĹľ je zkratka slova <em>Dimension</em> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">([dajmenĹľn] = rozmÄ›r)</span>.
+Jde o projev dĂˇvnĂ˝ch koĹ™enĹŻ jazyka VBScript v jazyce BASIC a pĹ™es nÄ›j jeĹˇtÄ›
+dĂˇle v jazycĂ­ch typu assembler. V tÄ›chto jazycĂ­ch jste museli uvĂ©st, jak
+velkĂ˝ pamÄ›ĹĄovĂ˝ prostor bude promÄ›nnĂˇ vyĹľadovat &mdash; tedy jejĂ­ rozmÄ›r,
+velikost. Zkratka <code>Dim</code> se dochovala z tÄ›chto dob.</p>
 
-<p>Deklarace proměnné v jazyce VBScript vypadá takto:</p>
+<p>Deklarace promÄ›nnĂ© v jazyce VBScript vypadĂˇ takto:</p>
 <pre>
 Dim promenna
 </pre>
 
-<p>Jakmile je proměnná jednou deklarována, můžeme ji používat stejně, jako
-jsme to ukázali u Pythonu. Jedním příkazem <code>Dim</code> můžeme
-deklarovat více proměnných. Jejich seznam oddělujeme čárkami:</p>
+<p>Jakmile je promÄ›nnĂˇ jednou deklarovĂˇna, mĹŻĹľeme ji pouĹľĂ­vat stejnÄ›, jako
+jsme to ukĂˇzali u Pythonu. JednĂ­m pĹ™Ă­kazem <code>Dim</code> mĹŻĹľeme
+deklarovat vĂ­ce promÄ›nnĂ˝ch. Jejich seznam oddÄ›lujeme ÄŤĂˇrkami:</p>
 
 <pre>
 Dim promenna, druha, treti
 </pre>
 
-<p>Přiřazení provedeme takto:</p>
+<p>PĹ™iĹ™azenĂ­ provedeme takto:</p>
 
 <pre>
 promenna = 42
-druha = "Toto je krátká větička."
+druha = "Toto je krĂˇtkĂˇ vÄ›tiÄŤka."
 treti = 3.14159
 </pre>
 
-<p>Dalším klíčovým slovem, se kterým se můžete občas setkat, je
-<code>Let</code> <span class="trnote" title="Poznámka překladatele">([let] =
-nechť)</span>. Jde opět o pozůstatek z jazyka BASIC a ve skutečnosti jej
-nemusíte vůbec používat. Pokud přesto někdy uvidíte jeho použití, bude
-vypadat nějak takto:</p>
+<p>DalĹˇĂ­m klĂ­ÄŤovĂ˝m slovem, se kterĂ˝m se mĹŻĹľete obÄŤas setkat, je
+<code>Let</code> <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">([let] =
+nechĹĄ)</span>. Jde opÄ›t o pozĹŻstatek z jazyka BASIC a ve skuteÄŤnosti jej
+nemusĂ­te vĹŻbec pouĹľĂ­vat. Pokud pĹ™esto nÄ›kdy uvidĂ­te jeho pouĹľitĂ­, bude
+vypadat nÄ›jak takto:</p>
 
 <pre>
 Let promenna = 22
 </pre>
 
-<p>V této učebnici nebudeme <code>Let</code> používat.</p>
+<p>V tĂ©to uÄŤebnici nebudeme <code>Let</code> pouĹľĂ­vat.</p>
 
 
 <h4>JavaScript</h4>
 
-<p>V jazyce JavaScript je deklarace proměnných uvedena klíčovým slovem
-<code>var</code> a v jedné deklaraci můžeme uvést více proměnných, jako v
-případě VBScript:</p>
+<p>V jazyce JavaScript je deklarace promÄ›nnĂ˝ch uvedena klĂ­ÄŤovĂ˝m slovem
+<code>var</code> a v jednĂ© deklaraci mĹŻĹľeme uvĂ©st vĂ­ce promÄ›nnĂ˝ch, jako v
+pĹ™Ă­padÄ› VBScript:</p>
 
 <pre>
 var promenna, druha, treti;
 </pre>
 
-<p>Součástí příkazu <code>var</code> může být v jazyce JavaScript i
+<p>SouÄŤĂˇstĂ­ pĹ™Ă­kazu <code>var</code> mĹŻĹľe bĂ˝t v jazyce JavaScript i
 inicializace (nebo <em>definice</em>, <span class="trnote"
-title="Poznámka&nbsp;překladatele">tj. určení počáteční hodnoty</span>)
-proměnných:</p>
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">tj. urÄŤenĂ­ poÄŤĂˇteÄŤnĂ­ hodnoty</span>)
+promÄ›nnĂ˝ch:</p>
 
 <pre>
 var promenna = 42;
-var druha = "Krátká věta.", treti = 3.14159; 
+var druha = "KrĂˇtkĂˇ vÄ›ta.", treti = 3.14159;
 </pre>
 
-<p>Ušetříme tím trochu psaní, ale jinak se tato forma <span class="trnote"
-title="Poznámka&nbsp;překladatele">funkčně</span> od dvoukrokové definice
-proměnných v jazyce VBScript nijak neliší.</p>
+<p>UĹˇetĹ™Ă­me tĂ­m trochu psanĂ­, ale jinak se tato forma <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">funkÄŤnÄ›</span> od dvoukrokovĂ© definice
+promÄ›nnĂ˝ch v jazyce VBScript nijak neliĹˇĂ­.</p>
 
-<p>Doufám, že tento stručný pohled proměnné v jazycích VBScript a JavaScript
-objasnil rozdíl mezi jejich <em>deklarací</em> a <em>definicí</em>. V jazyce
-Python dojde k <em>deklaraci</em> proměnné v okamžiku, kdy je uvedena její
-<span class="trnote" title="Poznámka&nbsp;překladatele">první</span>
+<p>DoufĂˇm, Ĺľe tento struÄŤnĂ˝ pohled promÄ›nnĂ© v jazycĂ­ch VBScript a JavaScript
+objasnil rozdĂ­l mezi jejich <em>deklaracĂ­</em> a <em>definicĂ­</em>. V jazyce
+Python dojde k <em>deklaraci</em> promÄ›nnĂ© v okamĹľiku, kdy je uvedena jejĂ­
+<span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">prvnĂ­</span>
 definice.</p>
 
-<p>Nyní se podívejme na příklady datových typů a uvidíme, jak to všechno
+<p>NynĂ­ se podĂ­vejme na pĹ™Ă­klady datovĂ˝ch typĹŻ a uvidĂ­me, jak to vĹˇechno
 pasuje dohromady.</p>
 
 
-<h3>Jednoduché datové typy</h3>
+<h3>JednoduchĂ© datovĂ© typy</h3>
 
-<p>Jednoduché datové typy se nazývají jednoduchými proto, že patří k
-nejzákladnějším typům dat, se kterými se dá manipulovat. Složitější datové
-typy jsou ve skutečnosti jen kombinacemi jednoduchých datových typů.
-Jednoduché datové typy jsou stavebními kameny, ze kterých se ostatní typy
-budují. Jednoduché datové typy představují opravdový základ veškerých
-výpočtů. Patří k nim písmena, čísla a něco, čemu se říká boolovský typ
+<p>JednoduchĂ© datovĂ© typy se nazĂ˝vajĂ­ jednoduchĂ˝mi proto, Ĺľe patĹ™Ă­ k
+nejzĂˇkladnÄ›jĹˇĂ­m typĹŻm dat, se kterĂ˝mi se dĂˇ manipulovat. SloĹľitÄ›jĹˇĂ­ datovĂ©
+typy jsou ve skuteÄŤnosti jen kombinacemi jednoduchĂ˝ch datovĂ˝ch typĹŻ.
+JednoduchĂ© datovĂ© typy jsou stavebnĂ­mi kameny, ze kterĂ˝ch se ostatnĂ­ typy
+budujĂ­. JednoduchĂ© datovĂ© typy pĹ™edstavujĂ­ opravdovĂ˝ zĂˇklad veĹˇkerĂ˝ch
+vĂ˝poÄŤtĹŻ. PatĹ™Ă­ k nim pĂ­smena, ÄŤĂ­sla a nÄ›co, ÄŤemu se Ĺ™Ă­kĂˇ boolovskĂ˝ typ
 (boolean).</p>
 
 
-<h3 id="string">Znakové řetězce</h3>
+<h3 id="string">ZnakovĂ© Ĺ™etÄ›zce</h3>
 
-<p>Už jsme se s nimi setkali. Patří k nim doslova libovolné řetězce, neboli
-posloupnosti znaků, které mohou být zobrazeny na vaší obrazovce. (Ve
-skutečnosti mohou obsahovat i netisknutelné <em>řídicí znaky</em>.)</p>
+<p>UĹľ jsme se s nimi setkali. PatĹ™Ă­ k nim doslova libovolnĂ© Ĺ™etÄ›zce, neboli
+posloupnosti znakĹŻ, kterĂ© mohou bĂ˝t zobrazeny na vaĹˇĂ­ obrazovce. (Ve
+skuteÄŤnosti mohou obsahovat i netisknutelnĂ© <em>Ĺ™Ă­dicĂ­ znaky</em>.)</p>
 
-<p>V jazyce Python mohou být řetězce zapsány několika způsoby:</p>
+<p>V jazyce Python mohou bĂ˝t Ĺ™etÄ›zce zapsĂˇny nÄ›kolika zpĹŻsoby:</p>
 
 <dl>
-<dt>S jednoduchými apostrofy</dt>
+<dt>S jednoduchĂ˝mi apostrofy</dt>
 <dd><pre>'Toto je retezec'</pre></dd>
 
 <dt>S uvozovkami</dt>
 <dd><pre>"Toto je velmi podobny retezec"</pre></dd>
 
-<dt>S trojitými uvozovkami</dt>
+<dt>S trojitĂ˝mi uvozovkami</dt>
 <dd><pre>"""Tady je velmi dlouhy retezec, ktery -- pokud
-   si to budeme prat -- muze byt zapsan na vice 
-   radcich. Python zachova viceradkovy retezec 
+   si to budeme prat -- muze byt zapsan na vice
+   radcich. Python zachova viceradkovy retezec
    ve tvaru, v jakem jej zapiseme..."""
 </pre>
 </dd>
 </dl>
 
-<p>Naposledy zmíněná forma má jedno speciální použití. Používá se k
-dokumentování funkcí, které jsme v jazyce Python sami napsali &mdash; k tomu
-se ještě dostaneme.</p>
+<p>Naposledy zmĂ­nÄ›nĂˇ forma mĂˇ jedno speciĂˇlnĂ­ pouĹľitĂ­. PouĹľĂ­vĂˇ se k
+dokumentovĂˇnĂ­ funkcĂ­, kterĂ© jsme v jazyce Python sami napsali &mdash; k tomu
+se jeĹˇtÄ› dostaneme.</p>
 
-<p>K jednotlivým znakům řetězce můžeme přistupovat jako ke složkám znakového
-pole (viz <em>pole</em> dále v textu). Každý programovací jazyk obvykle
-poskytuje operace pro manipulaci s řetězci &mdash; nalezni podřetězec, spoj
-dva řetězce, okopíruj jeden řetězec jinam a podobné.</p>
+<p>K jednotlivĂ˝m znakĹŻm Ĺ™etÄ›zce mĹŻĹľeme pĹ™istupovat jako ke sloĹľkĂˇm znakovĂ©ho
+pole (viz <em>pole</em> dĂˇle v textu). KaĹľdĂ˝ programovacĂ­ jazyk obvykle
+poskytuje operace pro manipulaci s Ĺ™etÄ›zci &mdash; nalezni podĹ™etÄ›zec, spoj
+dva Ĺ™etÄ›zce, okopĂ­ruj jeden Ĺ™etÄ›zec jinam a podobnĂ©.</p>
 
-<p>Za zmínku stojí skutečnost, že některé jazyky používají zvláštní typ pro
-ukládání znaků &mdash; tedy typ pro jeden znak. V takovém případě můžeme o
-řetězcích uvažovat jako o kolekcích hodnot typu znak. Ve srovnání s tímto
-přístupem Python používá pro uložení jednoho znaku jednoduše řetězec o délce
-jedna. To znamená, že nepotřebuje jiný syntaktický předpis pro zápis řetězce
-a jiný pro zápis jednoho znaku.</p>
+<p>Za zmĂ­nku stojĂ­ skuteÄŤnost, Ĺľe nÄ›kterĂ© jazyky pouĹľĂ­vajĂ­ zvlĂˇĹˇtnĂ­ typ pro
+uklĂˇdĂˇnĂ­ znakĹŻ &mdash; tedy typ pro jeden znak. V takovĂ©m pĹ™Ă­padÄ› mĹŻĹľeme o
+Ĺ™etÄ›zcĂ­ch uvaĹľovat jako o kolekcĂ­ch hodnot typu znak. Ve srovnĂˇnĂ­ s tĂ­mto
+pĹ™Ă­stupem Python pouĹľĂ­vĂˇ pro uloĹľenĂ­ jednoho znaku jednoduĹˇe Ĺ™etÄ›zec o dĂ©lce
+jedna. To znamenĂˇ, Ĺľe nepotĹ™ebuje jinĂ˝ syntaktickĂ˝ pĹ™edpis pro zĂˇpis Ĺ™etÄ›zce
+a jinĂ˝ pro zĂˇpis jednoho znaku.</p>
 
-<h4>Řetězcové operátory</h4>
+<h4>ĹetÄ›zcovĂ© operĂˇtory</h4>
 
-<p>Nad řetězci lze provádět celou řadu operací. Některé z nich jsou přímo
-zabudovány do jazyka Pyhon, ale řada dalších je poskytována moduly, které
-musíme zapojit do činnosti příkazem <code>import</code> (tak, jak jsme to
-udělali s modulem <code>sys</code> v kapitole <a
-href="cztutseq1.html">Jednoduché posloupnosti</a>).</p>
+<p>Nad Ĺ™etÄ›zci lze provĂˇdÄ›t celou Ĺ™adu operacĂ­. NÄ›kterĂ© z nich jsou pĹ™Ă­mo
+zabudovĂˇny do jazyka Pyhon, ale Ĺ™ada dalĹˇĂ­ch je poskytovĂˇna moduly, kterĂ©
+musĂ­me zapojit do ÄŤinnosti pĹ™Ă­kazem <code>import</code> (tak, jak jsme to
+udÄ›lali s modulem <code>sys</code> v kapitole <a
+href="cztutseq1.html">JednoduchĂ© posloupnosti</a>).</p>
 
 <div class="center">
-<table summary="Řetězcové operátory">
+<table summary="ĹetÄ›zcovĂ© operĂˇtory">
 <col span="2" style="padding: 0 1em">
-<caption>Řetězcové operátory</caption>
-<tr><td>S1 + S2</td><td>Spojení řetězce S1 a S2</td></tr>
-<tr><td>S1 * N</td><td>N-násobné opakování řetězce S1</td></tr>
+<caption>ĹetÄ›zcovĂ© operĂˇtory</caption>
+<tr><td>S1 + S2</td><td>SpojenĂ­ Ĺ™etÄ›zce S1 a S2</td></tr>
+<tr><td>S1 * N</td><td>N-nĂˇsobnĂ© opakovĂˇnĂ­ Ĺ™etÄ›zce S1</td></tr>
 </table>
 </div>
 
-<p>Následující příklady demonstrují jejich funkci:</p> 
+<p>NĂˇsledujĂ­cĂ­ pĹ™Ă­klady demonstrujĂ­ jejich funkci:</p>
 
 <pre>
->>> print 'Znovu a ' + 'znovu'        <span class="comment"># spojení řetězců</span>
+>>> print 'Znovu a ' + 'znovu'        <span class="comment"># spojenĂ­ Ĺ™etÄ›zcĹŻ</span>
 Znovu a znovu
->>> print 'Opakuj ' * 3               <span class="comment"># opakování řetězce</span>
+>>> print 'Opakuj ' * 3               <span class="comment"># opakovĂˇnĂ­ Ĺ™etÄ›zce</span>
 Opakuj Opakuj Opakuj
 >>> print 'Znova ' + ('a znova ' * 3) <span class="comment"># kombinace '+' a '*'</span>
 Znova a znova a znova a znova
 </pre>
 
-<p>Řetězce znaků můžeme přiřazovat do proměnných:</p> 
+<p>ĹetÄ›zce znakĹŻ mĹŻĹľeme pĹ™iĹ™azovat do promÄ›nnĂ˝ch:</p>
 
 <pre>
 >>> s1 = 'Znova '
@@ -368,27 +368,27 @@ Znova a znova a znova a znova
 Znova a znova a znova a znova
 </pre>
 
-<p>Všimněte si, že poslední dva příklady dávají stejný výstup.</p> 
+<p>VĹˇimnÄ›te si, Ĺľe poslednĂ­ dva pĹ™Ă­klady dĂˇvajĂ­ stejnĂ˝ vĂ˝stup.</p>
 
-<p>S řetězci se dá dělat spousta dalších věcí, ale k tomu se podrobněji
-dostaneme až v dalších tématech. Nejdříve si musíme osvojit základnější
+<p>S Ĺ™etÄ›zci se dĂˇ dÄ›lat spousta dalĹˇĂ­ch vÄ›cĂ­, ale k tomu se podrobnÄ›ji
+dostaneme aĹľ v dalĹˇĂ­ch tĂ©matech. NejdĹ™Ă­ve si musĂ­me osvojit zĂˇkladnÄ›jĹˇĂ­
 znalosti.</p>
 
 
-<h4>Řetězcové proměnné v jazyce VBScript</h4>
+<h4>ĹetÄ›zcovĂ© promÄ›nnĂ© v jazyce VBScript</h4>
 
-<p>V jazyce VBScript jsou proměnné <span class="trnote" title="Poznámka
-překladatele">(v angličtině)</span> označovány jako <em>variants</em>,
-protože mohou obsahovat libovolný typ dat. <span class="trnote"
-title="Poznámka překladatele">(Nepřekládal jsem jako <em>varianty</em>,
-protože by se to pletlo s <em>možnostmi</em>.)</span> VBScript se je podle
-potřeby pokouší převádět na požadovaný typ. To znamená, že do proměnné
-můžete přiřadit číslo, ale v okamžiku, kdy proměnnou použijete v místě, kde
-se očekává řetězec, VBScript provede potřebný převod. Dá se říci, že se to
-podobá chování pythonovského příkazu <code>print</code>, ale podobné chování
-je rozšířeno na všechny příkazy jazyka VBScript. Pokud chceme překladači
-napovědět, že se na nějakou číselnou hodnotu má dívat jako na řetězec,
-uzavřeme ji do uvozovek:</p>
+<p>V jazyce VBScript jsou promÄ›nnĂ© <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">(v angliÄŤtinÄ›)</span> oznaÄŤovĂˇny jako <em>variants</em>,
+protoĹľe mohou obsahovat libovolnĂ˝ typ dat. <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(NepĹ™eklĂˇdal jsem jako <em>varianty</em>,
+protoĹľe by se to pletlo s <em>moĹľnostmi</em>.)</span> VBScript se je podle
+potĹ™eby pokouĹˇĂ­ pĹ™evĂˇdÄ›t na poĹľadovanĂ˝ typ. To znamenĂˇ, Ĺľe do promÄ›nnĂ©
+mĹŻĹľete pĹ™iĹ™adit ÄŤĂ­slo, ale v okamĹľiku, kdy promÄ›nnou pouĹľijete v mĂ­stÄ›, kde
+se oÄŤekĂˇvĂˇ Ĺ™etÄ›zec, VBScript provede potĹ™ebnĂ˝ pĹ™evod. DĂˇ se Ĺ™Ă­ci, Ĺľe se to
+podobĂˇ chovĂˇnĂ­ pythonovskĂ©ho pĹ™Ă­kazu <code>print</code>, ale podobnĂ© chovĂˇnĂ­
+je rozĹˇĂ­Ĺ™eno na vĹˇechny pĹ™Ă­kazy jazyka VBScript. Pokud chceme pĹ™ekladaÄŤi
+napovÄ›dÄ›t, Ĺľe se na nÄ›jakou ÄŤĂ­selnou hodnotu mĂˇ dĂ­vat jako na Ĺ™etÄ›zec,
+uzavĹ™eme ji do uvozovek:</p>
 
 <pre>
 &lt;script type="text/vbscript">
@@ -397,17 +397,17 @@ MsgBox retezec
 &lt;/script>
 </pre>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Zatímco <code>print</code>
-se snaží převést vše na řetězec, automatické konverze ve VBScript se
-principiálně snaží převádět cokoliv na cokoliv. Můžeme se na to také podívat
-také jinak. Snaha o převod do použitelné podoby je v Pythonu vlastností
-příkazu <code>print</code>, zatímco ve VBScript je vlastností proměnných
-samotných. Tuto vlastnost jazyka VBScript ocení především začátečníci a dá
-se dobře využít u jednoduchých skriptů. U složitějších a rozsáhlejších
-programů může být podobné chování zdrojem obtížně odhalitelných chyb.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> ZatĂ­mco <code>print</code>
+se snaĹľĂ­ pĹ™evĂ©st vĹˇe na Ĺ™etÄ›zec, automatickĂ© konverze ve VBScript se
+principiĂˇlnÄ› snaĹľĂ­ pĹ™evĂˇdÄ›t cokoliv na cokoliv. MĹŻĹľeme se na to takĂ© podĂ­vat
+takĂ© jinak. Snaha o pĹ™evod do pouĹľitelnĂ© podoby je v Pythonu vlastnostĂ­
+pĹ™Ă­kazu <code>print</code>, zatĂ­mco ve VBScript je vlastnostĂ­ promÄ›nnĂ˝ch
+samotnĂ˝ch. Tuto vlastnost jazyka VBScript ocenĂ­ pĹ™edevĹˇĂ­m zaÄŤĂˇteÄŤnĂ­ci a dĂˇ
+se dobĹ™e vyuĹľĂ­t u jednoduchĂ˝ch skriptĹŻ. U sloĹľitÄ›jĹˇĂ­ch a rozsĂˇhlejĹˇĂ­ch
+programĹŻ mĹŻĹľe bĂ˝t podobnĂ© chovĂˇnĂ­ zdrojem obtĂ­ĹľnÄ› odhalitelnĂ˝ch chyb.</p>
 
-<p>Řetězce můžeme spojovat dohromady. Této operaci se říká
-<em>zřetězení</em> (konkatenace) a v jazyce VBScript k ní používáme operátor
+<p>ĹetÄ›zce mĹŻĹľeme spojovat dohromady. TĂ©to operaci se Ĺ™Ă­kĂˇ
+<em>zĹ™etÄ›zenĂ­</em> (konkatenace) a v jazyce VBScript k nĂ­ pouĹľĂ­vĂˇme operĂˇtor
 <code>&amp;</code> takto:</p>
 
 <pre>
@@ -417,14 +417,14 @@ MsgBox retezec
 &lt;/script>
 </pre>
 
-<h4>Řetězce v JavaScript</h4>
+<h4>ĹetÄ›zce v JavaScript</h4>
 
-<p>V jazyce JavaScript mohou být řetězce uzavřeny buď v apostrofech nebo v
-uvozovkách. Proměnné<span class="trnote"
-title="Poznámka&nbsp;překladatele">, které použijeme pro jejich
-zpřístupnění,</span> musíme před použitím <em>deklarovat</em>. Používáme k
-tomu klíčové slovo <code>var</code>. Takže deklaraci a <em>definici</em>
-dvou řetězcových proměnných provedeme v jazyce JavaScript takto:</p>
+<p>V jazyce JavaScript mohou bĂ˝t Ĺ™etÄ›zce uzavĹ™eny buÄŹ v apostrofech nebo v
+uvozovkĂˇch. PromÄ›nnĂ©<span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">, kterĂ© pouĹľijeme pro jejich
+zpĹ™Ă­stupnÄ›nĂ­,</span> musĂ­me pĹ™ed pouĹľitĂ­m <em>deklarovat</em>. PouĹľĂ­vĂˇme k
+tomu klĂ­ÄŤovĂ© slovo <code>var</code>. TakĹľe deklaraci a <em>definici</em>
+dvou Ĺ™etÄ›zcovĂ˝ch promÄ›nnĂ˝ch provedeme v jazyce JavaScript takto:</p>
 
 <pre>
 &lt;script type="text/javascript">
@@ -435,11 +435,11 @@ document.write(retezec1 + retezec2)
 &lt;/script>
 </pre>
 
-<p>Jako poznámku na závěr uveďme, že v jazyce JavaScript můžeme vytvářet
-řetězce i jako <em>objekty</em> typu <code>String</code>. O objektech se
-budeme bavit o něco později. Prozatím můžeme o objektech typu
-<code>String</code> uvažovat jako o obyčejných řetězcích s určitými
-vlastnostmi navíc. Hlavní rozdíl spočívá v tom, že je vytváříme trochu
+<p>Jako poznĂˇmku na zĂˇvÄ›r uveÄŹme, Ĺľe v jazyce JavaScript mĹŻĹľeme vytvĂˇĹ™et
+Ĺ™etÄ›zce i jako <em>objekty</em> typu <code>String</code>. O objektech se
+budeme bavit o nÄ›co pozdÄ›ji. ProzatĂ­m mĹŻĹľeme o objektech typu
+<code>String</code> uvaĹľovat jako o obyÄŤejnĂ˝ch Ĺ™etÄ›zcĂ­ch s urÄŤitĂ˝mi
+vlastnostmi navĂ­c. HlavnĂ­ rozdĂ­l spoÄŤĂ­vĂˇ v tom, Ĺľe je vytvĂˇĹ™Ă­me trochu
 jinak:</p>
 
 <pre>
@@ -452,57 +452,57 @@ document.write(retezec1 + retezec2)
 </pre>
 
 
-<h3>Celá čísla</h3>
+<h3>CelĂˇ ÄŤĂ­sla</h3>
 
-<p>Celá čísla &mdash; <span class="trnote" title="Poznámka překladatele">v
-různých programovacích jazycích známá jako <em>integer</em>, nemají
-desetinnou část &mdash; </span> jejich hodnoty se pohybují od velkých
-záporných hodnot až po velké kladné hodnoty. Tuto důležitou skutečnost
-bychom si měli zapamatovat. Obvykle neuvažujeme o tom, že by čísla měla být
-co do velikosti nějak omezena, ale u počítačů existují jejich horní a dolní
-hranice. Hodnota horní hranice je známa jako MAXINT a závisí na počtu bitů,
-které váš počítač používá pro reprezentaci čísla. Na většině současných
-počítačů je to 32&nbsp;bitů, takže konstanta MAXINT odpovídá hodnotě kolem 2
-miliard. (V jazyce VBScript je to jen kolem 32 tisíc. <span class="trnote"
-title="Poznámka překladatele">Pro reprezentaci čísla se používá jen 16 bitů,
-čili dva bajty, takže můžeme vyjádřit čísla v rozmezí přibližně +/-32
-tisíc</span>.)</p>
+<p>CelĂˇ ÄŤĂ­sla &mdash; <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">v
+rĹŻznĂ˝ch programovacĂ­ch jazycĂ­ch znĂˇmĂˇ jako <em>integer</em>, nemajĂ­
+desetinnou ÄŤĂˇst &mdash; </span> jejich hodnoty se pohybujĂ­ od velkĂ˝ch
+zĂˇpornĂ˝ch hodnot aĹľ po velkĂ© kladnĂ© hodnoty. Tuto dĹŻleĹľitou skuteÄŤnost
+bychom si mÄ›li zapamatovat. Obvykle neuvaĹľujeme o tom, Ĺľe by ÄŤĂ­sla mÄ›la bĂ˝t
+co do velikosti nÄ›jak omezena, ale u poÄŤĂ­taÄŤĹŻ existujĂ­ jejich hornĂ­ a dolnĂ­
+hranice. Hodnota hornĂ­ hranice je znĂˇma jako MAXINT a zĂˇvisĂ­ na poÄŤtu bitĹŻ,
+kterĂ© vĂˇĹˇ poÄŤĂ­taÄŤ pouĹľĂ­vĂˇ pro reprezentaci ÄŤĂ­sla. Na vÄ›tĹˇinÄ› souÄŤasnĂ˝ch
+poÄŤĂ­taÄŤĹŻ je to 32&nbsp;bitĹŻ, takĹľe konstanta MAXINT odpovĂ­dĂˇ hodnotÄ› kolem 2
+miliard. (V jazyce VBScript je to jen kolem 32 tisĂ­c. <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">Pro reprezentaci ÄŤĂ­sla se pouĹľĂ­vĂˇ jen 16 bitĹŻ,
+ÄŤili dva bajty, takĹľe mĹŻĹľeme vyjĂˇdĹ™it ÄŤĂ­sla v rozmezĂ­ pĹ™ibliĹľnÄ› +/-32
+tisĂ­c</span>.)</p>
 
-<p>Čísla, která mohou nabývat jak kladných, tak záporných hodnot jsou
-označována jako <em>celá čísla se znaménkem</em> (<em>signed integer</em>).
-Někdy se využívají i čísla, která jsou omezena pouze na kladné hodnoty a
-nulu. Označujeme je jako <em>celá čísla bez znaménka</em> (<em>unsigned
-integer</em>). <span class="trnote">(Poznámka překladatele: Pokud na chvíli
-zapomeneme na omezení horní hranicí, pak v matematice takovým číslům říkáme
-<em>přirozená čísla</em>.)</span> V takovém případě se horní hranice zvětší
-na dvojnásobek hodnoty MAXINT &mdash; u 32bitových čísel na hodnotu kolem 4
-miliard &mdash;, protože prostor, který byl jinak vyhrazen pro reprezentaci
-záporných čísel, může být využit pro reprezentaci dalších kladných
-čísel.</p>
+<p>ÄŚĂ­sla, kterĂˇ mohou nabĂ˝vat jak kladnĂ˝ch, tak zĂˇpornĂ˝ch hodnot jsou
+oznaÄŤovĂˇna jako <em>celĂˇ ÄŤĂ­sla se znamĂ©nkem</em> (<em>signed integer</em>).
+NÄ›kdy se vyuĹľĂ­vajĂ­ i ÄŤĂ­sla, kterĂˇ jsou omezena pouze na kladnĂ© hodnoty a
+nulu. OznaÄŤujeme je jako <em>celĂˇ ÄŤĂ­sla bez znamĂ©nka</em> (<em>unsigned
+integer</em>). <span class="trnote">(PoznĂˇmka pĹ™ekladatele: Pokud na chvĂ­li
+zapomeneme na omezenĂ­ hornĂ­ hranicĂ­, pak v matematice takovĂ˝m ÄŤĂ­slĹŻm Ĺ™Ă­kĂˇme
+<em>pĹ™irozenĂˇ ÄŤĂ­sla</em>.)</span> V takovĂ©m pĹ™Ă­padÄ› se hornĂ­ hranice zvÄ›tĹˇĂ­
+na dvojnĂˇsobek hodnoty MAXINT &mdash; u 32bitovĂ˝ch ÄŤĂ­sel na hodnotu kolem 4
+miliard &mdash;, protoĹľe prostor, kterĂ˝ byl jinak vyhrazen pro reprezentaci
+zĂˇpornĂ˝ch ÄŤĂ­sel, mĹŻĹľe bĂ˝t vyuĹľit pro reprezentaci dalĹˇĂ­ch kladnĂ˝ch
+ÄŤĂ­sel.</p>
 
-<p>Protože jsou celá čísla <span class="trnote"
-title="Poznámka&nbsp;překladatele" >(budeme říkat také <em>čísla typu
-integer</em>)</span> shora omezena konstantou MAXINT, může nastat situace, kdy
-součet dvou čísel přesáhne konstantu MAXINT a výsledný součet bude chybný<span
-class="trnote" title="Poznámka&nbsp;překladatele">, protože správný výsledek
-nelze do vyhrazeného prostoru 32 bitů uložit</span>. V některých
-systémech/jazycích se vrací tato špatná hodnota přímo tak jak vyšla (často je
-současně nastaven skrytý příznak chyby, který můžete testovat, pokud
-předpokládáte, že k chybě mohlo dojít). Obvykle se však v této situaci vyvolá
-chybový stav, který můžete vaším programem zjistit a ošetřit. Pokud tak
-neučiníte, program se ukončí. Jazyky VBScript a JavaScript se chovají posledně
-zmíněným způsobem. Poslední verze jazyka Python se v chování mírně liší. Od
-verze 2.3 výše Python automaticky převádí celé číslo na něco, čemu se říká
-<em>velké celé číslo</em> (<em>long integer</em>; <span class="trnote"
-title="Poznámka&nbsp;překladatele">nezaměňujte s typem <code>long</code> v
-jazycích C a C++, kdy se číslo ukládá na 32 bitech</span>). Jde o specifickou
-vlastnost jazyka, která umožňuje pracovat s celými čísly o prakticky neomezené
-velikosti. Nic ovšem není zadarmo. Platíme za to cenou mnohem pomalejšího
-zpracování. Přinejmenším si však můžeme být jisti tím, že naše výpočty nakonec
-skončí korektně. Navíc rychlost je v počítačovém světě velmi relativní. Pokud
-takových velmi velkých celých čísel nezpracováváme mnoho, pravděpodobně si
-rozdílu ani nevšimnete. To, že se skutečně jedná o velké celé číslo můžeme
-poznat podle toho, že je Python zobrazuje s připojeným 'L' (jako long):</p>
+<p>ProtoĹľe jsou celĂˇ ÄŤĂ­sla <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele" >(budeme Ĺ™Ă­kat takĂ© <em>ÄŤĂ­sla typu
+integer</em>)</span> shora omezena konstantou MAXINT, mĹŻĹľe nastat situace, kdy
+souÄŤet dvou ÄŤĂ­sel pĹ™esĂˇhne konstantu MAXINT a vĂ˝slednĂ˝ souÄŤet bude chybnĂ˝<span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">, protoĹľe sprĂˇvnĂ˝ vĂ˝sledek
+nelze do vyhrazenĂ©ho prostoru 32 bitĹŻ uloĹľit</span>. V nÄ›kterĂ˝ch
+systĂ©mech/jazycĂ­ch se vracĂ­ tato ĹˇpatnĂˇ hodnota pĹ™Ă­mo tak jak vyĹˇla (ÄŤasto je
+souÄŤasnÄ› nastaven skrytĂ˝ pĹ™Ă­znak chyby, kterĂ˝ mĹŻĹľete testovat, pokud
+pĹ™edpoklĂˇdĂˇte, Ĺľe k chybÄ› mohlo dojĂ­t). Obvykle se vĹˇak v tĂ©to situaci vyvolĂˇ
+chybovĂ˝ stav, kterĂ˝ mĹŻĹľete vaĹˇĂ­m programem zjistit a oĹˇetĹ™it. Pokud tak
+neuÄŤinĂ­te, program se ukonÄŤĂ­. Jazyky VBScript a JavaScript se chovajĂ­ poslednÄ›
+zmĂ­nÄ›nĂ˝m zpĹŻsobem. PoslednĂ­ verze jazyka Python se v chovĂˇnĂ­ mĂ­rnÄ› liĹˇĂ­. Od
+verze 2.3 vĂ˝Ĺˇe Python automaticky pĹ™evĂˇdĂ­ celĂ© ÄŤĂ­slo na nÄ›co, ÄŤemu se Ĺ™Ă­kĂˇ
+<em>velkĂ© celĂ© ÄŤĂ­slo</em> (<em>long integer</em>; <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">nezamÄ›Ĺujte s typem <code>long</code> v
+jazycĂ­ch C a C++, kdy se ÄŤĂ­slo uklĂˇdĂˇ na 32 bitech</span>). Jde o specifickou
+vlastnost jazyka, kterĂˇ umoĹľĹuje pracovat s celĂ˝mi ÄŤĂ­sly o prakticky neomezenĂ©
+velikosti. Nic ovĹˇem nenĂ­ zadarmo. PlatĂ­me za to cenou mnohem pomalejĹˇĂ­ho
+zpracovĂˇnĂ­. PĹ™inejmenĹˇĂ­m si vĹˇak mĹŻĹľeme bĂ˝t jisti tĂ­m, Ĺľe naĹˇe vĂ˝poÄŤty nakonec
+skonÄŤĂ­ korektnÄ›. NavĂ­c rychlost je v poÄŤĂ­taÄŤovĂ©m svÄ›tÄ› velmi relativnĂ­. Pokud
+takovĂ˝ch velmi velkĂ˝ch celĂ˝ch ÄŤĂ­sel nezpracovĂˇvĂˇme mnoho, pravdÄ›podobnÄ› si
+rozdĂ­lu ani nevĹˇimnete. To, Ĺľe se skuteÄŤnÄ› jednĂˇ o velkĂ© celĂ© ÄŤĂ­slo mĹŻĹľeme
+poznat podle toho, Ĺľe je Python zobrazuje s pĹ™ipojenĂ˝m 'L' (jako long):</p>
 
 <pre>
 >>> 1234567 * 3456789
@@ -510,310 +510,310 @@ poznat podle toho, že je Python zobrazuje s připojeným 'L' (jako long):</p>
 >>> _
 </pre>
 
-<p>Povšimněte si, že jsme zde nepoužili příkaz <code>print</code>. Pokud
-bychom tak učinili, zmíněné 'L' by zůstalo skryto. Python umožňuje <span
-class="trnote" title="Poznámka&nbsp;překladatele">v interaktivním
-režimu</span> dva způsoby zobrazování hodnot. Výsledek použití příkazu
-<code>print</code> je obvykle hezčí (ve smyslu snadnější čitelnosti), ale
-prosté použití hodnoty, jako ve výše uvedeném příkladu, nám občas odhalí více
-detailů. Zkuste si příklady z předchozích témat zapsat bez použití příkazu
-<code>print</code> a zaměřte se na pozorování drobných rozdílů v zobrazení.
-Příkaz <code>print</code> budu používat také z toho důvodu, že mnohé jazyky
-jeho použití vyžadují. A také chci, aby vám do krve přešly dobré obecné návyky
-a ne pouze podlné postupy, které vám umožňuje Python.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe jsme zde nepouĹľili pĹ™Ă­kaz <code>print</code>. Pokud
+bychom tak uÄŤinili, zmĂ­nÄ›nĂ© 'L' by zĹŻstalo skryto. Python umoĹľĹuje <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">v interaktivnĂ­m
+reĹľimu</span> dva zpĹŻsoby zobrazovĂˇnĂ­ hodnot. VĂ˝sledek pouĹľitĂ­ pĹ™Ă­kazu
+<code>print</code> je obvykle hezÄŤĂ­ (ve smyslu snadnÄ›jĹˇĂ­ ÄŤitelnosti), ale
+prostĂ© pouĹľitĂ­ hodnoty, jako ve vĂ˝Ĺˇe uvedenĂ©m pĹ™Ă­kladu, nĂˇm obÄŤas odhalĂ­ vĂ­ce
+detailĹŻ. Zkuste si pĹ™Ă­klady z pĹ™edchozĂ­ch tĂ©mat zapsat bez pouĹľitĂ­ pĹ™Ă­kazu
+<code>print</code> a zamÄ›Ĺ™te se na pozorovĂˇnĂ­ drobnĂ˝ch rozdĂ­lĹŻ v zobrazenĂ­.
+PĹ™Ă­kaz <code>print</code> budu pouĹľĂ­vat takĂ© z toho dĹŻvodu, Ĺľe mnohĂ© jazyky
+jeho pouĹľitĂ­ vyĹľadujĂ­. A takĂ© chci, aby vĂˇm do krve pĹ™eĹˇly dobrĂ© obecnĂ© nĂˇvyky
+a ne pouze podlnĂ© postupy, kterĂ© vĂˇm umoĹľĹuje Python.</p>
 
 
-<h4>Aritmetické operátory</h4>
+<h4>AritmetickĂ© operĂˇtory</h4>
 
-<p>S většinou aritmetických operátorů, které budeme potřebovat, jsme se již
-setkali v kapitole <a href="cztutseq1.html">Jednoduché posloupnosti</a>.
+<p>S vÄ›tĹˇinou aritmetickĂ˝ch operĂˇtorĹŻ, kterĂ© budeme potĹ™ebovat, jsme se jiĹľ
+setkali v kapitole <a href="cztutseq1.html">JednoduchĂ© posloupnosti</a>.
 Zopakujme si je:</p>
 
-<table summary="Aritmetické operátory v jazyce Python">
-<caption>Aritmetické operátory v jazyce Python</caption>
+<table summary="AritmetickĂ© operĂˇtory v jazyce Python">
+<caption>AritmetickĂ© operĂˇtory v jazyce Python</caption>
 <col span="2" valign="top" style="padding: 0 1em">
-<tr><th>Příklad</th><th>Popis významu</th></tr>
+<tr><th>PĹ™Ă­klad</th><th>Popis vĂ˝znamu</th></tr>
 <tr>
 <td>M + N</td>
-<td>Sčítání M a N</td>
+<td>SÄŤĂ­tĂˇnĂ­ M a N</td>
 </tr>
 
 <tr>
 <td>M - N</td>
-<td>Odčítání N od M</td>
+<td>OdÄŤĂ­tĂˇnĂ­ N od M</td>
 </tr>
 
 <tr>
 <td>M * N</td>
-<td>Násobení M a N</td>
+<td>NĂˇsobenĂ­ M a N</td>
 </tr>
 
 <tr>
 <td>M / N</td>
-<td>Dělení, jak čísel typu integer tak reálných čísel. Výsledek
-záleží na typu čísel M a N. Když je alespoň jedno z čísel M a N reálné,
-výsledek bude též reálný.</td>
+<td>DÄ›lenĂ­, jak ÄŤĂ­sel typu integer tak reĂˇlnĂ˝ch ÄŤĂ­sel. VĂ˝sledek
+zĂˇleĹľĂ­ na typu ÄŤĂ­sel M a N. KdyĹľ je alespoĹ jedno z ÄŤĂ­sel M a N reĂˇlnĂ©,
+vĂ˝sledek bude tĂ©Ĺľ reĂˇlnĂ˝.</td>
 </tr>
 
 <tr>
 <td>M&nbsp;%&nbsp;N</td>
-<td>Modulo: nalezne zbytek po celočíselném dělení M : N</td>
+<td>Modulo: nalezne zbytek po celoÄŤĂ­selnĂ©m dÄ›lenĂ­ M : N</td>
 </tr>
 
 <tr>
 <td>M**N</td>
-<td>Umocňování: M na N-tou</td>
+<td>UmocĹovĂˇnĂ­: M na N-tou</td>
 </tr>
 </table>
 
-<p>O posledním z nich jsme se ještě nezmínili. Podívejme se na příklad v
-němž vytvoříme několik proměnných typu integer a poté použijeme operátor pro
-umocňování:</p>
+<p>O poslednĂ­m z nich jsme se jeĹˇtÄ› nezmĂ­nili. PodĂ­vejme se na pĹ™Ă­klad v
+nÄ›mĹľ vytvoĹ™Ă­me nÄ›kolik promÄ›nnĂ˝ch typu integer a potĂ© pouĹľijeme operĂˇtor pro
+umocĹovĂˇnĂ­:</p>
 
 
 <pre>
->>> i1 = 2    <span class="comment"># vytvoř proměnnou i1 a přiřaď jí hodnotu celého čísla</span>
+>>> i1 = 2    <span class="comment"># vytvoĹ™ promÄ›nnou i1 a pĹ™iĹ™aÄŹ jĂ­ hodnotu celĂ©ho ÄŤĂ­sla</span>
 >>> i2 = 4
->>> i3 = 2**4 <span class="comment"># přiřaď výsledek dvě na čtvrtou do i3</span>
+>>> i3 = 2**4 <span class="comment"># pĹ™iĹ™aÄŹ vĂ˝sledek dvÄ› na ÄŤtvrtou do i3</span>
 >>> print i3
 16
 </pre>
 
 
-<h4>Celá čísla v jazyce VBScript</h4>
+<h4>CelĂˇ ÄŤĂ­sla v jazyce VBScript</h4>
 
-<p>Jak již bylo uvedeno výše, hodnoty typu integer jsou v jazyce VBScript
-omezeny menší hodnotou MAXINT, která odpovídá uložení na 16 bitech &mdash;
-konkrétně zhruba +/-32 tisíc. Pokud potřebujete pracovat s větší
-celočíselnou hodnotou, můžete použít <code>long</code>. Ten <span
-class="trnote" title="Poznámka&nbsp;překladatele" >co do rozsahu</span>
-odpovídá typu integer, který je standardně používán v jazyce Python. Ve
-VBScript lze používat i typ <code>byte</code>, který definuje čísla uložená
-na 8 bitech, s maximální hodnotou 255 <span class="trnote"
-title="Poznámka&nbsp;překladatele">(interval 0 až 255)</span>. V praktických
-případech vám většinou bude vyhovovat použití standardního typu integer.</p>
+<p>Jak jiĹľ bylo uvedeno vĂ˝Ĺˇe, hodnoty typu integer jsou v jazyce VBScript
+omezeny menĹˇĂ­ hodnotou MAXINT, kterĂˇ odpovĂ­dĂˇ uloĹľenĂ­ na 16 bitech &mdash;
+konkrĂ©tnÄ› zhruba +/-32 tisĂ­c. Pokud potĹ™ebujete pracovat s vÄ›tĹˇĂ­
+celoÄŤĂ­selnou hodnotou, mĹŻĹľete pouĹľĂ­t <code>long</code>. Ten <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele" >co do rozsahu</span>
+odpovĂ­dĂˇ typu integer, kterĂ˝ je standardnÄ› pouĹľĂ­vĂˇn v jazyce Python. Ve
+VBScript lze pouĹľĂ­vat i typ <code>byte</code>, kterĂ˝ definuje ÄŤĂ­sla uloĹľenĂˇ
+na 8 bitech, s maximĂˇlnĂ­ hodnotou 255 <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(interval 0 aĹľ 255)</span>. V praktickĂ˝ch
+pĹ™Ă­padech vĂˇm vÄ›tĹˇinou bude vyhovovat pouĹľitĂ­ standardnĂ­ho typu integer.</p>
 
-<p>Podporovány jsou všechny aritmetické operátory.</p>
-
-
-<h4>Čísla v jazyce JavaScript</h4>
-
-<p>Jistě není žádným překvapením, že JavaScript také definuje numerický typ.
-Čísla mají opět podobu objektu, viz dále, a nazývají se <code>Number</code>
-<span class="trnote" title="Poznámka&nbsp;překladatele" >(tj. číslo)</span>.
-Jak originální, že? :-)</p>
-
-<p>V jazyce JavaScript lze použít i takzvané <em>Not a Number</em> neboli
-<em>NaN</em> <span class="trnote" title="Poznámka&nbsp;překladatele"
->(<em>ne-číslo</em> nebo <em>toto-není-číslo</em>)</span>. Jde o speciální
-verzi objektu Number a reprezentuje neplatné číslo. Většinou se používá v
-roli výsledku nějaké operace, která je z matematického hlediska nepřípustná.
-Hlavní myšlenka zavedení NaN spočívá v možnosti testovat některé typy chyb
-aniž by došlo k přerušení programu. JavaScript definuje i další speciální
-verze typu Number, které reprezentují kladné a záporné nekonečno. V
-programovacích jazycích se tento rys objevuje zřídka. Číselné objekty v
-jazyce JavaScript reprezentují buď celá čísla nebo reálná čísla &mdash; viz
-dále.</p>
+<p>PodporovĂˇny jsou vĹˇechny aritmetickĂ© operĂˇtory.</p>
 
 
-<h3>Reálná čísla</h3>
+<h4>ÄŚĂ­sla v jazyce JavaScript</h4>
 
-<p>Jde o čísla s desetinnou částí, o zlomky<sup class="trnote"
-id="Bdata_real" title="Jsou to tedy reálná nebo racionální čísla?"><a
-href="cztuttrn.html#Pdata_real">[4]</a></sup>. Mohou reprezentovat čísla
-velmi velká, mnohem větší než MAXINT, ale s menší přesností. To znamená, že
-dvě čísla, která by měla být shodná, ve skutečnosti pro počítač stejná
-nejsou. Je to dáno tím, že počítač ukládá jen přibližnou hodnotu v
-závislosti na tom, jakou úroveň detailů čísla je schopen zachytit. Například
-číslo 4.0 by mohlo být uloženo jako 3.9999999&hellip; nebo
-4.000000&hellip;01. Ve většině případů taková přibližnost postačuje, ale
-občas může mít důležité dopady. Pokud při používání reálných čísel dostanete
-nějaké legrační výsledky, mějte tuto skutečnost na paměti.</p>
+<p>JistÄ› nenĂ­ ĹľĂˇdnĂ˝m pĹ™ekvapenĂ­m, Ĺľe JavaScript takĂ© definuje numerickĂ˝ typ.
+ÄŚĂ­sla majĂ­ opÄ›t podobu objektu, viz dĂˇle, a nazĂ˝vajĂ­ se <code>Number</code>
+<span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele" >(tj. ÄŤĂ­slo)</span>.
+Jak originĂˇlnĂ­, Ĺľe? :-)</p>
 
-<p>S reálnými čísly, známými také jako čísla <em>s plovoucí řádovou
-čárkou</em> (<em>floating-point numbers)</em>, můžeme provádět stejné
-operace jako s čísly typu integer. Navíc máme k dispozici operace pro převod
-na celá čísla odseknutím <span class="trnote"
-title="Poznámka&nbsp;překladatele" >nebo zaokrouhlením</span> desetinné
-části.</p>
-
-<p>Python, VBScript i JavaScript práci s reálnými čísly podporují. V jazyce
-Python je vytvoříme jednoduše tím, že uvedeme zápis čísla, ve kterém se
-vyskytuje desetinná tečka &mdash; jak jsme si ukázali v části <a
-href="cztutseq1.html">Jednoduché posloupnosti</a>. V jazycích VBScript a
-JavaScript nejsou celá čísla a reálná čísla <span class="trnote"
-title="Poznámka&nbsp;překladatele">při používání</span> jasně rozlišována.
-Jednoduše je používáme a překladač jazyka si s tím většinou dobře
-poradí.</p>
+<p>V jazyce JavaScript lze pouĹľĂ­t i takzvanĂ© <em>Not a Number</em> neboli
+<em>NaN</em> <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele"
+>(<em>ne-ÄŤĂ­slo</em> nebo <em>toto-nenĂ­-ÄŤĂ­slo</em>)</span>. Jde o speciĂˇlnĂ­
+verzi objektu Number a reprezentuje neplatnĂ© ÄŤĂ­slo. VÄ›tĹˇinou se pouĹľĂ­vĂˇ v
+roli vĂ˝sledku nÄ›jakĂ© operace, kterĂˇ je z matematickĂ©ho hlediska nepĹ™Ă­pustnĂˇ.
+HlavnĂ­ myĹˇlenka zavedenĂ­ NaN spoÄŤĂ­vĂˇ v moĹľnosti testovat nÄ›kterĂ© typy chyb
+aniĹľ by doĹˇlo k pĹ™eruĹˇenĂ­ programu. JavaScript definuje i dalĹˇĂ­ speciĂˇlnĂ­
+verze typu Number, kterĂ© reprezentujĂ­ kladnĂ© a zĂˇpornĂ© nekoneÄŤno. V
+programovacĂ­ch jazycĂ­ch se tento rys objevuje zĹ™Ă­dka. ÄŚĂ­selnĂ© objekty v
+jazyce JavaScript reprezentujĂ­ buÄŹ celĂˇ ÄŤĂ­sla nebo reĂˇlnĂˇ ÄŤĂ­sla &mdash; viz
+dĂˇle.</p>
 
 
-<h3>Komplexní nebo imaginární čísla</h3>
+<h3>ReĂˇlnĂˇ ÄŤĂ­sla</h3>
 
-<p>Pokud máte základy matematického nebo jiného vědeckého vzdělání, pak vás
-možná napadlo: A co komplexní čísla? Pokud tyto základy nemáte, možná jste o
-komplexních číslech vůbec neslyšeli. V takovém případě můžete tuto část
-přeskočit, protože vám zde uvedená fakta k ničemu nebudou. Nicméně, některé
-programovací jazyky, včetně jazyku Python, mají podporu pro typ komplexních
-čísel zabudovánu přímo do jazyka, zatímco k jiným jazykům se dodávají
-knihovny nebo funkce, které práci s komplexními čísly umožňují. A ještě než
-se zeptáte &mdash; totéž platí pro matice.</p>
+<p>Jde o ÄŤĂ­sla s desetinnou ÄŤĂˇstĂ­, o zlomky<sup class="trnote"
+id="Bdata_real" title="Jsou to tedy reĂˇlnĂˇ nebo racionĂˇlnĂ­ ÄŤĂ­sla?"><a
+href="cztuttrn.html#Pdata_real">[4]</a></sup>. Mohou reprezentovat ÄŤĂ­sla
+velmi velkĂˇ, mnohem vÄ›tĹˇĂ­ neĹľ MAXINT, ale s menĹˇĂ­ pĹ™esnostĂ­. To znamenĂˇ, Ĺľe
+dvÄ› ÄŤĂ­sla, kterĂˇ by mÄ›la bĂ˝t shodnĂˇ, ve skuteÄŤnosti pro poÄŤĂ­taÄŤ stejnĂˇ
+nejsou. Je to dĂˇno tĂ­m, Ĺľe poÄŤĂ­taÄŤ uklĂˇdĂˇ jen pĹ™ibliĹľnou hodnotu v
+zĂˇvislosti na tom, jakou ĂşroveĹ detailĹŻ ÄŤĂ­sla je schopen zachytit. NapĹ™Ă­klad
+ÄŤĂ­slo 4.0 by mohlo bĂ˝t uloĹľeno jako 3.9999999&hellip; nebo
+4.000000&hellip;01. Ve vÄ›tĹˇinÄ› pĹ™Ă­padĹŻ takovĂˇ pĹ™ibliĹľnost postaÄŤuje, ale
+obÄŤas mĹŻĹľe mĂ­t dĹŻleĹľitĂ© dopady. Pokud pĹ™i pouĹľĂ­vĂˇnĂ­ reĂˇlnĂ˝ch ÄŤĂ­sel dostanete
+nÄ›jakĂ© legraÄŤnĂ­ vĂ˝sledky, mÄ›jte tuto skuteÄŤnost na pamÄ›ti.</p>
 
-<p>V jazyce Python jsou komplexní čísla reprezentována jako:</p>
+<p>S reĂˇlnĂ˝mi ÄŤĂ­sly, znĂˇmĂ˝mi takĂ© jako ÄŤĂ­sla <em>s plovoucĂ­ Ĺ™Ăˇdovou
+ÄŤĂˇrkou</em> (<em>floating-point numbers)</em>, mĹŻĹľeme provĂˇdÄ›t stejnĂ©
+operace jako s ÄŤĂ­sly typu integer. NavĂ­c mĂˇme k dispozici operace pro pĹ™evod
+na celĂˇ ÄŤĂ­sla odseknutĂ­m <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele" >nebo zaokrouhlenĂ­m</span> desetinnĂ©
+ÄŤĂˇsti.</p>
+
+<p>Python, VBScript i JavaScript prĂˇci s reĂˇlnĂ˝mi ÄŤĂ­sly podporujĂ­. V jazyce
+Python je vytvoĹ™Ă­me jednoduĹˇe tĂ­m, Ĺľe uvedeme zĂˇpis ÄŤĂ­sla, ve kterĂ©m se
+vyskytuje desetinnĂˇ teÄŤka &mdash; jak jsme si ukĂˇzali v ÄŤĂˇsti <a
+href="cztutseq1.html">JednoduchĂ© posloupnosti</a>. V jazycĂ­ch VBScript a
+JavaScript nejsou celĂˇ ÄŤĂ­sla a reĂˇlnĂˇ ÄŤĂ­sla <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">pĹ™i pouĹľĂ­vĂˇnĂ­</span> jasnÄ› rozliĹˇovĂˇna.
+JednoduĹˇe je pouĹľĂ­vĂˇme a pĹ™ekladaÄŤ jazyka si s tĂ­m vÄ›tĹˇinou dobĹ™e
+poradĂ­.</p>
+
+
+<h3>KomplexnĂ­ nebo imaginĂˇrnĂ­ ÄŤĂ­sla</h3>
+
+<p>Pokud mĂˇte zĂˇklady matematickĂ©ho nebo jinĂ©ho vÄ›deckĂ©ho vzdÄ›lĂˇnĂ­, pak vĂˇs
+moĹľnĂˇ napadlo: A co komplexnĂ­ ÄŤĂ­sla? Pokud tyto zĂˇklady nemĂˇte, moĹľnĂˇ jste o
+komplexnĂ­ch ÄŤĂ­slech vĹŻbec neslyĹˇeli. V takovĂ©m pĹ™Ă­padÄ› mĹŻĹľete tuto ÄŤĂˇst
+pĹ™eskoÄŤit, protoĹľe vĂˇm zde uvedenĂˇ fakta k niÄŤemu nebudou. NicmĂ©nÄ›, nÄ›kterĂ©
+programovacĂ­ jazyky, vÄŤetnÄ› jazyku Python, majĂ­ podporu pro typ komplexnĂ­ch
+ÄŤĂ­sel zabudovĂˇnu pĹ™Ă­mo do jazyka, zatĂ­mco k jinĂ˝m jazykĹŻm se dodĂˇvajĂ­
+knihovny nebo funkce, kterĂ© prĂˇci s komplexnĂ­mi ÄŤĂ­sly umoĹľĹujĂ­. A jeĹˇtÄ› neĹľ
+se zeptĂˇte &mdash; totĂ©Ĺľ platĂ­ pro matice.</p>
+
+<p>V jazyce Python jsou komplexnĂ­ ÄŤĂ­sla reprezentovĂˇna jako:</p>
 
 <pre>
 (<span class="comment">real</span>+<span class="comment">imaginary</span>j)
 </pre>
 
-<p><span class="trnote" title="Poznámka&nbsp;překladatele">... kde
-<code>real</code> představuje reálnou složku a <code>imaginary</code> složku
-imaginární.</span></p>
+<p><span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">... kde
+<code>real</code> pĹ™edstavuje reĂˇlnou sloĹľku a <code>imaginary</code> sloĹľku
+imaginĂˇrnĂ­.</span></p>
 
-<p>Takže sčítání komplexních čísel zapisujeme následovně:</p>
+<p>TakĹľe sÄŤĂ­tĂˇnĂ­ komplexnĂ­ch ÄŤĂ­sel zapisujeme nĂˇsledovnÄ›:</p>
 
 <pre>
->>> M = (2+4j) 
+>>> M = (2+4j)
 >>> N = (7+6j)
->>> print M + N 
+>>> print M + N
 (9+10j)
 </pre>
 
-<p>Všechny operace používané pro čísla typu integer je možno použít i pro
-komplexní čísla.</p>
+<p>VĹˇechny operace pouĹľĂ­vanĂ© pro ÄŤĂ­sla typu integer je moĹľno pouĹľĂ­t i pro
+komplexnĂ­ ÄŤĂ­sla.</p>
 
-<p>VBScript ani JavaScript práci s komplexními čísly nepodporují.</p>
+<p>VBScript ani JavaScript prĂˇci s komplexnĂ­mi ÄŤĂ­sly nepodporujĂ­.</p>
 
 
 
 <h3 id="Boolean">Hodnoty typu Boolean &mdash; True a False</h3>
 
-<p>Tento podivně vypadající název typu je pojmenován po matematikovi
-19.&nbsp;století, George Boolovi, který se zabýval studiem logiky. Jak už
-nadpis napovídá, tento typ má pouze dvě hodnoty &mdash; <em>true</em>
-(pravda) a <em>false</em> (nepravda). Některé jazyky podporují boolovské
-hodnoty přímo, jiné používají konvence, kdy vybraná číselná hodnota (často
-nula) reprezentuje false a jiná hodnota (často 1 nebo -1) reprezentuje true.
-Bylo tomu tak i u jazyka Python, a to až do verze 2.2 včetně. Od verze 2.3
-podporuje Python boolovské hodnoty přímo &mdash; používá hodnoty
+<p>Tento podivnÄ› vypadajĂ­cĂ­ nĂˇzev typu je pojmenovĂˇn po matematikovi
+19.&nbsp;stoletĂ­, George Boolovi, kterĂ˝ se zabĂ˝val studiem logiky. Jak uĹľ
+nadpis napovĂ­dĂˇ, tento typ mĂˇ pouze dvÄ› hodnoty &mdash; <em>true</em>
+(pravda) a <em>false</em> (nepravda). NÄ›kterĂ© jazyky podporujĂ­ boolovskĂ©
+hodnoty pĹ™Ă­mo, jinĂ© pouĹľĂ­vajĂ­ konvence, kdy vybranĂˇ ÄŤĂ­selnĂˇ hodnota (ÄŤasto
+nula) reprezentuje false a jinĂˇ hodnota (ÄŤasto 1 nebo -1) reprezentuje true.
+Bylo tomu tak i u jazyka Python, a to aĹľ do verze 2.2 vÄŤetnÄ›. Od verze 2.3
+podporuje Python boolovskĂ© hodnoty pĹ™Ă­mo &mdash; pouĹľĂ­vĂˇ hodnoty
 <code>True</code> a <code>False</code>.</p>
 
-<p>Boolovské hodnoty jsou známy také jako <em>pravdivostní hodnoty</em>,
-protože vyjadřují skutečnost, zda je něco pravdivé nebo nepravdivé. Dejme
-tomu, že píšete program, který má zálohovat všechny soubory v adresáři.
-Můžeme <span class="trnote" title="Poznámka překladatele">v cyklu</span>
-postupovat tak, že uložíme soubor jednoho jména a potom se operačního
-systému zeptáme, jak se jmenuje další soubor. Pokud už žádný další soubor
-neexistuje <span class="trnote" title="Poznámka překladatele">(tj. byly
-zpracovány všechny soubory v adresáři)</span>, vrátí se prázdný řetězec.
-Vrácené jméno souboru tedy můžete porovnat s hodnotou prázdného řetězce a
-výsledek můžete uložit jako boolovskou hodnotu (pokud je vrácený řetězec
-prázdný, uloží se True, pokud ne, uložíme False). Později si ukážeme, jak
-můžeme takto uložený výsledek použít.</p>
+<p>BoolovskĂ© hodnoty jsou znĂˇmy takĂ© jako <em>pravdivostnĂ­ hodnoty</em>,
+protoĹľe vyjadĹ™ujĂ­ skuteÄŤnost, zda je nÄ›co pravdivĂ© nebo nepravdivĂ©. Dejme
+tomu, Ĺľe pĂ­Ĺˇete program, kterĂ˝ mĂˇ zĂˇlohovat vĹˇechny soubory v adresĂˇĹ™i.
+MĹŻĹľeme <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">v cyklu</span>
+postupovat tak, Ĺľe uloĹľĂ­me soubor jednoho jmĂ©na a potom se operaÄŤnĂ­ho
+systĂ©mu zeptĂˇme, jak se jmenuje dalĹˇĂ­ soubor. Pokud uĹľ ĹľĂˇdnĂ˝ dalĹˇĂ­ soubor
+neexistuje <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(tj. byly
+zpracovĂˇny vĹˇechny soubory v adresĂˇĹ™i)</span>, vrĂˇtĂ­ se prĂˇzdnĂ˝ Ĺ™etÄ›zec.
+VrĂˇcenĂ© jmĂ©no souboru tedy mĹŻĹľete porovnat s hodnotou prĂˇzdnĂ©ho Ĺ™etÄ›zce a
+vĂ˝sledek mĹŻĹľete uloĹľit jako boolovskou hodnotu (pokud je vrĂˇcenĂ˝ Ĺ™etÄ›zec
+prĂˇzdnĂ˝, uloĹľĂ­ se True, pokud ne, uloĹľĂ­me False). PozdÄ›ji si ukĂˇĹľeme, jak
+mĹŻĹľeme takto uloĹľenĂ˝ vĂ˝sledek pouĹľĂ­t.</p>
 
-<table summary="Boolovské operátory">
-<caption>Boolovské (nebo také logické) operátory</caption>
+<table summary="BoolovskĂ© operĂˇtory">
+<caption>BoolovskĂ© (nebo takĂ© logickĂ©) operĂˇtory</caption>
 <col span="3" style="padding: 0 1em" valign="top">
-<tr><th>Zápis</th><th>Jméno operace</th><th>Popis významu</th></tr>
+<tr><th>ZĂˇpis</th><th>JmĂ©no operace</th><th>Popis vĂ˝znamu</th></tr>
 <tr>
 <td>A&nbsp;and&nbsp;B</td>
-<td>A&nbsp;<small class="trnote">současně</small></td>
-<td>True, když A i B jsou True. V jiném případě je výsledkem False.</td>
+<td>A&nbsp;<small class="trnote">souÄŤasnÄ›</small></td>
+<td>True, kdyĹľ A i B jsou True. V jinĂ©m pĹ™Ă­padÄ› je vĂ˝sledkem False.</td>
 </tr>
 
 <tr>
 <td>A&nbsp;or&nbsp;B</td>
 <td>NEBO</td>
-<td>True když oba nebo jeden z A, B jsou True. False, když oba A i B
+<td>True kdyĹľ oba nebo jeden z A, B jsou True. False, kdyĹľ oba A i B
 jsou False.</td>
 </tr>
 
 <tr>
 <td>A == B</td>
 <td>ROVNOST</td>
-<td>True když A je rovno B.</td>
+<td>True kdyĹľ A je rovno B.</td>
 </tr>
 
 <tr>
 <td>A&nbsp;!=&nbsp;B<br><small>nebo</small><br>A&nbsp;&lt;&gt;&nbsp;B</td>
 <td>NEROVNOST</td>
-<td>True když A není rovno B.</td>
+<td>True kdyĹľ A nenĂ­ rovno B.</td>
 </tr>
 
 <tr>
 <td>not B</td>
 <td>NEGACE</td>
-<td>True když B není True.</td>
+<td>True kdyĹľ B nenĂ­ True.</td>
 </tr>
 </table>
 
-<p><b>Poznámka:</b> poslední operace se týká jedné hodnoty, zatímco
-ostatní porovnávají dvě hodnoty.</p> 
+<p><b>PoznĂˇmka:</b> poslednĂ­ operace se tĂ˝kĂˇ jednĂ© hodnoty, zatĂ­mco
+ostatnĂ­ porovnĂˇvajĂ­ dvÄ› hodnoty.</p>
 
-<p>Jazyk VBScript, stejně jako Python, používá typ Boolean s hodnotami
-<code>True</code> a <code>False</code>. Jazyk JavaScript rovněž používá typ
-Boolean, ale jeho hodnoty jsou tentokrát pojmenovány <code>true</code> a
-<code>false</code> (první písmeno se píše malé).</p>
+<p>Jazyk VBScript, stejnÄ› jako Python, pouĹľĂ­vĂˇ typ Boolean s hodnotami
+<code>True</code> a <code>False</code>. Jazyk JavaScript rovnÄ›Ĺľ pouĹľĂ­vĂˇ typ
+Boolean, ale jeho hodnoty jsou tentokrĂˇt pojmenovĂˇny <code>true</code> a
+<code>false</code> (prvnĂ­ pĂ­smeno se pĂ­Ĺˇe malĂ©).</p>
 
-<p>Různé jazyky používají pro pojmenování boolovského typu mírně odlišná
-jména. Python mu říká <em>bool</em>, VBScript a JavaScript <em>Boolean</em>.
-Většinou se tím nemusíte vůbec zabývat, protože budete spíše používat
-boolovské výsledky v testech, než abyste je ukládali do boolovských
-proměnných.</p>
+<p>RĹŻznĂ© jazyky pouĹľĂ­vajĂ­ pro pojmenovĂˇnĂ­ boolovskĂ©ho typu mĂ­rnÄ› odliĹˇnĂˇ
+jmĂ©na. Python mu Ĺ™Ă­kĂˇ <em>bool</em>, VBScript a JavaScript <em>Boolean</em>.
+VÄ›tĹˇinou se tĂ­m nemusĂ­te vĹŻbec zabĂ˝vat, protoĹľe budete spĂ­Ĺˇe pouĹľĂ­vat
+boolovskĂ© vĂ˝sledky v testech, neĹľ abyste je uklĂˇdali do boolovskĂ˝ch
+promÄ›nnĂ˝ch.</p>
 
 
 <h3>Kolekce</h3>
 
-<p>Pro studium <em>kolekcí</em> a jejich chování byla v počítačové vědě
-vybudována celá disciplína. Někdy bývají kolekce označovány pojmem
-<em>kontejnery</em>. V této sekci se nejdříve podíváme na kolekce, které
-podporují jazyky Python, VBScript a JavaScript. Nakonec stručně shrneme, s
-jakými dalšími typy kolekcí se můžeme setkat v jiných jazycích.</p>
+<p>Pro studium <em>kolekcĂ­</em> a jejich chovĂˇnĂ­ byla v poÄŤĂ­taÄŤovĂ© vÄ›dÄ›
+vybudovĂˇna celĂˇ disciplĂ­na. NÄ›kdy bĂ˝vajĂ­ kolekce oznaÄŤovĂˇny pojmem
+<em>kontejnery</em>. V tĂ©to sekci se nejdĹ™Ă­ve podĂ­vĂˇme na kolekce, kterĂ©
+podporujĂ­ jazyky Python, VBScript a JavaScript. Nakonec struÄŤnÄ› shrneme, s
+jakĂ˝mi dalĹˇĂ­mi typy kolekcĂ­ se mĹŻĹľeme setkat v jinĂ˝ch jazycĂ­ch.</p>
 
 
 <h4>Seznam</h4>
 
-<p>Seznamy dobře známe z každodenního života. <p>Seznam <span class="trnote"
-title="Poznámka&nbsp;překladatele">(anglicky <em>list</em> [list])</span> je
-jednoduše tvořen posloupností položek. Do seznamu můžeme položky přidávat
-nebo je můžeme naopak odstraňovat. Pokud máme seznam napsaný na papíru, pak
-můžeme stěží vkládat položky doprostřed. Můžeme je přidávat pouze na konec.
-Ale pokud seznam udržujeme v elektronické podobě, dejme tomu v textovém
-editoru, můžeme nové položky vkládat do libovolného místa seznamu.</p>
+<p>Seznamy dobĹ™e znĂˇme z kaĹľdodennĂ­ho Ĺľivota. <p>Seznam <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(anglicky <em>list</em> [list])</span> je
+jednoduĹˇe tvoĹ™en posloupnostĂ­ poloĹľek. Do seznamu mĹŻĹľeme poloĹľky pĹ™idĂˇvat
+nebo je mĹŻĹľeme naopak odstraĹovat. Pokud mĂˇme seznam napsanĂ˝ na papĂ­ru, pak
+mĹŻĹľeme stÄ›ĹľĂ­ vklĂˇdat poloĹľky doprostĹ™ed. MĹŻĹľeme je pĹ™idĂˇvat pouze na konec.
+Ale pokud seznam udrĹľujeme v elektronickĂ© podobÄ›, dejme tomu v textovĂ©m
+editoru, mĹŻĹľeme novĂ© poloĹľky vklĂˇdat do libovolnĂ©ho mĂ­sta seznamu.</p>
 
-<p>V seznamu můžeme také vyhledávat &mdash; pokud chceme zjistit, zda v něm
-něco už je, nebo ne. V takovém prípadě ale musíme seznam procházet postupně,
-od začátku do konce, a kontrolovat, zda se jedná o položku, kterou hledáme.
-Seznamy patří v mnoha moderních programovacích jazycích k základním typům s
+<p>V seznamu mĹŻĹľeme takĂ© vyhledĂˇvat &mdash; pokud chceme zjistit, zda v nÄ›m
+nÄ›co uĹľ je, nebo ne. V takovĂ©m prĂ­padÄ› ale musĂ­me seznam prochĂˇzet postupnÄ›,
+od zaÄŤĂˇtku do konce, a kontrolovat, zda se jednĂˇ o poloĹľku, kterou hledĂˇme.
+Seznamy patĹ™Ă­ v mnoha modernĂ­ch programovacĂ­ch jazycĂ­ch k zĂˇkladnĂ­m typĹŻm s
 charakterem kolekce.</p>
 
-<p>V jazyce Python jsou seznamy přímo jeho součástí (jsou zabudovány do
-jazyka). Můžeme s nimi provádět všechny základní operace, o kterých jsme se
-zmínili výše. Navíc můžeme položky seznamu
-zpřístupňovat i prostřednicvím <em>indexu</em>. To znamená, že k prvku
-seznamu můžem přistupovat na základě znalosti jeho pořadového čísla.
-(Prvnímu prvku je přiděleno pořadové číslo nula.)</p>
+<p>V jazyce Python jsou seznamy pĹ™Ă­mo jeho souÄŤĂˇstĂ­ (jsou zabudovĂˇny do
+jazyka). MĹŻĹľeme s nimi provĂˇdÄ›t vĹˇechny zĂˇkladnĂ­ operace, o kterĂ˝ch jsme se
+zmĂ­nili vĂ˝Ĺˇe. NavĂ­c mĹŻĹľeme poloĹľky seznamu
+zpĹ™Ă­stupĹovat i prostĹ™ednicvĂ­m <em>indexu</em>. To znamenĂˇ, Ĺľe k prvku
+seznamu mĹŻĹľem pĹ™istupovat na zĂˇkladÄ› znalosti jeho poĹ™adovĂ©ho ÄŤĂ­sla.
+(PrvnĂ­mu prvku je pĹ™idÄ›leno poĹ™adovĂ© ÄŤĂ­slo nula.)</p>
 
-<p>V jazyce VBScript neexistují seznamy jako takové, ale jejich vlastnosti
-můžeme simulovat jinými typy kolekcí, o kterých se zmíníme později.</p>
+<p>V jazyce VBScript neexistujĂ­ seznamy jako takovĂ©, ale jejich vlastnosti
+mĹŻĹľeme simulovat jinĂ˝mi typy kolekcĂ­, o kterĂ˝ch se zmĂ­nĂ­me pozdÄ›ji.</p>
 
-<p>V jazyce JavaScript rovněž nemáme přímo typ seznam, ale téměř ke všemu,
-co potřebujete dělat se seznamem, můžete využít jeho typ <em>pole</em>
-(array [erey]). Jde o jiný typ kolekce, o kterém se budeme bavit o něco
-později.</p>
+<p>V jazyce JavaScript rovnÄ›Ĺľ nemĂˇme pĹ™Ă­mo typ seznam, ale tĂ©mÄ›Ĺ™ ke vĹˇemu,
+co potĹ™ebujete dÄ›lat se seznamem, mĹŻĹľete vyuĹľĂ­t jeho typ <em>pole</em>
+(array [erey]). Jde o jinĂ˝ typ kolekce, o kterĂ©m se budeme bavit o nÄ›co
+pozdÄ›ji.</p>
 
 
 <h4>Operace nad seznamem</h4>
 
-<p>Python definuje nad kolekcemi řadu operací. Téměř všechny z nich lze
-aplikovat na seznamy. Část operací lze aplikovat na další typy kolekcí a
-také na řetězce, které jsou vlastně jen speciálním případem seznamu &mdash;
-jde o&nbsp;<em>seznam znaků</em>. V jazyce Python seznam vytvoříme a
-zpřístupníme použitím hranatých závorek. <span class="trnote"
-title="Poznámka&nbsp;překladatele">(Tímto zápisem seznam
-<em>konstruujeme</em>, proto se takto použité dvojici hranatých závorek říká
-také <em>konstruktor seznamu</em>.)</span> Pokud použijeme pouze hranaté
-závorky a nic do nich nevepíšeme, vytvoříme prázdný seznam. Seznam s
-hodnotami vytvoříme tak, že požadované hodnoty zapíšeme dovnitř závorek a
-oddělíme je čárkami:</p>
+<p>Python definuje nad kolekcemi Ĺ™adu operacĂ­. TĂ©mÄ›Ĺ™ vĹˇechny z nich lze
+aplikovat na seznamy. ÄŚĂˇst operacĂ­ lze aplikovat na dalĹˇĂ­ typy kolekcĂ­ a
+takĂ© na Ĺ™etÄ›zce, kterĂ© jsou vlastnÄ› jen speciĂˇlnĂ­m pĹ™Ă­padem seznamu &mdash;
+jde o&nbsp;<em>seznam znakĹŻ</em>. V jazyce Python seznam vytvoĹ™Ă­me a
+zpĹ™Ă­stupnĂ­me pouĹľitĂ­m hranatĂ˝ch zĂˇvorek. <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(TĂ­mto zĂˇpisem seznam
+<em>konstruujeme</em>, proto se takto pouĹľitĂ© dvojici hranatĂ˝ch zĂˇvorek Ĺ™Ă­kĂˇ
+takĂ© <em>konstruktor seznamu</em>.)</span> Pokud pouĹľijeme pouze hranatĂ©
+zĂˇvorky a nic do nich nevepĂ­Ĺˇeme, vytvoĹ™Ă­me prĂˇzdnĂ˝ seznam. Seznam s
+hodnotami vytvoĹ™Ă­me tak, Ĺľe poĹľadovanĂ© hodnoty zapĂ­Ĺˇeme dovnitĹ™ zĂˇvorek a
+oddÄ›lĂ­me je ÄŤĂˇrkami:</p>
 
 <pre>
 >>> seznam = []
@@ -822,16 +822,16 @@ oddělíme je čárkami:</p>
 [1, 2, 3]
 </pre>
 
-<p>K jednotlivým položkám můžeme přistupovat pomocí indexu, který uvedeme v
-hranatých závorkách. První položka seznamu má přidělen index 0 (nula). Pokud
-například chceme zpřístupnit třetí prvek, použijeme index 2:</p>
+<p>K jednotlivĂ˝m poloĹľkĂˇm mĹŻĹľeme pĹ™istupovat pomocĂ­ indexu, kterĂ˝ uvedeme v
+hranatĂ˝ch zĂˇvorkĂˇch. PrvnĂ­ poloĹľka seznamu mĂˇ pĹ™idÄ›len index 0 (nula). Pokud
+napĹ™Ă­klad chceme zpĹ™Ă­stupnit tĹ™etĂ­ prvek, pouĹľijeme index 2:</p>
 
 <pre>
 >>> print jinySeznam[2]
 3
 </pre>
 
-<p>Hodnoty položek seznamu můžeme podobným způsobem i měnit:</p>
+<p>Hodnoty poloĹľek seznamu mĹŻĹľeme podobnĂ˝m zpĹŻsobem i mÄ›nit:</p>
 
 <pre>
 >>> jinySeznam[2] = 7
@@ -839,18 +839,18 @@ například chceme zpřístupnit třetí prvek, použijeme index 2:</p>
 [1, 2, 7]
 </pre>
 
-<p>Povšimněte si, že třetí prvek (index 2) změnil svou hodnotu z 3 na 7.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe tĹ™etĂ­ prvek (index 2) zmÄ›nil svou hodnotu z 3 na 7.</p>
 
-<p>Záporné hodnoty indexového čísla používáme pro zpřístupnění položek
-indexovaných vůči konci seznamu. Nejčastěji se používá index -1 (mínus
-jedna), který zajistí zpřístupnění poslední položky seznamu:</p>
+<p>ZĂˇpornĂ© hodnoty indexovĂ©ho ÄŤĂ­sla pouĹľĂ­vĂˇme pro zpĹ™Ă­stupnÄ›nĂ­ poloĹľek
+indexovanĂ˝ch vĹŻÄŤi konci seznamu. NejÄŤastÄ›ji se pouĹľĂ­vĂˇ index -1 (mĂ­nus
+jedna), kterĂ˝ zajistĂ­ zpĹ™Ă­stupnÄ›nĂ­ poslednĂ­ poloĹľky seznamu:</p>
 
 <pre>
 >>> print jinySeznam[-1]
 7
 </pre>
 
-<p>Operátorem <code>append()</code> můžeme přidávat nové položky na konec
+<p>OperĂˇtorem <code>append()</code> mĹŻĹľeme pĹ™idĂˇvat novĂ© poloĹľky na konec
 seznamu:</p>
 
 <pre>
@@ -859,8 +859,8 @@ seznamu:</p>
 [42]
 </pre>
 
-<p>Položkou seznamu může být dokonce i jiný seznam, takže pokud připojíme na
-konec prvního seznamu náš druhý seznam, dopadne to takto:</p>
+<p>PoloĹľkou seznamu mĹŻĹľe bĂ˝t dokonce i jinĂ˝ seznam, takĹľe pokud pĹ™ipojĂ­me na
+konec prvnĂ­ho seznamu nĂˇĹˇ druhĂ˝ seznam, dopadne to takto:</p>
 
 <pre>
 >>> seznam.append(jinySeznam)
@@ -868,23 +868,23 @@ konec prvního seznamu náš druhý seznam, dopadne to takto:</p>
 [42, [1, 2, 7]]
 </pre>
 
-<p>Všimněte si, že výsledkem je seznam složený ze dvou položek, kde druhou
-položku tvoří opět seznam (jak je znázorněno párem okolních hranatých
-závorek). V posledním případě můžeme prvek s hodnotou 7 zpřístupnit pomocí
-dvojitého indexu:</p>
+<p>VĹˇimnÄ›te si, Ĺľe vĂ˝sledkem je seznam sloĹľenĂ˝ ze dvou poloĹľek, kde druhou
+poloĹľku tvoĹ™Ă­ opÄ›t seznam (jak je znĂˇzornÄ›no pĂˇrem okolnĂ­ch hranatĂ˝ch
+zĂˇvorek). V poslednĂ­m pĹ™Ă­padÄ› mĹŻĹľeme prvek s hodnotou 7 zpĹ™Ă­stupnit pomocĂ­
+dvojitĂ©ho indexu:</p>
 
 <pre>
 >>> print seznam[1][2]
 7
 </pre>
 
-<p>Hodnota prvního indexu (tj. 1) zpřístupní druhou položku seznamu, která
-je vlastně seznamem. Hodnota druhého indexu (tj. 2) zpřístupní třetí položku
-zmíněného podseznamu.</p>
+<p>Hodnota prvnĂ­ho indexu (tj. 1) zpĹ™Ă­stupnĂ­ druhou poloĹľku seznamu, kterĂˇ
+je vlastnÄ› seznamem. Hodnota druhĂ©ho indexu (tj. 2) zpĹ™Ă­stupnĂ­ tĹ™etĂ­ poloĹľku
+zmĂ­nÄ›nĂ©ho podseznamu.</p>
 
-<p>Možnost vnořování seznamů jednoho do druhého je velmi užitečná. Tato
-vlastnost nám umožňuje budovat datové tabulky, jako je například
-následující:</p>
+<p>MoĹľnost vnoĹ™ovĂˇnĂ­ seznamĹŻ jednoho do druhĂ©ho je velmi uĹľiteÄŤnĂˇ. Tato
+vlastnost nĂˇm umoĹľĹuje budovat datovĂ© tabulky, jako je napĹ™Ă­klad
+nĂˇsledujĂ­cĂ­:</p>
 
 <pre>
 >>> radek1 = [1, 2, 3]
@@ -895,10 +895,10 @@ následující:</p>
 >>> prvek2 = tabulka[0][1]
 </pre>
 
-<p>Tímto způsobem si můžeme vybudovat například adresář <span class="trnote"
-title="Poznámka&nbsp;překladatele">(pro ukládání adres lidí)</span>, kde
-každá položka představuje seznam se jménem a dalšími detaily adresy.
-Následující příklad uvádí adresář s dvěmi položkami:</p>
+<p>TĂ­mto zpĹŻsobem si mĹŻĹľeme vybudovat napĹ™Ă­klad adresĂˇĹ™ <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(pro uklĂˇdĂˇnĂ­ adres lidĂ­)</span>, kde
+kaĹľdĂˇ poloĹľka pĹ™edstavuje seznam se jmĂ©nem a dalĹˇĂ­mi detaily adresy.
+NĂˇsledujĂ­cĂ­ pĹ™Ă­klad uvĂˇdĂ­ adresĂˇĹ™ s dvÄ›mi poloĹľkami:</p>
 
 <pre>
 >>> adresy = [
@@ -907,27 +907,27 @@ Následující příklad uvádí adresář s dvěmi položkami:</p>
 ... ]
 </pre>
 
-<p>Povšimněte si, že jsme celý zanořený seznam vytvořili zápisem na jednom
-řádku <span class="trnote" title="Poznámka&nbsp;překladatele">(je zalomen
-jen kvůli nedostatku prostoru &mdash; tečky znázorňují pokračování
-řádku)</span>. Python sleduje, zda počet uzavřených závorek odpovídá počtu
-otevřených. Pokud ne, pokračuje v načítání vstupu, až do doby, kdy se počty
-srovnají. Uvedený zápis představuje velmi efektivní způsob rychlého budování
-složitých datových struktur. Celková struktura &mdash; v tomto případě
-seznam seznamů &mdash; přitom zůstává pro čtenáře kódu přehledná.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe jsme celĂ˝ zanoĹ™enĂ˝ seznam vytvoĹ™ili zĂˇpisem na jednom
+Ĺ™Ăˇdku <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(je zalomen
+jen kvĹŻli nedostatku prostoru &mdash; teÄŤky znĂˇzorĹujĂ­ pokraÄŤovĂˇnĂ­
+Ĺ™Ăˇdku)</span>. Python sleduje, zda poÄŤet uzavĹ™enĂ˝ch zĂˇvorek odpovĂ­dĂˇ poÄŤtu
+otevĹ™enĂ˝ch. Pokud ne, pokraÄŤuje v naÄŤĂ­tĂˇnĂ­ vstupu, aĹľ do doby, kdy se poÄŤty
+srovnajĂ­. UvedenĂ˝ zĂˇpis pĹ™edstavuje velmi efektivnĂ­ zpĹŻsob rychlĂ©ho budovĂˇnĂ­
+sloĹľitĂ˝ch datovĂ˝ch struktur. CelkovĂˇ struktura &mdash; v tomto pĹ™Ă­padÄ›
+seznam seznamĹŻ &mdash; pĹ™itom zĹŻstĂˇvĂˇ pro ÄŤtenĂˇĹ™e kĂłdu pĹ™ehlednĂˇ.</p>
 
-<p>Cvičně zkuste získat Mirkovo telefonní číslo &mdash; čtvrtý prvek z
-prvního řádku. Uvědomte si, že indexy začínají nulou. Zkuste přidat několik
-svých záznamů použitím operace <code>append()</code>, o které jsme se
-zmiňovali výše.</p>
+<p>CviÄŤnÄ› zkuste zĂ­skat Mirkovo telefonnĂ­ ÄŤĂ­slo &mdash; ÄŤtvrtĂ˝ prvek z
+prvnĂ­ho Ĺ™Ăˇdku. UvÄ›domte si, Ĺľe indexy zaÄŤĂ­najĂ­ nulou. Zkuste pĹ™idat nÄ›kolik
+svĂ˝ch zĂˇznamĹŻ pouĹľitĂ­m operace <code>append()</code>, o kterĂ© jsme se
+zmiĹovali vĂ˝Ĺˇe.</p>
 
-<p>Jakmile Python ukončíte, vaše data budou ztracena. Až se budeme bavit
-o&nbsp;souborech, zjistíte, jak můžete data <span class="trnote"
-title="Poznámka&nbsp;překladatele">ze seznamu</span> uložit pro další
-použití.</p>
+<p>Jakmile Python ukonÄŤĂ­te, vaĹˇe data budou ztracena. AĹľ se budeme bavit
+o&nbsp;souborech, zjistĂ­te, jak mĹŻĹľete data <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">ze seznamu</span> uloĹľit pro dalĹˇĂ­
+pouĹľitĂ­.</p>
 
-<p>Opačnou operací k přidávání položky je, samozřejmě, rušení položky.
-Provedeme ji příkazem <code>del</code>:</p>
+<p>OpaÄŤnou operacĂ­ k pĹ™idĂˇvĂˇnĂ­ poloĹľky je, samozĹ™ejmÄ›, ruĹˇenĂ­ poloĹľky.
+Provedeme ji pĹ™Ă­kazem <code>del</code>:</p>
 
 <pre>
 >>> del seznam[1]
@@ -935,9 +935,9 @@ Provedeme ji příkazem <code>del</code>:</p>
 [42]
 </pre>
 
-<p>Pokud chceme spojit dva seznamy do jednoho, můžeme použít stejný operátor
-pro zřetězení '<code>+</code>', který jsme již použili dříve pro
-řetězce:</p>
+<p>Pokud chceme spojit dva seznamy do jednoho, mĹŻĹľeme pouĹľĂ­t stejnĂ˝ operĂˇtor
+pro zĹ™etÄ›zenĂ­ '<code>+</code>', kterĂ˝ jsme jiĹľ pouĹľili dĹ™Ă­ve pro
+Ĺ™etÄ›zce:</p>
 
 <pre>
 >>> print seznam
@@ -949,16 +949,16 @@ pro zřetězení '<code>+</code>', který jsme již použili dříve pro
 [42, 1, 2, 7]
 </pre>
 
-<p>Povšimněte si, že se výsledek tentokrát liší od dříve uvedeného příkladu,
-kdy jsme spojovali dva seznamy operací <code>append()</code>. Tehdy jsme
-dostali seznam s dvěmi prvky, přičemž druhým prvkem byl <span class="trnote"
-title="Poznámka&nbsp;překladatele">připojovaný</span> seznam. V tomto
-případě dostáváme seznam s čtyřmi prvky, protože do nového seznamu byly
-vloženy prvky z obou spojovaných seznamů &mdash; každý prvek samostatně.
-Pokud v tomto případě přistupujeme k prvku <span class="trnote"
-title="Poznámka&nbsp;překladatele">s indexem</span>&nbsp;1, nedostaneme se
-tentokrát k podseznamu, jak tomu bylo v předchozím případě, ale pouze k
-prvku <span class="trnote" title="Poznámka&nbsp;překladatele">s
+<p>PovĹˇimnÄ›te si, Ĺľe se vĂ˝sledek tentokrĂˇt liĹˇĂ­ od dĹ™Ă­ve uvedenĂ©ho pĹ™Ă­kladu,
+kdy jsme spojovali dva seznamy operacĂ­ <code>append()</code>. Tehdy jsme
+dostali seznam s dvÄ›mi prvky, pĹ™iÄŤemĹľ druhĂ˝m prvkem byl <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">pĹ™ipojovanĂ˝</span> seznam. V tomto
+pĹ™Ă­padÄ› dostĂˇvĂˇme seznam s ÄŤtyĹ™mi prvky, protoĹľe do novĂ©ho seznamu byly
+vloĹľeny prvky z obou spojovanĂ˝ch seznamĹŻ &mdash; kaĹľdĂ˝ prvek samostatnÄ›.
+Pokud v tomto pĹ™Ă­padÄ› pĹ™istupujeme k prvku <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">s indexem</span>&nbsp;1, nedostaneme se
+tentokrĂˇt k podseznamu, jak tomu bylo v pĹ™edchozĂ­m pĹ™Ă­padÄ›, ale pouze k
+prvku <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">s
 hodnotou</span> <code>1</code>:</p>
 
 <pre>
@@ -966,8 +966,8 @@ hodnotou</span> <code>1</code>:</p>
 1
 </pre>
 
-<p>Pro naplnění seznamu více položkami se stejnou hodnotou můžeme využít
-operátoru pro opakování &mdash; zápis se podobá násobení:</p>
+<p>Pro naplnÄ›nĂ­ seznamu vĂ­ce poloĹľkami se stejnou hodnotou mĹŻĹľeme vyuĹľĂ­t
+operĂˇtoru pro opakovĂˇnĂ­ &mdash; zĂˇpis se podobĂˇ nĂˇsobenĂ­:</p>
 
 <pre>
 >>> seznamNul = [0] * 5
@@ -975,7 +975,7 @@ operátoru pro opakování &mdash; zápis se podobá násobení:</p>
 [0, 0, 0, 0, 0]
 </pre>
 
-<p>Pro prvek seznamu s určitou hodnotou můžeme nalézt jeho index operací
+<p>Pro prvek seznamu s urÄŤitou hodnotou mĹŻĹľeme nalĂ©zt jeho index operacĂ­
 <code>index()</code>:</p>
 
 <pre>
@@ -987,13 +987,13 @@ Traceback (most recent call last):
 ValueError: list.index(x): x not in list
 </pre>
 
-<p>Povšimněte si, že pokus o nalezení něčeho, co není prvkem seznamu, má za
-následek chybu. V dalších částech učebnice si ukážeme způsoby, jak lze
-zjistit, zda se něco v seznamu nachází, či nikoliv.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe pokus o nalezenĂ­ nÄ›ÄŤeho, co nenĂ­ prvkem seznamu, mĂˇ za
+nĂˇsledek chybu. V dalĹˇĂ­ch ÄŤĂˇstech uÄŤebnice si ukĂˇĹľeme zpĹŻsoby, jak lze
+zjistit, zda se nÄ›co v seznamu nachĂˇzĂ­, ÄŤi nikoliv.</p>
 
 
-<p>Délku seznamu <span class="trnote" title="Poznámka&nbsp;překladatele"
->(počet jeho položek)</span> můžeme zjistit voláním zabudované funkce
+<p>DĂ©lku seznamu <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele"
+>(poÄŤet jeho poloĹľek)</span> mĹŻĹľeme zjistit volĂˇnĂ­m zabudovanĂ© funkce
 <code>len()</code>:</p>
 
 <pre>
@@ -1005,119 +1005,119 @@ zjistit, zda se něco v seznamu nachází, či nikoliv.</p>
 5
 </pre>
 
-<p>Ani JavaScript ani VBScript typ seznam přímo nepodporují. Ale o kousek
-dál si ukážeme, že podporují typ <code>Array</code> <span class="trnote"
-title="Poznámka&nbsp;překladatele">(pole)</span>, se kterým lze napodobit
-funkčnost pythonovských seznamů.</p>
+<p>Ani JavaScript ani VBScript typ seznam pĹ™Ă­mo nepodporujĂ­. Ale o kousek
+dĂˇl si ukĂˇĹľeme, Ĺľe podporujĂ­ typ <code>Array</code> <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(pole)</span>, se kterĂ˝m lze napodobit
+funkÄŤnost pythonovskĂ˝ch seznamĹŻ.</p>
 
 
 <h4>N-tice</h4>
 
-<p>Typ n-tice <span class="trnote" title="Poznámka překladatele">(anglicky
-<em>tuple</em>)</span> není řadou jazyků vůbec podporován. Ale v těch
-jazycích, kde jsou n-tice podporovány, se ukazuje, že je to velmi užitečný
-rys. N-tice je ve skutečnosti jen libovolná <span class="trnote"
-title="Poznámka&nbsp;překladatele">uspořádaná</span> kolekce hodnot, se
-kterou můžeme zacházet jako s jedním celkem. V mnoha ohledech se n-tice
-podobá seznamu, ale jeden významný rozdíl spočívá v tom, že n-tice jsou
-<em>neměnné</em> <span class="trnote"
-title="Poznámka&nbsp;překladatele">(anglicky <em>immutable</em>)</span>. To
-znamená, že jakmile je jednou n-tice vytvořena, nelze ji měnit (tj. nelze
-měnit, přidávat nebo rušit jednotlivé položky n-tice). V jazyce Python se
-n-tice zapisují jako posloupnost hodnot oddělených čárkami, která je
-uzavřená v kulatých závorkách &mdash; takto:</p>
+<p>Typ n-tice <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(anglicky
+<em>tuple</em>)</span> nenĂ­ Ĺ™adou jazykĹŻ vĹŻbec podporovĂˇn. Ale v tÄ›ch
+jazycĂ­ch, kde jsou n-tice podporovĂˇny, se ukazuje, Ĺľe je to velmi uĹľiteÄŤnĂ˝
+rys. N-tice je ve skuteÄŤnosti jen libovolnĂˇ <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">uspoĹ™ĂˇdanĂˇ</span> kolekce hodnot, se
+kterou mĹŻĹľeme zachĂˇzet jako s jednĂ­m celkem. V mnoha ohledech se n-tice
+podobĂˇ seznamu, ale jeden vĂ˝znamnĂ˝ rozdĂ­l spoÄŤĂ­vĂˇ v tom, Ĺľe n-tice jsou
+<em>nemÄ›nnĂ©</em> <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(anglicky <em>immutable</em>)</span>. To
+znamenĂˇ, Ĺľe jakmile je jednou n-tice vytvoĹ™ena, nelze ji mÄ›nit (tj. nelze
+mÄ›nit, pĹ™idĂˇvat nebo ruĹˇit jednotlivĂ© poloĹľky n-tice). V jazyce Python se
+n-tice zapisujĂ­ jako posloupnost hodnot oddÄ›lenĂ˝ch ÄŤĂˇrkami, kterĂˇ je
+uzavĹ™enĂˇ v kulatĂ˝ch zĂˇvorkĂˇch &mdash; takto:</p>
 
 <pre>
 >>> ntice = (1, 3, 5)
->>> print ntice[1] <span class="comment"># zpřístupníme položku indexem, jako u seznamu</span>
+>>> print ntice[1] <span class="comment"># zpĹ™Ă­stupnĂ­me poloĹľku indexem, jako u seznamu</span>
 3
->>> ntice[2] = 7   <span class="comment"># chyba: položku n-tice nelze měnit</span>
+>>> ntice[2] = 7   <span class="comment"># chyba: poloĹľku n-tice nelze mÄ›nit</span>
 Traceback (most recent call last):
   File "", line 1, in ?
     ntice[2] = 7
 TypeError: object doesn't support item assignment
-           <span class="trnote" title="Poznámka překladatele">objekt nepodporuje přiřazování hodnot do položek</span>
+           <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">objekt nepodporuje pĹ™iĹ™azovĂˇnĂ­ hodnot do poloĹľek</span>
 </pre>
 
-<p>Zapamatujme si hlavně to, že kulaté závorky používáme při vytváření
-n-tice, že hranaté závorky se používají pro uvedení indexu při přístupu
-k&nbsp;jejím položkám a že jednou vytvořenou n-tici nelze později měnit.
-V&nbsp;ostatních případech lze na n-tice aplikovat většinu operací, které se
-používají pro seznamy.</p>
+<p>Zapamatujme si hlavnÄ› to, Ĺľe kulatĂ© zĂˇvorky pouĹľĂ­vĂˇme pĹ™i vytvĂˇĹ™enĂ­
+n-tice, Ĺľe hranatĂ© zĂˇvorky se pouĹľĂ­vajĂ­ pro uvedenĂ­ indexu pĹ™i pĹ™Ă­stupu
+k&nbsp;jejĂ­m poloĹľkĂˇm a Ĺľe jednou vytvoĹ™enou n-tici nelze pozdÄ›ji mÄ›nit.
+V&nbsp;ostatnĂ­ch pĹ™Ă­padech lze na n-tice aplikovat vÄ›tĹˇinu operacĂ­, kterĂ© se
+pouĹľĂ­vajĂ­ pro seznamy.</p>
 
-<p>Ačkoliv n-tici nemůžeme měnit, můžeme operátorem pro sčítání (plus)
-jakoby přidat další členy. Ve skutečnosti se tím totiž vytvoří nová
+<p>AÄŤkoliv n-tici nemĹŻĹľeme mÄ›nit, mĹŻĹľeme operĂˇtorem pro sÄŤĂ­tĂˇnĂ­ (plus)
+jakoby pĹ™idat dalĹˇĂ­ ÄŤleny. Ve skuteÄŤnosti se tĂ­m totiĹľ vytvoĹ™Ă­ novĂˇ
 n-tice:</p>
 
 <pre>
 >>> ntice1 = (1, 2, 3)
->>> ntice2 = ntice1 + (4,) <span class="comment"># čárka způsobí, že se zápis chápe jako n-tice a ne jako číslo</span>
+>>> ntice2 = ntice1 + (4,) <span class="comment"># ÄŤĂˇrka zpĹŻsobĂ­, Ĺľe se zĂˇpis chĂˇpe jako n-tice a ne jako ÄŤĂ­slo</span>
 >>> print ntice2
 (1, 2, 3, 4)
 </pre>
 
-<p>Pokud bychom za číslem 4 neuvedli čárku, Python by to chápal jako zápis
-celého čísla uzavřeného v závorkách a ne jako zápis n-tice. Ale protože
-k n-ticím nelze přičítat čísla, vedlo by to k chybě. Přidáním čárky Pythonu
-říkáme, aby zápis v závorkách chápal jako zápis n-tice. Kdykoliv budete
-chtít Pythonu dát najevo, že jednoprvková n-tice skutečně <em>je</em> n-ticí,
-přidejte k zápisu čárku stejně, jako jsme to udělali zde.</p>
+<p>Pokud bychom za ÄŤĂ­slem 4 neuvedli ÄŤĂˇrku, Python by to chĂˇpal jako zĂˇpis
+celĂ©ho ÄŤĂ­sla uzavĹ™enĂ©ho v zĂˇvorkĂˇch a ne jako zĂˇpis n-tice. Ale protoĹľe
+k n-ticĂ­m nelze pĹ™iÄŤĂ­tat ÄŤĂ­sla, vedlo by to k chybÄ›. PĹ™idĂˇnĂ­m ÄŤĂˇrky Pythonu
+Ĺ™Ă­kĂˇme, aby zĂˇpis v zĂˇvorkĂˇch chĂˇpal jako zĂˇpis n-tice. Kdykoliv budete
+chtĂ­t Pythonu dĂˇt najevo, Ĺľe jednoprvkovĂˇ n-tice skuteÄŤnÄ› <em>je</em> n-ticĂ­,
+pĹ™idejte k zĂˇpisu ÄŤĂˇrku stejnÄ›, jako jsme to udÄ›lali zde.</p>
 
-<p>VBScript ani JavaScript koncept n-tic nepodporují.</p>
+<p>VBScript ani JavaScript koncept n-tic nepodporujĂ­.</p>
 
- 
-<h4 id="dictionary">Slovník (vyhledávací tabulka)</h4>
 
-<p>V tištěném slovníku je k jednotlivým slovům uveden jejich význam. Podobně
-je tomu i u datového typu slovník <span class="trnote" title="Poznámka
-překladatele">(anglicky <em>dictionary</em> [dykšnri])</span>, kde jsou k
-jednotlivým klíčům přidruženy hodnoty. Přitom hodnoty mohou, ale nemusí, mít
-podobu řetězce. Hodnotu můžeme získat tím, že klíč použijeme pro slovník
-jako <em>index</em>. Narozdíl od tištěného slovníku, ani klíč nemusí být
-znakovým řetězcem &mdash; ačkoliv řetězec se často používá. Může to být
-hodnota libovolného neměnného typu <span class="trnote"
-title="Poznámka&nbsp;překladatele">(immutable)</span>, včetně čísel a n-tic.
-Hodnota, která je s klíčem svázaná, může být libovolného datového typu
-jazyka Python. Slovníky jsou obvykle implementovány s využitím programovací
-techniky známé jako <em>hash table</em><sup class="trnote" id="Bdata_hash"
-title="Poznámka k překladu pojmu hash table" ><a
+<h4 id="dictionary">SlovnĂ­k (vyhledĂˇvacĂ­ tabulka)</h4>
+
+<p>V tiĹˇtÄ›nĂ©m slovnĂ­ku je k jednotlivĂ˝m slovĹŻm uveden jejich vĂ˝znam. PodobnÄ›
+je tomu i u datovĂ©ho typu slovnĂ­k <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">(anglicky <em>dictionary</em> [dykĹˇnri])</span>, kde jsou k
+jednotlivĂ˝m klĂ­ÄŤĹŻm pĹ™idruĹľeny hodnoty. PĹ™itom hodnoty mohou, ale nemusĂ­, mĂ­t
+podobu Ĺ™etÄ›zce. Hodnotu mĹŻĹľeme zĂ­skat tĂ­m, Ĺľe klĂ­ÄŤ pouĹľijeme pro slovnĂ­k
+jako <em>index</em>. NarozdĂ­l od tiĹˇtÄ›nĂ©ho slovnĂ­ku, ani klĂ­ÄŤ nemusĂ­ bĂ˝t
+znakovĂ˝m Ĺ™etÄ›zcem &mdash; aÄŤkoliv Ĺ™etÄ›zec se ÄŤasto pouĹľĂ­vĂˇ. MĹŻĹľe to bĂ˝t
+hodnota libovolnĂ©ho nemÄ›nnĂ©ho typu <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(immutable)</span>, vÄŤetnÄ› ÄŤĂ­sel a n-tic.
+Hodnota, kterĂˇ je s klĂ­ÄŤem svĂˇzanĂˇ, mĹŻĹľe bĂ˝t libovolnĂ©ho datovĂ©ho typu
+jazyka Python. SlovnĂ­ky jsou obvykle implementovĂˇny s vyuĹľitĂ­m programovacĂ­
+techniky znĂˇmĂ© jako <em>hash table</em><sup class="trnote" id="Bdata_hash"
+title="PoznĂˇmka k pĹ™ekladu pojmu hash table" ><a
 href="cztuttrn.html#Pdata_hash">[5]</a></sup> <span class="trnote"
-title="Poznámka překladatele">[heš tejbl]</span>. Z tohoto důvodu se pro
-datový typ slovník občas používá zkrácený pojem <em>hash</em>. <span
-class="trnote" title="Poznámka překladatele">V české terminologii se spíše
-využívá druhá část úplného pojmu, tedy tabulka</span>. Nemá to nic
-společného s drogami. :-)</p>
+title="PoznĂˇmka pĹ™ekladatele">[heĹˇ tejbl]</span>. Z tohoto dĹŻvodu se pro
+datovĂ˝ typ slovnĂ­k obÄŤas pouĹľĂ­vĂˇ zkrĂˇcenĂ˝ pojem <em>hash</em>. <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">V ÄŤeskĂ© terminologii se spĂ­Ĺˇe
+vyuĹľĂ­vĂˇ druhĂˇ ÄŤĂˇst ĂşplnĂ©ho pojmu, tedy tabulka</span>. NemĂˇ to nic
+spoleÄŤnĂ©ho s drogami. :-)</p>
 
 <a name="addressbook"></a>
 
-<p>K hodnotám ve slovníku můžeme přistupovat pouze prostřednictvím klíče,
-takže do slovníku můžeme vložit pouze prvky s jednoznačným klíčem <span
-class="trnote" title="Poznámka překladatele">(pro jeden klíč nelze současně
-uchovávat dvě hodnoty)</span>. Slovníky jsou velmi užitečnými strukturami.
-Python je poskytuje jako zabudovaný typ, ačkoliv v mnoha dalších jazycích
-musíte použít odpovídající modul nebo si dokonce musíte typ slovník
-naprogramovat sami. Slovníky můžeme používat mnoha způsoby a později si
-ještě ukážeme řadu příkladů. V tomto okamžiku si ukažme alespoň to, jak v
-jazyce Python slovník vytvoříme, jak do něj vložíme některé položky a jak je
-opět zpřístupníme (přečteme):</p>
+<p>K hodnotĂˇm ve slovnĂ­ku mĹŻĹľeme pĹ™istupovat pouze prostĹ™ednictvĂ­m klĂ­ÄŤe,
+takĹľe do slovnĂ­ku mĹŻĹľeme vloĹľit pouze prvky s jednoznaÄŤnĂ˝m klĂ­ÄŤem <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(pro jeden klĂ­ÄŤ nelze souÄŤasnÄ›
+uchovĂˇvat dvÄ› hodnoty)</span>. SlovnĂ­ky jsou velmi uĹľiteÄŤnĂ˝mi strukturami.
+Python je poskytuje jako zabudovanĂ˝ typ, aÄŤkoliv v mnoha dalĹˇĂ­ch jazycĂ­ch
+musĂ­te pouĹľĂ­t odpovĂ­dajĂ­cĂ­ modul nebo si dokonce musĂ­te typ slovnĂ­k
+naprogramovat sami. SlovnĂ­ky mĹŻĹľeme pouĹľĂ­vat mnoha zpĹŻsoby a pozdÄ›ji si
+jeĹˇtÄ› ukĂˇĹľeme Ĺ™adu pĹ™Ă­kladĹŻ. V tomto okamĹľiku si ukaĹľme alespoĹ to, jak v
+jazyce Python slovnĂ­k vytvoĹ™Ă­me, jak do nÄ›j vloĹľĂ­me nÄ›kterĂ© poloĹľky a jak je
+opÄ›t zpĹ™Ă­stupnĂ­me (pĹ™eÄŤteme):</p>
 
 <pre>
 >>> dct = {}
->>> dct['boolean'] = "Hodnota, která je buď True nebo False"
->>> dct['integer'] = "Celé číslo"
+>>> dct['boolean'] = "Hodnota, kterĂˇ je buÄŹ True nebo False"
+>>> dct['integer'] = "CelĂ© ÄŤĂ­slo"
 >>> print dct['boolean']
-Hodnota, která je buď True nebo False
+Hodnota, kterĂˇ je buÄŹ True nebo False
 </pre>
 
-<p>Všimněte si, že počáteční hodnotu slovníku nastavíme pomocí složených
-závorek <span class="trnote" title="Poznámka překladatele">(zde prázdný
-slovník &mdash; složené závorky jsou konstruktorem slovníku tak, jako jsou
-hranaté závorky konstruktorem seznamu nebo kulaté závorky konstruktorem
-n-tice)</span>. Poté používáme hranaté závorky pro přiřazování a čtení
+<p>VĹˇimnÄ›te si, Ĺľe poÄŤĂˇteÄŤnĂ­ hodnotu slovnĂ­ku nastavĂ­me pomocĂ­ sloĹľenĂ˝ch
+zĂˇvorek <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(zde prĂˇzdnĂ˝
+slovnĂ­k &mdash; sloĹľenĂ© zĂˇvorky jsou konstruktorem slovnĂ­ku tak, jako jsou
+hranatĂ© zĂˇvorky konstruktorem seznamu nebo kulatĂ© zĂˇvorky konstruktorem
+n-tice)</span>. PotĂ© pouĹľĂ­vĂˇme hranatĂ© zĂˇvorky pro pĹ™iĹ™azovĂˇnĂ­ a ÄŤtenĂ­
 hodnot.</p>
 
-<p>Slovník můžeme naplnit počátečními hodnotami v okamžiku jeho vytvoření
-podobně, jako jsme si to ukázali u seznamů:</p>
+<p>SlovnĂ­k mĹŻĹľeme naplnit poÄŤĂˇteÄŤnĂ­mi hodnotami v okamĹľiku jeho vytvoĹ™enĂ­
+podobnÄ›, jako jsme si to ukĂˇzali u seznamĹŻ:</p>
 
 <pre>
 >>> adresy = {
@@ -1126,11 +1126,11 @@ podobně, jako jsme si to ukázali u seznamů:</p>
 ... }
 </pre>
 
-<p>Klíč a hodnota se od sebe oddělují dvojtečkou a tyto páry se od dalších
-oddělují čárkou. Tentokrát jsme náš adresář vytvořili jako slovník, kde jsme
-jako klíč použili jméno a jako slovníkovou hodnotu ukládáme původní seznamy
-s hodnotami. Místo zjišťování a používání číselného indexu nyní můžeme
-potřebné informace získat na základě jména, a to takto:</p>
+<p>KlĂ­ÄŤ a hodnota se od sebe oddÄ›lujĂ­ dvojteÄŤkou a tyto pĂˇry se od dalĹˇĂ­ch
+oddÄ›lujĂ­ ÄŤĂˇrkou. TentokrĂˇt jsme nĂˇĹˇ adresĂˇĹ™ vytvoĹ™ili jako slovnĂ­k, kde jsme
+jako klĂ­ÄŤ pouĹľili jmĂ©no a jako slovnĂ­kovou hodnotu uklĂˇdĂˇme pĹŻvodnĂ­ seznamy
+s hodnotami. MĂ­sto zjiĹˇĹĄovĂˇnĂ­ a pouĹľĂ­vĂˇnĂ­ ÄŤĂ­selnĂ©ho indexu nynĂ­ mĹŻĹľeme
+potĹ™ebnĂ© informace zĂ­skat na zĂˇkladÄ› jmĂ©na, a to takto:</p>
 
 <pre>
 >>> print adresy['Hanka']
@@ -1139,9 +1139,9 @@ potřebné informace získat na základě jména, a to takto:</p>
 585 456 231
 </pre>
 
-<p>V druhém případě jsme vrácený seznam dále indexovali, abychom obdrželi
-jen telefonní číslo. Práci si můžeme dále zjednodušit zavedením pomocných
-proměnných, které naplníme příslušnými hodnotami indexů:</p>
+<p>V druhĂ©m pĹ™Ă­padÄ› jsme vrĂˇcenĂ˝ seznam dĂˇle indexovali, abychom obdrĹľeli
+jen telefonnĂ­ ÄŤĂ­slo. PrĂˇci si mĹŻĹľeme dĂˇle zjednoduĹˇit zavedenĂ­m pomocnĂ˝ch
+promÄ›nnĂ˝ch, kterĂ© naplnĂ­me pĹ™Ă­sluĹˇnĂ˝mi hodnotami indexĹŻ:</p>
 
 <pre>
 >>> jmeno = 0
@@ -1150,194 +1150,194 @@ proměnných, které naplníme příslušnými hodnotami indexů:</p>
 >>> tel = 3
 </pre>
 
-<p>Pokud nyní chceme zjistit, ve kterém městě bydlí Hanka, můžeme napsat:</p>
+<p>Pokud nynĂ­ chceme zjistit, ve kterĂ©m mÄ›stÄ› bydlĂ­ Hanka, mĹŻĹľeme napsat:</p>
 
 <pre>
 >>> print adresy['Hanka'][mesto]
 Brno
 </pre>
 
-<p>Povšimněte si, že zatímco jméno <code>'Hanka'</code> uvádíme v
-apostrofech, protože jde o klíč typu řetězec, zápis <code>mesto</code>
-uvádíme bez apostrofů, protože jde o jméno proměnné, které Python převede na
-hodnotu indexu, kterou jsme do ní uložili (konkrétně 2). V tomto okamžiku
-začíná náš adresář připomínat použitelnou databázovou aplikaci. Můžeme za to
-poděkovat síle <span class="trnote"
-title="Poznámka&nbsp;překladatele">datového typu</span> slovník. Moc práce
-nám nedá ani doplnění kódu pro ukládání a načítání dat a přidání
-dotazovacího řádku, přes který budeme moci určit, jaká data požadujeme. Při
-probírání dalších témat této učebnice si to ukážeme.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe zatĂ­mco jmĂ©no <code>'Hanka'</code> uvĂˇdĂ­me v
+apostrofech, protoĹľe jde o klĂ­ÄŤ typu Ĺ™etÄ›zec, zĂˇpis <code>mesto</code>
+uvĂˇdĂ­me bez apostrofĹŻ, protoĹľe jde o jmĂ©no promÄ›nnĂ©, kterĂ© Python pĹ™evede na
+hodnotu indexu, kterou jsme do nĂ­ uloĹľili (konkrĂ©tnÄ› 2). V tomto okamĹľiku
+zaÄŤĂ­nĂˇ nĂˇĹˇ adresĂˇĹ™ pĹ™ipomĂ­nat pouĹľitelnou databĂˇzovou aplikaci. MĹŻĹľeme za to
+podÄ›kovat sĂ­le <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">datovĂ©ho typu</span> slovnĂ­k. Moc prĂˇce
+nĂˇm nedĂˇ ani doplnÄ›nĂ­ kĂłdu pro uklĂˇdĂˇnĂ­ a naÄŤĂ­tĂˇnĂ­ dat a pĹ™idĂˇnĂ­
+dotazovacĂ­ho Ĺ™Ăˇdku, pĹ™es kterĂ˝ budeme moci urÄŤit, jakĂˇ data poĹľadujeme. PĹ™i
+probĂ­rĂˇnĂ­ dalĹˇĂ­ch tĂ©mat tĂ©to uÄŤebnice si to ukĂˇĹľeme.</p>
 
-<p>Řada operací nad kolekcemi, se kterými jsme se do této chvíle seznámili,
-není u slovníků &mdash; vzhledem k jejich vnitřní struktuře &mdash;
-podporována. Nefunguje zde ani operátor zřetězení, operátor opakování, ani
-operace <code>append()</code>. Abychom si mohli zpřístupnit hodnoty <span
-class="trnote" title="Poznámka&nbsp;překladatele">všech</span> klíčů, máme k
-dispozici operaci <code>keys()</code>. Ta vrací seznam všech klíčů, které
-seznam používá. Pokud například chceme získat seznam všech jmen z našeho
-adresáře, můžeme napsat:</p>
+<p>Ĺada operacĂ­ nad kolekcemi, se kterĂ˝mi jsme se do tĂ©to chvĂ­le seznĂˇmili,
+nenĂ­ u slovnĂ­kĹŻ &mdash; vzhledem k jejich vnitĹ™nĂ­ struktuĹ™e &mdash;
+podporovĂˇna. Nefunguje zde ani operĂˇtor zĹ™etÄ›zenĂ­, operĂˇtor opakovĂˇnĂ­, ani
+operace <code>append()</code>. Abychom si mohli zpĹ™Ă­stupnit hodnoty <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">vĹˇech</span> klĂ­ÄŤĹŻ, mĂˇme k
+dispozici operaci <code>keys()</code>. Ta vracĂ­ seznam vĹˇech klĂ­ÄŤĹŻ, kterĂ©
+seznam pouĹľĂ­vĂˇ. Pokud napĹ™Ă­klad chceme zĂ­skat seznam vĹˇech jmen z naĹˇeho
+adresĂˇĹ™e, mĹŻĹľeme napsat:</p>
 
 <pre>
 >>> print adresy.keys()
 ['Hanka', 'Mirek']
 </pre>
 
-<p>Zde musíme upozornit na to, že klíče nejsou ve slovníku uloženy v pořadí,
-v jakém byly vkládány. Z tohoto důvodu se vám může zdát, že se objevují v
-nějakém divném pořadí, které se dokonce může během používání slovníku měnit.
-Nedělejte si s tím starosti. Nic to nemění na skutečnosti, že
-prostřednictvím klíčů můžete přistupovat k vašim datům. Vždy korektně
-obdržíte tu správnou hodnotu.</p>
+<p>Zde musĂ­me upozornit na to, Ĺľe klĂ­ÄŤe nejsou ve slovnĂ­ku uloĹľeny v poĹ™adĂ­,
+v jakĂ©m byly vklĂˇdĂˇny. Z tohoto dĹŻvodu se vĂˇm mĹŻĹľe zdĂˇt, Ĺľe se objevujĂ­ v
+nÄ›jakĂ©m divnĂ©m poĹ™adĂ­, kterĂ© se dokonce mĹŻĹľe bÄ›hem pouĹľĂ­vĂˇnĂ­ slovnĂ­ku mÄ›nit.
+NedÄ›lejte si s tĂ­m starosti. Nic to nemÄ›nĂ­ na skuteÄŤnosti, Ĺľe
+prostĹ™ednictvĂ­m klĂ­ÄŤĹŻ mĹŻĹľete pĹ™istupovat k vaĹˇim datĹŻm. VĹľdy korektnÄ›
+obdrĹľĂ­te tu sprĂˇvnou hodnotu.</p>
 
 
-<h4>Slovníky ve VBScript</h4>
+<h4>SlovnĂ­ky ve VBScript</h4>
 
-<p>V jazyce VBScript máme k dispozici objekt typu slovník, který má podobné
-vlastnosti, jako slovník v jazyce Python, ale používá se trochu jinak.
-Nejdříve musíme deklarovat proměnnou, která bude objekt zpřístupňovat. Poté
-vytvoříme vlastní objekt typu slovník a nakonec do něj přidáme položky:</p>
+<p>V jazyce VBScript mĂˇme k dispozici objekt typu slovnĂ­k, kterĂ˝ mĂˇ podobnĂ©
+vlastnosti, jako slovnĂ­k v jazyce Python, ale pouĹľĂ­vĂˇ se trochu jinak.
+NejdĹ™Ă­ve musĂ­me deklarovat promÄ›nnou, kterĂˇ bude objekt zpĹ™Ă­stupĹovat. PotĂ©
+vytvoĹ™Ă­me vlastnĂ­ objekt typu slovnĂ­k a nakonec do nÄ›j pĹ™idĂˇme poloĹľky:</p>
 
 <pre>
-Dim dict               <span class="comment">' Vytvoříme proměnnou.</span>
+Dim dict               <span class="comment">' VytvoĹ™Ă­me promÄ›nnou.</span>
 Set dict = CreateObject("Scripting.Dictionary")
-dict.Add "a", "Athens" <span class="comment">' Přidáme nějaké položky.</span>
+dict.Add "a", "Athens" <span class="comment">' PĹ™idĂˇme nÄ›jakĂ© poloĹľky.</span>
 dict.Add "b", "Belgrade"
 dict.Add "c", "Cairo"
 </pre>
 
-<p>Povšimněte si, že ve funkci <code>CreateObject()</code> <span
-class="trnote" title="Poznámka&nbsp;překladatele" >(tj. <em>vytvoř
-objekt</em>)</span> uvádíme, že chceme vytvořit objekt
-<code>"Scripting.Dictionary"</code>. To znamená, že chceme vytvořit objekt
+<p>PovĹˇimnÄ›te si, Ĺľe ve funkci <code>CreateObject()</code> <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele" >(tj. <em>vytvoĹ™
+objekt</em>)</span> uvĂˇdĂ­me, Ĺľe chceme vytvoĹ™it objekt
+<code>"Scripting.Dictionary"</code>. To znamenĂˇ, Ĺľe chceme vytvoĹ™it objekt
 <code>Dictionary</code> <span class="trnote"
-title="Poznámka&nbsp;překladatele">(slovník)</span>, který je pro interpret
-VBScript definován v modulu <code>Scripting</code>. Podrobnostmi se zatím
-nebudeme zatěžovat. Dostaneme se k nim později, až se budeme zabývat
-objekty. Doufám, že se vám alespoň vybavuje koncepce používání objektů
-definovaných v modulech &mdash; zmínili jsme se o ní v podkapitole <a
-href="cztutseq1.html">Jednoduché posloupnosti</a>. Povšimněte si také, že
-při přiřazování objektu do proměnné musíme v jazyce VBScript použít klíčové
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(slovnĂ­k)</span>, kterĂ˝ je pro interpret
+VBScript definovĂˇn v modulu <code>Scripting</code>. Podrobnostmi se zatĂ­m
+nebudeme zatÄ›Ĺľovat. Dostaneme se k nim pozdÄ›ji, aĹľ se budeme zabĂ˝vat
+objekty. DoufĂˇm, Ĺľe se vĂˇm alespoĹ vybavuje koncepce pouĹľĂ­vĂˇnĂ­ objektĹŻ
+definovanĂ˝ch v modulech &mdash; zmĂ­nili jsme se o nĂ­ v podkapitole <a
+href="cztutseq1.html">JednoduchĂ© posloupnosti</a>. PovĹˇimnÄ›te si takĂ©, Ĺľe
+pĹ™i pĹ™iĹ™azovĂˇnĂ­ objektu do promÄ›nnĂ© musĂ­me v jazyce VBScript pouĹľĂ­t klĂ­ÄŤovĂ©
 slovo <code>Set</code> <span class="trnote"
-title="Poznámka&nbsp;překladatele">([set] = nastavit)</span>.</p>
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">([set] = nastavit)</span>.</p>
 
-<p>Nyní můžeme k datům přistupovat takto:</p>
+<p>NynĂ­ mĹŻĹľeme k datĹŻm pĹ™istupovat takto:</p>
 
 <pre>
-item = dict.Item("c")         <span class="comment">' Získání hodnoty položky.</span>
-dict.Item("c") = "Casablanca" <span class="comment">' Změna hodnoty položky.</span>
+item = dict.Item("c")         <span class="comment">' ZĂ­skĂˇnĂ­ hodnoty poloĹľky.</span>
+dict.Item("c") = "Casablanca" <span class="comment">' ZmÄ›na hodnoty poloĹľky.</span>
 </pre>
 
-<p>Kromě toho máme k dispozici i operace k odstranění položky, k získání
-seznamu všech klíčů, k otestování existence klíče a podobně.</p>
+<p>KromÄ› toho mĂˇme k dispozici i operace k odstranÄ›nĂ­ poloĹľky, k zĂ­skĂˇnĂ­
+seznamu vĹˇech klĂ­ÄŤĹŻ, k otestovĂˇnĂ­ existence klĂ­ÄŤe a podobnÄ›.</p>
 
-<p>Následující příklad představuje úplnou (i když trochu zjednodušenou)
-podobu našeho adresáře, zapsaného v jazyce VBScript:</p>
+<p>NĂˇsledujĂ­cĂ­ pĹ™Ă­klad pĹ™edstavuje Ăşplnou (i kdyĹľ trochu zjednoduĹˇenou)
+podobu naĹˇeho adresĂˇĹ™e, zapsanĂ©ho v jazyce VBScript:</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim adresy
 Set adresy = CreateObject("Scripting.Dictionary")
-adresy.Add "Mirek", "Mirek, Kolbenova 15, Olomouc, 585 456 231" 
+adresy.Add "Mirek", "Mirek, Kolbenova 15, Olomouc, 585 456 231"
 adresy.Add "Hanka", "Hanka, Ypsilantiho 42, Brno, 525 698 444"
 
 MsgBox adresy.Item("Hanka")
 &lt;/script>
 </pre>
 
-<p>Pro uchovávání informací tentokrát místo seznamu používáme jediný
-řetězec. Na ukázku zpřístupňujeme data záznamu s klíčem <code>Hanka</code> a
-zobrazujeme je v dialogovém okně.</p>
+<p>Pro uchovĂˇvĂˇnĂ­ informacĂ­ tentokrĂˇt mĂ­sto seznamu pouĹľĂ­vĂˇme jedinĂ˝
+Ĺ™etÄ›zec. Na ukĂˇzku zpĹ™Ă­stupĹujeme data zĂˇznamu s klĂ­ÄŤem <code>Hanka</code> a
+zobrazujeme je v dialogovĂ©m oknÄ›.</p>
 
-<h4>Slovníky v JavaScript</h4>
+<h4>SlovnĂ­ky v JavaScript</h4>
 
-<p>JavaScript nemá k dispozici svůj datový typ slovník. Pokud ovšem
-používáte prohlížeč Internet Explorer, můžete použít objekt typu
-<code>Scripting.Dictionary</code>, který je součástí VBScript. Bavili jsme
-se o něm v předešlém textu. <span class="trnote"
-title="Poznámka&nbsp;překladatele">I při použití z JavaScript</span> má
-naprosto stejné vlastnosti. Je to tentýž typ objektu a proto se jím zde
-nebudeme dále zabývat. Místo slovníků můžeme v JavaScript využít podobným
-způsobem typ pole &mdash; viz níže.</p>
-
-
-<blockquote><i>Pokud už toho začínáte mít plné zuby, můžete v tomto místě
-přejít k&nbsp;<a href="cztutseq2.html">další kapitole</a>. Jakmile se začnete
-setkávat s datovými typy o kterých jsme se ještě nezmínili, nezapomeňte se
-vrátit zpět k této kapitole a dočíst si ji.</i></blockquote> 
+<p>JavaScript nemĂˇ k dispozici svĹŻj datovĂ˝ typ slovnĂ­k. Pokud ovĹˇem
+pouĹľĂ­vĂˇte prohlĂ­ĹľeÄŤ Internet Explorer, mĹŻĹľete pouĹľĂ­t objekt typu
+<code>Scripting.Dictionary</code>, kterĂ˝ je souÄŤĂˇstĂ­ VBScript. Bavili jsme
+se o nÄ›m v pĹ™edeĹˇlĂ©m textu. <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">I pĹ™i pouĹľitĂ­ z JavaScript</span> mĂˇ
+naprosto stejnĂ© vlastnosti. Je to tentĂ˝Ĺľ typ objektu a proto se jĂ­m zde
+nebudeme dĂˇle zabĂ˝vat. MĂ­sto slovnĂ­kĹŻ mĹŻĹľeme v JavaScript vyuĹľĂ­t podobnĂ˝m
+zpĹŻsobem typ pole &mdash; viz nĂ­Ĺľe.</p>
 
 
-<h3>Další typy kolekcí</h3>
+<blockquote><i>Pokud uĹľ toho zaÄŤĂ­nĂˇte mĂ­t plnĂ© zuby, mĹŻĹľete v tomto mĂ­stÄ›
+pĹ™ejĂ­t k&nbsp;<a href="cztutseq2.html">dalĹˇĂ­ kapitole</a>. Jakmile se zaÄŤnete
+setkĂˇvat s datovĂ˝mi typy o kterĂ˝ch jsme se jeĹˇtÄ› nezmĂ­nili, nezapomeĹte se
+vrĂˇtit zpÄ›t k tĂ©to kapitole a doÄŤĂ­st si ji.</i></blockquote>
+
+
+<h3>DalĹˇĂ­ typy kolekcĂ­</h3>
 
 <h4>Pole nebo vektor</h4>
 
-<p>Z hlediska historie počítačů patří pole k jednomu z prvních typů kolekcí.
-V podstatě se jedná o seznam prvků, ke kterým lze snadno a rychle
-přistupovat na základě indexu. Obvykle musíme předem určit, kolik prvků má
-pole uchovávat. A právě pevná velikost je tím rysem, který se pole liší od
-seznamu, o němž byla řeč výše. V Pythonu máme typ pole k dispozici
-prostřednictvím modulu <code>array</code>. Používá se však velmi zřídka,
-protože místo něj můžeme obvykle použít vestavěný typ seznam.</p>
+<p>Z hlediska historie poÄŤĂ­taÄŤĹŻ patĹ™Ă­ pole k jednomu z prvnĂ­ch typĹŻ kolekcĂ­.
+V podstatÄ› se jednĂˇ o seznam prvkĹŻ, ke kterĂ˝m lze snadno a rychle
+pĹ™istupovat na zĂˇkladÄ› indexu. Obvykle musĂ­me pĹ™edem urÄŤit, kolik prvkĹŻ mĂˇ
+pole uchovĂˇvat. A prĂˇvÄ› pevnĂˇ velikost je tĂ­m rysem, kterĂ˝ se pole liĹˇĂ­ od
+seznamu, o nÄ›mĹľ byla Ĺ™eÄŤ vĂ˝Ĺˇe. V Pythonu mĂˇme typ pole k dispozici
+prostĹ™ednictvĂ­m modulu <code>array</code>. PouĹľĂ­vĂˇ se vĹˇak velmi zĹ™Ă­dka,
+protoĹľe mĂ­sto nÄ›j mĹŻĹľeme obvykle pouĹľĂ­t vestavÄ›nĂ˝ typ seznam.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Modul <code>array</code>
-umožňuje v Pythonu definovat pole pouze pro prvky základních typů a to znak,
-celé číslo a reálné číslo. Pro jeho použití se rozhodneme pravděpodobně jen
-v případě, kdy nám velmi záleží na efektivnosti použití ve smyslu
-výkonnějšího kódu.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Modul <code>array</code>
+umoĹľĹuje v Pythonu definovat pole pouze pro prvky zĂˇkladnĂ­ch typĹŻ a to znak,
+celĂ© ÄŤĂ­slo a reĂˇlnĂ© ÄŤĂ­slo. Pro jeho pouĹľitĂ­ se rozhodneme pravdÄ›podobnÄ› jen
+v pĹ™Ă­padÄ›, kdy nĂˇm velmi zĂˇleĹľĂ­ na efektivnosti pouĹľitĂ­ ve smyslu
+vĂ˝konnÄ›jĹˇĂ­ho kĂłdu.</p>
 
-<p>V jazycích VBScript i JavaScript jsou pole k dispozici v podobě datového
-typu. Podívejme se, jak se používají.</p>
+<p>V jazycĂ­ch VBScript i JavaScript jsou pole k dispozici v podobÄ› datovĂ©ho
+typu. PodĂ­vejme se, jak se pouĹľĂ­vajĂ­.</p>
 
 
 <h4>Pole v jazyce VBScript</h4>
 
-<p>V jazyce VBScript mají pole podobu kolekce dat s pevnou délkou. K prvkům
-se přistupuje přes číselný index. Deklarace a přístup k prvkům se zapisují
+<p>V jazyce VBScript majĂ­ pole podobu kolekce dat s pevnou dĂ©lkou. K prvkĹŻm
+se pĹ™istupuje pĹ™es ÄŤĂ­selnĂ˝ index. Deklarace a pĹ™Ă­stup k prvkĹŻm se zapisujĂ­
 takto:</p>
 
 <pre>
 Dim pole(42)       <span class="comment">' Pole s 43 prvky.</span>
-pole(0) = 27       <span class="comment">' Indexovat se začíná od nuly.</span>
+pole(0) = 27       <span class="comment">' Indexovat se zaÄŤĂ­nĂˇ od nuly.</span>
 pole(1) = 49
-promenna = pole(1) <span class="comment">' Čtení hodnoty.</span>
+promenna = pole(1) <span class="comment">' ÄŚtenĂ­ hodnoty.</span>
 </pre>
 
-<p>Povšimněte si, že používáme klíčové slovo <code>Dim</code>, které
-vyjadřuje, že proměnné bude přidělen paměťový prostor. Tímto způsobem
-interpretu VBScript řekneme, že chceme pracovat s uvedenou proměnnou. Pokud
-na začátku skriptu uvedeme <code>OPTION&nbsp;EXPLICIT</code>, pak bude
-VBScript vyžadovat, abychom klíčovým slovem <code>Dim</code> uvedli každou
-proměnnou, kterou budeme chtít používat. Řada odborníků přes programování
-pokládá tento přístup za žádoucí, protože věří, že vede k tvorbě
-spolehlivějších programů. Povšimněte si také, že v deklaraci uvádíme hodnotu
-posledního platného indexu &mdash; v našem případě <code>42</code>.
-Indexovat se začíná od nuly, takže to znamená, že deklarujeme pole o&nbsp;43
-prvcích.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe pouĹľĂ­vĂˇme klĂ­ÄŤovĂ© slovo <code>Dim</code>, kterĂ©
+vyjadĹ™uje, Ĺľe promÄ›nnĂ© bude pĹ™idÄ›len pamÄ›ĹĄovĂ˝ prostor. TĂ­mto zpĹŻsobem
+interpretu VBScript Ĺ™ekneme, Ĺľe chceme pracovat s uvedenou promÄ›nnou. Pokud
+na zaÄŤĂˇtku skriptu uvedeme <code>OPTION&nbsp;EXPLICIT</code>, pak bude
+VBScript vyĹľadovat, abychom klĂ­ÄŤovĂ˝m slovem <code>Dim</code> uvedli kaĹľdou
+promÄ›nnou, kterou budeme chtĂ­t pouĹľĂ­vat. Ĺada odbornĂ­kĹŻ pĹ™es programovĂˇnĂ­
+poklĂˇdĂˇ tento pĹ™Ă­stup za ĹľĂˇdoucĂ­, protoĹľe vÄ›Ĺ™Ă­, Ĺľe vede k tvorbÄ›
+spolehlivÄ›jĹˇĂ­ch programĹŻ. PovĹˇimnÄ›te si takĂ©, Ĺľe v deklaraci uvĂˇdĂ­me hodnotu
+poslednĂ­ho platnĂ©ho indexu &mdash; v naĹˇem pĹ™Ă­padÄ› <code>42</code>.
+Indexovat se zaÄŤĂ­nĂˇ od nuly, takĹľe to znamenĂˇ, Ĺľe deklarujeme pole o&nbsp;43
+prvcĂ­ch.</p>
 
-<p>Povšimněte si také, že u jazyka VBScript používáme pro deklaraci rozměru
-pole a pro indexování kulaté závorky, nikoliv hranaté závorky, jak je tomu
-u&nbsp;jazyka Python (viz dále), JavaScript <span class="trnote"
-title="Poznámka&nbsp;překladatele">a u řady dalších programovacích
-jazyků</span>.</p>
+<p>PovĹˇimnÄ›te si takĂ©, Ĺľe u jazyka VBScript pouĹľĂ­vĂˇme pro deklaraci rozmÄ›ru
+pole a pro indexovĂˇnĂ­ kulatĂ© zĂˇvorky, nikoliv hranatĂ© zĂˇvorky, jak je tomu
+u&nbsp;jazyka Python (viz dĂˇle), JavaScript <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">a u Ĺ™ady dalĹˇĂ­ch programovacĂ­ch
+jazykĹŻ</span>.</p>
 
-<p>Deklarovat můžeme i vícerozměrná pole &mdash; modelujeme datovou tabulku.
-Podobný efekt jsme si ukázali v případě pythonovských seznamů. Pro náš
-příklad adresáře bychom mohli psát:</p>
+<p>Deklarovat mĹŻĹľeme i vĂ­cerozmÄ›rnĂˇ pole &mdash; modelujeme datovou tabulku.
+PodobnĂ˝ efekt jsme si ukĂˇzali v pĹ™Ă­padÄ› pythonovskĂ˝ch seznamĹŻ. Pro nĂˇĹˇ
+pĹ™Ă­klad adresĂˇĹ™e bychom mohli psĂˇt:</p>
 
 <pre>
-Dim MojeTabulka(2, 3)              <span class="comment">' 3 řádky, 4 sloupce</span>
-MojeTabulka(0,0) = "Mirek"         <span class="comment">' Naplníme položky pro Mirka.</span>
+Dim MojeTabulka(2, 3)              <span class="comment">' 3 Ĺ™Ăˇdky, 4 sloupce</span>
+MojeTabulka(0,0) = "Mirek"         <span class="comment">' NaplnĂ­me poloĹľky pro Mirka.</span>
 MojeTabulka(0,1) = "Kolbenova 15"
 MojeTabulka(0,2) = "Olomouc"
 MojeTabulka(0,3) = "585 456 231"
-MojeTabulka(1,0) = "Hanka"         <span class="comment">' Naplníme položky pro Hanku.</span>
-... a tak dále...
+MojeTabulka(1,0) = "Hanka"         <span class="comment">' NaplnĂ­me poloĹľky pro Hanku.</span>
+... a tak dĂˇle...
 </pre>
 
-<p>Bohužel však neexistuje způsob, jak bychom mohli předepsat naplnění
-tabulky daty najednou &mdash; jak jsme to ukázali u pythonovských seznamů.
-Položky tabulky musíme plnit jednu po druhé. Pokud zkombinujeme vlastnosti
-polí a slovníků, dosáhneme pro verzi ve VBScript stejných užitkových
-vlastností, jako tomu bylo u pythonovské verze:</p>
+<p>BohuĹľel vĹˇak neexistuje zpĹŻsob, jak bychom mohli pĹ™edepsat naplnÄ›nĂ­
+tabulky daty najednou &mdash; jak jsme to ukĂˇzali u pythonovskĂ˝ch seznamĹŻ.
+PoloĹľky tabulky musĂ­me plnit jednu po druhĂ©. Pokud zkombinujeme vlastnosti
+polĂ­ a slovnĂ­kĹŻ, dosĂˇhneme pro verzi ve VBScript stejnĂ˝ch uĹľitkovĂ˝ch
+vlastnostĂ­, jako tomu bylo u pythonovskĂ© verze:</p>
 
 <pre>
 &lt;script type="text/vbscript">
@@ -1350,57 +1350,57 @@ Mirek(2) = "Olomouc"
 Mirek(3) = "585 456 231"
 adresy.Add "Mirek", Mirek
 
-MsgBox adresy.Item("Mirek")(3) <span class="comment">' Vytiskneme telefonní číslo.</Span>
+MsgBox adresy.Item("Mirek")(3) <span class="comment">' Vytiskneme telefonnĂ­ ÄŤĂ­slo.</Span>
 &lt;/script>
 </pre>
 
-<p>Poslední věc, o které bych se chtěl zmínit, je skutečnost, že pole v
-jazyce VBScript nemusí mít vůbec pevnou velikost. To ovšem neznamená, že si
-můžeme dovolit jednoduše přidávat prvky způsobem, jak jsme to dělali u
-seznamů. Změnu rozměrů pole musíme předepsat příkazem. Abychom to mohli
-udělat, musíme pole deklarovat jako <em>dynamické pole</em>. Dosáhneme toho
-jednoduše tím, že neuvedeme jeho rozměr:</p>
+<p>PoslednĂ­ vÄ›c, o kterĂ© bych se chtÄ›l zmĂ­nit, je skuteÄŤnost, Ĺľe pole v
+jazyce VBScript nemusĂ­ mĂ­t vĹŻbec pevnou velikost. To ovĹˇem neznamenĂˇ, Ĺľe si
+mĹŻĹľeme dovolit jednoduĹˇe pĹ™idĂˇvat prvky zpĹŻsobem, jak jsme to dÄ›lali u
+seznamĹŻ. ZmÄ›nu rozmÄ›rĹŻ pole musĂ­me pĹ™edepsat pĹ™Ă­kazem. Abychom to mohli
+udÄ›lat, musĂ­me pole deklarovat jako <em>dynamickĂ© pole</em>. DosĂˇhneme toho
+jednoduĹˇe tĂ­m, Ĺľe neuvedeme jeho rozmÄ›r:</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim DynPole()
-ReDim DynPole(5)  <span class="comment">' Počáteční velikost.</span>
+ReDim DynPole(5)  <span class="comment">' PoÄŤĂˇteÄŤnĂ­ velikost.</span>
 DynPole(0) = 42
 DynPole(4) = 26
-MsgBox "Před: " &amp; DynPole(4) <span class="comment">' Dokažme, že to funguje.</span>
+MsgBox "PĹ™ed: " &amp; DynPole(4) <span class="comment">' DokaĹľme, Ĺľe to funguje.</span>
 
-<span class="comment">' Rozměr pole změníme na 21 prvků při zachování stávajících dat.</span>
+<span class="comment">' RozmÄ›r pole zmÄ›nĂ­me na 21 prvkĹŻ pĹ™i zachovĂˇnĂ­ stĂˇvajĂ­cĂ­ch dat.</span>
 ReDim Preserve DynPole(20)
 DynPole(15) = 73
-MsgBox "Po: " &amp; DynPole(4)   <span class="comment">' Hodnota byla zachována.</span>
+MsgBox "Po: " &amp; DynPole(4)   <span class="comment">' Hodnota byla zachovĂˇna.</span>
 
-<span class="comment">' Opět změníme rozměr (51 prvků), ale dojde ke ztrátě dat.</span>
+<span class="comment">' OpÄ›t zmÄ›nĂ­me rozmÄ›r (51 prvkĹŻ), ale dojde ke ztrĂˇtÄ› dat.</span>
 ReDim DynPole(50)
-MsgBox "A ještě... " &amp; DynPole(4) &amp; " Kam se poděla data?"
+MsgBox "A jeĹˇtÄ›... " &amp; DynPole(4) &amp; " Kam se podÄ›la data?"
 &lt;/script>
 </pre>
 
-<p>Z příkladu je zřejmé, že použití dynamického pole není tak příjemné, jako
-použití seznamu, který automaticky přizpůsobuje svou délku. Na druhou stranu
-má ale programátor k dispozici více prostředků pro jemné ovládání chování
-programu. Uvedená úroveň kontroly nad chováním programu může mimo jiné
-zvýšit bezpečnost, protože například některé viry mohou datové struktury s
-dynamicky měnitelnou velikostí zneužít.</p>
+<p>Z pĹ™Ă­kladu je zĹ™ejmĂ©, Ĺľe pouĹľitĂ­ dynamickĂ©ho pole nenĂ­ tak pĹ™Ă­jemnĂ©, jako
+pouĹľitĂ­ seznamu, kterĂ˝ automaticky pĹ™izpĹŻsobuje svou dĂ©lku. Na druhou stranu
+mĂˇ ale programĂˇtor k dispozici vĂ­ce prostĹ™edkĹŻ pro jemnĂ© ovlĂˇdĂˇnĂ­ chovĂˇnĂ­
+programu. UvedenĂˇ ĂşroveĹ kontroly nad chovĂˇnĂ­m programu mĹŻĹľe mimo jinĂ©
+zvĂ˝Ĺˇit bezpeÄŤnost, protoĹľe napĹ™Ă­klad nÄ›kterĂ© viry mohou datovĂ© struktury s
+dynamicky mÄ›nitelnou velikostĂ­ zneuĹľĂ­t.</p>
 
 
 <h4>Pole v jazyce JavaScript</h4>
 
 <p>Typem <em>pole</em> (<code>Array</code>) je v jazyce JavaScript z mnoha
-pohledů vyjádřeno něco jiného, než co bychom typicky čekali. To, čemu se zde
-říká pole, ve skutečnosti vykazuje podivnou směsici vlastností seznamů,
-slovníků a klasických polí. V nejjednodušším případě můžeme pole
-10&nbsp;prvků nějakého typu deklarovat takto:</p>
+pohledĹŻ vyjĂˇdĹ™eno nÄ›co jinĂ©ho, neĹľ co bychom typicky ÄŤekali. To, ÄŤemu se zde
+Ĺ™Ă­kĂˇ pole, ve skuteÄŤnosti vykazuje podivnou smÄ›sici vlastnostĂ­ seznamĹŻ,
+slovnĂ­kĹŻ a klasickĂ˝ch polĂ­. V nejjednoduĹˇĹˇĂ­m pĹ™Ă­padÄ› mĹŻĹľeme pole
+10&nbsp;prvkĹŻ nÄ›jakĂ©ho typu deklarovat takto:</p>
 
 <pre>
 var pole = new Array(10);
 </pre>
 
-<p>Prvky poté můžeme naplnit a zpřístupňovat takto:</p>
+<p>Prvky potĂ© mĹŻĹľeme naplnit a zpĹ™Ă­stupĹovat takto:</p>
 
 <pre>
 pole[4] = 42;
@@ -1408,104 +1408,104 @@ pole[7] = 21;
 var hodnota = pole[4];
 </pre>
 
-<p>Ale typ hodnoty není u prvků pole v JavaScript omezen pouze na jediný. Do
-každého z prvků pole můžeme přiřadit cokoliv:</p>
+<p>Ale typ hodnoty nenĂ­ u prvkĹŻ pole v JavaScript omezen pouze na jedinĂ˝. Do
+kaĹľdĂ©ho z prvkĹŻ pole mĹŻĹľeme pĹ™iĹ™adit cokoliv:</p>
 
 <pre>
-pole[9] = "Krátký řetězec.";
+pole[9] = "KrĂˇtkĂ˝ Ĺ™etÄ›zec.";
 var zprava = pole[9];
 </pre>
 
-<p>Při vytváření pole můžeme zadat dokonce seznam položek:</p>
+<p>PĹ™i vytvĂˇĹ™enĂ­ pole mĹŻĹľeme zadat dokonce seznam poloĹľek:</p>
 
 <pre>
-var jinePole = new Array("jedna", "dvě", "tři", 4, 5, 6);
+var jinePole = new Array("jedna", "dvÄ›", "tĹ™i", 4, 5, 6);
 hodnota = jinePole[3];
 zprava = jinePole[0];
 </pre>
 
-<p>K dalším rysům polí v jazyce JavaScript patří to, že můžeme zjistit jejich
-délku <span class="trnote" title="Poznámka&nbsp;překladatele">(počet
-prvků)</span> použitím skryté vlastnosti nazvané <code>length</code> <span
-class="trnote" title="Poznámka&nbsp;překladatele">(tj. délka)</span>:</p>
+<p>K dalĹˇĂ­m rysĹŻm polĂ­ v jazyce JavaScript patĹ™Ă­ to, Ĺľe mĹŻĹľeme zjistit jejich
+dĂ©lku <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(poÄŤet
+prvkĹŻ)</span> pouĹľitĂ­m skrytĂ© vlastnosti nazvanĂ© <code>length</code> <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(tj. dĂ©lka)</span>:</p>
 
 <pre>
 var velikost = pole.length
 </pre>
 
-<p>Všimněte si, formát zápisu <code>jméno.vlastnost</code> připomíná volání
-funkce z pythonovského modulu, ale bez závorek.</p>
+<p>VĹˇimnÄ›te si, formĂˇt zĂˇpisu <code>jmĂ©no.vlastnost</code> pĹ™ipomĂ­nĂˇ volĂˇnĂ­
+funkce z pythonovskĂ©ho modulu, ale bez zĂˇvorek.</p>
 
-<p>Jak je obvyklé <span class="trnote" title="Poznámka&nbsp;překladatele">i
-v jiných jazycích</span>, pole se v JavaScript indexují od nuly. Nicméně v
-roli indexu nemusí u JavaScript vystupovat jen číslo. Můžeme použít i
-řetězec! V takovém případě se vlastnosti polí téměř shodují s vlastnostmi
-slovníků. Pole můžeme zvětšit jednoduše tím, že přiřadíme nějakou hodnotu
-prvku s indexem, který přesahuje aktuální maximální index. Následující
-kousky kódu zmíněné vlastnosti ilustrují:</p>
+<p>Jak je obvyklĂ© <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">i
+v jinĂ˝ch jazycĂ­ch</span>, pole se v JavaScript indexujĂ­ od nuly. NicmĂ©nÄ› v
+roli indexu nemusĂ­ u JavaScript vystupovat jen ÄŤĂ­slo. MĹŻĹľeme pouĹľĂ­t i
+Ĺ™etÄ›zec! V takovĂ©m pĹ™Ă­padÄ› se vlastnosti polĂ­ tĂ©mÄ›Ĺ™ shodujĂ­ s vlastnostmi
+slovnĂ­kĹŻ. Pole mĹŻĹľeme zvÄ›tĹˇit jednoduĹˇe tĂ­m, Ĺľe pĹ™iĹ™adĂ­me nÄ›jakou hodnotu
+prvku s indexem, kterĂ˝ pĹ™esahuje aktuĂˇlnĂ­ maximĂˇlnĂ­ index. NĂˇsledujĂ­cĂ­
+kousky kĂłdu zmĂ­nÄ›nĂ© vlastnosti ilustrujĂ­:</p>
 
 <pre>
 pole[42] = 7;
-jinePole["něco"] = 42;
-zprava = jinePole["něco"]; 
+jinePole["nÄ›co"] = 42;
+zprava = jinePole["nÄ›co"];
 </pre>
 
-<p>A nakonec se podívejme, jak by při využití polí v JavaScript vypadal náš
-příklad adresáře:</p>
+<p>A nakonec se podĂ­vejme, jak by pĹ™i vyuĹľitĂ­ polĂ­ v JavaScript vypadal nĂˇĹˇ
+pĹ™Ă­klad adresĂˇĹ™e:</p>
 
 <pre>
 &lt;script type="text/javascript">
 var adresy = new Array();
-adresy["Mirek"] = "Mirek, Kolbenova 15, Olomouc, 585 456 231"; 
+adresy["Mirek"] = "Mirek, Kolbenova 15, Olomouc, 585 456 231";
 adresy["Hanka"] = "Hanka, Ypsilantiho 42, Brno, 525 698 444";
 
 document.write(adresy.Hanka);
 &lt;/script>
 </pre>
 
-<p>Povšimněte si, že <span class="trnote"
-title="Poznámka&nbsp;překladatele">v posledním příkazu</span> se ke klíči
-chováme, jako kdyby to byla vlastnost objektu &mdash; podobně jako k výše
-zmíněné vlastnosti <code>length</code>.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">v poslednĂ­m pĹ™Ă­kazu</span> se ke klĂ­ÄŤi
+chovĂˇme, jako kdyby to byla vlastnost objektu &mdash; podobnÄ› jako k vĂ˝Ĺˇe
+zmĂ­nÄ›nĂ© vlastnosti <code>length</code>.</p>
 
 
-<h4>Zásobník</h4>
+<h4>ZĂˇsobnĂ­k</h4>
 
-<p>O zásobníku <span class="trnote" title="Poznámka překladatele">(anglicky
-<em>stack</em> [stek])</span> můžeme uvažovat jako o na sobě naskládaných
-podnosech v <span class="trnote" title="Poznámka
-překladatele">samoobslužné</span> restauraci. Zaměstnanec restaurace přidává
-čisté podnosy na vrchol sloupce podnosů a zákazníci je jeden po druhém z
-vrcholu zase odebírají. Podnosy ve spodní části zásobníku se používají jako
-poslední (a také nejméně). Datový zásobník se chová stejně: každou položku
-buď do zásobníku vložíme <span class="trnote" title="Poznámka
-překladatele">(operace se označuje <code>push</code> [puš])</span> nebo ji
-ze zásobníku vybereme <span class="trnote" title="Poznámka
-překladatele">(<code>pop</code>)</span>. Vybírá se vždy ta položka, která
-byla do zásobníku vložena jako poslední. Tato vlastnost zásobníku je někdy
-označována jako <em>Last In First Out</em> <span class="trnote"
-title="Poznámka překladatele">(poslední dovnitř, první ven)</span> nebo
-<em>LIFO</em>. Jednou z užitečných vlastností zásobníku je to, že jej můžeme
-využít k obrácení pořadí položek seznamu tím, že jednotlivé položky seznamu
-postupně vložíme do zásobníku a poté je postupně vybíráme z vrcholu
-zásobníku a vkládáme do seznamu. Výsledkem bude počáteční seznam s obráceným
-pořadím položek.</p>
+<p>O zĂˇsobnĂ­ku <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(anglicky
+<em>stack</em> [stek])</span> mĹŻĹľeme uvaĹľovat jako o na sobÄ› nasklĂˇdanĂ˝ch
+podnosech v <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">samoobsluĹľnĂ©</span> restauraci. ZamÄ›stnanec restaurace pĹ™idĂˇvĂˇ
+ÄŤistĂ© podnosy na vrchol sloupce podnosĹŻ a zĂˇkaznĂ­ci je jeden po druhĂ©m z
+vrcholu zase odebĂ­rajĂ­. Podnosy ve spodnĂ­ ÄŤĂˇsti zĂˇsobnĂ­ku se pouĹľĂ­vajĂ­ jako
+poslednĂ­ (a takĂ© nejmĂ©nÄ›). DatovĂ˝ zĂˇsobnĂ­k se chovĂˇ stejnÄ›: kaĹľdou poloĹľku
+buÄŹ do zĂˇsobnĂ­ku vloĹľĂ­me <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">(operace se oznaÄŤuje <code>push</code> [puĹˇ])</span> nebo ji
+ze zĂˇsobnĂ­ku vybereme <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">(<code>pop</code>)</span>. VybĂ­rĂˇ se vĹľdy ta poloĹľka, kterĂˇ
+byla do zĂˇsobnĂ­ku vloĹľena jako poslednĂ­. Tato vlastnost zĂˇsobnĂ­ku je nÄ›kdy
+oznaÄŤovĂˇna jako <em>Last In First Out</em> <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(poslednĂ­ dovnitĹ™, prvnĂ­ ven)</span> nebo
+<em>LIFO</em>. Jednou z uĹľiteÄŤnĂ˝ch vlastnostĂ­ zĂˇsobnĂ­ku je to, Ĺľe jej mĹŻĹľeme
+vyuĹľĂ­t k obrĂˇcenĂ­ poĹ™adĂ­ poloĹľek seznamu tĂ­m, Ĺľe jednotlivĂ© poloĹľky seznamu
+postupnÄ› vloĹľĂ­me do zĂˇsobnĂ­ku a potĂ© je postupnÄ› vybĂ­rĂˇme z vrcholu
+zĂˇsobnĂ­ku a vklĂˇdĂˇme do seznamu. VĂ˝sledkem bude poÄŤĂˇteÄŤnĂ­ seznam s obrĂˇcenĂ˝m
+poĹ™adĂ­m poloĹľek.</p>
 
-<p>Typ zásobník není vestavěným typem jazyků Python, VBScript ani
-JavaScript. Jeho chování musíme vyjádřit v kódu programu. Nejvhodnější bývá
-obvykle vyjít z typu seznam, protože &mdash; jako v případě zásobníku
-&mdash; počet položek seznamu může narůstat podle potřeby.</p>
+<p>Typ zĂˇsobnĂ­k nenĂ­ vestavÄ›nĂ˝m typem jazykĹŻ Python, VBScript ani
+JavaScript. Jeho chovĂˇnĂ­ musĂ­me vyjĂˇdĹ™it v kĂłdu programu. NejvhodnÄ›jĹˇĂ­ bĂ˝vĂˇ
+obvykle vyjĂ­t z typu seznam, protoĹľe &mdash; jako v pĹ™Ă­padÄ› zĂˇsobnĂ­ku
+&mdash; poÄŤet poloĹľek seznamu mĹŻĹľe narĹŻstat podle potĹ™eby.</p>
 
 <div class="trnote" id="noteStack">
 
-<p><b>Poznámka překladatele k zásobníku:</b> Pokud použijeme seznam v roli
-zásobníku, pak jeho metoda <code>append()</code> realizuje stejnou funkčnost
-jako operace <code>push()</code>. Kromě toho Python pro seznam (ale i pro
-další struktury) definuje metodu <code>pop()</code> s typickým významem.
-Pokud nám vadí, že nemáme k dispozici přímo metodu <code>push()</code>, ale
-stačí nám zavedení <em>nějakého</em> zásobníku a vlastních funkcí
-<code>push()</code> a <code>pop()</code>, které pracují právě a jen s tímto
-zásobníkem, není to ani tak složité &mdash; viz následující ukázka:</p>
+<p><b>PoznĂˇmka pĹ™ekladatele k zĂˇsobnĂ­ku:</b> Pokud pouĹľijeme seznam v roli
+zĂˇsobnĂ­ku, pak jeho metoda <code>append()</code> realizuje stejnou funkÄŤnost
+jako operace <code>push()</code>. KromÄ› toho Python pro seznam (ale i pro
+dalĹˇĂ­ struktury) definuje metodu <code>pop()</code> s typickĂ˝m vĂ˝znamem.
+Pokud nĂˇm vadĂ­, Ĺľe nemĂˇme k dispozici pĹ™Ă­mo metodu <code>push()</code>, ale
+staÄŤĂ­ nĂˇm zavedenĂ­ <em>nÄ›jakĂ©ho</em> zĂˇsobnĂ­ku a vlastnĂ­ch funkcĂ­
+<code>push()</code> a <code>pop()</code>, kterĂ© pracujĂ­ prĂˇvÄ› a jen s tĂ­mto
+zĂˇsobnĂ­kem, nenĂ­ to ani tak sloĹľitĂ© &mdash; viz nĂˇsledujĂ­cĂ­ ukĂˇzka:</p>
 
 <pre>
 >>> zasobnik = []
@@ -1539,149 +1539,149 @@ IndexError: pop from empty list
 >>>
 </pre>
 
-<p>Na prvním řádku vytvoříme prázdný seznam a na dalších dvou řádcích
-navážeme jména <code>push</code> a <code>pop</code> na příslušný kód objektu
-<code>zasobnik</code> (viz výpis na dalších řádcích). Pokud potom napíšeme
-<code>push(1)</code>, provede se naprosto stejná činnost, jako kdybychom
-provedli <code>zasobnik.append(1)</code>. Povšimněte si také, že pokus
-o <code>pop()</code> nad prázdným zásobníkem nelze tolerovat &mdash; je
-vyvolána výjimka.</p>
+<p>Na prvnĂ­m Ĺ™Ăˇdku vytvoĹ™Ă­me prĂˇzdnĂ˝ seznam a na dalĹˇĂ­ch dvou Ĺ™ĂˇdcĂ­ch
+navĂˇĹľeme jmĂ©na <code>push</code> a <code>pop</code> na pĹ™Ă­sluĹˇnĂ˝ kĂłd objektu
+<code>zasobnik</code> (viz vĂ˝pis na dalĹˇĂ­ch Ĺ™ĂˇdcĂ­ch). Pokud potom napĂ­Ĺˇeme
+<code>push(1)</code>, provede se naprosto stejnĂˇ ÄŤinnost, jako kdybychom
+provedli <code>zasobnik.append(1)</code>. PovĹˇimnÄ›te si takĂ©, Ĺľe pokus
+o <code>pop()</code> nad prĂˇzdnĂ˝m zĂˇsobnĂ­kem nelze tolerovat &mdash; je
+vyvolĂˇna vĂ˝jimka.</p>
 
-<p>Jakmile se naučíte pracovat s třídami a objekty, zjistíte, že není
-obtížné vytvořit pro zásobník vlastní třídu, která bude zveřejňovat jen
-požadované operace <code>push()</code> a <code>pop()</code>, případně další,
-dle vaší volby. Pokud se vám nastíněné, čistě objektové řešení zdá při
-vašich momentálních schopnostech a dovednostech nedostižné, <em>nepropadejte
-panice</em>. Je to naprosto normální.</p>
+<p>Jakmile se nauÄŤĂ­te pracovat s tĹ™Ă­dami a objekty, zjistĂ­te, Ĺľe nenĂ­
+obtĂ­ĹľnĂ© vytvoĹ™it pro zĂˇsobnĂ­k vlastnĂ­ tĹ™Ă­du, kterĂˇ bude zveĹ™ejĹovat jen
+poĹľadovanĂ© operace <code>push()</code> a <code>pop()</code>, pĹ™Ă­padnÄ› dalĹˇĂ­,
+dle vaĹˇĂ­ volby. Pokud se vĂˇm nastĂ­nÄ›nĂ©, ÄŤistÄ› objektovĂ© Ĺ™eĹˇenĂ­ zdĂˇ pĹ™i
+vaĹˇich momentĂˇlnĂ­ch schopnostech a dovednostech nedostiĹľnĂ©, <em>nepropadejte
+panice</em>. Je to naprosto normĂˇlnĂ­.</p>
 
 </div>
 
-<h4>Multimnožina</h4>
+<h4>MultimnoĹľina</h4>
 
-<p>Multimnožina <span class="trnote" title="Poznámka překladatele">(anglicky
-<em>bag</em>)</span> představuje kolekci položek, u kterých není definováno
-pořadí a která může obsahovat více položek se stejnou hodnotou. Tento datový
-typ obvykle poskytuje operace pro přidávání, vyhledávání a odstraňování
-položek. V našich jazycích se pro tento účel používají seznamy.</p>
+<p>MultimnoĹľina <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(anglicky
+<em>bag</em>)</span> pĹ™edstavuje kolekci poloĹľek, u kterĂ˝ch nenĂ­ definovĂˇno
+poĹ™adĂ­ a kterĂˇ mĹŻĹľe obsahovat vĂ­ce poloĹľek se stejnou hodnotou. Tento datovĂ˝
+typ obvykle poskytuje operace pro pĹ™idĂˇvĂˇnĂ­, vyhledĂˇvĂˇnĂ­ a odstraĹovĂˇnĂ­
+poloĹľek. V naĹˇich jazycĂ­ch se pro tento ĂşÄŤel pouĹľĂ­vajĂ­ seznamy.</p>
 
 
-<h4>Množina</h4>
+<h4>MnoĹľina</h4>
 
-<p>Množina <span class="trnote" title="Poznámka překladatele">(anglicky
-<em>set</em>)</span> může uchovávat pouze jeden výskyt každé položky.
-Obvykle můžeme testovat, zda daná položka je či není prvkem množiny. Položky
-můžeme do množiny přidávat a odstraňovat. Dvě množiny můžeme spojovat
-dohromady různými způsoby, které známe z matematické teorie množin (jako je
-například sjednocení, průnik, atd.). Jazyky VBScript a JavaScript datový typ
-množiny přímo nepodporují, ale vlastnosti množin můžeme docela snadno
-napodobit použitím slovníků.</p>
+<p>MnoĹľina <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(anglicky
+<em>set</em>)</span> mĹŻĹľe uchovĂˇvat pouze jeden vĂ˝skyt kaĹľdĂ© poloĹľky.
+Obvykle mĹŻĹľeme testovat, zda danĂˇ poloĹľka je ÄŤi nenĂ­ prvkem mnoĹľiny. PoloĹľky
+mĹŻĹľeme do mnoĹľiny pĹ™idĂˇvat a odstraĹovat. DvÄ› mnoĹľiny mĹŻĹľeme spojovat
+dohromady rĹŻznĂ˝mi zpĹŻsoby, kterĂ© znĂˇme z matematickĂ© teorie mnoĹľin (jako je
+napĹ™Ă­klad sjednocenĂ­, prĹŻnik, atd.). Jazyky VBScript a JavaScript datovĂ˝ typ
+mnoĹľiny pĹ™Ă­mo nepodporujĂ­, ale vlastnosti mnoĹľin mĹŻĹľeme docela snadno
+napodobit pouĹľitĂ­m slovnĂ­kĹŻ.</p>
 
-<p>V jazyce Python jsou od verze 2.3 množiny dostupné v podobě modulu
-<code>sets</code>. Jeho implementace se považuje za experimentální. Od verze
-2.4 se podpora množin stane součástí jádra jazyka. <span
-class="trnote">Poznámka&nbsp;překladatele: Zabudování do jádra jazyka bylo
-potvrzeno při vydání alfa verze Python 2.4. Množiny jsou implementovány v
-jazyce C, takže budou efektivnější, než v Python 2.3.</span></p>
+<p>V jazyce Python jsou od verze 2.3 mnoĹľiny dostupnĂ© v podobÄ› modulu
+<code>sets</code>. Jeho implementace se povaĹľuje za experimentĂˇlnĂ­. Od verze
+2.4 se podpora mnoĹľin stane souÄŤĂˇstĂ­ jĂˇdra jazyka. <span
+class="trnote">PoznĂˇmka&nbsp;pĹ™ekladatele: ZabudovĂˇnĂ­ do jĂˇdra jazyka bylo
+potvrzeno pĹ™i vydĂˇnĂ­ alfa verze Python 2.4. MnoĹľiny jsou implementovĂˇny v
+jazyce C, takĹľe budou efektivnÄ›jĹˇĂ­, neĹľ v Python 2.3.</span></p>
 
-<p>Základní použití množin (Python 2.3) vypadá nějak takto:</p>
+<p>ZĂˇkladnĂ­ pouĹľitĂ­ mnoĹľin (Python 2.3) vypadĂˇ nÄ›jak takto:</p>
 
 <pre>
 >>> import sets
->>> A = sets.Set()        <span class="comment"># Vytvoř prázdnou množinu.</span>
->>> B = sets.Set([1,2,3]) <span class="comment"># Vytvož 3prvkovou množinu.</span>
+>>> A = sets.Set()        <span class="comment"># VytvoĹ™ prĂˇzdnou mnoĹľinu.</span>
+>>> B = sets.Set([1,2,3]) <span class="comment"># VytvoĹľ 3prvkovou mnoĹľinu.</span>
 >>> C = sets.Set([3,4,5])
 >>> D = sets.Set([6,7,8])
->>> <span class="comment"># Teď si vyzkoušíme nějaké operace.</span>
->>> B.union(C)                     <span class="comment"># sjednocení</span>
+>>> <span class="comment"># TeÄŹ si vyzkouĹˇĂ­me nÄ›jakĂ© operace.</span>
+>>> B.union(C)                     <span class="comment"># sjednocenĂ­</span>
 Set([1,2,3,4,5])
->>> B.intersection(C)              <span class="comment"># průnik</span> 
+>>> B.intersection(C)              <span class="comment"># prĹŻnik</span>
 Set([3])
->>> B.issuperset(sets.Set([2]))    <span class="comment"># je nadmnožinou</span>
+>>> B.issuperset(sets.Set([2]))    <span class="comment"># je nadmnoĹľinou</span>
 True
->>> sets.Set([3]).issubset(C)      <span class="comment"># je podmnožinou</span>
+>>> sets.Set([3]).issubset(C)      <span class="comment"># je podmnoĹľinou</span>
 True
->>> C.intersection(D) == A         <span class="comment"># rovnost množin</span>
+>>> C.intersection(D) == A         <span class="comment"># rovnost mnoĹľin</span>
 True
 </pre>
 
-<p>Výčet množinových operací je mnohem širší, ale pro tento okamžik považuji
-výše uvedené za dostačující.</p>
+<p>VĂ˝ÄŤet mnoĹľinovĂ˝ch operacĂ­ je mnohem ĹˇirĹˇĂ­, ale pro tento okamĹľik povaĹľuji
+vĂ˝Ĺˇe uvedenĂ© za dostaÄŤujĂ­cĂ­.</p>
 
 
 <h4>Fronta</h4>
 
-<p>Fronta <span class="trnote" title="Poznámka překladatele">(anglicky
-<em>queue</em> [kjú])</span> se podobá zásobníku ale s tím rozdílem, že
-první položka, která se dostane dovnitř, je zároveň první položkou, která se
-dostane ven. Tomuto chování se říká <em>First In First Out</em> <span
-class="trnote" title="Poznámka překladatele">(první dovnitř, první
-ven)</span> nebo <em>FIFO</em>. K implementaci fronty se obvykle využívá
+<p>Fronta <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(anglicky
+<em>queue</em> [kjĂş])</span> se podobĂˇ zĂˇsobnĂ­ku ale s tĂ­m rozdĂ­lem, Ĺľe
+prvnĂ­ poloĹľka, kterĂˇ se dostane dovnitĹ™, je zĂˇroveĹ prvnĂ­ poloĹľkou, kterĂˇ se
+dostane ven. Tomuto chovĂˇnĂ­ se Ĺ™Ă­kĂˇ <em>First In First Out</em> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(prvnĂ­ dovnitĹ™, prvnĂ­
+ven)</span> nebo <em>FIFO</em>. K implementaci fronty se obvykle vyuĹľĂ­vĂˇ
 pole nebo seznam.</p>
 
-<p>Existuje celá řada dalších datových typů s vlastnostmi kolekce, ale ty, o
-kterých jsme se zmínili, patří mezi hlavní, se kterými se pravděpodobně
-setkáte. (V této učebnici se ve skutečnosti budeme zabývat jen některými z
-výše zmíněných, ale o dalších typech se můžete dozvědět v různých článcích a
-v diskusních skupinách věnovaných programování.)</p>
+<p>Existuje celĂˇ Ĺ™ada dalĹˇĂ­ch datovĂ˝ch typĹŻ s vlastnostmi kolekce, ale ty, o
+kterĂ˝ch jsme se zmĂ­nili, patĹ™Ă­ mezi hlavnĂ­, se kterĂ˝mi se pravdÄ›podobnÄ›
+setkĂˇte. (V tĂ©to uÄŤebnici se ve skuteÄŤnosti budeme zabĂ˝vat jen nÄ›kterĂ˝mi z
+vĂ˝Ĺˇe zmĂ­nÄ›nĂ˝ch, ale o dalĹˇĂ­ch typech se mĹŻĹľete dozvÄ›dÄ›t v rĹŻznĂ˝ch ÄŤlĂˇncĂ­ch a
+v diskusnĂ­ch skupinĂˇch vÄ›novanĂ˝ch programovĂˇnĂ­.)</p>
 
-<p class="trnote" id="noteQueue"><b>Poznámka překladatele k frontě:</b>
-Podobně, jako v případě zásobníku, můžeme i frontu v jazyce Python jednoduše
-implementovat s využitím operací nad seznamem. Pro operaci zařazení do
-fronty opět použijeme metodu <code>append()</code> (této operaci se někdy
-říká <code>queueUp()</code> nebo <code>pushBack()</code>). Pro operaci
-výběru ze začátku fronty můžeme použít <code>pop(0)</code>. Parametr říká, z
-kterého místa prvek odstraňujeme. V případě zásobníku jsme parametr
-nezadávali, takže se použila jeho implicitní hodnota <code>-1</code> s
-významem <em>index posledního prvku</em>.</p>
+<p class="trnote" id="noteQueue"><b>PoznĂˇmka pĹ™ekladatele k frontÄ›:</b>
+PodobnÄ›, jako v pĹ™Ă­padÄ› zĂˇsobnĂ­ku, mĹŻĹľeme i frontu v jazyce Python jednoduĹˇe
+implementovat s vyuĹľitĂ­m operacĂ­ nad seznamem. Pro operaci zaĹ™azenĂ­ do
+fronty opÄ›t pouĹľijeme metodu <code>append()</code> (tĂ©to operaci se nÄ›kdy
+Ĺ™Ă­kĂˇ <code>queueUp()</code> nebo <code>pushBack()</code>). Pro operaci
+vĂ˝bÄ›ru ze zaÄŤĂˇtku fronty mĹŻĹľeme pouĹľĂ­t <code>pop(0)</code>. Parametr Ĺ™Ă­kĂˇ, z
+kterĂ©ho mĂ­sta prvek odstraĹujeme. V pĹ™Ă­padÄ› zĂˇsobnĂ­ku jsme parametr
+nezadĂˇvali, takĹľe se pouĹľila jeho implicitnĂ­ hodnota <code>-1</code> s
+vĂ˝znamem <em>index poslednĂ­ho prvku</em>.</p>
 
 
 <h3>Soubory</h3>
 
-<p>Jako uživatelům počítače by vám pojem soubor měl být dobře známý, protože
-soubory tvoří základ pro téměř vše, co s počítači děláme. Zjištění, že
-většina programovacích jazyků poskytuje speciální datový typ <em>file</em>
-<span class="trnote" title="Poznámka překladatele">(soubor)</span>, by vás
-tedy nemělo překvapit. Soubory a jejich zpracování jsou natolik důležité, že
-se jimi budeme zabývat až o něco později, v samostatné kapitole <span
-class="trnote" title="Poznámka&nbsp;překladatele">(<a
-href="cztutfiles.html">Práce se soubory</a>)</span>.</p>
+<p>Jako uĹľivatelĹŻm poÄŤĂ­taÄŤe by vĂˇm pojem soubor mÄ›l bĂ˝t dobĹ™e znĂˇmĂ˝, protoĹľe
+soubory tvoĹ™Ă­ zĂˇklad pro tĂ©mÄ›Ĺ™ vĹˇe, co s poÄŤĂ­taÄŤi dÄ›lĂˇme. ZjiĹˇtÄ›nĂ­, Ĺľe
+vÄ›tĹˇina programovacĂ­ch jazykĹŻ poskytuje speciĂˇlnĂ­ datovĂ˝ typ <em>file</em>
+<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(soubor)</span>, by vĂˇs
+tedy nemÄ›lo pĹ™ekvapit. Soubory a jejich zpracovĂˇnĂ­ jsou natolik dĹŻleĹľitĂ©, Ĺľe
+se jimi budeme zabĂ˝vat aĹľ o nÄ›co pozdÄ›ji, v samostatnĂ© kapitole <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(<a
+href="cztutfiles.html">PrĂˇce se soubory</a>)</span>.</p>
 
 
-<h3>Datum a čas</h3>
+<h3>Datum a ÄŤas</h3>
 
-<p>Pro datum a čas bývá často vyhrazen samostatný datový typ. Někdy se pro
-jejich reprezentaci jednoduše používá velké číslo (typicky se jím vyjadřuje
-počet sekund, které uplynuly od zvoleného pevného data a času). Jindy se pro
-jejich uložení používá datový typ, který označujeme jako <em>složený</em> a
-který bude popsán v následujícím textu. Takový datový typ obvykle umožňuje
-snadnější zjištění měsíce, dne, hodiny atd. V dalších tématech se stručně
-seznámíme s používáním pythonovského modulu <code>time</code>. Jazyky
-VBScript i JavaScript používají pro práci s časem své vlastní mechanismy,
-ale těmi se zabývat nebudeme.</p>
+<p>Pro datum a ÄŤas bĂ˝vĂˇ ÄŤasto vyhrazen samostatnĂ˝ datovĂ˝ typ. NÄ›kdy se pro
+jejich reprezentaci jednoduĹˇe pouĹľĂ­vĂˇ velkĂ© ÄŤĂ­slo (typicky se jĂ­m vyjadĹ™uje
+poÄŤet sekund, kterĂ© uplynuly od zvolenĂ©ho pevnĂ©ho data a ÄŤasu). Jindy se pro
+jejich uloĹľenĂ­ pouĹľĂ­vĂˇ datovĂ˝ typ, kterĂ˝ oznaÄŤujeme jako <em>sloĹľenĂ˝</em> a
+kterĂ˝ bude popsĂˇn v nĂˇsledujĂ­cĂ­m textu. TakovĂ˝ datovĂ˝ typ obvykle umoĹľĹuje
+snadnÄ›jĹˇĂ­ zjiĹˇtÄ›nĂ­ mÄ›sĂ­ce, dne, hodiny atd. V dalĹˇĂ­ch tĂ©matech se struÄŤnÄ›
+seznĂˇmĂ­me s pouĹľĂ­vĂˇnĂ­m pythonovskĂ©ho modulu <code>time</code>. Jazyky
+VBScript i JavaScript pouĹľĂ­vajĂ­ pro prĂˇci s ÄŤasem svĂ© vlastnĂ­ mechanismy,
+ale tÄ›mi se zabĂ˝vat nebudeme.</p>
 
 
-<h3 id="class">Složený, uživatelem definovaný typ</h3>
+<h3 id="class">SloĹľenĂ˝, uĹľivatelem definovanĂ˝ typ</h3>
 
-<p>Někdy se ukáže, že výše popsané základní <span class="trnote"
-title="Poznámka překladatele">jednoduché</span> typy nevyhovují a to ani po
-jejich uspořádání s využitím kolekcí. Někdy prostě chceme sdružit skupinu
-<span class="trnote" title="Poznámka&nbsp;překladatele">různorodých</span>
-datových položek dohromady a pracovat s nimi jako s celkem. Příkladem může
-být položka adresy: číslo domu, ulice, město a směrovací číslo.</p>
+<p>NÄ›kdy se ukĂˇĹľe, Ĺľe vĂ˝Ĺˇe popsanĂ© zĂˇkladnĂ­ <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">jednoduchĂ©</span> typy nevyhovujĂ­ a to ani po
+jejich uspoĹ™ĂˇdĂˇnĂ­ s vyuĹľitĂ­m kolekcĂ­. NÄ›kdy prostÄ› chceme sdruĹľit skupinu
+<span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">rĹŻznorodĂ˝ch</span>
+datovĂ˝ch poloĹľek dohromady a pracovat s nimi jako s celkem. PĹ™Ă­kladem mĹŻĹľe
+bĂ˝t poloĹľka adresy: ÄŤĂ­slo domu, ulice, mÄ›sto a smÄ›rovacĂ­ ÄŤĂ­slo.</p>
 
-<p>Většina programovacích jazyků dovoluje podobné informace sdružit to
-takzvaného <em>záznamu</em> <span class="trnote"
-title="Poznámka&nbsp;překladatele" >(anglicky <em>record</em>
-[rikód])</span> nebo <em>struktury</em> <span class="trnote"
-title="Poznámka&nbsp;překladatele">(<em>structure</em> [strakčr])</span>
-nebo její modernější, objektově orientované podoby, <em>třídy</em> <span
-class="trnote" title="Poznámka&nbsp;překladatele">(<em>class</em>
-[klás])</span>.</p>
+<p>VÄ›tĹˇina programovacĂ­ch jazykĹŻ dovoluje podobnĂ© informace sdruĹľit to
+takzvanĂ©ho <em>zĂˇznamu</em> <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele" >(anglicky <em>record</em>
+[rikĂłd])</span> nebo <em>struktury</em> <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(<em>structure</em> [strakÄŤr])</span>
+nebo jejĂ­ modernÄ›jĹˇĂ­, objektovÄ› orientovanĂ© podoby, <em>tĹ™Ă­dy</em> <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(<em>class</em>
+[klĂˇs])</span>.</p>
 
 
 <h4>VBScript</h4>
 
-<p>V jazyce VBScript vypadá definice takového záznamu následovně:</p>
+<p>V jazyce VBScript vypadĂˇ definice takovĂ©ho zĂˇznamu nĂˇsledovnÄ›:</p>
 
 <pre>
 Class Adresa
@@ -1692,15 +1692,15 @@ Class Adresa
 End Class
 </pre>
 
-<p>Klíčové slovo <code>Public</code> zajistí přístupnost dat v celém
-zbytku programu. Datové položky mohou být označeny také jako
-<code>Private</code>, ale k tomu se v této učebnici dostaneme až
-později.</p>
+<p>KlĂ­ÄŤovĂ© slovo <code>Public</code> zajistĂ­ pĹ™Ă­stupnost dat v celĂ©m
+zbytku programu. DatovĂ© poloĹľky mohou bĂ˝t oznaÄŤeny takĂ© jako
+<code>Private</code>, ale k tomu se v tĂ©to uÄŤebnici dostaneme aĹľ
+pozdÄ›ji.</p>
 
 
 <h4>Python</h4>
 
-<p>Zápis stejného případu v jazyce Python se příliš neliší:</p>
+<p>ZĂˇpis stejnĂ©ho pĹ™Ă­padu v jazyce Python se pĹ™Ă­liĹˇ neliĹˇĂ­:</p>
 
 <pre id="address">
 >>> class Adresa:
@@ -1712,34 +1712,34 @@ později.</p>
 ...
 </pre>
 
-<p>Zápis se vám může zdát poněkud záhadný, ale nemějte obavy. V kapitole
-o&nbsp;<a href="cztutclass.html">objektově orientovaném programování</a> si
-vysvětlíme, co znamená <code>def&nbsp;__init__(...)</code> a
-<code>self</code>. Povšimněme si jen toho, že identifikátor
-<code>__init__</code> obsahuje na obou stranách <em>dvojici znaků
-podtržení</em>. Jde o pythonovskou konvenci, o které se zmíníme později.
-Když někteří lidé zkoušeli zapsat uvedený příklad na vyzývacím řádku
-interpretu jazyka Python, měli s tím určité poblémy. Na konci této kapitoly
-naleznete zvýrazněný úsek textu, který části příkladu podrobněji vysvětluje.
-Ale pokud vám to víc vyhovuje, můžete s jeho studiem počkat až na pozdější
-dobu, až se v průběhu kurzu dozvíte všechny podrobnosti. Pokud se pokoušíte
-o zapsání příkladu na vyzývací řádek <span class="trnote"
-title="Poznámka&nbsp;překladatele">(anglicky <em>prompt</em>)</span> jazyka
-Python, ujistěte se, že jste použili stejný způsob odsazení. Jak uvidíme
-později, Python je v otázce odsazování úrovní <span class="trnote"
-title="Poznámka&nbsp;překladatele">zdrojového textu</span> velmi
-puntičkářský.</p>
+<p>ZĂˇpis se vĂˇm mĹŻĹľe zdĂˇt ponÄ›kud zĂˇhadnĂ˝, ale nemÄ›jte obavy. V kapitole
+o&nbsp;<a href="cztutclass.html">objektovÄ› orientovanĂ©m programovĂˇnĂ­</a> si
+vysvÄ›tlĂ­me, co znamenĂˇ <code>def&nbsp;__init__(...)</code> a
+<code>self</code>. PovĹˇimnÄ›me si jen toho, Ĺľe identifikĂˇtor
+<code>__init__</code> obsahuje na obou stranĂˇch <em>dvojici znakĹŻ
+podtrĹľenĂ­</em>. Jde o pythonovskou konvenci, o kterĂ© se zmĂ­nĂ­me pozdÄ›ji.
+KdyĹľ nÄ›kteĹ™Ă­ lidĂ© zkouĹˇeli zapsat uvedenĂ˝ pĹ™Ă­klad na vyzĂ˝vacĂ­m Ĺ™Ăˇdku
+interpretu jazyka Python, mÄ›li s tĂ­m urÄŤitĂ© poblĂ©my. Na konci tĂ©to kapitoly
+naleznete zvĂ˝raznÄ›nĂ˝ Ăşsek textu, kterĂ˝ ÄŤĂˇsti pĹ™Ă­kladu podrobnÄ›ji vysvÄ›tluje.
+Ale pokud vĂˇm to vĂ­c vyhovuje, mĹŻĹľete s jeho studiem poÄŤkat aĹľ na pozdÄ›jĹˇĂ­
+dobu, aĹľ se v prĹŻbÄ›hu kurzu dozvĂ­te vĹˇechny podrobnosti. Pokud se pokouĹˇĂ­te
+o zapsĂˇnĂ­ pĹ™Ă­kladu na vyzĂ˝vacĂ­ Ĺ™Ăˇdek <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(anglicky <em>prompt</em>)</span> jazyka
+Python, ujistÄ›te se, Ĺľe jste pouĹľili stejnĂ˝ zpĹŻsob odsazenĂ­. Jak uvidĂ­me
+pozdÄ›ji, Python je v otĂˇzce odsazovĂˇnĂ­ ĂşrovnĂ­ <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">zdrojovĂ©ho textu</span> velmi
+puntiÄŤkĂˇĹ™skĂ˝.</p>
 
-<p>Hlavní poznatek, který byste si měli z tohoto příkladu odnést, by měl být
-ten, že lze sloučit několik kousků dat do jediné struktury.</p>
+<p>HlavnĂ­ poznatek, kterĂ˝ byste si mÄ›li z tohoto pĹ™Ă­kladu odnĂ©st, by mÄ›l bĂ˝t
+ten, Ĺľe lze slouÄŤit nÄ›kolik kouskĹŻ dat do jedinĂ© struktury.</p>
 
 
 <h4>JavaScript</h4>
 
-<p>V jazyce JavaScript se pro definici struktury používá poněkud podivné
-jméno, a to <code>function</code>. Funkce si obvykle spojujeme s operacemi,
-ne s datovými kolekcemi, ale v případě jazyka JavaScript se funkce používají
-i pro tento účel. Vytváření objektu Adresa se v jazyce JavaScript zapisuje
+<p>V jazyce JavaScript se pro definici struktury pouĹľĂ­vĂˇ ponÄ›kud podivnĂ©
+jmĂ©no, a to <code>function</code>. Funkce si obvykle spojujeme s operacemi,
+ne s datovĂ˝mi kolekcemi, ale v pĹ™Ă­padÄ› jazyka JavaScript se funkce pouĹľĂ­vajĂ­
+i pro tento ĂşÄŤel. VytvĂˇĹ™enĂ­ objektu Adresa se v jazyce JavaScript zapisuje
 takto:</p>
 
 <pre>
@@ -1752,220 +1752,220 @@ function Adresa(Dum, Ul, Mesto, PSC)
 }
 </pre>
 
-<p>Zopakujme to ještě jednou. Výsledkem je skupina datových položek, na
-kterou se díváme jako na jeden celek.</p>
+<p>Zopakujme to jeĹˇtÄ› jednou. VĂ˝sledkem je skupina datovĂ˝ch poloĹľek, na
+kterou se dĂ­vĂˇme jako na jeden celek.</p>
 
 
-<h3>Přístup ke složeným datovým typům</h3>
+<h3>PĹ™Ă­stup ke sloĹľenĂ˝m datovĂ˝m typĹŻm</h3>
 
-<p>Hodnotu složeného datového typu můžeme také přiřadit do proměnné. Ale
-abychom mohli přistupovat k jednotlivým <em>složkám</em> hodnoty složeného
-typu, musíme použít speciální zápis, který je určen konkrétním programovacím
-jazykem. Obvykle se k zápisu používá tečka.</p>
+<p>Hodnotu sloĹľenĂ©ho datovĂ©ho typu mĹŻĹľeme takĂ© pĹ™iĹ™adit do promÄ›nnĂ©. Ale
+abychom mohli pĹ™istupovat k jednotlivĂ˝m <em>sloĹľkĂˇm</em> hodnoty sloĹľenĂ©ho
+typu, musĂ­me pouĹľĂ­t speciĂˇlnĂ­ zĂˇpis, kterĂ˝ je urÄŤen konkrĂ©tnĂ­m programovacĂ­m
+jazykem. Obvykle se k zĂˇpisu pouĹľĂ­vĂˇ teÄŤka.</p>
 
 <h4>V jazyce VBScript</h4>
 
-<p>Pokud budeme uvažovat výše uvedenou třídu Adresa, pak bychom v jazyce
+<p>Pokud budeme uvaĹľovat vĂ˝Ĺˇe uvedenou tĹ™Ă­du Adresa, pak bychom v jazyce
 VBScript mohli napsat:</p>
- 
+
 <pre>
 Dim Adr
 Set Adr = New Adresa
 
 Adr.CisloDomu = 7
-Adr.Ulice = "Havlíčkova"
-Adr.Mesto = "Staré Město"
+Adr.Ulice = "HavlĂ­ÄŤkova"
+Adr.Mesto = "StarĂ© MÄ›sto"
 Adr.PSC = "790 58"
 
 MsgBox Adr.Ulice &amp; " " &amp; Adr.CisloDomu &amp; ", " &amp; Adr.Mesto
 </pre>
 
-<p>Nejdříve jsme použitím klíčového slova <code>Dim</code> vyhradili prostor
-pro novou proměnnou <code>Adr</code>. S využitím <code>Set</code> vytvoříme
-novou <em>instanci</em> třídy <code>Adresa</code>. Poté do položek instance
-nového objektu adresy přiřadíme hodnoty a nakonec obsah zobrazíme v
-dialogovém okně pro zprávu (message box).</p>
+<p>NejdĹ™Ă­ve jsme pouĹľitĂ­m klĂ­ÄŤovĂ©ho slova <code>Dim</code> vyhradili prostor
+pro novou promÄ›nnou <code>Adr</code>. S vyuĹľitĂ­m <code>Set</code> vytvoĹ™Ă­me
+novou <em>instanci</em> tĹ™Ă­dy <code>Adresa</code>. PotĂ© do poloĹľek instance
+novĂ©ho objektu adresy pĹ™iĹ™adĂ­me hodnoty a nakonec obsah zobrazĂ­me v
+dialogovĂ©m oknÄ› pro zprĂˇvu (message box).</p>
 
 
 <h4>V jazyce Python</h4>
 
-<p>V jazyce Python &mdash; za předpokladu, že jste již napsali výše uvedenou 
-definici třídy Adresa &mdash; můžeme psát:</p>
+<p>V jazyce Python &mdash; za pĹ™edpokladu, Ĺľe jste jiĹľ napsali vĂ˝Ĺˇe uvedenou
+definici tĹ™Ă­dy Adresa &mdash; mĹŻĹľeme psĂˇt:</p>
 
 <pre>
-Adr = Adresa(7, "Havlíčkova", "Staré Město", "790 58")
+Adr = Adresa(7, "HavlĂ­ÄŤkova", "StarĂ© MÄ›sto", "790 58")
 print Adr.Ulice, Adr.CisloDomu
-print Adr.Mesto 
+print Adr.Mesto
 </pre>
 
-<p>Tím se vytvoří instance našeho typu <code>Adresa</code> a přiřadí se do
-proměnné <code>Adr</code>. V Pythonu můžeme předat hodnoty položek v
-okamžiku vytváření <em>objektu</em>. <span class="trnote"
-title="Poznámka&nbsp;překladatele">(Konstruktoru objektu lze předávat
-parametry.)</span> Poté s využitím tečkového operátoru tiskneme složky
-<code>CisloDomu</code>, <code>Ulice</code> a <code>Mesto</code>. Můžete,
-samozřejmě, vytvořit více instancí třídy <code>Adresa</code> a do každé z nich přiřadit
-jiné číslo domu, ulici, a tak dále. Vyzkoušejte si to. Tušíte, jak byste
-mohli třídu <code>Adresa</code> využít pro náš příklad adresáře?</p>
+<p>TĂ­m se vytvoĹ™Ă­ instance naĹˇeho typu <code>Adresa</code> a pĹ™iĹ™adĂ­ se do
+promÄ›nnĂ© <code>Adr</code>. V Pythonu mĹŻĹľeme pĹ™edat hodnoty poloĹľek v
+okamĹľiku vytvĂˇĹ™enĂ­ <em>objektu</em>. <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">(Konstruktoru objektu lze pĹ™edĂˇvat
+parametry.)</span> PotĂ© s vyuĹľitĂ­m teÄŤkovĂ©ho operĂˇtoru tiskneme sloĹľky
+<code>CisloDomu</code>, <code>Ulice</code> a <code>Mesto</code>. MĹŻĹľete,
+samozĹ™ejmÄ›, vytvoĹ™it vĂ­ce instancĂ­ tĹ™Ă­dy <code>Adresa</code> a do kaĹľdĂ© z nich pĹ™iĹ™adit
+jinĂ© ÄŤĂ­slo domu, ulici, a tak dĂˇle. VyzkouĹˇejte si to. TuĹˇĂ­te, jak byste
+mohli tĹ™Ă­du <code>Adresa</code> vyuĹľĂ­t pro nĂˇĹˇ pĹ™Ă­klad adresĂˇĹ™e?</p>
 
 
-<h4>A ještě v jazyce JavaScript</h4>
+<h4>A jeĹˇtÄ› v jazyce JavaScript</h4>
 
-<p>Mechanismus používaný v jazyce JavaScript se velmi podobá mechanismům v
-ostatních jazycích. Přesto zde můžeme nalézt &mdash; jak uvidíme za chvíli
-&mdash; pár zvláštností. Nicméně, základní mechanismus je jednoduchý:</p>
+<p>Mechanismus pouĹľĂ­vanĂ˝ v jazyce JavaScript se velmi podobĂˇ mechanismĹŻm v
+ostatnĂ­ch jazycĂ­ch. PĹ™esto zde mĹŻĹľeme nalĂ©zt &mdash; jak uvidĂ­me za chvĂ­li
+&mdash; pĂˇr zvlĂˇĹˇtnostĂ­. NicmĂ©nÄ›, zĂˇkladnĂ­ mechanismus je jednoduchĂ˝:</p>
 
 <pre>
-var Adr = new Adresa(7, "Havlíčkova", "Staré Město", "790 58");
+var Adr = new Adresa(7, "HavlĂ­ÄŤkova", "StarĂ© MÄ›sto", "790 58");
 document.write(Adr.Ulice + " " + Adr.CisloDomu + ", " + Adr.Mesto);
 </pre>
 
-<p>K zpřístupnění položek můžeme použít ještě jeden mechanismus, kdy se na
-objekt díváme jako na slovník a jméno pole používáme jako klíč:</p>
+<p>K zpĹ™Ă­stupnÄ›nĂ­ poloĹľek mĹŻĹľeme pouĹľĂ­t jeĹˇtÄ› jeden mechanismus, kdy se na
+objekt dĂ­vĂˇme jako na slovnĂ­k a jmĂ©no pole pouĹľĂ­vĂˇme jako klĂ­ÄŤ:</p>
 
 <pre>
 document.write(Adr['Ulice'] + " " + Adr['CisloDomu'] + " " + Adr['Mesto']);
 </pre>
 
-<p>Jediný rozumný důvod k použití tohoto způsobu, který mě napadá, je ten,
-že jména položek získáváte <span class="trnote"
-title="Poznámka&nbsp;překladatele">za běhu programu</span> v podobě řetězce
-&mdash; třeba jako výsledek čtení ze souboru nebo jako vstup zadaný
-uživatelem (viz dále).</p>
+<p>JedinĂ˝ rozumnĂ˝ dĹŻvod k pouĹľitĂ­ tohoto zpĹŻsobu, kterĂ˝ mÄ› napadĂˇ, je ten,
+Ĺľe jmĂ©na poloĹľek zĂ­skĂˇvĂˇte <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">za bÄ›hu programu</span> v podobÄ› Ĺ™etÄ›zce
+&mdash; tĹ™eba jako vĂ˝sledek ÄŤtenĂ­ ze souboru nebo jako vstup zadanĂ˝
+uĹľivatelem (viz dĂˇle).</p>
 
 
-<h3 id="object">Operace definované uživatelem</h3>
+<h3 id="object">Operace definovanĂ© uĹľivatelem</h3>
 
-<p>V některých programovacích jazycích mohou mít uživatelské datové typy
-<span class="trnote" title="Poznámka překladatele">uživatelem</span>
-definovány i operace. Tento rys patří k základům takzvaného <em>objektově
-orientovaného programování</em>. Tomuto tématu bude věnována <a
-href="cztutclass.html">samostatná kapitola</a>, ale v tomto okamžiku si
-uveďme alespoň to, že objekt se v podstatě tvořen datovými složkami a
-operacemi definovanými nad těmito datovými složkami. Vše je zabaleno
-dohromady a vystupuje to jako jediný celek. Python objekty široce využívá ve
-své standardní knihovně modulů a současně nám jako programátorům umožňuje
-vytváření svých vlastních typů objektů.</p>
+<p>V nÄ›kterĂ˝ch programovacĂ­ch jazycĂ­ch mohou mĂ­t uĹľivatelskĂ© datovĂ© typy
+<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">uĹľivatelem</span>
+definovĂˇny i operace. Tento rys patĹ™Ă­ k zĂˇkladĹŻm takzvanĂ©ho <em>objektovÄ›
+orientovanĂ©ho programovĂˇnĂ­</em>. Tomuto tĂ©matu bude vÄ›novĂˇna <a
+href="cztutclass.html">samostatnĂˇ kapitola</a>, ale v tomto okamĹľiku si
+uveÄŹme alespoĹ to, Ĺľe objekt se v podstatÄ› tvoĹ™en datovĂ˝mi sloĹľkami a
+operacemi definovanĂ˝mi nad tÄ›mito datovĂ˝mi sloĹľkami. VĹˇe je zabaleno
+dohromady a vystupuje to jako jedinĂ˝ celek. Python objekty Ĺˇiroce vyuĹľĂ­vĂˇ ve
+svĂ© standardnĂ­ knihovnÄ› modulĹŻ a souÄŤasnÄ› nĂˇm jako programĂˇtorĹŻm umoĹľĹuje
+vytvĂˇĹ™enĂ­ svĂ˝ch vlastnĂ­ch typĹŻ objektĹŻ.</p>
 
-<p>Operace objektu se zpřístupňují stejným způsobem, jako datové členy
-uživatelsky definovaného typu &mdash; prostřednictvím tečkového operátoru
-&mdash;, ale jinak vypadají jako funkce. Těmto zvláštním funkcím se říká
-<em>metody</em>. Už jsme se s tím setkali u seznamu v podobě operace
-<code>append()</code>. Vzpomeňte si, že abychom ji mohli použít, museli jsme
-volanou funkci spojit se jménem proměnné:</p>
+<p>Operace objektu se zpĹ™Ă­stupĹujĂ­ stejnĂ˝m zpĹŻsobem, jako datovĂ© ÄŤleny
+uĹľivatelsky definovanĂ©ho typu &mdash; prostĹ™ednictvĂ­m teÄŤkovĂ©ho operĂˇtoru
+&mdash;, ale jinak vypadajĂ­ jako funkce. TÄ›mto zvlĂˇĹˇtnĂ­m funkcĂ­m se Ĺ™Ă­kĂˇ
+<em>metody</em>. UĹľ jsme se s tĂ­m setkali u seznamu v podobÄ› operace
+<code>append()</code>. VzpomeĹte si, Ĺľe abychom ji mohli pouĹľĂ­t, museli jsme
+volanou funkci spojit se jmĂ©nem promÄ›nnĂ©:</p>
 
 <pre>
->>> seznam = []       <span class="comment"># prázdný seznam</span>
->>> seznam.append(42) <span class="comment"># volání metody objektu seznam</span>
+>>> seznam = []       <span class="comment"># prĂˇzdnĂ˝ seznam</span>
+>>> seznam.append(42) <span class="comment"># volĂˇnĂ­ metody objektu seznam</span>
 >>> print seznam
 [42]
 </pre>
 
-<p>Pokud je typ objektu &mdash; říká se mu <em>třída</em> &mdash; definován
-uvnitř nějakého modulu, musíme tento modul importovat (jako jsme si již
-dříve ukázali v případě modulu <code>sys</code>). Jménu objektového typu
-předřadíme jméno modulu a vytvoříme instanci třídy <span class="trnote"
-title="Poznámka překladatele">(tj. objekt)</span>, který bude uložen v
-proměnné. Tu již můžeme používat aniž bychom uváděli jméno modulu.</p>
+<p>Pokud je typ objektu &mdash; Ĺ™Ă­kĂˇ se mu <em>tĹ™Ă­da</em> &mdash; definovĂˇn
+uvnitĹ™ nÄ›jakĂ©ho modulu, musĂ­me tento modul importovat (jako jsme si jiĹľ
+dĹ™Ă­ve ukĂˇzali v pĹ™Ă­padÄ› modulu <code>sys</code>). JmĂ©nu objektovĂ©ho typu
+pĹ™edĹ™adĂ­me jmĂ©no modulu a vytvoĹ™Ă­me instanci tĹ™Ă­dy <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(tj. objekt)</span>, kterĂ˝ bude uloĹľen v
+promÄ›nnĂ©. Tu jiĹľ mĹŻĹľeme pouĹľĂ­vat aniĹľ bychom uvĂˇdÄ›li jmĂ©no modulu.</p>
 
-<p>Ukážeme si to na fiktivním modulu <code>meat</code>, který definuje třídu
+<p>UkĂˇĹľeme si to na fiktivnĂ­m modulu <code>meat</code>, kterĂ˝ definuje tĹ™Ă­du
 <code>Spam</code><sup class="trnote"><a href="cztuttrn.html#Pdata_spam"
-id="Bdata_spam" title="Co to je Spam?">[6]</a></sup>. Importujeme uvedený
-modul, vytvoříme instanci třídy Spam, dáme jí jméno <code>mySpam</code> a poté
-použijeme <code>mySpam</code> pro přístup k jejím operacím a datovým složkám
+id="Bdata_spam" title="Co to je Spam?">[6]</a></sup>. Importujeme uvedenĂ˝
+modul, vytvoĹ™Ă­me instanci tĹ™Ă­dy Spam, dĂˇme jĂ­ jmĂ©no <code>mySpam</code> a potĂ©
+pouĹľijeme <code>mySpam</code> pro pĹ™Ă­stup k jejĂ­m operacĂ­m a datovĂ˝m sloĹľkĂˇm
 takto:</p>
 
 <pre>
 >>> import meat
->>> mySpam = meat.Spam()     <span class="comment"># vytvoření instance, užití jména modulu a třídy</span>
->>> mySpam.slice()           <span class="comment"># užití operace objektu třídy Spam (ukrojit)</span>
->>> print mySpam.ingredients <span class="comment"># přístup k datům objektu</span>
+>>> mySpam = meat.Spam()     <span class="comment"># vytvoĹ™enĂ­ instance, uĹľitĂ­ jmĂ©na modulu a tĹ™Ă­dy</span>
+>>> mySpam.slice()           <span class="comment"># uĹľitĂ­ operace objektu tĹ™Ă­dy Spam (ukrojit)</span>
+>>> print mySpam.ingredients <span class="comment"># pĹ™Ă­stup k datĹŻm objektu</span>
 {'Pork': '40%', 'Ham': '45%', 'Fat': '15%'}
 </pre>
 
-<p>Na prvním řádku importujeme do našeho programu modul nazvaný
-<code>meat</code> (jde o fiktivní, neexistující modul). Na druhém řádku
-používáme modul <code>meat</code> k vytvoření instance třídy <code>Spam</code>
-tím, že <span class="trnote" title="Poznámka&nbsp;překladatele">identifikátor
-třídy</span> použijeme, jako kdyby se jednalo o volání funkce. Na třetím řádku
-používáme jednu z operací třídy <code>Spam</code>, a sice
-<code>slice()</code>. K objektu <code>mySpam</code> se chováme, jako kdyby to
-byl modul a operace jako kdyby byla funkcí definovanou uvnitř modulu. Nakonec
-zpřístupňujeme některá data uchovávaná uvnitř objektu <code>mySpam</code>.
-Opět používáme zápis, který se podobá práci s modulem.</p>
+<p>Na prvnĂ­m Ĺ™Ăˇdku importujeme do naĹˇeho programu modul nazvanĂ˝
+<code>meat</code> (jde o fiktivnĂ­, neexistujĂ­cĂ­ modul). Na druhĂ©m Ĺ™Ăˇdku
+pouĹľĂ­vĂˇme modul <code>meat</code> k vytvoĹ™enĂ­ instance tĹ™Ă­dy <code>Spam</code>
+tĂ­m, Ĺľe <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">identifikĂˇtor
+tĹ™Ă­dy</span> pouĹľijeme, jako kdyby se jednalo o volĂˇnĂ­ funkce. Na tĹ™etĂ­m Ĺ™Ăˇdku
+pouĹľĂ­vĂˇme jednu z operacĂ­ tĹ™Ă­dy <code>Spam</code>, a sice
+<code>slice()</code>. K objektu <code>mySpam</code> se chovĂˇme, jako kdyby to
+byl modul a operace jako kdyby byla funkcĂ­ definovanou uvnitĹ™ modulu. Nakonec
+zpĹ™Ă­stupĹujeme nÄ›kterĂˇ data uchovĂˇvanĂˇ uvnitĹ™ objektu <code>mySpam</code>.
+OpÄ›t pouĹľĂ­vĂˇme zĂˇpis, kterĂ˝ se podobĂˇ prĂˇci s modulem.</p>
 
-<p>Pokud pomineme nutnost vytvoření instance objektu, pak neexistuje
-podstatný rozdíl mezi používáním objektů, které moduly poskytují, a funkcí,
-které se v modulech nacházejí. O jménu objektu můžeme uvažovat jako o
-visačce, která drží odpovídající funkce a proměnné seskupené dohromady.</p>
+<p>Pokud pomineme nutnost vytvoĹ™enĂ­ instance objektu, pak neexistuje
+podstatnĂ˝ rozdĂ­l mezi pouĹľĂ­vĂˇnĂ­m objektĹŻ, kterĂ© moduly poskytujĂ­, a funkcĂ­,
+kterĂ© se v modulech nachĂˇzejĂ­. O jmĂ©nu objektu mĹŻĹľeme uvaĹľovat jako o
+visaÄŤce, kterĂˇ drĹľĂ­ odpovĂ­dajĂ­cĂ­ funkce a promÄ›nnĂ© seskupenĂ© dohromady.</p>
 
-<p>Jiný způsob v pohledu na věc je takový, že objekty reprezentují skutečné
-věci v našem světě, se kterými můžeme &mdash; jako programátoři &mdash; něco
-dělat. Právě toto je pohled, který původně vedl ke zrození myšlenky
-používání objektů v programech. Týkal se zápisu počítačové simulace situací
-v reálném světě.</p>
+<p>JinĂ˝ zpĹŻsob v pohledu na vÄ›c je takovĂ˝, Ĺľe objekty reprezentujĂ­ skuteÄŤnĂ©
+vÄ›ci v naĹˇem svÄ›tÄ›, se kterĂ˝mi mĹŻĹľeme &mdash; jako programĂˇtoĹ™i &mdash; nÄ›co
+dÄ›lat. PrĂˇvÄ› toto je pohled, kterĂ˝ pĹŻvodnÄ› vedl ke zrozenĂ­ myĹˇlenky
+pouĹľĂ­vĂˇnĂ­ objektĹŻ v programech. TĂ˝kal se zĂˇpisu poÄŤĂ­taÄŤovĂ© simulace situacĂ­
+v reĂˇlnĂ©m svÄ›tÄ›.</p>
 
-<p>S objekty můžeme pracovat i v jazycích VBScript i JavaScript. Ve výše
-uvedených příkladech s typem Adresa jsme ve skutečnosti nedělali nic jiného.
-Definovali jsme třídu, vytvořili jsme její instanci a proměnnou, přes kterou
-můžeme zpřístupňovat vlastnosti instance. Znovu si projděte předchozí text a
-zaměřte se na to, co jsme si řekli o třídách a objektech. Zamyslete se nad
-tím, že třídy poskytují mechanismus pro definici nových datových typů tím,
-že svazují dohromady data a operace.</p>
+<p>S objekty mĹŻĹľeme pracovat i v jazycĂ­ch VBScript i JavaScript. Ve vĂ˝Ĺˇe
+uvedenĂ˝ch pĹ™Ă­kladech s typem Adresa jsme ve skuteÄŤnosti nedÄ›lali nic jinĂ©ho.
+Definovali jsme tĹ™Ă­du, vytvoĹ™ili jsme jejĂ­ instanci a promÄ›nnou, pĹ™es kterou
+mĹŻĹľeme zpĹ™Ă­stupĹovat vlastnosti instance. Znovu si projdÄ›te pĹ™edchozĂ­ text a
+zamÄ›Ĺ™te se na to, co jsme si Ĺ™ekli o tĹ™Ă­dĂˇch a objektech. Zamyslete se nad
+tĂ­m, Ĺľe tĹ™Ă­dy poskytujĂ­ mechanismus pro definici novĂ˝ch datovĂ˝ch typĹŻ tĂ­m,
+Ĺľe svazujĂ­ dohromady data a operace.</p>
 
 
-<h4>Specifické operátory jazyka Python</h4>
+<h4>SpecifickĂ© operĂˇtory jazyka Python</h4>
 
-<p>Mým prvotním cílem, kterému jsem zasvětil tuto učebnici, je naučit vás
-programovat. A ačkoliv zde používám jazyk Python, nevidím žádný důvod, proč
-byste si po přečtení tohoto textu nemohli nastudovat něco o jiném jazyce a
-zaměřit se na něj. Dokonce očekávám, že právě toto uděláte, protože
-neexistuje jediný programovací jazyk, který se hodí na všechno. Python není
-výjimkou. Na druhou stranu, protože jsem si vytknul takový cíl, nevěnuji se
-výuce všech rysů jazyka Python, ale zaměřuji se na ty, které můžete obvykle
-nalézt i u jiných jazyků. Výsledkem tohoto rozhodnutí je skutečnost, že
-některé specifické rysy jazyka Python &mdash; i když jsou poměrně mocné
-&mdash; nepopisuji vůbec. Patří mezi ně i speciální operátory.
-U&nbsp;většiny programovacích jazyků můžeme nalézt některé operace, které
-jiné jazyky nepodporují. Často jsou to právě tyto <em>unikátní</em>
-operátory, které dávají novým programovacím jazykům vzniknout a které jsou
-určitě důležitým faktorem určujícím jak populárním se jazyk stane.</p>
+<p>MĂ˝m prvotnĂ­m cĂ­lem, kterĂ©mu jsem zasvÄ›til tuto uÄŤebnici, je nauÄŤit vĂˇs
+programovat. A aÄŤkoliv zde pouĹľĂ­vĂˇm jazyk Python, nevidĂ­m ĹľĂˇdnĂ˝ dĹŻvod, proÄŤ
+byste si po pĹ™eÄŤtenĂ­ tohoto textu nemohli nastudovat nÄ›co o jinĂ©m jazyce a
+zamÄ›Ĺ™it se na nÄ›j. Dokonce oÄŤekĂˇvĂˇm, Ĺľe prĂˇvÄ› toto udÄ›lĂˇte, protoĹľe
+neexistuje jedinĂ˝ programovacĂ­ jazyk, kterĂ˝ se hodĂ­ na vĹˇechno. Python nenĂ­
+vĂ˝jimkou. Na druhou stranu, protoĹľe jsem si vytknul takovĂ˝ cĂ­l, nevÄ›nuji se
+vĂ˝uce vĹˇech rysĹŻ jazyka Python, ale zamÄ›Ĺ™uji se na ty, kterĂ© mĹŻĹľete obvykle
+nalĂ©zt i u jinĂ˝ch jazykĹŻ. VĂ˝sledkem tohoto rozhodnutĂ­ je skuteÄŤnost, Ĺľe
+nÄ›kterĂ© specifickĂ© rysy jazyka Python &mdash; i kdyĹľ jsou pomÄ›rnÄ› mocnĂ©
+&mdash; nepopisuji vĹŻbec. PatĹ™Ă­ mezi nÄ› i speciĂˇlnĂ­ operĂˇtory.
+U&nbsp;vÄ›tĹˇiny programovacĂ­ch jazykĹŻ mĹŻĹľeme nalĂ©zt nÄ›kterĂ© operace, kterĂ©
+jinĂ© jazyky nepodporujĂ­. ÄŚasto jsou to prĂˇvÄ› tyto <em>unikĂˇtnĂ­</em>
+operĂˇtory, kterĂ© dĂˇvajĂ­ novĂ˝m programovacĂ­m jazykĹŻm vzniknout a kterĂ© jsou
+urÄŤitÄ› dĹŻleĹľitĂ˝m faktorem urÄŤujĂ­cĂ­m jak populĂˇrnĂ­m se jazyk stane.</p>
 
-<p>Python například podporuje takové netradiční operace, jako jsou získání
-výřezu vnitřní části seznamu (nebo řetězce nebo n-tice <span class="trnote"
-title="Poznámka&nbsp;překladatele"> &mdash; anglicky <em>slicing</em>
-[slajsing]</span>, zapisujeme <code>spam[X:Y]</code>) a operaci přiřazení
-n-tice (<code>X, Y = 12, 34</code>), které nám umožňuje zapsat přiřazení
-více hodnot více proměnným najednou. <span class="trnote" title="Poznámka
-překladatele">(Posledně uvedenému příkazu se říká také násobný nebo
-paralelní přiřazovací příkaz.)</span></p> 
+<p>Python napĹ™Ă­klad podporuje takovĂ© netradiÄŤnĂ­ operace, jako jsou zĂ­skĂˇnĂ­
+vĂ˝Ĺ™ezu vnitĹ™nĂ­ ÄŤĂˇsti seznamu (nebo Ĺ™etÄ›zce nebo n-tice <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele"> &mdash; anglicky <em>slicing</em>
+[slajsing]</span>, zapisujeme <code>spam[X:Y]</code>) a operaci pĹ™iĹ™azenĂ­
+n-tice (<code>X, Y = 12, 34</code>), kterĂ© nĂˇm umoĹľĹuje zapsat pĹ™iĹ™azenĂ­
+vĂ­ce hodnot vĂ­ce promÄ›nnĂ˝m najednou. <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">(PoslednÄ› uvedenĂ©mu pĹ™Ă­kazu se Ĺ™Ă­kĂˇ takĂ© nĂˇsobnĂ˝ nebo
+paralelnĂ­ pĹ™iĹ™azovacĂ­ pĹ™Ă­kaz.)</span></p>
 
-<p>Python poskytuje i prostředek k provedení požadované operace nad každým
-členem kolekce &mdash; slouží k tomu funkce <code>map()</code>. Takových
-věcí je mnohem více. Často se říká, že "Python dostáváte i s přiloženými
-bateriemi". Pokud se budete chtít dozvědět, jak tyto specifické operace
-jazyka Python fungují, budete muset nahlédnout do jeho dokumentace.</p>
+<p>Python poskytuje i prostĹ™edek k provedenĂ­ poĹľadovanĂ© operace nad kaĹľdĂ˝m
+ÄŤlenem kolekce &mdash; slouĹľĂ­ k tomu funkce <code>map()</code>. TakovĂ˝ch
+vÄ›cĂ­ je mnohem vĂ­ce. ÄŚasto se Ĺ™Ă­kĂˇ, Ĺľe "Python dostĂˇvĂˇte i s pĹ™iloĹľenĂ˝mi
+bateriemi". Pokud se budete chtĂ­t dozvÄ›dÄ›t, jak tyto specifickĂ© operace
+jazyka Python fungujĂ­, budete muset nahlĂ©dnout do jeho dokumentace.</p>
 
-<p>Nakonec bych chtěl upozornit na to, že ačkoliv říkám, že tyto operace
-jsou specifické pro jazyk Python, neříkám, že je nemůžete nalézt v žádném
-jiném jazyce. Spíše chci říci, že je v každém jazyce nenaleznete
-<em>všechny</em>. Operace, kterými se zabýváme v hlavním textu, jsou v
-nějaké podobě obecně dostupné ve všech moderních programovacích
-jazycích.</p>
+<p>Nakonec bych chtÄ›l upozornit na to, Ĺľe aÄŤkoliv Ĺ™Ă­kĂˇm, Ĺľe tyto operace
+jsou specifickĂ© pro jazyk Python, neĹ™Ă­kĂˇm, Ĺľe je nemĹŻĹľete nalĂ©zt v ĹľĂˇdnĂ©m
+jinĂ©m jazyce. SpĂ­Ĺˇe chci Ĺ™Ă­ci, Ĺľe je v kaĹľdĂ©m jazyce nenaleznete
+<em>vĹˇechny</em>. Operace, kterĂ˝mi se zabĂ˝vĂˇme v hlavnĂ­m textu, jsou v
+nÄ›jakĂ© podobÄ› obecnÄ› dostupnĂ© ve vĹˇech modernĂ­ch programovacĂ­ch
+jazycĂ­ch.</p>
 
-<p>Tím uzavíráme náš pohled na programátorské suroviny. Nyní se posuňme k
-více vzrušujícímu tématu postupů <span class="trnote"
-title="Poznámka překladatele">(programovacích technik)</span> a uvidíme, 
-jak můžeme zmíněné suroviny využít.</p>
+<p>TĂ­m uzavĂ­rĂˇme nĂˇĹˇ pohled na programĂˇtorskĂ© suroviny. NynĂ­ se posuĹme k
+vĂ­ce vzruĹˇujĂ­cĂ­mu tĂ©matu postupĹŻ <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(programovacĂ­ch technik)</span> a uvidĂ­me,
+jak mĹŻĹľeme zmĂ­nÄ›nĂ© suroviny vyuĹľĂ­t.</p>
 
 
 <div class="details">
-<h4>Podrobněji vysvětlený příklad Adresa</h4>
+<h4>PodrobnÄ›ji vysvÄ›tlenĂ˝ pĹ™Ă­klad Adresa</h4>
 
-<p>Jak už jsem řekl dříve, detaily tohoto příkladu budou vysvětleny později.
-Někteří čtenáři však měli se zprovozněním pythonovského příkladu problémy.
-Tato poznámka vysvětluje jeho kód řádek po řádku. Úplný zápis příkladu
-vypadá následovně:</p>
+<p>Jak uĹľ jsem Ĺ™ekl dĹ™Ă­ve, detaily tohoto pĹ™Ă­kladu budou vysvÄ›tleny pozdÄ›ji.
+NÄ›kteĹ™Ă­ ÄŤtenĂˇĹ™i vĹˇak mÄ›li se zprovoznÄ›nĂ­m pythonovskĂ©ho pĹ™Ă­kladu problĂ©my.
+Tato poznĂˇmka vysvÄ›tluje jeho kĂłd Ĺ™Ăˇdek po Ĺ™Ăˇdku. ĂšplnĂ˝ zĂˇpis pĹ™Ă­kladu
+vypadĂˇ nĂˇsledovnÄ›:</p>
 
 <pre>
 >>> class Adresa:
@@ -1979,133 +1979,133 @@ vypadá následovně:</p>
 >>> print Adr.CisloDomu, Adr.Ulice
 </pre>
 
-<p>Zde je vysvětlení:</p> 
+<p>Zde je vysvÄ›tlenĂ­:</p>
 
 <pre>
 >>> class Adresa:
 </pre>
 
-<p>Příkaz <code>class</code> (třída) říká, že hodláme definovat nový typ,
-který se v tomto případě nazývá <code>Adresa</code>. Dvojtečka vyjadřuje
-skutečnost, že všechny následující odsazené řádky budou součástí definice
-třídy. Definice končí prvním neprázdným řádkem, který není vůči prvnímu
-řádku definice třídy Adresa odsazen. Pokud používáte prostředí IDLE, pak si
-můžete všimnout, že editor <span class="trnote" title="Poznámka překladatele"
->po stisku klávesy Enter</span> další řádek automaticky odsadil. Pokud jste
-Python spustili z příkazového řádku okna MS-DOS, pak na vyzývacím řádku
-překladače jazyka Python musíte provést požadované odsazení ručně<span
-class="trnote" title="Poznámka překladatele">, vložením mezer</span>.
-Překladači jazyka Python nezáleží na tom, o kolik pozic odsadíte, pokud
-budete odsazovat pořád o stejnou hodnotu.</p>
+<p>PĹ™Ă­kaz <code>class</code> (tĹ™Ă­da) Ĺ™Ă­kĂˇ, Ĺľe hodlĂˇme definovat novĂ˝ typ,
+kterĂ˝ se v tomto pĹ™Ă­padÄ› nazĂ˝vĂˇ <code>Adresa</code>. DvojteÄŤka vyjadĹ™uje
+skuteÄŤnost, Ĺľe vĹˇechny nĂˇsledujĂ­cĂ­ odsazenĂ© Ĺ™Ăˇdky budou souÄŤĂˇstĂ­ definice
+tĹ™Ă­dy. Definice konÄŤĂ­ prvnĂ­m neprĂˇzdnĂ˝m Ĺ™Ăˇdkem, kterĂ˝ nenĂ­ vĹŻÄŤi prvnĂ­mu
+Ĺ™Ăˇdku definice tĹ™Ă­dy Adresa odsazen. Pokud pouĹľĂ­vĂˇte prostĹ™edĂ­ IDLE, pak si
+mĹŻĹľete vĹˇimnout, Ĺľe editor <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>po stisku klĂˇvesy Enter</span> dalĹˇĂ­ Ĺ™Ăˇdek automaticky odsadil. Pokud jste
+Python spustili z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku okna MS-DOS, pak na vyzĂ˝vacĂ­m Ĺ™Ăˇdku
+pĹ™ekladaÄŤe jazyka Python musĂ­te provĂ©st poĹľadovanĂ© odsazenĂ­ ruÄŤnÄ›<span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">, vloĹľenĂ­m mezer</span>.
+PĹ™ekladaÄŤi jazyka Python nezĂˇleĹľĂ­ na tom, o kolik pozic odsadĂ­te, pokud
+budete odsazovat poĹ™Ăˇd o stejnou hodnotu.</p>
 
 <pre>
 ...     def __init__(self, Dum, Ul, Mesto, PSC):
 </pre>
 
-<p>První položkou uvnitř definice naší třídy je to, čemu říkáme <em>definice
-metody</em>. Důležitým detailem je to, že jméno <span class="trnote"
-title="Poznámka&nbsp;překladatele">konkrétně této</span> metody začíná a
-končí dvojicí znaků podtržení. Jde o konvenci pro zápis jmen, kterým Python
-přisuzuje zvláštní význam. Tato konkrétní metoda se nazývá
-<code>__init__</code> a jde o speciální operaci, kterou Python <span
-class="trnote" title="Poznámka&nbsp;překladatele">automaticky</span> provede
-hned po vytvoření instance naší nové třídy &mdash; jak uvidíme za chvíli.
-Dvojtečka, tak jako v předchozím případě, jednoduše překladači jazyka Python
-říká, že následující skupina odsazených řádků tvoří definici této
+<p>PrvnĂ­ poloĹľkou uvnitĹ™ definice naĹˇĂ­ tĹ™Ă­dy je to, ÄŤemu Ĺ™Ă­kĂˇme <em>definice
+metody</em>. DĹŻleĹľitĂ˝m detailem je to, Ĺľe jmĂ©no <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">konkrĂ©tnÄ› tĂ©to</span> metody zaÄŤĂ­nĂˇ a
+konÄŤĂ­ dvojicĂ­ znakĹŻ podtrĹľenĂ­. Jde o konvenci pro zĂˇpis jmen, kterĂ˝m Python
+pĹ™isuzuje zvlĂˇĹˇtnĂ­ vĂ˝znam. Tato konkrĂ©tnĂ­ metoda se nazĂ˝vĂˇ
+<code>__init__</code> a jde o speciĂˇlnĂ­ operaci, kterou Python <span
+class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">automaticky</span> provede
+hned po vytvoĹ™enĂ­ instance naĹˇĂ­ novĂ© tĹ™Ă­dy &mdash; jak uvidĂ­me za chvĂ­li.
+DvojteÄŤka, tak jako v pĹ™edchozĂ­m pĹ™Ă­padÄ›, jednoduĹˇe pĹ™ekladaÄŤi jazyka Python
+Ĺ™Ă­kĂˇ, Ĺľe nĂˇsledujĂ­cĂ­ skupina odsazenĂ˝ch Ĺ™ĂˇdkĹŻ tvoĹ™Ă­ definici tĂ©to
 metody.</p>
 
 <pre>
 ...         self.CisloDomu = Dum
 </pre>
 
-<p>Tento řádek a tři následující řádky přiřazují hodnoty vnitřním <span
-class="trnote" title="Poznámka překladatele">(datovým)</span> položkám
-našeho objektu. Jsou odsazeny vůči řádku s příkazem <code>def</code>,
-abychom překladači jazyka Python naznačili, že představují skutečnou
-definici těla operace <code>__init__</code>. Prázdný řádek říká interpretu
-jazyka Python, že definice třídy byla ukončena, takže Python znovu zobrazí
-vyzývací řádek ve tvaru '<code>>>>&nbsp;</code>'.</p>
+<p>Tento Ĺ™Ăˇdek a tĹ™i nĂˇsledujĂ­cĂ­ Ĺ™Ăˇdky pĹ™iĹ™azujĂ­ hodnoty vnitĹ™nĂ­m <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(datovĂ˝m)</span> poloĹľkĂˇm
+naĹˇeho objektu. Jsou odsazeny vĹŻÄŤi Ĺ™Ăˇdku s pĹ™Ă­kazem <code>def</code>,
+abychom pĹ™ekladaÄŤi jazyka Python naznaÄŤili, Ĺľe pĹ™edstavujĂ­ skuteÄŤnou
+definici tÄ›la operace <code>__init__</code>. PrĂˇzdnĂ˝ Ĺ™Ăˇdek Ĺ™Ă­kĂˇ interpretu
+jazyka Python, Ĺľe definice tĹ™Ă­dy byla ukonÄŤena, takĹľe Python znovu zobrazĂ­
+vyzĂ˝vacĂ­ Ĺ™Ăˇdek ve tvaru '<code>>>>&nbsp;</code>'.</p>
 
 <pre>
 >>> Adr = Adresa(7, "Havlickova", "Stare Mesto", "790 58")
 </pre>
 
-<p>Tento řádek zajistí vytvoření nové instance <span class="trnote"
-title="Poznámka překladatele">(tj. nového objektu)</span> typu
-<code>Adresa</code> a Python <span class="trnote" title="Poznámka překladatele" 
->automaticky</span> použije výše definovanou operaci <code>__init__</code> k
-přiřazení zadaných hodnot do vnitřních položek <span class="trnote"
-title="Poznámka překladatele">objektu</span>. Vytvořená instance je
-přiřazena do proměnné <code>Adr</code> stejným způsobem, jako by byla
-přiřazena hodnota jiného datového typu.</p>
+<p>Tento Ĺ™Ăˇdek zajistĂ­ vytvoĹ™enĂ­ novĂ© instance <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(tj. novĂ©ho objektu)</span> typu
+<code>Adresa</code> a Python <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>automaticky</span> pouĹľije vĂ˝Ĺˇe definovanou operaci <code>__init__</code> k
+pĹ™iĹ™azenĂ­ zadanĂ˝ch hodnot do vnitĹ™nĂ­ch poloĹľek <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">objektu</span>. VytvoĹ™enĂˇ instance je
+pĹ™iĹ™azena do promÄ›nnĂ© <code>Adr</code> stejnĂ˝m zpĹŻsobem, jako by byla
+pĹ™iĹ™azena hodnota jinĂ©ho datovĂ©ho typu.</p>
 
 <pre>
 >>> print Adr.CisloDomu, Adr.Ulice
 </pre>
 
-<p>Nyní tiskneme hodnoty dvou vnitřních položek objektu, které jsme
-zpřístupnili pomocí tečkového operátoru.</p>
+<p>NynĂ­ tiskneme hodnoty dvou vnitĹ™nĂ­ch poloĹľek objektu, kterĂ© jsme
+zpĹ™Ă­stupnili pomocĂ­ teÄŤkovĂ©ho operĂˇtoru.</p>
 
-<p>Jak jsem již řekl, dalšími detaily se budeme v této učebnici zabývat
-později. Klíčový poznatek, který byste si z tohoto měli odnést je, že nám
-Python umožňuje vytvořit náš vlastní datový typ a používat ho stejně snadno
-jako vestavěné typy.</p>
+<p>Jak jsem jiĹľ Ĺ™ekl, dalĹˇĂ­mi detaily se budeme v tĂ©to uÄŤebnici zabĂ˝vat
+pozdÄ›ji. KlĂ­ÄŤovĂ˝ poznatek, kterĂ˝ byste si z tohoto mÄ›li odnĂ©st je, Ĺľe nĂˇm
+Python umoĹľĹuje vytvoĹ™it nĂˇĹˇ vlastnĂ­ datovĂ˝ typ a pouĹľĂ­vat ho stejnÄ› snadno
+jako vestavÄ›nĂ© typy.</p>
 </div>
 
 <div class="remember">
 <p class="title">Zapamatujte si</p>
 <ul>
 
-<li>Přes proměnné se odkazujeme na data. Někdy musí být proměnné deklarovány
-před tím, než je definována jejich hodnota.</li>
+<li>PĹ™es promÄ›nnĂ© se odkazujeme na data. NÄ›kdy musĂ­ bĂ˝t promÄ›nnĂ© deklarovĂˇny
+pĹ™ed tĂ­m, neĹľ je definovĂˇna jejich hodnota.</li>
 
-<li>Hodnoty dat mohou být různých typů. Operace, které lze úspěšně
-použít, souvisí s typem dat, se kterými pracujeme.</li>
+<li>Hodnoty dat mohou bĂ˝t rĹŻznĂ˝ch typĹŻ. Operace, kterĂ© lze ĂşspÄ›ĹˇnÄ›
+pouĹľĂ­t, souvisĂ­ s typem dat, se kterĂ˝mi pracujeme.</li>
 
-<li>K jednoduchým datovým typům patří typy pro znakové řetězce<sup
+<li>K jednoduchĂ˝m datovĂ˝m typĹŻm patĹ™Ă­ typy pro znakovĂ© Ĺ™etÄ›zce<sup
 class="trnote"><a href="cztuttrn.html#Pdata_string" id="Bdata_string"
-title="Jiný&nbsp;názor..." >[7]</a></sup>, čísla a boolovské neboli
-pravdivostní hodnoty.</li>
+title="JinĂ˝&nbsp;nĂˇzor..." >[7]</a></sup>, ÄŤĂ­sla a boolovskĂ© neboli
+pravdivostnĂ­ hodnoty.</li>
 
-<li>Ke složeným datovým typům můžeme řadit kolekce, soubory, datum <span
-class="trnote" title="Poznámka překladatele">(v podobě záznamu se složkami
-pro den, měsíc, atd.)</span> a uživatelem definované datové typy.</li>
+<li>Ke sloĹľenĂ˝m datovĂ˝m typĹŻm mĹŻĹľeme Ĺ™adit kolekce, soubory, datum <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(v podobÄ› zĂˇznamu se sloĹľkami
+pro den, mÄ›sĂ­c, atd.)</span> a uĹľivatelem definovanĂ© datovĂ© typy.</li>
 
-<li>Každý programovací jazyk definuje řadu operátorů. Součástí jeho studia
-je vždy seznámení se s jeho datovými typy a s operacemi, které jsou pro tyto
+<li>KaĹľdĂ˝ programovacĂ­ jazyk definuje Ĺ™adu operĂˇtorĹŻ. SouÄŤĂˇstĂ­ jeho studia
+je vĹľdy seznĂˇmenĂ­ se s jeho datovĂ˝mi typy a s operacemi, kterĂ© jsou pro tyto
 typy k dispozici.</li>
 
-<li>Stejný operátor (například sčítání) může být užíván pro různé datové
-typy, ale výsledky se nemusí shodovat nebo dokonce spolu nemusí nijak
-souviset. <span class="trnote" title="Poznámka překladatele">(Viz příklad
-sčítání čísel a 'sčítání' řetězců.)</span></li>
+<li>StejnĂ˝ operĂˇtor (napĹ™Ă­klad sÄŤĂ­tĂˇnĂ­) mĹŻĹľe bĂ˝t uĹľĂ­vĂˇn pro rĹŻznĂ© datovĂ©
+typy, ale vĂ˝sledky se nemusĂ­ shodovat nebo dokonce spolu nemusĂ­ nijak
+souviset. <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(Viz pĹ™Ă­klad
+sÄŤĂ­tĂˇnĂ­ ÄŤĂ­sel a 'sÄŤĂ­tĂˇnĂ­' Ĺ™etÄ›zcĹŻ.)</span></li>
 
 </ul>
 </div>
 
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutseq1.html" title="Jednoduché posloupnosti">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutseq2.html" title="Další posloupnosti">další</a> 
+<p class="navig">[
+<a href="cztutseq1.html" title="JednoduchĂ© posloupnosti">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutseq2.html" title="DalĹˇĂ­ posloupnosti">dalĹˇĂ­</a>
 ]</p>
 
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutdata.html,v 1.14 2005/09/03 13:07:39 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutdata.html,v 1.14 2005/09/03 13:07:39 petr Exp $</p>
 </div>

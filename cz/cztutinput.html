@@ -1,346 +1,346 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Konverzace s uživatelem</title>
+  <title>Jak se nauÄŤit programovat: Konverzace s uĹľivatelem</title>
 </head>
 <body>
 
-<h2>Konverzace s uživatelem</h2>
+<h2>Konverzace s uĹľivatelem</h2>
 
 <div class="whatcovered">
-<p class="title">O čem si budeme povídat?</p>
+<p class="title">O ÄŤem si budeme povĂ­dat?</p>
 <ul>
-<li>Řekneme si, jak máme dát uživateli najevo, že má vložit data, a jak je
-    můžeme přečíst poté, když je vložil.</li>
-<li>Ukážeme si načítání jak numerických dat, tak řetězců.</li>
-<li>Zmíníme se o koncepci <em>stdin</em> a <em>stdout</em> <span 
-    class="trnote" title="Poznámka&nbsp;překladatele">(zařízení pro 
-    standardní vstup a standardní výstup)</span>.</li>
-<li>Podíváme se na rozhraní s charakterem příkazového řádku a na to, 
-    jak můžeme získat údaje, zapsané v podobě parametrů na příkazovém řádku 
-    <span class="trnote" title="Poznámka&nbsp;překladatele">při spuštění 
+<li>Ĺekneme si, jak mĂˇme dĂˇt uĹľivateli najevo, Ĺľe mĂˇ vloĹľit data, a jak je
+    mĹŻĹľeme pĹ™eÄŤĂ­st potĂ©, kdyĹľ je vloĹľil.</li>
+<li>UkĂˇĹľeme si naÄŤĂ­tĂˇnĂ­ jak numerickĂ˝ch dat, tak Ĺ™etÄ›zcĹŻ.</li>
+<li>ZmĂ­nĂ­me se o koncepci <em>stdin</em> a <em>stdout</em> <span
+    class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(zaĹ™Ă­zenĂ­ pro
+    standardnĂ­ vstup a standardnĂ­ vĂ˝stup)</span>.</li>
+<li>PodĂ­vĂˇme se na rozhranĂ­ s charakterem pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku a na to,
+    jak mĹŻĹľeme zĂ­skat Ăşdaje, zapsanĂ© v podobÄ› parametrĹŻ na pĹ™Ă­kazovĂ©m Ĺ™Ăˇdku
+    <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">pĹ™i spuĹˇtÄ›nĂ­
     programu</span>.</li>
 </ul>
 
 </div>
 
-<p>Naše programy zatím používaly pouze statická data. Taková data jsme
-mohli, pokud jsme to potřebovali, prozkoumat ještě před spuštěním programu,
-takže jsme program mohli napsat tak, aby jim vyhovoval. Ale většina programů
-taková není. Většina programů očekává, že budou řízeny uživatelem.
-Přinejmenším očekávají, že jim uživatel sdělí jaký soubor mají otevřít,
-upravit jeho obsah a podobně. Jiné programy si v kritických místech od
-uživatele vyžádají vstup dat. A právě to se v programování nazývá
-<em>uživatelským rozhraním</em>. Návrhem a budováním uživatelského rozhraní
-se v komerčních programech zabývají specialisté, kteří byli školeni v
-oblastech styku člověka se strojem <span class="trnote"
-title="Originální&nbsp;pojem">(human-machine interaction)</span> a
-ergonomie. Běžný programátor je takového luxusu ušetřen, takže se musí řídit
-citem a musí pečlivě zvažovat, jakým způsobem budou uživatelé program
-používat.</p>
+<p>NaĹˇe programy zatĂ­m pouĹľĂ­valy pouze statickĂˇ data. TakovĂˇ data jsme
+mohli, pokud jsme to potĹ™ebovali, prozkoumat jeĹˇtÄ› pĹ™ed spuĹˇtÄ›nĂ­m programu,
+takĹľe jsme program mohli napsat tak, aby jim vyhovoval. Ale vÄ›tĹˇina programĹŻ
+takovĂˇ nenĂ­. VÄ›tĹˇina programĹŻ oÄŤekĂˇvĂˇ, Ĺľe budou Ĺ™Ă­zeny uĹľivatelem.
+PĹ™inejmenĹˇĂ­m oÄŤekĂˇvajĂ­, Ĺľe jim uĹľivatel sdÄ›lĂ­ jakĂ˝ soubor majĂ­ otevĹ™Ă­t,
+upravit jeho obsah a podobnÄ›. JinĂ© programy si v kritickĂ˝ch mĂ­stech od
+uĹľivatele vyĹľĂˇdajĂ­ vstup dat. A prĂˇvÄ› to se v programovĂˇnĂ­ nazĂ˝vĂˇ
+<em>uĹľivatelskĂ˝m rozhranĂ­m</em>. NĂˇvrhem a budovĂˇnĂ­m uĹľivatelskĂ©ho rozhranĂ­
+se v komerÄŤnĂ­ch programech zabĂ˝vajĂ­ specialistĂ©, kteĹ™Ă­ byli Ĺˇkoleni v
+oblastech styku ÄŤlovÄ›ka se strojem <span class="trnote"
+title="OriginĂˇlnĂ­&nbsp;pojem">(human-machine interaction)</span> a
+ergonomie. BÄ›ĹľnĂ˝ programĂˇtor je takovĂ©ho luxusu uĹˇetĹ™en, takĹľe se musĂ­ Ĺ™Ă­dit
+citem a musĂ­ peÄŤlivÄ› zvaĹľovat, jakĂ˝m zpĹŻsobem budou uĹľivatelĂ© program
+pouĹľĂ­vat.</p>
 
-<p>Nejzákladnějším rysem uživatelského rozhraní je zobrazování výstupu. S
-jeho nejprimitivnější formou jsme se již seznámili v podobě pythonovského
-příkazu <code>print</code> (a také v podobě funkce <code>write()</code>
-jazyka JavaScript a v podobě dialogu <code>MsgBox</code> z jazyka VBScript).
-Další krok v návrhu uživatelského rozhraní spočívá v přímém získávání
-<em>vstupu</em> od uživatele. Nejjednodušší způsob, jak to zařídit, spočívá
-v tom, že se program za běhu na vstupní údaj zeptá. Druhý nejjednodušší
-způsob vyžaduje od uživatele, aby potřebné informace zadal při spuštění
-programu <span class="trnote" title="Poznámka&nbsp;překladatele">(jako
-parametry programu)</span>. A konečně se dostáváme i ke <em>grafickému
-uživatelskému rozhraní</em> (GUI <span class="trnote"
-title="Poznámka&nbsp;překladatele">= Graphical User Interface [grafikl júzr
-interfejs]</span>) s různými vstupními poli a dalšími prvky. V této části se
-podíváme na první dvě metody. S programováním grafického uživatelského
-rozhraní se seznámíme v této učebnici až mnohem později, protože jde o
-problematiku výrazně složitější.</p>
+<p>NejzĂˇkladnÄ›jĹˇĂ­m rysem uĹľivatelskĂ©ho rozhranĂ­ je zobrazovĂˇnĂ­ vĂ˝stupu. S
+jeho nejprimitivnÄ›jĹˇĂ­ formou jsme se jiĹľ seznĂˇmili v podobÄ› pythonovskĂ©ho
+pĹ™Ă­kazu <code>print</code> (a takĂ© v podobÄ› funkce <code>write()</code>
+jazyka JavaScript a v podobÄ› dialogu <code>MsgBox</code> z jazyka VBScript).
+DalĹˇĂ­ krok v nĂˇvrhu uĹľivatelskĂ©ho rozhranĂ­ spoÄŤĂ­vĂˇ v pĹ™Ă­mĂ©m zĂ­skĂˇvĂˇnĂ­
+<em>vstupu</em> od uĹľivatele. NejjednoduĹˇĹˇĂ­ zpĹŻsob, jak to zaĹ™Ă­dit, spoÄŤĂ­vĂˇ
+v tom, Ĺľe se program za bÄ›hu na vstupnĂ­ Ăşdaj zeptĂˇ. DruhĂ˝ nejjednoduĹˇĹˇĂ­
+zpĹŻsob vyĹľaduje od uĹľivatele, aby potĹ™ebnĂ© informace zadal pĹ™i spuĹˇtÄ›nĂ­
+programu <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(jako
+parametry programu)</span>. A koneÄŤnÄ› se dostĂˇvĂˇme i ke <em>grafickĂ©mu
+uĹľivatelskĂ©mu rozhranĂ­</em> (GUI <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">= Graphical User Interface [grafikl jĂşzr
+interfejs]</span>) s rĹŻznĂ˝mi vstupnĂ­mi poli a dalĹˇĂ­mi prvky. V tĂ©to ÄŤĂˇsti se
+podĂ­vĂˇme na prvnĂ­ dvÄ› metody. S programovĂˇnĂ­m grafickĂ©ho uĹľivatelskĂ©ho
+rozhranĂ­ se seznĂˇmĂ­me v tĂ©to uÄŤebnici aĹľ mnohem pozdÄ›ji, protoĹľe jde o
+problematiku vĂ˝raznÄ› sloĹľitÄ›jĹˇĂ­.</p>
 
-<p>Při využití interaktivního režimu systému Python v okně IDLE nebo v
-terminálovém okně operačního systému si nyní ukážeme, jak lze od uživatele
-získat data. Poté si ukážeme, jak lze totéž provést přímo z programu.
+<p>PĹ™i vyuĹľitĂ­ interaktivnĂ­ho reĹľimu systĂ©mu Python v oknÄ› IDLE nebo v
+terminĂˇlovĂ©m oknÄ› operaÄŤnĂ­ho systĂ©mu si nynĂ­ ukĂˇĹľeme, jak lze od uĹľivatele
+zĂ­skat data. PotĂ© si ukĂˇĹľeme, jak lze totĂ©Ĺľ provĂ©st pĹ™Ă­mo z programu.
 </p>
 
 
 
-<h3>>>> print raw_input(u"Něco napište: ")<sup class="trnote"><a
-href="cztuttrn.html#Pinput_noascii" id="Binput_noascii" 
-title="Poznámka k zápisu českých řetězců s diakritikou">[1]</a></sup></h3>
+<h3>>>> print raw_input(u"NÄ›co napiĹˇte: ")<sup class="trnote"><a
+href="cztuttrn.html#Pinput_noascii" id="Binput_noascii"
+title="PoznĂˇmka k zĂˇpisu ÄŤeskĂ˝ch Ĺ™etÄ›zcĹŻ s diakritikou">[1]</a></sup></h3>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Při pokusech s českými texty
-<em>v interaktivním režimu</em> můžete narazit na problémy. Při pokusech 
-proto doporučuji nepoužívat řetězce v kódování Unicode (viz předchozí odkaz na podrobnější
-poznámku). V interaktivním režimu se raději úplně vyhněte používání českých znaků.
-Pokud ovšem kód uložíte do souboru a dodržíte pravidla pro práci s řetězci v
-kódování Unicode, měly by programy korektně fungovat.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> PĹ™i pokusech s ÄŤeskĂ˝mi texty
+<em>v interaktivnĂ­m reĹľimu</em> mĹŻĹľete narazit na problĂ©my. PĹ™i pokusech
+proto doporuÄŤuji nepouĹľĂ­vat Ĺ™etÄ›zce v kĂłdovĂˇnĂ­ Unicode (viz pĹ™edchozĂ­ odkaz na podrobnÄ›jĹˇĂ­
+poznĂˇmku). V interaktivnĂ­m reĹľimu se radÄ›ji ĂşplnÄ› vyhnÄ›te pouĹľĂ­vĂˇnĂ­ ÄŤeskĂ˝ch znakĹŻ.
+Pokud ovĹˇem kĂłd uloĹľĂ­te do souboru a dodrĹľĂ­te pravidla pro prĂˇci s Ĺ™etÄ›zci v
+kĂłdovĂˇnĂ­ Unicode, mÄ›ly by programy korektnÄ› fungovat.</p>
 
-<p>Jak můžete pozorovat, <code>raw_input()</code> jednoduše zobrazí zadanou
-<em>výzvu</em> &mdash; v našem případě <code>"Něco&nbsp;napište: "</code>
-&mdash; a zachytí vše, co uživatel napíše jako odpověď. Příkaz
-<code>print</code> pak tuto odpověď zobrazí. Odpověď bychom ale mohli místo
-zobrazení přiřadit do proměnné:</p>
+<p>Jak mĹŻĹľete pozorovat, <code>raw_input()</code> jednoduĹˇe zobrazĂ­ zadanou
+<em>vĂ˝zvu</em> &mdash; v naĹˇem pĹ™Ă­padÄ› <code>"NÄ›co&nbsp;napiĹˇte: "</code>
+&mdash; a zachytĂ­ vĹˇe, co uĹľivatel napĂ­Ĺˇe jako odpovÄ›ÄŹ. PĹ™Ă­kaz
+<code>print</code> pak tuto odpovÄ›ÄŹ zobrazĂ­. OdpovÄ›ÄŹ bychom ale mohli mĂ­sto
+zobrazenĂ­ pĹ™iĹ™adit do promÄ›nnĂ©:</p>
 
 <pre>
->>> odpoved = raw_input(u"Jak se jmenuješ? ")
->>> print u"Tak ty se jmenuješ %s! Jsem rád, že jsem tě poznal." % odpoved
+>>> odpoved = raw_input(u"Jak se jmenujeĹˇ? ")
+>>> print u"Tak ty se jmenujeĹˇ %s! Jsem rĂˇd, Ĺľe jsem tÄ› poznal." % odpoved
 </pre>
 
-<p>Příkaz <code>raw_input()</code> má bratrance jménem <code>input()</code>.
-Rozdíl spočívá v tom, že <code>raw_input()</code> sesbírá uživatelem napsané
-znaky a chápe je jako textový řetězec, zatímco <code>input()</code> se z nich
-bude snažit vytvořit číslo. Pokud například uživatel napíše znaky
+<p>PĹ™Ă­kaz <code>raw_input()</code> mĂˇ bratrance jmĂ©nem <code>input()</code>.
+RozdĂ­l spoÄŤĂ­vĂˇ v tom, Ĺľe <code>raw_input()</code> sesbĂ­rĂˇ uĹľivatelem napsanĂ©
+znaky a chĂˇpe je jako textovĂ˝ Ĺ™etÄ›zec, zatĂ­mco <code>input()</code> se z nich
+bude snaĹľit vytvoĹ™it ÄŤĂ­slo. Pokud napĹ™Ă­klad uĹľivatel napĂ­Ĺˇe znaky
 '<code>1</code>', '<code>2</code>' a '<code>3</code>', pak
-<code>input</code> tyto tři znaky přečte a převede je na číslo
+<code>input</code> tyto tĹ™i znaky pĹ™eÄŤte a pĹ™evede je na ÄŤĂ­slo
 <em>123</em>.</p>
 
-<p>Použijme nyní příkaz <code>input()</code> k tomu, aby uživatel rozhodl,
-která tabulka násobků se má tisknout:</p>
+<p>PouĹľijme nynĂ­ pĹ™Ă­kaz <code>input()</code> k tomu, aby uĹľivatel rozhodl,
+kterĂˇ tabulka nĂˇsobkĹŻ se mĂˇ tisknout:</p>
 
 <pre>
-nasobitel = input(u"Vyberte hodnotu násobitele: ")
+nasobitel = input(u"Vyberte hodnotu nĂˇsobitele: ")
 for j in range(1, 13):
     print "%d x %d = %d" % (j, nasobitel, j * nasobitel)
 </pre>
 
-<p>Použití příkazu <code>input</code> je naneštěstí velmi záludné. Je to dáno
-tím, že <code>input()</code> se nesnaží vyhodnocovat jen čísla, ale snaží se
-na libovolný vstup pohlížet jako na kód v jazyce Python a snaží se jej
-provést. To znamená, že by znalý uživatel se zákeřnými úmysly mohl napsat
-příkaz jazyka Python, který by například vymazal nějaký soubor na vašem PC! Z
-tohoto důvodu bude lepší, když se budete držet příkazu
-<code>raw_input()</code> a výsledný řetězec si budete převádět na potřebný
-datový typ použitím zabudovaných konverzních funkcí jazyka Python. Je to v
-podstatě velmi snadné:</p>
+<p>PouĹľitĂ­ pĹ™Ă­kazu <code>input</code> je naneĹˇtÄ›stĂ­ velmi zĂˇludnĂ©. Je to dĂˇno
+tĂ­m, Ĺľe <code>input()</code> se nesnaĹľĂ­ vyhodnocovat jen ÄŤĂ­sla, ale snaĹľĂ­ se
+na libovolnĂ˝ vstup pohlĂ­Ĺľet jako na kĂłd v jazyce Python a snaĹľĂ­ se jej
+provĂ©st. To znamenĂˇ, Ĺľe by znalĂ˝ uĹľivatel se zĂˇkeĹ™nĂ˝mi Ăşmysly mohl napsat
+pĹ™Ă­kaz jazyka Python, kterĂ˝ by napĹ™Ă­klad vymazal nÄ›jakĂ˝ soubor na vaĹˇem PC! Z
+tohoto dĹŻvodu bude lepĹˇĂ­, kdyĹľ se budete drĹľet pĹ™Ă­kazu
+<code>raw_input()</code> a vĂ˝slednĂ˝ Ĺ™etÄ›zec si budete pĹ™evĂˇdÄ›t na potĹ™ebnĂ˝
+datovĂ˝ typ pouĹľitĂ­m zabudovanĂ˝ch konverznĂ­ch funkcĂ­ jazyka Python. Je to v
+podstatÄ› velmi snadnĂ©:</p>
 
 <pre>
->>> nasobitel = <b>int(</b>raw_input(u"Vyberte hodnotu násobitele: ")<b>)</b>
+>>> nasobitel = <b>int(</b>raw_input(u"Vyberte hodnotu nĂˇsobitele: ")<b>)</b>
 >>> for j in range(1, 13):
 ...    print "%d x %d = %d" % (j, nasobitel, j * nasobitel)
 </pre>
 
-<p>Vidíte? Volání <code>raw_input()</code> jsme jednoduše obalili voláním
-<code>int()</code>. Efekt je stejný, jako kdybychom použili
-<code>input()</code>, ale je to mnohem bezpečnější. Existují i jiné konverzní
-funkce, takže uživatelský vstup můžete stejně dobře převádět na reálná čísla a
-na další typy.</p>
+<p>VidĂ­te? VolĂˇnĂ­ <code>raw_input()</code> jsme jednoduĹˇe obalili volĂˇnĂ­m
+<code>int()</code>. Efekt je stejnĂ˝, jako kdybychom pouĹľili
+<code>input()</code>, ale je to mnohem bezpeÄŤnÄ›jĹˇĂ­. ExistujĂ­ i jinĂ© konverznĂ­
+funkce, takĹľe uĹľivatelskĂ˝ vstup mĹŻĹľete stejnÄ› dobĹ™e pĹ™evĂˇdÄ›t na reĂˇlnĂˇ ÄŤĂ­sla a
+na dalĹˇĂ­ typy.</p>
 
-<p>Takže co kdybychom si to vyzkoušeli v opravdovém programu? Vzpomínáte si na
-příklady realizující adresář lidí, které využívaly strukturu typu slovník?
-Zabývali jsme se jimi v rámci tématu <a href="cztutdata.html#addressbook"
->Data, datové typy a proměnné</a>. Podívejme se na tento příklad znovu, v
-situaci, kdy již známe cykly a umíme číst vstup od uživatele.</p>
+<p>TakĹľe co kdybychom si to vyzkouĹˇeli v opravdovĂ©m programu? VzpomĂ­nĂˇte si na
+pĹ™Ă­klady realizujĂ­cĂ­ adresĂˇĹ™ lidĂ­, kterĂ© vyuĹľĂ­valy strukturu typu slovnĂ­k?
+ZabĂ˝vali jsme se jimi v rĂˇmci tĂ©matu <a href="cztutdata.html#addressbook"
+>Data, datovĂ© typy a promÄ›nnĂ©</a>. PodĂ­vejme se na tento pĹ™Ă­klad znovu, v
+situaci, kdy jiĹľ znĂˇme cykly a umĂ­me ÄŤĂ­st vstup od uĹľivatele.</p>
 
 <pre>
-<span class="comment"># Vytvoříme prázdný slovník používaný jako adresář osob.</span>
+<span class="comment"># VytvoĹ™Ă­me prĂˇzdnĂ˝ slovnĂ­k pouĹľĂ­vanĂ˝ jako adresĂˇĹ™ osob.</span>
 adresy = {}
 
-<span class="comment"># Načítáme jeho položky, dokud není zadán prázdný řetězec.</span>
+<span class="comment"># NaÄŤĂ­tĂˇme jeho poloĹľky, dokud nenĂ­ zadĂˇn prĂˇzdnĂ˝ Ĺ™etÄ›zec.</span>
 print
-jmeno = raw_input(u'Zadejte jméno (nic => konec): ')
+jmeno = raw_input(u'Zadejte jmĂ©no (nic => konec): ')
 while jmeno != '':
-    polozka = raw_input(u'Zadejte ulici, město, telefon (nic => konec): ')
+    polozka = raw_input(u'Zadejte ulici, mÄ›sto, telefon (nic => konec): ')
     adresy[jmeno] = polozka
-    jmeno = raw_input(u'Zadejte jméno (nic => konec): ')
-    
-<span class="comment"># Teď se budeme ptát, co se má zobrazit.</span>
-jmeno = raw_input(u'Které jméno se má zobrazit? (nic = konec): ')
+    jmeno = raw_input(u'Zadejte jmĂ©no (nic => konec): ')
+
+<span class="comment"># TeÄŹ se budeme ptĂˇt, co se mĂˇ zobrazit.</span>
+jmeno = raw_input(u'KterĂ© jmĂ©no se mĂˇ zobrazit? (nic = konec): ')
 while jmeno != '':
     print jmeno + ':', adresy[jmeno]
-    jmeno = raw_input(u'Které jméno se má zobrazit? (nic = konec): ')
+    jmeno = raw_input(u'KterĂ© jmĂ©no se mĂˇ zobrazit? (nic = konec): ')
 </pre>
 
-<p>Prozatím je to náš nejrozsáhlejší program. Uživatelské rozhraní je sice
-trochu neučesané, ale funguje. V dalších tématech uvidíme, jak je můžeme
-vylepšit. U tohoto programu se zmiňme o jedné věci, a sice o boolovském
-testu v příkazu cyklu <code>while</code>. Podle jeho výsledku se určuje, zda
-chce uživatel ukončit činnost <span class="trnote"
-title="Poznámka&nbsp;překladatele" >(zda se má ukončit provádění
-cyklu)</span>. Povšimněte si také, že datovou část uchováváme v podobě
-jednoho řetězce, zatímco v příkladu v části <a
-href="cztutdata.html#addressbook" >Data, datové typy a proměnné</a> jsme
-informaci uchovávali v samostatných buňkách. Zatím jsme se totiž nezabývali
-tím, jak bychom mohli řetězec rozdělit na několik částí. Dostaneme se k tomu
-v pozdějších tématech. S programem implementujícím adresář osob se dále v
-učebnici ještě setkáme. Postupně jej budeme upravovat do užitečnější podoby.
+<p>ProzatĂ­m je to nĂˇĹˇ nejrozsĂˇhlejĹˇĂ­ program. UĹľivatelskĂ© rozhranĂ­ je sice
+trochu neuÄŤesanĂ©, ale funguje. V dalĹˇĂ­ch tĂ©matech uvidĂ­me, jak je mĹŻĹľeme
+vylepĹˇit. U tohoto programu se zmiĹme o jednĂ© vÄ›ci, a sice o boolovskĂ©m
+testu v pĹ™Ă­kazu cyklu <code>while</code>. Podle jeho vĂ˝sledku se urÄŤuje, zda
+chce uĹľivatel ukonÄŤit ÄŤinnost <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele" >(zda se mĂˇ ukonÄŤit provĂˇdÄ›nĂ­
+cyklu)</span>. PovĹˇimnÄ›te si takĂ©, Ĺľe datovou ÄŤĂˇst uchovĂˇvĂˇme v podobÄ›
+jednoho Ĺ™etÄ›zce, zatĂ­mco v pĹ™Ă­kladu v ÄŤĂˇsti <a
+href="cztutdata.html#addressbook" >Data, datovĂ© typy a promÄ›nnĂ©</a> jsme
+informaci uchovĂˇvali v samostatnĂ˝ch buĹkĂˇch. ZatĂ­m jsme se totiĹľ nezabĂ˝vali
+tĂ­m, jak bychom mohli Ĺ™etÄ›zec rozdÄ›lit na nÄ›kolik ÄŤĂˇstĂ­. Dostaneme se k tomu
+v pozdÄ›jĹˇĂ­ch tĂ©matech. S programem implementujĂ­cĂ­m adresĂˇĹ™ osob se dĂˇle v
+uÄŤebnici jeĹˇtÄ› setkĂˇme. PostupnÄ› jej budeme upravovat do uĹľiteÄŤnÄ›jĹˇĂ­ podoby.
 </p>
 
 <h4>Vstup v jazyce VBScript</h4>
 
-<p>V jazyce VBScript se vstup zadávaný uživatelem čte příkazem
-<code>InputBox</code>. Můžeme psát:</p>
+<p>V jazyce VBScript se vstup zadĂˇvanĂ˝ uĹľivatelem ÄŤte pĹ™Ă­kazem
+<code>InputBox</code>. MĹŻĹľeme psĂˇt:</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim vstup
-vstup = InputBox("Zadejte své jméno") 
+vstup = InputBox("Zadejte svĂ© jmĂ©no")
 MsgBox ("Zadali jste: " &amp; vstup)
 &lt;/script>
 </pre>
 
-<p>Funkce <code>InputBox()</code> zobrazí dialogové okno s textem výzvy a
-s&nbsp;polem pro zadávání vstupu. Zadaný obsah tohoto pole získáme jako
-návratovou hodnotu funkce. Při volání můžeme funkci navíc předat další
-parametry, jako je například řetězec zobrazovaný v titulku okna. Pokud
-uživatel stiskne tlačítko Storno (Cancel) vrací funkce prázdný řetězec
-nezávisle na tom, co bylo zadáno do vstupního pole.</p>
+<p>Funkce <code>InputBox()</code> zobrazĂ­ dialogovĂ© okno s textem vĂ˝zvy a
+s&nbsp;polem pro zadĂˇvĂˇnĂ­ vstupu. ZadanĂ˝ obsah tohoto pole zĂ­skĂˇme jako
+nĂˇvratovou hodnotu funkce. PĹ™i volĂˇnĂ­ mĹŻĹľeme funkci navĂ­c pĹ™edat dalĹˇĂ­
+parametry, jako je napĹ™Ă­klad Ĺ™etÄ›zec zobrazovanĂ˝ v titulku okna. Pokud
+uĹľivatel stiskne tlaÄŤĂ­tko Storno (Cancel) vracĂ­ funkce prĂˇzdnĂ˝ Ĺ™etÄ›zec
+nezĂˇvisle na tom, co bylo zadĂˇno do vstupnĂ­ho pole.</p>
 
-<p>Následující příklad ukazuje implementaci adresáře osob v jazyce
+<p>NĂˇsledujĂ­cĂ­ pĹ™Ă­klad ukazuje implementaci adresĂˇĹ™e osob v jazyce
 VBScript.</p>
 
 <pre>
 &lt;script type="text/vbscript">
-Dim adresy, jmeno, polozka <span class="comment">' Vytvoříme proměnné.</span>
+Dim adresy, jmeno, polozka <span class="comment">' VytvoĹ™Ă­me promÄ›nnĂ©.</span>
 Set adresy = CreateObject("Scripting.Dictionary")
-jmeno = InputBox("Zadejte jméno", "Položka adresáře osob")
+jmeno = InputBox("Zadejte jmĂ©no", "PoloĹľka adresĂˇĹ™e osob")
 While jmeno &lt;&gt; ""
-    polozka = InputBox("Zadejte detaily - ulice město, telefon", "Položka adresáře osob")
-    adresy.Add jmeno, polozka   <span class="comment">' Přidej klíč a detaily.</span>
-    jmeno = InputBox("Zadejte jméno", "Položka adresáře osob")
+    polozka = InputBox("Zadejte detaily - ulice mÄ›sto, telefon", "PoloĹľka adresĂˇĹ™e osob")
+    adresy.Add jmeno, polozka   <span class="comment">' PĹ™idej klĂ­ÄŤ a detaily.</span>
+    jmeno = InputBox("Zadejte jmĂ©no", "PoloĹľka adresĂˇĹ™e osob")
 Wend
 
-<span class="comment">' Teď se budeme ptát, co se má zobrazit.</span>
-jmeno = InputBox("Zadejte jméno", "Zobrazení údaje z adresáře osob")
+<span class="comment">' TeÄŹ se budeme ptĂˇt, co se mĂˇ zobrazit.</span>
+jmeno = InputBox("Zadejte jmĂ©no", "ZobrazenĂ­ Ăşdaje z adresĂˇĹ™e osob")
 While jmeno &lt;&gt; ""
    MsgBox(jmeno &amp; " - " &amp; adresy.Item(jmeno))
-   jmeno = InputBox("Zadejte jméno", "Zobrazení údaje z adresáře osob")
+   jmeno = InputBox("Zadejte jmĂ©no", "ZobrazenĂ­ Ăşdaje z adresĂˇĹ™e osob")
 Wend
 &lt;/script>
 </pre>
 
-<p>Základní struktura progamu se zcela shoduje s Pythonovskou verzí, až na
-pár řádků navíc. VBScript vyžaduje, aby byly proměnné předem
-deklarovány příkazem <code>Dim</code>. Každý příkaz cyklu musí být navíc
-ukončen příkazem <code>Wend</code>.</p>
+<p>ZĂˇkladnĂ­ struktura progamu se zcela shoduje s Pythonovskou verzĂ­, aĹľ na
+pĂˇr Ĺ™ĂˇdkĹŻ navĂ­c. VBScript vyĹľaduje, aby byly promÄ›nnĂ© pĹ™edem
+deklarovĂˇny pĹ™Ă­kazem <code>Dim</code>. KaĹľdĂ˝ pĹ™Ă­kaz cyklu musĂ­ bĂ˝t navĂ­c
+ukonÄŤen pĹ™Ă­kazem <code>Wend</code>.</p>
 
-<h4 id="jscript">Čtení vstupu v jazyce JavaScript</h4>
+<h4 id="jscript">ÄŚtenĂ­ vstupu v jazyce JavaScript</h4>
 
-<p>JavaScript pro nás předtavuje určitou výzvu, protože jde o jazyk, který
-se používá především pro webovské prohlížeče. Jako takový nemá žádný
-speciální příkaz pro vstup. Místo toho můžeme číst z HTML elementu
-<code>form</code>. V prohlížeči Internet Explorer můžeme případně použít
+<p>JavaScript pro nĂˇs pĹ™edtavuje urÄŤitou vĂ˝zvu, protoĹľe jde o jazyk, kterĂ˝
+se pouĹľĂ­vĂˇ pĹ™edevĹˇĂ­m pro webovskĂ© prohlĂ­ĹľeÄŤe. Jako takovĂ˝ nemĂˇ ĹľĂˇdnĂ˝
+speciĂˇlnĂ­ pĹ™Ă­kaz pro vstup. MĂ­sto toho mĹŻĹľeme ÄŤĂ­st z HTML elementu
+<code>form</code>. V prohlĂ­ĹľeÄŤi Internet Explorer mĹŻĹľeme pĹ™Ă­padnÄ› pouĹľĂ­t
 technologii Active Scripting firmy Microsoft a nechat si zobrazit dialog
-InputBox stejně, jako jsme to udělali v jazyce VBScript. Abychom se
-seznámili s různými možnostmi, ukáži zde techniku využívající HTML
-formuláře. Pokud vám pojem HTML formulář nic neříká, můžete nahlédnout do
-referenční příručky HTML <span class="trnote"
-title="Poznámka&nbsp;překladatele" >(<a
+InputBox stejnÄ›, jako jsme to udÄ›lali v jazyce VBScript. Abychom se
+seznĂˇmili s rĹŻznĂ˝mi moĹľnostmi, ukĂˇĹľi zde techniku vyuĹľĂ­vajĂ­cĂ­ HTML
+formulĂˇĹ™e. Pokud vĂˇm pojem HTML formulĂˇĹ™ nic neĹ™Ă­kĂˇ, mĹŻĹľete nahlĂ©dnout do
+referenÄŤnĂ­ pĹ™Ă­ruÄŤky HTML <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele" >(<a
 href="http://www.w3.org/TR/html4/interact/forms.html#edef-FORM">viz norma
-HTML 4.01</a>)</span> nebo do nějaké učebnice, která jej vysvětluje. Můžete
-také jednoduše okopírovat to, co uvádím dále. Doufám, že vysvětlování
-významu ani není třeba. Slibuji, že se to budu snažit načrtnout co
-nejjednodušším způsobem.</p>
+HTML 4.01</a>)</span> nebo do nÄ›jakĂ© uÄŤebnice, kterĂˇ jej vysvÄ›tluje. MĹŻĹľete
+takĂ© jednoduĹˇe okopĂ­rovat to, co uvĂˇdĂ­m dĂˇle. DoufĂˇm, Ĺľe vysvÄ›tlovĂˇnĂ­
+vĂ˝znamu ani nenĂ­ tĹ™eba. Slibuji, Ĺľe se to budu snaĹľit naÄŤrtnout co
+nejjednoduĹˇĹˇĂ­m zpĹŻsobem.</p>
 
-<p>Základem struktury našeho příkladu v HTML bude javascriptový kód vložený
-do funkce. Zatím jsme se s tím ještě nesetkali. Prozatím můžete detaily
+<p>ZĂˇkladem struktury naĹˇeho pĹ™Ă­kladu v HTML bude javascriptovĂ˝ kĂłd vloĹľenĂ˝
+do funkce. ZatĂ­m jsme se s tĂ­m jeĹˇtÄ› nesetkali. ProzatĂ­m mĹŻĹľete detaily
 kolem definice funkce ignorovat.</p>
 
 <pre>
 &lt;script type="text/javascript">
 function mujProgram(){
-    alert("Získali jsme hodnotu " + document.formular.pole.value);
+    alert("ZĂ­skali jsme hodnotu " + document.formular.pole.value);
 }
 &lt;/script>
 
 &lt;form name='formular'>
-&lt;p>Zadej hodnotu a potom klikni myší mimo vstupní pole&lt;/p>
+&lt;p>Zadej hodnotu a potom klikni myĹˇĂ­ mimo vstupnĂ­ pole&lt;/p>
 &lt;input type='text' name='pole' onChange='mujProgram()'>
 &lt;/form>
 </pre>
 
-<p>Program se skládá z jediného řádku, který zobrazí dialog
-<code>alert</code> (velmi se podobá <code>MsgBox()</code> v jazyce
-VBScript). V něm se zobrazuje hodnota získaná ze vstupního pole. Ve
-formuláři je zobrazen vyzývací text (uzavřený do párových značek &lt;p> a
-&lt;/p>) a vstupní pole. V kontextu dokumentu <code>document</code> má
-formulář jméno <code>formular</code>. Vstupní pole jsme pojmenovali
-jednoduše <code>pole</code>. Na jeho hodnotu<span class="trnote"
-title="Poznámka&nbsp;překladatele">, která byla vložena uživatelem,</span>
-se tedy můžeme v javascriptovém programu odkázat takto:</p>
+<p>Program se sklĂˇdĂˇ z jedinĂ©ho Ĺ™Ăˇdku, kterĂ˝ zobrazĂ­ dialog
+<code>alert</code> (velmi se podobĂˇ <code>MsgBox()</code> v jazyce
+VBScript). V nÄ›m se zobrazuje hodnota zĂ­skanĂˇ ze vstupnĂ­ho pole. Ve
+formulĂˇĹ™i je zobrazen vyzĂ˝vacĂ­ text (uzavĹ™enĂ˝ do pĂˇrovĂ˝ch znaÄŤek &lt;p> a
+&lt;/p>) a vstupnĂ­ pole. V kontextu dokumentu <code>document</code> mĂˇ
+formulĂˇĹ™ jmĂ©no <code>formular</code>. VstupnĂ­ pole jsme pojmenovali
+jednoduĹˇe <code>pole</code>. Na jeho hodnotu<span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">, kterĂˇ byla vloĹľena uĹľivatelem,</span>
+se tedy mĹŻĹľeme v javascriptovĂ©m programu odkĂˇzat takto:</p>
 
 <pre>
 document.formular.pole.value
 </pre>
 
-<p>Příklad implementace našeho adresáře osob v JavaScript zde ukazovat
-nebudu. Vzhledem k použití v HTML bude vše o něco složitější a zvýší se i
-četnost používání funkcí. S příkladem tedy chci počkat až do doby, kdy
-potřebnou problematiku probereme v samostatných tématech.</p>
+<p>PĹ™Ă­klad implementace naĹˇeho adresĂˇĹ™e osob v JavaScript zde ukazovat
+nebudu. Vzhledem k pouĹľitĂ­ v HTML bude vĹˇe o nÄ›co sloĹľitÄ›jĹˇĂ­ a zvĂ˝ĹˇĂ­ se i
+ÄŤetnost pouĹľĂ­vĂˇnĂ­ funkcĂ­. S pĹ™Ă­kladem tedy chci poÄŤkat aĹľ do doby, kdy
+potĹ™ebnou problematiku probereme v samostatnĂ˝ch tĂ©matech.</p>
 
 
 <div class="details">
-<h4 id="stdin">Pár slov o <em>stdin</em> a <em>stdout</em></h4>
+<h4 id="stdin">PĂˇr slov o <em>stdin</em> a <em>stdout</em></h4>
 
-<p><b>Poznámka:</b> Slovem <em>stdin</em> se v počítačovém žargonu označuje
-standardní vstupní zařízení (obvykle klávesnice). Slovo <em>stdout</em> se
-vztahuje ke standardnímu výstupnímu zařízení (obvykle k obrazovce). V
-diskusích o programování se s termíny stdin a stdout setkáváme poměrně
-často. Abychom mohli využít kód pro práci se soubory, je to zařízeno tak, že
-se stdin a stdout chovají jako soubory.</p>
+<p><b>PoznĂˇmka:</b> Slovem <em>stdin</em> se v poÄŤĂ­taÄŤovĂ©m Ĺľargonu oznaÄŤuje
+standardnĂ­ vstupnĂ­ zaĹ™Ă­zenĂ­ (obvykle klĂˇvesnice). Slovo <em>stdout</em> se
+vztahuje ke standardnĂ­mu vĂ˝stupnĂ­mu zaĹ™Ă­zenĂ­ (obvykle k obrazovce). V
+diskusĂ­ch o programovĂˇnĂ­ se s termĂ­ny stdin a stdout setkĂˇvĂˇme pomÄ›rnÄ›
+ÄŤasto. Abychom mohli vyuĹľĂ­t kĂłd pro prĂˇci se soubory, je to zaĹ™Ă­zeno tak, Ĺľe
+se stdin a stdout chovajĂ­ jako soubory.</p>
 
-<p>V systému Python jsou <em>stdin</em> a <em>stdout</em> součástí modulu
-<code>sys</code> a jmenují se <code>sys.stdin</code> a
-<code>sys.stdout</code>. Funkce <code>raw_input()</code> používá automaticky
-<em>stdin</em>, příkaz <code>print</code> používá zase <em>stdout</em>. Ze
-standardního vstupu můžeme číst a na standardní výstup můžeme zapisovat také
-přímo. Má to určité výhody ve smyslu jemnějšího řízení vstupu a výstupu.
-Uveďme si příklad čtení <span class="trnote"
-title="Poznámka&nbsp;překladatele">jednoho řádku</span> ze standardního
+<p>V systĂ©mu Python jsou <em>stdin</em> a <em>stdout</em> souÄŤĂˇstĂ­ modulu
+<code>sys</code> a jmenujĂ­ se <code>sys.stdin</code> a
+<code>sys.stdout</code>. Funkce <code>raw_input()</code> pouĹľĂ­vĂˇ automaticky
+<em>stdin</em>, pĹ™Ă­kaz <code>print</code> pouĹľĂ­vĂˇ zase <em>stdout</em>. Ze
+standardnĂ­ho vstupu mĹŻĹľeme ÄŤĂ­st a na standardnĂ­ vĂ˝stup mĹŻĹľeme zapisovat takĂ©
+pĹ™Ă­mo. MĂˇ to urÄŤitĂ© vĂ˝hody ve smyslu jemnÄ›jĹˇĂ­ho Ĺ™Ă­zenĂ­ vstupu a vĂ˝stupu.
+UveÄŹme si pĹ™Ă­klad ÄŤtenĂ­ <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">jednoho Ĺ™Ăˇdku</span> ze standardnĂ­ho
 vstupu:</p>
 
 <pre>
 import sys
-print "Zadej hodnotu: ",       <span class="comment"># čárka zabrání přechodu na další řádek</span>
-hodnota = sys.stdin.readline() <span class="comment"># explicitní použití stdin</span>
+print "Zadej hodnotu: ",       <span class="comment"># ÄŤĂˇrka zabrĂˇnĂ­ pĹ™echodu na dalĹˇĂ­ Ĺ™Ăˇdek</span>
+hodnota = sys.stdin.readline() <span class="comment"># explicitnĂ­ pouĹľitĂ­ stdin</span>
 print hodnota
 </pre>
 
-<p>Funkčnost se téměř shoduje s chováním příkazu:</p>
+<p>FunkÄŤnost se tĂ©mÄ›Ĺ™ shoduje s chovĂˇnĂ­m pĹ™Ă­kazu:</p>
 
 <pre>
 print raw_input("Zadej hodnotu: ")
 </pre>
 
-<p>Výhodou explicitního použití <em>stdin</em> je to, že standardní vstup můžeme 
-svázat se skutečným souborem, takže program svůj vstup nebude číst z
-klávesnice, ale z daného souboru. Tento obrat je užitečný při realizaci
-dlouhých testů programu, kdy místo ručního vkládání vstupních údajů v
-okamžiku, kdy je program požaduje, necháme vstup přečíst z předem
-připraveného souboru. (Další výhodou je v takovém případě skutečnost, že
-test můžeme spouštět opakovaně, přičemž jsme si jisti, že vstup bude pokaždé
-stejný, takže by tomu měl odpovídat stejný výstup. Tuto techniku opakovaného
-spouštění dřívějších testů, které mají ověřit, že se nic nepokazilo,
-programátoři nazývají <em>regresní testování</em>.)</p>
- 
-<p>Na závěr si ukažme příklad přímého výstupu na standardní výstupní
-zařízení <code>sys.stdout</code>. Tento výstup může být rovněž přesměrován
-do <span class="trnote" title="Poznámka&nbsp;překladatele">fyzického</span>
-souboru. Funkčnost příkazu <code>print</code> se přibližně shoduje s
-funkčností následujícího zápisu:</p>
+<p>VĂ˝hodou explicitnĂ­ho pouĹľitĂ­ <em>stdin</em> je to, Ĺľe standardnĂ­ vstup mĹŻĹľeme
+svĂˇzat se skuteÄŤnĂ˝m souborem, takĹľe program svĹŻj vstup nebude ÄŤĂ­st z
+klĂˇvesnice, ale z danĂ©ho souboru. Tento obrat je uĹľiteÄŤnĂ˝ pĹ™i realizaci
+dlouhĂ˝ch testĹŻ programu, kdy mĂ­sto ruÄŤnĂ­ho vklĂˇdĂˇnĂ­ vstupnĂ­ch ĂşdajĹŻ v
+okamĹľiku, kdy je program poĹľaduje, nechĂˇme vstup pĹ™eÄŤĂ­st z pĹ™edem
+pĹ™ipravenĂ©ho souboru. (DalĹˇĂ­ vĂ˝hodou je v takovĂ©m pĹ™Ă­padÄ› skuteÄŤnost, Ĺľe
+test mĹŻĹľeme spouĹˇtÄ›t opakovanÄ›, pĹ™iÄŤemĹľ jsme si jisti, Ĺľe vstup bude pokaĹľdĂ©
+stejnĂ˝, takĹľe by tomu mÄ›l odpovĂ­dat stejnĂ˝ vĂ˝stup. Tuto techniku opakovanĂ©ho
+spouĹˇtÄ›nĂ­ dĹ™Ă­vÄ›jĹˇĂ­ch testĹŻ, kterĂ© majĂ­ ovÄ›Ĺ™it, Ĺľe se nic nepokazilo,
+programĂˇtoĹ™i nazĂ˝vajĂ­ <em>regresnĂ­ testovĂˇnĂ­</em>.)</p>
+
+<p>Na zĂˇvÄ›r si ukaĹľme pĹ™Ă­klad pĹ™Ă­mĂ©ho vĂ˝stupu na standardnĂ­ vĂ˝stupnĂ­
+zaĹ™Ă­zenĂ­ <code>sys.stdout</code>. Tento vĂ˝stup mĹŻĹľe bĂ˝t rovnÄ›Ĺľ pĹ™esmÄ›rovĂˇn
+do <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">fyzickĂ©ho</span>
+souboru. FunkÄŤnost pĹ™Ă­kazu <code>print</code> se pĹ™ibliĹľnÄ› shoduje s
+funkÄŤnostĂ­ nĂˇsledujĂ­cĂ­ho zĂˇpisu:</p>
 
 <pre>
-sys.stdout.write("Ahoj, vy tam!\n") <span class="COMMENT"># \n = nový řádek</span>
+sys.stdout.write("Ahoj, vy tam!\n") <span class="COMMENT"># \n = novĂ˝ Ĺ™Ăˇdek</span>
 </pre>
 
-<p>V praxi tento obrat použijeme hlavně v případech, kdy chceme obejít
-vlastnost příkazu <code>print</code>, který vždy vkládá mezi výstupní
-hodnoty <span class="trnote" title="Poznámka&nbsp;překladatele"
->alespoň</span> mezeru. Při použití <code>stdout</code> se tomu můžeme
-vyhnout. Srovnejte obsah dvou řádků na výstupu následujícího příkladu:</p>
+<p>V praxi tento obrat pouĹľijeme hlavnÄ› v pĹ™Ă­padech, kdy chceme obejĂ­t
+vlastnost pĹ™Ă­kazu <code>print</code>, kterĂ˝ vĹľdy vklĂˇdĂˇ mezi vĂ˝stupnĂ­
+hodnoty <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele"
+>alespoĹ</span> mezeru. PĹ™i pouĹľitĂ­ <code>stdout</code> se tomu mĹŻĹľeme
+vyhnout. Srovnejte obsah dvou Ĺ™ĂˇdkĹŻ na vĂ˝stupu nĂˇsledujĂ­cĂ­ho pĹ™Ă­kladu:</p>
 
 <pre>
 import sys
-for polozka in ['jedna', 'je', 1]: 
-    print polozka,                      <span class="comment"># čárka potlačí přechod na nový řádek</span>
-print 
-for polozka in ['jedna', 'je', str(1)]: <span class="comment"># musíme explicitně převést na řetězec</span>
+for polozka in ['jedna', 'je', 1]:
+    print polozka,                      <span class="comment"># ÄŤĂˇrka potlaÄŤĂ­ pĹ™echod na novĂ˝ Ĺ™Ăˇdek</span>
+print
+for polozka in ['jedna', 'je', str(1)]: <span class="comment"># musĂ­me explicitnÄ› pĹ™evĂ©st na Ĺ™etÄ›zec</span>
     sys.stdout.write(polozka)           <span class="comment"># zcela bez mezer!</span>
 </pre>
 
 <div class="trnote">
-<p><b>Poznámka překladatele</b> &mdash; výstup by měl vypadat takto:</p>
+<p><b>PoznĂˇmka pĹ™ekladatele</b> &mdash; vĂ˝stup by mÄ›l vypadat takto:</p>
 
 <pre>
 jedna je 1
@@ -349,54 +349,54 @@ jednaje1
 
 </div>
 
-<p>Pokud předem víme, jak budou data vypadat, pak stejného výsledku můžeme
-samozřejmě dosáhnout i použitím formátovacího řetězce. Ale pokud to nevíme,
-pak je jednodušší jednoduše posílat vše na <code>stdout</code>, než abychom
-se snažili o generování složitého formátovacího řetězce za běhu
+<p>Pokud pĹ™edem vĂ­me, jak budou data vypadat, pak stejnĂ©ho vĂ˝sledku mĹŻĹľeme
+samozĹ™ejmÄ› dosĂˇhnout i pouĹľitĂ­m formĂˇtovacĂ­ho Ĺ™etÄ›zce. Ale pokud to nevĂ­me,
+pak je jednoduĹˇĹˇĂ­ jednoduĹˇe posĂ­lat vĹˇe na <code>stdout</code>, neĹľ abychom
+se snaĹľili o generovĂˇnĂ­ sloĹľitĂ©ho formĂˇtovacĂ­ho Ĺ™etÄ›zce za bÄ›hu
 programu.</p>
 
 
-<h4>Přesměrování stdin a stdout</h4>
+<h4>PĹ™esmÄ›rovĂˇnĂ­ stdin a stdout</h4>
 
-<p>Takže jak vlastně můžeme přesměrovat stdin a stdout <span class="trnote"
-title="Poznámka&nbsp;překladatele">z&nbsp;a</span>&nbsp;do souborů? Můžeme
-toho dosáhnout přímo z našeho programu, když použijeme běžné pythonovské
-techniky pro práci se soubory (budeme se tím zabývat za chvíli). Ale
-nejjednodušší způsob spočívá ve využití vlastností operačního systému.</p>
+<p>TakĹľe jak vlastnÄ› mĹŻĹľeme pĹ™esmÄ›rovat stdin a stdout <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">z&nbsp;a</span>&nbsp;do souborĹŻ? MĹŻĹľeme
+toho dosĂˇhnout pĹ™Ă­mo z naĹˇeho programu, kdyĹľ pouĹľijeme bÄ›ĹľnĂ© pythonovskĂ©
+techniky pro prĂˇci se soubory (budeme se tĂ­m zabĂ˝vat za chvĂ­li). Ale
+nejjednoduĹˇĹˇĂ­ zpĹŻsob spoÄŤĂ­vĂˇ ve vyuĹľitĂ­ vlastnostĂ­ operaÄŤnĂ­ho systĂ©mu.</p>
 
-<p>Vyzkoušejte si, jak funguje <span class="trnote"
-title="Poznámka&nbsp;překladatele">jeden z příkazů</span> operačního
-systému, když na příkazovém řádku předepíšeme přesměrování:</p>
+<p>VyzkouĹˇejte si, jak funguje <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">jeden z pĹ™Ă­kazĹŻ</span> operaÄŤnĂ­ho
+systĂ©mu, kdyĹľ na pĹ™Ă­kazovĂ©m Ĺ™Ăˇdku pĹ™edepĂ­Ĺˇeme pĹ™esmÄ›rovĂˇnĂ­:</p>
 
 <pre>
 C:\> dir
 C:\> dir > dir.txt
 </pre>
 
-<p>První z příkazů vypíše obsah adresáře na obrazovku, druhý jej zapíše do
-souboru. Použitím znaku '<code>></code>' programu říkáme, že chceme
-<code>stdout</code> přesměrovat do souboru <code>dir.txt</code>.</p>
+<p>PrvnĂ­ z pĹ™Ă­kazĹŻ vypĂ­Ĺˇe obsah adresĂˇĹ™e na obrazovku, druhĂ˝ jej zapĂ­Ĺˇe do
+souboru. PouĹľitĂ­m znaku '<code>></code>' programu Ĺ™Ă­kĂˇme, Ĺľe chceme
+<code>stdout</code> pĹ™esmÄ›rovat do souboru <code>dir.txt</code>.</p>
 
-<p>Totéž bychom mohli udělat s našim pythonovským programem:</p>
+<p>TotĂ©Ĺľ bychom mohli udÄ›lat s naĹˇim pythonovskĂ˝m programem:</p>
 
 <pre>
 $ python mujprogram.py > vysledek.txt
 </pre>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Vyzývací znak
-'<code>$</code>' v uvedeném příkladu napovídá, že jde o použití v unixovém
-systému (například v systému Linux). V systému MS&nbsp;Windows bychom to
-udělali úplně stejně.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> VyzĂ˝vacĂ­ znak
+'<code>$</code>' v uvedenĂ©m pĹ™Ă­kladu napovĂ­dĂˇ, Ĺľe jde o pouĹľitĂ­ v unixovĂ©m
+systĂ©mu (napĹ™Ă­klad v systĂ©mu Linux). V systĂ©mu MS&nbsp;Windows bychom to
+udÄ›lali ĂşplnÄ› stejnÄ›.</p>
 
-<p>Uvedený zápis vede ke spuštění <code>mujprogram.py</code>, ale jeho
-výstup by se místo na obrazovce objevil v souboru <code>vysledek.txt</code>.
-Jeho obsah si poté můžeme prohlédnout prostřednictvím nějakého textového
+<p>UvedenĂ˝ zĂˇpis vede ke spuĹˇtÄ›nĂ­ <code>mujprogram.py</code>, ale jeho
+vĂ˝stup by se mĂ­sto na obrazovce objevil v souboru <code>vysledek.txt</code>.
+Jeho obsah si potĂ© mĹŻĹľeme prohlĂ©dnout prostĹ™ednictvĂ­m nÄ›jakĂ©ho textovĂ©ho
 editoru.</p>
 
-<p>K přesměrování <code>stdin</code> z nějakého souboru jednoduše místo
-znaku '<code>></code>' použijeme znak '<code>&lt;</code>'. Následuje úplný
-příklad. Nejdříve vytvoříme soubor <code>opisvstupu.py</code> a vložíme do
-něj následující zdrojový text:</p>
+<p>K pĹ™esmÄ›rovĂˇnĂ­ <code>stdin</code> z nÄ›jakĂ©ho souboru jednoduĹˇe mĂ­sto
+znaku '<code>></code>' pouĹľijeme znak '<code>&lt;</code>'. NĂˇsleduje ĂşplnĂ˝
+pĹ™Ă­klad. NejdĹ™Ă­ve vytvoĹ™Ă­me soubor <code>opisvstupu.py</code> a vloĹľĂ­me do
+nÄ›j nĂˇsledujĂ­cĂ­ zdrojovĂ˝ text:</p>
 
 <pre>
 import sys
@@ -406,39 +406,39 @@ while vstup.strip() != '':
     vstup = sys.stdin.readline()
 </pre>
 
-<p class="note"><b>Poznámka:</b> Metoda <code>strip()</code> odsekne znak,
-který reprezentuje přechod na nový řádek. Ten je součástí načítaného řádku
-ze stdin. Příkaz <code>raw_input()</code> by to udělal za vás.</p>
+<p class="note"><b>PoznĂˇmka:</b> Metoda <code>strip()</code> odsekne znak,
+kterĂ˝ reprezentuje pĹ™echod na novĂ˝ Ĺ™Ăˇdek. Ten je souÄŤĂˇstĂ­ naÄŤĂ­tanĂ©ho Ĺ™Ăˇdku
+ze stdin. PĹ™Ă­kaz <code>raw_input()</code> by to udÄ›lal za vĂˇs.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Metoda <code>strip()</code>
-ve skutečnosti odstraňuje všechny <em>bílé znaky</em> (whitespaces) ze
-začátku i z konce řetězce. To znamená, že odstraní všechny úvodní a koncové
-mezery, tabulátory a znaky přechodu na nový řádek. Při použití metody
-<code>readline()</code> ovšem můžeme získat řetězec, ve kterém se znak
-přechodu na nový řádek vyskytuje jenom jednou a vždy zcela na konci.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Metoda <code>strip()</code>
+ve skuteÄŤnosti odstraĹuje vĹˇechny <em>bĂ­lĂ© znaky</em> (whitespaces) ze
+zaÄŤĂˇtku i z konce Ĺ™etÄ›zce. To znamenĂˇ, Ĺľe odstranĂ­ vĹˇechny ĂşvodnĂ­ a koncovĂ©
+mezery, tabulĂˇtory a znaky pĹ™echodu na novĂ˝ Ĺ™Ăˇdek. PĹ™i pouĹľitĂ­ metody
+<code>readline()</code> ovĹˇem mĹŻĹľeme zĂ­skat Ĺ™etÄ›zec, ve kterĂ©m se znak
+pĹ™echodu na novĂ˝ Ĺ™Ăˇdek vyskytuje jenom jednou a vĹľdy zcela na konci.</p>
 
-<p>Teď si to můžeme vyzkoušet spuštěním z příkazového řádku:</p>
+<p>TeÄŹ si to mĹŻĹľeme vyzkouĹˇet spuĹˇtÄ›nĂ­m z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku:</p>
 
 <pre>
 $ python opisvstupu.py
 </pre>
 
-<p>Výsledkem by měl být program, který vše opisuje na výstup, dokud nezadáte
-prázdný řádek.</p>
+<p>VĂ˝sledkem by mÄ›l bĂ˝t program, kterĂ˝ vĹˇe opisuje na vĂ˝stup, dokud nezadĂˇte
+prĂˇzdnĂ˝ Ĺ™Ăˇdek.</p>
 
-<p>Teď si vytvořte jednoduchý textový soubor nazvaný <code>vstup.txt</code>,
-který bude obsahovat pár řádků textu. Spusťte program znovu a přesměrujte do
-něj vstup ze souboru <code>vstup.txt</code>:</p>
+<p>TeÄŹ si vytvoĹ™te jednoduchĂ˝ textovĂ˝ soubor nazvanĂ˝ <code>vstup.txt</code>,
+kterĂ˝ bude obsahovat pĂˇr Ĺ™ĂˇdkĹŻ textu. SpusĹĄte program znovu a pĹ™esmÄ›rujte do
+nÄ›j vstup ze souboru <code>vstup.txt</code>:</p>
 
 <pre>
 $ python opisvstupu.py &lt; vstup.txt
 </pre>
 
-<p>Python opisuje na výstup vše, co našel v souboru <code>vstup.txt</code>.
-Vzpomínáte si, že jsme si řekli, že příkaz <code>print</code> a standardní
-funkce <code>raw_input()</code> ve skutečnosti vnitřně pracují se stdin a
-stdout? To znamená, že v příkladu <code>opisvstupu.py</code> můžeme práci se
-stdin nahradit voláním <code>raw_input()</code> následovně:</p>
+<p>Python opisuje na vĂ˝stup vĹˇe, co naĹˇel v souboru <code>vstup.txt</code>.
+VzpomĂ­nĂˇte si, Ĺľe jsme si Ĺ™ekli, Ĺľe pĹ™Ă­kaz <code>print</code> a standardnĂ­
+funkce <code>raw_input()</code> ve skuteÄŤnosti vnitĹ™nÄ› pracujĂ­ se stdin a
+stdout? To znamenĂˇ, Ĺľe v pĹ™Ă­kladu <code>opisvstupu.py</code> mĹŻĹľeme prĂˇci se
+stdin nahradit volĂˇnĂ­m <code>raw_input()</code> nĂˇsledovnÄ›:</p>
 
 <pre>
 vstup = raw_input()
@@ -447,76 +447,76 @@ while vstup != '':
     vstup = raw_input()
 </pre>
 
-<p>... což je ve většině případů mnohem jednodušší.</p>
+<p>... coĹľ je ve vÄ›tĹˇinÄ› pĹ™Ă­padĹŻ mnohem jednoduĹˇĹˇĂ­.</p>
 
-<p>Postupným přesměrováním vstupu z více různých souborů můžeme rychle a
-snadno otestovat chování našich programů v různých situacích (například při
-zadávání špatných hodnot nebo údajů špatného typu). Můžeme tak učinit
-opakovatelným a spolehlivým způsobem. Techniku přesměrování můžeme použít
-také při zpracování velkých objemů dat z připravených souborů. Přitom se při
-používání stejného programu nezbavujeme možnosti ručního vstupu dat v
-případech, kdy je objem dat malý. Mechanismus přesměrování stdin a stdout
-představuje pro programátora velmi užitečný trik. Zkoušejte a uvidíte sami,
-jaká další použití se vám podaří najít.</p>
+<p>PostupnĂ˝m pĹ™esmÄ›rovĂˇnĂ­m vstupu z vĂ­ce rĹŻznĂ˝ch souborĹŻ mĹŻĹľeme rychle a
+snadno otestovat chovĂˇnĂ­ naĹˇich programĹŻ v rĹŻznĂ˝ch situacĂ­ch (napĹ™Ă­klad pĹ™i
+zadĂˇvĂˇnĂ­ ĹˇpatnĂ˝ch hodnot nebo ĂşdajĹŻ ĹˇpatnĂ©ho typu). MĹŻĹľeme tak uÄŤinit
+opakovatelnĂ˝m a spolehlivĂ˝m zpĹŻsobem. Techniku pĹ™esmÄ›rovĂˇnĂ­ mĹŻĹľeme pouĹľĂ­t
+takĂ© pĹ™i zpracovĂˇnĂ­ velkĂ˝ch objemĹŻ dat z pĹ™ipravenĂ˝ch souborĹŻ. PĹ™itom se pĹ™i
+pouĹľĂ­vĂˇnĂ­ stejnĂ©ho programu nezbavujeme moĹľnosti ruÄŤnĂ­ho vstupu dat v
+pĹ™Ă­padech, kdy je objem dat malĂ˝. Mechanismus pĹ™esmÄ›rovĂˇnĂ­ stdin a stdout
+pĹ™edstavuje pro programĂˇtora velmi uĹľiteÄŤnĂ˝ trik. ZkouĹˇejte a uvidĂ­te sami,
+jakĂˇ dalĹˇĂ­ pouĹľitĂ­ se vĂˇm podaĹ™Ă­ najĂ­t.</p>
 
-<p>V systému Windows se vyskytuje známá chyba, která se projevuje při
-přesměrování vstupu. Pokud svůj program spustíte prostým uvedením jména
-skriptu, místo abyste před něj explicitně napsali <code>python</code>, nebudou
-Windows vypisovat výsledky v konzolovém okně! Na <a
+<p>V systĂ©mu Windows se vyskytuje znĂˇmĂˇ chyba, kterĂˇ se projevuje pĹ™i
+pĹ™esmÄ›rovĂˇnĂ­ vstupu. Pokud svĹŻj program spustĂ­te prostĂ˝m uvedenĂ­m jmĂ©na
+skriptu, mĂ­sto abyste pĹ™ed nÄ›j explicitnÄ› napsali <code>python</code>, nebudou
+Windows vypisovat vĂ˝sledky v konzolovĂ©m oknÄ›! Na <a
 href="http://support.microsoft.com/default.aspx?scid=kb;en-us;321788"
-target="_blank">webové stránce firmy Microsoft</a> naleznete popis zásahu do
-registry, který tuto chybu opravuje. Ani tento popis však není zcela korektní.
-Musíte se dívat pod <code>HKEY_CURRENT_USER</code> a ne pod
-<code>HKEY_LOCAL_MACHINE</code>, jak vám radí zmíněný dokument. Pokud
-pracujete s přesměrováním vstupu nebo výstupu, pak raději uveďte přímé
-spuštění programu <code>python</code>. [Děkuji Timu Graberovi, který si
-uvedeného problému všimnul, a Timu Petersovi, který mi prozradil onu opravu
-zásahem do registry.]</p>
+target="_blank">webovĂ© strĂˇnce firmy Microsoft</a> naleznete popis zĂˇsahu do
+registry, kterĂ˝ tuto chybu opravuje. Ani tento popis vĹˇak nenĂ­ zcela korektnĂ­.
+MusĂ­te se dĂ­vat pod <code>HKEY_CURRENT_USER</code> a ne pod
+<code>HKEY_LOCAL_MACHINE</code>, jak vĂˇm radĂ­ zmĂ­nÄ›nĂ˝ dokument. Pokud
+pracujete s pĹ™esmÄ›rovĂˇnĂ­m vstupu nebo vĂ˝stupu, pak radÄ›ji uveÄŹte pĹ™Ă­mĂ©
+spuĹˇtÄ›nĂ­ programu <code>python</code>. [DÄ›kuji Timu Graberovi, kterĂ˝ si
+uvedenĂ©ho problĂ©mu vĹˇimnul, a Timu Petersovi, kterĂ˝ mi prozradil onu opravu
+zĂˇsahem do registry.]</p>
 
 </div>
 
 
-<h3>Parametry z příkazového řádku</h3>
+<h3>Parametry z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku</h3>
 
-<p>Další typ vstupu představuje vstup zadaný z příkazového řádku. Dejme
-tomu, že nějak takto spustíte svůj textový editor z příkazového řádku:</p>
+<p>DalĹˇĂ­ typ vstupu pĹ™edstavuje vstup zadanĂ˝ z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku. Dejme
+tomu, Ĺľe nÄ›jak takto spustĂ­te svĹŻj textovĂ˝ editor z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku:</p>
 
 <pre>
 $ EDIT Foo.txt
 </pre>
 
-<p>Operační systém spustí program nazvaný EDIT a předá mu jméno souboru,
-který se má editovat &mdash; v našem případě <code>Foo.txt</code>. Ale jak
-si editor přečte jméno souboru?</p>
+<p>OperaÄŤnĂ­ systĂ©m spustĂ­ program nazvanĂ˝ EDIT a pĹ™edĂˇ mu jmĂ©no souboru,
+kterĂ˝ se mĂˇ editovat &mdash; v naĹˇem pĹ™Ă­padÄ› <code>Foo.txt</code>. Ale jak
+si editor pĹ™eÄŤte jmĂ©no souboru?</p>
 
-<p>Ve většině jazyků systém poskytuje pole nebo seznam řetězců, které
-obsahují slova z příkazového řádku. Takže první prvek bude obsahovat jméno
-příkazu, druhý prvek bude obsahovat první argument, atd. Někdy máme k
-dispozici další magickou proměnnou (často je pojmenována <code>argc</code> z
-anglického <em>argument count</em> &mdash; počet argumentů), ve které je
-uložen počet prvků uvedeného seznamu.</p>
+<p>Ve vÄ›tĹˇinÄ› jazykĹŻ systĂ©m poskytuje pole nebo seznam Ĺ™etÄ›zcĹŻ, kterĂ©
+obsahujĂ­ slova z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku. TakĹľe prvnĂ­ prvek bude obsahovat jmĂ©no
+pĹ™Ă­kazu, druhĂ˝ prvek bude obsahovat prvnĂ­ argument, atd. NÄ›kdy mĂˇme k
+dispozici dalĹˇĂ­ magickou promÄ›nnou (ÄŤasto je pojmenovĂˇna <code>argc</code> z
+anglickĂ©ho <em>argument count</em> &mdash; poÄŤet argumentĹŻ), ve kterĂ© je
+uloĹľen poÄŤet prvkĹŻ uvedenĂ©ho seznamu.</p>
 
-<p>V systému Python je zmíněný seznam součástí modulu <code>sys</code> a
-nazývá se <code>argv</code> (z anglického <code>arg</code>ument
-<code>v</code>alues, čili hodnoty argumentů). V Pythonu nepotřebujeme znát
-hodnotu <code>argc</code>, protože <span class="trnote"
-title="Poznámka&nbsp;překladatele">počet předaných argumentů</span> můžeme
-zjistit jako délku (počet prvků) seznamu <code>argv</code> pomocí standardní
-funkce <code>len()</code>. Většinou nepotřebujeme dělat ani to, protože
-průchod celým seznamem můžeme předepsat pythonovským cyklem <code>for</code>
+<p>V systĂ©mu Python je zmĂ­nÄ›nĂ˝ seznam souÄŤĂˇstĂ­ modulu <code>sys</code> a
+nazĂ˝vĂˇ se <code>argv</code> (z anglickĂ©ho <code>arg</code>ument
+<code>v</code>alues, ÄŤili hodnoty argumentĹŻ). V Pythonu nepotĹ™ebujeme znĂˇt
+hodnotu <code>argc</code>, protoĹľe <span class="trnote"
+title="PoznĂˇmka&nbsp;pĹ™ekladatele">poÄŤet pĹ™edanĂ˝ch argumentĹŻ</span> mĹŻĹľeme
+zjistit jako dĂ©lku (poÄŤet prvkĹŻ) seznamu <code>argv</code> pomocĂ­ standardnĂ­
+funkce <code>len()</code>. VÄ›tĹˇinou nepotĹ™ebujeme dÄ›lat ani to, protoĹľe
+prĹŻchod celĂ˝m seznamem mĹŻĹľeme pĹ™edepsat pythonovskĂ˝m cyklem <code>for</code>
 takto:</p>
 
 <pre>
 import sys
 for polozka in sys.argv:
     print polozka
-    
-print u'První argument byl:', sys.argv[1]
+
+print u'PrvnĂ­ argument byl:', sys.argv[1]
 </pre>
 
-<p>Poznamenejme, že to bude fungovat jen v případě, kdy uvedený kód uložíte
-do souboru (dejme tomu <code>args.py</code>) a spustíme jej z příkazového
-řádku operačního systému, například takto:</p>
+<p>Poznamenejme, Ĺľe to bude fungovat jen v pĹ™Ă­padÄ›, kdy uvedenĂ˝ kĂłd uloĹľĂ­te
+do souboru (dejme tomu <code>args.py</code>) a spustĂ­me jej z pĹ™Ă­kazovĂ©ho
+Ĺ™Ăˇdku operaÄŤnĂ­ho systĂ©mu, napĹ™Ă­klad takto:</p>
 
 <pre>
 C:\Python\Projekty> python args.py 1 23 fred
@@ -524,66 +524,66 @@ args.py
 1
 23
 fred
-První argument byl: 1
+PrvnĂ­ argument byl: 1
 C:\Python\Projekty>
 </pre>
 
 <h3>VBScript a JavaScript</h3>
 
-<p>Tyto jazyky jsou určeny pro tvorbu webových stránek, takže možnost načítání
-parametrů zadaných na příkazovém řádku u nich nepřipadá v úvahu. Pokud bychom
-je používali v prostředí Microsoft <a href="cztutfunc.html#wsh">Windows Script
-Host</a>, situace by se změnila. WHS nabízí možnost extrakce těchto argumentů
-z objektu <code>WshArguments</code>, který je naplněn v době běhu.</p>
+<p>Tyto jazyky jsou urÄŤeny pro tvorbu webovĂ˝ch strĂˇnek, takĹľe moĹľnost naÄŤĂ­tĂˇnĂ­
+parametrĹŻ zadanĂ˝ch na pĹ™Ă­kazovĂ©m Ĺ™Ăˇdku u nich nepĹ™ipadĂˇ v Ăşvahu. Pokud bychom
+je pouĹľĂ­vali v prostĹ™edĂ­ Microsoft <a href="cztutfunc.html#wsh">Windows Script
+Host</a>, situace by se zmÄ›nila. WHS nabĂ­zĂ­ moĹľnost extrakce tÄ›chto argumentĹŻ
+z objektu <code>WshArguments</code>, kterĂ˝ je naplnÄ›n v dobÄ› bÄ›hu.</p>
 
-<p>A to je k tématu uživatelského vstupu opravdu vše, co budeme v této
-učebnici potřebovat. Je to sice velmi primitivní, ale přesto s tím vystačíte
-při psaní užitečných programů. V počátcích systému Unix nebo u prvních
-osobních počítačů představovala tato podoba interakce s uživatelem jedinou
-dostupnou možnost. V programech s grafickým uživatelským rozhraním můžeme
-samozřejmě vstup načítat také. K tomu, jak se to dělá, se ale v této
-učebnici dostaneme mnohem později.</p>
+<p>A to je k tĂ©matu uĹľivatelskĂ©ho vstupu opravdu vĹˇe, co budeme v tĂ©to
+uÄŤebnici potĹ™ebovat. Je to sice velmi primitivnĂ­, ale pĹ™esto s tĂ­m vystaÄŤĂ­te
+pĹ™i psanĂ­ uĹľiteÄŤnĂ˝ch programĹŻ. V poÄŤĂˇtcĂ­ch systĂ©mu Unix nebo u prvnĂ­ch
+osobnĂ­ch poÄŤĂ­taÄŤĹŻ pĹ™edstavovala tato podoba interakce s uĹľivatelem jedinou
+dostupnou moĹľnost. V programech s grafickĂ˝m uĹľivatelskĂ˝m rozhranĂ­m mĹŻĹľeme
+samozĹ™ejmÄ› vstup naÄŤĂ­tat takĂ©. K tomu, jak se to dÄ›lĂˇ, se ale v tĂ©to
+uÄŤebnici dostaneme mnohem pozdÄ›ji.</p>
 
 
 <div class="remember">
 <p class="title">Zapamatujte si</p>
 <ul>
 
-<li>Pro čtení čísel můžeme použít <code>input</code>, pro čtení znaků či
-řetězců použijeme <code>raw_input</code>.</li>
+<li>Pro ÄŤtenĂ­ ÄŤĂ­sel mĹŻĹľeme pouĹľĂ­t <code>input</code>, pro ÄŤtenĂ­ znakĹŻ ÄŤi
+Ĺ™etÄ›zcĹŻ pouĹľijeme <code>raw_input</code>.</li>
 
-<li>Jak příkaz <code>input</code> tak <code>raw_input</code> mohou zobrazit
-řetězec s výzvou pro uživatele.</li>
+<li>Jak pĹ™Ă­kaz <code>input</code> tak <code>raw_input</code> mohou zobrazit
+Ĺ™etÄ›zec s vĂ˝zvou pro uĹľivatele.</li>
 
-<li>Parametry z příkazového řádku můžeme získat ze seznamu
-<code>argv</code>, který v systému Python můžeme importovat z modulu
-<code>sys</code>. První prvek seznamu obsahuje jméno programu.</li>
+<li>Parametry z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku mĹŻĹľeme zĂ­skat ze seznamu
+<code>argv</code>, kterĂ˝ v systĂ©mu Python mĹŻĹľeme importovat z modulu
+<code>sys</code>. PrvnĂ­ prvek seznamu obsahuje jmĂ©no programu.</li>
 
 </ul>
 </div>
 
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutstyle.html" title="Přidejme trochu stylu">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutbranch.html" title="Větvení">další</a> 
+<p class="navig">[
+<a href="cztutstyle.html" title="PĹ™idejme trochu stylu">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutbranch.html" title="VÄ›tvenĂ­">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutinput.html,v 1.13 2005/09/03 13:07:56 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutinput.html,v 1.13 2005/09/03 13:07:56 petr Exp $</p>
 </div>

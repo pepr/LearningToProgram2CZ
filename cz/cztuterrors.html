@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
   <title>Jak se naučit programovat: Ošetření chyb</title>
@@ -15,7 +15,7 @@
 <ul>
 <li>Krátce z historie práce s chybami.</li>
 <li>Dvě techniky práce s chybami.</li>
-<li>Jak v našem kódu definovat a signalizovat chybu, která má být ošetřena 
+<li>Jak v našem kódu definovat a signalizovat chybu, která má být ošetřena
     jinde.</li>
 </ul>
 </div>
@@ -83,7 +83,7 @@ funkce narazila na chybu, musela i nadále nastavovat hodnotu proměnné
 <code>ERRORCODE</code>, ale velmi se zjednodušil zápis (a čtení!) kódu.</p>
 
 <p>No a co to má společného s námi? Je to docela prosté. Tento způsob
-zpracování chyb i nadále používá 
+zpracování chyb i nadále používá
 Visual Basic, ačkoliv čísla řádků byla nahrazena uživatelsky přívětívějšími
 návěštími. VBScript &mdash; jako potomek jazyka Visual Basic &mdash; používá
 výrazně ořezanou verzi téhož mechanismu. To ve svém důsledku znamená, že nám
@@ -244,16 +244,16 @@ try:
     hodnota = int(hodnota)
     print "42 / %d = %d" % (hodnota, 42 / hodnota)
 
-except ValueError: 
+except ValueError:
     print "Hodnotu nelze prevest na cele cislo."
 
 except ZeroDivisionError:
     print "Neni povolena nulova hodnota."
 
-except: 
+except:
     print "Stalo se neco neocekavaneho."
 
-else: 
+else:
     print "Program skoncil uspesne."
 </pre>
 
@@ -304,7 +304,7 @@ try:
         data = file('data.dat')
         hodnota = int(data.readline().split()[2])
         print 'Hodnota je %d.' % (hodnota/(42-hodnota))
-    except ZeroDivisionError: 
+    except ZeroDivisionError:
         print 'Hodnota byla 42.'
 finally:
     data.close()
@@ -368,7 +368,7 @@ try:
     try:
         hodnota = int(data.readline().split()[2])
         print 'Hodnota je %d.' % (hodnota/(42-hodnota))
-    except ZeroDivisionError: 
+    except ZeroDivisionError:
         print 'Hodnota byla 42.'
 finally:
     data.close()
@@ -379,7 +379,7 @@ print 'Konec programu.'
 <p>Je tady ale ještě jeden zádrhel. Pokud by navíc selhalo i otvírání
 zouboru <code>data.dat</code>, dojde k výjimce proměnná <code>data</code>
 nebude naplněna (případně se váže na předchozí hodnotu). To znamená, že v
-sekci <code>finally</code>, ve kterém se budeme pokoušet o volání metody 
+sekci <code>finally</code>, ve kterém se budeme pokoušet o volání metody
 <code>close()</code> objektu, který neexistuje. Proto je lepší zapsat:</p>
 
 <pre>
@@ -389,7 +389,7 @@ try:
     try:
         hodnota = int(data.readline().split()[2])
         print 'Hodnota je %d.' % (hodnota/(42-hodnota))
-    except ZeroDivisionError: 
+    except ZeroDivisionError:
         print 'Hodnota byla 42.'
 finally:
     data.close()
@@ -412,7 +412,7 @@ data = file('data.dat')
 try:
     hodnota = int(data.readline().split()[2])
     print 'Hodnota je %d.' % (hodnota/(42-hodnota))
-except ZeroDivisionError: 
+except ZeroDivisionError:
     print 'Hodnota byla 42.'
 except:
     print u'Nastala jiná výjimka.'
@@ -429,7 +429,7 @@ print 'Konec programu.'
 
 <p>Jakým způsobem můžeme generovat výjimky &mdash; dejme tomu uvnitř modulu
 &mdash;, které má zachytit někdo jiný? V jazyce Python je pro tento případ
-vyhrazeno klíčové slovo <code>raise</code>:</p> 
+vyhrazeno klíčové slovo <code>raise</code>:</p>
 
 <pre>
 delenec = 42
@@ -500,7 +500,7 @@ def f(hodnota):
         return 127 / (42-hodnota)
     except ZeroDivisionError:
         logsoubor = file('errorlog.txt', 'a') <span class="comment"># Otevřeme pro připsání na konec,</span>
-        logsoubor.write('Hodnota byla 42.\n') <span class="comment"># zapíšeme hodnotu</span>      
+        logsoubor.write('Hodnota byla 42.\n') <span class="comment"># zapíšeme hodnotu</span>
         logsoubor.close()                     <span class="comment"># a soubor uzavřeme.</span>
         raise
 
@@ -522,7 +522,7 @@ S jejím využitím pak výsledek bude vypadat nějak takto:</p>
 <pre>
 def log(zprava):
     logsoubor = file('errorlog.txt', 'a') <span class="comment"># Otevřeme pro připsání na konec,</span>
-    logsoubor.write(zprava)               <span class="comment"># zapíšeme hodnotu</span>      
+    logsoubor.write(zprava)               <span class="comment"># zapíšeme hodnotu</span>
     logsoubor.close()                     <span class="comment"># a soubor uzavřeme.</span>
 
 def f(hodnota):
@@ -542,7 +542,7 @@ except ZeroDivisionError:
 nepřidával automaticky přechod na nový řádek přímo ve funkci
 <code>log()</code>?</em> Nedoporučuji to. Uvědomte si, že v takovém případě
 byste se zbavili možnosti zapisovat postupně několika voláními funkce více
-hodnot na jeden řádek log souboru. Místo toho je vhodnější vytvořit další, 
+hodnot na jeden řádek log souboru. Místo toho je vhodnější vytvořit další,
 specializovanější funkci, která využívá výše definované, obecnější funkce
 <code>log()</code>. Speciální funkce může například do log souboru zapisovat
 i datum, čas a jmého přihlášeného uživatele:</p>
@@ -550,7 +550,7 @@ i datum, čas a jmého přihlášeného uživatele:</p>
 <pre>
 def log(zprava):
     logsoubor = file('errorlog.txt', 'a') <span class="comment"># Otevřeme pro připsání na konec,</span>
-    logsoubor.write(zprava)               <span class="comment"># zapíšeme hodnotu</span>      
+    logsoubor.write(zprava)               <span class="comment"># zapíšeme hodnotu</span>
     logsoubor.close()                     <span class="comment"># a soubor uzavřeme.</span>
 
 def logErr(text):
@@ -559,7 +559,7 @@ def logErr(text):
     tim = time.strftime('%c')             <span class="comment"># Získáme časovou značku.</span>
     usr = getpass.getuser()               <span class="comment"># Získáme jméno uživatele.</span>
     log('%s %s: %s\n' % (tim, usr, text)) <span class="comment"># Zapíšeme zformátovaný řádek.</span>
-    
+
 def f(hodnota):
     try:
         return 127 / (42-hodnota)
@@ -705,7 +705,7 @@ námětů:</p>
     záznamníku s adresami &mdash; pro ukládání detailů vaší sbírky
     videozáznamů, DVD nebo CD.</li>
 <li>Diář, který vám umožní ukládat důležité události a schůzky. A pokud se
-    cítíte být <span class="trnote" 
+    cítíte být <span class="trnote"
     title="Viz Douglas Adams: Stopařův průvodce po Galaxii."
     >děsný frúd</span>, nechť se automaticky objevuje připomínka.</li>
 </ul>
@@ -726,7 +726,7 @@ důležité, dobře se bavte!</p>
 <p class="title">Zapamatujte si</p>
 <ul>
 <li>V jazyce VBScript testujeme chybové kódy příkazem <code>if</code>.</li>
-<li>Výjimky se zachytávají v Pythonu zachytávají pomocí <code>except</code> 
+<li>Výjimky se zachytávají v Pythonu zachytávají pomocí <code>except</code>
     a v JavaScript pomocí <code>catch</code>.</li>
 <li>Vygenerování výjimky můžeme v Pythonu předepsat klíčovým slovem
     <code>raise</code>, v JavaScript pomocí <code>throw</code>.</li>
@@ -737,10 +737,10 @@ důležité, dobře se bavte!</p>
 
 
 <div class="foot">
-<p class="navig">[ 
+<p class="navig">[
 <a href="cztuttext.html" title="Práce s textem">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutname.html" title="Prostory jmen">další</a> 
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutname.html" title="Prostory jmen">další</a>
 ]</p>
 <p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
 vylepšit, zašlete e-mail odklepnutím
@@ -750,12 +750,12 @@ var id = new String('$Id: cztuterrors.html,v 1.8 2005/10/20 20:55:24 petr Exp $'
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
                + '%0d%0dPoznámky:%0d" '
                + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
 Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
 

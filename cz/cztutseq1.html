@@ -1,254 +1,254 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Jednoduché posloupnosti</title>
+  <title>Jak se nauÄŤit programovat: JednoduchĂ© posloupnosti</title>
 </head>
 <body>
 
-<h2>Jednoduché posloupnosti</h2>
+<h2>JednoduchĂ© posloupnosti</h2>
 
-<div class="whatcovered"> 
-<p class="title">O čem si budeme povídat?</p>
+<div class="whatcovered">
+<p class="title">O ÄŤem si budeme povĂ­dat?</p>
 
 <ul>
-<li>Jednotlivé příkazy.</li>
-<li>Použití Pythonu jako kalkulačky.</li>
-<li>Používání závorek k dosažení správného výsledku.</li>
-<li>Použití formátovacího řetězce pro tisk složitějšího výstupu.</li>
-<li>Nakonec si ukážeme, jak můžeme Python ukončit zevnitř programu.</li>
+<li>JednotlivĂ© pĹ™Ă­kazy.</li>
+<li>PouĹľitĂ­ Pythonu jako kalkulaÄŤky.</li>
+<li>PouĹľĂ­vĂˇnĂ­ zĂˇvorek k dosaĹľenĂ­ sprĂˇvnĂ©ho vĂ˝sledku.</li>
+<li>PouĹľitĂ­ formĂˇtovacĂ­ho Ĺ™etÄ›zce pro tisk sloĹľitÄ›jĹˇĂ­ho vĂ˝stupu.</li>
+<li>Nakonec si ukĂˇĹľeme, jak mĹŻĹľeme Python ukonÄŤit zevnitĹ™ programu.</li>
 </ul>
 </div>
 
-<p>Nejjednodušší program, který můžete napsat, se skládá z jednoduché
-posloupnosti příkazů. Nejjednodušší posloupnost je taková, která obsahuje
-jediný příkaz. Některé příkazy si teď vyzkoušíme. Nadpis bude říkat, co
-máme napsat za vyzývacími znaky překladače '>>>&nbsp;' a následující
-odstavec nám objasní, co se stane.</p>
+<p>NejjednoduĹˇĹˇĂ­ program, kterĂ˝ mĹŻĹľete napsat, se sklĂˇdĂˇ z jednoduchĂ©
+posloupnosti pĹ™Ă­kazĹŻ. NejjednoduĹˇĹˇĂ­ posloupnost je takovĂˇ, kterĂˇ obsahuje
+jedinĂ˝ pĹ™Ă­kaz. NÄ›kterĂ© pĹ™Ă­kazy si teÄŹ vyzkouĹˇĂ­me. Nadpis bude Ĺ™Ă­kat, co
+mĂˇme napsat za vyzĂ˝vacĂ­mi znaky pĹ™ekladaÄŤe '>>>&nbsp;' a nĂˇsledujĂ­cĂ­
+odstavec nĂˇm objasnĂ­, co se stane.</p>
 
 
 <h4>>>> print 'Ahoj, vy tam!'</h4>
 
-<p>Příkaz <code>print</code> zajistí, aby nám Python zobrazil výsledek na
-orazovku. V tomto případě se tiskne posloupnost znaků <code>A</code>,
+<p>PĹ™Ă­kaz <code>print</code> zajistĂ­, aby nĂˇm Python zobrazil vĂ˝sledek na
+orazovku. V tomto pĹ™Ă­padÄ› se tiskne posloupnost znakĹŻ <code>A</code>,
 <code>h</code>, <code>o</code>, <code>j</code>, <code>,</code>,
 <code>&nbsp;</code>, <code>v</code>, <code>y</code>, <code>&nbsp;</code>,
-<code>t</code>, <code>a</code>, <code>m</code>, <code>!</code>. Takové
-posloupnosti znaků se v programátorských kruzích říká <em>řetězec
-znaků</em>, <em>znakový řetězec</em> nebo prostě jen <em>řetězec</em>.
+<code>t</code>, <code>a</code>, <code>m</code>, <code>!</code>. TakovĂ©
+posloupnosti znakĹŻ se v programĂˇtorskĂ˝ch kruzĂ­ch Ĺ™Ă­kĂˇ <em>Ĺ™etÄ›zec
+znakĹŻ</em>, <em>znakovĂ˝ Ĺ™etÄ›zec</em> nebo prostÄ› jen <em>Ĺ™etÄ›zec</em>.
 
-<p>Řetězec zapisujeme mezi uvozovky. V Pythonu můžeme použít buď jednoduché
-uvozovky (<span class="trnote" title="Poznámka překladatele">apostrofy,</span>
-tak jako ve výše uvedeném případě), nebo dvojité uvozovky: "toto je
-řetězec". Díky tomu můžeme do řetězce vložit jeden ze zmíněných znaků, pokud
-pro ohraničení řetězce použijeme druhý z nich. Může se námto hodit například
-v případech, kdy věta obsahuje apostrofy <span class="trnote"
-title="Poznámka překladatele">(v anglických větách &mdash; viz ukázka
-&mdash; je tento jev poměrně častý)</span>:</p>
+<p>ĹetÄ›zec zapisujeme mezi uvozovky. V Pythonu mĹŻĹľeme pouĹľĂ­t buÄŹ jednoduchĂ©
+uvozovky (<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">apostrofy,</span>
+tak jako ve vĂ˝Ĺˇe uvedenĂ©m pĹ™Ă­padÄ›), nebo dvojitĂ© uvozovky: "toto je
+Ĺ™etÄ›zec". DĂ­ky tomu mĹŻĹľeme do Ĺ™etÄ›zce vloĹľit jeden ze zmĂ­nÄ›nĂ˝ch znakĹŻ, pokud
+pro ohraniÄŤenĂ­ Ĺ™etÄ›zce pouĹľijeme druhĂ˝ z nich. MĹŻĹľe se nĂˇmto hodit napĹ™Ă­klad
+v pĹ™Ă­padech, kdy vÄ›ta obsahuje apostrofy <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(v anglickĂ˝ch vÄ›tĂˇch &mdash; viz ukĂˇzka
+&mdash; je tento jev pomÄ›rnÄ› ÄŤastĂ˝)</span>:</p>
 
 <pre>
 >>> print "Monty Python's Flying Circus has a ' within it..."
 </pre>
 
-<p>Ale tisknout nemusíme jen znaky:</p> 
+<p>Ale tisknout nemusĂ­me jen znaky:</p>
 
 <h4>>>> print 6 + 5</h4>
 
-<p>Zde jsme vytiskli výsledek aritmetické operace &mdash; sečetli jsme šest
-a pět. Python rozpoznal zapsaná čísla a znak plus a zajistil sečtení čísel.
-Zobrazí se výsledek součtu <span class="trnote" title="Poznámka překladatele"
+<p>Zde jsme vytiskli vĂ˝sledek aritmetickĂ© operace &mdash; seÄŤetli jsme Ĺˇest
+a pÄ›t. Python rozpoznal zapsanĂˇ ÄŤĂ­sla a znak plus a zajistil seÄŤtenĂ­ ÄŤĂ­sel.
+ZobrazĂ­ se vĂ˝sledek souÄŤtu <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
 >(tedy 11)</span>.</p>
 
-<p>Python tedy můžeme využít jako kapesní kalkulačku. Vyzkoušejte si pár 
-dalších součtů. Vyzkoušejte si také další aritmetické operátory:</p>
+<p>Python tedy mĹŻĹľeme vyuĹľĂ­t jako kapesnĂ­ kalkulaÄŤku. VyzkouĹˇejte si pĂˇr
+dalĹˇĂ­ch souÄŤtĹŻ. VyzkouĹˇejte si takĂ© dalĹˇĂ­ aritmetickĂ© operĂˇtory:</p>
 
 
 <ul>
-<li>odčítání (-)</li>
-<li>násobení (*)</li>
-<li>dělení (/)</li>
+<li>odÄŤĂ­tĂˇnĂ­ (-)</li>
+<li>nĂˇsobenĂ­ (*)</li>
+<li>dÄ›lenĂ­ (/)</li>
 </ul>
 
-<p>Vyzkoušejte si i kombinované výrazy, jako například:</p> 
+<p>VyzkouĹˇejte si i kombinovanĂ© vĂ˝razy, jako napĹ™Ă­klad:</p>
 
 <pre>
 >>> print ((8 * 4) + (7 - 3)) / (2 + 4)
 </pre>
 
-<p>Povšimněte si, jak byly pro vymezení podvýrazů použity závorky. Co by se
-stalo, kdybychom napsali stejný výraz bez závorek? Python preferuje násobení
-a dělení před sčítáním a odčítáním a proto by tedy uskutečnil tyto operace
-jako první. V matematice je to běžné, ale u programovacích jazyků to nemusí
-platit vždy. Všechny programovací jazyky definují pravidla, která určují
-posloupnost vyhodnocování operací. Tato pravidla jsou známa pod pojmem
-<em>priorita operátorů</em>. Pokud chcete přesně zjistit, jak bude výraz v
-konkrétním jazyce vyhodnocován, musíte se podívat do jeho referenční
-příručky. U jazyka Python je tomu většinou tak, jak bychom očekávali na
-základě logiky a intuice. Ale občas je to trochu jinak&hellip;</p>
+<p>PovĹˇimnÄ›te si, jak byly pro vymezenĂ­ podvĂ˝razĹŻ pouĹľity zĂˇvorky. Co by se
+stalo, kdybychom napsali stejnĂ˝ vĂ˝raz bez zĂˇvorek? Python preferuje nĂˇsobenĂ­
+a dÄ›lenĂ­ pĹ™ed sÄŤĂ­tĂˇnĂ­m a odÄŤĂ­tĂˇnĂ­m a proto by tedy uskuteÄŤnil tyto operace
+jako prvnĂ­. V matematice je to bÄ›ĹľnĂ©, ale u programovacĂ­ch jazykĹŻ to nemusĂ­
+platit vĹľdy. VĹˇechny programovacĂ­ jazyky definujĂ­ pravidla, kterĂˇ urÄŤujĂ­
+posloupnost vyhodnocovĂˇnĂ­ operacĂ­. Tato pravidla jsou znĂˇma pod pojmem
+<em>priorita operĂˇtorĹŻ</em>. Pokud chcete pĹ™esnÄ› zjistit, jak bude vĂ˝raz v
+konkrĂ©tnĂ­m jazyce vyhodnocovĂˇn, musĂ­te se podĂ­vat do jeho referenÄŤnĂ­
+pĹ™Ă­ruÄŤky. U jazyka Python je tomu vÄ›tĹˇinou tak, jak bychom oÄŤekĂˇvali na
+zĂˇkladÄ› logiky a intuice. Ale obÄŤas je to trochu jinak&hellip;</p>
 
-<p>Pokud pracujeme s dlouhými výrazy a chceme si být jistí, že dostaneme
-výsledek podle našeho očekávání, pak bychom obecně měli použít závorek.</p>
+<p>Pokud pracujeme s dlouhĂ˝mi vĂ˝razy a chceme si bĂ˝t jistĂ­, Ĺľe dostaneme
+vĂ˝sledek podle naĹˇeho oÄŤekĂˇvĂˇnĂ­, pak bychom obecnÄ› mÄ›li pouĹľĂ­t zĂˇvorek.</p>
 
-<p>Další poznámka:</p>
+<p>DalĹˇĂ­ poznĂˇmka:</p>
 
 <pre>
 >>> print 5/2
 </pre>
 
-<p>výsledkem je celé číslo (integer) &mdash; v našem případě 2. Je to dáno
-tím, že Python zjistil, že jste ve výrazu uvedli pouze celá čísla a
-předpokládá, že chcete získat výsledek jako číslo stejného typu. <span
-class="trnote" title="Poznámka překladatele">(Jinými slovy, operátor dělení
-má celočíselné operandy, a proto Python předpokládá, že máte na mysli
-celočíselné dělení.)</span> Pokud budeme chtít výsledek v podobě desetinného
-čísla, zapište alespoň jeden z operandů v podobě desetinného čísla:</p>
+<p>vĂ˝sledkem je celĂ© ÄŤĂ­slo (integer) &mdash; v naĹˇem pĹ™Ă­padÄ› 2. Je to dĂˇno
+tĂ­m, Ĺľe Python zjistil, Ĺľe jste ve vĂ˝razu uvedli pouze celĂˇ ÄŤĂ­sla a
+pĹ™edpoklĂˇdĂˇ, Ĺľe chcete zĂ­skat vĂ˝sledek jako ÄŤĂ­slo stejnĂ©ho typu. <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(JinĂ˝mi slovy, operĂˇtor dÄ›lenĂ­
+mĂˇ celoÄŤĂ­selnĂ© operandy, a proto Python pĹ™edpoklĂˇdĂˇ, Ĺľe mĂˇte na mysli
+celoÄŤĂ­selnĂ© dÄ›lenĂ­.)</span> Pokud budeme chtĂ­t vĂ˝sledek v podobÄ› desetinnĂ©ho
+ÄŤĂ­sla, zapiĹˇte alespoĹ jeden z operandĹŻ v podobÄ› desetinnĂ©ho ÄŤĂ­sla:</p>
 
 <pre>
 >>> print 5/2.0
 2.5
 </pre>
 
-<p>Python našel zápis čísla 2.0 a zjistil, že nám práce s desetinnými čísly
-nečiní problémy, takže nám vrátí výsledek v podobě desetinného čísla.
-(Desetinná čísla se v souvislosti s programováním označují také jako
-<em>reálná</em> čísla nebo čísla v <em>plovoucí řádové čárce</em>.) V
-posledních verzích Pythonu můžete popsané chování změnit tak, aby výsledkem
-dělení bylo vždy reálné číslo. Dosáhnete toho přidáním následujícího řádku
-na začátek vašeho programu (povšimněte si, že kolem slova
-<code>future</code> píšeme z obou stran dvojici znaků podtržení):</p>
+<p>Python naĹˇel zĂˇpis ÄŤĂ­sla 2.0 a zjistil, Ĺľe nĂˇm prĂˇce s desetinnĂ˝mi ÄŤĂ­sly
+neÄŤinĂ­ problĂ©my, takĹľe nĂˇm vrĂˇtĂ­ vĂ˝sledek v podobÄ› desetinnĂ©ho ÄŤĂ­sla.
+(DesetinnĂˇ ÄŤĂ­sla se v souvislosti s programovĂˇnĂ­m oznaÄŤujĂ­ takĂ© jako
+<em>reĂˇlnĂˇ</em> ÄŤĂ­sla nebo ÄŤĂ­sla v <em>plovoucĂ­ Ĺ™ĂˇdovĂ© ÄŤĂˇrce</em>.) V
+poslednĂ­ch verzĂ­ch Pythonu mĹŻĹľete popsanĂ© chovĂˇnĂ­ zmÄ›nit tak, aby vĂ˝sledkem
+dÄ›lenĂ­ bylo vĹľdy reĂˇlnĂ© ÄŤĂ­slo. DosĂˇhnete toho pĹ™idĂˇnĂ­m nĂˇsledujĂ­cĂ­ho Ĺ™Ăˇdku
+na zaÄŤĂˇtek vaĹˇeho programu (povĹˇimnÄ›te si, Ĺľe kolem slova
+<code>future</code> pĂ­Ĺˇeme z obou stran dvojici znakĹŻ podtrĹľenĂ­):</p>
 
 <pre>
 >>> from __future__ import division
 </pre>
 
-<p>Dá se očekávat, že tento způsob dělení se v některé z budoucích verzí
-systému Python stane standardem. Prozatím musíme Pythonu říci, že toto
-chování chceme zapnout.</p>
+<p>DĂˇ se oÄŤekĂˇvat, Ĺľe tento zpĹŻsob dÄ›lenĂ­ se v nÄ›kterĂ© z budoucĂ­ch verzĂ­
+systĂ©mu Python stane standardem. ProzatĂ­m musĂ­me Pythonu Ĺ™Ă­ci, Ĺľe toto
+chovĂˇnĂ­ chceme zapnout.</p>
 
-<p>Pokud byste chtěli zůstat u počítání v celých číslech, pak můžete získat
-hodnotu zbytku po celočíselném dělení pomocí operátoru <code>%</code> <span
-class="trnote" title="Poznámka překladatele">(znak procenta)</span>. Python
-pak zobrazí tento zbytek.</p>
+<p>Pokud byste chtÄ›li zĹŻstat u poÄŤĂ­tĂˇnĂ­ v celĂ˝ch ÄŤĂ­slech, pak mĹŻĹľete zĂ­skat
+hodnotu zbytku po celoÄŤĂ­selnĂ©m dÄ›lenĂ­ pomocĂ­ operĂˇtoru <code>%</code> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(znak procenta)</span>. Python
+pak zobrazĂ­ tento zbytek.</p>
 
 <pre>
->>> print 7/2 
-3 
->>> print 7%2 
+>>> print 7/2
+3
+>>> print 7%2
 1
->>> print 7%4 
+>>> print 7%4
 3</pre>
 
-<p>Operátor <code>%</code> je znám pod názvem <em>modulo</em> nebo
-<code>mod</code> a v jiných jazycích se často zapisuje jako <code>MOD</code>
-nebo podobně.</p>
+<p>OperĂˇtor <code>%</code> je znĂˇm pod nĂˇzvem <em>modulo</em> nebo
+<code>mod</code> a v jinĂ˝ch jazycĂ­ch se ÄŤasto zapisuje jako <code>MOD</code>
+nebo podobnÄ›.</p>
 
-<p>Experimentujte a brzy vám bude jasné, o co jde.</p>
+<p>Experimentujte a brzy vĂˇm bude jasnĂ©, o co jde.</p>
 
 
 <h4>>>> print 'Soucet je: ', 23+45</h4>
 
-<p>Již jsme si předvedli, že dokážeme tisknout řetězce a čísla. Nyní jsme oba
-případy zkombinovali do jednoho příkazu pro tisk s tím, že jsme je oddělili
-čáskou. Tento rys můžeme dále rozšířit o další trik jazyka Python pro výstup
-dat, který se nazývá <em>formátovací řetězec</em>:</p>
+<p>JiĹľ jsme si pĹ™edvedli, Ĺľe dokĂˇĹľeme tisknout Ĺ™etÄ›zce a ÄŤĂ­sla. NynĂ­ jsme oba
+pĹ™Ă­pady zkombinovali do jednoho pĹ™Ă­kazu pro tisk s tĂ­m, Ĺľe jsme je oddÄ›lili
+ÄŤĂˇskou. Tento rys mĹŻĹľeme dĂˇle rozĹˇĂ­Ĺ™it o dalĹˇĂ­ trik jazyka Python pro vĂ˝stup
+dat, kterĂ˝ se nazĂ˝vĂˇ <em>formĂˇtovacĂ­ Ĺ™etÄ›zec</em>:</p>
 
 <pre>
 >>> print "Soucet cisla %d a cisla %d je: %d" % (7,18,7+18)
 </pre>
 
-<p>V tomto příkazu obsahuje formátovací řetězec uvnitř značky uvozené znakem
-'%' (procento). Písmeno 'd' za % překladači jazyka Python říká, že zde má
-být umístěno dekadické číslo <span class="trnote" title="Poznámka překladatele"
->(tj. celé číslo vyjádřené v desítkové řádové soustavě)</span>. Hodnoty,
-které mají být dosazeny místo značek <span class="trnote" 
-title="Poznámka překladatele">uvnitř řetězce</span>, jsou získány z hodnot
-uvnitř výrazu v závorkách, který následuje samostatně umístěný znak % <span
-class="trnote" title="Poznámka překladatele">za formátovacím
-řetězcem</span>.</p>
+<p>V tomto pĹ™Ă­kazu obsahuje formĂˇtovacĂ­ Ĺ™etÄ›zec uvnitĹ™ znaÄŤky uvozenĂ© znakem
+'%' (procento). PĂ­smeno 'd' za % pĹ™ekladaÄŤi jazyka Python Ĺ™Ă­kĂˇ, Ĺľe zde mĂˇ
+bĂ˝t umĂ­stÄ›no dekadickĂ© ÄŤĂ­slo <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>(tj. celĂ© ÄŤĂ­slo vyjĂˇdĹ™enĂ© v desĂ­tkovĂ© Ĺ™ĂˇdovĂ© soustavÄ›)</span>. Hodnoty,
+kterĂ© majĂ­ bĂ˝t dosazeny mĂ­sto znaÄŤek <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">uvnitĹ™ Ĺ™etÄ›zce</span>, jsou zĂ­skĂˇny z hodnot
+uvnitĹ™ vĂ˝razu v zĂˇvorkĂˇch, kterĂ˝ nĂˇsleduje samostatnÄ› umĂ­stÄ›nĂ˝ znak % <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">za formĂˇtovacĂ­m
+Ĺ™etÄ›zcem</span>.</p>
 
-<p>Pro značky <span class="trnote" title="Poznámka překladatele">ve
-formátovacím řetězci</span> lze použít i kombinace % s jinými znaky. Některé
-z nich jsou uvedeny níže:</p>
+<p>Pro znaÄŤky <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">ve
+formĂˇtovacĂ­m Ĺ™etÄ›zci</span> lze pouĹľĂ­t i kombinace % s jinĂ˝mi znaky. NÄ›kterĂ©
+z nich jsou uvedeny nĂ­Ĺľe:</p>
 
 <ul>
-<li>%s - pro řetězec</li>
-<li>%x - pro zápis čísla v hexadecimálním tvaru</li>
-<li>%0.2f - pro zápis reálného čísla na dvě desetinná místa</li>
-<li>%04d - pro zápis celého čísla doplněného zleva nulami na 4 pozice</li>
+<li>%s - pro Ĺ™etÄ›zec</li>
+<li>%x - pro zĂˇpis ÄŤĂ­sla v hexadecimĂˇlnĂ­m tvaru</li>
+<li>%0.2f - pro zĂˇpis reĂˇlnĂ©ho ÄŤĂ­sla na dvÄ› desetinnĂˇ mĂ­sta</li>
+<li>%04d - pro zĂˇpis celĂ©ho ÄŤĂ­sla doplnÄ›nĂ©ho zleva nulami na 4 pozice</li>
 </ul>
 
-<p>V příručce jazyka Python jich naleznete mnohem více&hellip;</p>
+<p>V pĹ™Ă­ruÄŤce jazyka Python jich naleznete mnohem vĂ­ce&hellip;</p>
 
-<p>Ve skutečnosti můžete v jazyce Python příkazem print vytisknout libovolný
-<em>objekt</em>. Někdy výsledek neodpovídá tomu, co byste očekávali (někdy
-se zobrazí jen popis, který říká, o jaký druh objektu jde), ale objekt
-můžete vytisknout vždy.</p>
+<p>Ve skuteÄŤnosti mĹŻĹľete v jazyce Python pĹ™Ă­kazem print vytisknout libovolnĂ˝
+<em>objekt</em>. NÄ›kdy vĂ˝sledek neodpovĂ­dĂˇ tomu, co byste oÄŤekĂˇvali (nÄ›kdy
+se zobrazĂ­ jen popis, kterĂ˝ Ĺ™Ă­kĂˇ, o jakĂ˝ druh objektu jde), ale objekt
+mĹŻĹľete vytisknout vĹľdy.</p>
 
 <h4>>>> import sys</h4>
 
-<p>Tento příkaz je nějaký podivný. Pokud jste jej vyzkoušíte, uvidíte, že
-zjevně nedělá vůbec nic. Ale ve skutečnosti to není pravda. Abychom
-rozuměli tomu, co se děje, potřebujeme nahlédnout do architektury jazyka
-Python. (Pokud programujete v jiném jazyce, mějte chvíli strpení. Určitě
-používáte nějaký podobný mechanismus.).</p>
+<p>Tento pĹ™Ă­kaz je nÄ›jakĂ˝ podivnĂ˝. Pokud jste jej vyzkouĹˇĂ­te, uvidĂ­te, Ĺľe
+zjevnÄ› nedÄ›lĂˇ vĹŻbec nic. Ale ve skuteÄŤnosti to nenĂ­ pravda. Abychom
+rozumÄ›li tomu, co se dÄ›je, potĹ™ebujeme nahlĂ©dnout do architektury jazyka
+Python. (Pokud programujete v jinĂ©m jazyce, mÄ›jte chvĂ­li strpenĂ­. UrÄŤitÄ›
+pouĹľĂ­vĂˇte nÄ›jakĂ˝ podobnĂ˝ mechanismus.).</p>
 
-<p>Když Python spustíte, máte k dispozici skupinu příkazů, které jsou
-označovány jako <em>zabudované</em> (built-in), protože jsou zabudovány
-přímo do jádra překladače jazyka Python. Ale Python může rozšiřovat seznam
-dostupných příkazů tím, že k jádru přičleňuje rozšiřující moduly. Trochu to
-připomíná situaci, kdy si ve vašem oblíbeném obchodě <em>Udělej si sám</em>
-koupíte nový nástroj a přidáte jej do své bedny s nářadím. Nástroj zde
-představuj část příkazu <code>sys</code> a operace <code>import</code> jej
-přidá k dosud užívaným nástrojům.</p>
+<p>KdyĹľ Python spustĂ­te, mĂˇte k dispozici skupinu pĹ™Ă­kazĹŻ, kterĂ© jsou
+oznaÄŤovĂˇny jako <em>zabudovanĂ©</em> (built-in), protoĹľe jsou zabudovĂˇny
+pĹ™Ă­mo do jĂˇdra pĹ™ekladaÄŤe jazyka Python. Ale Python mĹŻĹľe rozĹˇiĹ™ovat seznam
+dostupnĂ˝ch pĹ™Ă­kazĹŻ tĂ­m, Ĺľe k jĂˇdru pĹ™iÄŤleĹuje rozĹˇiĹ™ujĂ­cĂ­ moduly. Trochu to
+pĹ™ipomĂ­nĂˇ situaci, kdy si ve vaĹˇem oblĂ­benĂ©m obchodÄ› <em>UdÄ›lej si sĂˇm</em>
+koupĂ­te novĂ˝ nĂˇstroj a pĹ™idĂˇte jej do svĂ© bedny s nĂˇĹ™adĂ­m. NĂˇstroj zde
+pĹ™edstavuj ÄŤĂˇst pĹ™Ă­kazu <code>sys</code> a operace <code>import</code> jej
+pĹ™idĂˇ k dosud uĹľĂ­vanĂ˝m nĂˇstrojĹŻm.</p>
 
-<p>Ve skutečnosti tento příkaz zpřístupní celou skupinu nových 'nástrojů' v
-podobě dalších příkazů jazyka Python, které jsou <span class="trnote"
-title="Poznámka překladatele">ve výše uvedeném případě</span> definovány v
-souboru 'sys.py'. Toto je tedy způsob, jakým lze Python rozšiřovat, aby uměl
-provádět všechny možné důmyslné věci, které nejsou zabudovány do základního
-systému. Můžete dokonce vytvořit své vlastní <em>moduly</em>, naimportovat
-je (příkazem <code>import</code>) a potom je používat naprosto stejným
-způsobem, jako se používají moduly, které jsou dodávané s instalací jazyka
+<p>Ve skuteÄŤnosti tento pĹ™Ă­kaz zpĹ™Ă­stupnĂ­ celou skupinu novĂ˝ch 'nĂˇstrojĹŻ' v
+podobÄ› dalĹˇĂ­ch pĹ™Ă­kazĹŻ jazyka Python, kterĂ© jsou <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">ve vĂ˝Ĺˇe uvedenĂ©m pĹ™Ă­padÄ›</span> definovĂˇny v
+souboru 'sys.py'. Toto je tedy zpĹŻsob, jakĂ˝m lze Python rozĹˇiĹ™ovat, aby umÄ›l
+provĂˇdÄ›t vĹˇechny moĹľnĂ© dĹŻmyslnĂ© vÄ›ci, kterĂ© nejsou zabudovĂˇny do zĂˇkladnĂ­ho
+systĂ©mu. MĹŻĹľete dokonce vytvoĹ™it svĂ© vlastnĂ­ <em>moduly</em>, naimportovat
+je (pĹ™Ă­kazem <code>import</code>) a potom je pouĹľĂ­vat naprosto stejnĂ˝m
+zpĹŻsobem, jako se pouĹľĂ­vajĂ­ moduly, kterĂ© jsou dodĂˇvanĂ© s instalacĂ­ jazyka
 Python.</p>
 
-<p>Takže jak vlastně máme tyto nové nástroje používat?</p>
+<p>TakĹľe jak vlastnÄ› mĂˇme tyto novĂ© nĂˇstroje pouĹľĂ­vat?</p>
 
 <h4>>>> sys.exit()</h4>
 
-<p>Ale! Co se to stalo? Prostě jsme spustili příkaz <code>exit</code>, který
-je definován v modulu <code>sys</code>. Tento příkaz způsobí ukončení práce
-s interpretem jazyka Python. (<b>Poznámka:</b> Obvykle Python ukončujeme
-tím, že za vyzývací posloupnost <code>>>></code> zadáme znak EOF (End Of
-File &mdash; konec souboru) &mdash; v systému DOS je to znak <code>Ctrl-Z</code>,
-v systému Unix je to znak <code>Ctrl-D</code>.)</p>
+<p>Ale! Co se to stalo? ProstÄ› jsme spustili pĹ™Ă­kaz <code>exit</code>, kterĂ˝
+je definovĂˇn v modulu <code>sys</code>. Tento pĹ™Ă­kaz zpĹŻsobĂ­ ukonÄŤenĂ­ prĂˇce
+s interpretem jazyka Python. (<b>PoznĂˇmka:</b> Obvykle Python ukonÄŤujeme
+tĂ­m, Ĺľe za vyzĂ˝vacĂ­ posloupnost <code>>>></code> zadĂˇme znak EOF (End Of
+File &mdash; konec souboru) &mdash; v systĂ©mu DOS je to znak <code>Ctrl-Z</code>,
+v systĂ©mu Unix je to znak <code>Ctrl-D</code>.)</p>
 
-<p>Všimněte si, že za příkazem <code>exit</code> jsou uvedeny dvě závorky.
-To proto, že se jedná o <em>funkci</em> definovanou v sys. A pokud v jazyce
-Python voláme funkci, musíme závorky psát, i když v nich není nic uvedeno.</p>
+<p>VĹˇimnÄ›te si, Ĺľe za pĹ™Ă­kazem <code>exit</code> jsou uvedeny dvÄ› zĂˇvorky.
+To proto, Ĺľe se jednĂˇ o <em>funkci</em> definovanou v sys. A pokud v jazyce
+Python volĂˇme funkci, musĂ­me zĂˇvorky psĂˇt, i kdyĹľ v nich nenĂ­ nic uvedeno.</p>
 
-<p>Zkuste napsat sys.exit bez závorek. Místo toho, aby Python funkci provedl,
-zareaguje pouze výpisem sdělení, že exit je funkce.</p>
+<p>Zkuste napsat sys.exit bez zĂˇvorek. MĂ­sto toho, aby Python funkci provedl,
+zareaguje pouze vĂ˝pisem sdÄ›lenĂ­, Ĺľe exit je funkce.</p>
 
-<p>A nakonec bychom si měli povšimnout, že poslední dva příkazy jsou ve
-skutečnosti užitečné pouze v kombinaci. To znamená, že pokud chceme Python 
-ukončit jinak, než napsáním EOF, musíme napsat:</p>
+<p>A nakonec bychom si mÄ›li povĹˇimnout, Ĺľe poslednĂ­ dva pĹ™Ă­kazy jsou ve
+skuteÄŤnosti uĹľiteÄŤnĂ© pouze v kombinaci. To znamenĂˇ, Ĺľe pokud chceme Python
+ukonÄŤit jinak, neĹľ napsĂˇnĂ­m EOF, musĂ­me napsat:</p>
 
 <pre>
-import sys 
+import sys
 sys.exit()
 </pre>
 
-<p>A to je přece posloupnost dvou příkazů! Takže jsme se zase dostali o krůček
-blíže k opravdovému programování&hellip;</p>
+<p>A to je pĹ™ece posloupnost dvou pĹ™Ă­kazĹŻ! TakĹľe jsme se zase dostali o krĹŻÄŤek
+blĂ­Ĺľe k opravdovĂ©mu programovĂˇnĂ­&hellip;</p>
 
-<h3>A teď v jazyce JavaScript</h3>
+<h3>A teÄŹ v jazyce JavaScript</h3>
 
-<p>Narozdíl od Pythonu nemůžeme při použití JavaScript zkoušet příkazy
-tak, že bychom je jednoduše psali a pozorovali okamžité důsledky jejich
-provedení. Příkazy ale můžeme vepsat do html souboru a ten zobrazit v
-prohlížeči. Tím zjistíme, jak fungují:</p>
+<p>NarozdĂ­l od Pythonu nemĹŻĹľeme pĹ™i pouĹľitĂ­ JavaScript zkouĹˇet pĹ™Ă­kazy
+tak, Ĺľe bychom je jednoduĹˇe psali a pozorovali okamĹľitĂ© dĹŻsledky jejich
+provedenĂ­. PĹ™Ă­kazy ale mĹŻĹľeme vepsat do html souboru a ten zobrazit v
+prohlĂ­ĹľeÄŤi. TĂ­m zjistĂ­me, jak fungujĂ­:</p>
 
 <pre>
 &lt;html>&lt;body>
@@ -266,7 +266,7 @@ document.write( 5 % 2 );
 &lt;/body>&lt;/html>
 </pre>
 
-<p>Výsledek by měl vypadat takto:</p>
+<p>VĂ˝sledek by mÄ›l vypadat takto:</p>
 
 <pre>
 Hello there!
@@ -274,24 +274,24 @@ Monty Python's Flying Circus has a ' within it
 11
 6
 2.5
-1 
+1
 </pre>
 
-<p>Povšimněte si, že přechody na nové řádky si musíme vynutit zápisem
-<code>&lt;br&gt;</code>. Je to dáno tím, že JavaScript produkuje svůj výstup
-v podobě HTML a formát HTML definuje, že se zobrazované řádky mají zalamovat
-na takovou šířku, jakou dovolí okno prohlížeče. Abychom vynutili přechod na
-nový řádek, musíme použít příslušný HTML symbol, kterým je právě
-<code>&lt;br&gt;</code> <span class="trnote" title="Poznámka překladatele"
->(<code>br</code> z anglického <em>break</em> [brejk] &mdash;
+<p>PovĹˇimnÄ›te si, Ĺľe pĹ™echody na novĂ© Ĺ™Ăˇdky si musĂ­me vynutit zĂˇpisem
+<code>&lt;br&gt;</code>. Je to dĂˇno tĂ­m, Ĺľe JavaScript produkuje svĹŻj vĂ˝stup
+v podobÄ› HTML a formĂˇt HTML definuje, Ĺľe se zobrazovanĂ© Ĺ™Ăˇdky majĂ­ zalamovat
+na takovou ĹˇĂ­Ĺ™ku, jakou dovolĂ­ okno prohlĂ­ĹľeÄŤe. Abychom vynutili pĹ™echod na
+novĂ˝ Ĺ™Ăˇdek, musĂ­me pouĹľĂ­t pĹ™Ă­sluĹˇnĂ˝ HTML symbol, kterĂ˝m je prĂˇvÄ›
+<code>&lt;br&gt;</code> <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>(<code>br</code> z anglickĂ©ho <em>break</em> [brejk] &mdash;
 zalomit)</span>.</p>
 
 
-<h3>A ještě v jazyce VBScript&hellip;</h3>
+<h3>A jeĹˇtÄ› v jazyce VBScript&hellip;</h3>
 
-<p>Podobně jako v případě JavaScript musíme i v případě VBScript vepsat
-příkazy do souboru a otevřít jej v prohlížeči. V jazyce VBScript budou mít
-příkazy z předchozího příkladu následující podobu:</p>
+<p>PodobnÄ› jako v pĹ™Ă­padÄ› JavaScript musĂ­me i v pĹ™Ă­padÄ› VBScript vepsat
+pĹ™Ă­kazy do souboru a otevĹ™Ă­t jej v prohlĂ­ĹľeÄŤi. V jazyce VBScript budou mĂ­t
+pĹ™Ă­kazy z pĹ™edchozĂ­ho pĹ™Ă­kladu nĂˇsledujĂ­cĂ­ podobu:</p>
 
 <pre>
 &lt;html>&lt;body>
@@ -306,90 +306,90 @@ MsgBox 5 MOD 2
 &lt;/body>&lt;/html>
 </pre>
 
-<p>Výstupem by mělo být zobrazení dialogových oken, z nichž každé zobrazuje
-výstup z jednoho řádku programu.</p>
+<p>VĂ˝stupem by mÄ›lo bĂ˝t zobrazenĂ­ dialogovĂ˝ch oken, z nichĹľ kaĹľdĂ© zobrazuje
+vĂ˝stup z jednoho Ĺ™Ăˇdku programu.</p>
 
-<p>Zmiňme se ještě o jedné věci. Jazyk VBScript neumožňuje zápis řetězců v
-apostrofech (v dalších tématech si ozřejmíme důvod). Uvnitř řetězce, který
-musí být obklopen uvozovkami, můžeme apostrof normálně použít. Pokud ovšem
-chceme do řetězce vložit uvozovky, musíme použít funkci <code>Chr()</code>,
-která pro zadaný ASCII kód znaku vrací příslušný znak. Výsledný kód není
-zrovna přehledný, ale následující příklad by měl ukázat, jak na to:</p>
+<p>ZmiĹme se jeĹˇtÄ› o jednĂ© vÄ›ci. Jazyk VBScript neumoĹľĹuje zĂˇpis Ĺ™etÄ›zcĹŻ v
+apostrofech (v dalĹˇĂ­ch tĂ©matech si ozĹ™ejmĂ­me dĹŻvod). UvnitĹ™ Ĺ™etÄ›zce, kterĂ˝
+musĂ­ bĂ˝t obklopen uvozovkami, mĹŻĹľeme apostrof normĂˇlnÄ› pouĹľĂ­t. Pokud ovĹˇem
+chceme do Ĺ™etÄ›zce vloĹľit uvozovky, musĂ­me pouĹľĂ­t funkci <code>Chr()</code>,
+kterĂˇ pro zadanĂ˝ ASCII kĂłd znaku vracĂ­ pĹ™Ă­sluĹˇnĂ˝ znak. VĂ˝slednĂ˝ kĂłd nenĂ­
+zrovna pĹ™ehlednĂ˝, ale nĂˇsledujĂ­cĂ­ pĹ™Ă­klad by mÄ›l ukĂˇzat, jak na to:</p>
 
 <pre>
 &lt;script type="text/vbscript">
 Dim uv
 uv = Chr(34)
-MsgBox uv &amp; "Vypadni!" &amp; uv &amp; " zařval"
+MsgBox uv &amp; "Vypadni!" &amp; uv &amp; " zaĹ™val"
 &lt;/script>
 </pre>
 
-<p>Pokud potřebujete zjistit ASCII kód pro libovoný znak, můžete ve Windows
-použít aplikaci <em>Mapa znaků</em>. Můžete se také podívat na úvodní
-stránku <a href="http://www.asciitable.com/">www.asciitable.com</a>, kde vás
-bude <span class="trnote" title="Poznámka&nbsp;překladatele">(pro náš
-účel)</span> zajímat dekadická hodnota kódu. Můžete použít i následující
-kousek programu zapsaný v JavaScript a případně nahradit znak uvozovek tím
-znakem, jehož kód vás zajímá:</p>
+<p>Pokud potĹ™ebujete zjistit ASCII kĂłd pro libovonĂ˝ znak, mĹŻĹľete ve Windows
+pouĹľĂ­t aplikaci <em>Mapa znakĹŻ</em>. MĹŻĹľete se takĂ© podĂ­vat na ĂşvodnĂ­
+strĂˇnku <a href="http://www.asciitable.com/">www.asciitable.com</a>, kde vĂˇs
+bude <span class="trnote" title="PoznĂˇmka&nbsp;pĹ™ekladatele">(pro nĂˇĹˇ
+ĂşÄŤel)</span> zajĂ­mat dekadickĂˇ hodnota kĂłdu. MĹŻĹľete pouĹľĂ­t i nĂˇsledujĂ­cĂ­
+kousek programu zapsanĂ˝ v JavaScript a pĹ™Ă­padnÄ› nahradit znak uvozovek tĂ­m
+znakem, jehoĹľ kĂłd vĂˇs zajĂ­mĂˇ:</p>
 
 <pre>
 &lt;script type="text/javascript">
 var code, chr = '"';
 code = chr.charCodeAt(0);
-document.write("&lt;br&gt;ASCII kód znaku  " + chr + "  je " + code);
+document.write("&lt;br&gt;ASCII kĂłd znaku  " + chr + "  je " + code);
 &lt;/script>
 </pre>
 
-<p>Nemusíte si lámat hlavu s tím, co to znamená. Ještě se k tomu dostaneme.
-Prozatím skript prostě <em>použijte</em> v situaci, kdy budete chtít zjistit
-ASCII kód hledaného znaku.</p>
+<p>NemusĂ­te si lĂˇmat hlavu s tĂ­m, co to znamenĂˇ. JeĹˇtÄ› se k tomu dostaneme.
+ProzatĂ­m skript prostÄ› <em>pouĹľijte</em> v situaci, kdy budete chtĂ­t zjistit
+ASCII kĂłd hledanĂ©ho znaku.</p>
 
-<p>Náš první pohled na programování máme za sebou. Ani to moc nebolelo, že
-ne? Než se pustíme dál, budeme se muset podívat na <em>suroviny</em>
-využívané při programování &mdash; zejména na data a na to, co s nimi můžeme
-dělat.</p>
+<p>NĂˇĹˇ prvnĂ­ pohled na programovĂˇnĂ­ mĂˇme za sebou. Ani to moc nebolelo, Ĺľe
+ne? NeĹľ se pustĂ­me dĂˇl, budeme se muset podĂ­vat na <em>suroviny</em>
+vyuĹľĂ­vanĂ© pĹ™i programovĂˇnĂ­ &mdash; zejmĂ©na na data a na to, co s nimi mĹŻĹľeme
+dÄ›lat.</p>
 
 <div class="remember">
 <p class="title">Zapamatujte si</p>
 <ul>
-<li>Program se může skládat dokonce i z jediného příkazu.</li>
+<li>Program se mĹŻĹľe sklĂˇdat dokonce i z jedinĂ©ho pĹ™Ă­kazu.</li>
 
-<li>Python provádí matematické operace <em>téměř</em> tím způsobem, který
-byste očekávali.</li>
+<li>Python provĂˇdĂ­ matematickĂ© operace <em>tĂ©mÄ›Ĺ™</em> tĂ­m zpĹŻsobem, kterĂ˝
+byste oÄŤekĂˇvali.</li>
 
-<li>Pokud chcete obdržet výsledek v podobě desetinného čísla, musíte použít
-desetinné číslo i na vstupu.</li>
+<li>Pokud chcete obdrĹľet vĂ˝sledek v podobÄ› desetinnĂ©ho ÄŤĂ­sla, musĂ­te pouĹľĂ­t
+desetinnĂ© ÄŤĂ­slo i na vstupu.</li>
 
-<li>Text a čísla můžete kombinovat při použití <span class="trnote"
-title="Poznámka překladatele">formátovacího řetězce a</span> formátovacího
-operátoru <code>%</code>.</li>
+<li>Text a ÄŤĂ­sla mĹŻĹľete kombinovat pĹ™i pouĹľitĂ­ <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">formĂˇtovacĂ­ho Ĺ™etÄ›zce a</span> formĂˇtovacĂ­ho
+operĂˇtoru <code>%</code>.</li>
 
-<li>Činnost lze ukončit napsáním <code>import sys; sys.exit()</code>.</li>
+<li>ÄŚinnost lze ukonÄŤit napsĂˇnĂ­m <code>import sys; sys.exit()</code>.</li>
 </ul>
 </div>
 
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutstart.html" title="Začínáme">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutdata.html" title="Data, datové typy a proměnné">další</a> 
+<p class="navig">[
+<a href="cztutstart.html" title="ZaÄŤĂ­nĂˇme">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutdata.html" title="Data, datovĂ© typy a promÄ›nnĂ©">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutseq1.html,v 1.13 2005/10/20 20:52:34 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutseq1.html,v 1.13 2005/10/20 20:52:34 petr Exp $</p>
 </div>

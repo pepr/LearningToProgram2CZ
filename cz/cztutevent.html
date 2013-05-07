@@ -1,113 +1,113 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Událostmi řízené programy</title>
+  <title>Jak se nauÄŤit programovat: UdĂˇlostmi Ĺ™Ă­zenĂ© programy</title>
 </head>
 <body>
 
-<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
-se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+<p class="ir">NĂ­Ĺľe uvedenĂ˝ text pochĂˇzĂ­ z prvnĂ­ho vydĂˇnĂ­. Nad tĂ­mto textem
+se nachĂˇzĂ­ aktuĂˇlnĂ­ stav po revizi smÄ›Ĺ™ujĂ­cĂ­ k druhĂ©mu vydĂˇnĂ­.</p>
 
-<h2>Událostmi řízené programování</h2>
+<h2>UdĂˇlostmi Ĺ™Ă­zenĂ© programovĂˇnĂ­</h2>
 
-<p>Zatím jsme se zabývali pouze dávkově orientovanými programy. Vzpomeňte
-si, že programy mohou být <a href="cztutwhat.html#batch_oriented"
-><em>dávkově orientované</em></a> &mdash; tyto programy jsou spuštěny, něco
-udělají a skončí &mdash; nebo <a href="cztutwhat.html#event_driven"
-><em>řízené událostmi</em></a> &mdash; ty jsou spuštěny, čekají na výskyt
-<em>události</em>, <span class="trnote" title="Poznámka překladatele">na
-kterou nějak zareagují</span>, a skončí teprve v případě, kdy je jim to
-řečeno příslušnou událostí. Jak tedy vytvoříme událostmi řízený program? Na
-věc se podíváme dvěma způsoby &mdash; nejdříve si nasimulujeme prostředí s
-událostmi a potom si vytvoříme velmi jednoduchý program s grafickým
-uživatelským rozhraním (GUI), který pro generování událostí využívá
-operačního systému a jeho okolí.</p>
+<p>ZatĂ­m jsme se zabĂ˝vali pouze dĂˇvkovÄ› orientovanĂ˝mi programy. VzpomeĹte
+si, Ĺľe programy mohou bĂ˝t <a href="cztutwhat.html#batch_oriented"
+><em>dĂˇvkovÄ› orientovanĂ©</em></a> &mdash; tyto programy jsou spuĹˇtÄ›ny, nÄ›co
+udÄ›lajĂ­ a skonÄŤĂ­ &mdash; nebo <a href="cztutwhat.html#event_driven"
+><em>Ĺ™Ă­zenĂ© udĂˇlostmi</em></a> &mdash; ty jsou spuĹˇtÄ›ny, ÄŤekajĂ­ na vĂ˝skyt
+<em>udĂˇlosti</em>, <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">na
+kterou nÄ›jak zareagujĂ­</span>, a skonÄŤĂ­ teprve v pĹ™Ă­padÄ›, kdy je jim to
+Ĺ™eÄŤeno pĹ™Ă­sluĹˇnou udĂˇlostĂ­. Jak tedy vytvoĹ™Ă­me udĂˇlostmi Ĺ™Ă­zenĂ˝ program? Na
+vÄ›c se podĂ­vĂˇme dvÄ›ma zpĹŻsoby &mdash; nejdĹ™Ă­ve si nasimulujeme prostĹ™edĂ­ s
+udĂˇlostmi a potom si vytvoĹ™Ă­me velmi jednoduchĂ˝ program s grafickĂ˝m
+uĹľivatelskĂ˝m rozhranĂ­m (GUI), kterĂ˝ pro generovĂˇnĂ­ udĂˇlostĂ­ vyuĹľĂ­vĂˇ
+operaÄŤnĂ­ho systĂ©mu a jeho okolĂ­.</p>
 
-<h3>Simulace cyklu pro zpracování událostí</h3>
+<h3>Simulace cyklu pro zpracovĂˇnĂ­ udĂˇlostĂ­</h3>
 
-<p>Součástí každého událostmi řízeného programu je cyklus, ve kterém se
-zachytávají vzniklé události a zpracovávají se. Události mohou být
-generovány operačním systémem, což je případ prakticky všech programů s
-grafickým uživatelským rozhraním, nebo program sám zjišťuje, zda nenastávají
-určité události, což se často děje v případech zabudovaných řídicích
-systémů, jako jsou ty, které používají fotoaparáty, atd.</p>
+<p>SouÄŤĂˇstĂ­ kaĹľdĂ©ho udĂˇlostmi Ĺ™Ă­zenĂ©ho programu je cyklus, ve kterĂ©m se
+zachytĂˇvajĂ­ vzniklĂ© udĂˇlosti a zpracovĂˇvajĂ­ se. UdĂˇlosti mohou bĂ˝t
+generovĂˇny operaÄŤnĂ­m systĂ©mem, coĹľ je pĹ™Ă­pad prakticky vĹˇech programĹŻ s
+grafickĂ˝m uĹľivatelskĂ˝m rozhranĂ­m, nebo program sĂˇm zjiĹˇĹĄuje, zda nenastĂˇvajĂ­
+urÄŤitĂ© udĂˇlosti, coĹľ se ÄŤasto dÄ›je v pĹ™Ă­padech zabudovanĂ˝ch Ĺ™Ă­dicĂ­ch
+systĂ©mĹŻ, jako jsou ty, kterĂ© pouĹľĂ­vajĂ­ fotoaparĂˇty, atd.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> V uvedeném druhém případě
-můžeme také říci, že události přicházejí z vnějšího prostředí. Podobným
-zdrojem událostí jsou vaše prsty dopadající na klávesy klávesnice nebo pohyb
-ruky, který je snímán myší. Klávesnice nebo myš převádějí mechanické
-události z vnějšího světa do podoby elektrických signálů uvnitř počítače. Ty
-se nakonec přes vhodná zařízení dostávají až na úroveň volání podprogramů
-operačního systému. A operační systém je převede až do podoby datových
-údajů, které zařadí do příslušné fronty událostí.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> V uvedenĂ©m druhĂ©m pĹ™Ă­padÄ›
+mĹŻĹľeme takĂ© Ĺ™Ă­ci, Ĺľe udĂˇlosti pĹ™ichĂˇzejĂ­ z vnÄ›jĹˇĂ­ho prostĹ™edĂ­. PodobnĂ˝m
+zdrojem udĂˇlostĂ­ jsou vaĹˇe prsty dopadajĂ­cĂ­ na klĂˇvesy klĂˇvesnice nebo pohyb
+ruky, kterĂ˝ je snĂ­mĂˇn myĹˇĂ­. KlĂˇvesnice nebo myĹˇ pĹ™evĂˇdÄ›jĂ­ mechanickĂ©
+udĂˇlosti z vnÄ›jĹˇĂ­ho svÄ›ta do podoby elektrickĂ˝ch signĂˇlĹŻ uvnitĹ™ poÄŤĂ­taÄŤe. Ty
+se nakonec pĹ™es vhodnĂˇ zaĹ™Ă­zenĂ­ dostĂˇvajĂ­ aĹľ na ĂşroveĹ volĂˇnĂ­ podprogramĹŻ
+operaÄŤnĂ­ho systĂ©mu. A operaÄŤnĂ­ systĂ©m je pĹ™evede aĹľ do podoby datovĂ˝ch
+ĂşdajĹŻ, kterĂ© zaĹ™adĂ­ do pĹ™Ă­sluĹˇnĂ© fronty udĂˇlostĂ­.</p>
 
-<p>Vytvoříme program, který sleduje jediný typ událostí &mdash; vstup z
-klávesnice &mdash; a zpracovává je až do doby, kdy je přijata ukončující
-událost. V našem případě touto ukončující událostí bude stisk mezerníku.
-Příchozí události se budou zpracovávat velmi jednoduchým způsobem &mdash;
-vytiskneme prostě ASCII kód dané klávesy. Program vytvoříme v jazyce BASIC, 
-protože nám poskytuje pěknou a snadno použitelnou funkci pro čtení
-jednotlivých kláves &mdash; funkci <code>INKEY$</code>.</p>
+<p>VytvoĹ™Ă­me program, kterĂ˝ sleduje jedinĂ˝ typ udĂˇlostĂ­ &mdash; vstup z
+klĂˇvesnice &mdash; a zpracovĂˇvĂˇ je aĹľ do doby, kdy je pĹ™ijata ukonÄŤujĂ­cĂ­
+udĂˇlost. V naĹˇem pĹ™Ă­padÄ› touto ukonÄŤujĂ­cĂ­ udĂˇlostĂ­ bude stisk mezernĂ­ku.
+PĹ™Ă­chozĂ­ udĂˇlosti se budou zpracovĂˇvat velmi jednoduchĂ˝m zpĹŻsobem &mdash;
+vytiskneme prostÄ› ASCII kĂłd danĂ© klĂˇvesy. Program vytvoĹ™Ă­me v jazyce BASIC,
+protoĹľe nĂˇm poskytuje pÄ›knou a snadno pouĹľitelnou funkci pro ÄŤtenĂ­
+jednotlivĂ˝ch klĂˇves &mdash; funkci <code>INKEY$</code>.</p>
 
-<p>Nejdříve implementujeme hlavní tělo programu, které jednoduše zahájí
-cyklus, ve kterém se zachycují události. Pokud je rozpoznána platná událost, 
-volají se příslušné podprogramy její zpracování.</p>
+<p>NejdĹ™Ă­ve implementujeme hlavnĂ­ tÄ›lo programu, kterĂ© jednoduĹˇe zahĂˇjĂ­
+cyklus, ve kterĂ©m se zachycujĂ­ udĂˇlosti. Pokud je rozpoznĂˇna platnĂˇ udĂˇlost,
+volajĂ­ se pĹ™Ă­sluĹˇnĂ© podprogramy jejĂ­ zpracovĂˇnĂ­.</p>
 
 <pre>
-<span class="comment">' Deklarujeme podprogramy pro ošetření událostí.</span>
+<span class="comment">' Deklarujeme podprogramy pro oĹˇetĹ™enĂ­ udĂˇlostĂ­.</span>
 DECLARE SUB zpracujUdalostKlavesy(k AS STRING)
 DECLARE SUB zpracujUdalostUkonceni(k AS STRING)
 <span class="comment">
-' Nejdříve smažeme obrazovku a oznámíme uživateli, 
-' jak se dá činnost ukončit.</span>
+' NejdĹ™Ă­ve smaĹľeme obrazovku a oznĂˇmĂ­me uĹľivateli,
+' jak se dĂˇ ÄŤinnost ukonÄŤit.</span>
 CLS
-PRINT "Končí se stiskem mezerníku..."
+PRINT "KonÄŤĂ­ se stiskem mezernĂ­ku..."
 PRINT
 <span class="comment">
-' Prováděj nekonečný cyklus.</span>
+' ProvĂˇdÄ›j nekoneÄŤnĂ˝ cyklus.</span>
 WHILE 1
     k$ = INKEY$
     delka = LEN(k$)
     IF delka &lt;&gt; 0 THEN
-        <span class="comment">' Předej událost ke zpracování příslušné funkci.</span>
+        <span class="comment">' PĹ™edej udĂˇlost ke zpracovĂˇnĂ­ pĹ™Ă­sluĹˇnĂ© funkci.</span>
         IF k$ &lt;&gt; " " THEN
             CALL zpracujUdalostKlavesy(k$)
-        ELSE 
+        ELSE
             CALL zpracujUdalostUkonceni(k$)
         END IF
     END IF
 WEND
 </pre>
 
-<p>Povšimněte si, že se hlavní tělo nestará o to, co se s událostmi stane.
-Události se zde jen rozpoznávají a předávají se ke zpracování příslušným
-funkcím. Nezávislost zachytávání události na způsobu jejího zpracování
-patří ke klíčovým rysům událostmi řízeného programování.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe se hlavnĂ­ tÄ›lo nestarĂˇ o to, co se s udĂˇlostmi stane.
+UdĂˇlosti se zde jen rozpoznĂˇvajĂ­ a pĹ™edĂˇvajĂ­ se ke zpracovĂˇnĂ­ pĹ™Ă­sluĹˇnĂ˝m
+funkcĂ­m. NezĂˇvislost zachytĂˇvĂˇnĂ­ udĂˇlosti na zpĹŻsobu jejĂ­ho zpracovĂˇnĂ­
+patĹ™Ă­ ke klĂ­ÄŤovĂ˝m rysĹŻm udĂˇlostmi Ĺ™Ă­zenĂ©ho programovĂˇnĂ­.</p>
 
-<p>Nyní můžeme implementovat zmíněné dvě funkce pro zpracování událostí.
-První z nich, <code>zpracujUdalostKlavesy</code>, jednoduše vytiskne ASCII
-kód znaku, který odpovídá stisknuté klávese:</p>
+<p>NynĂ­ mĹŻĹľeme implementovat zmĂ­nÄ›nĂ© dvÄ› funkce pro zpracovĂˇnĂ­ udĂˇlostĂ­.
+PrvnĂ­ z nich, <code>zpracujUdalostKlavesy</code>, jednoduĹˇe vytiskne ASCII
+kĂłd znaku, kterĂ˝ odpovĂ­dĂˇ stisknutĂ© klĂˇvese:</p>
 
 <pre>
 SUB zpracujUdalostKlavesy(k AS STRING)
-    <span class="comment">' Vytiskni platné znaky</span>
+    <span class="comment">' Vytiskni platnĂ© znaky</span>
     delka = LEN(k)
-    IF delka = 1 THEN <span class="comment">' Jde o jednoduchý znak.</span>
+    IF delka = 1 THEN <span class="comment">' Jde o jednoduchĂ˝ znak.</span>
         PRINT ASC(k)
     ELSE
-        IF delka = 2 THEN 
-            <span class="comment">' Nealfanumerický znak. Tiskneme kód druhého znaku.</span>
+        IF delka = 2 THEN
+            <span class="comment">' NealfanumerickĂ˝ znak. Tiskneme kĂłd druhĂ©ho znaku.</span>
             PRINT ASC(MID$(k, 2, 1))
         END IF
     END IF
 END SUB
 </pre>
 
-<p>Funkce <code>zpracujUdalostUkonceni</code> je velmi jednoduchá. Jednoduše
-ukončí běh programu použitím příkazu <code>STOP</code>.</p>
+<p>Funkce <code>zpracujUdalostUkonceni</code> je velmi jednoduchĂˇ. JednoduĹˇe
+ukonÄŤĂ­ bÄ›h programu pouĹľitĂ­m pĹ™Ă­kazu <code>STOP</code>.</p>
 
 <pre>
 SUB zpracujUdalostUkonceni(k AS STRING)
@@ -115,75 +115,75 @@ SUB zpracujUdalostUkonceni(k AS STRING)
 END SUB
 </pre>
 
-<p>Pokud by uvedený kód byl vytvářen jako pracovní rámec (framework)
-používaný v mnoha projektech, pak bychom na jeho začátek zařadili volání
-<em>funkce pro inicializaci</em> <span class="trnote" title="Poznámka
-překladatele">(tedy <em>pro počáteční nastavení</em></span> a na jeho konec
-volání <em>funkce pro úklid</em> (clean up). Programátor by pak mohl použít
-část s cyklem <span class="trnote" title="Poznámka překladatele">bez zásahů
-do kódu</span> a doplnil by jen své vlastní funkce pro inicializaci,
-zpracování a pro úklidové práce.</p>
+<p>Pokud by uvedenĂ˝ kĂłd byl vytvĂˇĹ™en jako pracovnĂ­ rĂˇmec (framework)
+pouĹľĂ­vanĂ˝ v mnoha projektech, pak bychom na jeho zaÄŤĂˇtek zaĹ™adili volĂˇnĂ­
+<em>funkce pro inicializaci</em> <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">(tedy <em>pro poÄŤĂˇteÄŤnĂ­ nastavenĂ­</em></span> a na jeho konec
+volĂˇnĂ­ <em>funkce pro Ăşklid</em> (clean up). ProgramĂˇtor by pak mohl pouĹľĂ­t
+ÄŤĂˇst s cyklem <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">bez zĂˇsahĹŻ
+do kĂłdu</span> a doplnil by jen svĂ© vlastnĂ­ funkce pro inicializaci,
+zpracovĂˇnĂ­ a pro ĂşklidovĂ© prĂˇce.</p>
 
-<p>Přesně tak to dělá většina prostředí, orientovaných na grafické
-uživatelské rozhraní (GUI). Smyčka zpráv je součástí operačního prostředí
-<span class="trnote" title="Poznámka překladatele">(jádra operačního
-systému)</span> nebo programátorského prostředí (framework). Aplikace jsou
-<em>smluvně zavázány</em> k tomu, aby poskytly funkce pro obsluhu událostí a
-nějakým způsobem je <em>navázaly</em> na kód smyčky zpráv.</p>
+<p>PĹ™esnÄ› tak to dÄ›lĂˇ vÄ›tĹˇina prostĹ™edĂ­, orientovanĂ˝ch na grafickĂ©
+uĹľivatelskĂ© rozhranĂ­ (GUI). SmyÄŤka zprĂˇv je souÄŤĂˇstĂ­ operaÄŤnĂ­ho prostĹ™edĂ­
+<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(jĂˇdra operaÄŤnĂ­ho
+systĂ©mu)</span> nebo programĂˇtorskĂ©ho prostĹ™edĂ­ (framework). Aplikace jsou
+<em>smluvnÄ› zavĂˇzĂˇny</em> k tomu, aby poskytly funkce pro obsluhu udĂˇlostĂ­ a
+nÄ›jakĂ˝m zpĹŻsobem je <em>navĂˇzaly</em> na kĂłd smyÄŤky zprĂˇv.</p>
 
-<p>Ukažme si to prakticky při současném seznámení se s knihovnou Tkinter,
-která se dodává se systémem Python.</p>
+<p>UkaĹľme si to prakticky pĹ™i souÄŤasnĂ©m seznĂˇmenĂ­ se s knihovnou Tkinter,
+kterĂˇ se dodĂˇvĂˇ se systĂ©mem Python.</p>
 
-<h3 id="Tkinter_example">Program s grafickým uživatelským rozhraním</h3>
+<h3 id="Tkinter_example">Program s grafickĂ˝m uĹľivatelskĂ˝m rozhranĂ­m</h3>
 
-<p>V tomto příkladu použijeme nástrojovou sadu <span class="trnote"
-title="Poznámka překladatele">(toolkit [túlkit])</span> zvanou Tkinter,
-která se dodává se systémem Python. Jde o obal (wrapper), vytvořený pro
-jazyk Python a obalující originální nástrojovou sadu zvanou Tk, která byla
-původně napsána jako rozšíření k Tcl a která je dostupná i pro jazyk Perl.
-Verze pro Python má podobu objektově orientovaného programátorského
-prostředí (framework), které se &mdash; podle mého názoru &mdash; používá
-mnohem snadněji, než původní procedurální podoba Tk. Nebudu zde příliš
-zabíhat do problematiky grafického uživatelského rozhraní. Chci se spíše
-soustředit na styl programování &mdash; na to, jak s použitím Tkinter
-pracovat se smyčkou událostí, jak musí programátor vytvořit grafické
-uživatelské rozhraní a jak se zpracovávají příchozí události.</p>
+<p>V tomto pĹ™Ă­kladu pouĹľijeme nĂˇstrojovou sadu <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(toolkit [tĂşlkit])</span> zvanou Tkinter,
+kterĂˇ se dodĂˇvĂˇ se systĂ©mem Python. Jde o obal (wrapper), vytvoĹ™enĂ˝ pro
+jazyk Python a obalujĂ­cĂ­ originĂˇlnĂ­ nĂˇstrojovou sadu zvanou Tk, kterĂˇ byla
+pĹŻvodnÄ› napsĂˇna jako rozĹˇĂ­Ĺ™enĂ­ k Tcl a kterĂˇ je dostupnĂˇ i pro jazyk Perl.
+Verze pro Python mĂˇ podobu objektovÄ› orientovanĂ©ho programĂˇtorskĂ©ho
+prostĹ™edĂ­ (framework), kterĂ© se &mdash; podle mĂ©ho nĂˇzoru &mdash; pouĹľĂ­vĂˇ
+mnohem snadnÄ›ji, neĹľ pĹŻvodnĂ­ procedurĂˇlnĂ­ podoba Tk. Nebudu zde pĹ™Ă­liĹˇ
+zabĂ­hat do problematiky grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­. Chci se spĂ­Ĺˇe
+soustĹ™edit na styl programovĂˇnĂ­ &mdash; na to, jak s pouĹľitĂ­m Tkinter
+pracovat se smyÄŤkou udĂˇlostĂ­, jak musĂ­ programĂˇtor vytvoĹ™it grafickĂ©
+uĹľivatelskĂ© rozhranĂ­ a jak se zpracovĂˇvajĂ­ pĹ™Ă­chozĂ­ udĂˇlosti.</p>
 
-<p>V příkladu vytvoříme aplikační třídu <code>KlavesovaAplikace</code>,
-která v rámci metody <code>__init__</code> vytvoří grafické uživatelské
-rozhraní a <em>naváže</em> klávesu mezerníku na metodu
-<code>zpracujUdalostUkonceni</code>. Třída definuje i požadovanou metodu
+<p>V pĹ™Ă­kladu vytvoĹ™Ă­me aplikaÄŤnĂ­ tĹ™Ă­du <code>KlavesovaAplikace</code>,
+kterĂˇ v rĂˇmci metody <code>__init__</code> vytvoĹ™Ă­ grafickĂ© uĹľivatelskĂ©
+rozhranĂ­ a <em>navĂˇĹľe</em> klĂˇvesu mezernĂ­ku na metodu
+<code>zpracujUdalostUkonceni</code>. TĹ™Ă­da definuje i poĹľadovanou metodu
 <code>zpracujUdalostUkonceni</code>.</p>
 
-<p>Grafické uživatelské rozhraní se skládá z okna pro textový vstup (widget
-<span class="trnote" title="Poznámka překladatele">&mdash; viz <a
-href="cztuttrn.html#Pclass_widget" >poznámka</a> k dřívějšímu výskytu tohoto
-pojmu)</span>. Jeho standardní chování spočívá v opisování zadaných znaků na
-displej, <span class="trnote" title="Poznámka překladatele">tedy do plochy
-svého okna</span>.</p>
+<p>GrafickĂ© uĹľivatelskĂ© rozhranĂ­ se sklĂˇdĂˇ z okna pro textovĂ˝ vstup (widget
+<span class="trnote" title="PoznĂˇmka pĹ™ekladatele">&mdash; viz <a
+href="cztuttrn.html#Pclass_widget" >poznĂˇmka</a> k dĹ™Ă­vÄ›jĹˇĂ­mu vĂ˝skytu tohoto
+pojmu)</span>. Jeho standardnĂ­ chovĂˇnĂ­ spoÄŤĂ­vĂˇ v opisovĂˇnĂ­ zadanĂ˝ch znakĹŻ na
+displej, <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">tedy do plochy
+svĂ©ho okna</span>.</p>
 
-<p>U objektově orientovaných prostředí řízených událostmi je vytvoření třídy
-pro celou aplikaci běžným zvykem. Je to dáno tím, že mezi konceptem
-událostí zasílaných programu a konceptem zpráv zasílaných objektů existuje
-řada podobností. Oba koncepty se na sebe vzájemně velmi snadno převádějí.
-Funkce pro zpracování událostí se pak stávají metodami aplikační třídy.</p>
+<p>U objektovÄ› orientovanĂ˝ch prostĹ™edĂ­ Ĺ™Ă­zenĂ˝ch udĂˇlostmi je vytvoĹ™enĂ­ tĹ™Ă­dy
+pro celou aplikaci bÄ›ĹľnĂ˝m zvykem. Je to dĂˇno tĂ­m, Ĺľe mezi konceptem
+udĂˇlostĂ­ zasĂ­lanĂ˝ch programu a konceptem zprĂˇv zasĂ­lanĂ˝ch objektĹŻ existuje
+Ĺ™ada podobnostĂ­. Oba koncepty se na sebe vzĂˇjemnÄ› velmi snadno pĹ™evĂˇdÄ›jĂ­.
+Funkce pro zpracovĂˇnĂ­ udĂˇlostĂ­ se pak stĂˇvajĂ­ metodami aplikaÄŤnĂ­ tĹ™Ă­dy.</p>
 
-<p>Jakmile máme třídu definovánu, jednoduše vytvoříme její instanci a
-zašleme jí zprávu <code>mainloop</code> <span class="trnote" 
-title="Poznámka překladatele">([mein lúp], tedy hlavní smyčka &mdash; toto a
-další jména nelze ve zdrojovém textu přeložit do českého jazyka, protože jde
-o jména, která jsou definována uvnitř Tkinter)</span>.</p>
+<p>Jakmile mĂˇme tĹ™Ă­du definovĂˇnu, jednoduĹˇe vytvoĹ™Ă­me jejĂ­ instanci a
+zaĹˇleme jĂ­ zprĂˇvu <code>mainloop</code> <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">([mein lĂşp], tedy hlavnĂ­ smyÄŤka &mdash; toto a
+dalĹˇĂ­ jmĂ©na nelze ve zdrojovĂ©m textu pĹ™eloĹľit do ÄŤeskĂ©ho jazyka, protoĹľe jde
+o jmĂ©na, kterĂˇ jsou definovĂˇna uvnitĹ™ Tkinter)</span>.</p>
 
-<p>Kód vypadá následovně:</p>
+<p>KĂłd vypadĂˇ nĂˇsledovnÄ›:</p>
 
 <pre>
 <span class="comment">
-# Použijeme import ve tvaru 'from X import *', abychom se vyhnuli
-# nutnosti zapisovat vše jako 'Tkinter.xxx'.</span>
+# PouĹľijeme import ve tvaru 'from X import *', abychom se vyhnuli
+# nutnosti zapisovat vĹˇe jako 'Tkinter.xxx'.</span>
 from Tkinter import *
 <span class="comment">
-# Vytvoříme třídu aplikace, která definuje grafické uživatelské
-# rozhraní (GUI) a metody pro zpracování událostí.</span>
+# VytvoĹ™Ă­me tĹ™Ă­du aplikace, kterĂˇ definuje grafickĂ© uĹľivatelskĂ©
+# rozhranĂ­ (GUI) a metody pro zpracovĂˇnĂ­ udĂˇlostĂ­.</span>
 class KlavesovaAplikace(Frame):
     def __init__(self):
         Frame.__init__(self)
@@ -195,25 +195,25 @@ class KlavesovaAplikace(Frame):
     def zpracujUdalostUkonceni(self, udalost):
         import sys
         sys.exit()
-        
+
 <span class="comment">
-# Nyní vytvoříme instanci a nastartujeme smyčku zpráv.</span>
+# NynĂ­ vytvoĹ™Ă­me instanci a nastartujeme smyÄŤku zprĂˇv.</span>
 mojeAplikace = KlavesovaAplikace()
 mojeAplikace.mainloop()
 </pre>
 
-<p>Ve verzi psané v jazyce BASIC jsme samozřejmě tiskli ASCII kódy
-odpovídající všem klávesám a neopisovali jsme jenom tisknutelné znaky
-odpovídajích kláves, jak to děláme zde. Ale nic nám nebrání, abychom
-zachytávali stisky všech kláves a dělali přesně totéž. Za tím účelem musíme
-do metody <code>__init__</code> přidat následující řádek:</p>
+<p>Ve verzi psanĂ© v jazyce BASIC jsme samozĹ™ejmÄ› tiskli ASCII kĂłdy
+odpovĂ­dajĂ­cĂ­ vĹˇem klĂˇvesĂˇm a neopisovali jsme jenom tisknutelnĂ© znaky
+odpovĂ­dajĂ­ch klĂˇves, jak to dÄ›lĂˇme zde. Ale nic nĂˇm nebrĂˇnĂ­, abychom
+zachytĂˇvali stisky vĹˇech klĂˇves a dÄ›lali pĹ™esnÄ› totĂ©Ĺľ. Za tĂ­m ĂşÄŤelem musĂ­me
+do metody <code>__init__</code> pĹ™idat nĂˇsledujĂ­cĂ­ Ĺ™Ăˇdek:</p>
 
 <pre>
 self.txtBox.bind("&lt;Key&gt;", self.zpracujStiskKlavesy)
 </pre>
 
-<p>Musíme také doplnit následující metodu, pro zpracování odpovídajících
-událostí:</p>
+<p>MusĂ­me takĂ© doplnit nĂˇsledujĂ­cĂ­ metodu, pro zpracovĂˇnĂ­ odpovĂ­dajĂ­cĂ­ch
+udĂˇlostĂ­:</p>
 
 <pre>
 def zpracujStiskKlavesy(self, udalost):
@@ -222,49 +222,49 @@ def zpracujStiskKlavesy(self, udalost):
     return "break"
 </pre>
 
-<p><b>Poznámka 1:</b> Kód klávesy je uložen v položce <code>keycode</code>
-objektu události. Abych to zjistil, musel jsem se podívat do zdrojového kódu
-<code>Tkinter.py</code>... Vzpomínáte si, že <a
-href="cztutneeds.html#needs_curiosity">zvědavost</a> patří ke klíčovým
-vlastnostem programátora?</p>
+<p><b>PoznĂˇmka 1:</b> KĂłd klĂˇvesy je uloĹľen v poloĹľce <code>keycode</code>
+objektu udĂˇlosti. Abych to zjistil, musel jsem se podĂ­vat do zdrojovĂ©ho kĂłdu
+<code>Tkinter.py</code>... VzpomĂ­nĂˇte si, Ĺľe <a
+href="cztutneeds.html#needs_curiosity">zvÄ›davost</a> patĹ™Ă­ ke klĂ­ÄŤovĂ˝m
+vlastnostem programĂˇtora?</p>
 
-<p><b>Poznámka 2:</b> Příkaz <code>return "break"</code> je magickým
-signálem pro Tkinter, který říká, že daný prvek (widget) nemá provádět
-standardní (default) zpracování události. Pokud bychom tento řádek neuvedli,
-pak by se v textovém okně zobrazoval ASCII kód a za ním by byl opsán
-příslušný znak &mdash; což zde neodpovídá našemu přání.</p>
+<p><b>PoznĂˇmka 2:</b> PĹ™Ă­kaz <code>return "break"</code> je magickĂ˝m
+signĂˇlem pro Tkinter, kterĂ˝ Ĺ™Ă­kĂˇ, Ĺľe danĂ˝ prvek (widget) nemĂˇ provĂˇdÄ›t
+standardnĂ­ (default) zpracovĂˇnĂ­ udĂˇlosti. Pokud bychom tento Ĺ™Ăˇdek neuvedli,
+pak by se v textovĂ©m oknÄ› zobrazoval ASCII kĂłd a za nĂ­m by byl opsĂˇn
+pĹ™Ă­sluĹˇnĂ˝ znak &mdash; coĹľ zde neodpovĂ­dĂˇ naĹˇemu pĹ™ĂˇnĂ­.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> pokud si chcete hrát s
-klávesnicí a podívat se na kódy více kláves, zkuste předpis pro přechod na
-nový řádek nahradit například čárkou a mezerou.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> pokud si chcete hrĂˇt s
+klĂˇvesnicĂ­ a podĂ­vat se na kĂłdy vĂ­ce klĂˇves, zkuste pĹ™edpis pro pĹ™echod na
+novĂ˝ Ĺ™Ăˇdek nahradit napĹ™Ă­klad ÄŤĂˇrkou a mezerou.</p>
 
-<p>To by pro tuto chvíli stačilo. Výše uvedený text, nebyl míněn jako text
-pro výuku Tkinter. Tím se bude zabývat téma následující kapitoly. Používáním
-Tk a Tkinter se zabývá také několik knih.</p>
+<p>To by pro tuto chvĂ­li staÄŤilo. VĂ˝Ĺˇe uvedenĂ˝ text, nebyl mĂ­nÄ›n jako text
+pro vĂ˝uku Tkinter. TĂ­m se bude zabĂ˝vat tĂ©ma nĂˇsledujĂ­cĂ­ kapitoly. PouĹľĂ­vĂˇnĂ­m
+Tk a Tkinter se zabĂ˝vĂˇ takĂ© nÄ›kolik knih.</p>
 
 <hr>
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutname.html" title="Jména...">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutgui.html" title="Programování grafického uživatelského rozhraní">další</a> 
+<p class="navig">[
+<a href="cztutname.html" title="JmĂ©na...">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutgui.html" title="ProgramovĂˇnĂ­ grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutevent.html,v 1.5 2004/08/31 11:55:13 prikryl Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutevent.html,v 1.5 2004/08/31 11:55:13 prikryl Exp $</p>
 </div>

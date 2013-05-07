@@ -1,133 +1,133 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Úvod do funkcionálního programování</title>
+  <title>Jak se nauÄŤit programovat: Ăšvod do funkcionĂˇlnĂ­ho programovĂˇnĂ­</title>
 </head>
 <body>
 
-<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
-se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+<p class="ir">NĂ­Ĺľe uvedenĂ˝ text pochĂˇzĂ­ z prvnĂ­ho vydĂˇnĂ­. Nad tĂ­mto textem
+se nachĂˇzĂ­ aktuĂˇlnĂ­ stav po revizi smÄ›Ĺ™ujĂ­cĂ­ k druhĂ©mu vydĂˇnĂ­.</p>
 
-<h2>Funkcionální programování</h2>
+<h2>FunkcionĂˇlnĂ­ programovĂˇnĂ­</h2>
 
 <div class="whatcovered">
 
-<p>V této kapitole se podíváme na to, jak jazyk Python podporuje další styl
-programování, takzvané <em>funkcionální programování</em>. Podobně jako
-u&nbsp;<a href="cztutrecur.html">rekurze</a> jde vyloženě o téma pro
-pokročilé, které v tomto okamžiku můžete jednoduše ignorovat. Techniky
-funkcionálního programování mají své použití i v každodenní programátorské
-praxi. Zastánci funkcionálního programování věří, že představuje od základů
-lepší způsob vývoje software.</p>
+<p>V tĂ©to kapitole se podĂ­vĂˇme na to, jak jazyk Python podporuje dalĹˇĂ­ styl
+programovĂˇnĂ­, takzvanĂ© <em>funkcionĂˇlnĂ­ programovĂˇnĂ­</em>. PodobnÄ› jako
+u&nbsp;<a href="cztutrecur.html">rekurze</a> jde vyloĹľenÄ› o tĂ©ma pro
+pokroÄŤilĂ©, kterĂ© v tomto okamĹľiku mĹŻĹľete jednoduĹˇe ignorovat. Techniky
+funkcionĂˇlnĂ­ho programovĂˇnĂ­ majĂ­ svĂ© pouĹľitĂ­ i v kaĹľdodennĂ­ programĂˇtorskĂ©
+praxi. ZastĂˇnci funkcionĂˇlnĂ­ho programovĂˇnĂ­ vÄ›Ĺ™Ă­, Ĺľe pĹ™edstavuje od zĂˇkladĹŻ
+lepĹˇĂ­ zpĹŻsob vĂ˝voje software.</p>
 
 </div>
 
-<h3>Co to vlastně je funkcionální programování?</h3>
+<h3>Co to vlastnÄ› je funkcionĂˇlnĂ­ programovĂˇnĂ­?</h3>
 
-<p>Funkcionální programování by se nemělo zaměňovat s příkazovým (nebo také
-procedurálním) programováním. Nepodobá se ani objektově orientovanému
-programování. Jde o něco jiného. Ne sice <em>zcela</em> jiného, protože
-koncepty, se kterými budeme pracovat, patří k známým konceptům programování.
-Jsou pouze vyjádřeny jiným způsobem. Mírně se liší i základní filozofie
-způsobu používání těchto konceptů při řešení problémů.</p>
+<p>FunkcionĂˇlnĂ­ programovĂˇnĂ­ by se nemÄ›lo zamÄ›Ĺovat s pĹ™Ă­kazovĂ˝m (nebo takĂ©
+procedurĂˇlnĂ­m) programovĂˇnĂ­m. NepodobĂˇ se ani objektovÄ› orientovanĂ©mu
+programovĂˇnĂ­. Jde o nÄ›co jinĂ©ho. Ne sice <em>zcela</em> jinĂ©ho, protoĹľe
+koncepty, se kterĂ˝mi budeme pracovat, patĹ™Ă­ k znĂˇmĂ˝m konceptĹŻm programovĂˇnĂ­.
+Jsou pouze vyjĂˇdĹ™eny jinĂ˝m zpĹŻsobem. MĂ­rnÄ› se liĹˇĂ­ i zĂˇkladnĂ­ filozofie
+zpĹŻsobu pouĹľĂ­vĂˇnĂ­ tÄ›chto konceptĹŻ pĹ™i Ĺ™eĹˇenĂ­ problĂ©mĹŻ.</p>
 
-<p>Funkcionální programování je založené na <em>výrazech</em> <span
-class="trnote" title="Poznámka překladatele">(ve smyslu
-matematickém)</span>. Funkcionální programování bychom vlastně mohli popsat
-termínem <em>programování orientované na výrazy</em>, protože se zde vše
-redukuje právě na výrazy. Asi byste si mohli vzpomenout, že výraz je složen
-z operací a proměnných takovým způsobem, že jeho výsledkem je jedna hodnota.
-Takže například <code>x&nbsp;==&nbsp;5</code> je boolovský výraz. Zápis
-<code>5&nbsp;+&nbsp;(7&nbsp;-&nbsp;y)</code> představuje aritmetický výraz.
-A u zápisu <code>string.search("Ahoj, vy tam!", "Aho")</code> jde o
-řetězcový výraz. V posledním uvedeném případě jde současně o volání funkce v
-rámci modulu <code>string</code>. Jak později uvidíme, hrají funkce v rámci
-funkcionálního programování velmi důležitou roli. (To vás asi podle jména už
+<p>FunkcionĂˇlnĂ­ programovĂˇnĂ­ je zaloĹľenĂ© na <em>vĂ˝razech</em> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(ve smyslu
+matematickĂ©m)</span>. FunkcionĂˇlnĂ­ programovĂˇnĂ­ bychom vlastnÄ› mohli popsat
+termĂ­nem <em>programovĂˇnĂ­ orientovanĂ© na vĂ˝razy</em>, protoĹľe se zde vĹˇe
+redukuje prĂˇvÄ› na vĂ˝razy. Asi byste si mohli vzpomenout, Ĺľe vĂ˝raz je sloĹľen
+z operacĂ­ a promÄ›nnĂ˝ch takovĂ˝m zpĹŻsobem, Ĺľe jeho vĂ˝sledkem je jedna hodnota.
+TakĹľe napĹ™Ă­klad <code>x&nbsp;==&nbsp;5</code> je boolovskĂ˝ vĂ˝raz. ZĂˇpis
+<code>5&nbsp;+&nbsp;(7&nbsp;-&nbsp;y)</code> pĹ™edstavuje aritmetickĂ˝ vĂ˝raz.
+A u zĂˇpisu <code>string.search("Ahoj, vy tam!", "Aho")</code> jde o
+Ĺ™etÄ›zcovĂ˝ vĂ˝raz. V poslednĂ­m uvedenĂ©m pĹ™Ă­padÄ› jde souÄŤasnÄ› o volĂˇnĂ­ funkce v
+rĂˇmci modulu <code>string</code>. Jak pozdÄ›ji uvidĂ­me, hrajĂ­ funkce v rĂˇmci
+funkcionĂˇlnĂ­ho programovĂˇnĂ­ velmi dĹŻleĹľitou roli. (To vĂˇs asi podle jmĂ©na uĹľ
 napadlo.)</p>
 
-<p>S funkcemi se ve funkcionálním programování zachází jako s objekty. To
-znamená, že jsou uvnitř programu často předávány podobným způsobem, jako se
-předávají proměnné. Příklady jsme viděli v našich programech s grafickým
-uživatelským rozhraním, kde jsme jméno funkce přiřazovali atributu
-<code>command</code> ovládacího prvku <code>Button</code> (tlačítko). S
-funkcí pro obsluhu události jsme zacházeli jako s objektem a odkaz na ni
-jsme předávali prvku tlačítka. Myšlenka předávání funkcí v rámci našeho
-programu je pro funkcionální programování myšlenkou klíčovou.</p>
+<p>S funkcemi se ve funkcionĂˇlnĂ­m programovĂˇnĂ­ zachĂˇzĂ­ jako s objekty. To
+znamenĂˇ, Ĺľe jsou uvnitĹ™ programu ÄŤasto pĹ™edĂˇvĂˇny podobnĂ˝m zpĹŻsobem, jako se
+pĹ™edĂˇvajĂ­ promÄ›nnĂ©. PĹ™Ă­klady jsme vidÄ›li v naĹˇich programech s grafickĂ˝m
+uĹľivatelskĂ˝m rozhranĂ­m, kde jsme jmĂ©no funkce pĹ™iĹ™azovali atributu
+<code>command</code> ovlĂˇdacĂ­ho prvku <code>Button</code> (tlaÄŤĂ­tko). S
+funkcĂ­ pro obsluhu udĂˇlosti jsme zachĂˇzeli jako s objektem a odkaz na ni
+jsme pĹ™edĂˇvali prvku tlaÄŤĂ­tka. MyĹˇlenka pĹ™edĂˇvĂˇnĂ­ funkcĂ­ v rĂˇmci naĹˇeho
+programu je pro funkcionĂˇlnĂ­ programovĂˇnĂ­ myĹˇlenkou klĂ­ÄŤovou.</p>
 
-<p>Funkcionální programy bývají rovněž silně orientovány na práci se
+<p>FunkcionĂˇlnĂ­ programy bĂ˝vajĂ­ rovnÄ›Ĺľ silnÄ› orientovĂˇny na prĂˇci se
 seznamy.</p>
 
-<p>Závěrem rekněme, že se funkcionální programování snaží soustředit spíše
-na <em>co</em>, než <em>jak</em> chceme řešit. To znamená, že funkcionální
-program by měl spíše popisovat řešený problém, než aby se soustředil na
-vlastní mechanismus řešení. Jazyků, které o sobě tvrdí, že pracují tímto
-způsobem, existuje několik. Jedním z nejrozšířenějších je Haskell. Na jeho
-webovém serveru (<a href="http://www.haskell.org/"
-target="_blank">www.haskell.org</a>) naleznete řadu článků, které popisují
-jak filosofii funkcionálního programování, tak samotný jazyk Haskell. (Podle
-mého osobního mínění jsou zmíněné cíle, jakkoliv jsou chvályhodné, zastánci
-funkcionálního programování poněkud přeceňovány.)</p>
+<p>ZĂˇvÄ›rem reknÄ›me, Ĺľe se funkcionĂˇlnĂ­ programovĂˇnĂ­ snaĹľĂ­ soustĹ™edit spĂ­Ĺˇe
+na <em>co</em>, neĹľ <em>jak</em> chceme Ĺ™eĹˇit. To znamenĂˇ, Ĺľe funkcionĂˇlnĂ­
+program by mÄ›l spĂ­Ĺˇe popisovat Ĺ™eĹˇenĂ˝ problĂ©m, neĹľ aby se soustĹ™edil na
+vlastnĂ­ mechanismus Ĺ™eĹˇenĂ­. JazykĹŻ, kterĂ© o sobÄ› tvrdĂ­, Ĺľe pracujĂ­ tĂ­mto
+zpĹŻsobem, existuje nÄ›kolik. JednĂ­m z nejrozĹˇĂ­Ĺ™enÄ›jĹˇĂ­ch je Haskell. Na jeho
+webovĂ©m serveru (<a href="http://www.haskell.org/"
+target="_blank">www.haskell.org</a>) naleznete Ĺ™adu ÄŤlĂˇnkĹŻ, kterĂ© popisujĂ­
+jak filosofii funkcionĂˇlnĂ­ho programovĂˇnĂ­, tak samotnĂ˝ jazyk Haskell. (Podle
+mĂ©ho osobnĂ­ho mĂ­nÄ›nĂ­ jsou zmĂ­nÄ›nĂ© cĂ­le, jakkoliv jsou chvĂˇlyhodnĂ©, zastĂˇnci
+funkcionĂˇlnĂ­ho programovĂˇnĂ­ ponÄ›kud pĹ™eceĹovĂˇny.)</p>
 
-<p>Struktura čistě funkcionálního programu je definována výrazem, který
-zachycuje požadovaný cíl. Každý <em>term</em> <span class="trnote"
-title="Poznámka překladatele">(viz následující poznámka)</span> daného
-výrazu je zase vyjádřením určité charakteristiky řešeného problému.
-Vyhodnocením každého z těchto termů nakonec dospějeme k řešení.</p>
+<p>Struktura ÄŤistÄ› funkcionĂˇlnĂ­ho programu je definovĂˇna vĂ˝razem, kterĂ˝
+zachycuje poĹľadovanĂ˝ cĂ­l. KaĹľdĂ˝ <em>term</em> <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(viz nĂˇsledujĂ­cĂ­ poznĂˇmka)</span> danĂ©ho
+vĂ˝razu je zase vyjĂˇdĹ™enĂ­m urÄŤitĂ© charakteristiky Ĺ™eĹˇenĂ©ho problĂ©mu.
+VyhodnocenĂ­m kaĹľdĂ©ho z tÄ›chto termĹŻ nakonec dospÄ›jeme k Ĺ™eĹˇenĂ­.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Term neboli terminální
-podvýraz je v rámci zápisu výrazu jeho dále nedělitelná součást. Můžeme si
-zde představit volání pojmenované funkce.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Term neboli terminĂˇlnĂ­
+podvĂ˝raz je v rĂˇmci zĂˇpisu vĂ˝razu jeho dĂˇle nedÄ›litelnĂˇ souÄŤĂˇst. MĹŻĹľeme si
+zde pĹ™edstavit volĂˇnĂ­ pojmenovanĂ© funkce.</p>
 
-<p>Dobrá. To je tedy teoretický pohled. A funguje to vůbec? Ano, někdy to
-funguje velmi dobře. Pro řešení určitých typů problémů jde o přirozenou a
-mocnou techniku. Pro řadu dalších problémů tento přístup naneštěstí vyžaduje
-poměrně abstraktní způsob myšlení, který je velmi ovlivněn matematickými
-principy. Výsledný kód je pro laického programátora často velmi nečitelný.
-Ale výsledný kód bývá často mnohem kratší a spolehlivější, než odpovídající
-kód zapsaný příkazovým stylem. A právě posledně zmiňované kvality přitáhly
-ke studiu funkcionálního programování mnoho programátorů, kteří používali
-procedurální nebo objektově orientovaný způsob programování. Dokonce i když
-se mu nebudete věnovat s plným nasazením, poskytuje funkcionální
-programování několik mocných nástrojů, které mohou využívat všichni.</p>
+<p>DobrĂˇ. To je tedy teoretickĂ˝ pohled. A funguje to vĹŻbec? Ano, nÄ›kdy to
+funguje velmi dobĹ™e. Pro Ĺ™eĹˇenĂ­ urÄŤitĂ˝ch typĹŻ problĂ©mĹŻ jde o pĹ™irozenou a
+mocnou techniku. Pro Ĺ™adu dalĹˇĂ­ch problĂ©mĹŻ tento pĹ™Ă­stup naneĹˇtÄ›stĂ­ vyĹľaduje
+pomÄ›rnÄ› abstraktnĂ­ zpĹŻsob myĹˇlenĂ­, kterĂ˝ je velmi ovlivnÄ›n matematickĂ˝mi
+principy. VĂ˝slednĂ˝ kĂłd je pro laickĂ©ho programĂˇtora ÄŤasto velmi neÄŤitelnĂ˝.
+Ale vĂ˝slednĂ˝ kĂłd bĂ˝vĂˇ ÄŤasto mnohem kratĹˇĂ­ a spolehlivÄ›jĹˇĂ­, neĹľ odpovĂ­dajĂ­cĂ­
+kĂłd zapsanĂ˝ pĹ™Ă­kazovĂ˝m stylem. A prĂˇvÄ› poslednÄ› zmiĹovanĂ© kvality pĹ™itĂˇhly
+ke studiu funkcionĂˇlnĂ­ho programovĂˇnĂ­ mnoho programĂˇtorĹŻ, kteĹ™Ă­ pouĹľĂ­vali
+procedurĂˇlnĂ­ nebo objektovÄ› orientovanĂ˝ zpĹŻsob programovĂˇnĂ­. Dokonce i kdyĹľ
+se mu nebudete vÄ›novat s plnĂ˝m nasazenĂ­m, poskytuje funkcionĂˇlnĂ­
+programovĂˇnĂ­ nÄ›kolik mocnĂ˝ch nĂˇstrojĹŻ, kterĂ© mohou vyuĹľĂ­vat vĹˇichni.</p>
 
-<h3>Jak se k tomu staví jazyk Python?</h3>
+<h3>Jak se k tomu stavĂ­ jazyk Python?</h3>
 
-<p>Python poskytuje několik funkcí, které umožňují uplatnění funkcionálního
-přístupu k programování. Tyto funkce patří k rysům, které byly zavedeny
-hlavně kvůli usnadnění práce, protože bychom je v jazyce Python mohli docela
-snadno zapsat sami. Mnohem důležitější je ovšem přímé vyjádření
-<em>záměru</em>, dané jejich existencí. Jde zejména o záměr poskytnout
-programátorovi v jazyce Python možnost práce ve stylu funkcionálního
-programování &mdash; pokud si přeje jej využít.</p>
+<p>Python poskytuje nÄ›kolik funkcĂ­, kterĂ© umoĹľĹujĂ­ uplatnÄ›nĂ­ funkcionĂˇlnĂ­ho
+pĹ™Ă­stupu k programovĂˇnĂ­. Tyto funkce patĹ™Ă­ k rysĹŻm, kterĂ© byly zavedeny
+hlavnÄ› kvĹŻli usnadnÄ›nĂ­ prĂˇce, protoĹľe bychom je v jazyce Python mohli docela
+snadno zapsat sami. Mnohem dĹŻleĹľitÄ›jĹˇĂ­ je ovĹˇem pĹ™Ă­mĂ© vyjĂˇdĹ™enĂ­
+<em>zĂˇmÄ›ru</em>, danĂ© jejich existencĂ­. Jde zejmĂ©na o zĂˇmÄ›r poskytnout
+programĂˇtorovi v jazyce Python moĹľnost prĂˇce ve stylu funkcionĂˇlnĂ­ho
+programovĂˇnĂ­ &mdash; pokud si pĹ™eje jej vyuĹľĂ­t.</p>
 
-<p>Podíváme se na některé z těchto funkcí a uvidíme, jak budou pracovat s
-některými vzorovými funkcemi, které definujeme jako:</p>
+<p>PodĂ­vĂˇme se na nÄ›kterĂ© z tÄ›chto funkcĂ­ a uvidĂ­me, jak budou pracovat s
+nÄ›kterĂ˝mi vzorovĂ˝mi funkcemi, kterĂ© definujeme jako:</p>
 
 <pre>
 spam = ['pork', 'ham', 'spices']
 numbers = [1, 2, 3, 4, 5]
 
-def eggs(item): 
+def eggs(item):
     return item
 </pre>
 
 <h4>map(funkce, posloupnost)</h4>
 
-<p>Tato funkce aplikuje pythonovskou funkci <code>funkce</code> na každý z
-členů posloupnosti <code>posloupnost</code>. Mějme výraz:</p>
+<p>Tato funkce aplikuje pythonovskou funkci <code>funkce</code> na kaĹľdĂ˝ z
+ÄŤlenĹŻ posloupnosti <code>posloupnost</code>. MÄ›jme vĂ˝raz:</p>
 
 <pre>
 L = map(eggs, spam)
 print L
 </pre>
 
-<p>Výsledem je nový seznam (v tomto případě totožný se seznamem
-<code>spam</code>), který je vrácen v <code>L</code>.</p>
+<p>VĂ˝sledem je novĂ˝ seznam (v tomto pĹ™Ă­padÄ› totoĹľnĂ˝ se seznamem
+<code>spam</code>), kterĂ˝ je vrĂˇcen v <code>L</code>.</p>
 
-<p>Stejného efektu bychom mohli dosáhnout zápisem:</p>
+<p>StejnĂ©ho efektu bychom mohli dosĂˇhnout zĂˇpisem:</p>
 
 <pre>
 for i in spam:
@@ -135,27 +135,27 @@ for i in spam:
 print L
 </pre>
 
-<p>Ale povšimněte si skutečnosti, že použitím funkce <code>map()</code>
-odstraníme potřebu zápisu vnořeného bloku kódu. Z určitého pohledu tím
-snižujeme složitost programu o jednu úroveň. Uvidíme, že jde o jakési
-opakující se téma funkcionálního programování. Při používání těchto funkcí
-se relativní složitost kódu snižuje odstraňováním bloků.</p>
+<p>Ale povĹˇimnÄ›te si skuteÄŤnosti, Ĺľe pouĹľitĂ­m funkce <code>map()</code>
+odstranĂ­me potĹ™ebu zĂˇpisu vnoĹ™enĂ©ho bloku kĂłdu. Z urÄŤitĂ©ho pohledu tĂ­m
+sniĹľujeme sloĹľitost programu o jednu ĂşroveĹ. UvidĂ­me, Ĺľe jde o jakĂ©si
+opakujĂ­cĂ­ se tĂ©ma funkcionĂˇlnĂ­ho programovĂˇnĂ­. PĹ™i pouĹľĂ­vĂˇnĂ­ tÄ›chto funkcĂ­
+se relativnĂ­ sloĹľitost kĂłdu sniĹľuje odstraĹovĂˇnĂ­m blokĹŻ.</p>
 
 <h4 id="filter">filter(funkce, posloupnost)</h4>
 
-<p>Jak již jméno napovídá, funkce <code>filter()</code> vybírá všechny prvky
-posloupnosti <code>posloupnost</code>, pro které <code>funkce</code> vrací
-hodnotu <code>True</code>. Uvažujme náš seznam čísel <code>numbers</code>.
-Pokud chceme vytvořit nový seznam, který se skládá pouze z lichých čísel,
-pak jej můžeme vytvořit takto:</p>
+<p>Jak jiĹľ jmĂ©no napovĂ­dĂˇ, funkce <code>filter()</code> vybĂ­rĂˇ vĹˇechny prvky
+posloupnosti <code>posloupnost</code>, pro kterĂ© <code>funkce</code> vracĂ­
+hodnotu <code>True</code>. UvaĹľujme nĂˇĹˇ seznam ÄŤĂ­sel <code>numbers</code>.
+Pokud chceme vytvoĹ™it novĂ˝ seznam, kterĂ˝ se sklĂˇdĂˇ pouze z lichĂ˝ch ÄŤĂ­sel,
+pak jej mĹŻĹľeme vytvoĹ™it takto:</p>
 
 <pre>
-def jeLiche(n): return (n%2 != 0) <span class="comment"># použijeme operátor modulo</span>
+def jeLiche(n): return (n%2 != 0) <span class="comment"># pouĹľijeme operĂˇtor modulo</span>
 L = filter(jeLiche, numbers)
 print L
 </pre>
 
-<p>Řešení bychom mohli napsat i takto:</p>
+<p>ĹeĹˇenĂ­ bychom mohli napsat i takto:</p>
 
 <pre>
 def jeLiche(n): return (n%2 != 0)
@@ -165,88 +165,88 @@ for i in numbers:
 print L
 </pre>
 
-<p>Opět si povšimněte, že konvenční kód vyžaduje k dosažení stejného
-výsledku použití dvou úrovní odsazení. A opět, zvýšení úrovně odsazení je
-příznakem zvýšené složitosti kódu.</p>
+<p>OpÄ›t si povĹˇimnÄ›te, Ĺľe konvenÄŤnĂ­ kĂłd vyĹľaduje k dosaĹľenĂ­ stejnĂ©ho
+vĂ˝sledku pouĹľitĂ­ dvou ĂşrovnĂ­ odsazenĂ­. A opÄ›t, zvĂ˝ĹˇenĂ­ ĂşrovnÄ› odsazenĂ­ je
+pĹ™Ă­znakem zvĂ˝ĹˇenĂ© sloĹľitosti kĂłdu.</p>
 
 
 <h4>reduce(funkce, posloupnost)</h4>
 
-<p>Význam funkce <code>reduce()</code> je poněkud méně zřejmý. Tato funkce
-redukuje seznam na jedinou hodnotu tím, že jeho prvky kombinuje pomocí
-dodané funkce. Mohli bychom například sečíst hodnoty prvků seznamu a vrátit
-hodnotu celkového součtu takto:</p>
+<p>VĂ˝znam funkce <code>reduce()</code> je ponÄ›kud mĂ©nÄ› zĹ™ejmĂ˝. Tato funkce
+redukuje seznam na jedinou hodnotu tĂ­m, Ĺľe jeho prvky kombinuje pomocĂ­
+dodanĂ© funkce. Mohli bychom napĹ™Ă­klad seÄŤĂ­st hodnoty prvkĹŻ seznamu a vrĂˇtit
+hodnotu celkovĂ©ho souÄŤtu takto:</p>
 
 <pre>
 def secti(i, j): return i + j
 print reduce(secti, numbers)
 </pre>
 
-<p>Stejně jako v předchozích případech bychom mohli použít konvenční zápis:</p>
+<p>StejnÄ› jako v pĹ™edchozĂ­ch pĹ™Ă­padech bychom mohli pouĹľĂ­t konvenÄŤnĂ­ zĂˇpis:</p>
 
 <pre>
 vysledek = 0
-for i in range(len(numbers)): <span class="comment"># použijeme indexování</span>
+for i in range(len(numbers)): <span class="comment"># pouĹľijeme indexovĂˇnĂ­</span>
     vysledek = vysledek + numbers[i]
 print vysledek
 </pre>
 
-<p>I když v tomto případě bude výsledek stejný, vždycky to není tak
-přímočaré. Funkce <code>reduce()</code> <em>ve skutečnosti</em> dělá to, že
-volá dodanou funkci, přičem jí předává první dva členy posloupnosti.
-Výsledek uloží místo nich. Jinými slovy, přesnější reprezentace funkce
-<code>reduce()</code> vypadá takto:</p>
+<p>I kdyĹľ v tomto pĹ™Ă­padÄ› bude vĂ˝sledek stejnĂ˝, vĹľdycky to nenĂ­ tak
+pĹ™Ă­moÄŤarĂ©. Funkce <code>reduce()</code> <em>ve skuteÄŤnosti</em> dÄ›lĂˇ to, Ĺľe
+volĂˇ dodanou funkci, pĹ™iÄŤem jĂ­ pĹ™edĂˇvĂˇ prvnĂ­ dva ÄŤleny posloupnosti.
+VĂ˝sledek uloĹľĂ­ mĂ­sto nich. JinĂ˝mi slovy, pĹ™esnÄ›jĹˇĂ­ reprezentace funkce
+<code>reduce()</code> vypadĂˇ takto:</p>
 
 <pre>
 def reduce(numbers):
-    L = numbers[:]        <span class="comment"># vytvoř kopii originálu</span>
+    L = numbers[:]        <span class="comment"># vytvoĹ™ kopii originĂˇlu</span>
     while len(L) >= 2:
-        i, j = L[0], L[1] <span class="comment"># použijeme násobné přiřazení</span>
-        L = [i+j] + L[2:] <span class="comment"># součet prvních dvou a zbytek</span>
+        i, j = L[0], L[1] <span class="comment"># pouĹľijeme nĂˇsobnĂ© pĹ™iĹ™azenĂ­</span>
+        L = [i+j] + L[2:] <span class="comment"># souÄŤet prvnĂ­ch dvou a zbytek</span>
     return L[0]
 </pre>
 
-<p>Opět vidíme, že technika funkcionálního programování redukuje složitost
-kódu odstraněním nutnosti použití odsazených bloků kódu.</p>
+<p>OpÄ›t vidĂ­me, Ĺľe technika funkcionĂˇlnĂ­ho programovĂˇnĂ­ redukuje sloĹľitost
+kĂłdu odstranÄ›nĂ­m nutnosti pouĹľitĂ­ odsazenĂ˝ch blokĹŻ kĂłdu.</p>
 
 <h4>lambda</h4>
 
-<p>Jedním z rysů, kterého jste si v dosud uvedených příkladech mohli
-všimnout, je skutečnost, že funkce, které předáváme jako argument funkcí pro
-podporu funkcionálního programování, bývají velmi krátké. Často jde o jediný
-řádek kódu. Abychom si ušetřili námahu při definování velkého množství velmi
-malých funkcí, nabízí nám Python další pomocnou funkci pro podporu
-funkcionálního programování &mdash; <code>lambda</code>.</p>
+<p>JednĂ­m z rysĹŻ, kterĂ©ho jste si v dosud uvedenĂ˝ch pĹ™Ă­kladech mohli
+vĹˇimnout, je skuteÄŤnost, Ĺľe funkce, kterĂ© pĹ™edĂˇvĂˇme jako argument funkcĂ­ pro
+podporu funkcionĂˇlnĂ­ho programovĂˇnĂ­, bĂ˝vajĂ­ velmi krĂˇtkĂ©. ÄŚasto jde o jedinĂ˝
+Ĺ™Ăˇdek kĂłdu. Abychom si uĹˇetĹ™ili nĂˇmahu pĹ™i definovĂˇnĂ­ velkĂ©ho mnoĹľstvĂ­ velmi
+malĂ˝ch funkcĂ­, nabĂ­zĂ­ nĂˇm Python dalĹˇĂ­ pomocnou funkci pro podporu
+funkcionĂˇlnĂ­ho programovĂˇnĂ­ &mdash; <code>lambda</code>.</p>
 
-<p>Pojem <em>lambda výraz</em> se používá pro referenci na <em>anonymní
-funkci</em>, to znamená pro blok kódu, který lze provést stejným způsobem,
-jako kdyby se jednalo o funkci, která ovšem nemá jméno. Lambda výrazy mohou
-být definovány uvnitř programu všude tam, kde se může vyskytovat legální
-pythonovský výraz. To znamená, že je můžeme používat i uvnitř zmiňovaných
-pomocných funkcí pro podporu funkcionálního stylu programování.
+<p>Pojem <em>lambda vĂ˝raz</em> se pouĹľĂ­vĂˇ pro referenci na <em>anonymnĂ­
+funkci</em>, to znamenĂˇ pro blok kĂłdu, kterĂ˝ lze provĂ©st stejnĂ˝m zpĹŻsobem,
+jako kdyby se jednalo o funkci, kterĂˇ ovĹˇem nemĂˇ jmĂ©no. Lambda vĂ˝razy mohou
+bĂ˝t definovĂˇny uvnitĹ™ programu vĹˇude tam, kde se mĹŻĹľe vyskytovat legĂˇlnĂ­
+pythonovskĂ˝ vĂ˝raz. To znamenĂˇ, Ĺľe je mĹŻĹľeme pouĹľĂ­vat i uvnitĹ™ zmiĹovanĂ˝ch
+pomocnĂ˝ch funkcĂ­ pro podporu funkcionĂˇlnĂ­ho stylu programovĂˇnĂ­.
 </p>
 
-<p>Zápis lambda výrazu vypadá takto:</p>
+<p>ZĂˇpis lambda vĂ˝razu vypadĂˇ takto:</p>
 
 <pre>
-lambda &lt;seznam parametrů&gt; : &lt;pythonovský výraz používající parametry&gt;
+lambda &lt;seznam parametrĹŻ&gt; : &lt;pythonovskĂ˝ vĂ˝raz pouĹľĂ­vajĂ­cĂ­ parametry&gt;
 </pre>
 
-<p>Takže výše zmíněnou funkci <code>secti</code> bychom mohli přepsat
+<p>TakĹľe vĂ˝Ĺˇe zmĂ­nÄ›nou funkci <code>secti</code> bychom mohli pĹ™epsat
 jako:</p>
 
 <pre>
 secti = lambda i, j: i + j
 </pre>
 
-<p>Použití řádku s definicí funkce se můžeme úplně vyhnout zápisem lambda
-výrazu přímo uvnitř volání funkce <code>reduce()</code>:</p>
+<p>PouĹľitĂ­ Ĺ™Ăˇdku s definicĂ­ funkce se mĹŻĹľeme ĂşplnÄ› vyhnout zĂˇpisem lambda
+vĂ˝razu pĹ™Ă­mo uvnitĹ™ volĂˇnĂ­ funkce <code>reduce()</code>:</p>
 
 <pre>
 print reduce(lambda i, j: i+j, numbers)
 </pre>
 
-<p>Podobným způsobem můžeme přepsat naše příklady používající funkce
+<p>PodobnĂ˝m zpĹŻsobem mĹŻĹľeme pĹ™epsat naĹˇe pĹ™Ă­klady pouĹľĂ­vajĂ­cĂ­ funkce
 <code>map</code> a <code>filter</code>:</p>
 
 <pre>
@@ -259,57 +259,57 @@ print L
 
 <h4 id="ListComprehension">List Comprehension</h4>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Pojem <em>list
-comprehension</em> (čti list komprihenšn) je obtížně přeložitelný tak, aby
-byl výsledek překladu krátký a přesný. Je založen na jednom z významů slova
-<em>comprehension</em>, pro který existuje synonymum <em>comprise</em> (čti
-kemprais). Vyjadřuje skutečnost <em>něco obsahovat</em>, <em>být z něčeho
-poskládán, složen</em>. Slovo <em>list</em> se zde jednoznačně překládá jako
-<em>seznam</em>. Pojem <em>list comprehension</em> se používá pro
-syntaktickou konstrukci, která předepisuje způsob vygenerování seznamu z
-jiné kolekce. Vulgárně bychom jej tedy mohli přeložit jako <em>sestavovač
-seznamů</em>. V odborné terminologii by se možná dal použít pojem
-<em>funkcionální konstruktor seznamu</em>. Ale raději zůstaňme u
-originálního pojmu. Smiřte se s tím, že <em>naučit se programovat</em> do
-značné míry znamená také <em>učit se anglicky</em>.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Pojem <em>list
+comprehension</em> (ÄŤti list komprihenĹˇn) je obtĂ­ĹľnÄ› pĹ™eloĹľitelnĂ˝ tak, aby
+byl vĂ˝sledek pĹ™ekladu krĂˇtkĂ˝ a pĹ™esnĂ˝. Je zaloĹľen na jednom z vĂ˝znamĹŻ slova
+<em>comprehension</em>, pro kterĂ˝ existuje synonymum <em>comprise</em> (ÄŤti
+kemprais). VyjadĹ™uje skuteÄŤnost <em>nÄ›co obsahovat</em>, <em>bĂ˝t z nÄ›ÄŤeho
+posklĂˇdĂˇn, sloĹľen</em>. Slovo <em>list</em> se zde jednoznaÄŤnÄ› pĹ™eklĂˇdĂˇ jako
+<em>seznam</em>. Pojem <em>list comprehension</em> se pouĹľĂ­vĂˇ pro
+syntaktickou konstrukci, kterĂˇ pĹ™edepisuje zpĹŻsob vygenerovĂˇnĂ­ seznamu z
+jinĂ© kolekce. VulgĂˇrnÄ› bychom jej tedy mohli pĹ™eloĹľit jako <em>sestavovaÄŤ
+seznamĹŻ</em>. V odbornĂ© terminologii by se moĹľnĂˇ dal pouĹľĂ­t pojem
+<em>funkcionĂˇlnĂ­ konstruktor seznamu</em>. Ale radÄ›ji zĹŻstaĹme u
+originĂˇlnĂ­ho pojmu. SmiĹ™te se s tĂ­m, Ĺľe <em>nauÄŤit se programovat</em> do
+znaÄŤnĂ© mĂ­ry znamenĂˇ takĂ© <em>uÄŤit se anglicky</em>.</p>
 
-<p>Mechanismus <em>list comprehension</em> představuje techniku pro
-vytváření nových seznamů, která pochází z jazyka Haskell a v jazyce Python
-byla uvedena od verze 2.0. Má poněkud zatemňující syntaxi, podobající se
-matematickému zápisu množin. Vypadá takto:</p>
+<p>Mechanismus <em>list comprehension</em> pĹ™edstavuje techniku pro
+vytvĂˇĹ™enĂ­ novĂ˝ch seznamĹŻ, kterĂˇ pochĂˇzĂ­ z jazyka Haskell a v jazyce Python
+byla uvedena od verze 2.0. MĂˇ ponÄ›kud zatemĹujĂ­cĂ­ syntaxi, podobajĂ­cĂ­ se
+matematickĂ©mu zĂˇpisu mnoĹľin. VypadĂˇ takto:</p>
 
 <pre>
-[&lt;výraz&gt; for &lt;proměnná&gt; in &lt;kolekce&gt; if &lt;podmínka&gt;]
+[&lt;vĂ˝raz&gt; for &lt;promÄ›nnĂˇ&gt; in &lt;kolekce&gt; if &lt;podmĂ­nka&gt;]
 </pre>
 
-<p>Můžeme ji vyjádřit ekvivalentním zápisem:</p>
+<p>MĹŻĹľeme ji vyjĂˇdĹ™it ekvivalentnĂ­m zĂˇpisem:</p>
 
 <pre>
 L = []
-for proměnná in kolekce:
-    if podmínka:
-        L.append(výraz)
+for promÄ›nnĂˇ in kolekce:
+    if podmĂ­nka:
+        L.append(vĂ˝raz)
 </pre>
 
-<p>Stejně jako u ostatních konstrukcí z funkcionálního programování i zde
-dochází k úspoře řádků a dvou úrovní odsazení. Podívejme se na nějaké
-praktické příklady.</p>
+<p>StejnÄ› jako u ostatnĂ­ch konstrukcĂ­ z funkcionĂˇlnĂ­ho programovĂˇnĂ­ i zde
+dochĂˇzĂ­ k ĂşspoĹ™e Ĺ™ĂˇdkĹŻ a dvou ĂşrovnĂ­ odsazenĂ­. PodĂ­vejme se na nÄ›jakĂ©
+praktickĂ© pĹ™Ă­klady.</p>
 
-<p>Nejdříve si vytvoříme seznam sudých čísel:</p>
+<p>NejdĹ™Ă­ve si vytvoĹ™Ă­me seznam sudĂ˝ch ÄŤĂ­sel:</p>
 
 <pre>
 >>> [n for n in range(10) if n % 2 == 0 ]
 [0, 2, 4, 6, 8]
 </pre>
 
-<p>Tento zápis říká, že chceme seznam hodnot (<code>n</code>), kde se
-<code>n</code> pohybuje v rozmezí 0 až 9 a současně platí, že <code>n</code>
-je sudé (tedy <code>n % 2 == 0</code>).</p>
+<p>Tento zĂˇpis Ĺ™Ă­kĂˇ, Ĺľe chceme seznam hodnot (<code>n</code>), kde se
+<code>n</code> pohybuje v rozmezĂ­ 0 aĹľ 9 a souÄŤasnÄ› platĂ­, Ĺľe <code>n</code>
+je sudĂ© (tedy <code>n % 2 == 0</code>).</p>
 
-<p>Podmínka, uvedená na konci, může být samozřejmě nahrazena funkcí &mdash;
-za předpokladu, že tato funkce vrací hodnotu, kterou může Python
-interpretovat jako hodnotu boolovskou. Takže pokud se znovu podíváme na
-předchozí příklad, můžeme jej přepsat následovně:</p>
+<p>PodmĂ­nka, uvedenĂˇ na konci, mĹŻĹľe bĂ˝t samozĹ™ejmÄ› nahrazena funkcĂ­ &mdash;
+za pĹ™edpokladu, Ĺľe tato funkce vracĂ­ hodnotu, kterou mĹŻĹľe Python
+interpretovat jako hodnotu boolovskou. TakĹľe pokud se znovu podĂ­vĂˇme na
+pĹ™edchozĂ­ pĹ™Ă­klad, mĹŻĹľeme jej pĹ™epsat nĂˇsledovnÄ›:</p>
 
 <pre>
 >>> def jeSude(n): return ((n % 2) == 0)
@@ -317,18 +317,18 @@ předchozí příklad, můžeme jej přepsat následovně:</p>
 [0, 2, 4, 6, 8]
 </pre>
 
-<p>Vytvořme nyní seznam druhých mocnit prvních pěti čísel:</p>
+<p>VytvoĹ™me nynĂ­ seznam druhĂ˝ch mocnit prvnĂ­ch pÄ›ti ÄŤĂ­sel:</p>
 
 <pre>
 >>> [n * n for n in range(5)]
 [0, 1, 4, 9, 16]
 </pre>
 
-<p>Povšimněte si, že část <code>if</code> nemusíme povinně použít. Úvodní
-výraz zde má podobu <code>n * n</code> a používáme pro něj všechny hodnoty
-ze zadaného intervalu.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe ÄŤĂˇst <code>if</code> nemusĂ­me povinnÄ› pouĹľĂ­t. ĂšvodnĂ­
+vĂ˝raz zde mĂˇ podobu <code>n * n</code> a pouĹľĂ­vĂˇme pro nÄ›j vĹˇechny hodnoty
+ze zadanĂ©ho intervalu.</p>
 
-<p>Na závěr použijme místo funkce <code>range()</code> již existujíci
+<p>Na zĂˇvÄ›r pouĹľijme mĂ­sto funkce <code>range()</code> jiĹľ existujĂ­ci
 kolekci:</p>
 
 <pre>
@@ -337,7 +337,7 @@ kolekci:</p>
 [1, 7]
 </pre>
 
-<p>Takový zápis bychom mohli použít jako náhradu za funkci
+<p>TakovĂ˝ zĂˇpis bychom mohli pouĹľĂ­t jako nĂˇhradu za funkci
 <code>filter</code>:</p>
 
 <pre>
@@ -345,54 +345,54 @@ kolekci:</p>
 [1, 7]
 </pre>
 
-<p>To, který ze stylů se zdá přirozenější nebo vhodnější, je čistě
-subjektivní věc. Pokud budujeme novou kolekci z již existující kolekce,
-můžeme použít buď dříve uvedené funkce z oblasti funkcionálního
-programování, nebo můžeme použít <em>list comprehension</em>. Pokud vyloženě
-vytváříme úplně novou kolekci, pak je obvykle snazší použít <em>list
+<p>To, kterĂ˝ ze stylĹŻ se zdĂˇ pĹ™irozenÄ›jĹˇĂ­ nebo vhodnÄ›jĹˇĂ­, je ÄŤistÄ›
+subjektivnĂ­ vÄ›c. Pokud budujeme novou kolekci z jiĹľ existujĂ­cĂ­ kolekce,
+mĹŻĹľeme pouĹľĂ­t buÄŹ dĹ™Ă­ve uvedenĂ© funkce z oblasti funkcionĂˇlnĂ­ho
+programovĂˇnĂ­, nebo mĹŻĹľeme pouĹľĂ­t <em>list comprehension</em>. Pokud vyloĹľenÄ›
+vytvĂˇĹ™Ă­me ĂşplnÄ› novou kolekci, pak je obvykle snazĹˇĂ­ pouĹľĂ­t <em>list
 comprehension</em>.</p>
 
-<p>Když to shrneme, tak ačkoliv se nám tyto konstrukce mohou zdát
-přitažlivé, může pro dosažení požadovaného výsledku tento přístup vést k tak
-složitým výrazům, že je prostě jednodušší rozepsat je na tradiční
-pythonovské ekvivalenty. Není to žádná ostuda. Dobrá čitelnost je vždy
-lepší, než zatemňování věcí jen proto, abychom vypadali chytře.</p>
+<p>KdyĹľ to shrneme, tak aÄŤkoliv se nĂˇm tyto konstrukce mohou zdĂˇt
+pĹ™itaĹľlivĂ©, mĹŻĹľe pro dosaĹľenĂ­ poĹľadovanĂ©ho vĂ˝sledku tento pĹ™Ă­stup vĂ©st k tak
+sloĹľitĂ˝m vĂ˝razĹŻm, Ĺľe je prostÄ› jednoduĹˇĹˇĂ­ rozepsat je na tradiÄŤnĂ­
+pythonovskĂ© ekvivalenty. NenĂ­ to ĹľĂˇdnĂˇ ostuda. DobrĂˇ ÄŤitelnost je vĹľdy
+lepĹˇĂ­, neĹľ zatemĹovĂˇnĂ­ vÄ›cĂ­ jen proto, abychom vypadali chytĹ™e.</p>
 
 
-<h3>Ostatní konstrukce</h3>
+<h3>OstatnĂ­ konstrukce</h3>
 
-<p>Zmíněné funkce jsou samozřejmě užitečné samy o sobě, ale přesto nestačí k
-tomu, aby v jazyce Python umožnily plně funkcionální styl programování.
-Funkcionálním způsobem musíme změnit, nebo alespoň nahradit, používání
-řídicích struktur jazyka. Jednou z cest, kterou toho můžeme dosáhnout, je
-využití vedlejšího efektu toho, jak Python vyhodnocuje boolovské výrazy.</p>
+<p>ZmĂ­nÄ›nĂ© funkce jsou samozĹ™ejmÄ› uĹľiteÄŤnĂ© samy o sobÄ›, ale pĹ™esto nestaÄŤĂ­ k
+tomu, aby v jazyce Python umoĹľnily plnÄ› funkcionĂˇlnĂ­ styl programovĂˇnĂ­.
+FunkcionĂˇlnĂ­m zpĹŻsobem musĂ­me zmÄ›nit, nebo alespoĹ nahradit, pouĹľĂ­vĂˇnĂ­
+Ĺ™Ă­dicĂ­ch struktur jazyka. Jednou z cest, kterou toho mĹŻĹľeme dosĂˇhnout, je
+vyuĹľitĂ­ vedlejĹˇĂ­ho efektu toho, jak Python vyhodnocuje boolovskĂ© vĂ˝razy.</p>
 
-<h4>Zkrácené vyhodnocování</h4>
+<h4>ZkrĂˇcenĂ© vyhodnocovĂˇnĂ­</h4>
 
-<p>Protože Python používá <em>zkrácené vyhodnocování</em> boolovských
-výrazů, lze některých vlastností těchto výrazů využít. Připomeňme si
-zkrácené vyhodnocování: Pokud se vyhodnocuje boolovský výraz, začíná
-vyhodnocování na levé straně výrazu a postupuje směrem vpravo. Vyhodnocování
-končí v okamžiku, kdy již pro určení konečného výsledku není další
-vyhodnocování nutné.</p>
+<p>ProtoĹľe Python pouĹľĂ­vĂˇ <em>zkrĂˇcenĂ© vyhodnocovĂˇnĂ­</em> boolovskĂ˝ch
+vĂ˝razĹŻ, lze nÄ›kterĂ˝ch vlastnostĂ­ tÄ›chto vĂ˝razĹŻ vyuĹľĂ­t. PĹ™ipomeĹme si
+zkrĂˇcenĂ© vyhodnocovĂˇnĂ­: Pokud se vyhodnocuje boolovskĂ˝ vĂ˝raz, zaÄŤĂ­nĂˇ
+vyhodnocovĂˇnĂ­ na levĂ© stranÄ› vĂ˝razu a postupuje smÄ›rem vpravo. VyhodnocovĂˇnĂ­
+konÄŤĂ­ v okamĹľiku, kdy jiĹľ pro urÄŤenĂ­ koneÄŤnĂ©ho vĂ˝sledku nenĂ­ dalĹˇĂ­
+vyhodnocovĂˇnĂ­ nutnĂ©.</p>
 
-<p>Pro zviditelnění zkráceného vyhodnocení použijeme zvláštní postup.
-Nejdříve nadefinujeme dvě funkce, které nám oznámí, že jsou volány, a poté
-vrátí hodnotu, odpovídající jejich jménům:</p>
+<p>Pro zviditelnÄ›nĂ­ zkrĂˇcenĂ©ho vyhodnocenĂ­ pouĹľijeme zvlĂˇĹˇtnĂ­ postup.
+NejdĹ™Ă­ve nadefinujeme dvÄ› funkce, kterĂ© nĂˇm oznĂˇmĂ­, Ĺľe jsou volĂˇny, a potĂ©
+vrĂˇtĂ­ hodnotu, odpovĂ­dajĂ­cĂ­ jejich jmĂ©nĹŻm:</p>
 
 <pre>
 >>> def TRUE():
 ...   print 'TRUE'
 ...   return True  <span class="comment"># True se ve verzi 2.2 tiskne jako 1</span>
-...   
+...
 >>>def FALSE():
 ...   print 'FALSE'
 ...   return False <span class="comment"># False se ve verzi 2.2 tiskne jako 0</span>
 ...
 </pre>
 
-<p>Nyní je použijeme, abychom zjistili, jak se vyhodnocování boolovských
-výrazů provádí:</p>
+<p>NynĂ­ je pouĹľijeme, abychom zjistili, jak se vyhodnocovĂˇnĂ­ boolovskĂ˝ch
+vĂ˝razĹŻ provĂˇdĂ­:</p>
 
 <pre>
 >>> print TRUE() and FALSE()
@@ -421,17 +421,17 @@ FALSE
 
 <div class="trnote" id="boolean">
 
-<p><b>Poznámka překladatele:</b> Boolovský typ s hodnotami
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> BoolovskĂ˝ typ s hodnotami
 <code>False</code> a <code>True</code> byl zaveden ve verzi Python 2.2.
-Jména <code>False</code> a <code>True</code> však pouze pojmenovávala
-konstanty <code>0</code> a <code>1</code>, což se projevovalo při tisku.
-Předchozí verze jazyka Python boolovský typ vůbec neznaly a místo
-boolovských hodnot se používaly hodnoty <code>0</code> a <code>1</code>,
-jako například v jazyce C. Řada programátorů si přesto definovala konstanty
-<code>False</code> a <code>True</code>. Od verze 2.3 se boolovský typ stal
-plnohodnotným zabudovaným typem jazyka. Místo hodnot <code>0</code> a
-<code>1</code> příkaz <code>print</code> vytiskne <code>False</code> nebo
-<code>True</code>. Od verze 2.3 tedy bude výstup vypadat takto:</p>
+JmĂ©na <code>False</code> a <code>True</code> vĹˇak pouze pojmenovĂˇvala
+konstanty <code>0</code> a <code>1</code>, coĹľ se projevovalo pĹ™i tisku.
+PĹ™edchozĂ­ verze jazyka Python boolovskĂ˝ typ vĹŻbec neznaly a mĂ­sto
+boolovskĂ˝ch hodnot se pouĹľĂ­valy hodnoty <code>0</code> a <code>1</code>,
+jako napĹ™Ă­klad v jazyce C. Ĺada programĂˇtorĹŻ si pĹ™esto definovala konstanty
+<code>False</code> a <code>True</code>. Od verze 2.3 se boolovskĂ˝ typ stal
+plnohodnotnĂ˝m zabudovanĂ˝m typem jazyka. MĂ­sto hodnot <code>0</code> a
+<code>1</code> pĹ™Ă­kaz <code>print</code> vytiskne <code>False</code> nebo
+<code>True</code>. Od verze 2.3 tedy bude vĂ˝stup vypadat takto:</p>
 
 <pre>
 >>> print TRUE() and FALSE()
@@ -460,25 +460,25 @@ False
 
 </div>
 
-<p>Povšimněte si, že u <em>logického součinu</em> (operátor
-<code>and</code>) dochází k vyhodnocování druhé části výrazu <em>tehdy a jen
-tehdy, když</em> nabývá první část výrazu hodnoty True (pravda). Pokud první
-část nabývá logické hodnoty False (nepravda), pak se druhá část
-nevyhodnocuje, protože výraz jako celek již <em>nemůže</em> nabýt hodnoty
+<p>PovĹˇimnÄ›te si, Ĺľe u <em>logickĂ©ho souÄŤinu</em> (operĂˇtor
+<code>and</code>) dochĂˇzĂ­ k vyhodnocovĂˇnĂ­ druhĂ© ÄŤĂˇsti vĂ˝razu <em>tehdy a jen
+tehdy, kdyĹľ</em> nabĂ˝vĂˇ prvnĂ­ ÄŤĂˇst vĂ˝razu hodnoty True (pravda). Pokud prvnĂ­
+ÄŤĂˇst nabĂ˝vĂˇ logickĂ© hodnoty False (nepravda), pak se druhĂˇ ÄŤĂˇst
+nevyhodnocuje, protoĹľe vĂ˝raz jako celek jiĹľ <em>nemĹŻĹľe</em> nabĂ˝t hodnoty
 True.</p>
 
-<p>Podobně je tomu u <em>logického součtu</em> (operátor <code>or</code>) v
-případě, kdy první část nabývá hodnoty True. V takovém případě již druhá
-část nemusí být vyhodnocována, protože celek <em>musí</em> nabývat hodnoty
+<p>PodobnÄ› je tomu u <em>logickĂ©ho souÄŤtu</em> (operĂˇtor <code>or</code>) v
+pĹ™Ă­padÄ›, kdy prvnĂ­ ÄŤĂˇst nabĂ˝vĂˇ hodnoty True. V takovĂ©m pĹ™Ă­padÄ› jiĹľ druhĂˇ
+ÄŤĂˇst nemusĂ­ bĂ˝t vyhodnocovĂˇna, protoĹľe celek <em>musĂ­</em> nabĂ˝vat hodnoty
 True.</p>
 
-<p>Při vyhodnocování boolovského výrazu se uplatňuje ještě jeden rys,
-kterého můžeme využít. Jde o to, že při vyhodnocování výrazu <span
-class="trnote" title="Poznámka překladatele">v boolovském kontextu</span>
-Python nevrací jednoduše hodnotu <code>1</code> nebo <code>0</code> <span
-class="trnote" title="Poznámka překladatele">(nebo <code>True</code> či
-<code>False</code>)</span>. Místo toho se vrací skutečná hodnota výrazu.
-Takže pokud testujeme řetězec na prázdnost (prázdný řetězec se chápe jako
+<p>PĹ™i vyhodnocovĂˇnĂ­ boolovskĂ©ho vĂ˝razu se uplatĹuje jeĹˇtÄ› jeden rys,
+kterĂ©ho mĹŻĹľeme vyuĹľĂ­t. Jde o to, Ĺľe pĹ™i vyhodnocovĂˇnĂ­ vĂ˝razu <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">v boolovskĂ©m kontextu</span>
+Python nevracĂ­ jednoduĹˇe hodnotu <code>1</code> nebo <code>0</code> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(nebo <code>True</code> ÄŤi
+<code>False</code>)</span>. MĂ­sto toho se vracĂ­ skuteÄŤnĂˇ hodnota vĂ˝razu.
+TakĹľe pokud testujeme Ĺ™etÄ›zec na prĂˇzdnost (prĂˇzdnĂ˝ Ĺ™etÄ›zec se chĂˇpe jako
 <code>False</code>) takto:</p>
 
 <pre>
@@ -486,38 +486,38 @@ if "Tento retezec neni prazdny": print "Neni prazdny"
 else: print "Prazdny retezec"
 </pre>
 
-<p>... Python prostě vrací testovaný řetězec.</p>
+<p>... Python prostÄ› vracĂ­ testovanĂ˝ Ĺ™etÄ›zec.</p>
 
-<p>Této vlastnosti můžeme využít k realizaci chování, které se podobá
-větvení. Dejme tomu, že máme například následující úsek kódu:</p>
+<p>TĂ©to vlastnosti mĹŻĹľeme vyuĹľĂ­t k realizaci chovĂˇnĂ­, kterĂ© se podobĂˇ
+vÄ›tvenĂ­. Dejme tomu, Ĺľe mĂˇme napĹ™Ă­klad nĂˇsledujĂ­cĂ­ Ăşsek kĂłdu:</p>
 
 <pre>
 if TRUE(): print "Je to pravda (True)"
 else: print "Je to nepravda (False)"
 </pre>
 
-<p>Můžeme jej nahradit konstrukcí ve stylu funkcionálního programování:</p>
+<p>MĹŻĹľeme jej nahradit konstrukcĂ­ ve stylu funkcionĂˇlnĂ­ho programovĂˇnĂ­:</p>
 
 <pre>
 V = (TRUE() and "Je to pravda (True)") or ("Je to nepravda (False)")
 print V
 </pre>
 
-<p>Zkuste tento příklad provést a poté nahraďte volání <code>TRUE()</code>
-voláním <code>FALSE()</code>.</p>
+<p>Zkuste tento pĹ™Ă­klad provĂ©st a potĂ© nahraÄŹte volĂˇnĂ­ <code>TRUE()</code>
+volĂˇnĂ­m <code>FALSE()</code>.</p>
 
-<p>To znamená, že jsme při využití zkráceného vyhodnocování boolovských
-výrazů nalezli způsob, jak z našich programů odstranit konvenční příkazy
-<code>if</code>/<code>else</code>. Možná si vzpomínáte, že jsme u tématu <a
-href="cztutrecur.html">rekurze</a> zjistili, že rekurzi můžeme použít k
-nahrazení konstrukce cyklu. Takže kombinací těchto dvou efektů můžeme z
-našeho programu odstranit všechny konvenční řídicí struktury a nahradit je
-čistými výrazy. Jde o velký krok směrem možnosti řešení problémů čistě ve
-stylu funkcionálního programování.</p>
+<p>To znamenĂˇ, Ĺľe jsme pĹ™i vyuĹľitĂ­ zkrĂˇcenĂ©ho vyhodnocovĂˇnĂ­ boolovskĂ˝ch
+vĂ˝razĹŻ nalezli zpĹŻsob, jak z naĹˇich programĹŻ odstranit konvenÄŤnĂ­ pĹ™Ă­kazy
+<code>if</code>/<code>else</code>. MoĹľnĂˇ si vzpomĂ­nĂˇte, Ĺľe jsme u tĂ©matu <a
+href="cztutrecur.html">rekurze</a> zjistili, Ĺľe rekurzi mĹŻĹľeme pouĹľĂ­t k
+nahrazenĂ­ konstrukce cyklu. TakĹľe kombinacĂ­ tÄ›chto dvou efektĹŻ mĹŻĹľeme z
+naĹˇeho programu odstranit vĹˇechny konvenÄŤnĂ­ Ĺ™Ă­dicĂ­ struktury a nahradit je
+ÄŤistĂ˝mi vĂ˝razy. Jde o velkĂ˝ krok smÄ›rem moĹľnosti Ĺ™eĹˇenĂ­ problĂ©mĹŻ ÄŤistÄ› ve
+stylu funkcionĂˇlnĂ­ho programovĂˇnĂ­.</p>
 
-<p>Abychom to vše ukázali na praktickém příkladě, napišme si čistě
-funkcionálním stylem program pro výpočet faktoriálu, který používá rekurzi
-místo cyklu a zkrácené vyhodnocování výrazu místo <code>if/else</code>:</p>
+<p>Abychom to vĹˇe ukĂˇzali na praktickĂ©m pĹ™Ă­kladÄ›, napiĹˇme si ÄŤistÄ›
+funkcionĂˇlnĂ­m stylem program pro vĂ˝poÄŤet faktoriĂˇlu, kterĂ˝ pouĹľĂ­vĂˇ rekurzi
+mĂ­sto cyklu a zkrĂˇcenĂ© vyhodnocovĂˇnĂ­ vĂ˝razu mĂ­sto <code>if/else</code>:</p>
 
 <pre>
 def factorial(n):
@@ -525,162 +525,162 @@ def factorial(n):
           (factorial(n - 1) * n)
 </pre>
 
-<p>To je opravdu celé. Možná to není tak dobře srozumitelné jako
-konvenčnější pythonovský kód, ale funguje to a jde o funkci zapsanou čistě
-ve funkcionálním stylu &mdash; jde tedy o čistý výraz.</p>
+<p>To je opravdu celĂ©. MoĹľnĂˇ to nenĂ­ tak dobĹ™e srozumitelnĂ© jako
+konvenÄŤnÄ›jĹˇĂ­ pythonovskĂ˝ kĂłd, ale funguje to a jde o funkci zapsanou ÄŤistÄ›
+ve funkcionĂˇlnĂ­m stylu &mdash; jde tedy o ÄŤistĂ˝ vĂ˝raz.</p>
 
-<h3>Závěry</h3>
+<h3>ZĂˇvÄ›ry</h3>
 
-<p>V tomto místě se možná pozastavujete nad tím, co je vlastně cílem toho
-všeho? A nejste sami. I když funkcionální programování přitahuje řadu
-teoretiků v oblasti výpočetních věd (Computer Science) &mdash; a často
-matematiky &mdash;, zdá se, že většina praktických programátorů používá
-techniky funkcionálního programování velmi zřídka. Navíc používají jakýsi
-hybridní přístup, kdy tyto techniky kombinují s tradičnějším, příkazovým
-stylem podle toho, jak to považují za vhodné.</p>
+<p>V tomto mĂ­stÄ› se moĹľnĂˇ pozastavujete nad tĂ­m, co je vlastnÄ› cĂ­lem toho
+vĹˇeho? A nejste sami. I kdyĹľ funkcionĂˇlnĂ­ programovĂˇnĂ­ pĹ™itahuje Ĺ™adu
+teoretikĹŻ v oblasti vĂ˝poÄŤetnĂ­ch vÄ›d (Computer Science) &mdash; a ÄŤasto
+matematiky &mdash;, zdĂˇ se, Ĺľe vÄ›tĹˇina praktickĂ˝ch programĂˇtorĹŻ pouĹľĂ­vĂˇ
+techniky funkcionĂˇlnĂ­ho programovĂˇnĂ­ velmi zĹ™Ă­dka. NavĂ­c pouĹľĂ­vajĂ­ jakĂ˝si
+hybridnĂ­ pĹ™Ă­stup, kdy tyto techniky kombinujĂ­ s tradiÄŤnÄ›jĹˇĂ­m, pĹ™Ă­kazovĂ˝m
+stylem podle toho, jak to povaĹľujĂ­ za vhodnĂ©.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Podle mého názoru může mít
-takové používání technik funkcionálního programování příčiny jak
-subjektivní, tak objektivní. Mezi subjektivní příčiny bych zařadil ten fakt,
-že se jedná přece jen o téma pro pokročilé. Do hloubky se s ním na
-vysokoškolské úrovni seznámil jen zlomek těch, kteří pracují jako praktičtí
-programátoři. Mezi objektivní příčiny bych zařadil skutečnost, že model, na
-kterém je funkcionální programování založeno, neodpovídá přesně modelu,
-který se používá pro výstavbu běžných počítačů. Von Neumannovská koncepce
-počítače s pamětí pro data a pro program a s procesorem, který vykonává
-instrukce, je většinou mnohem efektivněji využitelná pro programy napsané
-procedurálním stylem. Jinými slovy, dobře napsaný procedurální program na
-těchto počítačích bude typicky výkonnější, než dobře napsaný odpovídající
-program zapsaný ve funkcionálním jazyce. Z matematického (teoretického)
-pohledu je ale tato skutečnost nevýznamná. Proto se řada matematicky
-zaměřených programátorů, kteří typicky neřeší problémy denní praxe, otázkami
-skutečného výkonu příliš nezabývá. Funkcionální přístup je z hlediska
-matematického určitě jednodušší, lépe uchopitelný matematickými
-nástroji.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Podle mĂ©ho nĂˇzoru mĹŻĹľe mĂ­t
+takovĂ© pouĹľĂ­vĂˇnĂ­ technik funkcionĂˇlnĂ­ho programovĂˇnĂ­ pĹ™Ă­ÄŤiny jak
+subjektivnĂ­, tak objektivnĂ­. Mezi subjektivnĂ­ pĹ™Ă­ÄŤiny bych zaĹ™adil ten fakt,
+Ĺľe se jednĂˇ pĹ™ece jen o tĂ©ma pro pokroÄŤilĂ©. Do hloubky se s nĂ­m na
+vysokoĹˇkolskĂ© Ăşrovni seznĂˇmil jen zlomek tÄ›ch, kteĹ™Ă­ pracujĂ­ jako praktiÄŤtĂ­
+programĂˇtoĹ™i. Mezi objektivnĂ­ pĹ™Ă­ÄŤiny bych zaĹ™adil skuteÄŤnost, Ĺľe model, na
+kterĂ©m je funkcionĂˇlnĂ­ programovĂˇnĂ­ zaloĹľeno, neodpovĂ­dĂˇ pĹ™esnÄ› modelu,
+kterĂ˝ se pouĹľĂ­vĂˇ pro vĂ˝stavbu bÄ›ĹľnĂ˝ch poÄŤĂ­taÄŤĹŻ. Von NeumannovskĂˇ koncepce
+poÄŤĂ­taÄŤe s pamÄ›tĂ­ pro data a pro program a s procesorem, kterĂ˝ vykonĂˇvĂˇ
+instrukce, je vÄ›tĹˇinou mnohem efektivnÄ›ji vyuĹľitelnĂˇ pro programy napsanĂ©
+procedurĂˇlnĂ­m stylem. JinĂ˝mi slovy, dobĹ™e napsanĂ˝ procedurĂˇlnĂ­ program na
+tÄ›chto poÄŤĂ­taÄŤĂ­ch bude typicky vĂ˝konnÄ›jĹˇĂ­, neĹľ dobĹ™e napsanĂ˝ odpovĂ­dajĂ­cĂ­
+program zapsanĂ˝ ve funkcionĂˇlnĂ­m jazyce. Z matematickĂ©ho (teoretickĂ©ho)
+pohledu je ale tato skuteÄŤnost nevĂ˝znamnĂˇ. Proto se Ĺ™ada matematicky
+zamÄ›Ĺ™enĂ˝ch programĂˇtorĹŻ, kteĹ™Ă­ typicky neĹ™eĹˇĂ­ problĂ©my dennĂ­ praxe, otĂˇzkami
+skuteÄŤnĂ©ho vĂ˝konu pĹ™Ă­liĹˇ nezabĂ˝vĂˇ. FunkcionĂˇlnĂ­ pĹ™Ă­stup je z hlediska
+matematickĂ©ho urÄŤitÄ› jednoduĹˇĹˇĂ­, lĂ©pe uchopitelnĂ˝ matematickĂ˝mi
+nĂˇstroji.</p>
 
-<p>Pokud musíme na prvky seznamu aplikovat operace, které lze přirozeně
-vyjádřit pomocí <code>map</code>, <code>reduce</code> nebo
-<code>filter</code>, pak je v každém případě použijte. Občas můžete dokonce
-zjistit, že rekurze je v daném případě vhodnější, než konvenční cyklus. V
-ještě řidších případech můžete najít použití i pro zkrácené vyhodnocování
-místo konvenčního <code>if</code>/<code>else</code> &mdash; zejména při
-použití uvnitř výrazu. Tak jako je tomu u každého programátorského nástroje,
-nenechte se unést jen určitou filozofií. Pro řešení konkrétního zadání se
-raději snažte použít nejvhodnější nástroj, ať už je jakéhokoliv charakteru.
-Přinejmenším si buďte vědomi toho, že existují alternativy.</p>
+<p>Pokud musĂ­me na prvky seznamu aplikovat operace, kterĂ© lze pĹ™irozenÄ›
+vyjĂˇdĹ™it pomocĂ­ <code>map</code>, <code>reduce</code> nebo
+<code>filter</code>, pak je v kaĹľdĂ©m pĹ™Ă­padÄ› pouĹľijte. ObÄŤas mĹŻĹľete dokonce
+zjistit, Ĺľe rekurze je v danĂ©m pĹ™Ă­padÄ› vhodnÄ›jĹˇĂ­, neĹľ konvenÄŤnĂ­ cyklus. V
+jeĹˇtÄ› Ĺ™idĹˇĂ­ch pĹ™Ă­padech mĹŻĹľete najĂ­t pouĹľitĂ­ i pro zkrĂˇcenĂ© vyhodnocovĂˇnĂ­
+mĂ­sto konvenÄŤnĂ­ho <code>if</code>/<code>else</code> &mdash; zejmĂ©na pĹ™i
+pouĹľitĂ­ uvnitĹ™ vĂ˝razu. Tak jako je tomu u kaĹľdĂ©ho programĂˇtorskĂ©ho nĂˇstroje,
+nenechte se unĂ©st jen urÄŤitou filozofiĂ­. Pro Ĺ™eĹˇenĂ­ konkrĂ©tnĂ­ho zadĂˇnĂ­ se
+radÄ›ji snaĹľte pouĹľĂ­t nejvhodnÄ›jĹˇĂ­ nĂˇstroj, aĹĄ uĹľ je jakĂ©hokoliv charakteru.
+PĹ™inejmenĹˇĂ­m si buÄŹte vÄ›domi toho, Ĺľe existujĂ­ alternativy.</p>
 
-<p>K otázce <em>lambda výrazů</em> zbývá poznamenat ještě jeden závěr. I
-když neuvažujeme ve stylu funkcionálního programování, existuje jedna
-oblast, ve které lze dobře použít operátor <code>lambda</code>. Jde o
-definice <em>funkcí pro obsluhu událostí</em> (event handler), se kterými se
-setkáváme při programování uživatelského rozhraní. Tyto funkce jsou často
-velmi krátké, případně se v nich volají nějaké rozsáhlejší funkce, kterým se
-předává několik napevno použitých hodnot argumentů. V těchto případech lze v
-roli funkce pro obsluhu událostí použít lambda funkci. Tím se vyhneme
-nutnosti definovat mnoho malých funkcí, které by nám zaplňovaly prostor
-jmény, použitými jen jednou. Vzpomeňte si, že příkaz <code>lambda</code>
-vrací objekt typu <em>funkce</em>. Právě tento objekt (funkce) je předán
-prvku typu widget a je volán v době, kdy se vyskytne příslušná událost.
+<p>K otĂˇzce <em>lambda vĂ˝razĹŻ</em> zbĂ˝vĂˇ poznamenat jeĹˇtÄ› jeden zĂˇvÄ›r. I
+kdyĹľ neuvaĹľujeme ve stylu funkcionĂˇlnĂ­ho programovĂˇnĂ­, existuje jedna
+oblast, ve kterĂ© lze dobĹ™e pouĹľĂ­t operĂˇtor <code>lambda</code>. Jde o
+definice <em>funkcĂ­ pro obsluhu udĂˇlostĂ­</em> (event handler), se kterĂ˝mi se
+setkĂˇvĂˇme pĹ™i programovĂˇnĂ­ uĹľivatelskĂ©ho rozhranĂ­. Tyto funkce jsou ÄŤasto
+velmi krĂˇtkĂ©, pĹ™Ă­padnÄ› se v nich volajĂ­ nÄ›jakĂ© rozsĂˇhlejĹˇĂ­ funkce, kterĂ˝m se
+pĹ™edĂˇvĂˇ nÄ›kolik napevno pouĹľitĂ˝ch hodnot argumentĹŻ. V tÄ›chto pĹ™Ă­padech lze v
+roli funkce pro obsluhu udĂˇlostĂ­ pouĹľĂ­t lambda funkci. TĂ­m se vyhneme
+nutnosti definovat mnoho malĂ˝ch funkcĂ­, kterĂ© by nĂˇm zaplĹovaly prostor
+jmĂ©ny, pouĹľitĂ˝mi jen jednou. VzpomeĹte si, Ĺľe pĹ™Ă­kaz <code>lambda</code>
+vracĂ­ objekt typu <em>funkce</em>. PrĂˇvÄ› tento objekt (funkce) je pĹ™edĂˇn
+prvku typu widget a je volĂˇn v dobÄ›, kdy se vyskytne pĹ™Ă­sluĹˇnĂˇ udĂˇlost.
 Pokud si vzpomenete, jak se v Tkinter definuje prvek typu
-<code>Button</code> (tlačítko), pak můžeme lambda použít následovně:</p>
+<code>Button</code> (tlaÄŤĂ­tko), pak mĹŻĹľeme lambda pouĹľĂ­t nĂˇsledovnÄ›:</p>
 
 <pre>
 def write(s): print s
-b = Button(rodic, text="Stiskni mne", 
+b = Button(rodic, text="Stiskni mne",
            command = lambda : write("Stiskl jsi mne!"))
 b.pack()
 </pre>
 
-<p>V tomto případě bychom samozřejmě mohli dosáhnout téhož efektu tím, že
-bychom definovali přednastavenou hodnotu parametru funkce
+<p>V tomto pĹ™Ă­padÄ› bychom samozĹ™ejmÄ› mohli dosĂˇhnout tĂ©hoĹľ efektu tĂ­m, Ĺľe
+bychom definovali pĹ™ednastavenou hodnotu parametru funkce
 <code>write()</code>. Atributu <code>command</code> prvku typu
-<code>Button</code> bychom pak jednoduše přiřadili <code>write</code> <span
-class="trnote" title="Poznámka překladatele">(bez použití závorek)</span>.
-Nicméně i v takto jednoduchém případě nám použití <code>lambda</code>
-přináší tu výhodu, že jediná definice funkce <code>write()</code> může být
-použita pro více tlačítek tak, že jí přes <code>lambda</code> předáme různé
-řetězce. To znamená, že můžeme přidat druhé tlačítko takto:</p>
+<code>Button</code> bychom pak jednoduĹˇe pĹ™iĹ™adili <code>write</code> <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(bez pouĹľitĂ­ zĂˇvorek)</span>.
+NicmĂ©nÄ› i v takto jednoduchĂ©m pĹ™Ă­padÄ› nĂˇm pouĹľitĂ­ <code>lambda</code>
+pĹ™inĂˇĹˇĂ­ tu vĂ˝hodu, Ĺľe jedinĂˇ definice funkce <code>write()</code> mĹŻĹľe bĂ˝t
+pouĹľita pro vĂ­ce tlaÄŤĂ­tek tak, Ĺľe jĂ­ pĹ™es <code>lambda</code> pĹ™edĂˇme rĹŻznĂ©
+Ĺ™etÄ›zce. To znamenĂˇ, Ĺľe mĹŻĹľeme pĹ™idat druhĂ© tlaÄŤĂ­tko takto:</p>
 
 <pre>
-b2 = Button(rodic, text="Nebo mne", 
+b2 = Button(rodic, text="Nebo mne",
             command = lambda : write("Stiskl jsi mne. (Tvoje druhe tlacitko.)"))
 b2.pack()
 </pre>
 
-<p>Příkaz <code>lamda</code> můžeme použít i u techniky, kdy používáme metodu
-ovládacího prvku <code>bind()</code>, které jako argument předáváme objekt 
-pro ošetření události:</p>
+<p>PĹ™Ă­kaz <code>lamda</code> mĹŻĹľeme pouĹľĂ­t i u techniky, kdy pouĹľĂ­vĂˇme metodu
+ovlĂˇdacĂ­ho prvku <code>bind()</code>, kterĂ© jako argument pĹ™edĂˇvĂˇme objekt
+pro oĹˇetĹ™enĂ­ udĂˇlosti:</p>
 
 <pre>
 b3 = Button(rodic, text="Mne taky stiskni")
 b3.bind(&lt;Button-1>, lambda ev : write("Stisknuto"))
 </pre>
 
-<p>To je vše, co se zde o funkcionálním programování dozvíte. Pokud se na ně
-chcete podívat trochu hlouběji, existuje celá řada dalších informačních
-zdrojů. Některé z nich jsou uvedeny níže.</p>
+<p>To je vĹˇe, co se zde o funkcionĂˇlnĂ­m programovĂˇnĂ­ dozvĂ­te. Pokud se na nÄ›
+chcete podĂ­vat trochu hloubÄ›ji, existuje celĂˇ Ĺ™ada dalĹˇĂ­ch informaÄŤnĂ­ch
+zdrojĹŻ. NÄ›kterĂ© z nich jsou uvedeny nĂ­Ĺľe.</p>
 
-<h4>Ostatní zdroje</h4>
+<h4>OstatnĂ­ zdroje</h4>
 
 <ul>
 
 <li>Na <a
 href="http://www-106.ibm.com/developerworks/linux/library/l-prog.html"
-target="_blank">webovském serveru IBM</a> naleznete vynikající článek Davida
-Mertze o funkcionálním programování v jazyce Python. Hlouběji se zabývá
-detaily kolem řídicích struktur a uvádí podrobnější příklady tohoto
-přístupu.</li>
+target="_blank">webovskĂ©m serveru IBM</a> naleznete vynikajĂ­cĂ­ ÄŤlĂˇnek Davida
+Mertze o funkcionĂˇlnĂ­m programovĂˇnĂ­ v jazyce Python. HloubÄ›ji se zabĂ˝vĂˇ
+detaily kolem Ĺ™Ă­dicĂ­ch struktur a uvĂˇdĂ­ podrobnÄ›jĹˇĂ­ pĹ™Ă­klady tohoto
+pĹ™Ă­stupu.</li>
 
-<li>Jiné jazyky podporují funkcionální programování ještě lépe, než Python.
-Jsou to například Lisp, Scheme, Haskel, ML a některé další. Cenné informace
-o funkcionálním programování naleznete zvláště na <a
-href="http://www.haskell.org/" target="_blank">webovském serveru jazyka
+<li>JinĂ© jazyky podporujĂ­ funkcionĂˇlnĂ­ programovĂˇnĂ­ jeĹˇtÄ› lĂ©pe, neĹľ Python.
+Jsou to napĹ™Ă­klad Lisp, Scheme, Haskel, ML a nÄ›kterĂ© dalĹˇĂ­. CennĂ© informace
+o funkcionĂˇlnĂ­m programovĂˇnĂ­ naleznete zvlĂˇĹˇtÄ› na <a
+href="http://www.haskell.org/" target="_blank">webovskĂ©m serveru jazyka
 Haskell</a>.</li>
 
-<li>Užitečné FAQ a nejnovější události kolem funkcionálního programování
-můžete nalézt v diskusní skupině <code>comp.lang.functional</code>.</li>
+<li>UĹľiteÄŤnĂ© FAQ a nejnovÄ›jĹˇĂ­ udĂˇlosti kolem funkcionĂˇlnĂ­ho programovĂˇnĂ­
+mĹŻĹľete nalĂ©zt v diskusnĂ­ skupinÄ› <code>comp.lang.functional</code>.</li>
 
-<li>Na výše zmíněných místech naleznete odkazy na několik knih. Jedna z
-klasických knih, která se nevěnuje jen funkcionálnímu programování, ale
-dobře popisuje jeho principy, má název <a
+<li>Na vĂ˝Ĺˇe zmĂ­nÄ›nĂ˝ch mĂ­stech naleznete odkazy na nÄ›kolik knih. Jedna z
+klasickĂ˝ch knih, kterĂˇ se nevÄ›nuje jen funkcionĂˇlnĂ­mu programovĂˇnĂ­, ale
+dobĹ™e popisuje jeho principy, mĂˇ nĂˇzev <a
 href="http://mitpress.mit.edu/sicp/full-text/book/book.html"
 target="_blank"><em>Structure &amp; Interpretation of Computer
-Programs</em></a>, jejímiž autory jsou Abelman, Sussman a Sussman. Tento
-text se soustředí na jazyk Scheme a na rozšířenou verzi jazyka Lisp. Mým
-osobním primárním zdrojem byl <a href="http://haskell.cs.yale.edu/soe/"
+Programs</em></a>, jejĂ­miĹľ autory jsou Abelman, Sussman a Sussman. Tento
+text se soustĹ™edĂ­ na jazyk Scheme a na rozĹˇĂ­Ĺ™enou verzi jazyka Lisp. MĂ˝m
+osobnĂ­m primĂˇrnĂ­m zdrojem byl <a href="http://haskell.cs.yale.edu/soe/"
 target="_blank"><em>The Haskell School of Expression</em></a> &mdash;
-autorem je Paul Hudak. Zabývá se, jak jinak, jazykem Haskell.</li>
+autorem je Paul Hudak. ZabĂ˝vĂˇ se, jak jinak, jazykem Haskell.</li>
 
 </ul>
 
-<p>Pokud kdokoliv nalezne dobrý odkaz, pošlete mi zprávu prostřednictvím
-níže uvedeného odkazu. <span class="trnote" title="Poznámka překladatele"
->(Poznámka překladatele: Můžete použít odkaz z anglického originálu, ale i z
-českého překladu. V druhém případě jej autorovi předám.)</span></p>
+<p>Pokud kdokoliv nalezne dobrĂ˝ odkaz, poĹˇlete mi zprĂˇvu prostĹ™ednictvĂ­m
+nĂ­Ĺľe uvedenĂ©ho odkazu. <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>(PoznĂˇmka pĹ™ekladatele: MĹŻĹľete pouĹľĂ­t odkaz z anglickĂ©ho originĂˇlu, ale i z
+ÄŤeskĂ©ho pĹ™ekladu. V druhĂ©m pĹ™Ă­padÄ› jej autorovi pĹ™edĂˇm.)</span></p>
 
 <hr>
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutgui.html" title="Programování grafického uživatelského rozhraní">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutcase.html" title="Případová studie">další</a> 
+<p class="navig">[
+<a href="cztutgui.html" title="ProgramovĂˇnĂ­ grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutcase.html" title="PĹ™Ă­padovĂˇ studie">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutfctnl.html,v 1.5 2004/08/31 11:55:13 prikryl Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutfctnl.html,v 1.5 2004/08/31 11:55:13 prikryl Exp $</p>
 </div>

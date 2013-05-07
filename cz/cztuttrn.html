@@ -1,489 +1,492 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Poznámky překladatele</title>
+  <title>Jak se nauÄŤit programovat: PoznĂˇmky pĹ™ekladatele</title>
 </head>
 <body class="trnote">
 
-<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
-se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+<p class="ir">NĂ­Ĺľe uvedenĂ˝ text pochĂˇzĂ­ z prvnĂ­ho vydĂˇnĂ­. Nad tĂ­mto textem
+se nachĂˇzĂ­ aktuĂˇlnĂ­ stav po revizi smÄ›Ĺ™ujĂ­cĂ­ k druhĂ©mu vydĂˇnĂ­.</p>
 
-<h2>Poznámky překladatele</h2>
+<h2>PoznĂˇmky pĹ™ekladatele</h2>
 
 <div class="whatcovered">
 
-<p>Tato část není součástí originálního textu. Obsahuje poznámky, uspořádané
-po jednotlivých kapitolách. Text poznámek vychází z mých studijních,
-praktických a pedagogických zkušeností, které jsem nasbíral v době svého
-působení na Ústavu informatiky a výpočetní techniky FEI VUT v Brně (od roku
-2002 samostatná <a href="http://www.fit.vutbr.cz/" target="_blank">Fakulta
-informačních technologií</a>).</p>
+<p>Tato ÄŤĂˇst nenĂ­ souÄŤĂˇstĂ­ originĂˇlnĂ­ho textu. Obsahuje poznĂˇmky, uspoĹ™ĂˇdanĂ©
+po jednotlivĂ˝ch kapitolĂˇch. Text poznĂˇmek vychĂˇzĂ­ z mĂ˝ch studijnĂ­ch,
+praktickĂ˝ch a pedagogickĂ˝ch zkuĹˇenostĂ­, kterĂ© jsem nasbĂ­ral v dobÄ› svĂ©ho
+pĹŻsobenĂ­ na Ăšstavu informatiky a vĂ˝poÄŤetnĂ­ techniky FEI VUT v BrnÄ› (od roku
+2002 samostatnĂˇ <a href="http://www.fit.vutbr.cz/" target="_blank">Fakulta
+informaÄŤnĂ­ch technologiĂ­</a>).</p>
 
-<p>Motivačních faktorů pro vznik překladu bylo více &mdash; viz <a
-href="#motivace">dále</a>. Původně soukromá aktivita našla kladnou odezvu a
-podporu ze strany výše zmíněné <a href="http://www.fit.vutbr.cz/"
-target="_blank">Fakulty informačních technologií</a> při VUT v Brně.
-Elektronická podoba překladu je zahrnuta do portfolia studijní literatury
-pro programátorské kurzy ve vyšších studijních ročnících, kde se o jazyku
-Python uvažuje jako o výukovém jazyce, na kterém se demonstrují některé
-principy objektového návrhu a výstavby složitých softwarových systémů a
-prvky metodologie vývoje takových systémů. (Jazyk Python zde není cílem
-výuky, ale vyjadřovacím prostředkem.)</p>
+<p>MotivaÄŤnĂ­ch faktorĹŻ pro vznik pĹ™ekladu bylo vĂ­ce &mdash; viz <a
+href="#motivace">dĂˇle</a>. PĹŻvodnÄ› soukromĂˇ aktivita naĹˇla kladnou odezvu a
+podporu ze strany vĂ˝Ĺˇe zmĂ­nÄ›nĂ© <a href="http://www.fit.vutbr.cz/"
+target="_blank">Fakulty informaÄŤnĂ­ch technologiĂ­</a> pĹ™i VUT v BrnÄ›.
+ElektronickĂˇ podoba pĹ™ekladu je zahrnuta do portfolia studijnĂ­ literatury
+pro programĂˇtorskĂ© kurzy ve vyĹˇĹˇĂ­ch studijnĂ­ch roÄŤnĂ­cĂ­ch, kde se o jazyku
+Python uvaĹľuje jako o vĂ˝ukovĂ©m jazyce, na kterĂ©m se demonstrujĂ­ nÄ›kterĂ©
+principy objektovĂ©ho nĂˇvrhu a vĂ˝stavby sloĹľitĂ˝ch softwarovĂ˝ch systĂ©mĹŻ a
+prvky metodologie vĂ˝voje takovĂ˝ch systĂ©mĹŻ. (Jazyk Python zde nenĂ­ cĂ­lem
+vĂ˝uky, ale vyjadĹ™ovacĂ­m prostĹ™edkem.)</p>
 
-<p>Původně jsem své poznámky, které upravují souvislost a srozumitelnost a
-které jsou za tímto účelem vkládány přímo do vět, uzavíral do hranatých
-závorek a odlišoval barevným podkladem. Při revizi v listopadu roku 2003
-jsem dospěl k názoru, že hranaté závorky v těchto případech zhoršují
-čitelnost textu a ponechal jsem pouze ne příliš výrazné <span class="trnote"
-title="Poznámka překladatele">barevné odlišení podkladu textu spolu s textem
-v bublině (tool tip), pokud nad text najedete myší</span>. Pokud poznámka v
-textu tvoří samostatný odstavec, pak je obvykle uvozena textem <em>Poznámka
-překladatele</em>.</p>
+<p>PĹŻvodnÄ› jsem svĂ© poznĂˇmky, kterĂ© upravujĂ­ souvislost a srozumitelnost a
+kterĂ© jsou za tĂ­mto ĂşÄŤelem vklĂˇdĂˇny pĹ™Ă­mo do vÄ›t, uzavĂ­ral do hranatĂ˝ch
+zĂˇvorek a odliĹˇoval barevnĂ˝m podkladem. PĹ™i revizi v listopadu roku 2003
+jsem dospÄ›l k nĂˇzoru, Ĺľe hranatĂ© zĂˇvorky v tÄ›chto pĹ™Ă­padech zhorĹˇujĂ­
+ÄŤitelnost textu a ponechal jsem pouze ne pĹ™Ă­liĹˇ vĂ˝raznĂ© <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">barevnĂ© odliĹˇenĂ­ podkladu textu spolu s textem
+v bublinÄ› (tool tip), pokud nad text najedete myĹˇĂ­</span>. Pokud poznĂˇmka v
+textu tvoĹ™Ă­ samostatnĂ˝ odstavec, pak je obvykle uvozena textem <em>PoznĂˇmka
+pĹ™ekladatele</em>.</p>
 
-<p>Pokud v textu naleznete <span class="ir">takto označený text (výrazný,
-bílý na červeném podkladu)</span>, pak se jedná většinou o místo, ve kterém
-má být něco doplněno, upraveno, zkontrolováno a podobně. Čím víc se překlad
-bude blížit k finální podobě, tím méně byste měli těchto <em>proklatě
-čevených značek</em> v dokumentech najít.</p>
+<p>Pokud v textu naleznete <span class="ir">takto oznaÄŤenĂ˝ text (vĂ˝raznĂ˝,
+bĂ­lĂ˝ na ÄŤervenĂ©m podkladu)</span>, pak se jednĂˇ vÄ›tĹˇinou o mĂ­sto, ve kterĂ©m
+mĂˇ bĂ˝t nÄ›co doplnÄ›no, upraveno, zkontrolovĂˇno a podobnÄ›. ÄŚĂ­m vĂ­c se pĹ™eklad
+bude blĂ­Ĺľit k finĂˇlnĂ­ podobÄ›, tĂ­m mĂ©nÄ› byste mÄ›li tÄ›chto <em>proklatÄ›
+ÄŤevenĂ˝ch znaÄŤek</em> v dokumentech najĂ­t.</p>
 
-<p>Na konci každé stránky naleznete odkaz s e-mailovou adresou, na kterou
-můžete posílat připomínky k překladu dané kapitoly. Rád přivítám podnětné
-návrhy a postupně je budu zapracovávat do odpovídajících dokumentů. Než ale
-nějakou připomínku či požadavky zašlete, uvědomte si, prosím, že vše dělám
-ve svém volném čase.</p>
+<p>Na konci kaĹľdĂ© strĂˇnky naleznete odkaz s e-mailovou adresou, na kterou
+mĹŻĹľete posĂ­lat pĹ™ipomĂ­nky k pĹ™ekladu danĂ© kapitoly. RĂˇd pĹ™ivĂ­tĂˇm podnÄ›tnĂ©
+nĂˇvrhy a postupnÄ› je budu zapracovĂˇvat do odpovĂ­dajĂ­cĂ­ch dokumentĹŻ. NeĹľ ale
+nÄ›jakou pĹ™ipomĂ­nku ÄŤi poĹľadavky zaĹˇlete, uvÄ›domte si, prosĂ­m, Ĺľe vĹˇe dÄ›lĂˇm
+ve svĂ©m volnĂ©m ÄŤase.</p>
 
 <p class="author">V Olomouci, 6.&nbsp;9.&nbsp;2002,
 <br>2.&nbsp;12.&nbsp;2003
-<br>Ing. Petr Přikryl, Ph.D.</p>
+<br>Ing. Petr PĹ™ikryl, Ph.D.</p>
 </div>
 
 <h3 class="minitoc">Obsah</h3>
 
 <div class="minitoc">
-<p><a href="#motivace"><b>Motivace k překladu</b></a><br>
-<p><a href="#cztutintro"><b>Úvod</b></a><br>
- - <a href="#Pintro_2ed">Informace o druhém výtisku knihy</a><br>
+<p><a href="#motivace"><b>Motivace k pĹ™ekladu</b></a><br>
+<p><a href="#cztutintro"><b>Ăšvod</b></a><br>
+ - <a href="#Pintro_2ed">Informace o druhĂ©m vĂ˝tisku knihy</a><br>
  - <a href="#Pintro_framework">Pojem framework</a><br>
  - <a href="#Pintro_web">Pojem <em>Web</em></a><br>
  - <a href="#Pintro_Internet">Pojem Internet</a><br>
  - <a href="#Pintro_syntaxe">Pojem syntaxe</a><br>
- - <a href="#Pintro_ug">Skupina uživatelů jazyka Python</a><br>
+ - <a href="#Pintro_ug">Skupina uĹľivatelĹŻ jazyka Python</a><br>
  - <a href="#Pintro_rp">Pojem <em>Rapid Prototyping</em></a><br>
-<p><a href="#cztutneeds"><b>Co potřebuji?</b></a><br>
- - <a href="#Pneeds_byte">Překlad byte versus bajt</a><br>
-<p><a href="#cztutwhat"><b>Co je programování?</b></a><br>
- - <a href="#Pwhat_batch">Proč se v MS Windows již málo setkáváme s dávkovými soubory</a><br>
- - <a href="#Pwhat_ObjectCode">Anglický pojem <em>object code</em></a><br>
+<p><a href="#cztutneeds"><b>Co potĹ™ebuji?</b></a><br>
+ - <a href="#Pneeds_byte">PĹ™eklad byte versus bajt</a><br>
+<p><a href="#cztutwhat"><b>Co je programovĂˇnĂ­?</b></a><br>
+ - <a href="#Pwhat_batch">ProÄŤ se v MS Windows jiĹľ mĂˇlo setkĂˇvĂˇme s dĂˇvkovĂ˝mi soubory</a><br>
+ - <a href="#Pwhat_ObjectCode">AnglickĂ˝ pojem <em>object code</em></a><br>
  - <a href="#Pwhat_scheduler">Scheduler utility</a><br>
-<p><a href="#cztutstart"><b>Začínáme</b></a><br>
- - <a href="#Pstart_IDLE">Poznámka k úplné příručce IDLE</a><br>
- - <a href="#Pstart_newerPython">Nová verze překladače Python může uvádět přesnější význam chyby</a><br>
-<p><a href="#cztutseq1"><b>Jednoduché posloupnosti</b></a><br>
-<p><a href="#cztutdata"><b>Data, datové typy a proměnné</b></a><br>
- - <a href="#Pdata_variable">Jak chápat význam proměnné v jazyce Python</a><br>
- - <a href="#Pdata_refinstance">Instance její identifikace</a><br>
- - <a href="#Pdata_stattype">Statická typová kontrola</a><br>
- - <a href="#Pdata_real">Jsou to tedy reálná nebo racionální čísla?</a><br>
- - <a href="#Pdata_hash">Hash table = vyhledávací tabulka</a><br>
- - <a href="#Pdata_spam">Potravina s anglickým jménem <em>Spam</em></a><br>
- - <a href="#Pdata_string">Řetězec nebývá považován za jednoduchý datový typ</a><br>
-<p><a href="#cztutseq2"><b>Další posloupnosti a jiné věci</b></a><br>
+<p><a href="#cztutstart"><b>ZaÄŤĂ­nĂˇme</b></a><br>
+ - <a href="#Pstart_IDLE">PoznĂˇmka k ĂşplnĂ© pĹ™Ă­ruÄŤce IDLE</a><br>
+ - <a href="#Pstart_newerPython">NovĂˇ verze pĹ™ekladaÄŤe Python mĹŻĹľe uvĂˇdÄ›t pĹ™esnÄ›jĹˇĂ­ vĂ˝znam chyby</a><br>
+<p><a href="#cztutseq1"><b>JednoduchĂ© posloupnosti</b></a><br>
+<p><a href="#cztutdata"><b>Data, datovĂ© typy a promÄ›nnĂ©</b></a><br>
+ - <a href="#Pdata_variable">Jak chĂˇpat vĂ˝znam promÄ›nnĂ© v jazyce Python</a><br>
+ - <a href="#Pdata_refinstance">Instance jejĂ­ identifikace</a><br>
+ - <a href="#Pdata_stattype">StatickĂˇ typovĂˇ kontrola</a><br>
+ - <a href="#Pdata_real">Jsou to tedy reĂˇlnĂˇ nebo racionĂˇlnĂ­ ÄŤĂ­sla?</a><br>
+ - <a href="#Pdata_hash">Hash table = vyhledĂˇvacĂ­ tabulka</a><br>
+ - <a href="#Pdata_spam">Potravina s anglickĂ˝m jmĂ©nem <em>Spam</em></a><br>
+ - <a href="#Pdata_string">ĹetÄ›zec nebĂ˝vĂˇ povaĹľovĂˇn za jednoduchĂ˝ datovĂ˝ typ</a><br>
+<p><a href="#cztutseq2"><b>DalĹˇĂ­ posloupnosti a jinĂ© vÄ›ci</b></a><br>
  - <a href="#Pseq2_idle">The joy of being IDLE</a><br>
-<p><a href="#cztutloops"><b>Příkazy cyklu</b></a><br>
-<p><a href="#cztutstyle"><b>Styl zápisu kódu</b></a><br>
- - <a href="#Pstyle_cvs">Poznámka k systémům pro správu verzí</a><br>
-<p><a href="#cztutinput"><b>Konverzace s uživatelem</b></a><br>
- - <a href="#Pinput_noascii">Poznámka k zápisu českých řetězců s diakritikou</a><br>
-<p><a href="#cztutbranch"><b>Větvení, aneb nechť padne rozhodnutí</b></a><br>
- - <a href="#Pbranch_boolvar">Je vytváření boolovských proměnných skutečně řídkým jevem?</a><br>
- - <a href="#Pbranch_newbool">Takže píše se <em>true</em> a <em>false</em> s malým nebo s velkým počátečním  písmenem?</a><br>
-<p><a href="#cztutfunc"><b>Modulární programování (Funkce a moduly)</b></a><br>
- - <a href="#Pfunc_include">Poznámka k <code>#include</code> v C a C++</a><br>
-<p><a href="#cztutfiles"><b>Práce se soubory a s textem</b></a><br>
- - <a href="#Pfiles_log">Proč se log-souboru říká log-soubor?</a><br>
- - <a href="#Pfiles_stream">Poznámka k pojmu <em>stream</em></a><br>
+<p><a href="#cztutloops"><b>PĹ™Ă­kazy cyklu</b></a><br>
+<p><a href="#cztutstyle"><b>Styl zĂˇpisu kĂłdu</b></a><br>
+ - <a href="#Pstyle_cvs">PoznĂˇmka k systĂ©mĹŻm pro sprĂˇvu verzĂ­</a><br>
+<p><a href="#cztutinput"><b>Konverzace s uĹľivatelem</b></a><br>
+ - <a href="#Pinput_noascii">PoznĂˇmka k zĂˇpisu ÄŤeskĂ˝ch Ĺ™etÄ›zcĹŻ s diakritikou</a><br>
+<p><a href="#cztutbranch"><b>VÄ›tvenĂ­, aneb nechĹĄ padne rozhodnutĂ­</b></a><br>
+ - <a href="#Pbranch_boolvar">Je vytvĂˇĹ™enĂ­ boolovskĂ˝ch promÄ›nnĂ˝ch skuteÄŤnÄ› Ĺ™Ă­dkĂ˝m jevem?</a><br>
+ - <a href="#Pbranch_newbool">TakĹľe pĂ­Ĺˇe se <em>true</em> a <em>false</em> s malĂ˝m nebo s velkĂ˝m poÄŤĂˇteÄŤnĂ­m pĂ­smenem?</a><br>
+<p><a href="#cztutfunc"><b>ModulĂˇrnĂ­ programovĂˇnĂ­ (Funkce a moduly)</b></a><br>
+ - <a href="#Pfunc_include">PoznĂˇmka k <code>#include</code> v C a C++</a><br>
+<p><a href="#cztutfiles"><b>PrĂˇce se soubory a s textem</b></a><br>
+ - <a href="#Pfiles_factoryFun">VysvÄ›tlenĂ­ pojmu <em>Factory function</em>.</a><br>
+ - <a href="#Pfiles_log">ProÄŤ se log-souboru Ĺ™Ă­kĂˇ log-soubor?</a><br>
+ - <a href="#Pfiles_stream">PoznĂˇmka k pojmu <em>stream</em></a><br>
+<p><a href="#cztuttext"><b>PrĂˇce s textem</b></a><br>
+<p><a href="#cztuterrors"><b>PrĂˇce s chybami</b></a><br>
 <p><a href="#cztutrecur"><b>Rekurze</b></a><br>
-<p><a href="#cztutclass"><b>Objektově orientované programování</b></a><br>
+<p><a href="#cztutclass"><b>ObjektovÄ› orientovanĂ© programovĂˇnĂ­</b></a><br>
  - <a href="#Pclass_widget">Co to je <em>widget</em>?</a><br>
- - <a href="#Pclass_class">Pohled na objekty a instance přes pohádku o Popelce</a><br>
-<p><a href="#cztutgui"><b>Programování uživatelského rozhraní</b></a><br>
+ - <a href="#Pclass_class">Pohled na objekty a instance pĹ™es pohĂˇdku o Popelce</a><br>
+<p><a href="#cztutgui"><b>ProgramovĂˇnĂ­ uĹľivatelskĂ©ho rozhranĂ­</b></a><br>
  - <a href="#Pgui_pixel">Pojem <em>pixel</em></a><br>
-<p><a href="#cztutcase"><b>Případová studie</b></a><br>
+<p><a href="#cztutcase"><b>PĹ™Ă­padovĂˇ studie</b></a><br>
  - <a href="#Pcase_refactoring">Pojem <em>refaktorizace</em> (<em>refactoring</em>)</a><br>
-<p><a href="#czcomplang"><b>Programovací jazyky, které jsem používal</b></a><br>
- - <a href="#Pcomplang_scrlarge">Co se vlatně rozumí pojmem <em>skriptování ve velkém</em>?</a><br>
+<p><a href="#czcomplang"><b>ProgramovacĂ­ jazyky, kterĂ© jsem pouĹľĂ­val</b></a><br>
+ - <a href="#Pcomplang_scrlarge">Co se vlatnÄ› rozumĂ­ pojmem <em>skriptovĂˇnĂ­ ve velkĂ©m</em>?</a><br>
 </div>
 
-<h3 id="motivace">Motivace k překladu</h3>
+<h3 id="motivace">Motivace k pĹ™ekladu</h3>
 
-<p>Ačkoliv autor originálu, Alan Gauld, na některých místech tvrdí, že
-nechce vyzvedávat žádný konkrétní programovací jazyk, z jiných míst je
-zřejmé, že v tomto textu hraje prim jazyk Python. Je to jazyk jednoduchý,
-krásný, v rámci nutných kompromisů čistý, mocný co do vyjadřovacích
-prostředků. To z něj činí dobrého kandidáta na programovací jazyk pro výuku
-programování. Na druhou stranu to není jazyk, který by byl vhodný jen na
-hraní. Jde o jazyk velmi praktický. Svým pojetím a vlastnostmi je dokonce
-dokonce natolik výjimečný, že jeho autor &mdash; Guido van Rossum &mdash;
-obdržel od <a href="http://www.fsf.org/" target="_blank">Free Software
-Foundation</a> ocenění <a
+<p>AÄŤkoliv autor originĂˇlu, Alan Gauld, na nÄ›kterĂ˝ch mĂ­stech tvrdĂ­, Ĺľe
+nechce vyzvedĂˇvat ĹľĂˇdnĂ˝ konkrĂ©tnĂ­ programovacĂ­ jazyk, z jinĂ˝ch mĂ­st je
+zĹ™ejmĂ©, Ĺľe v tomto textu hraje prim jazyk Python. Je to jazyk jednoduchĂ˝,
+krĂˇsnĂ˝, v rĂˇmci nutnĂ˝ch kompromisĹŻ ÄŤistĂ˝, mocnĂ˝ co do vyjadĹ™ovacĂ­ch
+prostĹ™edkĹŻ. To z nÄ›j ÄŤinĂ­ dobrĂ©ho kandidĂˇta na programovacĂ­ jazyk pro vĂ˝uku
+programovĂˇnĂ­. Na druhou stranu to nenĂ­ jazyk, kterĂ˝ by byl vhodnĂ˝ jen na
+hranĂ­. Jde o jazyk velmi praktickĂ˝. SvĂ˝m pojetĂ­m a vlastnostmi je dokonce
+dokonce natolik vĂ˝jimeÄŤnĂ˝, Ĺľe jeho autor &mdash; Guido van Rossum &mdash;
+obdrĹľel od <a href="http://www.fsf.org/" target="_blank">Free Software
+Foundation</a> ocenÄ›nĂ­ <a
 href="http://www.fsf.org/press/2002-02-16-FSF-Award.html"
 target="_blank">Award for the Advancement of Free Software</a> (Cena za
-pokrok v rámci Free Software) za rok 2001. Jde o čtvrté ocenění tohoto druhu
-&mdash; viz <a href="http://www.gnu.org/award/" target="_blank">přehled
-ocenění</a>.</p>
+pokrok v rĂˇmci Free Software) za rok 2001. Jde o ÄŤtvrtĂ© ocenÄ›nĂ­ tohoto druhu
+&mdash; viz <a href="http://www.gnu.org/award/" target="_blank">pĹ™ehled
+ocenÄ›nĂ­</a>.</p>
 
-<p>Pokud se Python naučíte, určitě budete jeho znalost moci využít pro
-efektivní řešení řady problémů. <em>Prvním motivačním faktorem</em> byl tedy
-samotný jazyk Python.</p>
+<p>Pokud se Python nauÄŤĂ­te, urÄŤitÄ› budete jeho znalost moci vyuĹľĂ­t pro
+efektivnĂ­ Ĺ™eĹˇenĂ­ Ĺ™ady problĂ©mĹŻ. <em>PrvnĂ­m motivaÄŤnĂ­m faktorem</em> byl tedy
+samotnĂ˝ jazyk Python.</p>
 
-<p>Podle mého názoru je Python mnohem vhodnější pro výuku programování, než
-například BASIC v jakékoliv podobě (zde biji do osnov řady středních škol).
-Při zachování jednoduchosti a pragmatičnosti vyjadřování při výuce i při
-praktickém používání předčí řadu složitějších jazyků. I když má překladač
-jazyka Python z hlediska uživatele spíše vlastnosti interpretu, přesto dobře
-podporuje koncept objektově orientovaného programování v tom smyslu, že
-umožní pochopit principy OOP a nezakrývá je různými podivnostmi (viz jazyk
-Perl). Python vám neumožní tvořit co do efektivnosti kódu na tak detailních
-úrovních, jako například C++, ale poskytuje moderní datové abstrakce
-(například kontejnery typu seznam, tabulka) a podporuje moderní způsoby
-práce s nimi (iterátory), což při výuce programování považuji za mnohem
-přínosnější, než například schopnost manipulovat s jednotlivými bity. Při
-hlubším studiu zjistíte, že Python definuje i mechanismus, který umožní
-převedení každého objektu na sekvenci bajtů, kterou můžeme například uložit
-do souboru nebo poslat někam po síti. Na jiném místě nebo v jiném čase pak
-můžeme objekt znovu zrekonstruovat. Zmíněné vlastnosti a možnost jejich
-použití v tak čisté podobě a jejich zamýšlený účel nezná dokonce ani mnoho
-programátorů z povolání &mdash; pokud je vůbec znají. (Nijak se tím nechci
-dotknout VŠ absolventů fakult, které mají počítače a informatiku přímo v
-názvu. Ale ruku na srdce &mdash; i z těchto fakult vycházejí někdy
-absolventi, kteří s těmito koncepty mají problémy. Podle mé zkušenosti navíc
-řada programátorů v praxi má jen středoškolské vzdělání. Jakkoliv mohou být
-šikovní, troufám si tvrdit, že ani získávání programátorských certifikátů
-firmy Microsoft je k podobným znalostem nepřivede.) <em>Druhým motivačním
-faktorem</em> tedy bylo poskytnout text, který podle mého názoru lze použít
-i pro výuku začínajících programátorů &mdash; třeba i na středních školách
-&mdash;, kdy stupeň znalosti anglického jazyka může být překážkou k osvojení
-si podobné látky z originálního textu.</p>
+<p>Podle mĂ©ho nĂˇzoru je Python mnohem vhodnÄ›jĹˇĂ­ pro vĂ˝uku programovĂˇnĂ­, neĹľ
+napĹ™Ă­klad BASIC v jakĂ©koliv podobÄ› (zde biji do osnov Ĺ™ady stĹ™ednĂ­ch Ĺˇkol).
+PĹ™i zachovĂˇnĂ­ jednoduchosti a pragmatiÄŤnosti vyjadĹ™ovĂˇnĂ­ pĹ™i vĂ˝uce i pĹ™i
+praktickĂ©m pouĹľĂ­vĂˇnĂ­ pĹ™edÄŤĂ­ Ĺ™adu sloĹľitÄ›jĹˇĂ­ch jazykĹŻ. I kdyĹľ mĂˇ pĹ™ekladaÄŤ
+jazyka Python z hlediska uĹľivatele spĂ­Ĺˇe vlastnosti interpretu, pĹ™esto dobĹ™e
+podporuje koncept objektovÄ› orientovanĂ©ho programovĂˇnĂ­ v tom smyslu, Ĺľe
+umoĹľnĂ­ pochopit principy OOP a nezakrĂ˝vĂˇ je rĹŻznĂ˝mi podivnostmi (viz jazyk
+Perl). Python vĂˇm neumoĹľnĂ­ tvoĹ™it co do efektivnosti kĂłdu na tak detailnĂ­ch
+ĂşrovnĂ­ch, jako napĹ™Ă­klad C++, ale poskytuje modernĂ­ datovĂ© abstrakce
+(napĹ™Ă­klad kontejnery typu seznam, tabulka) a podporuje modernĂ­ zpĹŻsoby
+prĂˇce s nimi (iterĂˇtory), coĹľ pĹ™i vĂ˝uce programovĂˇnĂ­ povaĹľuji za mnohem
+pĹ™Ă­nosnÄ›jĹˇĂ­, neĹľ napĹ™Ă­klad schopnost manipulovat s jednotlivĂ˝mi bity. PĹ™i
+hlubĹˇĂ­m studiu zjistĂ­te, Ĺľe Python definuje i mechanismus, kterĂ˝ umoĹľnĂ­
+pĹ™evedenĂ­ kaĹľdĂ©ho objektu na sekvenci bajtĹŻ, kterou mĹŻĹľeme napĹ™Ă­klad uloĹľit
+do souboru nebo poslat nÄ›kam po sĂ­ti. Na jinĂ©m mĂ­stÄ› nebo v jinĂ©m ÄŤase pak
+mĹŻĹľeme objekt znovu zrekonstruovat. ZmĂ­nÄ›nĂ© vlastnosti a moĹľnost jejich
+pouĹľitĂ­ v tak ÄŤistĂ© podobÄ› a jejich zamĂ˝ĹˇlenĂ˝ ĂşÄŤel neznĂˇ dokonce ani mnoho
+programĂˇtorĹŻ z povolĂˇnĂ­ &mdash; pokud je vĹŻbec znajĂ­. (Nijak se tĂ­m nechci
+dotknout VĹ  absolventĹŻ fakult, kterĂ© majĂ­ poÄŤĂ­taÄŤe a informatiku pĹ™Ă­mo v
+nĂˇzvu. Ale ruku na srdce &mdash; i z tÄ›chto fakult vychĂˇzejĂ­ nÄ›kdy
+absolventi, kteĹ™Ă­ s tÄ›mito koncepty majĂ­ problĂ©my. Podle mĂ© zkuĹˇenosti navĂ­c
+Ĺ™ada programĂˇtorĹŻ v praxi mĂˇ jen stĹ™edoĹˇkolskĂ© vzdÄ›lĂˇnĂ­. Jakkoliv mohou bĂ˝t
+ĹˇikovnĂ­, troufĂˇm si tvrdit, Ĺľe ani zĂ­skĂˇvĂˇnĂ­ programĂˇtorskĂ˝ch certifikĂˇtĹŻ
+firmy Microsoft je k podobnĂ˝m znalostem nepĹ™ivede.) <em>DruhĂ˝m motivaÄŤnĂ­m
+faktorem</em> tedy bylo poskytnout text, kterĂ˝ podle mĂ©ho nĂˇzoru lze pouĹľĂ­t
+i pro vĂ˝uku zaÄŤĂ­najĂ­cĂ­ch programĂˇtorĹŻ &mdash; tĹ™eba i na stĹ™ednĂ­ch ĹˇkolĂˇch
+&mdash;, kdy stupeĹ znalosti anglickĂ©ho jazyka mĹŻĹľe bĂ˝t pĹ™ekĂˇĹľkou k osvojenĂ­
+si podobnĂ© lĂˇtky z originĂˇlnĂ­ho textu.</p>
 
-<p>Původně zamýšleným cílem byla revize překladu autorky Soni Reisnerové,
-kterou naleznete na stránkách firmy <a href="http://www.datapartner.cz/"
-target="_blank">dataPartner, s.r.o.</a>. Firma dataPartner dala stránkám
-grafickou podobu, kterou ocenil i autor Alan Gauld. Při pokusech o revizi
-překladu se ovšem ukázalo, že pro mne bude jednodušší přeložit originál
-znovu. Jedním z důvodů je i skutečnost, že originální text prošel po
-původním překladu dalším vývojem a velmi odlišné značkování HTML stránek
-originálu a překladu ztěžovalo porovnávání.</p>
+<p>PĹŻvodnÄ› zamĂ˝ĹˇlenĂ˝m cĂ­lem byla revize pĹ™ekladu autorky Soni ReisnerovĂ©,
+kterou naleznete na strĂˇnkĂˇch firmy <a href="http://www.datapartner.cz/"
+target="_blank">dataPartner, s.r.o.</a>. Firma dataPartner dala strĂˇnkĂˇm
+grafickou podobu, kterou ocenil i autor Alan Gauld. PĹ™i pokusech o revizi
+pĹ™ekladu se ovĹˇem ukĂˇzalo, Ĺľe pro mne bude jednoduĹˇĹˇĂ­ pĹ™eloĹľit originĂˇl
+znovu. JednĂ­m z dĹŻvodĹŻ je i skuteÄŤnost, Ĺľe originĂˇlnĂ­ text proĹˇel po
+pĹŻvodnĂ­m pĹ™ekladu dalĹˇĂ­m vĂ˝vojem a velmi odliĹˇnĂ© znaÄŤkovĂˇnĂ­ HTML strĂˇnek
+originĂˇlu a pĹ™ekladu ztÄ›Ĺľovalo porovnĂˇvĂˇnĂ­.</p>
 
-<p>Vznikl tedy tento (alternativní) překlad. Kromě zachycení inovovaného
-obsahu originálu jsem si vytkl za cíl i vyšší shodu překladu s originálním
-zněním textu. Tam, kde by přesný překlad nebyl v souladu s používanou českou
-terminologií nebo kde by díky překladu mohlo dojít k jeho nejednoznačnému
-výkladu, dávám přednost přesnému vyjádření myšlenky autora po stránce věcné,
-nikoliv po stránce čistě jazykové. <em>Třetím motivačním faktorem</em> tedy
-bylo zvýšení užitné hodnoty původního překladu.</p>
+<p>Vznikl tedy tento (alternativnĂ­) pĹ™eklad. KromÄ› zachycenĂ­ inovovanĂ©ho
+obsahu originĂˇlu jsem si vytkl za cĂ­l i vyĹˇĹˇĂ­ shodu pĹ™ekladu s originĂˇlnĂ­m
+znÄ›nĂ­m textu. Tam, kde by pĹ™esnĂ˝ pĹ™eklad nebyl v souladu s pouĹľĂ­vanou ÄŤeskou
+terminologiĂ­ nebo kde by dĂ­ky pĹ™ekladu mohlo dojĂ­t k jeho nejednoznaÄŤnĂ©mu
+vĂ˝kladu, dĂˇvĂˇm pĹ™ednost pĹ™esnĂ©mu vyjĂˇdĹ™enĂ­ myĹˇlenky autora po strĂˇnce vÄ›cnĂ©,
+nikoliv po strĂˇnce ÄŤistÄ› jazykovĂ©. <em>TĹ™etĂ­m motivaÄŤnĂ­m faktorem</em> tedy
+bylo zvĂ˝ĹˇenĂ­ uĹľitnĂ© hodnoty pĹŻvodnĂ­ho pĹ™ekladu.</p>
 
-<p>V neposlední řadě jsem se rozhodl pro návrat k jednoduššímu stylu
-značkování HTML dokumentů, který se více blíží originálu. Současně vznikly
-CSS soubory, které definují styl zobrazování. Ten připomíná vzhled stránek
-původního překladu. Přesun informací o stylu do CSS souborů umožnil další
-zjednodušení značkování vlastních HTML dokumentů a odstranění některých
-technických problémů, které byly pozorovány při prohlížení původního
-překladu v alternativních HTML prohlížečích. Styly jsou navrženy tak, aby je
-mohl použít i autor originálního textu a autoři překladů do jiných jazyků,
-aniž by museli příliš zasahovat do způsobu značkování svých HTML dokumentů.
-To umožní případné sjednocení vzhledu originálu i překladů. Vyřešení této
-technické stránky bylo <em>čtvrtým motivačním faktorem</em>.</p>
+<p>V neposlednĂ­ Ĺ™adÄ› jsem se rozhodl pro nĂˇvrat k jednoduĹˇĹˇĂ­mu stylu
+znaÄŤkovĂˇnĂ­ HTML dokumentĹŻ, kterĂ˝ se vĂ­ce blĂ­ĹľĂ­ originĂˇlu. SouÄŤasnÄ› vznikly
+CSS soubory, kterĂ© definujĂ­ styl zobrazovĂˇnĂ­. Ten pĹ™ipomĂ­nĂˇ vzhled strĂˇnek
+pĹŻvodnĂ­ho pĹ™ekladu. PĹ™esun informacĂ­ o stylu do CSS souborĹŻ umoĹľnil dalĹˇĂ­
+zjednoduĹˇenĂ­ znaÄŤkovĂˇnĂ­ vlastnĂ­ch HTML dokumentĹŻ a odstranÄ›nĂ­ nÄ›kterĂ˝ch
+technickĂ˝ch problĂ©mĹŻ, kterĂ© byly pozorovĂˇny pĹ™i prohlĂ­ĹľenĂ­ pĹŻvodnĂ­ho
+pĹ™ekladu v alternativnĂ­ch HTML prohlĂ­ĹľeÄŤĂ­ch. Styly jsou navrĹľeny tak, aby je
+mohl pouĹľĂ­t i autor originĂˇlnĂ­ho textu a autoĹ™i pĹ™ekladĹŻ do jinĂ˝ch jazykĹŻ,
+aniĹľ by museli pĹ™Ă­liĹˇ zasahovat do zpĹŻsobu znaÄŤkovĂˇnĂ­ svĂ˝ch HTML dokumentĹŻ.
+To umoĹľnĂ­ pĹ™Ă­padnĂ© sjednocenĂ­ vzhledu originĂˇlu i pĹ™ekladĹŻ. VyĹ™eĹˇenĂ­ tĂ©to
+technickĂ© strĂˇnky bylo <em>ÄŤtvrtĂ˝m motivaÄŤnĂ­m faktorem</em>.</p>
 
-<p>A nyní již následují poznámky uspořádané po jednotlivých kapitolách.
-Číslo v hranatých závorkách tvoří zpětný odkaz do místa, ke kterému se
-poznámka vztahuje.</p>
+<p>A nynĂ­ jiĹľ nĂˇsledujĂ­ poznĂˇmky uspoĹ™ĂˇdanĂ© po jednotlivĂ˝ch kapitolĂˇch.
+ÄŚĂ­slo v hranatĂ˝ch zĂˇvorkĂˇch tvoĹ™Ă­ zpÄ›tnĂ˝ odkaz do mĂ­sta, ke kterĂ©mu se
+poznĂˇmka vztahuje.</p>
 
-<h3 id="cztutintro">Úvod</h3>
+<h3 id="cztutintro">Ăšvod</h3>
 
 <dl>
-<dt><a href="cztutintro.html#Bintro_2ed" id="Pintro_2ed" title="zpět">[1]</a>
-Informace o druhém výtisku knihy:</dt>
-<dd><p>Tato informace se týká druhého výtisku prvního vydání knihy v
-anglickém jazyce. V květnu 2002, kdy byla napsána tato poznámka, neexistoval
-český překlad a ani jsem neměl informace o tom, že by na českém překladu
-někdo pracoval.</p></dd>
+<dt><a href="cztutintro.html#Bintro_2ed" id="Pintro_2ed" title="zpÄ›t">[1]</a>
+Informace o druhĂ©m vĂ˝tisku knihy:</dt>
+<dd><p>Tato informace se tĂ˝kĂˇ druhĂ©ho vĂ˝tisku prvnĂ­ho vydĂˇnĂ­ knihy v
+anglickĂ©m jazyce. V kvÄ›tnu 2002, kdy byla napsĂˇna tato poznĂˇmka, neexistoval
+ÄŤeskĂ˝ pĹ™eklad a ani jsem nemÄ›l informace o tom, Ĺľe by na ÄŤeskĂ©m pĹ™ekladu
+nÄ›kdo pracoval.</p></dd>
 
-<dt><a href="cztutintro.html#Bintro_framework" id="Pintro_framework" title="zpět">[2]</a>
+<dt><a href="cztutintro.html#Bintro_framework" id="Pintro_framework" title="zpÄ›t">[2]</a>
 Pojem framework:</dt>
-<dd><p>Originální text používá obrat <em>OO games framework</em>, ve kterém
-slovo <em>framework</em> vyjadřuje pojem, pro který nemáme dobře použitelný
-jednoslovný český ekvivalent. Z jazykového hlediska bychom jej mohli přeložit jako
-<em>rámec</em>, ale v technických textech s programátorskou tématikou se
-takto obvykle nepřekládá. Vyjadřuje se jím existence předem připravené
-architektury vyvíjeného programu nebo jeho typických částí. Takové
-<em>vývojové</em> nebo <em>programátorské prostředí</em> může mít charakter
-obecný, ale velmi často se tento pojem používá v souvislosti s řešením
-speciální kategorie problémů. Účelem je dosažení co nejlepších vyjadřovacích
-prostředků z hlediska řešeného problému. Jinými slovy, zápis řešeného
-problému s využitím takových předem připravených prostředků je obvykle
-mnohem stručnější, přehlednější a tedy i efektivnější, než jakého bychom
-dosáhli bez jejich využití. Vývoj aplikace probíhá s využitím abstrakcí 
-vyšší úrovně.</p>
+<dd><p>OriginĂˇlnĂ­ text pouĹľĂ­vĂˇ obrat <em>OO games framework</em>, ve kterĂ©m
+slovo <em>framework</em> vyjadĹ™uje pojem, pro kterĂ˝ nemĂˇme dobĹ™e pouĹľitelnĂ˝
+jednoslovnĂ˝ ÄŤeskĂ˝ ekvivalent. Z jazykovĂ©ho hlediska bychom jej mohli pĹ™eloĹľit jako
+<em>rĂˇmec</em>, ale v technickĂ˝ch textech s programĂˇtorskou tĂ©matikou se
+takto obvykle nepĹ™eklĂˇdĂˇ. VyjadĹ™uje se jĂ­m existence pĹ™edem pĹ™ipravenĂ©
+architektury vyvĂ­jenĂ©ho programu nebo jeho typickĂ˝ch ÄŤĂˇstĂ­. TakovĂ©
+<em>vĂ˝vojovĂ©</em> nebo <em>programĂˇtorskĂ© prostĹ™edĂ­</em> mĹŻĹľe mĂ­t charakter
+obecnĂ˝, ale velmi ÄŤasto se tento pojem pouĹľĂ­vĂˇ v souvislosti s Ĺ™eĹˇenĂ­m
+speciĂˇlnĂ­ kategorie problĂ©mĹŻ. ĂšÄŤelem je dosaĹľenĂ­ co nejlepĹˇĂ­ch vyjadĹ™ovacĂ­ch
+prostĹ™edkĹŻ z hlediska Ĺ™eĹˇenĂ©ho problĂ©mu. JinĂ˝mi slovy, zĂˇpis Ĺ™eĹˇenĂ©ho
+problĂ©mu s vyuĹľitĂ­m takovĂ˝ch pĹ™edem pĹ™ipravenĂ˝ch prostĹ™edkĹŻ je obvykle
+mnohem struÄŤnÄ›jĹˇĂ­, pĹ™ehlednÄ›jĹˇĂ­ a tedy i efektivnÄ›jĹˇĂ­, neĹľ jakĂ©ho bychom
+dosĂˇhli bez jejich vyuĹľitĂ­. VĂ˝voj aplikace probĂ­hĂˇ s vyuĹľitĂ­m abstrakcĂ­
+vyĹˇĹˇĂ­ ĂşrovnÄ›.</p>
 
-<p><em>Games framework</em> tedy můžeme přeložit jako prostředí pro psaní
-her. Zkratka <em>OO (Object Oriented ...)</em> se jednoznačně překládá jako
-<em>objektově orientované...</em>. Dohromady s pojmem <em>framework</em>
-naznačuje, že se zde setkáme s <em>objektově orientovaným prostředím pro
-psaní specializovných aplikací</em> (zde her). Typicky to znamená, že se s
-objekty setkáváme jako s prvky vytvářené aplikace, což podstatné z hlediska
-programátora, který tyto prostředky využívá. Může to také znamenat, že byl
-objektově orientovaný přístup použit pro vytvoření pracovního prostředí
-(framework), což může být pro koncového programátora méně důležité. V
-současné době to často znamená obojí, protože objektově orientovaný přístup
-se jeví jako vhodný přístup pro řešení široké škály problémů.</p></dd>
+<p><em>Games framework</em> tedy mĹŻĹľeme pĹ™eloĹľit jako prostĹ™edĂ­ pro psanĂ­
+her. Zkratka <em>OO (Object Oriented ...)</em> se jednoznaÄŤnÄ› pĹ™eklĂˇdĂˇ jako
+<em>objektovÄ› orientovanĂ©...</em>. Dohromady s pojmem <em>framework</em>
+naznaÄŤuje, Ĺľe se zde setkĂˇme s <em>objektovÄ› orientovanĂ˝m prostĹ™edĂ­m pro
+psanĂ­ specializovnĂ˝ch aplikacĂ­</em> (zde her). Typicky to znamenĂˇ, Ĺľe se s
+objekty setkĂˇvĂˇme jako s prvky vytvĂˇĹ™enĂ© aplikace, coĹľ podstatnĂ© z hlediska
+programĂˇtora, kterĂ˝ tyto prostĹ™edky vyuĹľĂ­vĂˇ. MĹŻĹľe to takĂ© znamenat, Ĺľe byl
+objektovÄ› orientovanĂ˝ pĹ™Ă­stup pouĹľit pro vytvoĹ™enĂ­ pracovnĂ­ho prostĹ™edĂ­
+(framework), coĹľ mĹŻĹľe bĂ˝t pro koncovĂ©ho programĂˇtora mĂ©nÄ› dĹŻleĹľitĂ©. V
+souÄŤasnĂ© dobÄ› to ÄŤasto znamenĂˇ obojĂ­, protoĹľe objektovÄ› orientovanĂ˝ pĹ™Ă­stup
+se jevĂ­ jako vhodnĂ˝ pĹ™Ă­stup pro Ĺ™eĹˇenĂ­ ĹˇirokĂ© ĹˇkĂˇly problĂ©mĹŻ.</p></dd>
 
-<dt><a href="cztutintro.html#Bintro_web" id="Pintro_web" title="zpět">[3]</a>
+<dt><a href="cztutintro.html#Bintro_web" id="Pintro_web" title="zpÄ›t">[3]</a>
 Pojem <em>Web</em>:</dt>
 
-<dd><p>Pojem Web se používá jako kratší varianta celého názvu <em>World-Wide
-Web</em>, pro který se používá velmi známá zkratka <em>WWW</em>. Lze jej
-doslova přeložit jako <em>celosvětová síť</em>. Samotné anglické slovo
-<em>web</em> lze přeložit také jako <em>pavučina</em> (tj. síť upletená
-pavoukem). Pojem Web tedy zvýrazňuje trošku jiný smysl <em>sítě</em>, než
-pouhé <em>propojení více počítačů dráty</em>. Nese v sobě o něco
-abstraktnější příchuť. Chápejte jej spíše ve smyslu <em>celosvětová
-<b>informační</b> síť</em>.</p>
+<dd><p>Pojem Web se pouĹľĂ­vĂˇ jako kratĹˇĂ­ varianta celĂ©ho nĂˇzvu <em>World-Wide
+Web</em>, pro kterĂ˝ se pouĹľĂ­vĂˇ velmi znĂˇmĂˇ zkratka <em>WWW</em>. Lze jej
+doslova pĹ™eloĹľit jako <em>celosvÄ›tovĂˇ sĂ­ĹĄ</em>. SamotnĂ© anglickĂ© slovo
+<em>web</em> lze pĹ™eloĹľit takĂ© jako <em>pavuÄŤina</em> (tj. sĂ­ĹĄ upletenĂˇ
+pavoukem). Pojem Web tedy zvĂ˝razĹuje troĹˇku jinĂ˝ smysl <em>sĂ­tÄ›</em>, neĹľ
+pouhĂ© <em>propojenĂ­ vĂ­ce poÄŤĂ­taÄŤĹŻ drĂˇty</em>. Nese v sobÄ› o nÄ›co
+abstraktnÄ›jĹˇĂ­ pĹ™Ă­chuĹĄ. ChĂˇpejte jej spĂ­Ĺˇe ve smyslu <em>celosvÄ›tovĂˇ
+<b>informaÄŤnĂ­</b> sĂ­ĹĄ</em>.</p>
 
-<p>Web je tvořen takzvanými <em>webovými servery</em>, což jsou speciální
-aplikační programy, které obvykle běží na vyhrazených počítačích &mdash;
-serverech v hardwarovém smyslu. (Pojem <em>server</em> se používá jak pro
-obslužné programy určitého typu, tak pro hardware se speciálním určením
-&mdash; jde o dvě odlišné věci.)</p>
+<p>Web je tvoĹ™en takzvanĂ˝mi <em>webovĂ˝mi servery</em>, coĹľ jsou speciĂˇlnĂ­
+aplikaÄŤnĂ­ programy, kterĂ© obvykle bÄ›ĹľĂ­ na vyhrazenĂ˝ch poÄŤĂ­taÄŤĂ­ch &mdash;
+serverech v hardwarovĂ©m smyslu. (Pojem <em>server</em> se pouĹľĂ­vĂˇ jak pro
+obsluĹľnĂ© programy urÄŤitĂ©ho typu, tak pro hardware se speciĂˇlnĂ­m urÄŤenĂ­m
+&mdash; jde o dvÄ› odliĹˇnĂ© vÄ›ci.)</p>
 
-<p>Webové servery spolu nejsou z abstraktního pohledu nijak propojeny.
-Definují svůj vlastní obsah, který je uložen v jejich lokálním diskovém
-prostoru v podobě <em>dokumentů</em>. Nejtypičtější formát dokumentů je znám
-pod pojmem <em>HTML dokumenty</em>, ale podoba dokumentů může být i jiná.
-Pro webový server je typické hlavně to, že že poskytuje služby (proto se mu
-říká server) <em>klientským</em> aplikacím, které se označují jako
-<em>webovské prohlížeče</em>, nebo prostě prohlížeče (například Mozilla,
-Netscape Navigator, Microsoft Internet Explorer a další). Od jiných serverů
-se liší tím, že pro komunikaci s prohlížečem používá takzvaný <em>http
-protokol</em>. (Pojem <em>protokol</em> obecně představuje <em>předpis pro
-korektní chování</em> &mdash; ať už pro státnické jednání nebo pro
-komunikaci ve světě počítačů.)</p>
+<p>WebovĂ© servery spolu nejsou z abstraktnĂ­ho pohledu nijak propojeny.
+DefinujĂ­ svĹŻj vlastnĂ­ obsah, kterĂ˝ je uloĹľen v jejich lokĂˇlnĂ­m diskovĂ©m
+prostoru v podobÄ› <em>dokumentĹŻ</em>. NejtypiÄŤtÄ›jĹˇĂ­ formĂˇt dokumentĹŻ je znĂˇm
+pod pojmem <em>HTML dokumenty</em>, ale podoba dokumentĹŻ mĹŻĹľe bĂ˝t i jinĂˇ.
+Pro webovĂ˝ server je typickĂ© hlavnÄ› to, Ĺľe Ĺľe poskytuje sluĹľby (proto se mu
+Ĺ™Ă­kĂˇ server) <em>klientskĂ˝m</em> aplikacĂ­m, kterĂ© se oznaÄŤujĂ­ jako
+<em>webovskĂ© prohlĂ­ĹľeÄŤe</em>, nebo prostÄ› prohlĂ­ĹľeÄŤe (napĹ™Ă­klad Mozilla,
+Netscape Navigator, Microsoft Internet Explorer a dalĹˇĂ­). Od jinĂ˝ch serverĹŻ
+se liĹˇĂ­ tĂ­m, Ĺľe pro komunikaci s prohlĂ­ĹľeÄŤem pouĹľĂ­vĂˇ takzvanĂ˝ <em>http
+protokol</em>. (Pojem <em>protokol</em> obecnÄ› pĹ™edstavuje <em>pĹ™edpis pro
+korektnĂ­ chovĂˇnĂ­</em> &mdash; aĹĄ uĹľ pro stĂˇtnickĂ© jednĂˇnĂ­ nebo pro
+komunikaci ve svÄ›tÄ› poÄŤĂ­taÄŤĹŻ.)</p>
 
-<p>Vytvoření zmíněné <em>celosvětové informační sítě</em> se tedy nevytváří
-propojením serverů. Vytváří se <em>vzájemným propojením dokumentů</em>
-takzvanými <em>hypertextovými odkazy</em>. Odtud také pochází název formátu
+<p>VytvoĹ™enĂ­ zmĂ­nÄ›nĂ© <em>celosvÄ›tovĂ© informaÄŤnĂ­ sĂ­tÄ›</em> se tedy nevytvĂˇĹ™Ă­
+propojenĂ­m serverĹŻ. VytvĂˇĹ™Ă­ se <em>vzĂˇjemnĂ˝m propojenĂ­m dokumentĹŻ</em>
+takzvanĂ˝mi <em>hypertextovĂ˝mi odkazy</em>. Odtud takĂ© pochĂˇzĂ­ nĂˇzev formĂˇtu
 HTML &mdash; <em><b>H</b>yper<b>T</b>ext <b>M</b>arkup
 <b>L</b>anguage</em>.</p>
 
-<p>Protikladem izolovaných webových serverů jsou například <em>poštovní
-servery</em> (používají protokoly SMTP, POP3, &hellip;) nebo <em>news
-servery</em> (používají komunikační protokol NNTP). Ty, narozdíl od webových
-serverů, vystupují navzájem aktivně a zasílají si vzájemně zprávy pro
-konkrétního adresáta (poštovní servery) nebo rozesílají příspěvky do
-zadaných diskusních skupin po celém světě (news servery).</p>
+<p>Protikladem izolovanĂ˝ch webovĂ˝ch serverĹŻ jsou napĹ™Ă­klad <em>poĹˇtovnĂ­
+servery</em> (pouĹľĂ­vajĂ­ protokoly SMTP, POP3, &hellip;) nebo <em>news
+servery</em> (pouĹľĂ­vajĂ­ komunikaÄŤnĂ­ protokol NNTP). Ty, narozdĂ­l od webovĂ˝ch
+serverĹŻ, vystupujĂ­ navzĂˇjem aktivnÄ› a zasĂ­lajĂ­ si vzĂˇjemnÄ› zprĂˇvy pro
+konkrĂ©tnĂ­ho adresĂˇta (poĹˇtovnĂ­ servery) nebo rozesĂ­lajĂ­ pĹ™Ă­spÄ›vky do
+zadanĂ˝ch diskusnĂ­ch skupin po celĂ©m svÄ›tÄ› (news servery).</p>
 
-<p>Nejznámější celosvětové <em>komunikační síti</em> se říká
-<em>Internet</em> (viz <a href="#Pintro_Internet">dále</a>). Ta umožňuje
-používání všech výše zmíněných <em>komunikačních protokolů</em> a tím
-umožňuje existenci jak webové sítě, tak systému poštovních serverů, systému
-news serverů a dalších, o kterých se zde nezmiňuji.</p>
+<p>NejznĂˇmÄ›jĹˇĂ­ celosvÄ›tovĂ© <em>komunikaÄŤnĂ­ sĂ­ti</em> se Ĺ™Ă­kĂˇ
+<em>Internet</em> (viz <a href="#Pintro_Internet">dĂˇle</a>). Ta umoĹľĹuje
+pouĹľĂ­vĂˇnĂ­ vĹˇech vĂ˝Ĺˇe zmĂ­nÄ›nĂ˝ch <em>komunikaÄŤnĂ­ch protokolĹŻ</em> a tĂ­m
+umoĹľĹuje existenci jak webovĂ© sĂ­tÄ›, tak systĂ©mu poĹˇtovnĂ­ch serverĹŻ, systĂ©mu
+news serverĹŻ a dalĹˇĂ­ch, o kterĂ˝ch se zde nezmiĹuji.</p>
 
-<p>Závěr: Nezaměňujte pojmy <em>Web</em> a <em>Internet</em> (alespoň ne v
-situacích, kdy by to mohlo mást).</p>
+<p>ZĂˇvÄ›r: NezamÄ›Ĺujte pojmy <em>Web</em> a <em>Internet</em> (alespoĹ ne v
+situacĂ­ch, kdy by to mohlo mĂˇst).</p>
 </dd>
 
-<dt><a href="cztutintro.html#Bintro_Internet" id="Pintro_Internet" title="zpět">[4]</a>
+<dt><a href="cztutintro.html#Bintro_Internet" id="Pintro_Internet" title="zpÄ›t">[4]</a>
 Pojem Internet:</dt>
 
-<dd><p>Česky hovořící běžní uživatelé často používají pojem
-<em>Internet</em> nepřesně, spíše ve významu <em>Web</em> (viz <a
-href="#Pintro_web">výše</a>). Pokud jsme ale u pojmu <em>web</em> zdůraznili
-spíše abstraktnější význam ve smyslu <em>celosvětová informační síť</em>,
-pak u pojmu <em>Internet</em> můžeme zdůraznit spíše význam ve smyslu
-<em>celosvětová <b>komunikační</b> síť</em>.</p>
+<dd><p>ÄŚesky hovoĹ™Ă­cĂ­ bÄ›ĹľnĂ­ uĹľivatelĂ© ÄŤasto pouĹľĂ­vajĂ­ pojem
+<em>Internet</em> nepĹ™esnÄ›, spĂ­Ĺˇe ve vĂ˝znamu <em>Web</em> (viz <a
+href="#Pintro_web">vĂ˝Ĺˇe</a>). Pokud jsme ale u pojmu <em>web</em> zdĹŻraznili
+spĂ­Ĺˇe abstraktnÄ›jĹˇĂ­ vĂ˝znam ve smyslu <em>celosvÄ›tovĂˇ informaÄŤnĂ­ sĂ­ĹĄ</em>,
+pak u pojmu <em>Internet</em> mĹŻĹľeme zdĹŻraznit spĂ­Ĺˇe vĂ˝znam ve smyslu
+<em>celosvÄ›tovĂˇ <b>komunikaÄŤnĂ­</b> sĂ­ĹĄ</em>.</p>
 
-<p>Pro veškerou komunikaci mezi jinak fyzicky oddělenými počítači
-potřebujeme <em>síť v technickém smyslu</em> (vulgárně řečeno se jedná o
-dráty, optické kabely, radiová spojení, po kterých ty bity a bajty běhají).
-Nad nimi se budují <em>logické komunikační sítě</em>, které zakrývají
-technickou realizaci spojení (jestli je to drát nebo optické spojení nebo
-radiové spojení) a zvýrazňují jejich <em>schopnost přenášet informace z
-jednoho určeného místa na druhé</em>. Jednou z takových sítí je i Internet.
-Cílem Internetu tedy není poskytnout jen nějakou konkrétní službu &mdash;
-například v podobě webových stránek. Cílem Internetu je poskytnout obecné
-prostředí pro přenos dat různého charakteru.</p>
+<p>Pro veĹˇkerou komunikaci mezi jinak fyzicky oddÄ›lenĂ˝mi poÄŤĂ­taÄŤi
+potĹ™ebujeme <em>sĂ­ĹĄ v technickĂ©m smyslu</em> (vulgĂˇrnÄ› Ĺ™eÄŤeno se jednĂˇ o
+drĂˇty, optickĂ© kabely, radiovĂˇ spojenĂ­, po kterĂ˝ch ty bity a bajty bÄ›hajĂ­).
+Nad nimi se budujĂ­ <em>logickĂ© komunikaÄŤnĂ­ sĂ­tÄ›</em>, kterĂ© zakrĂ˝vajĂ­
+technickou realizaci spojenĂ­ (jestli je to drĂˇt nebo optickĂ© spojenĂ­ nebo
+radiovĂ© spojenĂ­) a zvĂ˝razĹujĂ­ jejich <em>schopnost pĹ™enĂˇĹˇet informace z
+jednoho urÄŤenĂ©ho mĂ­sta na druhĂ©</em>. Jednou z takovĂ˝ch sĂ­tĂ­ je i Internet.
+CĂ­lem Internetu tedy nenĂ­ poskytnout jen nÄ›jakou konkrĂ©tnĂ­ sluĹľbu &mdash;
+napĹ™Ă­klad v podobÄ› webovĂ˝ch strĂˇnek. CĂ­lem Internetu je poskytnout obecnĂ©
+prostĹ™edĂ­ pro pĹ™enos dat rĹŻznĂ©ho charakteru.</p>
 
-<p>Výše zmíněná schopnost tvořit komunikační síť vyžaduje především dvě
-vlastnosti: schopnost určit místo (existence adres) a zajistit správné
-chování při přenosu dat mezi dvěma místy. Děje se tak na různých úrovních
-abstrakce. Tomu odpovídají komunikační protokoly, u kterých rovněž existují
-úrovně od jejprimitivnějších po nejabstraktnější.</p>
+<p>VĂ˝Ĺˇe zmĂ­nÄ›nĂˇ schopnost tvoĹ™it komunikaÄŤnĂ­ sĂ­ĹĄ vyĹľaduje pĹ™edevĹˇĂ­m dvÄ›
+vlastnosti: schopnost urÄŤit mĂ­sto (existence adres) a zajistit sprĂˇvnĂ©
+chovĂˇnĂ­ pĹ™i pĹ™enosu dat mezi dvÄ›ma mĂ­sty. DÄ›je se tak na rĹŻznĂ˝ch ĂşrovnĂ­ch
+abstrakce. Tomu odpovĂ­dajĂ­ komunikaÄŤnĂ­ protokoly, u kterĂ˝ch rovnÄ›Ĺľ existujĂ­
+ĂşrovnÄ› od jejprimitivnÄ›jĹˇĂ­ch po nejabstraktnÄ›jĹˇĂ­.</p>
 
-<p>Závěr: Nezaměňujte pojmy <em>Web</em> a <em>Internet</em>. Web potřebuje
-pro svou existenci komunikační prostředí. Ale i poštovní servery potřebují
-komunikační prostředí. A platí to pro mnoho dalších aplikací. Internet
-takové komunikační prostředí realizuje.</p>
+<p>ZĂˇvÄ›r: NezamÄ›Ĺujte pojmy <em>Web</em> a <em>Internet</em>. Web potĹ™ebuje
+pro svou existenci komunikaÄŤnĂ­ prostĹ™edĂ­. Ale i poĹˇtovnĂ­ servery potĹ™ebujĂ­
+komunikaÄŤnĂ­ prostĹ™edĂ­. A platĂ­ to pro mnoho dalĹˇĂ­ch aplikacĂ­. Internet
+takovĂ© komunikaÄŤnĂ­ prostĹ™edĂ­ realizuje.</p>
 
 </dd>
 
-<dt><a href="cztutintro.html#Bintro_syntaxe" id="Pintro_syntaxe" title="zpět">[5]</a>
+<dt><a href="cztutintro.html#Bintro_syntaxe" id="Pintro_syntaxe" title="zpÄ›t">[5]</a>
 Pojem syntaxe:</dt>
 
-<dd><p>S pojmy <em>syntaxe</em> a <em>sémantika</em> jste se možná setkali
-poprvé při studiu <em>lidského</em> (tedy nikoliv programovacího) jazyka.
-Pojem syntaxe bychom mohli zjednodušeně opsat jako <em>"jak se to
-zapisuje"</em>. Související pojem <em>sémantika</em> naopak vyjadřuje
-<em>"co to znamená"</em> nebo <em>"co se tím myslí"</em>.</p>
+<dd><p>S pojmy <em>syntaxe</em> a <em>sĂ©mantika</em> jste se moĹľnĂˇ setkali
+poprvĂ© pĹ™i studiu <em>lidskĂ©ho</em> (tedy nikoliv programovacĂ­ho) jazyka.
+Pojem syntaxe bychom mohli zjednoduĹˇenÄ› opsat jako <em>"jak se to
+zapisuje"</em>. SouvisejĂ­cĂ­ pojem <em>sĂ©mantika</em> naopak vyjadĹ™uje
+<em>"co to znamenĂˇ"</em> nebo <em>"co se tĂ­m myslĂ­"</em>.</p>
 
-<p>V souvislosti s programovacími jazyky je nutné velmi přesně dodržovat
-syntaxi &mdash; tedy způsob zápisu &mdash;, protože na základě tohoto zápisu
-výsledná aplikace provádí konkrétní akce. Jinými slovy, syntaktickým
-konstrukcím (kouskům zdrojového textu) jsou přiřazeny operace, odpovídající
-významu těchto konstrukcí (sémantice). Počítač ve spolupráci s překladačem
-programovacího jazyka udělá přesně to, co je předepsáno. Nic si nedomyslí,
-nic si sám neopraví. Proto musíme pečlivě dodržovat, zda má někde být
-napsána třeba dvojtečka. Proto u jazyka Python musíme dodržovat odsazení
-řádků zdrojového textu a podobně.</p>
+<p>V souvislosti s programovacĂ­mi jazyky je nutnĂ© velmi pĹ™esnÄ› dodrĹľovat
+syntaxi &mdash; tedy zpĹŻsob zĂˇpisu &mdash;, protoĹľe na zĂˇkladÄ› tohoto zĂˇpisu
+vĂ˝slednĂˇ aplikace provĂˇdĂ­ konkrĂ©tnĂ­ akce. JinĂ˝mi slovy, syntaktickĂ˝m
+konstrukcĂ­m (kouskĹŻm zdrojovĂ©ho textu) jsou pĹ™iĹ™azeny operace, odpovĂ­dajĂ­cĂ­
+vĂ˝znamu tÄ›chto konstrukcĂ­ (sĂ©mantice). PoÄŤĂ­taÄŤ ve spoluprĂˇci s pĹ™ekladaÄŤem
+programovacĂ­ho jazyka udÄ›lĂˇ pĹ™esnÄ› to, co je pĹ™edepsĂˇno. Nic si nedomyslĂ­,
+nic si sĂˇm neopravĂ­. Proto musĂ­me peÄŤlivÄ› dodrĹľovat, zda mĂˇ nÄ›kde bĂ˝t
+napsĂˇna tĹ™eba dvojteÄŤka. Proto u jazyka Python musĂ­me dodrĹľovat odsazenĂ­
+Ĺ™ĂˇdkĹŻ zdrojovĂ©ho textu a podobnÄ›.</p>
 
-<p>Moderní, vhodně navržené programovací jazyky počítají s tím, že se člověk
-(programátor) může dopustit překlepu. Syntaktické konstrukce jsou proto
-navrhovány tak, aby byly nechtěné překlepy odhaleny jako chyba při zápisu a
-nikoliv jako předpis pro původně nechtěnou operaci. Takže okem špatně
-postřehnutelný překlep by již neměl způsobit například havárii kosmického
-nosiče, jak se to skutečně dříve stalo. Pro zápis řídicího programu rakety
-byl tehdy využit jazyk Fortran.</p>
+<p>ModernĂ­, vhodnÄ› navrĹľenĂ© programovacĂ­ jazyky poÄŤĂ­tajĂ­ s tĂ­m, Ĺľe se ÄŤlovÄ›k
+(programĂˇtor) mĹŻĹľe dopustit pĹ™eklepu. SyntaktickĂ© konstrukce jsou proto
+navrhovĂˇny tak, aby byly nechtÄ›nĂ© pĹ™eklepy odhaleny jako chyba pĹ™i zĂˇpisu a
+nikoliv jako pĹ™edpis pro pĹŻvodnÄ› nechtÄ›nou operaci. TakĹľe okem ĹˇpatnÄ›
+postĹ™ehnutelnĂ˝ pĹ™eklep by jiĹľ nemÄ›l zpĹŻsobit napĹ™Ă­klad havĂˇrii kosmickĂ©ho
+nosiÄŤe, jak se to skuteÄŤnÄ› dĹ™Ă­ve stalo. Pro zĂˇpis Ĺ™Ă­dicĂ­ho programu rakety
+byl tehdy vyuĹľit jazyk Fortran.</p>
 
-<dt><a href="cztutintro.html#Bintro_ug" id="Pintro_ug" title="zpět">[6]</a>
-Skupina uživatelů jazyka Python:</dt>
+<dt><a href="cztutintro.html#Bintro_ug" id="Pintro_ug" title="zpÄ›t">[6]</a>
+Skupina uĹľivatelĹŻ jazyka Python:</dt>
 <dd><p><a href="news:cz.comp.lang.python">cz.comp.lang.python</a> <span class="ir">[doplnit]</span></p>
-  
-  <p><a href="http://www.py.cz/" target="_blank">PyCZ</a> je portál zabývající se
-  programovacím jazykem Python. Záběr toho portálu se týká všech činností,
-  které mají alespoň něco společného s Pythonem:</p>
+
+  <p><a href="http://www.py.cz/" target="_blank">PyCZ</a> je portĂˇl zabĂ˝vajĂ­cĂ­ se
+  programovacĂ­m jazykem Python. ZĂˇbÄ›r toho portĂˇlu se tĂ˝kĂˇ vĹˇech ÄŤinnostĂ­,
+  kterĂ© majĂ­ alespoĹ nÄ›co spoleÄŤnĂ©ho s Pythonem:</p>
 
   <ul>
-  <li>programování (tipy a triky, editory, debugování, pomocné nástroje apod.)</li>
-  <li>dokumentace (návody, knihy, školící materiály, ...)</li> 
-  <li>lokalizace (překlady, glosář, internacionalizace, aj.)</li> 
-  <li>známé Pythonovské projekty (Zope, Mailman, Sketch, atd.)</li>
-  </ul> 
+  <li>programovĂˇnĂ­ (tipy a triky, editory, debugovĂˇnĂ­, pomocnĂ© nĂˇstroje apod.)</li>
+  <li>dokumentace (nĂˇvody, knihy, ĹˇkolĂ­cĂ­ materiĂˇly, ...)</li>
+  <li>lokalizace (pĹ™eklady, glosĂˇĹ™, internacionalizace, aj.)</li>
+  <li>znĂˇmĂ© PythonovskĂ© projekty (Zope, Mailman, Sketch, atd.)</li>
+  </ul>
 </dd>
 
-<dt><a href="cztutintro.html#Bintro_rp" id="Pintro_rp" title="zpět">[7]</a>
+<dt><a href="cztutintro.html#Bintro_rp" id="Pintro_rp" title="zpÄ›t">[7]</a>
 Pojem <em>Rapid Prototyping</em>:</dt>
 <dd><p><span class="ir">[doplnit]</span></p></dd>
 
 </dl>
 
-<h3 id="cztutneeds">Co potřebuji?</h3>
+<h3 id="cztutneeds">Co potĹ™ebuji?</h3>
 
 <dl>
-<dt><a href="cztutneeds.html#Bneeds_byte" id="Pneeds_byte" title="zpět">[1]</a>
-Překlad byte versus bajt:</dt>
-<dd><p>Když jsem byl ještě student &mdash; hrdý na pokrokový obor, který
-jsem studoval (ačkoliv samotnou účastí na studiu těžko můžete získat nárok
-na jakési zásluhy, tím méně nárok na posuzování a odsuzování terminologie
-oboru, který studujete) &mdash; pobuřovalo mne, když jsem v populárně
-vědeckých textech nacházel pojmy jako <em>bajt</em> nebo <em>displej</em>.
-<em>"Jak někdo může prznit naše svaté pojmy!"</em></p>
+<dt><a href="cztutneeds.html#Bneeds_byte" id="Pneeds_byte" title="zpÄ›t">[1]</a>
+PĹ™eklad byte versus bajt:</dt>
+<dd><p>KdyĹľ jsem byl jeĹˇtÄ› student &mdash; hrdĂ˝ na pokrokovĂ˝ obor, kterĂ˝
+jsem studoval (aÄŤkoliv samotnou ĂşÄŤastĂ­ na studiu tÄ›Ĺľko mĹŻĹľete zĂ­skat nĂˇrok
+na jakĂ©si zĂˇsluhy, tĂ­m mĂ©nÄ› nĂˇrok na posuzovĂˇnĂ­ a odsuzovĂˇnĂ­ terminologie
+oboru, kterĂ˝ studujete) &mdash; pobuĹ™ovalo mne, kdyĹľ jsem v populĂˇrnÄ›
+vÄ›deckĂ˝ch textech nachĂˇzel pojmy jako <em>bajt</em> nebo <em>displej</em>.
+<em>"Jak nÄ›kdo mĹŻĹľe prznit naĹˇe svatĂ© pojmy!"</em></p>
 
-<p>Jazyk se vyvíjí. I cizí pojmy jsou jen slova, která by měla dobře zapadat
-do rodného jazyka. Někdy to není snadné. Fonetický přepis pojmů je jedním z
-osvědčených způsobů. Extrémním příkladem používání takového přístupu může
-být ostatně jiný, typicky slovanský jazyk &mdash; jazyk ruský.</p>
+<p>Jazyk se vyvĂ­jĂ­. I cizĂ­ pojmy jsou jen slova, kterĂˇ by mÄ›la dobĹ™e zapadat
+do rodnĂ©ho jazyka. NÄ›kdy to nenĂ­ snadnĂ©. FonetickĂ˝ pĹ™epis pojmĹŻ je jednĂ­m z
+osvÄ›dÄŤenĂ˝ch zpĹŻsobĹŻ. ExtrĂ©mnĂ­m pĹ™Ă­kladem pouĹľĂ­vĂˇnĂ­ takovĂ©ho pĹ™Ă­stupu mĹŻĹľe
+bĂ˝t ostatnÄ› jinĂ˝, typicky slovanskĂ˝ jazyk &mdash; jazyk ruskĂ˝.</p>
 
-<p>Můj názor na překlad tohoto pojmu by tedy měl být v tomto okamžiku
-zřejmý. Nesouhlasíte s ním? Pobuřuje vás to? Zkuste prosadit, aby se
-používal opět zápis <em>tramway</em>! A víte vůbec, jak toto slovo 
+<p>MĹŻj nĂˇzor na pĹ™eklad tohoto pojmu by tedy mÄ›l bĂ˝t v tomto okamĹľiku
+zĹ™ejmĂ˝. NesouhlasĂ­te s nĂ­m? PobuĹ™uje vĂˇs to? Zkuste prosadit, aby se
+pouĹľĂ­val opÄ›t zĂˇpis <em>tramway</em>! A vĂ­te vĹŻbec, jak toto slovo
 vzniklo?</p></dd>
 </dl>
 
-<h3 id="cztutwhat">Co je programování?</h3>
+<h3 id="cztutwhat">Co je programovĂˇnĂ­?</h3>
 
 <dl>
 
-<dt><a href="cztutwhat.html#Bwhat_batch" id="Pwhat_batch" title="zpět">[1]</a>
-Proč se v MS Windows již málo setkáváme s dávkovými soubory:</dt> 
+<dt><a href="cztutwhat.html#Bwhat_batch" id="Pwhat_batch" title="zpÄ›t">[1]</a>
+ProÄŤ se v MS Windows jiĹľ mĂˇlo setkĂˇvĂˇme s dĂˇvkovĂ˝mi soubory:</dt>
 
-<dd><p>Podle mého názoru je to dáno především tím, že se uživatelé systému
-MS&nbsp;Windows postupně vzdalují od stylu práce, kdy bylo nutné
-o&nbsp;programování alespoň něco málo vědět. Z hlediska programování se
-přibližují k laikům, které zajímá především dosažení cíle, daného
-charakterem jejich práce. Mnozí <em>opravdoví programátoři</em> jimi
-pohrdají, ale musíme si uvědomit, že počítače jsou tu především proto,
-abychom je používali. Cílem není to, aby se staly centrem našeho zájmu.
-Programování bychom proto neměli vnímat jako <em>l'art pour l'art</em>
-(umění pro umění).</p>
+<dd><p>Podle mĂ©ho nĂˇzoru je to dĂˇno pĹ™edevĹˇĂ­m tĂ­m, Ĺľe se uĹľivatelĂ© systĂ©mu
+MS&nbsp;Windows postupnÄ› vzdalujĂ­ od stylu prĂˇce, kdy bylo nutnĂ©
+o&nbsp;programovĂˇnĂ­ alespoĹ nÄ›co mĂˇlo vÄ›dÄ›t. Z hlediska programovĂˇnĂ­ se
+pĹ™ibliĹľujĂ­ k laikĹŻm, kterĂ© zajĂ­mĂˇ pĹ™edevĹˇĂ­m dosaĹľenĂ­ cĂ­le, danĂ©ho
+charakterem jejich prĂˇce. MnozĂ­ <em>opravdovĂ­ programĂˇtoĹ™i</em> jimi
+pohrdajĂ­, ale musĂ­me si uvÄ›domit, Ĺľe poÄŤĂ­taÄŤe jsou tu pĹ™edevĹˇĂ­m proto,
+abychom je pouĹľĂ­vali. CĂ­lem nenĂ­ to, aby se staly centrem naĹˇeho zĂˇjmu.
+ProgramovĂˇnĂ­ bychom proto nemÄ›li vnĂ­mat jako <em>l'art pour l'art</em>
+(umÄ›nĂ­ pro umÄ›nĂ­).</p>
 
-<p>Druhým důvodem, který může maskovat používání dávkových souborů v
-MS&nbsp;Windows, je existence grafického uživatelského rozhraní, kde se
-provádění akcí aktivuje poklepáním na zvolenou ikonu. Některé z&nbsp;ikon
-mohou aktivovat i dávkové soubory, ale uživatel to takto nevnímá. Proto si
-nemusí být existence BAT souborů vůbec vědom.</p>
+<p>DruhĂ˝m dĹŻvodem, kterĂ˝ mĹŻĹľe maskovat pouĹľĂ­vĂˇnĂ­ dĂˇvkovĂ˝ch souborĹŻ v
+MS&nbsp;Windows, je existence grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­, kde se
+provĂˇdÄ›nĂ­ akcĂ­ aktivuje poklepĂˇnĂ­m na zvolenou ikonu. NÄ›kterĂ© z&nbsp;ikon
+mohou aktivovat i dĂˇvkovĂ© soubory, ale uĹľivatel to takto nevnĂ­mĂˇ. Proto si
+nemusĂ­ bĂ˝t existence BAT souborĹŻ vĹŻbec vÄ›dom.</p>
 
-<p>A je tu ještě jeden důvod. Uživatelé, kteří <em>vědí, kde mají
-ručník&hellip;</em> (viz Douglas Adams: Stopařův průvodce po Galaxii),
-používají výkonnější a výhodnější náhrady v podobě jiných skriptovacích
-jazyků. Jedním z velmi vhodných jazyků je právě Python.</p>
+<p>A je tu jeĹˇtÄ› jeden dĹŻvod. UĹľivatelĂ©, kteĹ™Ă­ <em>vÄ›dĂ­, kde majĂ­
+ruÄŤnĂ­k&hellip;</em> (viz Douglas Adams: StopaĹ™ĹŻv prĹŻvodce po Galaxii),
+pouĹľĂ­vajĂ­ vĂ˝konnÄ›jĹˇĂ­ a vĂ˝hodnÄ›jĹˇĂ­ nĂˇhrady v podobÄ› jinĂ˝ch skriptovacĂ­ch
+jazykĹŻ. JednĂ­m z velmi vhodnĂ˝ch jazykĹŻ je prĂˇvÄ› Python.</p>
 </dd>
 
-<dt><a href="cztutwhat.html#Bwhat_ObjectCode" id="Pwhat_ObjectCode" title="zpět">[2]</a>
-Anglický pojem <em>object code</em>:</dt>
+<dt><a href="cztutwhat.html#Bwhat_ObjectCode" id="Pwhat_ObjectCode" title="zpÄ›t">[2]</a>
+AnglickĂ˝ pojem <em>object code</em>:</dt>
 
-<dd><p>V originálním textu a na různých místech v anglicky psané literatuře
-se hovoří o překladu do podoby <em>"object code"</em>. Ačkoliv to svádí k
-překladu <em>"&hellip; do objektového kódu"</em>, dopustili bychom se zde
-významové nepřesnosti. Výsledek nemá nic společného s objektem ve smyslu
-objektově orientovaného programování. Tento pojem se také používal mnohem
-dříve, než se v programování začalo o objektově orientovaném přístupu
-hovořit. V angličtině může být slovem <em>object</em> vyjádřeno jednak něco
-hmatatelného, něco, co se dá vyjádřit samostatnou existencí. Ale slovo 
-<em>object</em> může mít i význam <em>cíle</em>, jako výsledku určitého záměru 
-nebo snažení. Do českého jazyka se proto překládá <em>object 
-code</em> jako <em>cílový kód</em>.</p>
+<dd><p>V originĂˇlnĂ­m textu a na rĹŻznĂ˝ch mĂ­stech v anglicky psanĂ© literatuĹ™e
+se hovoĹ™Ă­ o pĹ™ekladu do podoby <em>"object code"</em>. AÄŤkoliv to svĂˇdĂ­ k
+pĹ™ekladu <em>"&hellip; do objektovĂ©ho kĂłdu"</em>, dopustili bychom se zde
+vĂ˝znamovĂ© nepĹ™esnosti. VĂ˝sledek nemĂˇ nic spoleÄŤnĂ©ho s objektem ve smyslu
+objektovÄ› orientovanĂ©ho programovĂˇnĂ­. Tento pojem se takĂ© pouĹľĂ­val mnohem
+dĹ™Ă­ve, neĹľ se v programovĂˇnĂ­ zaÄŤalo o objektovÄ› orientovanĂ©m pĹ™Ă­stupu
+hovoĹ™it. V angliÄŤtinÄ› mĹŻĹľe bĂ˝t slovem <em>object</em> vyjĂˇdĹ™eno jednak nÄ›co
+hmatatelnĂ©ho, nÄ›co, co se dĂˇ vyjĂˇdĹ™it samostatnou existencĂ­. Ale slovo
+<em>object</em> mĹŻĹľe mĂ­t i vĂ˝znam <em>cĂ­le</em>, jako vĂ˝sledku urÄŤitĂ©ho zĂˇmÄ›ru
+nebo snaĹľenĂ­. Do ÄŤeskĂ©ho jazyka se proto pĹ™eklĂˇdĂˇ <em>object
+code</em> jako <em>cĂ­lovĂ˝ kĂłd</em>.</p>
 
-<p>Anglický pojem <em>object code</em> dal také vznik příponě souborů
-<code>obj</code>, které se používají pro jména souborů s výsledkem překladu
-v binární podobě. Tyto soubory ještě nejsou spustitelné. K vytvoření
-spustitelného souboru musí ještě proběhnout minimálně jedna fáze překladu
-&mdash; sestavení (link). Ještě jednou &mdash; neexistuje zde žádná logická
-spojitost s objektově orientovaným programováním.</p></dd>
+<p>AnglickĂ˝ pojem <em>object code</em> dal takĂ© vznik pĹ™Ă­ponÄ› souborĹŻ
+<code>obj</code>, kterĂ© se pouĹľĂ­vajĂ­ pro jmĂ©na souborĹŻ s vĂ˝sledkem pĹ™ekladu
+v binĂˇrnĂ­ podobÄ›. Tyto soubory jeĹˇtÄ› nejsou spustitelnĂ©. K vytvoĹ™enĂ­
+spustitelnĂ©ho souboru musĂ­ jeĹˇtÄ› probÄ›hnout minimĂˇlnÄ› jedna fĂˇze pĹ™ekladu
+&mdash; sestavenĂ­ (link). JeĹˇtÄ› jednou &mdash; neexistuje zde ĹľĂˇdnĂˇ logickĂˇ
+spojitost s objektovÄ› orientovanĂ˝m programovĂˇnĂ­m.</p></dd>
 
-<dt><a href="cztutwhat.html#Bwhat_scheduler" id="Pwhat_scheduler" title="zpět">[3]</a>
+<dt><a href="cztutwhat.html#Bwhat_scheduler" id="Pwhat_scheduler" title="zpÄ›t">[3]</a>
 Scheduler utility:</dt>
-<dd><p>Pojem <em>scheduler utility</em> lze v této souvislosti přeložit jako
-plánovací program. Konkrétně se tím myslí program, který je obvykle součástí
-operačního systému a který umožňuje například naplánování spuštění zvoleného 
-programu ve zvolenou hodinu v každém pracovním dnu v týdnu. Obecně se dá říci,
-že je to pomocný program, který hlídá, zda nastala stanovená podmínka a pokud
-ano, provede stanovenou akci &mdash; jako je například spuštění dávkového 
+<dd><p>Pojem <em>scheduler utility</em> lze v tĂ©to souvislosti pĹ™eloĹľit jako
+plĂˇnovacĂ­ program. KonkrĂ©tnÄ› se tĂ­m myslĂ­ program, kterĂ˝ je obvykle souÄŤĂˇstĂ­
+operaÄŤnĂ­ho systĂ©mu a kterĂ˝ umoĹľĹuje napĹ™Ă­klad naplĂˇnovĂˇnĂ­ spuĹˇtÄ›nĂ­ zvolenĂ©ho
+programu ve zvolenou hodinu v kaĹľdĂ©m pracovnĂ­m dnu v tĂ˝dnu. ObecnÄ› se dĂˇ Ĺ™Ă­ci,
+Ĺľe je to pomocnĂ˝ program, kterĂ˝ hlĂ­dĂˇ, zda nastala stanovenĂˇ podmĂ­nka a pokud
+ano, provede stanovenou akci &mdash; jako je napĹ™Ă­klad spuĹˇtÄ›nĂ­ dĂˇvkovĂ©ho
 programu.</p></dd>
 </dl>
 
-<h3 id="cztutstart">Začínáme</h3>
+<h3 id="cztutstart">ZaÄŤĂ­nĂˇme</h3>
 
 
 <dl>
 
-<dt><a href="cztutstart.html#Bstart_IDLE" id="Pstart_IDLE" title="zpět">[1]</a>
-Poznámka k úplné příručce IDLE:</dt>
-<dd><p>Úplná příručka IDLE je poněkud zastaralá. V době revize překladu
-(červenec 2004) existovala verze IDLE 1.0.3, ale záhlaví příručky uvádělo
+<dt><a href="cztutstart.html#Bstart_IDLE" id="Pstart_IDLE" title="zpÄ›t">[1]</a>
+PoznĂˇmka k ĂşplnĂ© pĹ™Ă­ruÄŤce IDLE:</dt>
+<dd><p>ĂšplnĂˇ pĹ™Ă­ruÄŤka IDLE je ponÄ›kud zastaralĂˇ. V dobÄ› revize pĹ™ekladu
+(ÄŤervenec 2004) existovala verze IDLE 1.0.3, ale zĂˇhlavĂ­ pĹ™Ă­ruÄŤky uvĂˇdÄ›lo
 verzi 0.5.</p></dd>
 
-<dt><a href="cztutstart.html#Bstart_newerPython" id="Pstart_newerPython" 
-title="zpět">[2]</a>
-Nová verze překladače Python může uvádět přesnější význam chyby:</dt>
-<dd><p>Verze překladače Python 2.2.1, která se na začátku hlásí takto&hellip;</p>
+<dt><a href="cztutstart.html#Bstart_newerPython" id="Pstart_newerPython"
+title="zpÄ›t">[2]</a>
+NovĂˇ verze pĹ™ekladaÄŤe Python mĹŻĹľe uvĂˇdÄ›t pĹ™esnÄ›jĹˇĂ­ vĂ˝znam chyby:</dt>
+<dd><p>Verze pĹ™ekladaÄŤe Python 2.2.1, kterĂˇ se na zaÄŤĂˇtku hlĂˇsĂ­ takto&hellip;</p>
 <pre>
 Python 2.2.1 (#34, Apr  9 2002, 19:34:33) [MSC 32 bit (Intel)] on win32
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 </pre>
 
-<p>&hellip; uvádí pro stejný případ jinou podobu chybového hlášení:</p>
+<p>&hellip; uvĂˇdĂ­ pro stejnĂ˝ pĹ™Ă­pad jinou podobu chybovĂ©ho hlĂˇĹˇenĂ­:</p>
 <pre>
 >>> print 'fred' + 7
 Traceback (most recent call last):
@@ -493,354 +496,354 @@ TypeError: cannot concatenate 'str' and 'int' objects
 </dd>
 </dl>
 
-<h3 id="cztutseq1">Jednoduché posloupnosti</h3>
+<h3 id="cztutseq1">JednoduchĂ© posloupnosti</h3>
 
-<p>V této kapitole nejsou uvedeny žádné poznámky formou odkazu.</p>
+<p>V tĂ©to kapitole nejsou uvedeny ĹľĂˇdnĂ© poznĂˇmky formou odkazu.</p>
 
-<h3 id="cztutdata">Data, datové typy a proměnné</h3>
+<h3 id="cztutdata">Data, datovĂ© typy a promÄ›nnĂ©</h3>
 
 <dl>
-<dt><a href="cztutdata.html#Bdata_variable" id="Pdata_variable" title="zpět">[1]</a>
-Jak chápat význam proměnné v jazyce Python:</dt>
+<dt><a href="cztutdata.html#Bdata_variable" id="Pdata_variable" title="zpÄ›t">[1]</a>
+Jak chĂˇpat vĂ˝znam promÄ›nnĂ© v jazyce Python:</dt>
 
-<dd><p>Pokud se s pojmem <em>proměnná</em> setkáváme v matematice, pak jej
-chápeme jako název symbolu, místo kterého se může dosadit hodnota
-příslušného typu. Při úpravách matematických výrazů pracujeme pouze s tímto
-jménem. Konkrétní hodnotu obvykle <em>dosazujeme</em> až v okamžiku, kdy
-chceme abstraktní výraz zredukovat na <em>speciální případ</em>. Dosazení
-hodnoty za jméno symbolu se provede prostou textovou náhradou. Při
-<em>lidském</em> zpracování žádné další vysvětlování není potřeba
-(zjednodušeně řečeno).</p>
+<dd><p>Pokud se s pojmem <em>promÄ›nnĂˇ</em> setkĂˇvĂˇme v matematice, pak jej
+chĂˇpeme jako nĂˇzev symbolu, mĂ­sto kterĂ©ho se mĹŻĹľe dosadit hodnota
+pĹ™Ă­sluĹˇnĂ©ho typu. PĹ™i ĂşpravĂˇch matematickĂ˝ch vĂ˝razĹŻ pracujeme pouze s tĂ­mto
+jmĂ©nem. KonkrĂ©tnĂ­ hodnotu obvykle <em>dosazujeme</em> aĹľ v okamĹľiku, kdy
+chceme abstraktnĂ­ vĂ˝raz zredukovat na <em>speciĂˇlnĂ­ pĹ™Ă­pad</em>. DosazenĂ­
+hodnoty za jmĂ©no symbolu se provede prostou textovou nĂˇhradou. PĹ™i
+<em>lidskĂ©m</em> zpracovĂˇnĂ­ ĹľĂˇdnĂ© dalĹˇĂ­ vysvÄ›tlovĂˇnĂ­ nenĂ­ potĹ™eba
+(zjednoduĹˇenÄ› Ĺ™eÄŤeno).</p>
 
-<p>V programech se musí s proměnnými pracovat bez rozhodovacích schopností
-člověka, bez vnějších zásahů. Proto musí být vyjádření proměnné mnohem
-konkrétnější. Proměnná si v programech ponechává tu vlastnost, že
-<em>pojmenovává</em> konkrétní hodnotu, která ovšem může být &mdash; jak již
-název napovídá &mdash; proměnná. Různé jazyky vytvářejí vazbu mezi jménem a
-mezi odpovídající hodnotou (přesněji instancí datového typu &mdash; viz
-dále) různým způsobem. Při používání proměnných v programu proto musíme
-znát některé detaily, které s existencí proměnných a odpovídajících hodnot
-souvisejí.</p>
+<p>V programech se musĂ­ s promÄ›nnĂ˝mi pracovat bez rozhodovacĂ­ch schopnostĂ­
+ÄŤlovÄ›ka, bez vnÄ›jĹˇĂ­ch zĂˇsahĹŻ. Proto musĂ­ bĂ˝t vyjĂˇdĹ™enĂ­ promÄ›nnĂ© mnohem
+konkrĂ©tnÄ›jĹˇĂ­. PromÄ›nnĂˇ si v programech ponechĂˇvĂˇ tu vlastnost, Ĺľe
+<em>pojmenovĂˇvĂˇ</em> konkrĂ©tnĂ­ hodnotu, kterĂˇ ovĹˇem mĹŻĹľe bĂ˝t &mdash; jak jiĹľ
+nĂˇzev napovĂ­dĂˇ &mdash; promÄ›nnĂˇ. RĹŻznĂ© jazyky vytvĂˇĹ™ejĂ­ vazbu mezi jmĂ©nem a
+mezi odpovĂ­dajĂ­cĂ­ hodnotou (pĹ™esnÄ›ji instancĂ­ datovĂ©ho typu &mdash; viz
+dĂˇle) rĹŻznĂ˝m zpĹŻsobem. PĹ™i pouĹľĂ­vĂˇnĂ­ promÄ›nnĂ˝ch v programu proto musĂ­me
+znĂˇt nÄ›kterĂ© detaily, kterĂ© s existencĂ­ promÄ›nnĂ˝ch a odpovĂ­dajĂ­cĂ­ch hodnot
+souvisejĂ­.</p>
 
-<p><b>U kompilovaných jazyků</b> se ve výsledném kódu jméno proměnné
-postupně transformovalo až na konkrétní hodnotu adresy v paměti. Také údaj o
-konkrétním datovém typu je přetaven do podoby konkrétních posloupností
-instrukcí. Z výsledného kódu již například zpětně nemůžeme určit, jak se
-konkrétní proměnná jmenovala. Pokud to není zajištěno speciálním způsobem,
-nemůžeme za běhu ani určit typ. Vše již bylo zkontrolováno a rozhodnuto
-během překladu. U takových systémů můžeme o jménu proměnné ve zdrojovém
-textu uvažovat jako o abstraktním vyjádření adresy, která bude známa až po
-dokončení všech fází generování výsledného spustitelného kódu. Pokud se
-jméno proměnné objeví v místě, kde se očekává hodnota, pak je použit obsah,
-který proměnná pojmenovává. Pokud potřebujeme z nějakých důvodů uložit přímo
-adresu instance datového typu, pak pro ni použijeme takzvanou
-<em>ukazatelovou proměnnou</em>. Pro vyjádření nepřímého odkazu na instanci
-datového typu prostřednictvím ukazatelové proměnné používáme odlišný zápis,
-než při přímém odkazu s použitím jména proměnné.</p>
+<p><b>U kompilovanĂ˝ch jazykĹŻ</b> se ve vĂ˝slednĂ©m kĂłdu jmĂ©no promÄ›nnĂ©
+postupnÄ› transformovalo aĹľ na konkrĂ©tnĂ­ hodnotu adresy v pamÄ›ti. TakĂ© Ăşdaj o
+konkrĂ©tnĂ­m datovĂ©m typu je pĹ™etaven do podoby konkrĂ©tnĂ­ch posloupnostĂ­
+instrukcĂ­. Z vĂ˝slednĂ©ho kĂłdu jiĹľ napĹ™Ă­klad zpÄ›tnÄ› nemĹŻĹľeme urÄŤit, jak se
+konkrĂ©tnĂ­ promÄ›nnĂˇ jmenovala. Pokud to nenĂ­ zajiĹˇtÄ›no speciĂˇlnĂ­m zpĹŻsobem,
+nemĹŻĹľeme za bÄ›hu ani urÄŤit typ. VĹˇe jiĹľ bylo zkontrolovĂˇno a rozhodnuto
+bÄ›hem pĹ™ekladu. U takovĂ˝ch systĂ©mĹŻ mĹŻĹľeme o jmĂ©nu promÄ›nnĂ© ve zdrojovĂ©m
+textu uvaĹľovat jako o abstraktnĂ­m vyjĂˇdĹ™enĂ­ adresy, kterĂˇ bude znĂˇma aĹľ po
+dokonÄŤenĂ­ vĹˇech fĂˇzĂ­ generovĂˇnĂ­ vĂ˝slednĂ©ho spustitelnĂ©ho kĂłdu. Pokud se
+jmĂ©no promÄ›nnĂ© objevĂ­ v mĂ­stÄ›, kde se oÄŤekĂˇvĂˇ hodnota, pak je pouĹľit obsah,
+kterĂ˝ promÄ›nnĂˇ pojmenovĂˇvĂˇ. Pokud potĹ™ebujeme z nÄ›jakĂ˝ch dĹŻvodĹŻ uloĹľit pĹ™Ă­mo
+adresu instance datovĂ©ho typu, pak pro ni pouĹľijeme takzvanou
+<em>ukazatelovou promÄ›nnou</em>. Pro vyjĂˇdĹ™enĂ­ nepĹ™Ă­mĂ©ho odkazu na instanci
+datovĂ©ho typu prostĹ™ednictvĂ­m ukazatelovĂ© promÄ›nnĂ© pouĹľĂ­vĂˇme odliĹˇnĂ˝ zĂˇpis,
+neĹľ pĹ™i pĹ™Ă­mĂ©m odkazu s pouĹľitĂ­m jmĂ©na promÄ›nnĂ©.</p>
 
-<p><b>Jazyk Python</b> má blíže k interpretačním jazykům. To mimo jiné
-znamená, že za běhu programu existují struktury, které udržují informaci o
-jménech proměnných, o jejich typech a odkazy na konkrétní instance datových
-typů. V jazyce Python se vytvářejí vnitřní vazby mezi <em>jménem
-proměnné</em> a <em>identifikací instance</em>. Takový pár se vlastně podobá
-ukazatelové proměnné v kompilovaných jazycích. Nepřímost odkazu je ale
-skrytá. Při použití jména proměnné se k instanci přistupuje vždy nepřímo,
-s využitím identifikace instance. Děje se tak ve všech myslitelných
-případech. Neexistuje jiný způsob přístupu k instancím.</p>
+<p><b>Jazyk Python</b> mĂˇ blĂ­Ĺľe k interpretaÄŤnĂ­m jazykĹŻm. To mimo jinĂ©
+znamenĂˇ, Ĺľe za bÄ›hu programu existujĂ­ struktury, kterĂ© udrĹľujĂ­ informaci o
+jmĂ©nech promÄ›nnĂ˝ch, o jejich typech a odkazy na konkrĂ©tnĂ­ instance datovĂ˝ch
+typĹŻ. V jazyce Python se vytvĂˇĹ™ejĂ­ vnitĹ™nĂ­ vazby mezi <em>jmĂ©nem
+promÄ›nnĂ©</em> a <em>identifikacĂ­ instance</em>. TakovĂ˝ pĂˇr se vlastnÄ› podobĂˇ
+ukazatelovĂ© promÄ›nnĂ© v kompilovanĂ˝ch jazycĂ­ch. NepĹ™Ă­most odkazu je ale
+skrytĂˇ. PĹ™i pouĹľitĂ­ jmĂ©na promÄ›nnĂ© se k instanci pĹ™istupuje vĹľdy nepĹ™Ă­mo,
+s vyuĹľitĂ­m identifikace instance. DÄ›je se tak ve vĹˇech myslitelnĂ˝ch
+pĹ™Ă­padech. Neexistuje jinĂ˝ zpĹŻsob pĹ™Ă­stupu k instancĂ­m.</p>
 
-<p><b>Závěr:</b> Pokud jste zvyklí na pojem proměnné, jak je používán u
-kompilovaných jazyků, pak o proměnných v jazyce Python uvažujte jako o
-odkazech přes ukazatel. Způsob zápisu přitom odpovídá přímému použití
-odpovídajícího objektu (instance datového typu). O přiřazování čehokoliv do
-proměnné uvažujte tak, že se vytváří vazba mezi jménem a instancí datového
+<p><b>ZĂˇvÄ›r:</b> Pokud jste zvyklĂ­ na pojem promÄ›nnĂ©, jak je pouĹľĂ­vĂˇn u
+kompilovanĂ˝ch jazykĹŻ, pak o promÄ›nnĂ˝ch v jazyce Python uvaĹľujte jako o
+odkazech pĹ™es ukazatel. ZpĹŻsob zĂˇpisu pĹ™itom odpovĂ­dĂˇ pĹ™Ă­mĂ©mu pouĹľitĂ­
+odpovĂ­dajĂ­cĂ­ho objektu (instance datovĂ©ho typu). O pĹ™iĹ™azovĂˇnĂ­ ÄŤehokoliv do
+promÄ›nnĂ© uvaĹľujte tak, Ĺľe se vytvĂˇĹ™Ă­ vazba mezi jmĂ©nem a instancĂ­ datovĂ©ho
 typu.</p>
 </dd>
 
-<dt><a href="cztutdata.html#Bdata_refinstance" id="Pdata_refinstance" title="zpět">[2]</a>
-Instance její identifikace:</dt>
+<dt><a href="cztutdata.html#Bdata_refinstance" id="Pdata_refinstance" title="zpÄ›t">[2]</a>
+Instance jejĂ­ identifikace:</dt>
 
-<dd><p>Instancí datového typu rozumíme konkrétní výskyt hodnoty daného
-datového typu. S tím je spojena skutečnost, že v paměti počítače musí být na
-určitém místě vyhrazen prostor o potřebné velikosti. Pokud v jazyce Python
-použijeme například číselnou konstantu 7, pak je vytvořena instance typu
-celé číslo (jinými slovy <em>objekt typu celé číslo</em>).</p>
+<dd><p>InstancĂ­ datovĂ©ho typu rozumĂ­me konkrĂ©tnĂ­ vĂ˝skyt hodnoty danĂ©ho
+datovĂ©ho typu. S tĂ­m je spojena skuteÄŤnost, Ĺľe v pamÄ›ti poÄŤĂ­taÄŤe musĂ­ bĂ˝t na
+urÄŤitĂ©m mĂ­stÄ› vyhrazen prostor o potĹ™ebnĂ© velikosti. Pokud v jazyce Python
+pouĹľijeme napĹ™Ă­klad ÄŤĂ­selnou konstantu 7, pak je vytvoĹ™ena instance typu
+celĂ© ÄŤĂ­slo (jinĂ˝mi slovy <em>objekt typu celĂ© ÄŤĂ­slo</em>).</p>
 
-<p>Každá vytvořená instance datového typu dostane přidělenu vnitřní
-identifikaci. Můžeme ji zjistit voláním zabudované funkce <code>id()</code>.
-V současné implementaci jazyka Python je identifikace totožná s adresou
-místa, na kterém je objekt umístěn. Ale mohla by být i jiná. Důležitá je
-její jednoznačnost.</p>
+<p>KaĹľdĂˇ vytvoĹ™enĂˇ instance datovĂ©ho typu dostane pĹ™idÄ›lenu vnitĹ™nĂ­
+identifikaci. MĹŻĹľeme ji zjistit volĂˇnĂ­m zabudovanĂ© funkce <code>id()</code>.
+V souÄŤasnĂ© implementaci jazyka Python je identifikace totoĹľnĂˇ s adresou
+mĂ­sta, na kterĂ©m je objekt umĂ­stÄ›n. Ale mohla by bĂ˝t i jinĂˇ. DĹŻleĹľitĂˇ je
+jejĂ­ jednoznaÄŤnost.</p>
 
-<p>Pokud říkáme, že do proměnné přiřazujeme instanci určitého typu, pak
-vlastně provádíme navázání jména proměnné na identifikaci instance. Pokud
-ovšem jméno proměnné použijeme v místě, kde se má použít hodnota odkazované
-instance (například u typu celé číslo) nebo kde se má volat metoda instance
-(objektu), pak dojde k automatickému zpřístupnění instance, aniž bychom onu
-nepřímost odkazu museli nějakým zvláštním způsobem vyjádřit.</p></dd>
+<p>Pokud Ĺ™Ă­kĂˇme, Ĺľe do promÄ›nnĂ© pĹ™iĹ™azujeme instanci urÄŤitĂ©ho typu, pak
+vlastnÄ› provĂˇdĂ­me navĂˇzĂˇnĂ­ jmĂ©na promÄ›nnĂ© na identifikaci instance. Pokud
+ovĹˇem jmĂ©no promÄ›nnĂ© pouĹľijeme v mĂ­stÄ›, kde se mĂˇ pouĹľĂ­t hodnota odkazovanĂ©
+instance (napĹ™Ă­klad u typu celĂ© ÄŤĂ­slo) nebo kde se mĂˇ volat metoda instance
+(objektu), pak dojde k automatickĂ©mu zpĹ™Ă­stupnÄ›nĂ­ instance, aniĹľ bychom onu
+nepĹ™Ă­most odkazu museli nÄ›jakĂ˝m zvlĂˇĹˇtnĂ­m zpĹŻsobem vyjĂˇdĹ™it.</p></dd>
 
-<dt><a href="cztutdata.html#Bdata_stattype" id="Pdata_stattype" title="zpět">[3]</a>
-Statická typová kontrola:</dt>
-<dd><p>Slovo <em>statická</em> vyjadřuje skutečnost, že se typová kontrola
-provádí při zpracování zdrojového textu programu (v době překladu).
-Výsledný kód programu je vygenerován pouze v případě, kdy při není při
-typových kontrolách nalezen žádný problém. Tehdy je současně zajištěno, že
-se při běhu programu nevyskytne například přiřazení hodnoty do proměnné
-neodpovídajícího typu. To jinými slovy znamená, že si z pohledu 
-práce s typy můžeme být jisti tím, že je program správný.</p>
+<dt><a href="cztutdata.html#Bdata_stattype" id="Pdata_stattype" title="zpÄ›t">[3]</a>
+StatickĂˇ typovĂˇ kontrola:</dt>
+<dd><p>Slovo <em>statickĂˇ</em> vyjadĹ™uje skuteÄŤnost, Ĺľe se typovĂˇ kontrola
+provĂˇdĂ­ pĹ™i zpracovĂˇnĂ­ zdrojovĂ©ho textu programu (v dobÄ› pĹ™ekladu).
+VĂ˝slednĂ˝ kĂłd programu je vygenerovĂˇn pouze v pĹ™Ă­padÄ›, kdy pĹ™i nenĂ­ pĹ™i
+typovĂ˝ch kontrolĂˇch nalezen ĹľĂˇdnĂ˝ problĂ©m. Tehdy je souÄŤasnÄ› zajiĹˇtÄ›no, Ĺľe
+se pĹ™i bÄ›hu programu nevyskytne napĹ™Ă­klad pĹ™iĹ™azenĂ­ hodnoty do promÄ›nnĂ©
+neodpovĂ­dajĂ­cĂ­ho typu. To jinĂ˝mi slovy znamenĂˇ, Ĺľe si z pohledu
+prĂˇce s typy mĹŻĹľeme bĂ˝t jisti tĂ­m, Ĺľe je program sprĂˇvnĂ˝.</p>
 
-<p>Opakem statické typové kontroly je kontrola až za běhu programu. Můžeme
-si sice být jistí tím, že případná nekorektní práce s typy bude odhalena,
-ale dokud tato chyba nenastane, nevíme, zda náš program někde chybu tohoto
+<p>Opakem statickĂ© typovĂ© kontroly je kontrola aĹľ za bÄ›hu programu. MĹŻĹľeme
+si sice bĂ˝t jistĂ­ tĂ­m, Ĺľe pĹ™Ă­padnĂˇ nekorektnĂ­ prĂˇce s typy bude odhalena,
+ale dokud tato chyba nenastane, nevĂ­me, zda nĂˇĹˇ program nÄ›kde chybu tohoto
 typu neobsahuje.</p></dd>
 
-<dt><a href="cztutdata.html#Bdata_real" id="Pdata_real" title="zpět">[4]</a>
-Jsou to tedy reálná nebo racionální čísla?</dt>
-<dd><p>Pro uložení hodnot máme v počítači vždy omezený prostor. U
-základních datových typů máme velmi často dánu dokonce přesnou velikost
-tohoto prostoru v bajtech. Současně máme dán způsob kódování čísla &mdash;
-obvykle ve dvojkové soustavě. To ale znamená, že veškeré hodnoty
-<em>reálných</em> čísel můžeme vyjádřit pouze přibližně &mdash; jako
-hodnotově nejbližší zlomek. Ve skutečnosti tedy v počítačích nepracujeme s
-reálnými čísly, ale s racionálními čísly, což jsou čísla, která lze vyjádřit
-zlomkem s celočíselným čitatelem i jmenovatelem.</p></dd>
+<dt><a href="cztutdata.html#Bdata_real" id="Pdata_real" title="zpÄ›t">[4]</a>
+Jsou to tedy reĂˇlnĂˇ nebo racionĂˇlnĂ­ ÄŤĂ­sla?</dt>
+<dd><p>Pro uloĹľenĂ­ hodnot mĂˇme v poÄŤĂ­taÄŤi vĹľdy omezenĂ˝ prostor. U
+zĂˇkladnĂ­ch datovĂ˝ch typĹŻ mĂˇme velmi ÄŤasto dĂˇnu dokonce pĹ™esnou velikost
+tohoto prostoru v bajtech. SouÄŤasnÄ› mĂˇme dĂˇn zpĹŻsob kĂłdovĂˇnĂ­ ÄŤĂ­sla &mdash;
+obvykle ve dvojkovĂ© soustavÄ›. To ale znamenĂˇ, Ĺľe veĹˇkerĂ© hodnoty
+<em>reĂˇlnĂ˝ch</em> ÄŤĂ­sel mĹŻĹľeme vyjĂˇdĹ™it pouze pĹ™ibliĹľnÄ› &mdash; jako
+hodnotovÄ› nejbliĹľĹˇĂ­ zlomek. Ve skuteÄŤnosti tedy v poÄŤĂ­taÄŤĂ­ch nepracujeme s
+reĂˇlnĂ˝mi ÄŤĂ­sly, ale s racionĂˇlnĂ­mi ÄŤĂ­sly, coĹľ jsou ÄŤĂ­sla, kterĂˇ lze vyjĂˇdĹ™it
+zlomkem s celoÄŤĂ­selnĂ˝m ÄŤitatelem i jmenovatelem.</p></dd>
 
-<dt><a href="cztutdata.html#Bdata_hash" id="Pdata_hash" title="zpět">[5]</a>
-Hash table = vyhledávací tabulka:</dt>
-<dd><p>V jazyce Python a v některých dalších novějších jazycích se pro tento
-typ datové struktury začal používat pojem <em>slovník</em>, protože je tím
-vystižen způsob jejího používání. Pojem je navíc jednoslovný a snadno 
-pochopitelný. Snadno pochopitelná je i skutečnost, že o systému hesel
-(klíčů) a odpovídajích popisů můžeme uvažovat jako o tabulce s dvěma
-sloupci. Pochopitelné je i to, že bychom v takové tabulce rádi něco dokázali
-vyhledat. Souvislost mezi pojmem <em>slovník</em> a klasickým pojmem pro
-tuto datovou strukturu &mdash; vyhledávací tabulka &mdash; by tedy měla být
-zřejmá. Zbývá vysvětlit pojem <em>hash</em>.</p>
+<dt><a href="cztutdata.html#Bdata_hash" id="Pdata_hash" title="zpÄ›t">[5]</a>
+Hash table = vyhledĂˇvacĂ­ tabulka:</dt>
+<dd><p>V jazyce Python a v nÄ›kterĂ˝ch dalĹˇĂ­ch novÄ›jĹˇĂ­ch jazycĂ­ch se pro tento
+typ datovĂ© struktury zaÄŤal pouĹľĂ­vat pojem <em>slovnĂ­k</em>, protoĹľe je tĂ­m
+vystiĹľen zpĹŻsob jejĂ­ho pouĹľĂ­vĂˇnĂ­. Pojem je navĂ­c jednoslovnĂ˝ a snadno
+pochopitelnĂ˝. Snadno pochopitelnĂˇ je i skuteÄŤnost, Ĺľe o systĂ©mu hesel
+(klĂ­ÄŤĹŻ) a odpovĂ­dajĂ­ch popisĹŻ mĹŻĹľeme uvaĹľovat jako o tabulce s dvÄ›ma
+sloupci. PochopitelnĂ© je i to, Ĺľe bychom v takovĂ© tabulce rĂˇdi nÄ›co dokĂˇzali
+vyhledat. Souvislost mezi pojmem <em>slovnĂ­k</em> a klasickĂ˝m pojmem pro
+tuto datovou strukturu &mdash; vyhledĂˇvacĂ­ tabulka &mdash; by tedy mÄ›la bĂ˝t
+zĹ™ejmĂˇ. ZbĂ˝vĂˇ vysvÄ›tlit pojem <em>hash</em>.</p>
 
-<p>V českých kuchařských knihách se můžete setkat s jídlem zvaným
-<em>hašé</em>. (Jde o počeštěnou formu slova <em>hash</em> nebo nějakého
-jejich společného základu.) Je to více typů surovin rozsekaných na kousky a
-smíchaných dohromady. Dejme tomu, že je tam nějaký druh masa, nějaké druhy
-zeleniny a další přísady. (Nechtějte po mě detaily &mdash; nejsem v tomto
-směru odborník.) Proveďme následující (raději jen myšlenkový) experiment.
-Považujme onu hromádku surovin za klíč a recept na přípravu odpovídajícího
-jídla za hledanou hodnotu. Vezměme to tak, že prošmejdíme naše zásoby, dáme
-je na hromadu a chtěli bychom vědět, co se z toho dá uvařit. Nejpracnější
-způsob spočívá v postupném prohledávání kuchařské knihy a porovnávání našich
-surovin (klíče) se vstupními požadavky jednotlivých receptů. Asi to bude
+<p>V ÄŤeskĂ˝ch kuchaĹ™skĂ˝ch knihĂˇch se mĹŻĹľete setkat s jĂ­dlem zvanĂ˝m
+<em>haĹˇĂ©</em>. (Jde o poÄŤeĹˇtÄ›nou formu slova <em>hash</em> nebo nÄ›jakĂ©ho
+jejich spoleÄŤnĂ©ho zĂˇkladu.) Je to vĂ­ce typĹŻ surovin rozsekanĂ˝ch na kousky a
+smĂ­chanĂ˝ch dohromady. Dejme tomu, Ĺľe je tam nÄ›jakĂ˝ druh masa, nÄ›jakĂ© druhy
+zeleniny a dalĹˇĂ­ pĹ™Ă­sady. (NechtÄ›jte po mÄ› detaily &mdash; nejsem v tomto
+smÄ›ru odbornĂ­k.) ProveÄŹme nĂˇsledujĂ­cĂ­ (radÄ›ji jen myĹˇlenkovĂ˝) experiment.
+PovaĹľujme onu hromĂˇdku surovin za klĂ­ÄŤ a recept na pĹ™Ă­pravu odpovĂ­dajĂ­cĂ­ho
+jĂ­dla za hledanou hodnotu. VezmÄ›me to tak, Ĺľe proĹˇmejdĂ­me naĹˇe zĂˇsoby, dĂˇme
+je na hromadu a chtÄ›li bychom vÄ›dÄ›t, co se z toho dĂˇ uvaĹ™it. NejpracnÄ›jĹˇĂ­
+zpĹŻsob spoÄŤĂ­vĂˇ v postupnĂ©m prohledĂˇvĂˇnĂ­ kuchaĹ™skĂ© knihy a porovnĂˇvĂˇnĂ­ naĹˇich
+surovin (klĂ­ÄŤe) se vstupnĂ­mi poĹľadavky jednotlivĂ˝ch receptĹŻ. Asi to bude
 trvat dost dlouho.</p>
 
-<p>Vezměme si nyní jen speciální případy, kdy hromádku surovin můžeme
-rozsekat na malé kousky &mdash; třeba v masovém mlýnku. Ve vzniklé hmotě už
-nemusíme být schopni rozeznat, jaké konkrétní suroviny byly rozsekány. Ale
-když z ní odebereme malou lžičku (vzorek), přidáme k ní popis zúčastněných
-surovin i s poměry jejich mísení a nakonec i celý text receptu, dostaneme
-jakýsi vzorník několika vhodných receptů, kterým tento postup neublíží.
-Pokud vám teď někdo přinese lžičku hmoty připravené podle stejného postupu a
-pokud budete schopni porovnat její podobnost s vaším vzorníkem, můžete mu
-říci, o jaké suroviny se jednalo a co má s takovou hmotou dál dělat, aby se
-to dalo jíst (pokud možno). Na základě podivného vzorku tedy můžete něco
-říci o klíči a o hodnotě. Při vhodném uspořádání našeho vzorníku můžete k
-této informaci dospět rychleji, než při postupném pročítání všech receptů.
-Na tomto principu jsou založeny vyhledávací tabulky s trochu slangově
-znějícím polovičním překladem &mdash; <em>hešovací tabulky</em>.</p>
+<p>VezmÄ›me si nynĂ­ jen speciĂˇlnĂ­ pĹ™Ă­pady, kdy hromĂˇdku surovin mĹŻĹľeme
+rozsekat na malĂ© kousky &mdash; tĹ™eba v masovĂ©m mlĂ˝nku. Ve vzniklĂ© hmotÄ› uĹľ
+nemusĂ­me bĂ˝t schopni rozeznat, jakĂ© konkrĂ©tnĂ­ suroviny byly rozsekĂˇny. Ale
+kdyĹľ z nĂ­ odebereme malou lĹľiÄŤku (vzorek), pĹ™idĂˇme k nĂ­ popis zĂşÄŤastnÄ›nĂ˝ch
+surovin i s pomÄ›ry jejich mĂ­senĂ­ a nakonec i celĂ˝ text receptu, dostaneme
+jakĂ˝si vzornĂ­k nÄ›kolika vhodnĂ˝ch receptĹŻ, kterĂ˝m tento postup neublĂ­ĹľĂ­.
+Pokud vĂˇm teÄŹ nÄ›kdo pĹ™inese lĹľiÄŤku hmoty pĹ™ipravenĂ© podle stejnĂ©ho postupu a
+pokud budete schopni porovnat jejĂ­ podobnost s vaĹˇĂ­m vzornĂ­kem, mĹŻĹľete mu
+Ĺ™Ă­ci, o jakĂ© suroviny se jednalo a co mĂˇ s takovou hmotou dĂˇl dÄ›lat, aby se
+to dalo jĂ­st (pokud moĹľno). Na zĂˇkladÄ› podivnĂ©ho vzorku tedy mĹŻĹľete nÄ›co
+Ĺ™Ă­ci o klĂ­ÄŤi a o hodnotÄ›. PĹ™i vhodnĂ©m uspoĹ™ĂˇdĂˇnĂ­ naĹˇeho vzornĂ­ku mĹŻĹľete k
+tĂ©to informaci dospÄ›t rychleji, neĹľ pĹ™i postupnĂ©m proÄŤĂ­tĂˇnĂ­ vĹˇech receptĹŻ.
+Na tomto principu jsou zaloĹľeny vyhledĂˇvacĂ­ tabulky s trochu slangovÄ›
+znÄ›jĂ­cĂ­m poloviÄŤnĂ­m pĹ™ekladem &mdash; <em>heĹˇovacĂ­ tabulky</em>.</p>
 
-<p>Princip uvedených tabulek je založen na schopnosti <em>pomixovat</em>
-vyhledávané heslo (klíč) do podoby, která nám sice sama o sobě nic neřekne,
-ale která nás rychle dovede k požadované hodnotě ve slovníku. V případě
-našich kulinářských vzorků bychom náš vzorník asi prostě přelétli očima a
-<em>nějak</em> vyhledali příslušný <em>záznam</em>. Pokud místo
-potravinářských surovin zpracováváme data, bude náš masový mlýnek mít
-matematickou podobu. Důležité je, aby pro různé vstupní suroviny vypadl z
-matematického masového mlýnku různý výsledek. Vyhledávání dále vylepšíme
-takovým způsobem, že vzorek pomocí jednoduchých matematických operací
-převedeme na číslo v předem určeném intervalu a dostaneme tak index do pole,
-které je jádrem hešovací tabulky. Z určeného místa v poli získáme informace ve tvaru
-dvojice <code>(klíč,&nbsp;hodnota)</code>. Pokud se klíč na tomto místě
-shoduje se vstupním klíčem, pak jsme našli i hodnotu, kterou jsme hledali.
-Pokud ne, musíme dále dohledávat. Způsobů organizace hešovacích tabulek a
-odpovídajících technik dohledání výsledku je několik. Aby celý postup
-neztratil na účinnosti, musí být náš matematický mlýnek dostatečně
-rychlý.</p>
+<p>Princip uvedenĂ˝ch tabulek je zaloĹľen na schopnosti <em>pomixovat</em>
+vyhledĂˇvanĂ© heslo (klĂ­ÄŤ) do podoby, kterĂˇ nĂˇm sice sama o sobÄ› nic neĹ™ekne,
+ale kterĂˇ nĂˇs rychle dovede k poĹľadovanĂ© hodnotÄ› ve slovnĂ­ku. V pĹ™Ă­padÄ›
+naĹˇich kulinĂˇĹ™skĂ˝ch vzorkĹŻ bychom nĂˇĹˇ vzornĂ­k asi prostÄ› pĹ™elĂ©tli oÄŤima a
+<em>nÄ›jak</em> vyhledali pĹ™Ă­sluĹˇnĂ˝ <em>zĂˇznam</em>. Pokud mĂ­sto
+potravinĂˇĹ™skĂ˝ch surovin zpracovĂˇvĂˇme data, bude nĂˇĹˇ masovĂ˝ mlĂ˝nek mĂ­t
+matematickou podobu. DĹŻleĹľitĂ© je, aby pro rĹŻznĂ© vstupnĂ­ suroviny vypadl z
+matematickĂ©ho masovĂ©ho mlĂ˝nku rĹŻznĂ˝ vĂ˝sledek. VyhledĂˇvĂˇnĂ­ dĂˇle vylepĹˇĂ­me
+takovĂ˝m zpĹŻsobem, Ĺľe vzorek pomocĂ­ jednoduchĂ˝ch matematickĂ˝ch operacĂ­
+pĹ™evedeme na ÄŤĂ­slo v pĹ™edem urÄŤenĂ©m intervalu a dostaneme tak index do pole,
+kterĂ© je jĂˇdrem heĹˇovacĂ­ tabulky. Z urÄŤenĂ©ho mĂ­sta v poli zĂ­skĂˇme informace ve tvaru
+dvojice <code>(klĂ­ÄŤ,&nbsp;hodnota)</code>. Pokud se klĂ­ÄŤ na tomto mĂ­stÄ›
+shoduje se vstupnĂ­m klĂ­ÄŤem, pak jsme naĹˇli i hodnotu, kterou jsme hledali.
+Pokud ne, musĂ­me dĂˇle dohledĂˇvat. ZpĹŻsobĹŻ organizace heĹˇovacĂ­ch tabulek a
+odpovĂ­dajĂ­cĂ­ch technik dohledĂˇnĂ­ vĂ˝sledku je nÄ›kolik. Aby celĂ˝ postup
+neztratil na ĂşÄŤinnosti, musĂ­ bĂ˝t nĂˇĹˇ matematickĂ˝ mlĂ˝nek dostateÄŤnÄ›
+rychlĂ˝.</p>
 
-<p>Zmíněnému matematickému mlýnku se říká <em>hešovací funkce</em> (<em>hash
-function</em>). Říká se jí také <em>rozptylovací</em> funkce, protože se
-vlastně používá pokud možno k rovnoměrnému rozptýlení vstupních klíčů do
-celého prostoru hešovací tabulky. Snažíme se o minimalizaci množství
-konfliktů, kdy různé klíče vedou ke stejnému indexu v hešovacím poli.
-Takovým položkám se pak říká <em>synonyma</em>. Ta musí být prozkoumávána
-podrobnějším způsobem (provádíme výše zmíněné dohledání), abychom zjistili,
-které ze synonym odpovídá hledanému klíči. Dohledávání samozřejmě vede ke
-zdržením při hledání výsledku. Správná volba hešovací funkce proto nemusí
-být úplně jednoduchá a často závisí na konkrétním typu řešeného
-problému.</p></dd>
+<p>ZmĂ­nÄ›nĂ©mu matematickĂ©mu mlĂ˝nku se Ĺ™Ă­kĂˇ <em>heĹˇovacĂ­ funkce</em> (<em>hash
+function</em>). ĹĂ­kĂˇ se jĂ­ takĂ© <em>rozptylovacĂ­</em> funkce, protoĹľe se
+vlastnÄ› pouĹľĂ­vĂˇ pokud moĹľno k rovnomÄ›rnĂ©mu rozptĂ˝lenĂ­ vstupnĂ­ch klĂ­ÄŤĹŻ do
+celĂ©ho prostoru heĹˇovacĂ­ tabulky. SnaĹľĂ­me se o minimalizaci mnoĹľstvĂ­
+konfliktĹŻ, kdy rĹŻznĂ© klĂ­ÄŤe vedou ke stejnĂ©mu indexu v heĹˇovacĂ­m poli.
+TakovĂ˝m poloĹľkĂˇm se pak Ĺ™Ă­kĂˇ <em>synonyma</em>. Ta musĂ­ bĂ˝t prozkoumĂˇvĂˇna
+podrobnÄ›jĹˇĂ­m zpĹŻsobem (provĂˇdĂ­me vĂ˝Ĺˇe zmĂ­nÄ›nĂ© dohledĂˇnĂ­), abychom zjistili,
+kterĂ© ze synonym odpovĂ­dĂˇ hledanĂ©mu klĂ­ÄŤi. DohledĂˇvĂˇnĂ­ samozĹ™ejmÄ› vede ke
+zdrĹľenĂ­m pĹ™i hledĂˇnĂ­ vĂ˝sledku. SprĂˇvnĂˇ volba heĹˇovacĂ­ funkce proto nemusĂ­
+bĂ˝t ĂşplnÄ› jednoduchĂˇ a ÄŤasto zĂˇvisĂ­ na konkrĂ©tnĂ­m typu Ĺ™eĹˇenĂ©ho
+problĂ©mu.</p></dd>
 
-<dt><a href="cztutdata.html#Bdata_spam" id="Pdata_spam" title="zpět">[6]</a>
-Potravina s anglickým jménem <em>Spam</em>:</dt>
+<dt><a href="cztutdata.html#Bdata_spam" id="Pdata_spam" title="zpÄ›t">[6]</a>
+Potravina s anglickĂ˝m jmĂ©nem <em>Spam</em>:</dt>
 
-<dd><p>Pokud používáte elektronickou poštu, mohli jste se s anglickým pojmem
-<em>spam</em> setkat jako s označením pro nevyžádanou, hromadně šířenou
-zprávu, která obvykle plní úlohu reklamy. Ve slovnících pod heslem
-<em>spam</em> naleznete vysvětlení, že se jedná o masovou konzervu, jejíž
-obsah se obvykle jí studený. Nevím jak vy, ale dokud jsem se nedostal k
-překládání této učebnice, nedovedl jsem si pod pojmem <em>Spam</em>
-představit žádnou potravinu. Po chvíli pátrání se ukázalo, že je to
-pravděpodobně způsobeno mým věkem v kombinaci s existencí bývalého režimu a
-s mou malou zcestovalostí.</p>
+<dd><p>Pokud pouĹľĂ­vĂˇte elektronickou poĹˇtu, mohli jste se s anglickĂ˝m pojmem
+<em>spam</em> setkat jako s oznaÄŤenĂ­m pro nevyĹľĂˇdanou, hromadnÄ› ĹˇĂ­Ĺ™enou
+zprĂˇvu, kterĂˇ obvykle plnĂ­ Ăşlohu reklamy. Ve slovnĂ­cĂ­ch pod heslem
+<em>spam</em> naleznete vysvÄ›tlenĂ­, Ĺľe se jednĂˇ o masovou konzervu, jejĂ­Ĺľ
+obsah se obvykle jĂ­ studenĂ˝. NevĂ­m jak vy, ale dokud jsem se nedostal k
+pĹ™eklĂˇdĂˇnĂ­ tĂ©to uÄŤebnice, nedovedl jsem si pod pojmem <em>Spam</em>
+pĹ™edstavit ĹľĂˇdnou potravinu. Po chvĂ­li pĂˇtrĂˇnĂ­ se ukĂˇzalo, Ĺľe je to
+pravdÄ›podobnÄ› zpĹŻsobeno mĂ˝m vÄ›kem v kombinaci s existencĂ­ bĂ˝valĂ©ho reĹľimu a
+s mou malou zcestovalostĂ­.</p>
 
-<p>Pravděpodobně nejzapamatovatelnější adresou serveru, na které se o jídle
-jménem <em>Spam</em> můžete dozvědět podrobnosti je <a
-href="http://www.spam.com/" target="_blank">www.spam.com</a>. Zjistíte, že
-jde o registrovanou značku potravinového produktu, jehož plné jméno zní
-<em>Spam<sup>&reg;</sup> luncheon meat</em>. (Aha!) Zjistíte také, že se pod
-tímto jménem vyrábí už velmi dlouho, že tyto konzervy významně zasáhly i do
-průběhu Druhé světové války, že nedávno bylo dokonce otevřeno tomuto jídlu
-věnované muzeum a že existuje něco jako celosvětový fan klub, který je svou
-bizarností srovnatelný nejspíš s fan klubem automobilu Trabant.</p>
+<p>PravdÄ›podobnÄ› nejzapamatovatelnÄ›jĹˇĂ­ adresou serveru, na kterĂ© se o jĂ­dle
+jmĂ©nem <em>Spam</em> mĹŻĹľete dozvÄ›dÄ›t podrobnosti je <a
+href="http://www.spam.com/" target="_blank">www.spam.com</a>. ZjistĂ­te, Ĺľe
+jde o registrovanou znaÄŤku potravinovĂ©ho produktu, jehoĹľ plnĂ© jmĂ©no znĂ­
+<em>Spam<sup>&reg;</sup> luncheon meat</em>. (Aha!) ZjistĂ­te takĂ©, Ĺľe se pod
+tĂ­mto jmĂ©nem vyrĂˇbĂ­ uĹľ velmi dlouho, Ĺľe tyto konzervy vĂ˝znamnÄ› zasĂˇhly i do
+prĹŻbÄ›hu DruhĂ© svÄ›tovĂ© vĂˇlky, Ĺľe nedĂˇvno bylo dokonce otevĹ™eno tomuto jĂ­dlu
+vÄ›novanĂ© muzeum a Ĺľe existuje nÄ›co jako celosvÄ›tovĂ˝ fan klub, kterĂ˝ je svou
+bizarnostĂ­ srovnatelnĂ˝ nejspĂ­Ĺˇ s fan klubem automobilu Trabant.</p>
 
-<p>Obchodní název se zjevně povedl v tom smyslu, že je velmi stručný a díky
-historickému úspěchu je každý pokus o jiný popis tohoto jídla příliš
-zdlouhavý. I z těchto důvodů jsem se rozhodl název jídla, které je v
-příkladu použito jako identifikátor třídy objektu, nepřekládat. Protože se
-tento příklad navíc používá i na dalších místech učebnice, rozhodl jsem se
-ponechat anglické názvy modulu (meat = maso), třídy (spam = tedy luncheon
-meat) i operace (slice = krájet, ukrojit, řez ve smyslu uřezaného plátku).
-Protože nejsem příznivcem kombinování anglických a českých slov do jednoho
-identifikátoru (například názvu proměnné), rozhodl jsem se ponechat kód
-příkladu v původním tvaru a upravit pouze komentáře.</p> 
+<p>ObchodnĂ­ nĂˇzev se zjevnÄ› povedl v tom smyslu, Ĺľe je velmi struÄŤnĂ˝ a dĂ­ky
+historickĂ©mu ĂşspÄ›chu je kaĹľdĂ˝ pokus o jinĂ˝ popis tohoto jĂ­dla pĹ™Ă­liĹˇ
+zdlouhavĂ˝. I z tÄ›chto dĹŻvodĹŻ jsem se rozhodl nĂˇzev jĂ­dla, kterĂ© je v
+pĹ™Ă­kladu pouĹľito jako identifikĂˇtor tĹ™Ă­dy objektu, nepĹ™eklĂˇdat. ProtoĹľe se
+tento pĹ™Ă­klad navĂ­c pouĹľĂ­vĂˇ i na dalĹˇĂ­ch mĂ­stech uÄŤebnice, rozhodl jsem se
+ponechat anglickĂ© nĂˇzvy modulu (meat = maso), tĹ™Ă­dy (spam = tedy luncheon
+meat) i operace (slice = krĂˇjet, ukrojit, Ĺ™ez ve smyslu uĹ™ezanĂ©ho plĂˇtku).
+ProtoĹľe nejsem pĹ™Ă­znivcem kombinovĂˇnĂ­ anglickĂ˝ch a ÄŤeskĂ˝ch slov do jednoho
+identifikĂˇtoru (napĹ™Ă­klad nĂˇzvu promÄ›nnĂ©), rozhodl jsem se ponechat kĂłd
+pĹ™Ă­kladu v pĹŻvodnĂ­m tvaru a upravit pouze komentĂˇĹ™e.</p>
 
 </dd>
 
-<dt><a href="cztutdata.html#Bdata_string" id="Pdata_string" title="zpět">[7]</a>
-Řetězec nebývá považován za jednoduchý datový typ:</dt>
+<dt><a href="cztutdata.html#Bdata_string" id="Pdata_string" title="zpÄ›t">[7]</a>
+ĹetÄ›zec nebĂ˝vĂˇ povaĹľovĂˇn za jednoduchĂ˝ datovĂ˝ typ:</dt>
 
-<dd><p>Znakové řetězce se řadí spíše mezi složené datové typy. Mezi jednoduché
-datové typy se řadí spíše typ <em>znak</em>. Podpůrným argumentem pro tento
-pohled je skutečnost, že u jednoduchých datových typů předpokládáme možnost
-uložení v paměťovém prostoru o předem vyhrazené velikosti. S tím souvisí i to,
-že základní operace nad jednoduchými datovými typy můžeme provést v čase
-omezeném shora nějakou konstantní hodnotou. Teorie v této souvislosti hovoří o
-konstantní časové složitosti odpovídajícího algoritmu operace &mdash; označuje
-se <em>O(1)</em>. U řetězců, které nemají omezenu maximální délku řetězce,
-nelze podobným způsobem uvažovat. Tak například doba trvání operace kopírování
-řetězce bude závislá na aktuální délce řetězce. Časová složitost takové
-operace je označována jako lineární a označuje se <em>O(n)</em>.</p></dd>
+<dd><p>ZnakovĂ© Ĺ™etÄ›zce se Ĺ™adĂ­ spĂ­Ĺˇe mezi sloĹľenĂ© datovĂ© typy. Mezi jednoduchĂ©
+datovĂ© typy se Ĺ™adĂ­ spĂ­Ĺˇe typ <em>znak</em>. PodpĹŻrnĂ˝m argumentem pro tento
+pohled je skuteÄŤnost, Ĺľe u jednoduchĂ˝ch datovĂ˝ch typĹŻ pĹ™edpoklĂˇdĂˇme moĹľnost
+uloĹľenĂ­ v pamÄ›ĹĄovĂ©m prostoru o pĹ™edem vyhrazenĂ© velikosti. S tĂ­m souvisĂ­ i to,
+Ĺľe zĂˇkladnĂ­ operace nad jednoduchĂ˝mi datovĂ˝mi typy mĹŻĹľeme provĂ©st v ÄŤase
+omezenĂ©m shora nÄ›jakou konstantnĂ­ hodnotou. Teorie v tĂ©to souvislosti hovoĹ™Ă­ o
+konstantnĂ­ ÄŤasovĂ© sloĹľitosti odpovĂ­dajĂ­cĂ­ho algoritmu operace &mdash; oznaÄŤuje
+se <em>O(1)</em>. U Ĺ™etÄ›zcĹŻ, kterĂ© nemajĂ­ omezenu maximĂˇlnĂ­ dĂ©lku Ĺ™etÄ›zce,
+nelze podobnĂ˝m zpĹŻsobem uvaĹľovat. Tak napĹ™Ă­klad doba trvĂˇnĂ­ operace kopĂ­rovĂˇnĂ­
+Ĺ™etÄ›zce bude zĂˇvislĂˇ na aktuĂˇlnĂ­ dĂ©lce Ĺ™etÄ›zce. ÄŚasovĂˇ sloĹľitost takovĂ©
+operace je oznaÄŤovĂˇna jako lineĂˇrnĂ­ a oznaÄŤuje se <em>O(n)</em>.</p></dd>
 
 </dl>
 
-<h3 id="cztutseq2">Další posloupnosti a jiné věci</h3>
+<h3 id="cztutseq2">DalĹˇĂ­ posloupnosti a jinĂ© vÄ›ci</h3>
 
 <dl>
-<dt><a href="cztutseq2.html#Bseq2_idle" id="Pseq2_idle" title="zpět">[1]</a>
+<dt><a href="cztutseq2.html#Bseq2_idle" id="Pseq2_idle" title="zpÄ›t">[1]</a>
 The joy of being IDLE:</dt>
 
-<dd><p>Slovo IDLE je akronym odvozený z anglického <em><b>I</b>ntegrated
-<b>D</b>eve<b>L</b>opment <b>E</b>nvironment</em> &mdash; česky
-<em>integrované vývojové prostředí</em>. Tento pojem se používá velmi často,
-v souvislosti s různými programovacími jazyky a jejich vývojovým prostředím.
-Obecně jde o aplikační program, který v sobě zahrnuje textový editor pro
-psaní zdrojových textů, vazbu na překladač jazyka, ladicí systém (debugger),
-případně další podpůrné nástroje (například nástroje pro zobrazení
-hierarchie tříd a jeho využití pro rychlý přechod na příslušná místa ve
-zdrojových textech, nástroje pro tvorbu dokumentace a podobně). V ostatních
-případech se obvykle označuje zkratkou <em>IDE</em>. Kde se tedy vzalo to
+<dd><p>Slovo IDLE je akronym odvozenĂ˝ z anglickĂ©ho <em><b>I</b>ntegrated
+<b>D</b>eve<b>L</b>opment <b>E</b>nvironment</em> &mdash; ÄŤesky
+<em>integrovanĂ© vĂ˝vojovĂ© prostĹ™edĂ­</em>. Tento pojem se pouĹľĂ­vĂˇ velmi ÄŤasto,
+v souvislosti s rĹŻznĂ˝mi programovacĂ­mi jazyky a jejich vĂ˝vojovĂ˝m prostĹ™edĂ­m.
+ObecnÄ› jde o aplikaÄŤnĂ­ program, kterĂ˝ v sobÄ› zahrnuje textovĂ˝ editor pro
+psanĂ­ zdrojovĂ˝ch textĹŻ, vazbu na pĹ™ekladaÄŤ jazyka, ladicĂ­ systĂ©m (debugger),
+pĹ™Ă­padnÄ› dalĹˇĂ­ podpĹŻrnĂ© nĂˇstroje (napĹ™Ă­klad nĂˇstroje pro zobrazenĂ­
+hierarchie tĹ™Ă­d a jeho vyuĹľitĂ­ pro rychlĂ˝ pĹ™echod na pĹ™Ă­sluĹˇnĂˇ mĂ­sta ve
+zdrojovĂ˝ch textech, nĂˇstroje pro tvorbu dokumentace a podobnÄ›). V ostatnĂ­ch
+pĹ™Ă­padech se obvykle oznaÄŤuje zkratkou <em>IDE</em>. Kde se tedy vzalo to
 <em><b>L</b></em>?</p>
 
-<p>Autor jazyka, Guido van Rossum, dává neustále a veřejně najevo, že jazyk
-Python nebyl pojmenován podle nějakého <em>"odporného plaza"</em>, ale podle
-britské komediální skupiny <em>Monty Python's Flying Circus</em> (tj.
-<em>Monty Pythonův létající cirkus</em> &mdash; epizody byly k vidění i u
-nás). Humorně kultovní vztah k jejich produkci vede k preferenci názvů, pro
-které lze v jejich komediích najít nějakou oporu. Pokud jsou mé informace
-správné, pak Idle je také příjmení (možná umělecké, nevím) jednoho z
-komiků.</p>
+<p>Autor jazyka, Guido van Rossum, dĂˇvĂˇ neustĂˇle a veĹ™ejnÄ› najevo, Ĺľe jazyk
+Python nebyl pojmenovĂˇn podle nÄ›jakĂ©ho <em>"odpornĂ©ho plaza"</em>, ale podle
+britskĂ© komediĂˇlnĂ­ skupiny <em>Monty Python's Flying Circus</em> (tj.
+<em>Monty PythonĹŻv lĂ©tajĂ­cĂ­ cirkus</em> &mdash; epizody byly k vidÄ›nĂ­ i u
+nĂˇs). HumornÄ› kultovnĂ­ vztah k jejich produkci vede k preferenci nĂˇzvĹŻ, pro
+kterĂ© lze v jejich komediĂ­ch najĂ­t nÄ›jakou oporu. Pokud jsou mĂ© informace
+sprĂˇvnĂ©, pak Idle je takĂ© pĹ™Ă­jmenĂ­ (moĹľnĂˇ umÄ›leckĂ©, nevĂ­m) jednoho z
+komikĹŻ.</p>
 
-<p>Jenže <em>idle</em> je také běžné anglické slovo, které lze přeložit jako
-zahálející, nečinný, planý, nepotřebný&hellip; V tomto smyslu lze nadpis
-podkapitoly přeložit jako: <em>Radost z nicnedělání</em> nebo <em>Je to fajn
+<p>JenĹľe <em>idle</em> je takĂ© bÄ›ĹľnĂ© anglickĂ© slovo, kterĂ© lze pĹ™eloĹľit jako
+zahĂˇlejĂ­cĂ­, neÄŤinnĂ˝, planĂ˝, nepotĹ™ebnĂ˝&hellip; V tomto smyslu lze nadpis
+podkapitoly pĹ™eloĹľit jako: <em>Radost z nicnedÄ›lĂˇnĂ­</em> nebo <em>Je to fajn
 se jen tak poflakovat</em>.</p>
 
-<p>Ale je tu i další souvislost! Výslovnost tohoto slova je <em>aidl</em>.
-Stejnou výslovnost má i jiné anglické slovo &mdash; <em>idol</em> (něco
-hodné zbožňování). Pokud budeme trochu anglicky huhňat, pak by se dalo
-uvažovat i o slovu <em>idyl</em> (čti aidil), znamenající idylku,
+<p>Ale je tu i dalĹˇĂ­ souvislost! VĂ˝slovnost tohoto slova je <em>aidl</em>.
+Stejnou vĂ˝slovnost mĂˇ i jinĂ© anglickĂ© slovo &mdash; <em>idol</em> (nÄ›co
+hodnĂ© zboĹľĹovĂˇnĂ­). Pokud budeme trochu anglicky huhĹat, pak by se dalo
+uvaĹľovat i o slovu <em>idyl</em> (ÄŤti aidil), znamenajĂ­cĂ­ idylku,
 selanku.</p>
 
-<p>Toto je tedy vysvětlení, proč jsem nechal nadpis nepřeložený (jako
-&mdash; podle mého názoru &mdash; velmi cenný příspěvek Alana Gaulda v duchu
-kultu Monty Python's Flying Circus). Vyberte si vysvětlení, které se vám
-líbí nejvíc. Případně zvažte, zda neplatí všechna dohromady. Případně žádné
+<p>Toto je tedy vysvÄ›tlenĂ­, proÄŤ jsem nechal nadpis nepĹ™eloĹľenĂ˝ (jako
+&mdash; podle mĂ©ho nĂˇzoru &mdash; velmi cennĂ˝ pĹ™Ă­spÄ›vek Alana Gaulda v duchu
+kultu Monty Python's Flying Circus). Vyberte si vysvÄ›tlenĂ­, kterĂ© se vĂˇm
+lĂ­bĂ­ nejvĂ­c. PĹ™Ă­padnÄ› zvaĹľte, zda neplatĂ­ vĹˇechna dohromady. PĹ™Ă­padnÄ› ĹľĂˇdnĂ©
 z nich. Nebo je to snad zcela jinak?</p>
 
 </dd>
 </dl>
 
-<h3 id="cztutloops">Příkazy cyklu</h3>
+<h3 id="cztutloops">PĹ™Ă­kazy cyklu</h3>
 
-<p>V této kapitole nejsou uvedeny žádné poznámky formou odkazu.</p>
+<p>V tĂ©to kapitole nejsou uvedeny ĹľĂˇdnĂ© poznĂˇmky formou odkazu.</p>
 
-<h3 id="cztutstyle">Styl zápisu kódu</h3>
+<h3 id="cztutstyle">Styl zĂˇpisu kĂłdu</h3>
 
 <dl>
-<dt><a href="cztutstyle.html#Bstyle_cvs" id="Pstyle_cvs" title="zpět">[1]</a>
-Poznámka k systémům pro správu verzí:</dt>
+<dt><a href="cztutstyle.html#Bstyle_cvs" id="Pstyle_cvs" title="zpÄ›t">[1]</a>
+PoznĂˇmka k systĂ©mĹŻm pro sprĂˇvu verzĂ­:</dt>
 
 <dd>
 
-<p>Pokud to myslíte s programováním vážně a chcete se pustit do projektu,
-který bude mít víc než jen pár řádků zdrojového textu, poohlédněte se po
-některém ze systémů pro správu verzí &mdash; myslí se tím obvykle verze
-jednotlivých zdrojových textů. Odpadnou vám tím starosti třeba právě s
-údržbou údajů, které se uvádějí ve zmíněném komentáři v hlavičce souboru.
-Systém pro správu verzí zajistí automatickou aktualizaci těchto údajů. To
-ale není vše. Tyto systémy udržují databázi změn a umožní vám vrátit se k
-verzi označené značkou nebo určené datem a časem. Umožní vám zjistit, jaké
-změny byly ve zdrojovém souboru provedeny mezi libovolně zvolenými časovými
-okamžiky nebo označkovanými verzemi.</p>
+<p>Pokud to myslĂ­te s programovĂˇnĂ­m vĂˇĹľnÄ› a chcete se pustit do projektu,
+kterĂ˝ bude mĂ­t vĂ­c neĹľ jen pĂˇr Ĺ™ĂˇdkĹŻ zdrojovĂ©ho textu, poohlĂ©dnÄ›te se po
+nÄ›kterĂ©m ze systĂ©mĹŻ pro sprĂˇvu verzĂ­ &mdash; myslĂ­ se tĂ­m obvykle verze
+jednotlivĂ˝ch zdrojovĂ˝ch textĹŻ. Odpadnou vĂˇm tĂ­m starosti tĹ™eba prĂˇvÄ› s
+ĂşdrĹľbou ĂşdajĹŻ, kterĂ© se uvĂˇdÄ›jĂ­ ve zmĂ­nÄ›nĂ©m komentĂˇĹ™i v hlaviÄŤce souboru.
+SystĂ©m pro sprĂˇvu verzĂ­ zajistĂ­ automatickou aktualizaci tÄ›chto ĂşdajĹŻ. To
+ale nenĂ­ vĹˇe. Tyto systĂ©my udrĹľujĂ­ databĂˇzi zmÄ›n a umoĹľnĂ­ vĂˇm vrĂˇtit se k
+verzi oznaÄŤenĂ© znaÄŤkou nebo urÄŤenĂ© datem a ÄŤasem. UmoĹľnĂ­ vĂˇm zjistit, jakĂ©
+zmÄ›ny byly ve zdrojovĂ©m souboru provedeny mezi libovolnÄ› zvolenĂ˝mi ÄŤasovĂ˝mi
+okamĹľiky nebo oznaÄŤkovanĂ˝mi verzemi.</p>
 
-<p>Možná si teď říkáte, že to není nic pro vás. Ale ujišťuji vás, že kdo
-se jednou naučil takový systém používat, již nemá chuť dělat něco bez něj.
-Samozřejmě to od vás bude vyžadovat trochu úsilí navíc &mdash; jako každá
-nová věc. Ale zvládnutí takového systému není složité a výhody bohatě
-vyváží počáteční duševní úsilí. A možná si říkáte, že zase tak moc
-programovat nebudete, že se vás to asi netýká. Ale pozor! Tyto systémy se
-ideálně hodí pro správu libovolných souborů, které mají textovou podobu a
-vyvíjejí se v čase (některé výhody již nejsou tak zřetelné při správě
-binárních souborů). Možná něco intenzívně píšete &mdash; knihu, HTML
-stránky, dokumentaci v textovém formátu a podobně. Pak právě pro vás bude
-použití systému pro správu verzí velkým přínosem &mdash; i když nemusíte mít
-s programováním mnoho společného.</p>
+<p>MoĹľnĂˇ si teÄŹ Ĺ™Ă­kĂˇte, Ĺľe to nenĂ­ nic pro vĂˇs. Ale ujiĹˇĹĄuji vĂˇs, Ĺľe kdo
+se jednou nauÄŤil takovĂ˝ systĂ©m pouĹľĂ­vat, jiĹľ nemĂˇ chuĹĄ dÄ›lat nÄ›co bez nÄ›j.
+SamozĹ™ejmÄ› to od vĂˇs bude vyĹľadovat trochu ĂşsilĂ­ navĂ­c &mdash; jako kaĹľdĂˇ
+novĂˇ vÄ›c. Ale zvlĂˇdnutĂ­ takovĂ©ho systĂ©mu nenĂ­ sloĹľitĂ© a vĂ˝hody bohatÄ›
+vyvĂˇĹľĂ­ poÄŤĂˇteÄŤnĂ­ duĹˇevnĂ­ ĂşsilĂ­. A moĹľnĂˇ si Ĺ™Ă­kĂˇte, Ĺľe zase tak moc
+programovat nebudete, Ĺľe se vĂˇs to asi netĂ˝kĂˇ. Ale pozor! Tyto systĂ©my se
+ideĂˇlnÄ› hodĂ­ pro sprĂˇvu libovolnĂ˝ch souborĹŻ, kterĂ© majĂ­ textovou podobu a
+vyvĂ­jejĂ­ se v ÄŤase (nÄ›kterĂ© vĂ˝hody jiĹľ nejsou tak zĹ™etelnĂ© pĹ™i sprĂˇvÄ›
+binĂˇrnĂ­ch souborĹŻ). MoĹľnĂˇ nÄ›co intenzĂ­vnÄ› pĂ­Ĺˇete &mdash; knihu, HTML
+strĂˇnky, dokumentaci v textovĂ©m formĂˇtu a podobnÄ›. Pak prĂˇvÄ› pro vĂˇs bude
+pouĹľitĂ­ systĂ©mu pro sprĂˇvu verzĂ­ velkĂ˝m pĹ™Ă­nosem &mdash; i kdyĹľ nemusĂ­te mĂ­t
+s programovĂˇnĂ­m mnoho spoleÄŤnĂ©ho.</p>
 
-<p>Momentálně je mezi volně dostupnými a oblíbenými systémy pro správu verzí
-nekorunovaným králem systém známý pod zkratkou <em>CVS</em> &mdash;
-<em>Concurent Versions System</em>. Vychází z historicky staršího systému
-<em>RCS</em> (<em>Revision Control System</em>) a doplňuje k němu
-mechanismy, které umožňují současnou (concurent) práci více programátorů
-najednou. Bezproblémový provoz je zaručen na systémech typu Unix, ale pokud
-hodláte CVS používat pouze na lokálním počítači, pak vám i pod Windows
-vyhoví <a href="http://www.cvsnt.org/" target="_blank">CVSNT</a>,
-případně i některou nadstavbu v podobě grafického uživatelského rozhraní,
+<p>MomentĂˇlnÄ› je mezi volnÄ› dostupnĂ˝mi a oblĂ­benĂ˝mi systĂ©my pro sprĂˇvu verzĂ­
+nekorunovanĂ˝m krĂˇlem systĂ©m znĂˇmĂ˝ pod zkratkou <em>CVS</em> &mdash;
+<em>Concurent Versions System</em>. VychĂˇzĂ­ z historicky starĹˇĂ­ho systĂ©mu
+<em>RCS</em> (<em>Revision Control System</em>) a doplĹuje k nÄ›mu
+mechanismy, kterĂ© umoĹľĹujĂ­ souÄŤasnou (concurent) prĂˇci vĂ­ce programĂˇtorĹŻ
+najednou. BezproblĂ©movĂ˝ provoz je zaruÄŤen na systĂ©mech typu Unix, ale pokud
+hodlĂˇte CVS pouĹľĂ­vat pouze na lokĂˇlnĂ­m poÄŤĂ­taÄŤi, pak vĂˇm i pod Windows
+vyhovĂ­ <a href="http://www.cvsnt.org/" target="_blank">CVSNT</a>,
+pĹ™Ă­padnÄ› i nÄ›kterou nadstavbu v podobÄ› grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­,
 jako je <a href="http://www.wincvs.org/" target="_blank">WinCvs</a> nebo <a
-href="http://www.tortoisecvs.org/" target="_blank">TortoiseCVS</a>. Systém
-CVSNT sice původně vznikl jako CVS pro Windows, ale evolučně se vyvinul do
-podoby dokonalejší, než originál. V současnosti již jej můžete provozovat i
-pod systémem Linux.</p>
+href="http://www.tortoisecvs.org/" target="_blank">TortoiseCVS</a>. SystĂ©m
+CVSNT sice pĹŻvodnÄ› vznikl jako CVS pro Windows, ale evoluÄŤnÄ› se vyvinul do
+podoby dokonalejĹˇĂ­, neĹľ originĂˇl. V souÄŤasnosti jiĹľ jej mĹŻĹľete provozovat i
+pod systĂ©mem Linux.</p>
 
-<p>K základním operacím se systémem CVS patří vytvoření databáze souborů
-(takzvané <em>repository</em>) přidání adresáře nebo souboru do evidence
-(<em>add</em>), zaznamenání změn k současnému stavu (<em>commit</em>),
-získání souborů v aktuální podobě nebo v podobě určené značkou nebo datem
-(<em>checkout</em>), aktualizace souborů podle nejnovějšího stavu v evidenci
-(<em>update</em>), zjištění rozdílů pro aktuální verzi nebo mezi určenými
-verzemi (<em>diff</em>), a další. Systém CVS ze systému RCS mimo jiné
-přebírá takzvané <em>RCS identifikátory</em>, které do zdrojového textu
-zapisujeme ve tvaru <code>$identifikátor$</code>. V okamžiku, kdy systému
-určíme, že má zaznamenat nové úpravy do databáze, rozgeneruje příslušné
-identifikátory do tvaru, který kromě identifikátoru samotného obsahuje i
-jeho hodnotu. Identifikátor můžeme zapsat jak do komentáře, tak i na
-libovolné místo v textu (například do řetězce, který přiřadíme nějaké
-řetězcové proměnné). Následující příklad ukazuje nejpoužívanější RCS
-identifikátory v akci. Původní zápis identifikátorů již byl rozgenerován,
-takže za identifikátorem následuje dvojtečka a poté obsah až po
+<p>K zĂˇkladnĂ­m operacĂ­m se systĂ©mem CVS patĹ™Ă­ vytvoĹ™enĂ­ databĂˇze souborĹŻ
+(takzvanĂ© <em>repository</em>) pĹ™idĂˇnĂ­ adresĂˇĹ™e nebo souboru do evidence
+(<em>add</em>), zaznamenĂˇnĂ­ zmÄ›n k souÄŤasnĂ©mu stavu (<em>commit</em>),
+zĂ­skĂˇnĂ­ souborĹŻ v aktuĂˇlnĂ­ podobÄ› nebo v podobÄ› urÄŤenĂ© znaÄŤkou nebo datem
+(<em>checkout</em>), aktualizace souborĹŻ podle nejnovÄ›jĹˇĂ­ho stavu v evidenci
+(<em>update</em>), zjiĹˇtÄ›nĂ­ rozdĂ­lĹŻ pro aktuĂˇlnĂ­ verzi nebo mezi urÄŤenĂ˝mi
+verzemi (<em>diff</em>), a dalĹˇĂ­. SystĂ©m CVS ze systĂ©mu RCS mimo jinĂ©
+pĹ™ebĂ­rĂˇ takzvanĂ© <em>RCS identifikĂˇtory</em>, kterĂ© do zdrojovĂ©ho textu
+zapisujeme ve tvaru <code>$identifikĂˇtor$</code>. V okamĹľiku, kdy systĂ©mu
+urÄŤĂ­me, Ĺľe mĂˇ zaznamenat novĂ© Ăşpravy do databĂˇze, rozgeneruje pĹ™Ă­sluĹˇnĂ©
+identifikĂˇtory do tvaru, kterĂ˝ kromÄ› identifikĂˇtoru samotnĂ©ho obsahuje i
+jeho hodnotu. IdentifikĂˇtor mĹŻĹľeme zapsat jak do komentĂˇĹ™e, tak i na
+libovolnĂ© mĂ­sto v textu (napĹ™Ă­klad do Ĺ™etÄ›zce, kterĂ˝ pĹ™iĹ™adĂ­me nÄ›jakĂ©
+Ĺ™etÄ›zcovĂ© promÄ›nnĂ©). NĂˇsledujĂ­cĂ­ pĹ™Ă­klad ukazuje nejpouĹľĂ­vanÄ›jĹˇĂ­ RCS
+identifikĂˇtory v akci. PĹŻvodnĂ­ zĂˇpis identifikĂˇtorĹŻ jiĹľ byl rozgenerovĂˇn,
+takĹľe za identifikĂˇtorem nĂˇsleduje dvojteÄŤka a potĂ© obsah aĹľ po
 <code>$</code>:</p>
 
 <pre><span class="comment">
@@ -850,395 +853,395 @@ takže za identifikátorem následuje dvojtečka a poté obsah až po
 # $Date: 2005/10/07 19:07:35 $
 # $Revision: 1.15 $
 #
-# Často se používá i identifikátor <code>Id</code>, který 
-# rozgeneruje hned na několik údajů najednou.
+# ÄŚasto se pouĹľĂ­vĂˇ i identifikĂˇtor <code>Id</code>, kterĂ˝
+# rozgeneruje hned na nÄ›kolik ĂşdajĹŻ najednou.
 #
 # $Id: cztuttrn.html,v 1.15 2005/10/07 19:07:35 petr Exp $
 #
-# Pokud při zaznamenávání změn doplňujeme smysl dávající poznámky 
-# o tom, co se skutečně měnilo, můžeme přímo využít i identifikátor
-# <code>Log</code>, který ke specifické kombinaci údajů přidává i znění 
-# poznámky k poslední revizi. Jak je patrné z níže uvedeného
-# obsahu, nejnovější údaje se připisují hned pod zápis identifikátoru
-# <code>Log</code> a vygenerované poznámky se stávají součástí normálního textu. 
-# Postupně se tak hromadí seznam poznámek, z nichž nejnovější je uvedena 
-# nahoře. Z níže uvedeného seznamu je patrné, že proměnná <code>Log</code> byla 
-# ve zdrojovém souboru poprvé rozgenerována v okamžiku revize 1.21 
-# (tedy v okamžiku 21. zachycené úpravy &mdash; <em>checkin</em>). Aby se
-# ukázka záznamů neprodlužovala s každou další úpravou tohoto souboru, byl
-# znak <code>$</code> později v tomto HTML souboru nahrazen sekvencí, která
-# se zobrazuje jako <code>$</code>, ale cvs již RCS identifikátor <code>Log</code>
-# v tomto místě nenajde: 
+# Pokud pĹ™i zaznamenĂˇvĂˇnĂ­ zmÄ›n doplĹujeme smysl dĂˇvajĂ­cĂ­ poznĂˇmky
+# o tom, co se skuteÄŤnÄ› mÄ›nilo, mĹŻĹľeme pĹ™Ă­mo vyuĹľĂ­t i identifikĂˇtor
+# <code>Log</code>, kterĂ˝ ke specifickĂ© kombinaci ĂşdajĹŻ pĹ™idĂˇvĂˇ i znÄ›nĂ­
+# poznĂˇmky k poslednĂ­ revizi. Jak je patrnĂ© z nĂ­Ĺľe uvedenĂ©ho
+# obsahu, nejnovÄ›jĹˇĂ­ Ăşdaje se pĹ™ipisujĂ­ hned pod zĂˇpis identifikĂˇtoru
+# <code>Log</code> a vygenerovanĂ© poznĂˇmky se stĂˇvajĂ­ souÄŤĂˇstĂ­ normĂˇlnĂ­ho textu.
+# PostupnÄ› se tak hromadĂ­ seznam poznĂˇmek, z nichĹľ nejnovÄ›jĹˇĂ­ je uvedena
+# nahoĹ™e. Z nĂ­Ĺľe uvedenĂ©ho seznamu je patrnĂ©, Ĺľe promÄ›nnĂˇ <code>Log</code> byla
+# ve zdrojovĂ©m souboru poprvĂ© rozgenerovĂˇna v okamĹľiku revize 1.21
+# (tedy v okamĹľiku 21. zachycenĂ© Ăşpravy &mdash; <em>checkin</em>). Aby se
+# ukĂˇzka zĂˇznamĹŻ neprodluĹľovala s kaĹľdou dalĹˇĂ­ Ăşpravou tohoto souboru, byl
+# znak <code>$</code> pozdÄ›ji v tomto HTML souboru nahrazen sekvencĂ­, kterĂˇ
+# se zobrazuje jako <code>$</code>, ale cvs jiĹľ RCS identifikĂˇtor <code>Log</code>
+# v tomto mĂ­stÄ› nenajde:
 #
 # &#36;Log: cztuttrn.html,v $
 # Revision 1.24  2002/08/24 14:43:22  Petr
-# - Další poznámky. Upraveny CSS styly.
+# - DalĹˇĂ­ poznĂˇmky. Upraveny CSS styly.
 #
 # Revision 1.23  2002/08/24 14:31:27  Petr
-# - Doplněna patička souboru.
+# - DoplnÄ›na patiÄŤka souboru.
 #
 # Revision 1.22  2002/08/24 14:20:14  Petr
-# - Připsán další kousek -- demonstrujeme budování seznamu 
-#   na základě RCS identifikátoru <code>Log</code>.
+# - PĹ™ipsĂˇn dalĹˇĂ­ kousek -- demonstrujeme budovĂˇnĂ­ seznamu
+#   na zĂˇkladÄ› RCS identifikĂˇtoru <code>Log</code>.
 #
 # Revision 1.21  2002/08/24 14:09:12  Petr
-# - Dokončena poznámka k CVS.
+# - DokonÄŤena poznĂˇmka k CVS.
 #
 ################################</span>
 </pre>
 
-<p>Ve výše uvedeném příkladu jsem sice použil komentářovou značku <span
-class="comment">#</span> pro Python, ale rozgenerované identifikátory ve
-skutečnosti patří k HTML souboru, jehož naformátovanou podobu právě čtete.
-Systému CVS je jedno, kde RCS identifikátor nalezne &mdash; prostě jej
-rozgeneruje. Takže už víte, odkud se vzaly ty podivné údaje na konci každé
-HTML stránky českého překladu učebnice?</p>
+<p>Ve vĂ˝Ĺˇe uvedenĂ©m pĹ™Ă­kladu jsem sice pouĹľil komentĂˇĹ™ovou znaÄŤku <span
+class="comment">#</span> pro Python, ale rozgenerovanĂ© identifikĂˇtory ve
+skuteÄŤnosti patĹ™Ă­ k HTML souboru, jehoĹľ naformĂˇtovanou podobu prĂˇvÄ› ÄŤtete.
+SystĂ©mu CVS je jedno, kde RCS identifikĂˇtor nalezne &mdash; prostÄ› jej
+rozgeneruje. TakĹľe uĹľ vĂ­te, odkud se vzaly ty podivnĂ© Ăşdaje na konci kaĹľdĂ©
+HTML strĂˇnky ÄŤeskĂ©ho pĹ™ekladu uÄŤebnice?</p>
 
 </dd>
 
 </dl>
 
-<h3 id="cztutinput">Konverzace s uživatelem</h3>
+<h3 id="cztutinput">Konverzace s uĹľivatelem</h3>
 
 <dl>
-<dt><a href="cztutinput.html#Binput_noascii" id="Pinput_noascii" title="zpět">[1]</a>
-Poznámka k zápisu českých řetězců s diakritikou:</dt>
+<dt><a href="cztutinput.html#Binput_noascii" id="Pinput_noascii" title="zpÄ›t">[1]</a>
+PoznĂˇmka k zĂˇpisu ÄŤeskĂ˝ch Ĺ™etÄ›zcĹŻ s diakritikou:</dt>
 
 <dd>
 
-<p>Python chápe datový typ řetězec (v jeho nejjednodušší podobě) jako
-prostou posloupnost bajtů. Jeho nejčastější používání pro texty nás ale
-může svádět k uvažování, že jde o datový typ sloužící právě k udržování
-textových, lidsky čitelných informací. Při tomto přístupu ale  českém
-prostředí brzy narazíme na problémy spojené s kódováním českých znaků.</p>
+<p>Python chĂˇpe datovĂ˝ typ Ĺ™etÄ›zec (v jeho nejjednoduĹˇĹˇĂ­ podobÄ›) jako
+prostou posloupnost bajtĹŻ. Jeho nejÄŤastÄ›jĹˇĂ­ pouĹľĂ­vĂˇnĂ­ pro texty nĂˇs ale
+mĹŻĹľe svĂˇdÄ›t k uvaĹľovĂˇnĂ­, Ĺľe jde o datovĂ˝ typ slouĹľĂ­cĂ­ prĂˇvÄ› k udrĹľovĂˇnĂ­
+textovĂ˝ch, lidsky ÄŤitelnĂ˝ch informacĂ­. PĹ™i tomto pĹ™Ă­stupu ale  ÄŤeskĂ©m
+prostĹ™edĂ­ brzy narazĂ­me na problĂ©my spojenĂ© s kĂłdovĂˇnĂ­m ÄŤeskĂ˝ch znakĹŻ.</p>
 
-<p>Pokud běžný pythonovský řetězec obsahuje znaky s jedničkovým osmým bitem,
-tedy znaky naší abecedy s diakritickými znaménky, interpret jazyka Python s
-nimi nic nedělá. Neprovádí žádné transformace kódování, žádné kontroly.
-Pokud například chceme takový řetězec vytisknout příkazem
-<code>print</code>, Python tyto 8bitové znaky jednoduše pošle na výstup.
-Pracujete-li v systému typu Unix (pravděpodobně Linux), nemělo by to činit
-žádný problém. V celém systému se totiž používá jediné kódování
-<code>iso-8859-2</code>. S problémy by se ale mohli setkat uživatelé
-unixových systémů v zahraničí, protože ti ve svém systému používají
-například kódování <code>iso-8859-1</code>.</p>
+<p>Pokud bÄ›ĹľnĂ˝ pythonovskĂ˝ Ĺ™etÄ›zec obsahuje znaky s jedniÄŤkovĂ˝m osmĂ˝m bitem,
+tedy znaky naĹˇĂ­ abecedy s diakritickĂ˝mi znamĂ©nky, interpret jazyka Python s
+nimi nic nedÄ›lĂˇ. NeprovĂˇdĂ­ ĹľĂˇdnĂ© transformace kĂłdovĂˇnĂ­, ĹľĂˇdnĂ© kontroly.
+Pokud napĹ™Ă­klad chceme takovĂ˝ Ĺ™etÄ›zec vytisknout pĹ™Ă­kazem
+<code>print</code>, Python tyto 8bitovĂ© znaky jednoduĹˇe poĹˇle na vĂ˝stup.
+Pracujete-li v systĂ©mu typu Unix (pravdÄ›podobnÄ› Linux), nemÄ›lo by to ÄŤinit
+ĹľĂˇdnĂ˝ problĂ©m. V celĂ©m systĂ©mu se totiĹľ pouĹľĂ­vĂˇ jedinĂ© kĂłdovĂˇnĂ­
+<code>iso-8859-2</code>. S problĂ©my by se ale mohli setkat uĹľivatelĂ©
+unixovĂ˝ch systĂ©mĹŻ v zahraniÄŤĂ­, protoĹľe ti ve svĂ©m systĂ©mu pouĹľĂ­vajĂ­
+napĹ™Ă­klad kĂłdovĂˇnĂ­ <code>iso-8859-1</code>.</p>
 
-<p>Při práci v systému MS&nbsp;Windows se s problémy s českým kódováním
-setkáme už na domácí půdě. Pro češtinu v DOSovém okně se standardně používá
-znaková sada <code>852</code>, zatímco pro čestinu v jiných oknech se
-používá kódování <code>windows-1250</code>. Z toho vyplývají problémy
-spojené s psaním konzolových aplikací. Někdy mohou výstup zobrazovat ve
-starém "dobrém" DOSovém okně, jindy ve windowsovém okně (například IDLE,
-PyShell). Navíc můžeme chtít, aby se náš vytvářený pythonovský konzolový
-program dal beze změny využít jak v prostředí MS&nbsp;Windows, tak v
-unixovém prostředí.</p>
+<p>PĹ™i prĂˇci v systĂ©mu MS&nbsp;Windows se s problĂ©my s ÄŤeskĂ˝m kĂłdovĂˇnĂ­m
+setkĂˇme uĹľ na domĂˇcĂ­ pĹŻdÄ›. Pro ÄŤeĹˇtinu v DOSovĂ©m oknÄ› se standardnÄ› pouĹľĂ­vĂˇ
+znakovĂˇ sada <code>852</code>, zatĂ­mco pro ÄŤestinu v jinĂ˝ch oknech se
+pouĹľĂ­vĂˇ kĂłdovĂˇnĂ­ <code>windows-1250</code>. Z toho vyplĂ˝vajĂ­ problĂ©my
+spojenĂ© s psanĂ­m konzolovĂ˝ch aplikacĂ­. NÄ›kdy mohou vĂ˝stup zobrazovat ve
+starĂ©m "dobrĂ©m" DOSovĂ©m oknÄ›, jindy ve windowsovĂ©m oknÄ› (napĹ™Ă­klad IDLE,
+PyShell). NavĂ­c mĹŻĹľeme chtĂ­t, aby se nĂˇĹˇ vytvĂˇĹ™enĂ˝ pythonovskĂ˝ konzolovĂ˝
+program dal beze zmÄ›ny vyuĹľĂ­t jak v prostĹ™edĂ­ MS&nbsp;Windows, tak v
+unixovĂ©m prostĹ™edĂ­.</p>
 
-<p id="Pcz_tkinter">S podobnými problémy se setkáme i u pythonovských
-aplikací, které využívají grafické uživatelské rozhraní. Při použití modulu
-Tkinter sice lze 8bitové řetězce používat přímo, ale modul Tkinter v takovém
-případě předpokládá se, že se používá kódování znaků pro západní abecedy
-(tedy <code>iso-8859-1</code>, známé také jako <code>Latin&nbsp;1</code>).
-Některé české znaky se sice zobrazí správně (jako například <code>á</code>
-nebo <code>í</code>), ale řada z nich se zobrazí chybně.</p>
+<p id="Pcz_tkinter">S podobnĂ˝mi problĂ©my se setkĂˇme i u pythonovskĂ˝ch
+aplikacĂ­, kterĂ© vyuĹľĂ­vajĂ­ grafickĂ© uĹľivatelskĂ© rozhranĂ­. PĹ™i pouĹľitĂ­ modulu
+Tkinter sice lze 8bitovĂ© Ĺ™etÄ›zce pouĹľĂ­vat pĹ™Ă­mo, ale modul Tkinter v takovĂ©m
+pĹ™Ă­padÄ› pĹ™edpoklĂˇdĂˇ se, Ĺľe se pouĹľĂ­vĂˇ kĂłdovĂˇnĂ­ znakĹŻ pro zĂˇpadnĂ­ abecedy
+(tedy <code>iso-8859-1</code>, znĂˇmĂ© takĂ© jako <code>Latin&nbsp;1</code>).
+NÄ›kterĂ© ÄŤeskĂ© znaky se sice zobrazĂ­ sprĂˇvnÄ› (jako napĹ™Ă­klad <code>Ăˇ</code>
+nebo <code>Ă­</code>), ale Ĺ™ada z nich se zobrazĂ­ chybnÄ›.</p>
 
-<p>Jak tedy můžeme situaci řešit? Možnosti řešení jsou v zásadě dvě:</p>
+<p>Jak tedy mĹŻĹľeme situaci Ĺ™eĹˇit? MoĹľnosti Ĺ™eĹˇenĂ­ jsou v zĂˇsadÄ› dvÄ›:</p>
 
 <ol>
-<li>I nadále budeme pracovat s běžnými řetězci, ale budeme si navíc pamatovat,
-    v jakém kódování jsou uloženy. Budeme si vždy zjišťovat, v jakém kódování 
-    se provádí výstup a při každé výstupní operaci budeme přímo (explicitně)
-    předepisovat konverzi kódu.</li>
-<li>Využijeme možnosti uložení zobrazovaných řetězců v univerzálním kódování 
-    Unicode.</li>    
+<li>I nadĂˇle budeme pracovat s bÄ›ĹľnĂ˝mi Ĺ™etÄ›zci, ale budeme si navĂ­c pamatovat,
+    v jakĂ©m kĂłdovĂˇnĂ­ jsou uloĹľeny. Budeme si vĹľdy zjiĹˇĹĄovat, v jakĂ©m kĂłdovĂˇnĂ­
+    se provĂˇdĂ­ vĂ˝stup a pĹ™i kaĹľdĂ© vĂ˝stupnĂ­ operaci budeme pĹ™Ă­mo (explicitnÄ›)
+    pĹ™edepisovat konverzi kĂłdu.</li>
+<li>VyuĹľijeme moĹľnosti uloĹľenĂ­ zobrazovanĂ˝ch Ĺ™etÄ›zcĹŻ v univerzĂˇlnĂ­m kĂłdovĂˇnĂ­
+    Unicode.</li>
 </ol>
 
-<p>První možnost je klasičtější. Pochází z doby, kdy kódování Unicode ještě
-nebylo definováno. Drobnou nevýhodou druhého přístupu je skutečnost, že
-používání Unicode má o něco větší nároky na velikost paměťového prostoru. V
-současné době však je uvedená nevýhoda diskutabilní. Pokud se rozhodneme
-pro zápis řetězců v Unicode, odpadne nám celá řada problémů. Python nám
-zajistí korektní výstup řetězců jak na konzoli, tak do oken grafického
-uživatelského rozhraní. Nebudeme mít problémy s přechodem mezi různými
-operačními systémy. V našich programech budeme moci současně používat
-řetězce z různých lidských jazyků. I nadále budeme mít možnost provádět
-konverze na různá, klasická 8bitová kódování.</p>
+<p>PrvnĂ­ moĹľnost je klasiÄŤtÄ›jĹˇĂ­. PochĂˇzĂ­ z doby, kdy kĂłdovĂˇnĂ­ Unicode jeĹˇtÄ›
+nebylo definovĂˇno. Drobnou nevĂ˝hodou druhĂ©ho pĹ™Ă­stupu je skuteÄŤnost, Ĺľe
+pouĹľĂ­vĂˇnĂ­ Unicode mĂˇ o nÄ›co vÄ›tĹˇĂ­ nĂˇroky na velikost pamÄ›ĹĄovĂ©ho prostoru. V
+souÄŤasnĂ© dobÄ› vĹˇak je uvedenĂˇ nevĂ˝hoda diskutabilnĂ­. Pokud se rozhodneme
+pro zĂˇpis Ĺ™etÄ›zcĹŻ v Unicode, odpadne nĂˇm celĂˇ Ĺ™ada problĂ©mĹŻ. Python nĂˇm
+zajistĂ­ korektnĂ­ vĂ˝stup Ĺ™etÄ›zcĹŻ jak na konzoli, tak do oken grafickĂ©ho
+uĹľivatelskĂ©ho rozhranĂ­. Nebudeme mĂ­t problĂ©my s pĹ™echodem mezi rĹŻznĂ˝mi
+operaÄŤnĂ­mi systĂ©my. V naĹˇich programech budeme moci souÄŤasnÄ› pouĹľĂ­vat
+Ĺ™etÄ›zce z rĹŻznĂ˝ch lidskĂ˝ch jazykĹŻ. I nadĂˇle budeme mĂ­t moĹľnost provĂˇdÄ›t
+konverze na rĹŻznĂˇ, klasickĂˇ 8bitovĂˇ kĂłdovĂˇnĂ­.</p>
 
-<p>Při práci s řetězci v kódování Unicode musíme dávat pozor pouze v
-okamžicích, kdy jejich hodnota vzniká. Při přímém použití řetězce v programu
-musíme používat jinou formu zápisu řetězcových konstant &mdash; před
-uvozující znaky řetězce musíme navíc přidat písmeno <code>u</code>. Uveďme
-si příklad krátkého programu, který uloží řetězec v kódování Unicode do
-proměnné <code>s</code>. Tu poté zobrazí na výstupu a skončí:</p>
+<p>PĹ™i prĂˇci s Ĺ™etÄ›zci v kĂłdovĂˇnĂ­ Unicode musĂ­me dĂˇvat pozor pouze v
+okamĹľicĂ­ch, kdy jejich hodnota vznikĂˇ. PĹ™i pĹ™Ă­mĂ©m pouĹľitĂ­ Ĺ™etÄ›zce v programu
+musĂ­me pouĹľĂ­vat jinou formu zĂˇpisu Ĺ™etÄ›zcovĂ˝ch konstant &mdash; pĹ™ed
+uvozujĂ­cĂ­ znaky Ĺ™etÄ›zce musĂ­me navĂ­c pĹ™idat pĂ­smeno <code>u</code>. UveÄŹme
+si pĹ™Ă­klad krĂˇtkĂ©ho programu, kterĂ˝ uloĹľĂ­ Ĺ™etÄ›zec v kĂłdovĂˇnĂ­ Unicode do
+promÄ›nnĂ© <code>s</code>. Tu potĂ© zobrazĂ­ na vĂ˝stupu a skonÄŤĂ­:</p>
 
 <pre>
 # -*- coding: cp1250 -*-
-s = u'Příšerně žluťoučký kůň úpěl ďábelské ódy.'
+s = u'PĹ™Ă­ĹˇernÄ› ĹľluĹĄouÄŤkĂ˝ kĹŻĹ ĂşpÄ›l ÄŹĂˇbelskĂ© Ăłdy.'
 print s
 </pre>
 
-<p>Povšimněte si prvního řádku. V komentáři se speciálním tvarem je zde
-uvedeno, jaké kódování používal editor, ve kterém se soubor vytvářel. Pokud
-tato informace není uvedena, zjišťuje se informace o použitém kódování
-voláním systémové funkce Pythonu. V takovém případě ale není zaručené, že
-bude řetězec do kódování Unicode převeden správně &mdash; program by nebyl
-přenositelný mezi systémy s různým kódováním. Při pokusu o zobrazení
-nesprávně převedeného řetězce by pak pravděpodobně došlo k výjimce s
-hlášením o neočekávaném znaku. Musíme si uvědomit, že řetězec při zápisu v
-editoru vidíme správně česky právě proto, že editor pracuje s úrčitým
-kódováním. V souboru bude výsledek uložen jako 8bitové znaky v tomto
-kódování. Při spuštění programu musí interpret jazyka Python opět převést
-uložené 8bitové znaky do kódování Unicode. A právě k tomu potřebuje
-informaci, v jakém 8bitovém kódování byl zdrojový text pořízen. Od verze
-2.3.4 Python varuje v případech, kdy se uvedení tohoto speciálního komentáře
-očekává, ale není uvedeno.</p>
+<p>PovĹˇimnÄ›te si prvnĂ­ho Ĺ™Ăˇdku. V komentĂˇĹ™i se speciĂˇlnĂ­m tvarem je zde
+uvedeno, jakĂ© kĂłdovĂˇnĂ­ pouĹľĂ­val editor, ve kterĂ©m se soubor vytvĂˇĹ™el. Pokud
+tato informace nenĂ­ uvedena, zjiĹˇĹĄuje se informace o pouĹľitĂ©m kĂłdovĂˇnĂ­
+volĂˇnĂ­m systĂ©movĂ© funkce Pythonu. V takovĂ©m pĹ™Ă­padÄ› ale nenĂ­ zaruÄŤenĂ©, Ĺľe
+bude Ĺ™etÄ›zec do kĂłdovĂˇnĂ­ Unicode pĹ™eveden sprĂˇvnÄ› &mdash; program by nebyl
+pĹ™enositelnĂ˝ mezi systĂ©my s rĹŻznĂ˝m kĂłdovĂˇnĂ­m. PĹ™i pokusu o zobrazenĂ­
+nesprĂˇvnÄ› pĹ™evedenĂ©ho Ĺ™etÄ›zce by pak pravdÄ›podobnÄ› doĹˇlo k vĂ˝jimce s
+hlĂˇĹˇenĂ­m o neoÄŤekĂˇvanĂ©m znaku. MusĂ­me si uvÄ›domit, Ĺľe Ĺ™etÄ›zec pĹ™i zĂˇpisu v
+editoru vidĂ­me sprĂˇvnÄ› ÄŤesky prĂˇvÄ› proto, Ĺľe editor pracuje s ĂşrÄŤitĂ˝m
+kĂłdovĂˇnĂ­m. V souboru bude vĂ˝sledek uloĹľen jako 8bitovĂ© znaky v tomto
+kĂłdovĂˇnĂ­. PĹ™i spuĹˇtÄ›nĂ­ programu musĂ­ interpret jazyka Python opÄ›t pĹ™evĂ©st
+uloĹľenĂ© 8bitovĂ© znaky do kĂłdovĂˇnĂ­ Unicode. A prĂˇvÄ› k tomu potĹ™ebuje
+informaci, v jakĂ©m 8bitovĂ©m kĂłdovĂˇnĂ­ byl zdrojovĂ˝ text poĹ™Ă­zen. Od verze
+2.3.4 Python varuje v pĹ™Ă­padech, kdy se uvedenĂ­ tohoto speciĂˇlnĂ­ho komentĂˇĹ™e
+oÄŤekĂˇvĂˇ, ale nenĂ­ uvedeno.</p>
 
-<p>Uvedený příklad je připraven pro uložení do souboru při kódování
-<code>windows-1250</code> (nazvěme jej například <code>pokus.py</code>).
-Pokud vše zkoušíte pod Linuxem nebo jiným unixovým systémem, uveďte správné
-kódování. Pokud máte k dispozici editor, který umí přepínat kódování
-výstupního souboru nezávisle na systému, můžete toho využít rovněž. Správně
-uložený soubor může vnitřně používat a definovat kódování
-<code>windows-1250</code> i v unixových systémech. Platí to i naopak &mdash;
-v Linuxu připravený prográmek by měl po spuštění
-<code>python&nbsp;pokus.py</code> vypsat zobrazit text správně česky i v
+<p>UvedenĂ˝ pĹ™Ă­klad je pĹ™ipraven pro uloĹľenĂ­ do souboru pĹ™i kĂłdovĂˇnĂ­
+<code>windows-1250</code> (nazvÄ›me jej napĹ™Ă­klad <code>pokus.py</code>).
+Pokud vĹˇe zkouĹˇĂ­te pod Linuxem nebo jinĂ˝m unixovĂ˝m systĂ©mem, uveÄŹte sprĂˇvnĂ©
+kĂłdovĂˇnĂ­. Pokud mĂˇte k dispozici editor, kterĂ˝ umĂ­ pĹ™epĂ­nat kĂłdovĂˇnĂ­
+vĂ˝stupnĂ­ho souboru nezĂˇvisle na systĂ©mu, mĹŻĹľete toho vyuĹľĂ­t rovnÄ›Ĺľ. SprĂˇvnÄ›
+uloĹľenĂ˝ soubor mĹŻĹľe vnitĹ™nÄ› pouĹľĂ­vat a definovat kĂłdovĂˇnĂ­
+<code>windows-1250</code> i v unixovĂ˝ch systĂ©mech. PlatĂ­ to i naopak &mdash;
+v Linuxu pĹ™ipravenĂ˝ progrĂˇmek by mÄ›l po spuĹˇtÄ›nĂ­
+<code>python&nbsp;pokus.py</code> vypsat zobrazit text sprĂˇvnÄ› ÄŤesky i v
 MS&nbsp;Windows.</p>
 
 </dd>
 </dl>
 
-<h3 id="cztutbranch">Větvení, aneb nechť padne rozhodnutí</h3>
+<h3 id="cztutbranch">VÄ›tvenĂ­, aneb nechĹĄ padne rozhodnutĂ­</h3>
 
 <dl>
-<dt><a href="cztutbranch.html#Bbranch_boolvar" id="Pbranch_boolvar" title="zpět">[1]</a>
-Je vytváření boolovských proměnných skutečně řídkým jevem?</dt>
+<dt><a href="cztutbranch.html#Bbranch_boolvar" id="Pbranch_boolvar" title="zpÄ›t">[1]</a>
+Je vytvĂˇĹ™enĂ­ boolovskĂ˝ch promÄ›nnĂ˝ch skuteÄŤnÄ› Ĺ™Ă­dkĂ˝m jevem?</dt>
 
-<dd><p>Pro ty, kdo mají rádi stručnost&hellip; Osobně si myslím, že to 
-neodpovídá skutečnosti.</p>
+<dd><p>Pro ty, kdo majĂ­ rĂˇdi struÄŤnost&hellip; OsobnÄ› si myslĂ­m, Ĺľe to
+neodpovĂ­dĂˇ skuteÄŤnosti.</p>
 
-<p>Pravděpodobně je to věc programátorského stylu. Řada jazyků &mdash; 
-a patří k nim i Python &mdash; provádí v místech, kde se očekává boolovská
-hodnota, automatickou konverzi. Takže například prázdný pythonovský řetězec
-se například při použití v podmínce cyklu chápe jako hodnota <em>false</em>
-a neprázdný jako <em>true</em>. Podobně prázdný seznam se v boolovském
-kontextu chápe jako <em>false</em> a neprázdný jako <em>true</em>. Vhodné
-využívání těchto vlastností může zvýšit čitelnost a přehlednost zdrojového
-kódu. Ale osobně považuji za vhodnější, když se pro uložení logického
-příznaku používá raději boolovská proměnná, než celočíselná proměnná s
+<p>PravdÄ›podobnÄ› je to vÄ›c programĂˇtorskĂ©ho stylu. Ĺada jazykĹŻ &mdash;
+a patĹ™Ă­ k nim i Python &mdash; provĂˇdĂ­ v mĂ­stech, kde se oÄŤekĂˇvĂˇ boolovskĂˇ
+hodnota, automatickou konverzi. TakĹľe napĹ™Ă­klad prĂˇzdnĂ˝ pythonovskĂ˝ Ĺ™etÄ›zec
+se napĹ™Ă­klad pĹ™i pouĹľitĂ­ v podmĂ­nce cyklu chĂˇpe jako hodnota <em>false</em>
+a neprĂˇzdnĂ˝ jako <em>true</em>. PodobnÄ› prĂˇzdnĂ˝ seznam se v boolovskĂ©m
+kontextu chĂˇpe jako <em>false</em> a neprĂˇzdnĂ˝ jako <em>true</em>. VhodnĂ©
+vyuĹľĂ­vĂˇnĂ­ tÄ›chto vlastnostĂ­ mĹŻĹľe zvĂ˝Ĺˇit ÄŤitelnost a pĹ™ehlednost zdrojovĂ©ho
+kĂłdu. Ale osobnÄ› povaĹľuji za vhodnÄ›jĹˇĂ­, kdyĹľ se pro uloĹľenĂ­ logickĂ©ho
+pĹ™Ă­znaku pouĹľĂ­vĂˇ radÄ›ji boolovskĂˇ promÄ›nnĂˇ, neĹľ celoÄŤĂ­selnĂˇ promÄ›nnĂˇ s
 hodnotami nula a jedna.</p>
 
-<p>V době vzniku této učebnice neměl Alan Gauld navybranou. Typ
-<code>bool</code> byl do jazyka Python zaveden až ve vyšší verzi, spolu s
+<p>V dobÄ› vzniku tĂ©to uÄŤebnice nemÄ›l Alan Gauld navybranou. Typ
+<code>bool</code> byl do jazyka Python zaveden aĹľ ve vyĹˇĹˇĂ­ verzi, spolu s
 hodnotami <code>True</code> a <code>False</code>.</p>
 </dd>
 
-<dt><a href="cztutbranch.html#Bbranch_newbool" id="Pbranch_newbool" title="zpět">[2]</a>
-Takže píše se <em>true</em> a <em>false</em> s malým nebo s velkým počátečním 
-písmenem?</dt>
+<dt><a href="cztutbranch.html#Bbranch_newbool" id="Pbranch_newbool" title="zpÄ›t">[2]</a>
+TakĹľe pĂ­Ĺˇe se <em>true</em> a <em>false</em> s malĂ˝m nebo s velkĂ˝m poÄŤĂˇteÄŤnĂ­m
+pĂ­smenem?</dt>
 
-<dd><p>V novějších verzích jazyka Python byl zaveden typ <code>bool</code> s
-konstantami <code>True</code> a <code>False</code>. Protože Python patří
-mezi jazyky, ve kterých záleží na velikosti písmen, musíme tyto konstanty
-psát s velkým počátečním písmenem.</p>
+<dd><p>V novÄ›jĹˇĂ­ch verzĂ­ch jazyka Python byl zaveden typ <code>bool</code> s
+konstantami <code>True</code> a <code>False</code>. ProtoĹľe Python patĹ™Ă­
+mezi jazyky, ve kterĂ˝ch zĂˇleĹľĂ­ na velikosti pĂ­smen, musĂ­me tyto konstanty
+psĂˇt s velkĂ˝m poÄŤĂˇteÄŤnĂ­m pĂ­smenem.</p>
 
 <p>Naproti tomu <em>true</em> (pravda) a <em>false</em> (nepravda)
-představují (anglické) matematické pojmy pro vyjádření pravdivostní hodnoty.
-V tomto abstraktním smyslu není důležité, zda v nich píšeme malá nebo velká
-počáteční písmena.</p>
+pĹ™edstavujĂ­ (anglickĂ©) matematickĂ© pojmy pro vyjĂˇdĹ™enĂ­ pravdivostnĂ­ hodnoty.
+V tomto abstraktnĂ­m smyslu nenĂ­ dĹŻleĹľitĂ©, zda v nich pĂ­Ĺˇeme malĂˇ nebo velkĂˇ
+poÄŤĂˇteÄŤnĂ­ pĂ­smena.</p>
 
-<p>Pokud tedy někde uvidíte zápis <code>True</code> nebo <code>False</code>,
-pak je tím vyjádřena skutečnost, že se hovoří o konkrétních konstantách
-jazyka Python. Pokud někde budeme hovořit velmi obecně nebo pokud budeme
-chtít konkrétní případ odlišit od případu existence konstant jazyka Python,
-pak budeme zapisovat <em>true</em> a <em>false</em>. Chápejte to ovšem jako
-drobný detail. Na druhou stranu, konstantu <code>True</code> nikdy neuvidíte
-použitou ve významu <em>false</em> a konstantu <code>False</code> nebudeme
-používat ve významu <em>true</em>.</p>
+<p>Pokud tedy nÄ›kde uvidĂ­te zĂˇpis <code>True</code> nebo <code>False</code>,
+pak je tĂ­m vyjĂˇdĹ™ena skuteÄŤnost, Ĺľe se hovoĹ™Ă­ o konkrĂ©tnĂ­ch konstantĂˇch
+jazyka Python. Pokud nÄ›kde budeme hovoĹ™it velmi obecnÄ› nebo pokud budeme
+chtĂ­t konkrĂ©tnĂ­ pĹ™Ă­pad odliĹˇit od pĹ™Ă­padu existence konstant jazyka Python,
+pak budeme zapisovat <em>true</em> a <em>false</em>. ChĂˇpejte to ovĹˇem jako
+drobnĂ˝ detail. Na druhou stranu, konstantu <code>True</code> nikdy neuvidĂ­te
+pouĹľitou ve vĂ˝znamu <em>false</em> a konstantu <code>False</code> nebudeme
+pouĹľĂ­vat ve vĂ˝znamu <em>true</em>.</p>
 
 </dd>
 </dl>
 
-<h3 id="cztutfunc">Modulární programování (Funkce a moduly)</h3>
+<h3 id="cztutfunc">ModulĂˇrnĂ­ programovĂˇnĂ­ (Funkce a moduly)</h3>
 
 <dl>
-<dt><a href="cztutfunc.html#Bfunc_include" id="Pfunc_include" title="zpět">[1]</a>
-Poznámka k <code>#include</code> v C a C++:</dt>
+<dt><a href="cztutfunc.html#Bfunc_include" id="Pfunc_include" title="zpÄ›t">[1]</a>
+PoznĂˇmka k <code>#include</code> v C a C++:</dt>
 
-<dd><p>Autor zjevně naráží na příkaz <code>#include</code>, který byl do
-jazyka C++ převzat z jeho předchůdce, jazyka C. Tento příkaz skutečně
-zajišťuje, že se (při překladu) obsahem určeného textového souboru nahradí
-právě příslušný příkaz include. Jde o příkaz preprocesoru, který se o
-podobné textové náhrady stará. Ale tvrzení, že jím do zdrojového textu
-programu načítáme <em>moduly</em>, je problematické. Typicky se jím načítají
-takzvané <em>hlavičkové soubory</em>, které popisují například <em>prototypy
-funkcí</em>.</p>
+<dd><p>Autor zjevnÄ› narĂˇĹľĂ­ na pĹ™Ă­kaz <code>#include</code>, kterĂ˝ byl do
+jazyka C++ pĹ™evzat z jeho pĹ™edchĹŻdce, jazyka C. Tento pĹ™Ă­kaz skuteÄŤnÄ›
+zajiĹˇĹĄuje, Ĺľe se (pĹ™i pĹ™ekladu) obsahem urÄŤenĂ©ho textovĂ©ho souboru nahradĂ­
+prĂˇvÄ› pĹ™Ă­sluĹˇnĂ˝ pĹ™Ă­kaz include. Jde o pĹ™Ă­kaz preprocesoru, kterĂ˝ se o
+podobnĂ© textovĂ© nĂˇhrady starĂˇ. Ale tvrzenĂ­, Ĺľe jĂ­m do zdrojovĂ©ho textu
+programu naÄŤĂ­tĂˇme <em>moduly</em>, je problematickĂ©. Typicky se jĂ­m naÄŤĂ­tajĂ­
+takzvanĂ© <em>hlaviÄŤkovĂ© soubory</em>, kterĂ© popisujĂ­ napĹ™Ă­klad <em>prototypy
+funkcĂ­</em>.</p>
 
-<p>Prototypem funkce se myslí ta část definice funkce, která určuje jméno
-funkce, počet a typy parametrů, typ návratové funkční hodnoty a některé
-další detaily. Prototyp funkce neobsahuje tělo funkce. Překladač informací z
-prototypu funkce využívá pro kontrolu toho, zda v našem kódu voláme
-dostupnou funkci, zda ji předáváme správné parametry a podobně. Na základě
-toho vygeneruje podsloupnost instrukcí, které volání funkce zajistí a které
-zajistí převzetí vracené funkční hodnoty &mdash; to vše bez znalosti těla
-funkce. Těla takto volaných funkcí jsou typicky umístěna buď v cílových
-souborech (<code>.obj</code>), nebo v knihovních souborech
+<p>Prototypem funkce se myslĂ­ ta ÄŤĂˇst definice funkce, kterĂˇ urÄŤuje jmĂ©no
+funkce, poÄŤet a typy parametrĹŻ, typ nĂˇvratovĂ© funkÄŤnĂ­ hodnoty a nÄ›kterĂ©
+dalĹˇĂ­ detaily. Prototyp funkce neobsahuje tÄ›lo funkce. PĹ™ekladaÄŤ informacĂ­ z
+prototypu funkce vyuĹľĂ­vĂˇ pro kontrolu toho, zda v naĹˇem kĂłdu volĂˇme
+dostupnou funkci, zda ji pĹ™edĂˇvĂˇme sprĂˇvnĂ© parametry a podobnÄ›. Na zĂˇkladÄ›
+toho vygeneruje podsloupnost instrukcĂ­, kterĂ© volĂˇnĂ­ funkce zajistĂ­ a kterĂ©
+zajistĂ­ pĹ™evzetĂ­ vracenĂ© funkÄŤnĂ­ hodnoty &mdash; to vĹˇe bez znalosti tÄ›la
+funkce. TÄ›la takto volanĂ˝ch funkcĂ­ jsou typicky umĂ­stÄ›na buÄŹ v cĂ­lovĂ˝ch
+souborech (<code>.obj</code>), nebo v knihovnĂ­ch souborech
 (<code>.lib</code>).</p>
 
-<p>Pojem <em>modul</em> není v jazycích C a C++ ostře vymezen. Pokud
-přijmeme autorův postoj, že funkce je jakýmsi druhem modulu, pak bychom
-příkaz <code>#include</code> mohli v C/C++ považovat za způsob zpřístupnění
-modulu. Modulem se však obvykle chápe něco na jiné úrovni abstrakce, než je
-prostá funkce. Pro modul bývá typické to, že existuje veřejné rozhraní k
-implementované funkčnosti a může existovat i kód modulu, který není veřejně
-přístupný. Modul také zapouzdřuje datové struktury, které se používají jen
-pro vnitřní účely modulu.</p>
+<p>Pojem <em>modul</em> nenĂ­ v jazycĂ­ch C a C++ ostĹ™e vymezen. Pokud
+pĹ™ijmeme autorĹŻv postoj, Ĺľe funkce je jakĂ˝msi druhem modulu, pak bychom
+pĹ™Ă­kaz <code>#include</code> mohli v C/C++ povaĹľovat za zpĹŻsob zpĹ™Ă­stupnÄ›nĂ­
+modulu. Modulem se vĹˇak obvykle chĂˇpe nÄ›co na jinĂ© Ăşrovni abstrakce, neĹľ je
+prostĂˇ funkce. Pro modul bĂ˝vĂˇ typickĂ© to, Ĺľe existuje veĹ™ejnĂ© rozhranĂ­ k
+implementovanĂ© funkÄŤnosti a mĹŻĹľe existovat i kĂłd modulu, kterĂ˝ nenĂ­ veĹ™ejnÄ›
+pĹ™Ă­stupnĂ˝. Modul takĂ© zapouzdĹ™uje datovĂ© struktury, kterĂ© se pouĹľĂ­vajĂ­ jen
+pro vnitĹ™nĂ­ ĂşÄŤely modulu.</p>
 
-<p>Zatímco existenci <em>funkcí, procedur a datových struktur</em> spojujeme
-s pojmem <em>strukturované</em> programování, <em>moduly</em> a s nimi
-spojené <em>modulární programování</em> jde o krůček dál. Proti
-strukturovanému programování se navíc zabývá ukrýváním dat a veřejně
-nepřístupných funkcí na jedné straně a zpřístupněním veřejného rozhraní na
-straně druhé. O další krok dál jde <em>objektově orientované
-programování</em>, ve kterém se na požádání jakoby vytváří více kopií toho,
-co bylo u modulárního programování představováno modulem, jehož vnitřní
-datové struktury mohly být během používání naplněny konkrétními daty.</p>
+<p>ZatĂ­mco existenci <em>funkcĂ­, procedur a datovĂ˝ch struktur</em> spojujeme
+s pojmem <em>strukturovanĂ©</em> programovĂˇnĂ­, <em>moduly</em> a s nimi
+spojenĂ© <em>modulĂˇrnĂ­ programovĂˇnĂ­</em> jde o krĹŻÄŤek dĂˇl. Proti
+strukturovanĂ©mu programovĂˇnĂ­ se navĂ­c zabĂ˝vĂˇ ukrĂ˝vĂˇnĂ­m dat a veĹ™ejnÄ›
+nepĹ™Ă­stupnĂ˝ch funkcĂ­ na jednĂ© stranÄ› a zpĹ™Ă­stupnÄ›nĂ­m veĹ™ejnĂ©ho rozhranĂ­ na
+stranÄ› druhĂ©. O dalĹˇĂ­ krok dĂˇl jde <em>objektovÄ› orientovanĂ©
+programovĂˇnĂ­</em>, ve kterĂ©m se na poĹľĂˇdĂˇnĂ­ jakoby vytvĂˇĹ™Ă­ vĂ­ce kopiĂ­ toho,
+co bylo u modulĂˇrnĂ­ho programovĂˇnĂ­ pĹ™edstavovĂˇno modulem, jehoĹľ vnitĹ™nĂ­
+datovĂ© struktury mohly bĂ˝t bÄ›hem pouĹľĂ­vĂˇnĂ­ naplnÄ›ny konkrĂ©tnĂ­mi daty.</p>
 
 </dd>
 
 </dl>
 
-<h3 id="cztutfiles">Práce se soubory a s textem</h3>
+<h3 id="cztutfiles">PrĂˇce se soubory a s textem</h3>
 
 <dl>
-<dt><a href="cztutfiles.html#Bfiles_factoryFun" id="Pfiles_factoryFun" title="zpět">[1]</a>
-Vysvětlení pojmu <em>Factory function</em>.</dt>
+<dt><a href="cztutfiles.html#Bfiles_factoryFun" id="Pfiles_factoryFun" title="zpÄ›t">[1]</a>
+VysvÄ›tlenĂ­ pojmu <em>Factory function</em>.</dt>
 
 <dd><p class="ir">Dopsat.</p>
 </dd>
 
-<dt><a href="cztutfiles.html#Bfiles_log" id="Pfiles_log" title="zpět">[2]</a>
-Proč se log-souboru říká log-soubor?</dt>
+<dt><a href="cztutfiles.html#Bfiles_log" id="Pfiles_log" title="zpÄ›t">[2]</a>
+ProÄŤ se log-souboru Ĺ™Ă­kĂˇ log-soubor?</dt>
 
-<dd><p>Doufám, že se svým soukromým odhadem přiblížím ke skutečnému původu
-slova log-soubor (anglicky log file). Pokud znáte správnější nebo přesnější
-vysvětlení, rád je zde uvedu.</p>
+<dd><p>DoufĂˇm, Ĺľe se svĂ˝m soukromĂ˝m odhadem pĹ™iblĂ­ĹľĂ­m ke skuteÄŤnĂ©mu pĹŻvodu
+slova log-soubor (anglicky log file). Pokud znĂˇte sprĂˇvnÄ›jĹˇĂ­ nebo pĹ™esnÄ›jĹˇĂ­
+vysvÄ›tlenĂ­, rĂˇd je zde uvedu.</p>
 
-<p>Slovo <em>log</em> se v lodní terminologii používá pro lodní deník, do
-kterého se zapisují důležité údaje o plavbě. Je to pravděpodobně
-nejdůležitější doklad o provozu lodi na dané plavbě a považuje se za
-nedotknutelný v tom smyslu, že se nemění předchozí zápisy. Vždy se do něj
-pouze připisuje na konec. Odtud pravděpodobně pochází počítačová analogie v
-podobě takzvaných <em>log-souborů</em>, do kterých se zapisují například
-význačné události, které se v systému udály. Log-soubory ale obvykle bývají
-specializované &mdash; v systému bývá více než jeden. Samostatné soubory s
-takovým charakterem si často vytvářejí i různé aplikace. Jejich společným
-rysem je kromě připisování záznamů na konec i to, že nejsou určeny k
-ukládání nějakých mezivýsledků nebo údajů, které by se dále programem
-zpracovávaly. Slouží spíše správci aplikace nebo systému k tomu, aby mohl v
-případě potřeby dohledat historii určitých událostí a odhalit například, kde
-se v systému stala chyba a co k ní mohlo vést &mdash; tak jako například
-pojišťovací společnost zkoumá obsah lodního deníku havarované lodi, tak jako
-tým inspektorů zkoumá obsah černé skříňky havarovaného letadla.</p>
+<p>Slovo <em>log</em> se v lodnĂ­ terminologii pouĹľĂ­vĂˇ pro lodnĂ­ denĂ­k, do
+kterĂ©ho se zapisujĂ­ dĹŻleĹľitĂ© Ăşdaje o plavbÄ›. Je to pravdÄ›podobnÄ›
+nejdĹŻleĹľitÄ›jĹˇĂ­ doklad o provozu lodi na danĂ© plavbÄ› a povaĹľuje se za
+nedotknutelnĂ˝ v tom smyslu, Ĺľe se nemÄ›nĂ­ pĹ™edchozĂ­ zĂˇpisy. VĹľdy se do nÄ›j
+pouze pĹ™ipisuje na konec. Odtud pravdÄ›podobnÄ› pochĂˇzĂ­ poÄŤĂ­taÄŤovĂˇ analogie v
+podobÄ› takzvanĂ˝ch <em>log-souborĹŻ</em>, do kterĂ˝ch se zapisujĂ­ napĹ™Ă­klad
+vĂ˝znaÄŤnĂ© udĂˇlosti, kterĂ© se v systĂ©mu udĂˇly. Log-soubory ale obvykle bĂ˝vajĂ­
+specializovanĂ© &mdash; v systĂ©mu bĂ˝vĂˇ vĂ­ce neĹľ jeden. SamostatnĂ© soubory s
+takovĂ˝m charakterem si ÄŤasto vytvĂˇĹ™ejĂ­ i rĹŻznĂ© aplikace. Jejich spoleÄŤnĂ˝m
+rysem je kromÄ› pĹ™ipisovĂˇnĂ­ zĂˇznamĹŻ na konec i to, Ĺľe nejsou urÄŤeny k
+uklĂˇdĂˇnĂ­ nÄ›jakĂ˝ch mezivĂ˝sledkĹŻ nebo ĂşdajĹŻ, kterĂ© by se dĂˇle programem
+zpracovĂˇvaly. SlouĹľĂ­ spĂ­Ĺˇe sprĂˇvci aplikace nebo systĂ©mu k tomu, aby mohl v
+pĹ™Ă­padÄ› potĹ™eby dohledat historii urÄŤitĂ˝ch udĂˇlostĂ­ a odhalit napĹ™Ă­klad, kde
+se v systĂ©mu stala chyba a co k nĂ­ mohlo vĂ©st &mdash; tak jako napĹ™Ă­klad
+pojiĹˇĹĄovacĂ­ spoleÄŤnost zkoumĂˇ obsah lodnĂ­ho denĂ­ku havarovanĂ© lodi, tak jako
+tĂ˝m inspektorĹŻ zkoumĂˇ obsah ÄŤernĂ© skĹ™Ă­Ĺky havarovanĂ©ho letadla.</p>
 
-<p>Tolik tedy k účelu. A kde se vzal samotný název <em>log</em>? Jedním z
-velmi důležitých údajů, které se při navigaci lodi používají je její
-rychlost. A k jejímu měření se dříve používalo zařízení, které mělo podobu
-dřevěné desky zavěšené na lanku tak, aby po vhození do vody brzdila pohyb
-konce lanka vůči okolní vodě (jako padák ve vzduchu). Námořník pak po
-měřenou dobu (např. přesýpacími hodinami) nechával šňůru proklouzávat rukou
-a počítal uzly, které na šňůře byly navázány v odměřených vzdálenostech.
-Proto se rychlost lodi uvádí v uzlech.</p>
+<p>Tolik tedy k ĂşÄŤelu. A kde se vzal samotnĂ˝ nĂˇzev <em>log</em>? JednĂ­m z
+velmi dĹŻleĹľitĂ˝ch ĂşdajĹŻ, kterĂ© se pĹ™i navigaci lodi pouĹľĂ­vajĂ­ je jejĂ­
+rychlost. A k jejĂ­mu mÄ›Ĺ™enĂ­ se dĹ™Ă­ve pouĹľĂ­valo zaĹ™Ă­zenĂ­, kterĂ© mÄ›lo podobu
+dĹ™evÄ›nĂ© desky zavÄ›ĹˇenĂ© na lanku tak, aby po vhozenĂ­ do vody brzdila pohyb
+konce lanka vĹŻÄŤi okolnĂ­ vodÄ› (jako padĂˇk ve vzduchu). NĂˇmoĹ™nĂ­k pak po
+mÄ›Ĺ™enou dobu (napĹ™. pĹ™esĂ˝pacĂ­mi hodinami) nechĂˇval ĹˇĹĹŻru proklouzĂˇvat rukou
+a poÄŤĂ­tal uzly, kterĂ© na ĹˇĹĹŻĹ™e byly navĂˇzĂˇny v odmÄ›Ĺ™enĂ˝ch vzdĂˇlenostech.
+Proto se rychlost lodi uvĂˇdĂ­ v uzlech.</p>
 
-<p>Ale proč se tomuto zařízení říká <em>log</em>?! V angličtině se slovem
-log označuje také <em>poleno</em>, kus dřeva. Primitivní log pro měření
-rychlosti lodi asi byl jen kusem dřeva na šňůře. Plochá deska, zavěšená
-napříč směru pohybu, je ale výhodnější v tom, že lépe brzdí. Aby se na konci
-měření nemusela namáhavě přitahovat, jednoduše se sklopí do směru pohybu.
-Jak se to dá udělat? Pokud to nevíte, zkuste to vymyslet! Hledání řešení
-logických a technických problémů je dobrou průpravou k programování ;-)</p>
+<p>Ale proÄŤ se tomuto zaĹ™Ă­zenĂ­ Ĺ™Ă­kĂˇ <em>log</em>?! V angliÄŤtinÄ› se slovem
+log oznaÄŤuje takĂ© <em>poleno</em>, kus dĹ™eva. PrimitivnĂ­ log pro mÄ›Ĺ™enĂ­
+rychlosti lodi asi byl jen kusem dĹ™eva na ĹˇĹĹŻĹ™e. PlochĂˇ deska, zavÄ›ĹˇenĂˇ
+napĹ™Ă­ÄŤ smÄ›ru pohybu, je ale vĂ˝hodnÄ›jĹˇĂ­ v tom, Ĺľe lĂ©pe brzdĂ­. Aby se na konci
+mÄ›Ĺ™enĂ­ nemusela namĂˇhavÄ› pĹ™itahovat, jednoduĹˇe se sklopĂ­ do smÄ›ru pohybu.
+Jak se to dĂˇ udÄ›lat? Pokud to nevĂ­te, zkuste to vymyslet! HledĂˇnĂ­ Ĺ™eĹˇenĂ­
+logickĂ˝ch a technickĂ˝ch problĂ©mĹŻ je dobrou prĹŻpravou k programovĂˇnĂ­ ;-)</p>
 </dd>
 
-<dt><a href="cztutfiles.html#Bfiles_stream" id="Pfiles_stream" title="zpět">[3]</a>
-Poznámka k pojmu <em>stream</em>:</dt>
+<dt><a href="cztutfiles.html#Bfiles_stream" id="Pfiles_stream" title="zpÄ›t">[3]</a>
+PoznĂˇmka k pojmu <em>stream</em>:</dt>
 
-<dd><p>Anglické slovo <em>stream</em> se překládá jako <em>proud</em> (ve
-smyslu "hlavní proud", "hlavní směr" a podobně, ale nikoliv "elektrický
-proud"). Tímto slovem se také pojmenovává <em>potok</em> či
-<em>stružka</em>. To už jsme se sice od jeho abstraktní podoby a od počítačů
-trochu vzdálili, ale může nám to pomoci pochopit, co má v počítačové
-terminologii vyjadřovat. V souvislosti s programováním se <em>stream</em>
-často nepřekládá, protože tento pojem popisuje specifickou abstrakci, kterou
-bychom mohli přeložit jako <em>proud dat</em> nebo <em>datový kanál</em>
-&mdash; podle situace. Oba pojmy spolu souvisejí.</p>
+<dd><p>AnglickĂ© slovo <em>stream</em> se pĹ™eklĂˇdĂˇ jako <em>proud</em> (ve
+smyslu "hlavnĂ­ proud", "hlavnĂ­ smÄ›r" a podobnÄ›, ale nikoliv "elektrickĂ˝
+proud"). TĂ­mto slovem se takĂ© pojmenovĂˇvĂˇ <em>potok</em> ÄŤi
+<em>struĹľka</em>. To uĹľ jsme se sice od jeho abstraktnĂ­ podoby a od poÄŤĂ­taÄŤĹŻ
+trochu vzdĂˇlili, ale mĹŻĹľe nĂˇm to pomoci pochopit, co mĂˇ v poÄŤĂ­taÄŤovĂ©
+terminologii vyjadĹ™ovat. V souvislosti s programovĂˇnĂ­m se <em>stream</em>
+ÄŤasto nepĹ™eklĂˇdĂˇ, protoĹľe tento pojem popisuje specifickou abstrakci, kterou
+bychom mohli pĹ™eloĹľit jako <em>proud dat</em> nebo <em>datovĂ˝ kanĂˇl</em>
+&mdash; podle situace. Oba pojmy spolu souvisejĂ­.</p>
 
-<p><em>Proud dat</em> vyjadřuje skutečnost, že data neustále protékají
-&mdash; jedním směrem. Program může předepisovat získávání a zpracování
-jednoho datového prvku za druhým (nebo naopak generování nového datového
-prvku), ale nemůže zpracovat libovolný prvek, aniž by zpracoval prvky jemu
-předcházející. K jednou zpracovanému prvku se již nemůžeme vrátit &mdash;
-pokud si ho ovšem někde neuložíme. Pojem <em>datový kanál</em> vyjadřuje
-spíše existenci přenosového média, kterým zmíněná data proudí. Z tohoto
-pohledu pojem <em>proud dat</em> vyjadřuje spíše abstraktní podstatu jevu,
-zatímco <em>datový kanál</em> vyjadřuje spíše technickou realizaci cesty,
-kterou data proudí. V souvislosti s pojmem <em>stream</em>, jak jej používá
-BASIC v souvislosti se soubory, můžeme použít spíše překlad <em>datový
-kanál</em>.</p>
+<p><em>Proud dat</em> vyjadĹ™uje skuteÄŤnost, Ĺľe data neustĂˇle protĂ©kajĂ­
+&mdash; jednĂ­m smÄ›rem. Program mĹŻĹľe pĹ™edepisovat zĂ­skĂˇvĂˇnĂ­ a zpracovĂˇnĂ­
+jednoho datovĂ©ho prvku za druhĂ˝m (nebo naopak generovĂˇnĂ­ novĂ©ho datovĂ©ho
+prvku), ale nemĹŻĹľe zpracovat libovolnĂ˝ prvek, aniĹľ by zpracoval prvky jemu
+pĹ™edchĂˇzejĂ­cĂ­. K jednou zpracovanĂ©mu prvku se jiĹľ nemĹŻĹľeme vrĂˇtit &mdash;
+pokud si ho ovĹˇem nÄ›kde neuloĹľĂ­me. Pojem <em>datovĂ˝ kanĂˇl</em> vyjadĹ™uje
+spĂ­Ĺˇe existenci pĹ™enosovĂ©ho mĂ©dia, kterĂ˝m zmĂ­nÄ›nĂˇ data proudĂ­. Z tohoto
+pohledu pojem <em>proud dat</em> vyjadĹ™uje spĂ­Ĺˇe abstraktnĂ­ podstatu jevu,
+zatĂ­mco <em>datovĂ˝ kanĂˇl</em> vyjadĹ™uje spĂ­Ĺˇe technickou realizaci cesty,
+kterou data proudĂ­. V souvislosti s pojmem <em>stream</em>, jak jej pouĹľĂ­vĂˇ
+BASIC v souvislosti se soubory, mĹŻĹľeme pouĹľĂ­t spĂ­Ĺˇe pĹ™eklad <em>datovĂ˝
+kanĂˇl</em>.</p>
 
-<p>Význam pojmu <em>stream</em> spočívá ve vyjádření jevu předem
-neomezeného množství dat. Neříká nic o tom, kdy data začala proudit a kdy
-proud dat skončí. Vyjadřuje však to, že jeden datový prvek následuje za
-druhým. To je velmi důležité, protože algoritmy, které z tohoto pojmu
-vycházejí, v sobě mají něco typického, obecného. V jazyce BASIC a
-v jiných jazycích a systémech se k souborům z abstraktního pohledu přistupuje
-jako k proudu dat, ale je to vlastně jen speciální případ. Soubor se tímto
-způsobem chová jen od okamžiku svého otevření, do okamžiku svého uzavření.
-Mimo tento interval pojem <em>stream</em> ztrácí ve vazbě na soubory svůj
+<p>VĂ˝znam pojmu <em>stream</em> spoÄŤĂ­vĂˇ ve vyjĂˇdĹ™enĂ­ jevu pĹ™edem
+neomezenĂ©ho mnoĹľstvĂ­ dat. NeĹ™Ă­kĂˇ nic o tom, kdy data zaÄŤala proudit a kdy
+proud dat skonÄŤĂ­. VyjadĹ™uje vĹˇak to, Ĺľe jeden datovĂ˝ prvek nĂˇsleduje za
+druhĂ˝m. To je velmi dĹŻleĹľitĂ©, protoĹľe algoritmy, kterĂ© z tohoto pojmu
+vychĂˇzejĂ­, v sobÄ› majĂ­ nÄ›co typickĂ©ho, obecnĂ©ho. V jazyce BASIC a
+v jinĂ˝ch jazycĂ­ch a systĂ©mech se k souborĹŻm z abstraktnĂ­ho pohledu pĹ™istupuje
+jako k proudu dat, ale je to vlastnÄ› jen speciĂˇlnĂ­ pĹ™Ă­pad. Soubor se tĂ­mto
+zpĹŻsobem chovĂˇ jen od okamĹľiku svĂ©ho otevĹ™enĂ­, do okamĹľiku svĂ©ho uzavĹ™enĂ­.
+Mimo tento interval pojem <em>stream</em> ztrĂˇcĂ­ ve vazbÄ› na soubory svĹŻj
 smysl.</p>
 
-<p>Jste-li začátečníci a není vám to pořád naprosto jasné, nestyďte se za
-to. V programování, které je založené na přesném logickém uvažování, je
-využívání nejasných pojmů a nástrojů, které tak docela nechápeme,
-spolehlivou cestou k budoucím problémům. Pokud své neznalosti či
-pochybnosti dovedně ukryjete před svým učitelem, možná se vyhnete špatné
-známce. Pokud ani sami sobě nepřiznáte, že něčemu přesně nerozumíte
-(<em>Stream? To je přece jasné, ne?</em>), <em>vyhnete</em> se tím pochopení
-celé řady souvisejících problémů. Jak tedy z abstraktního pojmu
-<em>stream</em> udělat něco lépe pochopitelného i pro začátečníka?</p>
+<p>Jste-li zaÄŤĂˇteÄŤnĂ­ci a nenĂ­ vĂˇm to poĹ™Ăˇd naprosto jasnĂ©, nestyÄŹte se za
+to. V programovĂˇnĂ­, kterĂ© je zaloĹľenĂ© na pĹ™esnĂ©m logickĂ©m uvaĹľovĂˇnĂ­, je
+vyuĹľĂ­vĂˇnĂ­ nejasnĂ˝ch pojmĹŻ a nĂˇstrojĹŻ, kterĂ© tak docela nechĂˇpeme,
+spolehlivou cestou k budoucĂ­m problĂ©mĹŻm. Pokud svĂ© neznalosti ÄŤi
+pochybnosti dovednÄ› ukryjete pĹ™ed svĂ˝m uÄŤitelem, moĹľnĂˇ se vyhnete ĹˇpatnĂ©
+znĂˇmce. Pokud ani sami sobÄ› nepĹ™iznĂˇte, Ĺľe nÄ›ÄŤemu pĹ™esnÄ› nerozumĂ­te
+(<em>Stream? To je pĹ™ece jasnĂ©, ne?</em>), <em>vyhnete</em> se tĂ­m pochopenĂ­
+celĂ© Ĺ™ady souvisejĂ­cĂ­ch problĂ©mĹŻ. Jak tedy z abstraktnĂ­ho pojmu
+<em>stream</em> udÄ›lat nÄ›co lĂ©pe pochopitelnĂ©ho i pro zaÄŤĂˇteÄŤnĂ­ka?</p>
 
-<p>Každý počítačový začátečník &mdash; dokonce i takový, který nechce mít s
-programováním nic společného &mdash; se setkává se zařízením tak dobře
-zvládnutelným, že už o něm prakticky vůbec neuvažuje. Máte je před sebou. Je
-to <em>klávesnice počítače</em> &mdash; dokonalý příklad pojmu
+<p>KaĹľdĂ˝ poÄŤĂ­taÄŤovĂ˝ zaÄŤĂˇteÄŤnĂ­k &mdash; dokonce i takovĂ˝, kterĂ˝ nechce mĂ­t s
+programovĂˇnĂ­m nic spoleÄŤnĂ©ho &mdash; se setkĂˇvĂˇ se zaĹ™Ă­zenĂ­m tak dobĹ™e
+zvlĂˇdnutelnĂ˝m, Ĺľe uĹľ o nÄ›m prakticky vĹŻbec neuvaĹľuje. MĂˇte je pĹ™ed sebou. Je
+to <em>klĂˇvesnice poÄŤĂ­taÄŤe</em> &mdash; dokonalĂ˝ pĹ™Ă­klad pojmu
 <em>stream</em> v praxi.</p>
 
-<p>Představme si, že klávesnice vyšle při stisku libovolné klávesy do
-počítače jeden symbol. Pro zjednodušení můžeme uvažovat, že klávesnice
-obsahuje pouze klávesy se zobrazitelnými znaky (vynecháme Shift, Ctrl,
-Enter, F1, a další podobné). Odpovězte si teď na tyto jednoduché otázky:</p>
+<p>PĹ™edstavme si, Ĺľe klĂˇvesnice vyĹˇle pĹ™i stisku libovolnĂ© klĂˇvesy do
+poÄŤĂ­taÄŤe jeden symbol. Pro zjednoduĹˇenĂ­ mĹŻĹľeme uvaĹľovat, Ĺľe klĂˇvesnice
+obsahuje pouze klĂˇvesy se zobrazitelnĂ˝mi znaky (vynechĂˇme Shift, Ctrl,
+Enter, F1, a dalĹˇĂ­ podobnĂ©). OdpovÄ›zte si teÄŹ na tyto jednoduchĂ© otĂˇzky:</p>
 
 <ul>
-<li>Kolik znaků už bylo z této klávesnice vysláno?</li> 
-<li>Můžu zjistit první vyslaný znak?</li>
-<li>Kolik znaků ještě vysláno bude?</li>
-<li>Můžu zjistit jaký bude poslední vyslaný znak?</li>
-<li>Můžeme spolehlivě zopakovat posledních 1000 znaků?</li>
-<li>Můžeme změnit historii vyslaných znaků? Můžeme například vymazat zaslání 
-  posledních 100 znaků?</li>
+<li>Kolik znakĹŻ uĹľ bylo z tĂ©to klĂˇvesnice vyslĂˇno?</li>
+<li>MĹŻĹľu zjistit prvnĂ­ vyslanĂ˝ znak?</li>
+<li>Kolik znakĹŻ jeĹˇtÄ› vyslĂˇno bude?</li>
+<li>MĹŻĹľu zjistit jakĂ˝ bude poslednĂ­ vyslanĂ˝ znak?</li>
+<li>MĹŻĹľeme spolehlivÄ› zopakovat poslednĂ­ch 1000 znakĹŻ?</li>
+<li>MĹŻĹľeme zmÄ›nit historii vyslanĂ˝ch znakĹŻ? MĹŻĹľeme napĹ™Ă­klad vymazat zaslĂˇnĂ­
+  poslednĂ­ch 100 znakĹŻ?</li>
 </ul>
 
-<p>Klávesnice tedy reprezentuje <em>zdroj dat</em> &mdash; stream, ze
-kterého data proudí. Elektronická podoba symbolu zde vzniká. Podobně bychom
-o tiskárně mohli uvažovat jako o konzumentovi dat &mdash; zde údaje mění
-svou formu z elektronické na tištěnou. Elektronická podoba symbolu v
-tiskárně ukončí svou existenci.</p>
+<p>KlĂˇvesnice tedy reprezentuje <em>zdroj dat</em> &mdash; stream, ze
+kterĂ©ho data proudĂ­. ElektronickĂˇ podoba symbolu zde vznikĂˇ. PodobnÄ› bychom
+o tiskĂˇrnÄ› mohli uvaĹľovat jako o konzumentovi dat &mdash; zde Ăşdaje mÄ›nĂ­
+svou formu z elektronickĂ© na tiĹˇtÄ›nou. ElektronickĂˇ podoba symbolu v
+tiskĂˇrnÄ› ukonÄŤĂ­ svou existenci.</p>
 
-<p>Pokud si stejné otázky položíte v souvislosti se <em>souborem</em>, pak
-snadno pochopíte, v čem se pojmy <em>soubor</em> a <em>stream</em> liší.
-Zkuste si teď odpovědět na otázky:</p>
+<p>Pokud si stejnĂ© otĂˇzky poloĹľĂ­te v souvislosti se <em>souborem</em>, pak
+snadno pochopĂ­te, v ÄŤem se pojmy <em>soubor</em> a <em>stream</em> liĹˇĂ­.
+Zkuste si teÄŹ odpovÄ›dÄ›t na otĂˇzky:</p>
 
 <ul>
-<li>Jak se dá operace <code>readline()</code> napasovat na práci se stream?</li>
-<li>A jak je to s operací <code>readlines()</code>, která má zajistit získání
-všech řádků?</li>
+<li>Jak se dĂˇ operace <code>readline()</code> napasovat na prĂˇci se stream?</li>
+<li>A jak je to s operacĂ­ <code>readlines()</code>, kterĂˇ mĂˇ zajistit zĂ­skĂˇnĂ­
+vĹˇech Ĺ™ĂˇdkĹŻ?</li>
 </ul>
 
 
@@ -1246,335 +1249,335 @@ všech řádků?</li>
 </dl>
 
 
-<h3 id="cztuttext">Práce s textem</h3>
+<h3 id="cztuttext">PrĂˇce s textem</h3>
 
-<p>K této kapitole nejsou žádné poznámky formou odkazu.</p>
+<p>K tĂ©to kapitole nejsou ĹľĂˇdnĂ© poznĂˇmky formou odkazu.</p>
 
 
-<h3 id="cztuterrors">Práce s chybami</h3>
+<h3 id="cztuterrors">PrĂˇce s chybami</h3>
 
-<p>K této kapitole nejsou žádné poznámky formou odkazu.</p>
+<p>K tĂ©to kapitole nejsou ĹľĂˇdnĂ© poznĂˇmky formou odkazu.</p>
 
 
 <h3 id="cztutrecur">Rekurze</h3>
 
-<p>K této kapitole nejsou žádné poznámky formou odkazu.</p>
+<p>K tĂ©to kapitole nejsou ĹľĂˇdnĂ© poznĂˇmky formou odkazu.</p>
 
 
-<h3 id="cztutclass">Objektově orientované programování</h3>
+<h3 id="cztutclass">ObjektovÄ› orientovanĂ© programovĂˇnĂ­</h3>
 
 <dl>
-<dt><a href="cztutclass.html#Bclass_widget" id="Pclass_widget" title="zpět">[1]</a>
+<dt><a href="cztutclass.html#Bclass_widget" id="Pclass_widget" title="zpÄ›t">[1]</a>
 Co to je <em>widget</em>?</dt>
 
-<dd><p>S pojmem <em>widget</em> [čti vidžet] (případně i <em>gadget</em>
-[čti gedžit]) se hojně setkáte zejména v souvislosti s programováním
-grafického uživatelského roshraní, a to předeším u systému typu Unix a jeho
-součásti zvané X&nbsp;Window. Pojem <em>widget</em> se zde užívá pro
-abstraktní označení obvykle viditelných prvků uživatelského rozhraní, jako
-jsou různá tlačítka, přepínací prvky a podobně.</p>
+<dd><p>S pojmem <em>widget</em> [ÄŤti vidĹľet] (pĹ™Ă­padnÄ› i <em>gadget</em>
+[ÄŤti gedĹľit]) se hojnÄ› setkĂˇte zejmĂ©na v souvislosti s programovĂˇnĂ­m
+grafickĂ©ho uĹľivatelskĂ©ho roshranĂ­, a to pĹ™edeĹˇĂ­m u systĂ©mu typu Unix a jeho
+souÄŤĂˇsti zvanĂ© X&nbsp;Window. Pojem <em>widget</em> se zde uĹľĂ­vĂˇ pro
+abstraktnĂ­ oznaÄŤenĂ­ obvykle viditelnĂ˝ch prvkĹŻ uĹľivatelskĂ©ho rozhranĂ­, jako
+jsou rĹŻznĂˇ tlaÄŤĂ­tka, pĹ™epĂ­nacĂ­ prvky a podobnÄ›.</p>
 
-<p>Zdá se, že původ slova <em>widget</em> je poněkud neformální. Dvojité
-<em>w</em> na začátku má možná připomínat, že s těmito prvky uživatelského
-rozhraní bývá spojeno okno (anglicky window). Ve výkladových slovnících
-můžete najít vysvětlení, že jde o obdobu pojmu <em>gadget</em> (a dalších
-synonym) a to zejména v případě, kdy má pojem vyjadřovat abstraktní podobu.
-Pojem <em>gadget</em> se přitom vysvětluje jako neformální označení nějakého
-mechanického zařízení, <em>zařízeníčka</em>, <em>udělátka</em>,
-<em>čumexu</em> a podobně, mající spíše nádech kutilství, než něčeho
-seriózního. Pokud to tedy spojíme s abstrakním charakterem a s použitím pro
-prvky uživatelského rozhraní, mohli bychom pojem <em>widget</em> překládat
-třeba jako <em>čudlík</em> ;-)</p>
+<p>ZdĂˇ se, Ĺľe pĹŻvod slova <em>widget</em> je ponÄ›kud neformĂˇlnĂ­. DvojitĂ©
+<em>w</em> na zaÄŤĂˇtku mĂˇ moĹľnĂˇ pĹ™ipomĂ­nat, Ĺľe s tÄ›mito prvky uĹľivatelskĂ©ho
+rozhranĂ­ bĂ˝vĂˇ spojeno okno (anglicky window). Ve vĂ˝kladovĂ˝ch slovnĂ­cĂ­ch
+mĹŻĹľete najĂ­t vysvÄ›tlenĂ­, Ĺľe jde o obdobu pojmu <em>gadget</em> (a dalĹˇĂ­ch
+synonym) a to zejmĂ©na v pĹ™Ă­padÄ›, kdy mĂˇ pojem vyjadĹ™ovat abstraktnĂ­ podobu.
+Pojem <em>gadget</em> se pĹ™itom vysvÄ›tluje jako neformĂˇlnĂ­ oznaÄŤenĂ­ nÄ›jakĂ©ho
+mechanickĂ©ho zaĹ™Ă­zenĂ­, <em>zaĹ™Ă­zenĂ­ÄŤka</em>, <em>udÄ›lĂˇtka</em>,
+<em>ÄŤumexu</em> a podobnÄ›, majĂ­cĂ­ spĂ­Ĺˇe nĂˇdech kutilstvĂ­, neĹľ nÄ›ÄŤeho
+seriĂłznĂ­ho. Pokud to tedy spojĂ­me s abstraknĂ­m charakterem a s pouĹľitĂ­m pro
+prvky uĹľivatelskĂ©ho rozhranĂ­, mohli bychom pojem <em>widget</em> pĹ™eklĂˇdat
+tĹ™eba jako <em>ÄŤudlĂ­k</em> ;-)</p>
 
-<p>Poznámka: <em>Čumex</em> je obvykle nějaká zajímavá součástka z nějakého
-kuriózního zařízení, kterou si vystavíte na odiv na pracovním stole nebo
-někam na zřetelné místo ve vaší pracovně. Pokud možno se nějak hýbe nebo se
-s ní dá dělat něco zajímavého, ale přitom nepochopitelného. Pokud obsahuje
-leštěné mosazné části a vypadá, že jste si ji přinesli z ponorky kapitána
-Nema, tím lépe. Může to být také něco naprosto uměle zkonstruovaného pro
-tento účel. (Matně si pamatuji, že jsem tento pojem poprvé slyšel v
-souvislosti s historkou o jednom pracovišti, kde měli v kusu leštěného dřeva
-umným způsobem zabudován kus kolejnice, nebo něco takového.) Je žádoucí, aby
-toto zařízení bylo perfektně řemeslně zpracované. Mělo by vzbuzovat dojem,
-že k něčemu užitečnému skutečně slouží. Návštěva vaší pracovny se marně
-snaží přijít na jeho smysl. Obvykle to nevydrží a zeptá se: <em>K čemu je to
-vlastně dobré?</em>. A v tom okamžiku <em>čumex</em> splnil svůj jediný účel
+<p>PoznĂˇmka: <em>ÄŚumex</em> je obvykle nÄ›jakĂˇ zajĂ­mavĂˇ souÄŤĂˇstka z nÄ›jakĂ©ho
+kuriĂłznĂ­ho zaĹ™Ă­zenĂ­, kterou si vystavĂ­te na odiv na pracovnĂ­m stole nebo
+nÄ›kam na zĹ™etelnĂ© mĂ­sto ve vaĹˇĂ­ pracovnÄ›. Pokud moĹľno se nÄ›jak hĂ˝be nebo se
+s nĂ­ dĂˇ dÄ›lat nÄ›co zajĂ­mavĂ©ho, ale pĹ™itom nepochopitelnĂ©ho. Pokud obsahuje
+leĹˇtÄ›nĂ© mosaznĂ© ÄŤĂˇsti a vypadĂˇ, Ĺľe jste si ji pĹ™inesli z ponorky kapitĂˇna
+Nema, tĂ­m lĂ©pe. MĹŻĹľe to bĂ˝t takĂ© nÄ›co naprosto umÄ›le zkonstruovanĂ©ho pro
+tento ĂşÄŤel. (MatnÄ› si pamatuji, Ĺľe jsem tento pojem poprvĂ© slyĹˇel v
+souvislosti s historkou o jednom pracoviĹˇti, kde mÄ›li v kusu leĹˇtÄ›nĂ©ho dĹ™eva
+umnĂ˝m zpĹŻsobem zabudovĂˇn kus kolejnice, nebo nÄ›co takovĂ©ho.) Je ĹľĂˇdoucĂ­, aby
+toto zaĹ™Ă­zenĂ­ bylo perfektnÄ› Ĺ™emeslnÄ› zpracovanĂ©. MÄ›lo by vzbuzovat dojem,
+Ĺľe k nÄ›ÄŤemu uĹľiteÄŤnĂ©mu skuteÄŤnÄ› slouĹľĂ­. NĂˇvĹˇtÄ›va vaĹˇĂ­ pracovny se marnÄ›
+snaĹľĂ­ pĹ™ijĂ­t na jeho smysl. Obvykle to nevydrĹľĂ­ a zeptĂˇ se: <em>K ÄŤemu je to
+vlastnÄ› dobrĂ©?</em>. A v tom okamĹľiku <em>ÄŤumex</em> splnil svĹŻj jedinĂ˝ ĂşÄŤel
 ;-)</p>
 </dd>
 
-<dt><a href="cztutclass.html#Bclass_class" id="Pclass_class" title="zpět">[2]</a>
-Pohled na objekty a instance přes pohádku o Popelce</dt>
+<dt><a href="cztutclass.html#Bclass_class" id="Pclass_class" title="zpÄ›t">[2]</a>
+Pohled na objekty a instance pĹ™es pohĂˇdku o Popelce</dt>
 
 <dd>
-<p>Pojmy <em>třída</em> a <em>instance</em> bývají při nedostatečném
-vysvětlení pro začátečníky v oblasti objektového programování trochu záhadné
-a obtížně pochopitelné. O něco lépe jsou na tom ti, kteří se setkali s vyšší
-matematikou, která s pojmem <em>třídy</em> běžně pracuje. Jakmile ale jednou
-pochopíte, o co jde (ahááá), pak už se vám to zdá natolik jasné, že vám
-přestane být jasné, jak to někdo nemůže chápat &mdash; v tom asi bude
-zakopaný pes (pro lingvisty <em>zděs sabáka zarýta</em>). Ti kdo to
-vysvětlují, už to chápou, takže někdy nechápou&hellip; ;-)</p>
+<p>Pojmy <em>tĹ™Ă­da</em> a <em>instance</em> bĂ˝vajĂ­ pĹ™i nedostateÄŤnĂ©m
+vysvÄ›tlenĂ­ pro zaÄŤĂˇteÄŤnĂ­ky v oblasti objektovĂ©ho programovĂˇnĂ­ trochu zĂˇhadnĂ©
+a obtĂ­ĹľnÄ› pochopitelnĂ©. O nÄ›co lĂ©pe jsou na tom ti, kteĹ™Ă­ se setkali s vyĹˇĹˇĂ­
+matematikou, kterĂˇ s pojmem <em>tĹ™Ă­dy</em> bÄ›ĹľnÄ› pracuje. Jakmile ale jednou
+pochopĂ­te, o co jde (ahĂˇĂˇĂˇ), pak uĹľ se vĂˇm to zdĂˇ natolik jasnĂ©, Ĺľe vĂˇm
+pĹ™estane bĂ˝t jasnĂ©, jak to nÄ›kdo nemĹŻĹľe chĂˇpat &mdash; v tom asi bude
+zakopanĂ˝ pes (pro lingvisty <em>zdÄ›s sabĂˇka zarĂ˝ta</em>). Ti kdo to
+vysvÄ›tlujĂ­, uĹľ to chĂˇpou, takĹľe nÄ›kdy nechĂˇpou&hellip; ;-)</p>
 
-<p>Třeba vám k pochopení pomůže příklad, se kterým jste se setkali už v
-předškolním věku. Zlomyslná macecha jela se svou dcerou na královský ples a
-Popelce smíchala hrách a popel dohromady. Popelka je měla tuto směs zase
-oddělit od sebe. Z matematického a fyzikálního pohledu tedy Popelka
-oddělovala pevné částice popela od pevných částic hrachu. Rozhodovala se na
-základě jejich typických charakteristik &mdash; například barvy a jiných
-zjevných vlastností, které jaksi určují, co je popel a co je hrách. Z
-matematického hlediska její znalost rozdílů mezi hrachem a popelem indukovala
-<em>rozklad množiny objektů na třídy</em>. Z kupeckého hlediska
-<em>třídila</em> hrách a popel. Rozhodovala se právě podle obecných
-vlastností, které definují <em>třídu popela</em> a <em>třídu hrachu</em>.
-Nemusíte mít dokonce ani jedno zrnko hrachu, a přitom můžete chápat, co to
-je hrách. Právě souhrn určitých vlastností a způsob chování hrachu (třeba,
-že se kutálí) určuje jeho <em>třídu</em>. Třída je tedy definována jako
-souhrn těchto vlastností a má abstraktní charakter. Právě proto můžete
-definovat třídu hrachu aniž byste měli jediné zrnko hrachu.</p>
+<p>TĹ™eba vĂˇm k pochopenĂ­ pomĹŻĹľe pĹ™Ă­klad, se kterĂ˝m jste se setkali uĹľ v
+pĹ™edĹˇkolnĂ­m vÄ›ku. ZlomyslnĂˇ macecha jela se svou dcerou na krĂˇlovskĂ˝ ples a
+Popelce smĂ­chala hrĂˇch a popel dohromady. Popelka je mÄ›la tuto smÄ›s zase
+oddÄ›lit od sebe. Z matematickĂ©ho a fyzikĂˇlnĂ­ho pohledu tedy Popelka
+oddÄ›lovala pevnĂ© ÄŤĂˇstice popela od pevnĂ˝ch ÄŤĂˇstic hrachu. Rozhodovala se na
+zĂˇkladÄ› jejich typickĂ˝ch charakteristik &mdash; napĹ™Ă­klad barvy a jinĂ˝ch
+zjevnĂ˝ch vlastnostĂ­, kterĂ© jaksi urÄŤujĂ­, co je popel a co je hrĂˇch. Z
+matematickĂ©ho hlediska jejĂ­ znalost rozdĂ­lĹŻ mezi hrachem a popelem indukovala
+<em>rozklad mnoĹľiny objektĹŻ na tĹ™Ă­dy</em>. Z kupeckĂ©ho hlediska
+<em>tĹ™Ă­dila</em> hrĂˇch a popel. Rozhodovala se prĂˇvÄ› podle obecnĂ˝ch
+vlastnostĂ­, kterĂ© definujĂ­ <em>tĹ™Ă­du popela</em> a <em>tĹ™Ă­du hrachu</em>.
+NemusĂ­te mĂ­t dokonce ani jedno zrnko hrachu, a pĹ™itom mĹŻĹľete chĂˇpat, co to
+je hrĂˇch. PrĂˇvÄ› souhrn urÄŤitĂ˝ch vlastnostĂ­ a zpĹŻsob chovĂˇnĂ­ hrachu (tĹ™eba,
+Ĺľe se kutĂˇlĂ­) urÄŤuje jeho <em>tĹ™Ă­du</em>. TĹ™Ă­da je tedy definovĂˇna jako
+souhrn tÄ›chto vlastnostĂ­ a mĂˇ abstraktnĂ­ charakter. PrĂˇvÄ› proto mĹŻĹľete
+definovat tĹ™Ă­du hrachu aniĹľ byste mÄ›li jedinĂ© zrnko hrachu.</p>
 
-<p><em>Třída</em> objektů je tedy popisem charakteristických vlastností
-objektů, které dosud nemusí ani existovat. Hovoříme-li o <em>objektu</em>,
-pak máme naopak na mysli něco existujícího, co má určité vlastnosti. A může
-toho existovat více výskytů &mdash; <em>instancí třídy</em>. Tyto výskyty,
-neboli <em>instance</em> nebo také <em>objekty třídy</em> nebo jednoduše
-<em>objekty</em> mohou být vnitřně naprosto totožné (lišící se pouze tím, že
-každý má svou vlastní existenci) nebo se mohou lišit v rámci dovolených
-variací. Pokud se na Popelčiny <em>objekty</em> obecně (tj. pevné částice)
-budeme dívat s přimhouřenýma očima, budou se nám <em>objekty třídy
-hrachu</em> (jinými slovy také <em>instance třídy hrachu</em>) zdát všechny
-stejné, ale můžeme je například spočítat. Když oči otevřeme pořádně, vidíme,
-že je každý hrášek trochu jiný &mdash; může se trochu lišit barva, velikost,
-kulatost a podobně. Dokud ale odpovídají popisu (třídě) hrachu, pak jsou to
-pořád <em>instance hrachu</em>.</p>
+<p><em>TĹ™Ă­da</em> objektĹŻ je tedy popisem charakteristickĂ˝ch vlastnostĂ­
+objektĹŻ, kterĂ© dosud nemusĂ­ ani existovat. HovoĹ™Ă­me-li o <em>objektu</em>,
+pak mĂˇme naopak na mysli nÄ›co existujĂ­cĂ­ho, co mĂˇ urÄŤitĂ© vlastnosti. A mĹŻĹľe
+toho existovat vĂ­ce vĂ˝skytĹŻ &mdash; <em>instancĂ­ tĹ™Ă­dy</em>. Tyto vĂ˝skyty,
+neboli <em>instance</em> nebo takĂ© <em>objekty tĹ™Ă­dy</em> nebo jednoduĹˇe
+<em>objekty</em> mohou bĂ˝t vnitĹ™nÄ› naprosto totoĹľnĂ© (liĹˇĂ­cĂ­ se pouze tĂ­m, Ĺľe
+kaĹľdĂ˝ mĂˇ svou vlastnĂ­ existenci) nebo se mohou liĹˇit v rĂˇmci dovolenĂ˝ch
+variacĂ­. Pokud se na PopelÄŤiny <em>objekty</em> obecnÄ› (tj. pevnĂ© ÄŤĂˇstice)
+budeme dĂ­vat s pĹ™imhouĹ™enĂ˝ma oÄŤima, budou se nĂˇm <em>objekty tĹ™Ă­dy
+hrachu</em> (jinĂ˝mi slovy takĂ© <em>instance tĹ™Ă­dy hrachu</em>) zdĂˇt vĹˇechny
+stejnĂ©, ale mĹŻĹľeme je napĹ™Ă­klad spoÄŤĂ­tat. KdyĹľ oÄŤi otevĹ™eme poĹ™ĂˇdnÄ›, vidĂ­me,
+Ĺľe je kaĹľdĂ˝ hrĂˇĹˇek trochu jinĂ˝ &mdash; mĹŻĹľe se trochu liĹˇit barva, velikost,
+kulatost a podobnÄ›. Dokud ale odpovĂ­dajĂ­ popisu (tĹ™Ă­dÄ›) hrachu, pak jsou to
+poĹ™Ăˇd <em>instance hrachu</em>.</p>
 
-<p>Třída má tedy určitý <em>statický charakter</em>. Teoreticky by mohla
-existovat od nepaměti libovolně dlouho do budoucnosti. Můžeme ji chápat jako
-popis. Naproti tomu objekt (instance třídy) má <em>dynamický charakter</em>.
-Někdy musel vzniknout, nějakou dobu existuje a někdy zanikne.</p>
+<p>TĹ™Ă­da mĂˇ tedy urÄŤitĂ˝ <em>statickĂ˝ charakter</em>. Teoreticky by mohla
+existovat od nepamÄ›ti libovolnÄ› dlouho do budoucnosti. MĹŻĹľeme ji chĂˇpat jako
+popis. Naproti tomu objekt (instance tĹ™Ă­dy) mĂˇ <em>dynamickĂ˝ charakter</em>.
+NÄ›kdy musel vzniknout, nÄ›jakou dobu existuje a nÄ›kdy zanikne.</p>
 
-<p>V programátorském smyslu nemůže existovat objekt bez existence odpovídající
-třídy. Nejdříve musí existovat třída a potom můžeme vytvořit její
+<p>V programĂˇtorskĂ©m smyslu nemĹŻĹľe existovat objekt bez existence odpovĂ­dajĂ­cĂ­
+tĹ™Ă­dy. NejdĹ™Ă­ve musĂ­ existovat tĹ™Ă­da a potom mĹŻĹľeme vytvoĹ™it jejĂ­
 instanci.</p>
 
-<p>Z hlediska přírodních věd je to naopak. Nejprve existovaly objekty hrachu a
-teprve mnohem později se objevil někdo, kdo je začal třídit (viz holoubci:
-jedlé/nejedlé). A mnohem později se našel někdo, kdo vlastnosti hrachu
-popsal slovy a později i písmem.</p> 
+<p>Z hlediska pĹ™Ă­rodnĂ­ch vÄ›d je to naopak. Nejprve existovaly objekty hrachu a
+teprve mnohem pozdÄ›ji se objevil nÄ›kdo, kdo je zaÄŤal tĹ™Ă­dit (viz holoubci:
+jedlĂ©/nejedlĂ©). A mnohem pozdÄ›ji se naĹˇel nÄ›kdo, kdo vlastnosti hrachu
+popsal slovy a pozdÄ›ji i pĂ­smem.</p>
 
-<p>Pojem hrách existuje mnohem déle, než kolik vydrží jedno zrnko hrachu. Má
-abstraktní charakter. Nedá se nahmatat. Pojem odpovídá třídě. Pojmu hrách se
-prostě nenajíte, protože uspokojení z jídla souvisí se zánikem objektů
-hrachu &mdash; tedy pokud máte hrách rádi.</p>
+<p>Pojem hrĂˇch existuje mnohem dĂ©le, neĹľ kolik vydrĹľĂ­ jedno zrnko hrachu. MĂˇ
+abstraktnĂ­ charakter. NedĂˇ se nahmatat. Pojem odpovĂ­dĂˇ tĹ™Ă­dÄ›. Pojmu hrĂˇch se
+prostÄ› nenajĂ­te, protoĹľe uspokojenĂ­ z jĂ­dla souvisĂ­ se zĂˇnikem objektĹŻ
+hrachu &mdash; tedy pokud mĂˇte hrĂˇch rĂˇdi.</p>
 
-<p>Pojem <em>instance</em> se tedy velmi podobá pojmu <em>objekt</em>.
-Rozdíl je velmi jemný. U instance vyzvedáváme spíše stránku
-<em>výskytu</em>, zatímco pojmem objekt zdůrazňujeme stránku
-<em>hmatatelnosti existence</em>. Jsou to spíše jazykové a filosofické
-otázky. Pokud vám to věc s objekty nepomáhá vyjasnit, nelámejte si s tím
+<p>Pojem <em>instance</em> se tedy velmi podobĂˇ pojmu <em>objekt</em>.
+RozdĂ­l je velmi jemnĂ˝. U instance vyzvedĂˇvĂˇme spĂ­Ĺˇe strĂˇnku
+<em>vĂ˝skytu</em>, zatĂ­mco pojmem objekt zdĹŻrazĹujeme strĂˇnku
+<em>hmatatelnosti existence</em>. Jsou to spĂ­Ĺˇe jazykovĂ© a filosofickĂ©
+otĂˇzky. Pokud vĂˇm to vÄ›c s objekty nepomĂˇhĂˇ vyjasnit, nelĂˇmejte si s tĂ­m
 hlavu.</p>
 
-<p>Holoubci-pomocníčci nejspíš v praxi třídili podle kritéria
-<em>jedlé/nejedlé</em>. Nenalhávejme si, že by hrášek skládali do ošatky.
-Nejspíš Popelce pomohli tím, že pak hrách mezi popelem nebyl vidět, takže to
-vypadalo, že došlo k jejich roztřídění. Instance třídy hrachu se pak od
-instancí třídy popela lišily i svým umístěním &mdash; v holubích
-žaludcích.</p>
+<p>Holoubci-pomocnĂ­ÄŤci nejspĂ­Ĺˇ v praxi tĹ™Ă­dili podle kritĂ©ria
+<em>jedlĂ©/nejedlĂ©</em>. NenalhĂˇvejme si, Ĺľe by hrĂˇĹˇek sklĂˇdali do oĹˇatky.
+NejspĂ­Ĺˇ Popelce pomohli tĂ­m, Ĺľe pak hrĂˇch mezi popelem nebyl vidÄ›t, takĹľe to
+vypadalo, Ĺľe doĹˇlo k jejich roztĹ™Ă­dÄ›nĂ­. Instance tĹ™Ă­dy hrachu se pak od
+instancĂ­ tĹ™Ă­dy popela liĹˇily i svĂ˝m umĂ­stÄ›nĂ­m &mdash; v holubĂ­ch
+ĹľaludcĂ­ch.</p>
 
-<p>Poznámky pro hloubavé, otrlé, nebo zvědavé čtenáře: K objektům a třídám
-můžeme zaujmout i jiný postoj. Dejme tomu, že vás napadne otázka: <em>A jak
-vlastně ten hrách dosáhl své hrachovitosti? Není jeho třída definována
-tvarem jeho DNA?</em>. (Tady bychom od hrachu mohli pro zjednodušení přejít
-k nějakým jednobuněčným organismům.) Nový objekt musí mít <em>svou</em> DNA.
-Aby tedy mohl vzniknout nový objekt, musí se DNA rozdělit! Někdy se v
-souvislosti s objektově orientovaným programováním (v některých
-programovacích jazycích) třída objektů definuje takzvaným
-<em>prototypem</em>. Je to vlastně jedna instance, ze které se vytvářejí
-nové instance okopírováním. To by nejspíše odpovídalo případu množení
-jednobuněčného organismu.</p>
+<p>PoznĂˇmky pro hloubavĂ©, otrlĂ©, nebo zvÄ›davĂ© ÄŤtenĂˇĹ™e: K objektĹŻm a tĹ™Ă­dĂˇm
+mĹŻĹľeme zaujmout i jinĂ˝ postoj. Dejme tomu, Ĺľe vĂˇs napadne otĂˇzka: <em>A jak
+vlastnÄ› ten hrĂˇch dosĂˇhl svĂ© hrachovitosti? NenĂ­ jeho tĹ™Ă­da definovĂˇna
+tvarem jeho DNA?</em>. (Tady bychom od hrachu mohli pro zjednoduĹˇenĂ­ pĹ™ejĂ­t
+k nÄ›jakĂ˝m jednobunÄ›ÄŤnĂ˝m organismĹŻm.) NovĂ˝ objekt musĂ­ mĂ­t <em>svou</em> DNA.
+Aby tedy mohl vzniknout novĂ˝ objekt, musĂ­ se DNA rozdÄ›lit! NÄ›kdy se v
+souvislosti s objektovÄ› orientovanĂ˝m programovĂˇnĂ­m (v nÄ›kterĂ˝ch
+programovacĂ­ch jazycĂ­ch) tĹ™Ă­da objektĹŻ definuje takzvanĂ˝m
+<em>prototypem</em>. Je to vlastnÄ› jedna instance, ze kterĂ© se vytvĂˇĹ™ejĂ­
+novĂ© instance okopĂ­rovĂˇnĂ­m. To by nejspĂ­Ĺˇe odpovĂ­dalo pĹ™Ă­padu mnoĹľenĂ­
+jednobunÄ›ÄŤnĂ©ho organismu.</p>
 
-<p>Existuje ještě jeden výrazný způsob vytvoření třídy objektů, kdy je třída
-definována opět jako objekt, ale na jiné logické úrovni &mdash; jako
-<em>meta objekt</em> (&hellip;, který může mít svou <em>meta
-třídu</em>&hellip; Ale z praktického hlediska bychom neměli zacházet příliš
-daleko. Mohlo by to skončit Nobelovou cenou nebo pobytem na psychiatrickém
-oddělení). A existuje vůbec odpovídající meta objekt pro náš objekt hrášku?
-Ví Bůh, případně matka Příroda &mdash; vyberte si. ;-)</p>
+<p>Existuje jeĹˇtÄ› jeden vĂ˝raznĂ˝ zpĹŻsob vytvoĹ™enĂ­ tĹ™Ă­dy objektĹŻ, kdy je tĹ™Ă­da
+definovĂˇna opÄ›t jako objekt, ale na jinĂ© logickĂ© Ăşrovni &mdash; jako
+<em>meta objekt</em> (&hellip;, kterĂ˝ mĹŻĹľe mĂ­t svou <em>meta
+tĹ™Ă­du</em>&hellip; Ale z praktickĂ©ho hlediska bychom nemÄ›li zachĂˇzet pĹ™Ă­liĹˇ
+daleko. Mohlo by to skonÄŤit Nobelovou cenou nebo pobytem na psychiatrickĂ©m
+oddÄ›lenĂ­). A existuje vĹŻbec odpovĂ­dajĂ­cĂ­ meta objekt pro nĂˇĹˇ objekt hrĂˇĹˇku?
+VĂ­ BĹŻh, pĹ™Ă­padnÄ› matka PĹ™Ă­roda &mdash; vyberte si. ;-)</p>
 
-<p>A teď si podkapitolu <a href="cztutclass.html#class_def">Definice
-tříd</a> přečtěte znovu. Pochopení pojmů <em>třída</em> a <em>instance</em>
-(nebo objekt) a rozdílů mezi nimi je pro studium dalšího textu důležité.</p>
+<p>A teÄŹ si podkapitolu <a href="cztutclass.html#class_def">Definice
+tĹ™Ă­d</a> pĹ™eÄŤtÄ›te znovu. PochopenĂ­ pojmĹŻ <em>tĹ™Ă­da</em> a <em>instance</em>
+(nebo objekt) a rozdĂ­lĹŻ mezi nimi je pro studium dalĹˇĂ­ho textu dĹŻleĹľitĂ©.</p>
 </dd>
 </dl>
 
-<h3 id="cztutgui">Programování uživatelského rozhraní</h3>
+<h3 id="cztutgui">ProgramovĂˇnĂ­ uĹľivatelskĂ©ho rozhranĂ­</h3>
 
 <dl>
-<dt><a href="cztutgui.html#Bgui_pixel" id="Pgui_pixel" title="zpět">[1]</a>
+<dt><a href="cztutgui.html#Bgui_pixel" id="Pgui_pixel" title="zpÄ›t">[1]</a>
 Pojem <em>pixel</em>:</dt>
 
-<dd><p>Vysvětlení pojmu <em>pixel</em> je poměrně jednoznačné. Jedná se o
-zkratkové slovo, které vzniklo z anglického <em>picture element</em>, tedy
-obrazový element. V technické praxi se obraz rozkládá do pravoúhlé mřížky,
-takže obrazový element má tvar čtverečku nebo obdélníčku. Udáváním souřadnic v
-pixelech se rozumí určení polohy obrazového elementu jako pořadí ve směru osy x
-a osy y.</p> 
+<dd><p>VysvÄ›tlenĂ­ pojmu <em>pixel</em> je pomÄ›rnÄ› jednoznaÄŤnĂ©. JednĂˇ se o
+zkratkovĂ© slovo, kterĂ© vzniklo z anglickĂ©ho <em>picture element</em>, tedy
+obrazovĂ˝ element. V technickĂ© praxi se obraz rozklĂˇdĂˇ do pravoĂşhlĂ© mĹ™Ă­Ĺľky,
+takĹľe obrazovĂ˝ element mĂˇ tvar ÄŤtvereÄŤku nebo obdĂ©lnĂ­ÄŤku. UdĂˇvĂˇnĂ­m souĹ™adnic v
+pixelech se rozumĂ­ urÄŤenĂ­ polohy obrazovĂ©ho elementu jako poĹ™adĂ­ ve smÄ›ru osy x
+a osy y.</p>
 
-<p>Souřadnice v pixelech (nebo rozměry obrázku v pixelech) samy o sobě
-neurčují fyzické rozměry. Navíc musíme použít údaj, který určuje počet bodů
-na rozměrovou jednotku. Typicky se setkáváme se zkratkou <em>DPI</em>, což
-je akronym anglického <em>Dots per Inch</em> &mdash; <em>bodů na palec</em>
-(jeden palec odpovídá 25,4 mm). Při práci s monitorem se typicky setkáváme
-s údajem 96 DPI. Starší laserové tiskárny měly rozlišení 300 DPI. Běžné
-levné laserové tiskárny mají nyní rozlišení 600 DPI. Standardem se stávají
-tiskárny s rozlišením 1200 DPI. Výjimečné už nejsou tiskárny s rozlišením
-2400 DPI. S podobnými údaji se setkáte u skenerů z papírové předlohy
+<p>SouĹ™adnice v pixelech (nebo rozmÄ›ry obrĂˇzku v pixelech) samy o sobÄ›
+neurÄŤujĂ­ fyzickĂ© rozmÄ›ry. NavĂ­c musĂ­me pouĹľĂ­t Ăşdaj, kterĂ˝ urÄŤuje poÄŤet bodĹŻ
+na rozmÄ›rovou jednotku. Typicky se setkĂˇvĂˇme se zkratkou <em>DPI</em>, coĹľ
+je akronym anglickĂ©ho <em>Dots per Inch</em> &mdash; <em>bodĹŻ na palec</em>
+(jeden palec odpovĂ­dĂˇ 25,4 mm). PĹ™i prĂˇci s monitorem se typicky setkĂˇvĂˇme
+s Ăşdajem 96 DPI. StarĹˇĂ­ laserovĂ© tiskĂˇrny mÄ›ly rozliĹˇenĂ­ 300 DPI. BÄ›ĹľnĂ©
+levnĂ© laserovĂ© tiskĂˇrny majĂ­ nynĂ­ rozliĹˇenĂ­ 600 DPI. Standardem se stĂˇvajĂ­
+tiskĂˇrny s rozliĹˇenĂ­m 1200 DPI. VĂ˝jimeÄŤnĂ© uĹľ nejsou tiskĂˇrny s rozliĹˇenĂ­m
+2400 DPI. S podobnĂ˝mi Ăşdaji se setkĂˇte u skenerĹŻ z papĂ­rovĂ© pĹ™edlohy
 (scanner).</p>
 
-<p>Poznámka: Pokud se pracuje s trojrozměrným rastrovým rozkladem třírozměrného
-prostoru, pak se můžete setkat s pojmem <em>voxel</em>, což je zkratkové slovo
-vytvořené obdobným způsobem ze spojení slov <em>volume element</em>, tedy objemový
+<p>PoznĂˇmka: Pokud se pracuje s trojrozmÄ›rnĂ˝m rastrovĂ˝m rozkladem tĹ™Ă­rozmÄ›rnĂ©ho
+prostoru, pak se mĹŻĹľete setkat s pojmem <em>voxel</em>, coĹľ je zkratkovĂ© slovo
+vytvoĹ™enĂ© obdobnĂ˝m zpĹŻsobem ze spojenĂ­ slov <em>volume element</em>, tedy objemovĂ˝
 element.</p></dd>
 </dl>
 
-<h3 id="cztutcase">Případová studie</h3>
+<h3 id="cztutcase">PĹ™Ă­padovĂˇ studie</h3>
 
 <dl>
-<dt><a href="cztutcase.html#Bcase_refactoring" id="Pcase_refactoring" title="zpět">[1]</a>
+<dt><a href="cztutcase.html#Bcase_refactoring" id="Pcase_refactoring" title="zpÄ›t">[1]</a>
 Pojem <em>refaktorizace</em> (<em>refactoring</em>):</dt>
 
-<dd><p>Slovo <em>refactoring</em> se v programování používá jako specifický
-pojem pro činnost, kdy revidujeme a <em>přepracováváme</em> kód s tím, že
-chceme dosáhnout jeho vyšší kvality a použitelnosti. Objevuje se zejména v
-souvislosti s objektově orientovaným programováním, kdy se například snažíme
-v rámci používaných tříd najít lepší umístění kódu, který realizuje určitou
-funkčnost. Mohli bychom říci, že přehodnocujeme pohled na to, jaká třída
-(jaký objekt) je odpovědná za určitou činnost a zvažujeme možnosti
-zefektivnění komunikace mezi objekty.</p>
+<dd><p>Slovo <em>refactoring</em> se v programovĂˇnĂ­ pouĹľĂ­vĂˇ jako specifickĂ˝
+pojem pro ÄŤinnost, kdy revidujeme a <em>pĹ™epracovĂˇvĂˇme</em> kĂłd s tĂ­m, Ĺľe
+chceme dosĂˇhnout jeho vyĹˇĹˇĂ­ kvality a pouĹľitelnosti. Objevuje se zejmĂ©na v
+souvislosti s objektovÄ› orientovanĂ˝m programovĂˇnĂ­m, kdy se napĹ™Ă­klad snaĹľĂ­me
+v rĂˇmci pouĹľĂ­vanĂ˝ch tĹ™Ă­d najĂ­t lepĹˇĂ­ umĂ­stÄ›nĂ­ kĂłdu, kterĂ˝ realizuje urÄŤitou
+funkÄŤnost. Mohli bychom Ĺ™Ă­ci, Ĺľe pĹ™ehodnocujeme pohled na to, jakĂˇ tĹ™Ă­da
+(jakĂ˝ objekt) je odpovÄ›dnĂˇ za urÄŤitou ÄŤinnost a zvaĹľujeme moĹľnosti
+zefektivnÄ›nĂ­ komunikace mezi objekty.</p>
 
-<p>Samotná refaktorizace obvykle nemění funkčnost kódu. Můžeme říci, že
-pouze využíváme dosavadní zkušenost, kterou jsme při psaní tohoto kódu
-získali, upřesňujeme svůj pohled na řešený problém a snažíme se řešení
-upravit tak, aby se zvýšila jeho <em>průhlednost</em> a jasnost. Snažíme se
-lepším způsobem dosáhnout stejné funkčnosti. Při tom si často ujasňujeme
-přesnou roli zúčastněných tříd a to i s ohledem na další vývoj. Pokud se nám
-podaří vše vyjádřit jednodušším a jasnějším způsobem, bude i další vývoj
-jednodušší a snadnější.</p>
+<p>SamotnĂˇ refaktorizace obvykle nemÄ›nĂ­ funkÄŤnost kĂłdu. MĹŻĹľeme Ĺ™Ă­ci, Ĺľe
+pouze vyuĹľĂ­vĂˇme dosavadnĂ­ zkuĹˇenost, kterou jsme pĹ™i psanĂ­ tohoto kĂłdu
+zĂ­skali, upĹ™esĹujeme svĹŻj pohled na Ĺ™eĹˇenĂ˝ problĂ©m a snaĹľĂ­me se Ĺ™eĹˇenĂ­
+upravit tak, aby se zvĂ˝Ĺˇila jeho <em>prĹŻhlednost</em> a jasnost. SnaĹľĂ­me se
+lepĹˇĂ­m zpĹŻsobem dosĂˇhnout stejnĂ© funkÄŤnosti. PĹ™i tom si ÄŤasto ujasĹujeme
+pĹ™esnou roli zĂşÄŤastnÄ›nĂ˝ch tĹ™Ă­d a to i s ohledem na dalĹˇĂ­ vĂ˝voj. Pokud se nĂˇm
+podaĹ™Ă­ vĹˇe vyjĂˇdĹ™it jednoduĹˇĹˇĂ­m a jasnÄ›jĹˇĂ­m zpĹŻsobem, bude i dalĹˇĂ­ vĂ˝voj
+jednoduĹˇĹˇĂ­ a snadnÄ›jĹˇĂ­.</p>
 
-<p>Při refaktorizaci tak může dojít například k rozdělení jedné třídy na víc
-tříd, nebo naopak k slučování tříd. U některých tříd může být vypozorován
-společný základ a může vzniknout společná bázová třída, ze které jsou nové
-verze původních tříd odvozeny, a podobně.</p>
+<p>PĹ™i refaktorizaci tak mĹŻĹľe dojĂ­t napĹ™Ă­klad k rozdÄ›lenĂ­ jednĂ© tĹ™Ă­dy na vĂ­c
+tĹ™Ă­d, nebo naopak k sluÄŤovĂˇnĂ­ tĹ™Ă­d. U nÄ›kterĂ˝ch tĹ™Ă­d mĹŻĹľe bĂ˝t vypozorovĂˇn
+spoleÄŤnĂ˝ zĂˇklad a mĹŻĹľe vzniknout spoleÄŤnĂˇ bĂˇzovĂˇ tĹ™Ă­da, ze kterĂ© jsou novĂ©
+verze pĹŻvodnĂ­ch tĹ™Ă­d odvozeny, a podobnÄ›.</p>
 
-<p>Refaktorizace patří ke klíčovým postupům jedné z nových
-metodik vývoje softwarových systémů, která je známa jako <em>eXtreme
-Programming</em> (dále XP). A protože každá změna &mdash; jakkoliv dobře míněná
-&mdash; může do programu vnést chyby, patří ke klíčovým postupům v XP i
-psaní testů známých jako <em>unit tests</em> (izolované testy funkčnosti
-pokud možno všech částí kódu) a <em>acceptance tests</em> (tedy testy
-přijatelnosti, které testují požadovanou funkčnost z pohledu uživatele).
-Testy se píší před implementací vlastního kódu, během ní i dodatečně. Pokud
-kód projde testy i po refaktorizaci, pak při ní s vysokou pravděpodobností
-nebyly do kódu zavlečeny nechtěné chyby. I v testech může být skrytá chyba,
-ale styl jejich psaní se obvykle liší od psaní kódu, který testují. V tom je
-skrytá jistá záruka, že chyby v testech budou odhaleny dobře implementovaným
-kódem a chybně implementovaný kód bude naopak odhalen testy. Pokud je přesto
-zjištěna chyba v aplikaci, postupuje se tak, že se nejdříve doplní test,
-který tuto chybu odhaluje. Na základě tohoto testu pak můžeme poznat, zda se
-nám chybu v implementaci podařilo opravit. Důležité je, že pro budoucí
-refaktorizace takto postupně budujeme záchrannou síť testů, která je stále
-spolehlivější. Důvěryhodnost kódu roste a současně odpadají obavy o to, že
-zásahy do fungujícího kódu způsobí jeho nefunkčnost.</p>
+<p>Refaktorizace patĹ™Ă­ ke klĂ­ÄŤovĂ˝m postupĹŻm jednĂ© z novĂ˝ch
+metodik vĂ˝voje softwarovĂ˝ch systĂ©mĹŻ, kterĂˇ je znĂˇma jako <em>eXtreme
+Programming</em> (dĂˇle XP). A protoĹľe kaĹľdĂˇ zmÄ›na &mdash; jakkoliv dobĹ™e mĂ­nÄ›nĂˇ
+&mdash; mĹŻĹľe do programu vnĂ©st chyby, patĹ™Ă­ ke klĂ­ÄŤovĂ˝m postupĹŻm v XP i
+psanĂ­ testĹŻ znĂˇmĂ˝ch jako <em>unit tests</em> (izolovanĂ© testy funkÄŤnosti
+pokud moĹľno vĹˇech ÄŤĂˇstĂ­ kĂłdu) a <em>acceptance tests</em> (tedy testy
+pĹ™ijatelnosti, kterĂ© testujĂ­ poĹľadovanou funkÄŤnost z pohledu uĹľivatele).
+Testy se pĂ­ĹˇĂ­ pĹ™ed implementacĂ­ vlastnĂ­ho kĂłdu, bÄ›hem nĂ­ i dodateÄŤnÄ›. Pokud
+kĂłd projde testy i po refaktorizaci, pak pĹ™i nĂ­ s vysokou pravdÄ›podobnostĂ­
+nebyly do kĂłdu zavleÄŤeny nechtÄ›nĂ© chyby. I v testech mĹŻĹľe bĂ˝t skrytĂˇ chyba,
+ale styl jejich psanĂ­ se obvykle liĹˇĂ­ od psanĂ­ kĂłdu, kterĂ˝ testujĂ­. V tom je
+skrytĂˇ jistĂˇ zĂˇruka, Ĺľe chyby v testech budou odhaleny dobĹ™e implementovanĂ˝m
+kĂłdem a chybnÄ› implementovanĂ˝ kĂłd bude naopak odhalen testy. Pokud je pĹ™esto
+zjiĹˇtÄ›na chyba v aplikaci, postupuje se tak, Ĺľe se nejdĹ™Ă­ve doplnĂ­ test,
+kterĂ˝ tuto chybu odhaluje. Na zĂˇkladÄ› tohoto testu pak mĹŻĹľeme poznat, zda se
+nĂˇm chybu v implementaci podaĹ™ilo opravit. DĹŻleĹľitĂ© je, Ĺľe pro budoucĂ­
+refaktorizace takto postupnÄ› budujeme zĂˇchrannou sĂ­ĹĄ testĹŻ, kterĂˇ je stĂˇle
+spolehlivÄ›jĹˇĂ­. DĹŻvÄ›ryhodnost kĂłdu roste a souÄŤasnÄ› odpadajĂ­ obavy o to, Ĺľe
+zĂˇsahy do fungujĂ­cĂ­ho kĂłdu zpĹŻsobĂ­ jeho nefunkÄŤnost.</p>
 
-<p>Python ve své standardní distribuci obsahuje modul <code>unittest</code>,
-který poskytuje prostředky pro psaní testů a implementuje mechanismus jejich
-automatizovaného spouštění a vyhodnocování.</p>
+<p>Python ve svĂ© standardnĂ­ distribuci obsahuje modul <code>unittest</code>,
+kterĂ˝ poskytuje prostĹ™edky pro psanĂ­ testĹŻ a implementuje mechanismus jejich
+automatizovanĂ©ho spouĹˇtÄ›nĂ­ a vyhodnocovĂˇnĂ­.</p>
 </dd>
 </dl>
 
 
-<h3 id="czcomplang">Programovací jazyky, které jsem používal</h3>
+<h3 id="czcomplang">ProgramovacĂ­ jazyky, kterĂ© jsem pouĹľĂ­val</h3>
 
 <dl>
-<dt><a href="czcomplang.html#Bcomplang_scrlarge" id="Pcomplang_scrlarge" title="zpět">[1]</a>
-Co se vlatně rozumí pojmem <em>skriptování ve velkém</em>?</dt>
+<dt><a href="czcomplang.html#Bcomplang_scrlarge" id="Pcomplang_scrlarge" title="zpÄ›t">[1]</a>
+Co se vlatnÄ› rozumĂ­ pojmem <em>skriptovĂˇnĂ­ ve velkĂ©m</em>?</dt>
 
-<dd><p>Podle mého názoru už samotná existence tohoto pojmu &mdash; pokud 
-přijmete názor, že dává smysl &mdash; potvrzuje, že Python tvoří jakýsi
-spojovací článek mezi skriptovacími jazyky a robustnějšími, kompilovanými
-programovacími jazyky.</p> 
+<dd><p>Podle mĂ©ho nĂˇzoru uĹľ samotnĂˇ existence tohoto pojmu &mdash; pokud
+pĹ™ijmete nĂˇzor, Ĺľe dĂˇvĂˇ smysl &mdash; potvrzuje, Ĺľe Python tvoĹ™Ă­ jakĂ˝si
+spojovacĂ­ ÄŤlĂˇnek mezi skriptovacĂ­mi jazyky a robustnÄ›jĹˇĂ­mi, kompilovanĂ˝mi
+programovacĂ­mi jazyky.</p>
 
-<p>Obvykle se setkáváme pouze s pojmy <em>skriptovací jazyk</em> nebo
-<em>skriptování</em>, jako výraz pro používání tohoto jazyka pro zápis
-skriptů. Skriptem se myslí spíše jednoduchý program, který se používá často
-jednoúčelově, v podobě konzolové aplikace. Typickou vlastností skriptu je
-to, že se spouští z příkazové řádky a nepoužívá grafické uživatelské
-rozhraní. K provedení úkolu často využívá konzolové příkazy operačního
-systému a jiné jednoúčelové programy, které mají užší vazbu na operační
-systém (zejména v systémech s unixovým jádrem) a kterým se často říká
-<em>utility</em> [čti jutility]. Původním smyslem skriptovacího jazyka je
-právě rychlé a snadné kombinování existujících utilit a to i za cenu méně
-efektivního běhu kódu, který jejich funkčnost spojuje. Uvedené vlastnosti
-vedou k tomu, že skriptovací jazyky prakticky vždy interpretují textový
-zápis programu.</p>
+<p>Obvykle se setkĂˇvĂˇme pouze s pojmy <em>skriptovacĂ­ jazyk</em> nebo
+<em>skriptovĂˇnĂ­</em>, jako vĂ˝raz pro pouĹľĂ­vĂˇnĂ­ tohoto jazyka pro zĂˇpis
+skriptĹŻ. Skriptem se myslĂ­ spĂ­Ĺˇe jednoduchĂ˝ program, kterĂ˝ se pouĹľĂ­vĂˇ ÄŤasto
+jednoĂşÄŤelovÄ›, v podobÄ› konzolovĂ© aplikace. Typickou vlastnostĂ­ skriptu je
+to, Ĺľe se spouĹˇtĂ­ z pĹ™Ă­kazovĂ© Ĺ™Ăˇdky a nepouĹľĂ­vĂˇ grafickĂ© uĹľivatelskĂ©
+rozhranĂ­. K provedenĂ­ Ăşkolu ÄŤasto vyuĹľĂ­vĂˇ konzolovĂ© pĹ™Ă­kazy operaÄŤnĂ­ho
+systĂ©mu a jinĂ© jednoĂşÄŤelovĂ© programy, kterĂ© majĂ­ uĹľĹˇĂ­ vazbu na operaÄŤnĂ­
+systĂ©m (zejmĂ©na v systĂ©mech s unixovĂ˝m jĂˇdrem) a kterĂ˝m se ÄŤasto Ĺ™Ă­kĂˇ
+<em>utility</em> [ÄŤti jutility]. PĹŻvodnĂ­m smyslem skriptovacĂ­ho jazyka je
+prĂˇvÄ› rychlĂ© a snadnĂ© kombinovĂˇnĂ­ existujĂ­cĂ­ch utilit a to i za cenu mĂ©nÄ›
+efektivnĂ­ho bÄ›hu kĂłdu, kterĂ˝ jejich funkÄŤnost spojuje. UvedenĂ© vlastnosti
+vedou k tomu, Ĺľe skriptovacĂ­ jazyky prakticky vĹľdy interpretujĂ­ textovĂ˝
+zĂˇpis programu.</p>
 
-<p>Pojem <em>programování ve velkém</em> se naopak téměř výlučně používá ve
-spojení s kompilovanými jazyky. Pokud o nějakém jazyce řekneme, že je vhodný
-pro programování ve velkém, pak to znamená, že jazyk samotný nezavádí s
-nárůstem velikosti řešeného problému neočekávané komplikace. Dá se říci, že
-při jeho vhodném používání není velikost řešeného problému z hlediska jeho
-programování omezována. Příkladem takového jazyka je C++. Jazyky tohoto typu
-musí například podporovat dobrou práci s knihovnami, které připravil někdo
-jiný, případně &mdash; z opačného pohledu &mdash; dobré možnosti pro tvorbu
-takových knihoven. To mimo jiné znamená, že jazyk například musí být schopen
-oddělit prostory jmen, používané v rámci těchto knihoven, od prostorů jmen,
-které chceme využívat v naší aplikaci. Jinými slovy, musí podporovat
-mechanismy, které nám například umožní zvolit pojmenování naší funkce, aniž
-bychom museli zjišťovat nebo zkoušet, zda nedochází ke kolizi s jmény
-používanými v knihovnách. Podobných požadavků na vlastnosti, které při psaní
-malých programů nemusíme ani využít, je více. Další z důležitých vlastností,
-bez které si dnes programování ve velkém stěží dokážeme představit, je
-schopnost pracovat na úrovní objektů. Jazyk by tedy měl být objektově
-orientovaný, nebo alespoň <em>object based</em>. Volně s tím souvisí i
-možnost práce s hotovými binárními komponentami.</p>
+<p>Pojem <em>programovĂˇnĂ­ ve velkĂ©m</em> se naopak tĂ©mÄ›Ĺ™ vĂ˝luÄŤnÄ› pouĹľĂ­vĂˇ ve
+spojenĂ­ s kompilovanĂ˝mi jazyky. Pokud o nÄ›jakĂ©m jazyce Ĺ™ekneme, Ĺľe je vhodnĂ˝
+pro programovĂˇnĂ­ ve velkĂ©m, pak to znamenĂˇ, Ĺľe jazyk samotnĂ˝ nezavĂˇdĂ­ s
+nĂˇrĹŻstem velikosti Ĺ™eĹˇenĂ©ho problĂ©mu neoÄŤekĂˇvanĂ© komplikace. DĂˇ se Ĺ™Ă­ci, Ĺľe
+pĹ™i jeho vhodnĂ©m pouĹľĂ­vĂˇnĂ­ nenĂ­ velikost Ĺ™eĹˇenĂ©ho problĂ©mu z hlediska jeho
+programovĂˇnĂ­ omezovĂˇna. PĹ™Ă­kladem takovĂ©ho jazyka je C++. Jazyky tohoto typu
+musĂ­ napĹ™Ă­klad podporovat dobrou prĂˇci s knihovnami, kterĂ© pĹ™ipravil nÄ›kdo
+jinĂ˝, pĹ™Ă­padnÄ› &mdash; z opaÄŤnĂ©ho pohledu &mdash; dobrĂ© moĹľnosti pro tvorbu
+takovĂ˝ch knihoven. To mimo jinĂ© znamenĂˇ, Ĺľe jazyk napĹ™Ă­klad musĂ­ bĂ˝t schopen
+oddÄ›lit prostory jmen, pouĹľĂ­vanĂ© v rĂˇmci tÄ›chto knihoven, od prostorĹŻ jmen,
+kterĂ© chceme vyuĹľĂ­vat v naĹˇĂ­ aplikaci. JinĂ˝mi slovy, musĂ­ podporovat
+mechanismy, kterĂ© nĂˇm napĹ™Ă­klad umoĹľnĂ­ zvolit pojmenovĂˇnĂ­ naĹˇĂ­ funkce, aniĹľ
+bychom museli zjiĹˇĹĄovat nebo zkouĹˇet, zda nedochĂˇzĂ­ ke kolizi s jmĂ©ny
+pouĹľĂ­vanĂ˝mi v knihovnĂˇch. PodobnĂ˝ch poĹľadavkĹŻ na vlastnosti, kterĂ© pĹ™i psanĂ­
+malĂ˝ch programĹŻ nemusĂ­me ani vyuĹľĂ­t, je vĂ­ce. DalĹˇĂ­ z dĹŻleĹľitĂ˝ch vlastnostĂ­,
+bez kterĂ© si dnes programovĂˇnĂ­ ve velkĂ©m stÄ›ĹľĂ­ dokĂˇĹľeme pĹ™edstavit, je
+schopnost pracovat na ĂşrovnĂ­ objektĹŻ. Jazyk by tedy mÄ›l bĂ˝t objektovÄ›
+orientovanĂ˝, nebo alespoĹ <em>object based</em>. VolnÄ› s tĂ­m souvisĂ­ i
+moĹľnost prĂˇce s hotovĂ˝mi binĂˇrnĂ­mi komponentami.</p>
 
-<p>Skriptovací jazyky si obvykle cíle typu <em>podporovat programování ve
-velkém</em> nekladou. Výkon interpretace zdrojového textu u jednoduchých
-skriptovacích jazyků je prakticky nevhodný pro zápis složitější funkčnosti.
-Průlom v tomto směru udělal jazyk Perl (z těch známých), a také jazyk
-Python. S nárůstem výkonu, který je dán jiným přístupem k interpretaci
-zdrojového textu, lze budovat přímo v daném jazyce rozsáhlejší aplikace.
-Zavedení modulů, které umožňují jednoduchou vazbu na funkce systému, pomáhá
-splnit původní cíl skriptovacích jazyků &mdash; tvořit <em>lepidlo</em> pro
-spojování funkčnosti utilit. Vhodný způsob zavedení modulů umožňuje jak
-vytváření dalších, standardně dodávaných modulů, tak modulů vlastních.
-Vhodná definice zobecněného rozhraní modulů umožňuje vytvářet moduly v
-jiných, kompilovaných jazycích, které výsledné aplikaci mohou v dané
-aplikační oblasti dodávat potřebný výkon. Ten by v původním skriptovacím
-jazyce nemusel být v mnoha případech dosažitelný. Mimo jiné to umožňuje
-přidat mezi standardně dodávané moduly i ty, které realizují grafické
-uživatelské rozhraní, jako je například využití Tk. Všechny uvedené
-vlastnosti splňují jak Perl, tak Python.</p>
+<p>SkriptovacĂ­ jazyky si obvykle cĂ­le typu <em>podporovat programovĂˇnĂ­ ve
+velkĂ©m</em> nekladou. VĂ˝kon interpretace zdrojovĂ©ho textu u jednoduchĂ˝ch
+skriptovacĂ­ch jazykĹŻ je prakticky nevhodnĂ˝ pro zĂˇpis sloĹľitÄ›jĹˇĂ­ funkÄŤnosti.
+PrĹŻlom v tomto smÄ›ru udÄ›lal jazyk Perl (z tÄ›ch znĂˇmĂ˝ch), a takĂ© jazyk
+Python. S nĂˇrĹŻstem vĂ˝konu, kterĂ˝ je dĂˇn jinĂ˝m pĹ™Ă­stupem k interpretaci
+zdrojovĂ©ho textu, lze budovat pĹ™Ă­mo v danĂ©m jazyce rozsĂˇhlejĹˇĂ­ aplikace.
+ZavedenĂ­ modulĹŻ, kterĂ© umoĹľĹujĂ­ jednoduchou vazbu na funkce systĂ©mu, pomĂˇhĂˇ
+splnit pĹŻvodnĂ­ cĂ­l skriptovacĂ­ch jazykĹŻ &mdash; tvoĹ™it <em>lepidlo</em> pro
+spojovĂˇnĂ­ funkÄŤnosti utilit. VhodnĂ˝ zpĹŻsob zavedenĂ­ modulĹŻ umoĹľĹuje jak
+vytvĂˇĹ™enĂ­ dalĹˇĂ­ch, standardnÄ› dodĂˇvanĂ˝ch modulĹŻ, tak modulĹŻ vlastnĂ­ch.
+VhodnĂˇ definice zobecnÄ›nĂ©ho rozhranĂ­ modulĹŻ umoĹľĹuje vytvĂˇĹ™et moduly v
+jinĂ˝ch, kompilovanĂ˝ch jazycĂ­ch, kterĂ© vĂ˝slednĂ© aplikaci mohou v danĂ©
+aplikaÄŤnĂ­ oblasti dodĂˇvat potĹ™ebnĂ˝ vĂ˝kon. Ten by v pĹŻvodnĂ­m skriptovacĂ­m
+jazyce nemusel bĂ˝t v mnoha pĹ™Ă­padech dosaĹľitelnĂ˝. Mimo jinĂ© to umoĹľĹuje
+pĹ™idat mezi standardnÄ› dodĂˇvanĂ© moduly i ty, kterĂ© realizujĂ­ grafickĂ©
+uĹľivatelskĂ© rozhranĂ­, jako je napĹ™Ă­klad vyuĹľitĂ­ Tk. VĹˇechny uvedenĂ©
+vlastnosti splĹujĂ­ jak Perl, tak Python.</p>
 
-<p>Python ovšem navíc poskytuje výbornou vyjadřovací čistotu a stručnost.
-Třídy lze tvořit jednoduchým způsobem. Jednoduchým způsobem můžeme vytvářet
-i třídy odvozené, specializované (mechanismus dědičnosti). Při růstu
-velikosti řešeného problému nenarážíme na principiální omezení velikosti
-objektů nebo na omezení jejich funčnosti. Máme k dispozici kvalitní a
-výkonné zabudované datové abstrakce. V neposlední řadě Python používá
-jednoduchou, jednoznačnou a průhlednou syntaxi. To jsou ony vlastnosti,
-které z Pythonu činí mnohem lepšího kandidáta na tvorbu ve velkém, než je
-tomu například u jazyka Perl.</p>
+<p>Python ovĹˇem navĂ­c poskytuje vĂ˝bornou vyjadĹ™ovacĂ­ ÄŤistotu a struÄŤnost.
+TĹ™Ă­dy lze tvoĹ™it jednoduchĂ˝m zpĹŻsobem. JednoduchĂ˝m zpĹŻsobem mĹŻĹľeme vytvĂˇĹ™et
+i tĹ™Ă­dy odvozenĂ©, specializovanĂ© (mechanismus dÄ›diÄŤnosti). PĹ™i rĹŻstu
+velikosti Ĺ™eĹˇenĂ©ho problĂ©mu nenarĂˇĹľĂ­me na principiĂˇlnĂ­ omezenĂ­ velikosti
+objektĹŻ nebo na omezenĂ­ jejich funÄŤnosti. MĂˇme k dispozici kvalitnĂ­ a
+vĂ˝konnĂ© zabudovanĂ© datovĂ© abstrakce. V neposlednĂ­ Ĺ™adÄ› Python pouĹľĂ­vĂˇ
+jednoduchou, jednoznaÄŤnou a prĹŻhlednou syntaxi. To jsou ony vlastnosti,
+kterĂ© z Pythonu ÄŤinĂ­ mnohem lepĹˇĂ­ho kandidĂˇta na tvorbu ve velkĂ©m, neĹľ je
+tomu napĹ™Ă­klad u jazyka Perl.</p>
 
-</dd> 
+</dd>
 </dl>
 
 <!-- <h3><span class="ir">[Nadpis kapitoly]</span></h3>
 
 <dl>
-<dt><a href="cztut???.html#B?_?" id="P?_?" title="zpět">[?]</a>
+<dt><a href="cztut???.html#B?_?" id="P?_?" title="zpÄ›t">[?]</a>
 <span class="ir">[Nadpis hesla]</span>:</dt>
 
-<dd><p><span class="ir">[Text poznámky]</span></p></dd>
+<dd><p><span class="ir">[Text poznĂˇmky]</span></p></dd>
 </dl>
 -->
 
@@ -1582,27 +1585,27 @@ tomu například u jazyka Perl.</p>
 
 <hr>
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutintro.html" title="Úvod">úvod</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutcorr.html" title="Opravy">opravy</a> 
+<p class="navig">[
+<a href="cztutintro.html" title="Ăšvod">Ăşvod</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutcorr.html" title="Opravy">opravy</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztuttrn.html,v 1.15 2005/10/07 19:07:35 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztuttrn.html,v 1.15 2005/10/07 19:07:35 petr Exp $</p>
 </div>

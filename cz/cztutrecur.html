@@ -1,77 +1,77 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Rekurze</title>
+  <title>Jak se nauÄŤit programovat: Rekurze</title>
 </head>
 <body>
 
-<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
-se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+<p class="ir">NĂ­Ĺľe uvedenĂ˝ text pochĂˇzĂ­ z prvnĂ­ho vydĂˇnĂ­. Nad tĂ­mto textem
+se nachĂˇzĂ­ aktuĂˇlnĂ­ stav po revizi smÄ›Ĺ™ujĂ­cĂ­ k druhĂ©mu vydĂˇnĂ­.</p>
 
 <h2>Rekurze</h2>
 
 <div class="whatcovered">
-<p>Poznámka: Téma <em>rekurze</em> je určeno pro poměrně pokročilé
-programátory. Při tvorbě většiny aplikací o rekurzi nemusíte vědět vůbec
-nic. Ale občas je užitečnost použití rekurze přímo neocenitelná, proto si
-zde o ní něco řekneme. Pokud vám to v prvním okamžiku nebude dávat smysl,
+<p>PoznĂˇmka: TĂ©ma <em>rekurze</em> je urÄŤeno pro pomÄ›rnÄ› pokroÄŤilĂ©
+programĂˇtory. PĹ™i tvorbÄ› vÄ›tĹˇiny aplikacĂ­ o rekurzi nemusĂ­te vÄ›dÄ›t vĹŻbec
+nic. Ale obÄŤas je uĹľiteÄŤnost pouĹľitĂ­ rekurze pĹ™Ă­mo neocenitelnĂˇ, proto si
+zde o nĂ­ nÄ›co Ĺ™ekneme. Pokud vĂˇm to v prvnĂ­m okamĹľiku nebude dĂˇvat smysl,
 nepropadejte panice.</p>
 </div>
 
-<h3>Co to vlastně je?</h3>
+<h3>Co to vlastnÄ› je?</h3>
 
-<p>V předchozích částech učebnice jsme se zmínili o tom, že použití cyklu
-patří k jednomu ze základních kamenů programování. Navzdory tomuto tvrzení
-je ve skutečnosti možné vytvářet programy, které nepoužívají přímo
-vyjádřenou konstrukci cyklu. V některých jazycích, jako je například Lisp,
-přímá konstrukce cyklu jako <code>FOR</code>, <code>WHILE</code>, a dalších
-ve skutečnosti vůbec neexistuje. Místo toho se zde používá technika známá
-jako <em>rekurze</em>. Pro řešení některých typů problémů se rekurze ukazuje
-být velmi mocnou technikou. Proto se na ni teď podíváme.</p>
+<p>V pĹ™edchozĂ­ch ÄŤĂˇstech uÄŤebnice jsme se zmĂ­nili o tom, Ĺľe pouĹľitĂ­ cyklu
+patĹ™Ă­ k jednomu ze zĂˇkladnĂ­ch kamenĹŻ programovĂˇnĂ­. Navzdory tomuto tvrzenĂ­
+je ve skuteÄŤnosti moĹľnĂ© vytvĂˇĹ™et programy, kterĂ© nepouĹľĂ­vajĂ­ pĹ™Ă­mo
+vyjĂˇdĹ™enou konstrukci cyklu. V nÄ›kterĂ˝ch jazycĂ­ch, jako je napĹ™Ă­klad Lisp,
+pĹ™Ă­mĂˇ konstrukce cyklu jako <code>FOR</code>, <code>WHILE</code>, a dalĹˇĂ­ch
+ve skuteÄŤnosti vĹŻbec neexistuje. MĂ­sto toho se zde pouĹľĂ­vĂˇ technika znĂˇmĂˇ
+jako <em>rekurze</em>. Pro Ĺ™eĹˇenĂ­ nÄ›kterĂ˝ch typĹŻ problĂ©mĹŻ se rekurze ukazuje
+bĂ˝t velmi mocnou technikou. Proto se na ni teÄŹ podĂ­vĂˇme.</p>
 
-<p>Rekurzí jednoduše rozumíme použití nějaké funkce jako části definice té
-samé funkce. Takže o definici akronymu GNU (což je zdroj velkého množství
-softwarových produktů dostupných zdarma) říkáme, že je rekurzivní, protože
-zkratka GNU znamená <em>GNU's Not Unix</em> <span class="trnote"
-title="Poznámka překladatele">(čili <em>GNU Není Unix</em>)</span>. Zkratka
-GNU je tedy součástí definice významu zkratky samé.</p>
+<p>RekurzĂ­ jednoduĹˇe rozumĂ­me pouĹľitĂ­ nÄ›jakĂ© funkce jako ÄŤĂˇsti definice tĂ©
+samĂ© funkce. TakĹľe o definici akronymu GNU (coĹľ je zdroj velkĂ©ho mnoĹľstvĂ­
+softwarovĂ˝ch produktĹŻ dostupnĂ˝ch zdarma) Ĺ™Ă­kĂˇme, Ĺľe je rekurzivnĂ­, protoĹľe
+zkratka GNU znamenĂˇ <em>GNU's Not Unix</em> <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(ÄŤili <em>GNU NenĂ­ Unix</em>)</span>. Zkratka
+GNU je tedy souÄŤĂˇstĂ­ definice vĂ˝znamu zkratky samĂ©.</p>
 
-<p>Klíčem k fungování rekurze je to, že <b>musí existovat podmínka
-ukončení</b> taková, že v určité situaci funkce pokračuje větví, která
-představuje nerekurzivní řešení. (Definice akronymu GNU tímto testem
-použitelnosti neprojde, protože vede k nekonečnému cyklu.)</p>
+<p>KlĂ­ÄŤem k fungovĂˇnĂ­ rekurze je to, Ĺľe <b>musĂ­ existovat podmĂ­nka
+ukonÄŤenĂ­</b> takovĂˇ, Ĺľe v urÄŤitĂ© situaci funkce pokraÄŤuje vÄ›tvĂ­, kterĂˇ
+pĹ™edstavuje nerekurzivnĂ­ Ĺ™eĹˇenĂ­. (Definice akronymu GNU tĂ­mto testem
+pouĹľitelnosti neprojde, protoĹľe vede k nekoneÄŤnĂ©mu cyklu.)</p>
 
 <div class="trnote">
-<p><b>Poznámka překladatele:</b> Možná jste se někdy setkali s žertovnou
-podobou vysvětlení nekonečného cyklu, jak by mohl být uveden ve výkladovém
-slovníku:</p>
+<p><b>PoznĂˇmka pĹ™ekladatele:</b> MoĹľnĂˇ jste se nÄ›kdy setkali s Ĺľertovnou
+podobou vysvÄ›tlenĂ­ nekoneÄŤnĂ©ho cyklu, jak by mohl bĂ˝t uveden ve vĂ˝kladovĂ©m
+slovnĂ­ku:</p>
 
 <dl>
-<dt>Cyklus nekonečný</dt>
-<dd><p>Viz <em>Nekonečný cyklus</em>.</p></dd>
-<dt>Nekonečný cyklus</dt>
-<dd><p>Viz <em>Cyklus nekonečný</em>.</p></dd>
+<dt>Cyklus nekoneÄŤnĂ˝</dt>
+<dd><p>Viz <em>NekoneÄŤnĂ˝ cyklus</em>.</p></dd>
+<dt>NekoneÄŤnĂ˝ cyklus</dt>
+<dd><p>Viz <em>Cyklus nekoneÄŤnĂ˝</em>.</p></dd>
 </dl>
 
-<p>Taková definice nekonečného cyklu je vlastně generována rekurzí. Pokud
-hesla <em>Cyklus nekonečný</em> a <em>Nekonečný cyklus</em> budeme považovat
-za funkce a jejich část <em>Viz xyz</em> za volání jiné funkce, pak jsme
-vytvořili nekonečný cyklus za použití takzvané <em>nepřímé rekurze</em>. Ta
-se od výše zmíněné rekurze liší pouze tím, že k volání funkce samé nedochází
-přímo, ale zprostředkovaně, jinou funkcí. Aby nepřímá rekurze byla k něčemu
-dobrá, musí být rovněž splněn předpoklad, že <em>v určitém bodě musí nastat
-nerekurzivní dořešení problému</em>.</p>
+<p>TakovĂˇ definice nekoneÄŤnĂ©ho cyklu je vlastnÄ› generovĂˇna rekurzĂ­. Pokud
+hesla <em>Cyklus nekoneÄŤnĂ˝</em> a <em>NekoneÄŤnĂ˝ cyklus</em> budeme povaĹľovat
+za funkce a jejich ÄŤĂˇst <em>Viz xyz</em> za volĂˇnĂ­ jinĂ© funkce, pak jsme
+vytvoĹ™ili nekoneÄŤnĂ˝ cyklus za pouĹľitĂ­ takzvanĂ© <em>nepĹ™Ă­mĂ© rekurze</em>. Ta
+se od vĂ˝Ĺˇe zmĂ­nÄ›nĂ© rekurze liĹˇĂ­ pouze tĂ­m, Ĺľe k volĂˇnĂ­ funkce samĂ© nedochĂˇzĂ­
+pĹ™Ă­mo, ale zprostĹ™edkovanÄ›, jinou funkcĂ­. Aby nepĹ™Ă­mĂˇ rekurze byla k nÄ›ÄŤemu
+dobrĂˇ, musĂ­ bĂ˝t rovnÄ›Ĺľ splnÄ›n pĹ™edpoklad, Ĺľe <em>v urÄŤitĂ©m bodÄ› musĂ­ nastat
+nerekurzivnĂ­ doĹ™eĹˇenĂ­ problĂ©mu</em>.</p>
 
 </div>
 
-<p>Podívejme se na jednoduchý příklad. Matematická funkce <em>faktoriál</em>
-je definována jako součin všech čísel až po zadaný argument včetně.
-Faktoriál čísla 1 (jedna) je definován jako 1. Pokud se nad tím zamyslíme,
-pak zjistíme, že totéž můžeme vyjádřit jiným způsobem: faktoriál čísla N je
-roven N krát faktoriál čísla (N-1). Takže můžeme psát:</p>
+<p>PodĂ­vejme se na jednoduchĂ˝ pĹ™Ă­klad. MatematickĂˇ funkce <em>faktoriĂˇl</em>
+je definovĂˇna jako souÄŤin vĹˇech ÄŤĂ­sel aĹľ po zadanĂ˝ argument vÄŤetnÄ›.
+FaktoriĂˇl ÄŤĂ­sla 1 (jedna) je definovĂˇn jako 1. Pokud se nad tĂ­m zamyslĂ­me,
+pak zjistĂ­me, Ĺľe totĂ©Ĺľ mĹŻĹľeme vyjĂˇdĹ™it jinĂ˝m zpĹŻsobem: faktoriĂˇl ÄŤĂ­sla N je
+roven N krĂˇt faktoriĂˇl ÄŤĂ­sla (N-1). TakĹľe mĹŻĹľeme psĂˇt:</p>
 
 <pre>
 1! = 1
@@ -80,7 +80,7 @@ roven N krát faktoriál čísla (N-1). Takže můžeme psát:</p>
 N! = 1 x 2 x 3 x .... (N-2) x (N-1) x N = (N-1)! x N
 </pre>
 
-<p>V jazyce Python to můžeme zapsat takto:</p>
+<p>V jazyce Python to mĹŻĹľeme zapsat takto:</p>
 
 <pre>
 def factorial(n):
@@ -90,19 +90,19 @@ def factorial(n):
         return n * factorial(n-1)
 </pre>
 
-<p>Protože v každém kroku snižujeme hodnotu čísla N a testujeme shodu na
-hodnotu 1, musí funkce skončit. V uvedené definici funkce je ovšem malá chyba.
-Pokud se ji pokusíte zavolat pro číslo menší než jedna, uvede se do
-nekonečného cyklu. Opravit to můžeme tím, že místo testu na rovnost použijeme
-operátor <code>&lt;=</code>. Tento příklad ukazuje, jak snadno můžeme při
-zápisu podmínky ukončení udělat chybu. U rekurzivních funkcí jde pravděpodobně
-o jednu z nejběžnějších chyb. Abyste zajistili jejich správnou funkčnost,
-ujistěte se, že testujete všechny hodnoty v okolí bodu ukončení <span
-class="trnote" title="Poznámka překladatele">rekurze</span>.</p>
+<p>ProtoĹľe v kaĹľdĂ©m kroku sniĹľujeme hodnotu ÄŤĂ­sla N a testujeme shodu na
+hodnotu 1, musĂ­ funkce skonÄŤit. V uvedenĂ© definici funkce je ovĹˇem malĂˇ chyba.
+Pokud se ji pokusĂ­te zavolat pro ÄŤĂ­slo menĹˇĂ­ neĹľ jedna, uvede se do
+nekoneÄŤnĂ©ho cyklu. Opravit to mĹŻĹľeme tĂ­m, Ĺľe mĂ­sto testu na rovnost pouĹľijeme
+operĂˇtor <code>&lt;=</code>. Tento pĹ™Ă­klad ukazuje, jak snadno mĹŻĹľeme pĹ™i
+zĂˇpisu podmĂ­nky ukonÄŤenĂ­ udÄ›lat chybu. U rekurzivnĂ­ch funkcĂ­ jde pravdÄ›podobnÄ›
+o jednu z nejbÄ›ĹľnÄ›jĹˇĂ­ch chyb. Abyste zajistili jejich sprĂˇvnou funkÄŤnost,
+ujistÄ›te se, Ĺľe testujete vĹˇechny hodnoty v okolĂ­ bodu ukonÄŤenĂ­ <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">rekurze</span>.</p>
 
-<p>Podívejme se, co se děje, když funkci spustíme. Povšimněte si, že příkaz
-<code>return</code> vrací <code>n * (<em>výsledek následujícího volání funkce
-factorial</em>)</code>, takže dostáváme:</p>
+<p>PodĂ­vejme se, co se dÄ›je, kdyĹľ funkci spustĂ­me. PovĹˇimnÄ›te si, Ĺľe pĹ™Ă­kaz
+<code>return</code> vracĂ­ <code>n * (<em>vĂ˝sledek nĂˇsledujĂ­cĂ­ho volĂˇnĂ­ funkce
+factorial</em>)</code>, takĹľe dostĂˇvĂˇme:</p>
 
 <pre>
 factorial(4) = 4 * factorial(3)
@@ -111,7 +111,7 @@ factorial(2) = 2 * factorial(1)
 factorial(1) = 1
 </pre>
 
-<p>V tomto okamžiku se Python vrací do vyšších úrovní a dosazuje hodnoty:</p>
+<p>V tomto okamĹľiku se Python vracĂ­ do vyĹˇĹˇĂ­ch ĂşrovnĂ­ a dosazuje hodnoty:</p>
 
 <pre>
 factorial(2) = 2 * 1 = 2
@@ -119,41 +119,41 @@ factorial(3) = 3 * 2 = 6
 factorial(4) = 4 * 6 = 24
 </pre>
 
-<p>Zápis funkce pro výpočet faktoriálu bez použití rekurze ve skutečnosti
-není tak obtížný. Vyzkoušejte si jej v rámci cvičení. V podstatě potřebujete
-provést cyklus přes všechna čísla až do <code>N</code> a během této činnosti
-provádíte násobení. Ale později uvidíme, že existují funkce, jejichž zápis
-je bez použití rekurze mnohem obtížnější <span class="trnote"
-title="Poznámka překladatele">(ve srovnání s rekurzivním zápisem)</span>.
+<p>ZĂˇpis funkce pro vĂ˝poÄŤet faktoriĂˇlu bez pouĹľitĂ­ rekurze ve skuteÄŤnosti
+nenĂ­ tak obtĂ­ĹľnĂ˝. VyzkouĹˇejte si jej v rĂˇmci cviÄŤenĂ­. V podstatÄ› potĹ™ebujete
+provĂ©st cyklus pĹ™es vĹˇechna ÄŤĂ­sla aĹľ do <code>N</code> a bÄ›hem tĂ©to ÄŤinnosti
+provĂˇdĂ­te nĂˇsobenĂ­. Ale pozdÄ›ji uvidĂ­me, Ĺľe existujĂ­ funkce, jejichĹľ zĂˇpis
+je bez pouĹľitĂ­ rekurze mnohem obtĂ­ĹľnÄ›jĹˇĂ­ <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(ve srovnĂˇnĂ­ s rekurzivnĂ­m zĂˇpisem)</span>.
 
 
-<h3>Rekurzivní průchod seznamem</h3>
+<h3>RekurzivnĂ­ prĹŻchod seznamem</h3>
 
-<p>Jinou oblastí, kdy je použití rekurze velmi užitečné, je zpracování
-seznamů. Rekurzi můžeme snadno použít za předpokladu, že jsme schopni
-testovat prázdnost seznamu a generovat zeznam bez první položky. <span
-class="trnote" title="Poznámka překladatele">Pro získání části
-seznamu</span> můžeme v jazyce Python použít techniku, které se říká
-<em>slicing</em> ([slajsing] = odkrajování, odřezávání). Plné vysvětlení
-naleznete v příručce jazyka Python. Pro naše účely postačí, když budeme
-vědět, že se při použtí indexu ve tvaru <code>[1:]</code> vrací <span
-class="trnote" title="Poznámka překladatele">kopie</span> všech prvků
-seznamu prvku na idexu 1 až do konce seznamu. Takže pokud chceme získat
-první prvek seznamu <code>L</code>, napíšeme:</p>
-
-<pre>
-prvni = L[0] <span class="comment"># použijeme prostě normální indexování</span>
-</pre>
-
-<p>A pokud chceme získat <span class="trnote" title="Poznámka
-překladatele">kopii</span> zbytku seznamu, napíšeme:</p>
+<p>Jinou oblastĂ­, kdy je pouĹľitĂ­ rekurze velmi uĹľiteÄŤnĂ©, je zpracovĂˇnĂ­
+seznamĹŻ. Rekurzi mĹŻĹľeme snadno pouĹľĂ­t za pĹ™edpokladu, Ĺľe jsme schopni
+testovat prĂˇzdnost seznamu a generovat zeznam bez prvnĂ­ poloĹľky. <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">Pro zĂ­skĂˇnĂ­ ÄŤĂˇsti
+seznamu</span> mĹŻĹľeme v jazyce Python pouĹľĂ­t techniku, kterĂ© se Ĺ™Ă­kĂˇ
+<em>slicing</em> ([slajsing] = odkrajovĂˇnĂ­, odĹ™ezĂˇvĂˇnĂ­). PlnĂ© vysvÄ›tlenĂ­
+naleznete v pĹ™Ă­ruÄŤce jazyka Python. Pro naĹˇe ĂşÄŤely postaÄŤĂ­, kdyĹľ budeme
+vÄ›dÄ›t, Ĺľe se pĹ™i pouĹľtĂ­ indexu ve tvaru <code>[1:]</code> vracĂ­ <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">kopie</span> vĹˇech prvkĹŻ
+seznamu prvku na idexu 1 aĹľ do konce seznamu. TakĹľe pokud chceme zĂ­skat
+prvnĂ­ prvek seznamu <code>L</code>, napĂ­Ĺˇeme:</p>
 
 <pre>
-zbytek = L[1:] <span class="comment"># vyřízneme prvky na indexech 1, 2, 3, ...</span>
+prvni = L[0] <span class="comment"># pouĹľijeme prostÄ› normĂˇlnĂ­ indexovĂˇnĂ­</span>
 </pre>
 
-<p>Abyste se ujistili, že to funguje, napište na vyzývací řádek Pythonu
-následující:</p>
+<p>A pokud chceme zĂ­skat <span class="trnote" title="PoznĂˇmka
+pĹ™ekladatele">kopii</span> zbytku seznamu, napĂ­Ĺˇeme:</p>
+
+<pre>
+zbytek = L[1:] <span class="comment"># vyĹ™Ă­zneme prvky na indexech 1, 2, 3, ...</span>
+</pre>
+
+<p>Abyste se ujistili, Ĺľe to funguje, napiĹˇte na vyzĂ˝vacĂ­ Ĺ™Ăˇdek Pythonu
+nĂˇsledujĂ­cĂ­:</p>
 
 <pre>
 >>> L = [1, 2, 3, 4, 5]
@@ -161,124 +161,124 @@ následující:</p>
 1
 >>> print L[1:]
 [2, 3, 4, 5]
-</pre> 
+</pre>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Obecně zápis
-<code>Seznam[od:do]</code> vyřízne z původního seznamu prvky počínaje indexem
-<code>od</code> až po prvek s indexem o jedno menším, než <code>do</code>.
-Pokud část <code>od</code> nebo <code>do</code> není uvedena, pak se do
-neuvedené části vnitřně doplní index, který zahrne prvky od začátku nebo do
-konce seznamu. Pří získávání části seznamu dochází ke kopii prvků. Zápis
-<code>Seznam[:]</code> se používá jako obrat pro získání kopie seznamu.
-Prostým přiřazením <code>s2&nbsp;=&nbsp;Seznam</code> získáme pouze odkaz na
-originální seznam. Pokud změníme <code>s2</code>, změní se i
-<code>Seznam</code>. Požadavek na získání kopie seznamu proto nepatří k nějak
-výjimečným.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> ObecnÄ› zĂˇpis
+<code>Seznam[od:do]</code> vyĹ™Ă­zne z pĹŻvodnĂ­ho seznamu prvky poÄŤĂ­naje indexem
+<code>od</code> aĹľ po prvek s indexem o jedno menĹˇĂ­m, neĹľ <code>do</code>.
+Pokud ÄŤĂˇst <code>od</code> nebo <code>do</code> nenĂ­ uvedena, pak se do
+neuvedenĂ© ÄŤĂˇsti vnitĹ™nÄ› doplnĂ­ index, kterĂ˝ zahrne prvky od zaÄŤĂˇtku nebo do
+konce seznamu. PĹ™Ă­ zĂ­skĂˇvĂˇnĂ­ ÄŤĂˇsti seznamu dochĂˇzĂ­ ke kopii prvkĹŻ. ZĂˇpis
+<code>Seznam[:]</code> se pouĹľĂ­vĂˇ jako obrat pro zĂ­skĂˇnĂ­ kopie seznamu.
+ProstĂ˝m pĹ™iĹ™azenĂ­m <code>s2&nbsp;=&nbsp;Seznam</code> zĂ­skĂˇme pouze odkaz na
+originĂˇlnĂ­ seznam. Pokud zmÄ›nĂ­me <code>s2</code>, zmÄ›nĂ­ se i
+<code>Seznam</code>. PoĹľadavek na zĂ­skĂˇnĂ­ kopie seznamu proto nepatĹ™Ă­ k nÄ›jak
+vĂ˝jimeÄŤnĂ˝m.</p>
 
-<p>Nyní se vraťme k použití rekurze pro tisk seznamů. Uvažujme jednoduchý
-případ, kdy chceme každý prvek seznamu řetězců vytisknout voláním funkce
+<p>NynĂ­ se vraĹĄme k pouĹľitĂ­ rekurze pro tisk seznamĹŻ. UvaĹľujme jednoduchĂ˝
+pĹ™Ă­pad, kdy chceme kaĹľdĂ˝ prvek seznamu Ĺ™etÄ›zcĹŻ vytisknout volĂˇnĂ­m funkce
 <code>tiskSeznamu</code>:</p>
 
 <pre>
 def tiskSeznamu(Seznam):
     if Seznam:
         print Seznam[0]<span class="comment">
-        # Podrobnosti k [1:] &mdash; viz příručka jazyka Python, 'slicing'.</span>
+        # Podrobnosti k [1:] &mdash; viz pĹ™Ă­ruÄŤka jazyka Python, 'slicing'.</span>
         tiskSeznamu(Seznam[1:])
 </pre>
 
-<p>Pokud je seznam neprázdný &mdash; dotaz na neprázdný seznam v boolovském
-kontextu vrací hodnotu <code>True</code> &mdash;, pak vytiskneme obsah
-prvního prvku seznamu a zpracujeme <span class="trnote" 
-title="Poznámka překladatele">stejným způsobem</span> zbytek seznamu takto
-(nepythonovský pseudo kód):</p>
+<p>Pokud je seznam neprĂˇzdnĂ˝ &mdash; dotaz na neprĂˇzdnĂ˝ seznam v boolovskĂ©m
+kontextu vracĂ­ hodnotu <code>True</code> &mdash;, pak vytiskneme obsah
+prvnĂ­ho prvku seznamu a zpracujeme <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">stejnĂ˝m zpĹŻsobem</span> zbytek seznamu takto
+(nepythonovskĂ˝ pseudo kĂłd):</p>
 
 <pre>
-Jsme uvnitř tiskSeznamu([1,2,3])
+Jsme uvnitĹ™ tiskSeznamu([1,2,3])
    tiskne se [1,2,3][0] => 1
-   spouští se tiskSeznamu([1,2,3][1:]) => tiskSeznamu([2,3])
-   => nyní jsme uvnitř tiskSeznamu([2,3])
+   spouĹˇtĂ­ se tiskSeznamu([1,2,3][1:]) => tiskSeznamu([2,3])
+   => nynĂ­ jsme uvnitĹ™ tiskSeznamu([2,3])
       tiskne se [2,3][0] => 2
-      spouští se tiskSeznamu([2,3][1:]) => tiskSeznamu([3])
-      => nyní jsme uvnitř tiskSeznamu([3])
+      spouĹˇtĂ­ se tiskSeznamu([2,3][1:]) => tiskSeznamu([3])
+      => nynĂ­ jsme uvnitĹ™ tiskSeznamu([3])
          tiskne se [3][0] => 3
-         spouští se tiskSeznamu([3][1:]) => tiskSeznamu([])
-         => nyní jsme uvnitř tiskSeznamu([])
-            Podmínka v "if Seznam" není pro prázdný seznam splněna, 
-            proto se vracíme z funkce <span class="trnote" title="Poznámka překladatele">(nejhlubší bod rekurze)</span>.
-      => jsme zpět v tiskSeznamu([3])
-         narazili jsme na konec funkce a vracíme se
-   => jsme zpět v tiskSeznamu([2,3])
-      narazili jsme na konec funkce a vracíme se
-=> jsme zpět v tiskSeznamu([1,2,3]), tj. na nejvyšší úrovni
-   narazili jsme na konec funkce a vracíme se
+         spouĹˇtĂ­ se tiskSeznamu([3][1:]) => tiskSeznamu([])
+         => nynĂ­ jsme uvnitĹ™ tiskSeznamu([])
+            PodmĂ­nka v "if Seznam" nenĂ­ pro prĂˇzdnĂ˝ seznam splnÄ›na,
+            proto se vracĂ­me z funkce <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(nejhlubĹˇĂ­ bod rekurze)</span>.
+      => jsme zpÄ›t v tiskSeznamu([3])
+         narazili jsme na konec funkce a vracĂ­me se
+   => jsme zpÄ›t v tiskSeznamu([2,3])
+      narazili jsme na konec funkce a vracĂ­me se
+=> jsme zpÄ›t v tiskSeznamu([1,2,3]), tj. na nejvyĹˇĹˇĂ­ Ăşrovni
+   narazili jsme na konec funkce a vracĂ­me se
 </pre>
 
-<p class="note"><b>Poznámka:</b> Výše uvedené vysvětlení je s úpravami
-převzato z textu, který uvedl Zak Arntson v mailing listu "Python Tutor" v
-červenci 2003.</p>
+<p class="note"><b>PoznĂˇmka:</b> VĂ˝Ĺˇe uvedenĂ© vysvÄ›tlenĂ­ je s Ăşpravami
+pĹ™evzato z textu, kterĂ˝ uvedl Zak Arntson v mailing listu "Python Tutor" v
+ÄŤervenci 2003.</p>
 
-<p>V případě jednoduchého seznamu lze totéž jednoduše řešit při použití
-jednoduchého cyklu <code>for</code>. Ale uvažujme, jak by to vypadalo v
-případě, kdyby byl <code>Seznam</code> složitější a mohl uvnitř obsahovat
-další seznamy. <span class="trnote" title="Poznámka překladatele">(Prvkem by
-mohl být buď řetězec nebo další seznam.)</span> Pokud jsme schopni testovat,
-zda je prvek seznamu dalším seznamem, pak zavoláme funkci
-<code>tiskSeznamu()</code> rekurzivně. Pokud prvek není seznamem, pak jej
-jednoduše vytiskneme. Vyzkoušejme si to:</p>
+<p>V pĹ™Ă­padÄ› jednoduchĂ©ho seznamu lze totĂ©Ĺľ jednoduĹˇe Ĺ™eĹˇit pĹ™i pouĹľitĂ­
+jednoduchĂ©ho cyklu <code>for</code>. Ale uvaĹľujme, jak by to vypadalo v
+pĹ™Ă­padÄ›, kdyby byl <code>Seznam</code> sloĹľitÄ›jĹˇĂ­ a mohl uvnitĹ™ obsahovat
+dalĹˇĂ­ seznamy. <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(Prvkem by
+mohl bĂ˝t buÄŹ Ĺ™etÄ›zec nebo dalĹˇĂ­ seznam.)</span> Pokud jsme schopni testovat,
+zda je prvek seznamu dalĹˇĂ­m seznamem, pak zavolĂˇme funkci
+<code>tiskSeznamu()</code> rekurzivnÄ›. Pokud prvek nenĂ­ seznamem, pak jej
+jednoduĹˇe vytiskneme. VyzkouĹˇejme si to:</p>
 
 <pre>
 def tiskSeznamu(Seznam):
-    <span class="comment"># Jestliže je seznam prázdný, nedělej nic.</span>
+    <span class="comment"># JestliĹľe je seznam prĂˇzdnĂ˝, nedÄ›lej nic.</span>
     if not Seznam: return
-    <span class="comment"># Pokud je první prvek seznamem, dosadíme jej do tiskSeznamu().</span>
+    <span class="comment"># Pokud je prvnĂ­ prvek seznamem, dosadĂ­me jej do tiskSeznamu().</span>
     if type(Seznam[0]) == type([]):
         tiskSeznamu(Seznam[0])
-    else:<span class="comment"> # První prvek není seznam. Jednoduše jej vytiskneme.</span> 
+    else:<span class="comment"> # PrvnĂ­ prvek nenĂ­ seznam. JednoduĹˇe jej vytiskneme.</span>
         print Seznam[0]
-    <span class="comment"># Nyní zpracujeme zbytek Seznamu.</span> 
+    <span class="comment"># NynĂ­ zpracujeme zbytek Seznamu.</span>
     tiskSeznamu(Seznam[1:])
 </pre>
 
-<p>Pokud se totéž pokusíte zapsat pomocí cyklu, zjistíte, že je to velmi
-obtížné. Rekurze umožní zapsat <span class="trnote" title="Poznámka překladatele"
->podobně</span> složité úlohy srovnatelně jednoduše. <span class="trnote"
-title="Poznámka překladatele">(Jinými slovy, rekurzivní řešení jednoduchého
-případu a uvedeného složitějšího případu je přibližně stejně
-obtížné.)</span></p>
+<p>Pokud se totĂ©Ĺľ pokusĂ­te zapsat pomocĂ­ cyklu, zjistĂ­te, Ĺľe je to velmi
+obtĂ­ĹľnĂ©. Rekurze umoĹľnĂ­ zapsat <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>podobnÄ›</span> sloĹľitĂ© Ăşlohy srovnatelnÄ› jednoduĹˇe. <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">(JinĂ˝mi slovy, rekurzivnĂ­ Ĺ™eĹˇenĂ­ jednoduchĂ©ho
+pĹ™Ă­padu a uvedenĂ©ho sloĹľitÄ›jĹˇĂ­ho pĹ™Ă­padu je pĹ™ibliĹľnÄ› stejnÄ›
+obtĂ­ĹľnĂ©.)</span></p>
 
-<p>Je tu ovšem jeden zádrhel (jako vždycky). Rekurzivní zpracování velkých
-datových struktur typicky vede k velké spotřebě paměťového prostoru. Takže
-pokud máte k dispozici málo paměti nebo zpracováváte velmi velké datové
-struktury, může být složitější konvenční řešení bezpečnější.</p>
+<p>Je tu ovĹˇem jeden zĂˇdrhel (jako vĹľdycky). RekurzivnĂ­ zpracovĂˇnĂ­ velkĂ˝ch
+datovĂ˝ch struktur typicky vede k velkĂ© spotĹ™ebÄ› pamÄ›ĹĄovĂ©ho prostoru. TakĹľe
+pokud mĂˇte k dispozici mĂˇlo pamÄ›ti nebo zpracovĂˇvĂˇte velmi velkĂ© datovĂ©
+struktury, mĹŻĹľe bĂ˝t sloĹľitÄ›jĹˇĂ­ konvenÄŤnĂ­ Ĺ™eĹˇenĂ­ bezpeÄŤnÄ›jĹˇĂ­.</p>
 
-<p>Tak. A nyní udělejme další skok do neznáma &mdash; seznámíme se
-s&nbsp;<em>objektově orientovaným programováním</em>.</p>
+<p>Tak. A nynĂ­ udÄ›lejme dalĹˇĂ­ skok do neznĂˇma &mdash; seznĂˇmĂ­me se
+s&nbsp;<em>objektovÄ› orientovanĂ˝m programovĂˇnĂ­m</em>.</p>
 
 <hr>
 
 <div class="foot">
-<p class="navig">[ 
-<a href="cztuterrors.html" title="Práce s chybami">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutclass.html" title="Objektově orientované programování">další</a> 
+<p class="navig">[
+<a href="cztuterrors.html" title="PrĂˇce s chybami">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutclass.html" title="ObjektovÄ› orientovanĂ© programovĂˇnĂ­">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutrecur.html,v 1.6 2004/08/31 11:55:14 prikryl Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutrecur.html,v 1.6 2004/08/31 11:55:14 prikryl Exp $</p>
 </div>
