@@ -1,234 +1,234 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" type="text/css" href="tutor.css" >
   <link rel="stylesheet" type="text/css" href="colors.css" >
-  <title>Jak se naučit programovat: Případová studie</title>
+  <title>Jak se nauÄŤit programovat: PĹ™Ă­padovĂˇ studie</title>
 </head>
 <body>
 
-<p class="ir">Níže uvedený text pochází z prvního vydání. Nad tímto textem 
-se nachází aktuální stav po revizi směřující k druhému vydání.</p>
+<p class="ir">NĂ­Ĺľe uvedenĂ˝ text pochĂˇzĂ­ z prvnĂ­ho vydĂˇnĂ­. Nad tĂ­mto textem
+se nachĂˇzĂ­ aktuĂˇlnĂ­ stav po revizi smÄ›Ĺ™ujĂ­cĂ­ k druhĂ©mu vydĂˇnĂ­.</p>
 
-<h2>Případová studie</h2>
+<h2>PĹ™Ă­padovĂˇ studie</h2>
 
 <div class="whatcovered">
 
-<p>V této případové studii rozšíříme funkčnost programu pro počítání slov,
-který jsme vyvinuli již dříve. Vytvoříme program, který napodobí funkci
-unixovského programu <code>wc</code> v tom smyslu, že bude vypisovat počet
-řádků, slov a znaků v souboru. Ale půjdeme ještě dál a budeme vypisovat také
-počet vět, klauzulí <span class="trnote" title="Poznámka překladatele">(viz
-poznámka dále)</span>, slov, písmen a interpunkčních znamének v textovém
-souboru. Vývoj programu budeme provádět po etapách. Postupně budeme zvyšovat
-jeho schopnosti. Převedeme jej do podoby modulu, abychom zvýšili jeho
-znovupoužitelnost. A upravíme jeho implementaci do objektově orientované
-podoby, čím zvýšíme možnosti dalšího rozšiřování funkčnosti.</p>
+<p>V tĂ©to pĹ™Ă­padovĂ© studii rozĹˇĂ­Ĺ™Ă­me funkÄŤnost programu pro poÄŤĂ­tĂˇnĂ­ slov,
+kterĂ˝ jsme vyvinuli jiĹľ dĹ™Ă­ve. VytvoĹ™Ă­me program, kterĂ˝ napodobĂ­ funkci
+unixovskĂ©ho programu <code>wc</code> v tom smyslu, Ĺľe bude vypisovat poÄŤet
+Ĺ™ĂˇdkĹŻ, slov a znakĹŻ v souboru. Ale pĹŻjdeme jeĹˇtÄ› dĂˇl a budeme vypisovat takĂ©
+poÄŤet vÄ›t, klauzulĂ­ <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(viz
+poznĂˇmka dĂˇle)</span>, slov, pĂ­smen a interpunkÄŤnĂ­ch znamĂ©nek v textovĂ©m
+souboru. VĂ˝voj programu budeme provĂˇdÄ›t po etapĂˇch. PostupnÄ› budeme zvyĹˇovat
+jeho schopnosti. PĹ™evedeme jej do podoby modulu, abychom zvĂ˝Ĺˇili jeho
+znovupouĹľitelnost. A upravĂ­me jeho implementaci do objektovÄ› orientovanĂ©
+podoby, ÄŤĂ­m zvĂ˝ĹˇĂ­me moĹľnosti dalĹˇĂ­ho rozĹˇiĹ™ovĂˇnĂ­ funkÄŤnosti.</p>
 
-<p>Implementovat jej budeme v jazyce Python, ale přinejmenším počáteční fáze
-mohou být napsány i v jazycích BASIC nebo Tcl. S tím, jak budeme řešit
-složitější části problému, budeme stále více používat zabudované datové
-struktury jazyka Python. Proto se bude obtížnost případného zápisu v jazyce
-BASIC zvyšovat, ačkoliv použití Tcl bude stále možné. Objektově orientované
-stránky konečného řešení budou vhodné pouze pro jazyk Python.</p>
+<p>Implementovat jej budeme v jazyce Python, ale pĹ™inejmenĹˇĂ­m poÄŤĂˇteÄŤnĂ­ fĂˇze
+mohou bĂ˝t napsĂˇny i v jazycĂ­ch BASIC nebo Tcl. S tĂ­m, jak budeme Ĺ™eĹˇit
+sloĹľitÄ›jĹˇĂ­ ÄŤĂˇsti problĂ©mu, budeme stĂˇle vĂ­ce pouĹľĂ­vat zabudovanĂ© datovĂ©
+struktury jazyka Python. Proto se bude obtĂ­Ĺľnost pĹ™Ă­padnĂ©ho zĂˇpisu v jazyce
+BASIC zvyĹˇovat, aÄŤkoliv pouĹľitĂ­ Tcl bude stĂˇle moĹľnĂ©. ObjektovÄ› orientovanĂ©
+strĂˇnky koneÄŤnĂ©ho Ĺ™eĹˇenĂ­ budou vhodnĂ© pouze pro jazyk Python.</p>
 
-<p>Jako cvičení pro čtenáře bude ponechána možnost implementace dalších
-rysů, jako jsou:</p>
+<p>Jako cviÄŤenĂ­ pro ÄŤtenĂˇĹ™e bude ponechĂˇna moĹľnost implementace dalĹˇĂ­ch
+rysĹŻ, jako jsou:</p>
 
 <ul>
 
-<li>Výpočet <em>FOG indexu</em> pro daný text, kde FOG index můžeme
-  přibližně definovat jako <code>((průměrný počet slov na větu) + (procento 
-  slov s více než 5 písmeny) * 0.4)</code>. Toto číslo vyjadřuje složitost 
+<li>VĂ˝poÄŤet <em>FOG indexu</em> pro danĂ˝ text, kde FOG index mĹŻĹľeme
+  pĹ™ibliĹľnÄ› definovat jako <code>((prĹŻmÄ›rnĂ˝ poÄŤet slov na vÄ›tu) + (procento
+  slov s vĂ­ce neĹľ 5 pĂ­smeny) * 0.4)</code>. Toto ÄŤĂ­slo vyjadĹ™uje sloĹľitost
   textu.</li>
 
-<li>Zjištění počtu používaných slov a frekvence jejich použití.</li>
+<li>ZjiĹˇtÄ›nĂ­ poÄŤtu pouĹľĂ­vanĂ˝ch slov a frekvence jejich pouĹľitĂ­.</li>
 
-<li>Vytvoření nové verze, která analyzuje RTF soubory.</li>
+<li>VytvoĹ™enĂ­ novĂ© verze, kterĂˇ analyzuje RTF soubory.</li>
 
 </ul>
 </div>
 
-<h3>Počítání řádků, slov a znaků</h3>
+<h3>PoÄŤĂ­tĂˇnĂ­ Ĺ™ĂˇdkĹŻ, slov a znakĹŻ</h3>
 
-<p>Podívejme se znovu na dříve vytvořený program pro počítání slov <span
-class="trnote" title="Poznámka překladatele">(viz <a
-href="cztutfiles.html#word_count">Práce se soubory &mdash; Počítání
+<p>PodĂ­vejme se znovu na dĹ™Ă­ve vytvoĹ™enĂ˝ program pro poÄŤĂ­tĂˇnĂ­ slov <span
+class="trnote" title="PoznĂˇmka pĹ™ekladatele">(viz <a
+href="cztutfiles.html#word_count">PrĂˇce se soubory &mdash; PoÄŤĂ­tĂˇnĂ­
 slov</a>)</span>:</p>
 
 <pre>
 import string
 def pocetSlov(s):
-    seznam = string.split(s)  
-    <span class="comment"># Poznámka překladatele: Od verze jazyka Python 2
-    # je pro standardní řetězec definována metoda split(), takže místo výše
-    # uvedeného zápisu můžeme psát s.split() a není nutné provádět import
+    seznam = string.split(s)
+    <span class="comment"># PoznĂˇmka pĹ™ekladatele: Od verze jazyka Python 2
+    # je pro standardnĂ­ Ĺ™etÄ›zec definovĂˇna metoda split(), takĹľe mĂ­sto vĂ˝Ĺˇe
+    # uvedenĂ©ho zĂˇpisu mĹŻĹľeme psĂˇt s.split() a nenĂ­ nutnĂ© provĂˇdÄ›t import
     # modulu string.</span>
-    return len(seznam)  <span class="comment"># vrátíme počet prvků seznamu</span>
+    return len(seznam)  <span class="comment"># vrĂˇtĂ­me poÄŤet prvkĹŻ seznamu</span>
 
 vstup = open("menu.txt", "r")
-celkem = 0 <span class="comment"> # vytvoříme proměnnou a nastavíme jí počáteční hodnotu nula</span>
+celkem = 0 <span class="comment"> # vytvoĹ™Ă­me promÄ›nnou a nastavĂ­me jĂ­ poÄŤĂˇteÄŤnĂ­ hodnotu nula</span>
 
 for radek in vstup.readlines():
-    celkem = celkem + pocetSlov(radek) <span class="comment"># sečti počty za každý řádek</span>
-print "Soubor má %d slov." % celkem
+    celkem = celkem + pocetSlov(radek) <span class="comment"># seÄŤti poÄŤty za kaĹľdĂ˝ Ĺ™Ăˇdek</span>
+print "Soubor mĂˇ %d slov." % celkem
 
 vstup.close()
 </pre>
 
-<p>Potřebujeme přidat počítadla řádků a znaků. Počítání řádků je snadné,
-protože cyklus zpracovává vstup po řádcích. Jednoduše přidáme nějakou
-proměnnou a budeme ji zvyšovat při každé obrátce cyklu. Počítadlo znaků je
-pouze mírně složitější, protože můžeme procházet seznam slov a jejich délky
-přičítat do další proměnné.</p>
+<p>PotĹ™ebujeme pĹ™idat poÄŤĂ­tadla Ĺ™ĂˇdkĹŻ a znakĹŻ. PoÄŤĂ­tĂˇnĂ­ Ĺ™ĂˇdkĹŻ je snadnĂ©,
+protoĹľe cyklus zpracovĂˇvĂˇ vstup po Ĺ™ĂˇdcĂ­ch. JednoduĹˇe pĹ™idĂˇme nÄ›jakou
+promÄ›nnou a budeme ji zvyĹˇovat pĹ™i kaĹľdĂ© obrĂˇtce cyklu. PoÄŤĂ­tadlo znakĹŻ je
+pouze mĂ­rnÄ› sloĹľitÄ›jĹˇĂ­, protoĹľe mĹŻĹľeme prochĂˇzet seznam slov a jejich dĂ©lky
+pĹ™iÄŤĂ­tat do dalĹˇĂ­ promÄ›nnĂ©.</p>
 
-<p>Rádi bychom také zvýšili obecnost použití programu tím, že jméno
-zkoumaného souboru zjistíme z parametru příkazového řádku nebo, pokud není
-zadáno, vyžádáme si zadání jména dotazem na uživatele. (Alternativní řešení
-by spočívalo ve čtení textu ze standardního vstupu, což právě dělá opravdový
+<p>RĂˇdi bychom takĂ© zvĂ˝Ĺˇili obecnost pouĹľitĂ­ programu tĂ­m, Ĺľe jmĂ©no
+zkoumanĂ©ho souboru zjistĂ­me z parametru pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku nebo, pokud nenĂ­
+zadĂˇno, vyĹľĂˇdĂˇme si zadĂˇnĂ­ jmĂ©na dotazem na uĹľivatele. (AlternativnĂ­ Ĺ™eĹˇenĂ­
+by spoÄŤĂ­valo ve ÄŤtenĂ­ textu ze standardnĂ­ho vstupu, coĹľ prĂˇvÄ› dÄ›lĂˇ opravdovĂ˝
 program <code>wc</code>.)</p>
 
-<p>Takže konečné řešení ve stylu <code>wc</code> vypadá takto <span
-class="trnote">(poznámka překladatele: abychom se vyhnuli komplikacím s
-českými řetězci ve zdrojovém textu programu, zjednodušíme si řešení tím, že
-použijeme <em>cestinu bez hacku a carek</em>)</span>:</p>
+<p>TakĹľe koneÄŤnĂ© Ĺ™eĹˇenĂ­ ve stylu <code>wc</code> vypadĂˇ takto <span
+class="trnote">(poznĂˇmka pĹ™ekladatele: abychom se vyhnuli komplikacĂ­m s
+ÄŤeskĂ˝mi Ĺ™etÄ›zci ve zdrojovĂ©m textu programu, zjednoduĹˇĂ­me si Ĺ™eĹˇenĂ­ tĂ­m, Ĺľe
+pouĹľijeme <em>cestinu bez hacku a carek</em>)</span>:</p>
 
 <pre>
 import sys, string
 <span class="comment">
-# Získáme jméno souboru buď z příkazového řádku 
-# nebo si je vyžádáme od uživatele.</span>
+# ZĂ­skĂˇme jmĂ©no souboru buÄŹ z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku
+# nebo si je vyĹľĂˇdĂˇme od uĹľivatele.</span>
 if len(sys.argv) != 2:
     jmenoSouboru = raw_input("Zadejte jmeno souboru: ")
 else:
     jmenoSouboru = sys.argv[1]
- 
+
 vstup = open(jmenoSouboru, "r")
-<span class="comment"># Poznámka překladatele: Od verze Python 2 by se měla dávat
-# přednost zápisu vstup = file(jmenoSouboru, "r")</span>
+<span class="comment"># PoznĂˇmka pĹ™ekladatele: Od verze Python 2 by se mÄ›la dĂˇvat
+# pĹ™ednost zĂˇpisu vstup = file(jmenoSouboru, "r")</span>
 <span class="comment">
-# Počáteční hodnoty počítadel nastavíme na nuly. 
-# Tím se také vytvoří příslušné proměnné.</span>
+# PoÄŤĂˇteÄŤnĂ­ hodnoty poÄŤĂ­tadel nastavĂ­me na nuly.
+# TĂ­m se takĂ© vytvoĹ™Ă­ pĹ™Ă­sluĹˇnĂ© promÄ›nnĂ©.</span>
 slov = 0
 radku = 0
 znaku = 0
 
 for radek in vstup.readlines():
     radku = radku + 1
-    
-    <span class="comment"># Řádek rozložíme na slova a spočítáme je.</span>
+
+    <span class="comment"># ĹĂˇdek rozloĹľĂ­me na slova a spoÄŤĂ­tĂˇme je.</span>
     seznamSlov = string.split(radek)
-    <span class="comment"># Poznámka překladatele: U Python 2 lze psát
+    <span class="comment"># PoznĂˇmka pĹ™ekladatele: U Python 2 lze psĂˇt
     # seznamSlov = radek.split()</span>
     slov = slov + len(seznamSlov)
-    <span class="comment"># Počet znaků určíme z délky původního řádku, 
-    # čímž započítáme mezery atd.</span>
+    <span class="comment"># PoÄŤet znakĹŻ urÄŤĂ­me z dĂ©lky pĹŻvodnĂ­ho Ĺ™Ăˇdku,
+    # ÄŤĂ­mĹľ zapoÄŤĂ­tĂˇme mezery atd.</span>
     znaku = znaku + len(radek)
 
 print "%s ma %d radku, %d slov a %d znaku" % (jmenoSouboru, radku, slov, znaku)
 vstup.close()
 </pre>
 
-<p>Pokud znáte unixovský příkaz <code>wc</code>, pak víte, že mu můžete
-jméno souboru zadat v podobě masky. Tím získáte hledané údaje pro všechny
-soubory, které masce vyhovují, a získáte také celkový součet těchto údajů.
-Výše uvedený program pracuje pouze s přímo zadanými jmény souborů. Pokud
-chcete, aby zpracovával i soubory zadané maskou, podívejte se na modul
-<code>glob</code>. Ten vám umožní vytvořit seznam jmen vyhovujících souborů,
-který pak můžete zpracovat. Budete k tomu potřebovat dočasná počítadla pro
-každý soubor a navíc kumulativní počítadla pro celkové součty (součty součtů
-za jednotlivé soubory). Nebo místo toho můžete použít slovník&hellip;</p>
+<p>Pokud znĂˇte unixovskĂ˝ pĹ™Ă­kaz <code>wc</code>, pak vĂ­te, Ĺľe mu mĹŻĹľete
+jmĂ©no souboru zadat v podobÄ› masky. TĂ­m zĂ­skĂˇte hledanĂ© Ăşdaje pro vĹˇechny
+soubory, kterĂ© masce vyhovujĂ­, a zĂ­skĂˇte takĂ© celkovĂ˝ souÄŤet tÄ›chto ĂşdajĹŻ.
+VĂ˝Ĺˇe uvedenĂ˝ program pracuje pouze s pĹ™Ă­mo zadanĂ˝mi jmĂ©ny souborĹŻ. Pokud
+chcete, aby zpracovĂˇval i soubory zadanĂ© maskou, podĂ­vejte se na modul
+<code>glob</code>. Ten vĂˇm umoĹľnĂ­ vytvoĹ™it seznam jmen vyhovujĂ­cĂ­ch souborĹŻ,
+kterĂ˝ pak mĹŻĹľete zpracovat. Budete k tomu potĹ™ebovat doÄŤasnĂˇ poÄŤĂ­tadla pro
+kaĹľdĂ˝ soubor a navĂ­c kumulativnĂ­ poÄŤĂ­tadla pro celkovĂ© souÄŤty (souÄŤty souÄŤtĹŻ
+za jednotlivĂ© soubory). Nebo mĂ­sto toho mĹŻĹľete pouĹľĂ­t slovnĂ­k&hellip;</p>
 
-<h3>Počítání vět místo řádků</h3>
+<h3>PoÄŤĂ­tĂˇnĂ­ vÄ›t mĂ­sto Ĺ™ĂˇdkĹŻ</h3>
 
-<p>Když jsem začal přemýšlet o tom, jak bychom mohli rozšířit funkčnost,
-abychom počítali věty a slova místo "skupin znaků" (což činíme ve výše
-uvedeném řešení), napadlo mě nejprve, že bychom měli ze souboru nejdříve v
-cyklu načíst jednotlivé řádky a pak bychom měli v cyklu zpracovat každý
-řádek a získat z něj slova do dalšího seznamu. Nakonec bychom měli zpracovat
-každé "slovo" za účelem odstranění nadbytečných znaků.</p>
+<p>KdyĹľ jsem zaÄŤal pĹ™emĂ˝Ĺˇlet o tom, jak bychom mohli rozĹˇĂ­Ĺ™it funkÄŤnost,
+abychom poÄŤĂ­tali vÄ›ty a slova mĂ­sto "skupin znakĹŻ" (coĹľ ÄŤinĂ­me ve vĂ˝Ĺˇe
+uvedenĂ©m Ĺ™eĹˇenĂ­), napadlo mÄ› nejprve, Ĺľe bychom mÄ›li ze souboru nejdĹ™Ă­ve v
+cyklu naÄŤĂ­st jednotlivĂ© Ĺ™Ăˇdky a pak bychom mÄ›li v cyklu zpracovat kaĹľdĂ˝
+Ĺ™Ăˇdek a zĂ­skat z nÄ›j slova do dalĹˇĂ­ho seznamu. Nakonec bychom mÄ›li zpracovat
+kaĹľdĂ© "slovo" za ĂşÄŤelem odstranÄ›nĂ­ nadbyteÄŤnĂ˝ch znakĹŻ.</p>
 
-<p>Když jsem o tom uvažoval o něco déle, začalo být zřejmé, že pokud bychom
-jednoduše shromažďovali slova a interpunkční znaménka, mohli bychom právě
-interpunkční znaménka použít pro počítání vět, klauzulí atd. (tím, že
-řekneme, co považujeme za větu nebo klauzuli s ohledem na použitá
-interpunkční znaménka). <span class="trnote">(Poznámka překladatele: V
-anglické gramatice se pojem <em>clause</em> (klauzule) používá ve významu
-větného členu, typicky hlavní a vedlejší věty. Pravidla pro výstavbu věty a
-pro psaní interpunkčních znamének jsou v anglickém jazyce mnohem
-propracovanější, takže se z nich dá strojově lépe určit stavba věty. V
-českém jazyce je to mnohem obtížnější. Proto od dále uvedeného programu
-neočekávejte zázraky.)</span> To znamená, že stačí, když souborem projdeme
-pouze jednou a poté budeme procházet přes mnohem kratší seznam
-interpunkčních znamének. Zkusme si to načrtnout v pseudokódu:</p>
+<p>KdyĹľ jsem o tom uvaĹľoval o nÄ›co dĂ©le, zaÄŤalo bĂ˝t zĹ™ejmĂ©, Ĺľe pokud bychom
+jednoduĹˇe shromaĹľÄŹovali slova a interpunkÄŤnĂ­ znamĂ©nka, mohli bychom prĂˇvÄ›
+interpunkÄŤnĂ­ znamĂ©nka pouĹľĂ­t pro poÄŤĂ­tĂˇnĂ­ vÄ›t, klauzulĂ­ atd. (tĂ­m, Ĺľe
+Ĺ™ekneme, co povaĹľujeme za vÄ›tu nebo klauzuli s ohledem na pouĹľitĂˇ
+interpunkÄŤnĂ­ znamĂ©nka). <span class="trnote">(PoznĂˇmka pĹ™ekladatele: V
+anglickĂ© gramatice se pojem <em>clause</em> (klauzule) pouĹľĂ­vĂˇ ve vĂ˝znamu
+vÄ›tnĂ©ho ÄŤlenu, typicky hlavnĂ­ a vedlejĹˇĂ­ vÄ›ty. Pravidla pro vĂ˝stavbu vÄ›ty a
+pro psanĂ­ interpunkÄŤnĂ­ch znamĂ©nek jsou v anglickĂ©m jazyce mnohem
+propracovanÄ›jĹˇĂ­, takĹľe se z nich dĂˇ strojovÄ› lĂ©pe urÄŤit stavba vÄ›ty. V
+ÄŤeskĂ©m jazyce je to mnohem obtĂ­ĹľnÄ›jĹˇĂ­. Proto od dĂˇle uvedenĂ©ho programu
+neoÄŤekĂˇvejte zĂˇzraky.)</span> To znamenĂˇ, Ĺľe staÄŤĂ­, kdyĹľ souborem projdeme
+pouze jednou a potĂ© budeme prochĂˇzet pĹ™es mnohem kratĹˇĂ­ seznam
+interpunkÄŤnĂ­ch znamĂ©nek. Zkusme si to naÄŤrtnout v pseudokĂłdu:</p>
 
 <pre>
-pro každý řádek v souboru:
-    zvýšit počítadlo řádků
-    if je řádek prázdný:
-        zvýšit počítadlo odstavců
-    rozložit řádek na skupiny znaků
-    
-pro každou skupinu znaků:
-    zvýšit počítadlo skupin
-    odstranit interpunkční znaky a přidat do slovníku - {znak: počet}
-    if ve skupině nezbyl žádný znak:
-        zrušit skupinu
-    else: zvýšit počítadlo slov
+pro kaĹľdĂ˝ Ĺ™Ăˇdek v souboru:
+    zvĂ˝Ĺˇit poÄŤĂ­tadlo Ĺ™ĂˇdkĹŻ
+    if je Ĺ™Ăˇdek prĂˇzdnĂ˝:
+        zvĂ˝Ĺˇit poÄŤĂ­tadlo odstavcĹŻ
+    rozloĹľit Ĺ™Ăˇdek na skupiny znakĹŻ
 
-počet vět = počet znaků ('.', '?', '!')
-počet klauzulí = součet všech interpunkčních znaků (poněkud ubohá definice...)
+pro kaĹľdou skupinu znakĹŻ:
+    zvĂ˝Ĺˇit poÄŤĂ­tadlo skupin
+    odstranit interpunkÄŤnĂ­ znaky a pĹ™idat do slovnĂ­ku - {znak: poÄŤet}
+    if ve skupinÄ› nezbyl ĹľĂˇdnĂ˝ znak:
+        zruĹˇit skupinu
+    else: zvĂ˝Ĺˇit poÄŤĂ­tadlo slov
 
-vypsat počty odstavců, řádků, vět, klauzulí, skupin znaků, slov.
-pro každý interpunkční znak:
-    vypsat počet (ze slovníku)    
+poÄŤet vÄ›t = poÄŤet znakĹŻ ('.', '?', '!')
+poÄŤet klauzulĂ­ = souÄŤet vĹˇech interpunkÄŤnĂ­ch znakĹŻ (ponÄ›kud ubohĂˇ definice...)
+
+vypsat poÄŤty odstavcĹŻ, Ĺ™ĂˇdkĹŻ, vÄ›t, klauzulĂ­, skupin znakĹŻ, slov.
+pro kaĹľdĂ˝ interpunkÄŤnĂ­ znak:
+    vypsat poÄŤet (ze slovnĂ­ku)
 </pre>
 
-<p>Vypadá to, že bychom mohli vytvořit asi 4 funkce, odpovídající výše
-uvedeným skupinám. To by nám pomohlo vybudovat modul, který by mohl být
-opakovaně použitelný buď jako celek nebo po částech.</p>
+<p>VypadĂˇ to, Ĺľe bychom mohli vytvoĹ™it asi 4 funkce, odpovĂ­dajĂ­cĂ­ vĂ˝Ĺˇe
+uvedenĂ˝m skupinĂˇm. To by nĂˇm pomohlo vybudovat modul, kterĂ˝ by mohl bĂ˝t
+opakovanÄ› pouĹľitelnĂ˝ buÄŹ jako celek nebo po ÄŤĂˇstech.</p>
 
-<h3>Udělejme z toho modul</h3>
+<h3>UdÄ›lejme z toho modul</h3>
 
-<p>Klíčové funkce budou tyto: <code>ziskejSkupinyZnaku(vstSoubor)</code> a 
-<code>ziskejInerpunkci(seznamSkupin)</code>. Podívejme se, co vytvoříme na
-základě uvedeného pseudokódu&hellip;</p>
+<p>KlĂ­ÄŤovĂ© funkce budou tyto: <code>ziskejSkupinyZnaku(vstSoubor)</code> a
+<code>ziskejInerpunkci(seznamSkupin)</code>. PodĂ­vejme se, co vytvoĹ™Ă­me na
+zĂˇkladÄ› uvedenĂ©ho pseudokĂłdu&hellip;</p>
 
 <pre>
 <span class="comment">
 #############################
 # Modul:    gramatika
-# Vytvořil: A.J. Gauld, 2000,8,12
+# VytvoĹ™il: A.J. Gauld, 2000,8,12
 #
 # Funkce:
-# Počítá odstavce, řádky, věty, 'klauzule', skupiny znaků, slova
-# a interpunkční znaménka pro textové soubory s textem předpokládajícím
-# prózu. Předpokládá se, že věty končí znaky [.!?] a odstavce jsou odděleny
-# prázdným řádkem. Za 'klauzuli' se jednoduše považuje část věty, která je
-# oddělena interpunkčním znakem (což je poněkud hloupá definice, ale jednoho
-# dne můžeme doplnit něco lepšího).
+# PoÄŤĂ­tĂˇ odstavce, Ĺ™Ăˇdky, vÄ›ty, 'klauzule', skupiny znakĹŻ, slova
+# a interpunkÄŤnĂ­ znamĂ©nka pro textovĂ© soubory s textem pĹ™edpoklĂˇdajĂ­cĂ­m
+# prĂłzu. PĹ™edpoklĂˇdĂˇ se, Ĺľe vÄ›ty konÄŤĂ­ znaky [.!?] a odstavce jsou oddÄ›leny
+# prĂˇzdnĂ˝m Ĺ™Ăˇdkem. Za 'klauzuli' se jednoduĹˇe povaĹľuje ÄŤĂˇst vÄ›ty, kterĂˇ je
+# oddÄ›lena interpunkÄŤnĂ­m znakem (coĹľ je ponÄ›kud hloupĂˇ definice, ale jednoho
+# dne mĹŻĹľeme doplnit nÄ›co lepĹˇĂ­ho).
 #
-# Použití: Při základním použití se čte jméno souboru z parametru a vypisují
-#          se všechny získané údaje. Předpokládá se vytvoření druhého modulu,
-#          který by používal zde definované funkce a poskytoval užitečnější
-#          příkazy.
+# PouĹľitĂ­: PĹ™i zĂˇkladnĂ­m pouĹľitĂ­ se ÄŤte jmĂ©no souboru z parametru a vypisujĂ­
+#          se vĹˇechny zĂ­skanĂ© Ăşdaje. PĹ™edpoklĂˇdĂˇ se vytvoĹ™enĂ­ druhĂ©ho modulu,
+#          kterĂ˝ by pouĹľĂ­val zde definovanĂ© funkce a poskytoval uĹľiteÄŤnÄ›jĹˇĂ­
+#          pĹ™Ă­kazy.
 #############################</span>
 import string, sys
 <span class="comment">
 ############################
-# Počáteční nastavení globálních proměnných.</span>
-poc_odstavcu = 1 <span class="comment"># Předpokládáme existenci nejméně jednoho odstavce.</span>
+# PoÄŤĂˇteÄŤnĂ­ nastavenĂ­ globĂˇlnĂ­ch promÄ›nnĂ˝ch.</span>
+poc_odstavcu = 1 <span class="comment"># PĹ™edpoklĂˇdĂˇme existenci nejmĂ©nÄ› jednoho odstavce.</span>
 poc_radku, poc_vet, poc_klauzuli, poc_slov = 0, 0, 0, 0
 skupiny = []
 poc_interpunkcnich_znaku = {}
 alfanumericke_znaky = string.letters + string.digits
 
-<span class="comment"># Poznámka překladatele: Pro české texty bychom mezi 
-# alfanumerické znaky měli přidat i znaky s diakritickými znaménky. Věc se 
-# ale komplikuje tím, že bychom navíc měli uvažovat i způsob kódování
-# vstupního souboru. Obecné řešení by nebylo úplně jednoduché, takže zatím
-# nebudeme překlad originálního zdrojového textu z angličtiny upravovat.</span>
+<span class="comment"># PoznĂˇmka pĹ™ekladatele: Pro ÄŤeskĂ© texty bychom mezi
+# alfanumerickĂ© znaky mÄ›li pĹ™idat i znaky s diakritickĂ˝mi znamĂ©nky. VÄ›c se
+# ale komplikuje tĂ­m, Ĺľe bychom navĂ­c mÄ›li uvaĹľovat i zpĹŻsob kĂłdovĂˇnĂ­
+# vstupnĂ­ho souboru. ObecnĂ© Ĺ™eĹˇenĂ­ by nebylo ĂşplnÄ› jednoduchĂ©, takĹľe zatĂ­m
+# nebudeme pĹ™eklad originĂˇlnĂ­ho zdrojovĂ©ho textu z angliÄŤtiny upravovat.</span>
 
 koncove_znaky = ['.', '?', '!']
 interpunkcni_znaky = ['&amp;', '(', ')', '-', ';', ':', ','] + koncove_znaky
@@ -240,7 +240,7 @@ Ty obsahuji %d klauzuli a celkem %d slov."""
 
 <span class="comment">
 ############################
-# Nyni nadefinujeme funkce, které tvoří jádro činnosti.</span>
+# Nyni nadefinujeme funkce, kterĂ© tvoĹ™Ă­ jĂˇdro ÄŤinnosti.</span>
 
 def ziskejSkupinyZnaku(vstSoubor):
     pass
@@ -249,7 +249,7 @@ def ziskejInerpunkci(seznamSkupin):
     pass
 
 def vypsatStatistiky():
-    print format % (sys.argv[1], poc_odstavcu, 
+    print format % (sys.argv[1], poc_odstavcu,
                     poc_radku, poc_vet,
                     poc_klauzuli, poc_slov)
 
@@ -259,8 +259,8 @@ def Analyzuj(vstSoubor):
     vypsatStatistiky()
 
 <span class="comment">
-# Pokud je modul volán z příkazového řádku, zajisti spuštění následujícího
-# kódu. (V tomto případě je magická proměnná __name__ nastavena na hodnotu
+# Pokud je modul volĂˇn z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku, zajisti spuĹˇtÄ›nĂ­ nĂˇsledujĂ­cĂ­ho
+# kĂłdu. (V tomto pĹ™Ă­padÄ› je magickĂˇ promÄ›nnĂˇ __name__ nastavena na hodnotu
 # "__main__".)</span>
 
 if __name__ == "__main__":
@@ -269,100 +269,100 @@ if __name__ == "__main__":
         sys.exit()
     else:
         Dokument = open(sys.argv[1], "r")
-        <span class="comment"># Poznámka překladatele: Od verze Python 2 by se měla dávat
-        # přednost zápisu Dokument = file(sys.argv[1], "r")</span>  
+        <span class="comment"># PoznĂˇmka pĹ™ekladatele: Od verze Python 2 by se mÄ›la dĂˇvat
+        # pĹ™ednost zĂˇpisu Dokument = file(sys.argv[1], "r")</span>
         Analyzuj(Dokument)
         Dokument.close()
 </pre>
 
-<p>V tomto místě jsem nechtěl ukázat celé řešení v podobě jednoho dlouhého
-výpisu. Proberu raději uvedenou kostru a potom se podíváme na každou z
-uvedených tří významných funkcí. Nicméně k tomu, abyste program uvedli do
-chodu, budete muset na konci vše slepit dohromady.</p>
+<p>V tomto mĂ­stÄ› jsem nechtÄ›l ukĂˇzat celĂ© Ĺ™eĹˇenĂ­ v podobÄ› jednoho dlouhĂ©ho
+vĂ˝pisu. Proberu radÄ›ji uvedenou kostru a potom se podĂ­vĂˇme na kaĹľdou z
+uvedenĂ˝ch tĹ™Ă­ vĂ˝znamnĂ˝ch funkcĂ­. NicmĂ©nÄ› k tomu, abyste program uvedli do
+chodu, budete muset na konci vĹˇe slepit dohromady.</p>
 
-<p>První věcí, která stojí za povšimnutí, je komentář na začátku. Jeho
-uvedení patří k běžným praktikám. Má čtenáři naznačit, co soubor obsahuje a
-jak má být používán. Užitečná je rovněž informace o verzi (autor a datum) a
-to zejména pro někoho, kdo již možná používá novější nebo starší verzi.</p>
+<p>PrvnĂ­ vÄ›cĂ­, kterĂˇ stojĂ­ za povĹˇimnutĂ­, je komentĂˇĹ™ na zaÄŤĂˇtku. Jeho
+uvedenĂ­ patĹ™Ă­ k bÄ›ĹľnĂ˝m praktikĂˇm. MĂˇ ÄŤtenĂˇĹ™i naznaÄŤit, co soubor obsahuje a
+jak mĂˇ bĂ˝t pouĹľĂ­vĂˇn. UĹľiteÄŤnĂˇ je rovnÄ›Ĺľ informace o verzi (autor a datum) a
+to zejmĂ©na pro nÄ›koho, kdo jiĹľ moĹľnĂˇ pouĹľĂ­vĂˇ novÄ›jĹˇĂ­ nebo starĹˇĂ­ verzi.</p>
 
-<p>Poslední úsek souvisí s rysem systému Python, který každému modulu
-spuštěnému z příkazového řádku vnitřně říká <code>"__main__"</code> (čti
-mein; hlavní). Můžeme si otestovat obsah speciální zabudované proměnné
-<code>__name__</code> (čti nejm; jméno). Pokud je v ní uveden zmíněný
-řetězec, pak víme, že modul nebyl importován, ale že byl spuštěn. Takže v
-takovém případě můžeme provést spouštěcí kód, který je uveden v těle příkazu
+<p>PoslednĂ­ Ăşsek souvisĂ­ s rysem systĂ©mu Python, kterĂ˝ kaĹľdĂ©mu modulu
+spuĹˇtÄ›nĂ©mu z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku vnitĹ™nÄ› Ĺ™Ă­kĂˇ <code>"__main__"</code> (ÄŤti
+mein; hlavnĂ­). MĹŻĹľeme si otestovat obsah speciĂˇlnĂ­ zabudovanĂ© promÄ›nnĂ©
+<code>__name__</code> (ÄŤti nejm; jmĂ©no). Pokud je v nĂ­ uveden zmĂ­nÄ›nĂ˝
+Ĺ™etÄ›zec, pak vĂ­me, Ĺľe modul nebyl importovĂˇn, ale Ĺľe byl spuĹˇtÄ›n. TakĹľe v
+takovĂ©m pĹ™Ă­padÄ› mĹŻĹľeme provĂ©st spouĹˇtÄ›cĂ­ kĂłd, kterĂ˝ je uveden v tÄ›le pĹ™Ă­kazu
 <code>if</code>.</p>
 
-<p>Náš spouštěcí kód obsahuje uživatelsky přívětivou nápovědu o způsobu
-spuštění programu pro případ, kdybychom jej spustili bez zadání jména
-souboru, nebo kdybychom naopak uvedli příliš mnoho jmen souborů.</p>
+<p>NĂˇĹˇ spouĹˇtÄ›cĂ­ kĂłd obsahuje uĹľivatelsky pĹ™Ă­vÄ›tivou nĂˇpovÄ›du o zpĹŻsobu
+spuĹˇtÄ›nĂ­ programu pro pĹ™Ă­pad, kdybychom jej spustili bez zadĂˇnĂ­ jmĂ©na
+souboru, nebo kdybychom naopak uvedli pĹ™Ă­liĹˇ mnoho jmen souborĹŻ.</p>
 
-<p>Na závěr poznamenejme, že funkce <code>Analyzuj()</code> jednoduše zavolá
-ostatní funkce ve správném pořadí. K běžným praktikám patří opět to, že si
-uživatel může vybrat, zda bude chtít používat celkovou funkčnost přímočarým
-způsobem (voláním funkce <code>Analyzuj()</code>) nebo zda bude přímo volat
-nízkoúrovňové, <em>primitivní</em> funkce.</p>
+<p>Na zĂˇvÄ›r poznamenejme, Ĺľe funkce <code>Analyzuj()</code> jednoduĹˇe zavolĂˇ
+ostatnĂ­ funkce ve sprĂˇvnĂ©m poĹ™adĂ­. K bÄ›ĹľnĂ˝m praktikĂˇm patĹ™Ă­ opÄ›t to, Ĺľe si
+uĹľivatel mĹŻĹľe vybrat, zda bude chtĂ­t pouĹľĂ­vat celkovou funkÄŤnost pĹ™Ă­moÄŤarĂ˝m
+zpĹŻsobem (volĂˇnĂ­m funkce <code>Analyzuj()</code>) nebo zda bude pĹ™Ă­mo volat
+nĂ­zkoĂşrovĹovĂ©, <em>primitivnĂ­</em> funkce.</p>
 
 <h4>ziskejSkupinyZnaku()</h4>
 
-<p>Pseudokód pro tento úsek vypadal následovně:</p>
+<p>PseudokĂłd pro tento Ăşsek vypadal nĂˇsledovnÄ›:</p>
 
 <pre>
-pro každý řádek v souboru:
-    zvýšit počítadlo řádků
-    if je řádek prázdný:
-        zvýšit počítadlo odstavců
-    rozložit řádek na skupiny znaků
+pro kaĹľdĂ˝ Ĺ™Ăˇdek v souboru:
+    zvĂ˝Ĺˇit poÄŤĂ­tadlo Ĺ™ĂˇdkĹŻ
+    if je Ĺ™Ăˇdek prĂˇzdnĂ˝:
+        zvĂ˝Ĺˇit poÄŤĂ­tadlo odstavcĹŻ
+    rozloĹľit Ĺ™Ăˇdek na skupiny znakĹŻ
 </pre>
 
-<p>V jazyce Python to můžeme implementovat velmi snadno:</p>
+<p>V jazyce Python to mĹŻĹľeme implementovat velmi snadno:</p>
 
 <pre>
 <span class="comment">
-# Použijeme globální proměnné počítadel a globální seznam skupin znaků.</span>
+# PouĹľijeme globĂˇlnĂ­ promÄ›nnĂ© poÄŤĂ­tadel a globĂˇlnĂ­ seznam skupin znakĹŻ.</span>
 def ziskejSkupinyZnaku(vstSoubor):
     global poc_odstavcu, poc_radku, skupiny
     try:
         for radek in vstSoubor.readlines():
             poc_radku = poc_radku + 1
-            if len(radek) == 1: <span class="comment"># prázdný řádek => oddělení odstavce</span>
+            if len(radek) == 1: <span class="comment"># prĂˇzdnĂ˝ Ĺ™Ăˇdek => oddÄ›lenĂ­ odstavce</span>
                 poc_odstavcu = poc_odstavcu + 1
             else:
                 skupiny = skupiny + string.split(radek)
-                <span class="comment"># Poznámka překladatele: Od verze Python 2 lze psát
+                <span class="comment"># PoznĂˇmka pĹ™ekladatele: Od verze Python 2 lze psĂˇt
                 # skupiny = skupiny + radek.split()</span>
     except:
         print "Nepodarilo se cist ze souboru ", sys.argv[1]
         sys.exit()
 </pre>
 
-<p><b>Poznámka 1:</b> Abychom oznámili, že budeme používat proměnné, které
-byly vytvořeny vně těla funkce, musíme použít klíčové slovo
-<code>global</code>. Pokud bychom tak neučinili, pak by při přiřazování do
-nich Python vytvořil nové proměnné se stejnými jmény, které by ovšem byly
-<em>lokální</em> uvnitř těla funkce. Změny obsahu takových lokálních
-proměnných by se u <em>globálních</em> proměnných (na úrovni modulu)
+<p><b>PoznĂˇmka 1:</b> Abychom oznĂˇmili, Ĺľe budeme pouĹľĂ­vat promÄ›nnĂ©, kterĂ©
+byly vytvoĹ™eny vnÄ› tÄ›la funkce, musĂ­me pouĹľĂ­t klĂ­ÄŤovĂ© slovo
+<code>global</code>. Pokud bychom tak neuÄŤinili, pak by pĹ™i pĹ™iĹ™azovĂˇnĂ­ do
+nich Python vytvoĹ™il novĂ© promÄ›nnĂ© se stejnĂ˝mi jmĂ©ny, kterĂ© by ovĹˇem byly
+<em>lokĂˇlnĂ­</em> uvnitĹ™ tÄ›la funkce. ZmÄ›ny obsahu takovĂ˝ch lokĂˇlnĂ­ch
+promÄ›nnĂ˝ch by se u <em>globĂˇlnĂ­ch</em> promÄ›nnĂ˝ch (na Ăşrovni modulu)
 neprojevily.</p>
 
-<p><b>Poznámka 2:</b> K případnému oznámení chyb <span class="trnote"
-title="Poznámka překladatele">při čtení souboru</span> a ukončení běhu
-programu jsme použili konstrukci <code>try</code>/<code>except</code>.</p>
+<p><b>PoznĂˇmka 2:</b> K pĹ™Ă­padnĂ©mu oznĂˇmenĂ­ chyb <span class="trnote"
+title="PoznĂˇmka pĹ™ekladatele">pĹ™i ÄŤtenĂ­ souboru</span> a ukonÄŤenĂ­ bÄ›hu
+programu jsme pouĹľili konstrukci <code>try</code>/<code>except</code>.</p>
 
 <h4>ziskejInerpunkci()</h4>
 
-<p>Zde budeme muset vyvinout o něco větší úsilí. Použijeme také pár nových
-rysů jazyka Python. Příslušný pseudokód vypadal následovně:</p>
+<p>Zde budeme muset vyvinout o nÄ›co vÄ›tĹˇĂ­ ĂşsilĂ­. PouĹľijeme takĂ© pĂˇr novĂ˝ch
+rysĹŻ jazyka Python. PĹ™Ă­sluĹˇnĂ˝ pseudokĂłd vypadal nĂˇsledovnÄ›:</p>
 
 <pre>
-pro každou skupinu znaků:
-    zvýšit počítadlo skupin
-    odstranit interpunkční znaky a přidat do slovníku - {znak: počet}
-    if ve skupině nezbyl žádný znak:
-        zrušit skupinu
-    else: zvýšit počítadlo slov
+pro kaĹľdou skupinu znakĹŻ:
+    zvĂ˝Ĺˇit poÄŤĂ­tadlo skupin
+    odstranit interpunkÄŤnĂ­ znaky a pĹ™idat do slovnĂ­ku - {znak: poÄŤet}
+    if ve skupinÄ› nezbyl ĹľĂˇdnĂ˝ znak:
+        zruĹˇit skupinu
+    else: zvĂ˝Ĺˇit poÄŤĂ­tadlo slov
 </pre>
 
-<p>Můj první pokus vypadal nějak takto:</p>
+<p>MĹŻj prvnĂ­ pokus vypadal nÄ›jak takto:</p>
 
 <pre>
 def ziskejInerpunkci(seznamSkupin):
@@ -376,59 +376,59 @@ def ziskejInerpunkci(seznamSkupin):
             else: poc_interpunkcnich_znaku[p] = 1
 </pre>
 
-<p>Povšimněte si, že tato verze nezahrnuje závěrečnou konstrukci
-<code>if</code>/<code>else</code>, kterou obsahoval pseudokód. Vynechal jsem
-ji kvůli zjednodušení. Měl jsem také pocit, že se v praktických případech
-objeví velmi málo skupin, které obsahují pouze interpunkční znaky. Ale do
-konečné verze kódu tuto konstrukci doplníme.</p>
+<p>PovĹˇimnÄ›te si, Ĺľe tato verze nezahrnuje zĂˇvÄ›reÄŤnou konstrukci
+<code>if</code>/<code>else</code>, kterou obsahoval pseudokĂłd. Vynechal jsem
+ji kvĹŻli zjednoduĹˇenĂ­. MÄ›l jsem takĂ© pocit, Ĺľe se v praktickĂ˝ch pĹ™Ă­padech
+objevĂ­ velmi mĂˇlo skupin, kterĂ© obsahujĂ­ pouze interpunkÄŤnĂ­ znaky. Ale do
+koneÄŤnĂ© verze kĂłdu tuto konstrukci doplnĂ­me.</p>
 
-<p><b>Poznámka 1:</b> Seznam skupin jsme se rozhodli předávat parametrem,
-takže uživatelé tohoto modulu mohou předat svůj vlastní seznam místo toho,
+<p><b>PoznĂˇmka 1:</b> Seznam skupin jsme se rozhodli pĹ™edĂˇvat parametrem,
+takĹľe uĹľivatelĂ© tohoto modulu mohou pĹ™edat svĹŻj vlastnĂ­ seznam mĂ­sto toho,
 aby byli nuceni pracovat se souborem.</p>
 
-<p><b>Poznámka 2:</b> Za zmínku stojí obrat, kdy jsme proměnné
-<code>skupina</code> přiřadili hodnotu <code>skupina[:-1]</code>. V jazyce
-Python je tento obrat znám jako <em>slicing</em> (čti slajsing; odřezávání,
-odkrajování). Dvojtečka říká, aby byl index chápán jako rozsah. Pokud bychom
-například chtěli získat seznam položek <code>skupina[3]</code>,
-<code>skupina[4]</code> a <code>skupina[5]</code>, vyjádřili bychom jej jako
-<code>skupina[3:6]</code>. <span class="trnote">(Poznámka překladatele:
-tento obrat lze používat pro posloupnosti různých druhů, konkrétně pro
-řetězce a pro seznamy.)</span></p>
+<p><b>PoznĂˇmka 2:</b> Za zmĂ­nku stojĂ­ obrat, kdy jsme promÄ›nnĂ©
+<code>skupina</code> pĹ™iĹ™adili hodnotu <code>skupina[:-1]</code>. V jazyce
+Python je tento obrat znĂˇm jako <em>slicing</em> (ÄŤti slajsing; odĹ™ezĂˇvĂˇnĂ­,
+odkrajovĂˇnĂ­). DvojteÄŤka Ĺ™Ă­kĂˇ, aby byl index chĂˇpĂˇn jako rozsah. Pokud bychom
+napĹ™Ă­klad chtÄ›li zĂ­skat seznam poloĹľek <code>skupina[3]</code>,
+<code>skupina[4]</code> a <code>skupina[5]</code>, vyjĂˇdĹ™ili bychom jej jako
+<code>skupina[3:6]</code>. <span class="trnote">(PoznĂˇmka pĹ™ekladatele:
+tento obrat lze pouĹľĂ­vat pro posloupnosti rĹŻznĂ˝ch druhĹŻ, konkrĂ©tnÄ› pro
+Ĺ™etÄ›zce a pro seznamy.)</span></p>
 
-<p>Pokud neuvedeme číslo, pak se to chápe jako začátek nebo konec seznamu
-podle toho, na které straně dvojtečky necháme prázdné místo. Takže zápis
-<code>skupina[3:]</code> by měl význam všech členů <code>skupina</code> od
-<code>skupina[3:]</code> až do konce. Jde o jeden z velmi užitečných rysů
-jazyka Python. V našem příkladu je originální posloupnost
-<code>skupina</code> ztracena (a tím pádem náležitě uklizena, uvolněna).
-Nově vytvořená posloupnost <span class="trnote" title="Poznámka překladatele"
->(v našem případě řetězec)</span> je přiřazena do <code>skupina</code>.</p>
+<p>Pokud neuvedeme ÄŤĂ­slo, pak se to chĂˇpe jako zaÄŤĂˇtek nebo konec seznamu
+podle toho, na kterĂ© stranÄ› dvojteÄŤky nechĂˇme prĂˇzdnĂ© mĂ­sto. TakĹľe zĂˇpis
+<code>skupina[3:]</code> by mÄ›l vĂ˝znam vĹˇech ÄŤlenĹŻ <code>skupina</code> od
+<code>skupina[3:]</code> aĹľ do konce. Jde o jeden z velmi uĹľiteÄŤnĂ˝ch rysĹŻ
+jazyka Python. V naĹˇem pĹ™Ă­kladu je originĂˇlnĂ­ posloupnost
+<code>skupina</code> ztracena (a tĂ­m pĂˇdem nĂˇleĹľitÄ› uklizena, uvolnÄ›na).
+NovÄ› vytvoĹ™enĂˇ posloupnost <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>(v naĹˇem pĹ™Ă­padÄ› Ĺ™etÄ›zec)</span> je pĹ™iĹ™azena do <code>skupina</code>.</p>
 
-<p><b>Poznámka 3:</b> Pro získání posledního znaku z proměnné
-<code>skupina</code> používáme záporný index. Jde opět o velmi užitečný rys
-jazyka Python. Pro případ, že by se na konci skupiny objevilo více
-interpunkčních znaků, provádíme zpracování v cyklu.</p>
+<p><b>PoznĂˇmka 3:</b> Pro zĂ­skĂˇnĂ­ poslednĂ­ho znaku z promÄ›nnĂ©
+<code>skupina</code> pouĹľĂ­vĂˇme zĂˇpornĂ˝ index. Jde opÄ›t o velmi uĹľiteÄŤnĂ˝ rys
+jazyka Python. Pro pĹ™Ă­pad, Ĺľe by se na konci skupiny objevilo vĂ­ce
+interpunkÄŤnĂ­ch znakĹŻ, provĂˇdĂ­me zpracovĂˇnĂ­ v cyklu.</p>
 
-<p>Během testů se ukázalo, že totéž musíme provádět i pro začátek skupiny,
-protože, ačkoliv uzavírací závorky detekovány jsou, otvírací závorky
-nikoliv. Pro vyřešení tohoto problému vytvoříme novou funkci
-<code>trim()</code>, která odstraní interpunkční znaky ze začátku a z konce
-jedné skupiny znaků:</p>
+<p>BÄ›hem testĹŻ se ukĂˇzalo, Ĺľe totĂ©Ĺľ musĂ­me provĂˇdÄ›t i pro zaÄŤĂˇtek skupiny,
+protoĹľe, aÄŤkoliv uzavĂ­racĂ­ zĂˇvorky detekovĂˇny jsou, otvĂ­racĂ­ zĂˇvorky
+nikoliv. Pro vyĹ™eĹˇenĂ­ tohoto problĂ©mu vytvoĹ™Ă­me novou funkci
+<code>trim()</code>, kterĂˇ odstranĂ­ interpunkÄŤnĂ­ znaky ze zaÄŤĂˇtku a z konce
+jednĂ© skupiny znakĹŻ:</p>
 
 <pre id="buggyTrim">
 <span class="comment">
 #########################################################
-# Poznámka: trim používá rekurzi, kde podmínkou ukončení je buď hodnota
-# 0 nebo -1. Pokud se objeví něco jiného, než hodnoty -1, 0 nebo 2,
-# je vyvolána chyba "InvalidEnd". 
-# Poznámka překladatele: Od verze Python 2.0 se doporučuje pro výjimky
-# používat instance tříd odvozených od třídy Exception. Používání
-# řetězců pro výjimky se již nedoporučuje.
+# PoznĂˇmka: trim pouĹľĂ­vĂˇ rekurzi, kde podmĂ­nkou ukonÄŤenĂ­ je buÄŹ hodnota
+# 0 nebo -1. Pokud se objevĂ­ nÄ›co jinĂ©ho, neĹľ hodnoty -1, 0 nebo 2,
+# je vyvolĂˇna chyba "InvalidEnd".
+# PoznĂˇmka pĹ™ekladatele: Od verze Python 2.0 se doporuÄŤuje pro vĂ˝jimky
+# pouĹľĂ­vat instance tĹ™Ă­d odvozenĂ˝ch od tĹ™Ă­dy Exception. PouĹľĂ­vĂˇnĂ­
+# Ĺ™etÄ›zcĹŻ pro vĂ˝jimky se jiĹľ nedoporuÄŤuje.
 ##########################################################</span>
 def trim(polozka, end = 2):
-  """ Odstraní nealfanumerické znaky zleva (end = 0), zprava (-1) nebo 
-      z obou stran proměnné polozka."""
+  """ OdstranĂ­ nealfanumerickĂ© znaky zleva (end = 0), zprava (-1) nebo
+      z obou stran promÄ›nnĂ© polozka."""
 
   if end not in [0, -1, 2]:
      raise "InvalidEnd"
@@ -445,48 +445,48 @@ def trim(polozka, end = 2):
         if end == -1: polozka = polozka[:-1]
 </pre>
 
-<p>Povšimněte si, jak nám kombinace použití rekurze a implicitní
-(přednastavené) hodnoty parametru umožnila definovat jedinou funkci
-<code>trim</code>, která standardně ošetří oba konce. Pokud ale zadáme
-hodnotu parametru <code>end</code>, můžeme ji použít k ošetření pouze
+<p>PovĹˇimnÄ›te si, jak nĂˇm kombinace pouĹľitĂ­ rekurze a implicitnĂ­
+(pĹ™ednastavenĂ©) hodnoty parametru umoĹľnila definovat jedinou funkci
+<code>trim</code>, kterĂˇ standardnÄ› oĹˇetĹ™Ă­ oba konce. Pokud ale zadĂˇme
+hodnotu parametru <code>end</code>, mĹŻĹľeme ji pouĹľĂ­t k oĹˇetĹ™enĂ­ pouze
 jednoho konce. Hodnoty parametru <code>end</code> jsou zvoleny tak, aby
-odpovídaly způsobu indexování v jazyce Python: nula pro levou stranu a -1
-pro pravou. Původně jsem vytvořil dvě funkce <code>trim</code>, jednu pro
-každý konec. Ale díky množství pozorovaných podobností jsem zjistil, že je
-při použití parametru mohu zkombinovat dohromady.</p>
+odpovĂ­daly zpĹŻsobu indexovĂˇnĂ­ v jazyce Python: nula pro levou stranu a -1
+pro pravou. PĹŻvodnÄ› jsem vytvoĹ™il dvÄ› funkce <code>trim</code>, jednu pro
+kaĹľdĂ˝ konec. Ale dĂ­ky mnoĹľstvĂ­ pozorovanĂ˝ch podobnostĂ­ jsem zjistil, Ĺľe je
+pĹ™i pouĹľitĂ­ parametru mohu zkombinovat dohromady.</p>
 
-<p>Funkce <code>ziskejInerpunkci</code> se tím velmi zjednoduší:</p>
+<p>Funkce <code>ziskejInerpunkci</code> se tĂ­m velmi zjednoduĹˇĂ­:</p>
 
 <pre>
 def ziskejInerpunkci(seznamSkupin):
     for skupina in seznamSkupin:
         trim(skupina)
-    <span class="comment"># Nyní vypustíme prázdná 'slova'.</span>
+    <span class="comment"># NynĂ­ vypustĂ­me prĂˇzdnĂˇ 'slova'.</span>
     for i in range(len(seznamSkupin)):
         if len(seznamSkupin[i]) == 0:
             del(seznamSkupin[i])
 </pre>
 
-<p><b>Poznámka 1:</b> Nová implementace navíc provádí vypouštění prázdných
+<p><b>PoznĂˇmka 1:</b> NovĂˇ implementace navĂ­c provĂˇdĂ­ vypouĹˇtÄ›nĂ­ prĂˇzdnĂ˝ch
 slov.</p>
 
-<p><b>Poznámka 2:</b> V zájmu znovupoužitelnosti by možná bývalo bylo lepší,
-kdybychom funkci trim rozbili na ještě menší kousky. To by nám umožnilo
-vytvořit funkci pro odstranění jediného interpunkčního znaménka &mdash; buď
-ze začátku, nebo z konce slova &mdash; a odstraněný znak bychom mohli vracet
-jako výsledek. Takovou funkci by pak mohla opakovaně volat jiná funkce, čímž
-bychom získali požadovaný výsledek. Ale náš modul se má zabývat zjišťováním
-konkrétních statistických údajů ze zadaného textu a ne nějakým obecným
-zpracováním textu. Pro uvedené funkce bychom tedy správně měli vytvořit
-samostatný modul, který bychom pak importovali. Jenže ten by obsahoval jen
-jednu funkci, která se navíc nezdá být příliš užitečnou. Takže to raději
+<p><b>PoznĂˇmka 2:</b> V zĂˇjmu znovupouĹľitelnosti by moĹľnĂˇ bĂ˝valo bylo lepĹˇĂ­,
+kdybychom funkci trim rozbili na jeĹˇtÄ› menĹˇĂ­ kousky. To by nĂˇm umoĹľnilo
+vytvoĹ™it funkci pro odstranÄ›nĂ­ jedinĂ©ho interpunkÄŤnĂ­ho znamĂ©nka &mdash; buÄŹ
+ze zaÄŤĂˇtku, nebo z konce slova &mdash; a odstranÄ›nĂ˝ znak bychom mohli vracet
+jako vĂ˝sledek. Takovou funkci by pak mohla opakovanÄ› volat jinĂˇ funkce, ÄŤĂ­mĹľ
+bychom zĂ­skali poĹľadovanĂ˝ vĂ˝sledek. Ale nĂˇĹˇ modul se mĂˇ zabĂ˝vat zjiĹˇĹĄovĂˇnĂ­m
+konkrĂ©tnĂ­ch statistickĂ˝ch ĂşdajĹŻ ze zadanĂ©ho textu a ne nÄ›jakĂ˝m obecnĂ˝m
+zpracovĂˇnĂ­m textu. Pro uvedenĂ© funkce bychom tedy sprĂˇvnÄ› mÄ›li vytvoĹ™it
+samostatnĂ˝ modul, kterĂ˝ bychom pak importovali. JenĹľe ten by obsahoval jen
+jednu funkci, kterĂˇ se navĂ­c nezdĂˇ bĂ˝t pĹ™Ă­liĹˇ uĹľiteÄŤnou. TakĹľe to radÄ›ji
 nechejme, jak to je.</p>
 
-<h4>Konečná podoba modulu <code>gramatika</code></h4>
+<h4>KoneÄŤnĂˇ podoba modulu <code>gramatika</code></h4>
 
-<p>Teď už nám zbývá jenom vylepšit výpis výsledků tím, že do něj zahrneme
-další počítadla a vliv interpunkčních znaků. Existující funkci
-<code>vypsatStatistiky()</code> nahraďte následujícím kódem:</p>
+<p>TeÄŹ uĹľ nĂˇm zbĂ˝vĂˇ jenom vylepĹˇit vĂ˝pis vĂ˝sledkĹŻ tĂ­m, Ĺľe do nÄ›j zahrneme
+dalĹˇĂ­ poÄŤĂ­tadla a vliv interpunkÄŤnĂ­ch znakĹŻ. ExistujĂ­cĂ­ funkci
+<code>vypsatStatistiky()</code> nahraÄŹte nĂˇsledujĂ­cĂ­m kĂłdem:</p>
 
 <pre>
 def vypsatStatistiky():
@@ -495,7 +495,7 @@ def vypsatStatistiky():
         poc_vet = poc_vet + poc_interpunkcnich_znaku[c]
     for c in poc_interpunkcnich_znaku.keys():
         poc_klauzuli = poc_klauzuli + poc_interpunkcnich_znaku[c]
-    print format % (sys.argv[1], poc_odstavcu, 
+    print format % (sys.argv[1], poc_odstavcu,
                     poc_radku, poc_vet,
                     poc_klauzuli, poc_slov)
     print "Byly pouzity nasledujici interpunkcni znaky:"
@@ -503,47 +503,47 @@ def vypsatStatistiky():
         print "\t%s\t:\t%3d" % (c, poc_interpunkcnich_znaku[c])
 </pre>
 
-<p>Pokud jste pečlivě vložili všechny výše uvedené funkce na správná místa,
-měli byste nyní po napsání</p> 
+<p>Pokud jste peÄŤlivÄ› vloĹľili vĹˇechny vĂ˝Ĺˇe uvedenĂ© funkce na sprĂˇvnĂˇ mĂ­sta,
+mÄ›li byste nynĂ­ po napsĂˇnĂ­</p>
 <pre>
 C:> python gramatika.py mujsoubor.txt
 </pre>
 
-<p>obdržet výpis statistických údajů pro váš soubor
-<code>mujsoubor.txt</code> (ať už jej nazvete jak chcete). Užitečnost tohoto
-programu je diskutabilní, ale snad vám sledování vývoje jeho kódu pomohlo
-získat představu o tom, jak můžete tvořit své vlastní programy. Za hlavní
-považuji to, abyste si vše zkoušeli. A ovšem, měli byste si je také pečlivě
-otestovat. V případě tohoto programu například rychle zjistíte způsoby, jak
-z něj vylákat falešné odpovědi. Pokud například větu zakončíte třemi
-tečkami, bude počítadlo vět nabývat příliš vysoké hodnoty. Pro rozpoznání
-takových situací můžete doplnit k tomu určený kód. Můžete se také
-rozhodnout, že s ohledem na občasné použití programu vám podobné věci
-nevadí. Je to na vás.</p> 
+<p>obdrĹľet vĂ˝pis statistickĂ˝ch ĂşdajĹŻ pro vĂˇĹˇ soubor
+<code>mujsoubor.txt</code> (aĹĄ uĹľ jej nazvete jak chcete). UĹľiteÄŤnost tohoto
+programu je diskutabilnĂ­, ale snad vĂˇm sledovĂˇnĂ­ vĂ˝voje jeho kĂłdu pomohlo
+zĂ­skat pĹ™edstavu o tom, jak mĹŻĹľete tvoĹ™it svĂ© vlastnĂ­ programy. Za hlavnĂ­
+povaĹľuji to, abyste si vĹˇe zkouĹˇeli. A ovĹˇem, mÄ›li byste si je takĂ© peÄŤlivÄ›
+otestovat. V pĹ™Ă­padÄ› tohoto programu napĹ™Ă­klad rychle zjistĂ­te zpĹŻsoby, jak
+z nÄ›j vylĂˇkat faleĹˇnĂ© odpovÄ›di. Pokud napĹ™Ă­klad vÄ›tu zakonÄŤĂ­te tĹ™emi
+teÄŤkami, bude poÄŤĂ­tadlo vÄ›t nabĂ˝vat pĹ™Ă­liĹˇ vysokĂ© hodnoty. Pro rozpoznĂˇnĂ­
+takovĂ˝ch situacĂ­ mĹŻĹľete doplnit k tomu urÄŤenĂ˝ kĂłd. MĹŻĹľete se takĂ©
+rozhodnout, Ĺľe s ohledem na obÄŤasnĂ© pouĹľitĂ­ programu vĂˇm podobnĂ© vÄ›ci
+nevadĂ­. Je to na vĂˇs.</p>
 
-<p>Nepovažuji za žádnou ostudu, když si vyzkoušíte několik různých přístupů.
-Často během toho získáte cenné zkušenosti.</p>
+<p>NepovaĹľuji za ĹľĂˇdnou ostudu, kdyĹľ si vyzkouĹˇĂ­te nÄ›kolik rĹŻznĂ˝ch pĹ™Ă­stupĹŻ.
+ÄŚasto bÄ›hem toho zĂ­skĂˇte cennĂ© zkuĹˇenosti.</p>
 
-<p>Náš kurs ukončíme přepracováním modulu <code>gramatika</code> na použití 
-technik objektově orientovaného programování. Během tohoto procesu uvidíte,
-že objektově orienovaný přístup vede k modulům, které jsou pro koncového
-uživatele ještě pružnější a také rozšířitelnější.</p>
+<p>NĂˇĹˇ kurs ukonÄŤĂ­me pĹ™epracovĂˇnĂ­m modulu <code>gramatika</code> na pouĹľitĂ­
+technik objektovÄ› orientovanĂ©ho programovĂˇnĂ­. BÄ›hem tohoto procesu uvidĂ­te,
+Ĺľe objektovÄ› orienovanĂ˝ pĹ™Ă­stup vede k modulĹŻm, kterĂ© jsou pro koncovĂ©ho
+uĹľivatele jeĹˇtÄ› pruĹľnÄ›jĹˇĂ­ a takĂ© rozĹˇĂ­Ĺ™itelnÄ›jĹˇĂ­.</p>
 
-<h3>Třídy a objekty</h3>
+<h3>TĹ™Ă­dy a objekty</h3>
 
-<p>Jeden z největších problémů, se kterým se uživatel našeho modulu setká,
-spočívá ve spoléhání se na globální proměnné. Vede to k tomu, že můžeme
-analyzovat vždy jen jeden dokument najednou. Jakýkoliv pokus o zpracování
-více dokumentů by vedl k přepisování hodnot globálních proměnných.</p>
+<p>Jeden z nejvÄ›tĹˇĂ­ch problĂ©mĹŻ, se kterĂ˝m se uĹľivatel naĹˇeho modulu setkĂˇ,
+spoÄŤĂ­vĂˇ ve spolĂ©hĂˇnĂ­ se na globĂˇlnĂ­ promÄ›nnĂ©. Vede to k tomu, Ĺľe mĹŻĹľeme
+analyzovat vĹľdy jen jeden dokument najednou. JakĂ˝koliv pokus o zpracovĂˇnĂ­
+vĂ­ce dokumentĹŻ by vedl k pĹ™episovĂˇnĂ­ hodnot globĂˇlnĂ­ch promÄ›nnĂ˝ch.</p>
 
-<p>Pokud přeneseme tyto globální údaje dovnitř třídy, můžeme vytvořit
-několik instancí dané třídy (pro každý soubor jednu). Každá instance tím
-získá svou vlastní sadu proměnných. Když navíc metody třídy dostatečně
-rozčleníme, můžeme vytvořit architekturu, u které bude moci tvůrce objektu
-pro nový typ dokumentu snadno upravit kritéria tak, aby vyhovovala novým
-pravidlům (ze seznamu slov můžeme například vyloučit všechny HTML značky).</p>
+<p>Pokud pĹ™eneseme tyto globĂˇlnĂ­ Ăşdaje dovnitĹ™ tĹ™Ă­dy, mĹŻĹľeme vytvoĹ™it
+nÄ›kolik instancĂ­ danĂ© tĹ™Ă­dy (pro kaĹľdĂ˝ soubor jednu). KaĹľdĂˇ instance tĂ­m
+zĂ­skĂˇ svou vlastnĂ­ sadu promÄ›nnĂ˝ch. KdyĹľ navĂ­c metody tĹ™Ă­dy dostateÄŤnÄ›
+rozÄŤlenĂ­me, mĹŻĹľeme vytvoĹ™it architekturu, u kterĂ© bude moci tvĹŻrce objektu
+pro novĂ˝ typ dokumentu snadno upravit kritĂ©ria tak, aby vyhovovala novĂ˝m
+pravidlĹŻm (ze seznamu slov mĹŻĹľeme napĹ™Ă­klad vylouÄŤit vĹˇechny HTML znaÄŤky).</p>
 
-<p>Náš první pokus vypadá takto:</p>
+<p>NĂˇĹˇ prvnĂ­ pokus vypadĂˇ takto:</p>
 
 <pre>
 <span class="comment">#! /usr/local/bin/python
@@ -553,12 +553,12 @@ pravidlům (ze seznamu slov můžeme například vyloučit všechny HTML značky).</p>
 # Datum: 2000/08/12
 # Verze: 2.0
 ################################
-# Tento modul poskytuje třídu Dokument, ze které
-# lze odvozovat další třídy pro různé kategorie
-# dokumentů (text, HTML, LaTeX, atd.). Jako vzor
-# jsou uvedeny třídy pro text a HTML.
+# Tento modul poskytuje tĹ™Ă­du Dokument, ze kterĂ©
+# lze odvozovat dalĹˇĂ­ tĹ™Ă­dy pro rĹŻznĂ© kategorie
+# dokumentĹŻ (text, HTML, LaTeX, atd.). Jako vzor
+# jsou uvedeny tĹ™Ă­dy pro text a HTML.
 #
-# K nejdůležitějším službám patří
+# K nejdĹŻleĹľitÄ›jĹˇĂ­m sluĹľbĂˇm patĹ™Ă­
 # - ziskejSkupinyZnaku(),
 # - ziskejSlova(),
 # - vypsatStatistiky().
@@ -573,7 +573,7 @@ class Dokument:
         self.poc_klauzuli, self.poc_slov = 0, 0
         self.alfanum = string.letters + string.digits
         self.koncove_znaky = ['.','?','!']
-        self.interpunkcni_znaky = ['&amp;', '(', ')', '-', ';', 
+        self.interpunkcni_znaky = ['&amp;', '(', ')', '-', ';',
                                    ':', ','] + self.koncove_znaky
         self.radky = []
         self.skupiny = []
@@ -587,33 +587,33 @@ Ty zase obsahuji %d klauzuli a celkem %d slov."""
     def nactiRadky(self):
         try:
             self.vstSoubor = open(self.jmenoSouboru, "r")
-            <span class="comment"># Poznámka překladatele: Od verze Python 2 by se 
-            # měla dávat přednost zápisu 
+            <span class="comment"># PoznĂˇmka pĹ™ekladatele: Od verze Python 2 by se
+            # mÄ›la dĂˇvat pĹ™ednost zĂˇpisu
             # self.vstSoubor = file(self.jmenoSouboru, "r")</span>
             self.radky = self.vstSoubor.readlines()
             self.vstSoubor.close()
         except:
             print "Chyba pri cteni ze souboru ", self.jmenoSouboru
             sys.exit()
-  
+
     def ziskejSkupinyZnaku(self, radky):
         for radek in radky:
-            radek = radek[:-1]  <span class="comment"># odstraníme koncový '\n'</span>
+            radek = radek[:-1]  <span class="comment"># odstranĂ­me koncovĂ˝ '\n'</span>
             self.poc_radku = self.poc_radku + 1
-            if len(radek) == 0: <span class="comment"># prázdný => další odstavec</span>
+            if len(radek) == 0: <span class="comment"># prĂˇzdnĂ˝ => dalĹˇĂ­ odstavec</span>
                 self.poc_odstavcu = self.poc_odstavcu + 1
             else:
                 self.skupiny = self.skupiny + string.split(radek)
-                <span class="comment"># Poznámka překladatele: Od verze Python 2 lze psát
+                <span class="comment"># PoznĂˇmka pĹ™ekladatele: Od verze Python 2 lze psĂˇt
                 # self.skupiny = self.skupiny + radek.split()</span>
-  
-  
+
+
     def ziskejSlova(self):
         pass
-  
+
     def vypsatStatistiky(self, odstavcu=1, radku=1, vet=1, slov=1, interpun=1):
         pass
-  
+
     def Analyzuj(self):
         self.nactiRadky()
         self.ziskejSkupinyZnaku(self.radky)
@@ -635,47 +635,47 @@ if __name__ == "__main__":
         D.Analyzuj()
 </pre>
 
-<p>Následujícím krokem při implementaci této třídy je definice metody
-<code>ziskejSlova</code>. Mohli bychom jednoduše okopírovat to, co jsme
-vytvořili v předchozí verzi a vytvořit nějakou metodu trim. Jenže my chceme,
-aby byla objektově orientovaná verze snadno rozšiřitelná. Takže místo toho
-rozdělíme metodu <code>ziskejSlova</code> na posloupnost několika kroků. V
-odvozených třídách pak stačí přepsat jen nové verze těchto podkroků a
-nikoliv celou metodu <code>ziskejSlova</code>. To by mělo usnadnit
-zpracování mnohem širšího rozsahu typů dokumentů.</p>
+<p>NĂˇsledujĂ­cĂ­m krokem pĹ™i implementaci tĂ©to tĹ™Ă­dy je definice metody
+<code>ziskejSlova</code>. Mohli bychom jednoduĹˇe okopĂ­rovat to, co jsme
+vytvoĹ™ili v pĹ™edchozĂ­ verzi a vytvoĹ™it nÄ›jakou metodu trim. JenĹľe my chceme,
+aby byla objektovÄ› orientovanĂˇ verze snadno rozĹˇiĹ™itelnĂˇ. TakĹľe mĂ­sto toho
+rozdÄ›lĂ­me metodu <code>ziskejSlova</code> na posloupnost nÄ›kolika krokĹŻ. V
+odvozenĂ˝ch tĹ™Ă­dĂˇch pak staÄŤĂ­ pĹ™epsat jen novĂ© verze tÄ›chto podkrokĹŻ a
+nikoliv celou metodu <code>ziskejSlova</code>. To by mÄ›lo usnadnit
+zpracovĂˇnĂ­ mnohem ĹˇirĹˇĂ­ho rozsahu typĹŻ dokumentĹŻ.</p>
 
-<p>Konkrétně přidáme metodu pro odmítnutí skupin, které budou rozpoznány
-jako chybné, metodu pro odstranění nechtěných znaků ze začátku a z konce. To
-znamená, že do třídy <code>Dokument</code> přidáme tři metody a metodu
-<code>ziskejSlova</code> implementujeme pomocí nich.</p>
+<p>KonkrĂ©tnÄ› pĹ™idĂˇme metodu pro odmĂ­tnutĂ­ skupin, kterĂ© budou rozpoznĂˇny
+jako chybnĂ©, metodu pro odstranÄ›nĂ­ nechtÄ›nĂ˝ch znakĹŻ ze zaÄŤĂˇtku a z konce. To
+znamenĂˇ, Ĺľe do tĹ™Ă­dy <code>Dokument</code> pĹ™idĂˇme tĹ™i metody a metodu
+<code>ziskejSlova</code> implementujeme pomocĂ­ nich.</p>
 
 <pre>
 class Dokument:
-    # ... viz výše
+    # ... viz vĂ˝Ĺˇe
     def ziskejSlova(self):
         for w in self.skupiny:
             self.orezatLeve(w)
             self.orezatPrave(w)
         self.odstranitVyjimky()
-  
+
     def odstranitVyjimky(self):
         pass
-  
+
     def orezatLeve(self, slovo):
         pass
-  
+
     def orezatPrave(self, slovo):
         pass
 </pre>
 
-<p>Povšimněte si, že těla uvedených funkcí definují použití jediného příkazu
-<code>pass</code> (čti pás; projít), který nedělá vůbec nic. Místo něj
-budeme později definovat způsob zpracování pro každý <em>konkrétní</em> typ
+<p>PovĹˇimnÄ›te si, Ĺľe tÄ›la uvedenĂ˝ch funkcĂ­ definujĂ­ pouĹľitĂ­ jedinĂ©ho pĹ™Ă­kazu
+<code>pass</code> (ÄŤti pĂˇs; projĂ­t), kterĂ˝ nedÄ›lĂˇ vĹŻbec nic. MĂ­sto nÄ›j
+budeme pozdÄ›ji definovat zpĹŻsob zpracovĂˇnĂ­ pro kaĹľdĂ˝ <em>konkrĂ©tnĂ­</em> typ
 dokumentu.</p>
 
-<h3>Textový dokument</h3>
+<h3>TextovĂ˝ dokument</h3>
 
-<p>Třída pro textový dokument vypadá takto:</p>
+<p>TĹ™Ă­da pro textovĂ˝ dokument vypadĂˇ takto:</p>
 
 <pre id="inefficientTrim">
 class TextovyDokument(Dokument):
@@ -694,43 +694,43 @@ class TextovyDokument(Dokument):
                 self.poc_interp_znaku[ch] = self.poc_interp_znaku[ch] + 1
             slovo = slovo[:-1]
         return slovo
-      
+
     def odstranitVyjimky(self):
         self.skupiny = filter(lambda g: len(g) &gt; 0, self.skupiny)
 </pre>
 
-<p>Ořezávací funkce <span class="trnote" title="Poznámka překladatele"
->(anglicky se tato funkčnost označuje slovem <em>trim</em>)</span> jsou v
-podstatě shodné s funkcí <code>trim</code> v našem modulu
-<code>gramatika.py</code>, která byla ovšem rozdělena na dvě. Funkce
-<code>odstranitVyjimky</code> byla definována tak, aby odstraňovala prázdná
-slova. Povšimněte si použití funkce <code>filter()</code>, o které jsme se
-zmínili v části věnované <a href="cztutfctnl.html#filter">funkcionálnímu
-programování</a>.</p>
+<p>OĹ™ezĂˇvacĂ­ funkce <span class="trnote" title="PoznĂˇmka pĹ™ekladatele"
+>(anglicky se tato funkÄŤnost oznaÄŤuje slovem <em>trim</em>)</span> jsou v
+podstatÄ› shodnĂ© s funkcĂ­ <code>trim</code> v naĹˇem modulu
+<code>gramatika.py</code>, kterĂˇ byla ovĹˇem rozdÄ›lena na dvÄ›. Funkce
+<code>odstranitVyjimky</code> byla definovĂˇna tak, aby odstraĹovala prĂˇzdnĂˇ
+slova. PovĹˇimnÄ›te si pouĹľitĂ­ funkce <code>filter()</code>, o kterĂ© jsme se
+zmĂ­nili v ÄŤĂˇsti vÄ›novanĂ© <a href="cztutfctnl.html#filter">funkcionĂˇlnĂ­mu
+programovĂˇnĂ­</a>.</p>
 
 <h3>HTML dokument</h3>
 
-<p>Při zpracování HTML dokumentů použijeme funkčnost jazyka Python, se
-kterou jsme se ještě nesetkali &mdash; <em>regulární výrazy</em>. Jde o
-speciální řetězcové vzorky, které se dají použít pro nalezení složitějších
-řetězců. Použijeme je zde k odstranění čehokoliv mezi znaky &lt; a &gt;. To
-znamená, že budeme muset předefinovat metodu <code>ziskejSlova</code>.
-Odstraňování interpunkčních znamének by mělo být shodné jako v případě
-zpracování holého textu. Takže místo abychom dědili přímo z třídy
-<code>Dokument</code>, odvodíme novou třídu z <code>TextovyDokument</code> a
-použijeme jí definované metody pro ořezávání.</p>
+<p>PĹ™i zpracovĂˇnĂ­ HTML dokumentĹŻ pouĹľijeme funkÄŤnost jazyka Python, se
+kterou jsme se jeĹˇtÄ› nesetkali &mdash; <em>regulĂˇrnĂ­ vĂ˝razy</em>. Jde o
+speciĂˇlnĂ­ Ĺ™etÄ›zcovĂ© vzorky, kterĂ© se dajĂ­ pouĹľĂ­t pro nalezenĂ­ sloĹľitÄ›jĹˇĂ­ch
+Ĺ™etÄ›zcĹŻ. PouĹľijeme je zde k odstranÄ›nĂ­ ÄŤehokoliv mezi znaky &lt; a &gt;. To
+znamenĂˇ, Ĺľe budeme muset pĹ™edefinovat metodu <code>ziskejSlova</code>.
+OdstraĹovĂˇnĂ­ interpunkÄŤnĂ­ch znamĂ©nek by mÄ›lo bĂ˝t shodnĂ© jako v pĹ™Ă­padÄ›
+zpracovĂˇnĂ­ holĂ©ho textu. TakĹľe mĂ­sto abychom dÄ›dili pĹ™Ă­mo z tĹ™Ă­dy
+<code>Dokument</code>, odvodĂ­me novou tĹ™Ă­du z <code>TextovyDokument</code> a
+pouĹľijeme jĂ­ definovanĂ© metody pro oĹ™ezĂˇvĂˇnĂ­.</p>
 
-<p>Takže třída <code>HTMLDokument</code> bude vypadat takto:</p>
+<p>TakĹľe tĹ™Ă­da <code>HTMLDokument</code> bude vypadat takto:</p>
 
 <pre>
 class HTMLDokument(TextovyDokument):
     def odstranitVyjimky(self):
-        """ Použijeme regulární výrazy pro odstranění všech &lt;.+?&gt;"""
+        """ PouĹľijeme regulĂˇrnĂ­ vĂ˝razy pro odstranÄ›nĂ­ vĹˇech &lt;.+?&gt;"""
         import re
-        tag = re.compile("&lt;.+?&gt;")<span class="comment"># použijeme non greedy re</span>
+        tag = re.compile("&lt;.+?&gt;")<span class="comment"># pouĹľijeme non greedy re</span>
         L = 0
         while L &lt; len(self.radky):
-            if len(self.radky[L]) > 1:<span class="comment"> # pokud řádek není prázdný</span>
+            if len(self.radky[L]) > 1:<span class="comment"> # pokud Ĺ™Ăˇdek nenĂ­ prĂˇzdnĂ˝</span>
                  self.radky[L] = tag.sub('', self.radky[L])
                  if len(self.radky[L]) == 1:
                      del(self.radky[L])
@@ -744,71 +744,71 @@ class HTMLDokument(TextovyDokument):
              slovo = self.skupiny[i]
              slovo = self.orezatLeve(slovo)
              self.skupiny[i] = self.orezatPrave(slovo)
-        TextovyDokument.odstranitVyjimky(self)<span class="comment"># odstraní prázdná slova</span>
+        TextovyDokument.odstranitVyjimky(self)<span class="comment"># odstranĂ­ prĂˇzdnĂˇ slova</span>
 </pre>
 
-<p><b>Poznámka:</b> V tomto místě stojí za zmínku pouze volání
-<code>self.odstranitVyjimky</code> před ořezáváním a poté volání
-<code>TextovyDokument.odstranitVyjimky</code>. Pokud bychom se spoléhali na
-zděděnou metodu <code>ziskejSlova</code>, byla by po provedení ořezání
-volána naše metoda <code>odstranitVyjimky</code>, což nechceme.</p>
+<p><b>PoznĂˇmka:</b> V tomto mĂ­stÄ› stojĂ­ za zmĂ­nku pouze volĂˇnĂ­
+<code>self.odstranitVyjimky</code> pĹ™ed oĹ™ezĂˇvĂˇnĂ­m a potĂ© volĂˇnĂ­
+<code>TextovyDokument.odstranitVyjimky</code>. Pokud bychom se spolĂ©hali na
+zdÄ›dÄ›nou metodu <code>ziskejSlova</code>, byla by po provedenĂ­ oĹ™ezĂˇnĂ­
+volĂˇna naĹˇe metoda <code>odstranitVyjimky</code>, coĹľ nechceme.</p>
 
-<p class="trnote"><b>Poznámka překladatele:</b> Pojem <em>greedy</em> (čti
-grídy), který se objevil v poznámce u regulárního výrazu, odpovídá významu
-anglického slovíčka &mdash; chamtivý, lakomý, žravý. Vzorek
-<code>&lt;.+&gt;</code>, který bychom použili pro regulární výraz lze číst jako 
-<em>řetězec, který začíná levou úhlovou závorkou (znak 'menší'), pokračuje jedním a více
-(znak plus) libovolných znaků (znak tečka) a končí pravou úhlovou závorkou
-(znak 'větší')</em>. Pokud neurčíme jinak, snaží se Python najít
-odpovídající řetězec, který je co největší (tj. <em>greedy</em>, neboli
-žravé chování). To ovšem znamená, že by se k prvnímu znaku 'menší' na daném
-řádku nalezl až poslední znak 'větší'. Při přeskakování libovolných znaků by
-mohly být přeskočeny i znaky menší/větší, které se nacházejí mezi nimi. My
-ovšem potřebujeme, aby se přeskakování zastavilo na nejbližším znaku
-'větší', který ukončuje HTML značku. To znamená, že chceme předepsat opačné
-chování (tj. <em>non greedy</em>), kdy se nalezne co nejkratší vyhovující
-řetězec. V jazyce Python tento požadavek vyjádříme tím, že za popis skupiny
-doplníme otazník. Použijeme tedy vzorek <code>&lt;.+?&gt;</code>.</p>
+<p class="trnote"><b>PoznĂˇmka pĹ™ekladatele:</b> Pojem <em>greedy</em> (ÄŤti
+grĂ­dy), kterĂ˝ se objevil v poznĂˇmce u regulĂˇrnĂ­ho vĂ˝razu, odpovĂ­dĂˇ vĂ˝znamu
+anglickĂ©ho slovĂ­ÄŤka &mdash; chamtivĂ˝, lakomĂ˝, ĹľravĂ˝. Vzorek
+<code>&lt;.+&gt;</code>, kterĂ˝ bychom pouĹľili pro regulĂˇrnĂ­ vĂ˝raz lze ÄŤĂ­st jako
+<em>Ĺ™etÄ›zec, kterĂ˝ zaÄŤĂ­nĂˇ levou Ăşhlovou zĂˇvorkou (znak 'menĹˇĂ­'), pokraÄŤuje jednĂ­m a vĂ­ce
+(znak plus) libovolnĂ˝ch znakĹŻ (znak teÄŤka) a konÄŤĂ­ pravou Ăşhlovou zĂˇvorkou
+(znak 'vÄ›tĹˇĂ­')</em>. Pokud neurÄŤĂ­me jinak, snaĹľĂ­ se Python najĂ­t
+odpovĂ­dajĂ­cĂ­ Ĺ™etÄ›zec, kterĂ˝ je co nejvÄ›tĹˇĂ­ (tj. <em>greedy</em>, neboli
+ĹľravĂ© chovĂˇnĂ­). To ovĹˇem znamenĂˇ, Ĺľe by se k prvnĂ­mu znaku 'menĹˇĂ­' na danĂ©m
+Ĺ™Ăˇdku nalezl aĹľ poslednĂ­ znak 'vÄ›tĹˇĂ­'. PĹ™i pĹ™eskakovĂˇnĂ­ libovolnĂ˝ch znakĹŻ by
+mohly bĂ˝t pĹ™eskoÄŤeny i znaky menĹˇĂ­/vÄ›tĹˇĂ­, kterĂ© se nachĂˇzejĂ­ mezi nimi. My
+ovĹˇem potĹ™ebujeme, aby se pĹ™eskakovĂˇnĂ­ zastavilo na nejbliĹľĹˇĂ­m znaku
+'vÄ›tĹˇĂ­', kterĂ˝ ukonÄŤuje HTML znaÄŤku. To znamenĂˇ, Ĺľe chceme pĹ™edepsat opaÄŤnĂ©
+chovĂˇnĂ­ (tj. <em>non greedy</em>), kdy se nalezne co nejkratĹˇĂ­ vyhovujĂ­cĂ­
+Ĺ™etÄ›zec. V jazyce Python tento poĹľadavek vyjĂˇdĹ™Ă­me tĂ­m, Ĺľe za popis skupiny
+doplnĂ­me otaznĂ­k. PouĹľijeme tedy vzorek <code>&lt;.+?&gt;</code>.</p>
 
-<h3>Přidáme grafické uživatelské rozhraní</h3>
+<h3>PĹ™idĂˇme grafickĂ© uĹľivatelskĂ© rozhranĂ­</h3>
 
-<p>Pro vytvoření grafického uživatelského rozhraní použijeme Tkinter, který
-jsme stručně představili v kapitole <a href="cztutevent.html">Událostmi
-řízené programování</a> a kterému jsme se věnovali podrobněji v rámci tématu
-věnovanému <a href="cztutgui.html">grafickému uživatelskému rozhraní</a>.
-Tentokrát vytvoříme o něco propracovanější grafické uživatelské rozhraní a
-použijeme více ovládacích prvků, zvaných také <em>widget</em>, které nám
+<p>Pro vytvoĹ™enĂ­ grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­ pouĹľijeme Tkinter, kterĂ˝
+jsme struÄŤnÄ› pĹ™edstavili v kapitole <a href="cztutevent.html">UdĂˇlostmi
+Ĺ™Ă­zenĂ© programovĂˇnĂ­</a> a kterĂ©mu jsme se vÄ›novali podrobnÄ›ji v rĂˇmci tĂ©matu
+vÄ›novanĂ©mu <a href="cztutgui.html">grafickĂ©mu uĹľivatelskĂ©mu rozhranĂ­</a>.
+TentokrĂˇt vytvoĹ™Ă­me o nÄ›co propracovanÄ›jĹˇĂ­ grafickĂ© uĹľivatelskĂ© rozhranĂ­ a
+pouĹľijeme vĂ­ce ovlĂˇdacĂ­ch prvkĹŻ, zvanĂ˝ch takĂ© <em>widget</em>, kterĂ© nĂˇm
 Tkinter poskytuje.</p>
 
-<h4>Refaktorizace<sup class="trnote"><a href="cztuttrn.html#Pcase_refactoring" 
+<h4>Refaktorizace<sup class="trnote"><a href="cztuttrn.html#Pcase_refactoring"
 id="Bcase_refactoring" title="Pojem refaktorizace (refactoring)"
->[1]</a></sup> třídy Dokument</h4>
+>[1]</a></sup> tĹ™Ă­dy Dokument</h4>
 
-<p>Dříve než se do tohoto stadia dostaneme, musíme upravit naši třídu
-<code>Dokument</code>. Dosavadní verze provádí zobrazení výsledků tiskem na
-standardní výstup (<code>stdout</code>) v rámci metody
-<code>Analyzuj</code>. Při vytváření grafického uživatelského rozhraní to
-ale není to pravé. Místo toho bychom raději přivítali, kdyby metoda Analyzuj
-jednoduše uložila výsledky v atributech s charakterem počítadel, ke kterým
-bychom pak přistupovali podle potřeby. Dosáhneme toho jednoduše rozdělením
-nebo <em>refaktorizací</em> metody <code>vypsatStatistiky()</code> na dvě
-části: metodu <code>vypocetStatistik()</code>, která vyhodnotí výsledky a
-uloží je v počítadlech, a na metodu <code>tiskStatistik()</code>, která
-vytiskne výsledky na standardní výstup.</p>
+<p>DĹ™Ă­ve neĹľ se do tohoto stadia dostaneme, musĂ­me upravit naĹˇi tĹ™Ă­du
+<code>Dokument</code>. DosavadnĂ­ verze provĂˇdĂ­ zobrazenĂ­ vĂ˝sledkĹŻ tiskem na
+standardnĂ­ vĂ˝stup (<code>stdout</code>) v rĂˇmci metody
+<code>Analyzuj</code>. PĹ™i vytvĂˇĹ™enĂ­ grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­ to
+ale nenĂ­ to pravĂ©. MĂ­sto toho bychom radÄ›ji pĹ™ivĂ­tali, kdyby metoda Analyzuj
+jednoduĹˇe uloĹľila vĂ˝sledky v atributech s charakterem poÄŤĂ­tadel, ke kterĂ˝m
+bychom pak pĹ™istupovali podle potĹ™eby. DosĂˇhneme toho jednoduĹˇe rozdÄ›lenĂ­m
+nebo <em>refaktorizacĂ­</em> metody <code>vypsatStatistiky()</code> na dvÄ›
+ÄŤĂˇsti: metodu <code>vypocetStatistik()</code>, kterĂˇ vyhodnotĂ­ vĂ˝sledky a
+uloĹľĂ­ je v poÄŤĂ­tadlech, a na metodu <code>tiskStatistik()</code>, kterĂˇ
+vytiskne vĂ˝sledky na standardnĂ­ vĂ˝stup.</p>
 
-<p>Nakonec musíme upravit metodu <code>Analyzuj()</code> tak, aby volala
-metodu <code>vypocetStatistik()</code>, a hlavní sekvenci příkazů tak, aby
-po volání metody <code>Analyzuj()</code> volala
-<code>tiskStatistik()</code>. Po provedení těchto úprav bude stávající kód
-pracovat stejným způsobem, jako předtím &mdash; přinejmenším z pohledu
-uživatele, který takový program spouští z příkazového řádku. Ostatní
-uživatelé <span class="trnote" title="Poznámka překladatele">(tj. ti, kteří
-zdrojový soubor používají jako modul, vytvářejí si sami instance třídy
-Dokument a volají sami jeho metody)</span> budou muset provést ve svém kódu
-drobné změny, kdy po použití metody <code>Analyzuj()</code> zavolají metodu
-<code>tiskStatistik()</code> &mdash; a to není příliš obtížné.</p>
+<p>Nakonec musĂ­me upravit metodu <code>Analyzuj()</code> tak, aby volala
+metodu <code>vypocetStatistik()</code>, a hlavnĂ­ sekvenci pĹ™Ă­kazĹŻ tak, aby
+po volĂˇnĂ­ metody <code>Analyzuj()</code> volala
+<code>tiskStatistik()</code>. Po provedenĂ­ tÄ›chto Ăşprav bude stĂˇvajĂ­cĂ­ kĂłd
+pracovat stejnĂ˝m zpĹŻsobem, jako pĹ™edtĂ­m &mdash; pĹ™inejmenĹˇĂ­m z pohledu
+uĹľivatele, kterĂ˝ takovĂ˝ program spouĹˇtĂ­ z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku. OstatnĂ­
+uĹľivatelĂ© <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">(tj. ti, kteĹ™Ă­
+zdrojovĂ˝ soubor pouĹľĂ­vajĂ­ jako modul, vytvĂˇĹ™ejĂ­ si sami instance tĹ™Ă­dy
+Dokument a volajĂ­ sami jeho metody)</span> budou muset provĂ©st ve svĂ©m kĂłdu
+drobnĂ© zmÄ›ny, kdy po pouĹľitĂ­ metody <code>Analyzuj()</code> zavolajĂ­ metodu
+<code>tiskStatistik()</code> &mdash; a to nenĂ­ pĹ™Ă­liĹˇ obtĂ­ĹľnĂ©.</p>
 
-<p>Revidované úseky kódu vypadají takto:</p>
+<p>RevidovanĂ© Ăşseky kĂłdu vypadajĂ­ takto:</p>
 
 <pre>
     def vypocetStatistik(self):
@@ -819,7 +819,7 @@ drobné změny, kdy po použití metody <code>Analyzuj()</code> zavolají metodu
             self.poc_klauzuli = self.poc_klauzuli + self.poc_interp_znaku[c]
 
     def tiskStatistik(self):
-        print self.format % (self.jmenoSouboru, self.poc_odstavcu, 
+        print self.format % (self.jmenoSouboru, self.poc_odstavcu,
                              self.poc_radku, self.poc_vet,
                              self.poc_klauzuli, self.poc_slov)
         print "Byly pouzity nasledujici interpunkcni znaky:"
@@ -827,7 +827,7 @@ drobné změny, kdy po použití metody <code>Analyzuj()</code> zavolají metodu
             print "\t%s\t:\t%4d" % (c, self.poc_interp_znaku[c])
 </pre>
 
-<p>a tělo prováděné při spuštění z příkazového řádku:</p>
+<p>a tÄ›lo provĂˇdÄ›nĂ© pĹ™i spuĹˇtÄ›nĂ­ z pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku:</p>
 
 <pre>
 if __name__ == "__main__":
@@ -843,38 +843,38 @@ if __name__ == "__main__":
             print "Chyba pri analyze souboru: %s" % sys.argv[1]
 </pre>
 
-<p>Nyní jsme připraveni k tomu, abychom naše třídy dokumentů obalili
-grafickým uživatelským rozhraním.</p>
+<p>NynĂ­ jsme pĹ™ipraveni k tomu, abychom naĹˇe tĹ™Ă­dy dokumentĹŻ obalili
+grafickĂ˝m uĹľivatelskĂ˝m rozhranĂ­m.</p>
 
-<h4>Návrh grafického uživatelského rozhraní</h4>
+<h4>NĂˇvrh grafickĂ©ho uĹľivatelskĂ©ho rozhranĂ­</h4>
 
-<p>V prvním kroku si pokusíme představit, jak to vše bude vypadat. Musíme
-zadat jméno souboru, takže budeme potřebovat ovládací prvky <em>Edit</em>
-nebo <em>Entry</em>. Musíme určit, zda chceme provádět analýzu holého textu
-nebo obsahu v podobě HTML. Takový způsob výběru <em>jedné z několika
-možností</em> je obvykle reprezentován sadou prvků typu
-<em>Radiobutton</em>. Tyto ovládací prvky by měly být sdruženy dohromady,
-aby bylo vidět, že spolu souvisejí.</p>
+<p>V prvnĂ­m kroku si pokusĂ­me pĹ™edstavit, jak to vĹˇe bude vypadat. MusĂ­me
+zadat jmĂ©no souboru, takĹľe budeme potĹ™ebovat ovlĂˇdacĂ­ prvky <em>Edit</em>
+nebo <em>Entry</em>. MusĂ­me urÄŤit, zda chceme provĂˇdÄ›t analĂ˝zu holĂ©ho textu
+nebo obsahu v podobÄ› HTML. TakovĂ˝ zpĹŻsob vĂ˝bÄ›ru <em>jednĂ© z nÄ›kolika
+moĹľnostĂ­</em> je obvykle reprezentovĂˇn sadou prvkĹŻ typu
+<em>Radiobutton</em>. Tyto ovlĂˇdacĂ­ prvky by mÄ›ly bĂ˝t sdruĹľeny dohromady,
+aby bylo vidÄ›t, Ĺľe spolu souvisejĂ­.</p>
 
-<p>Dále požadujeme nějaký způsob zobrazení výsledků. Mohli bychom použít
-několik prvků typu <em>Label</em> &mdash; jeden pro každé počítadlo. Místo
-toho použiji jednoduchý prvek typu <em>Text</em>, do kterého můžeme vkládat
-řetězce. Tento přístup se přibližuje duchu dřívějšího řádkového výstupu, ale
-konkrétní způsob výstupu je věcí volby návrháře.</p>
+<p>DĂˇle poĹľadujeme nÄ›jakĂ˝ zpĹŻsob zobrazenĂ­ vĂ˝sledkĹŻ. Mohli bychom pouĹľĂ­t
+nÄ›kolik prvkĹŻ typu <em>Label</em> &mdash; jeden pro kaĹľdĂ© poÄŤĂ­tadlo. MĂ­sto
+toho pouĹľiji jednoduchĂ˝ prvek typu <em>Text</em>, do kterĂ©ho mĹŻĹľeme vklĂˇdat
+Ĺ™etÄ›zce. Tento pĹ™Ă­stup se pĹ™ibliĹľuje duchu dĹ™Ă­vÄ›jĹˇĂ­ho Ĺ™ĂˇdkovĂ©ho vĂ˝stupu, ale
+konkrĂ©tnĂ­ zpĹŻsob vĂ˝stupu je vÄ›cĂ­ volby nĂˇvrhĂˇĹ™e.</p>
 
-<p>Na závěr, potřebujeme nějaké prostředky pro zahájení analýzy a pro
-ukončení aplikace. Protože pro zobrazení výsledků použijeme ovládací prvek
-typu text, mohlo by být užitečné, kdybychom mohli do počátečního stavu uvést
-i zobrazování. Všechny uvedené příkazy mohou být vyjádřeny prvky typu
-<em>Button</em> (tlačítko).</p>
+<p>Na zĂˇvÄ›r, potĹ™ebujeme nÄ›jakĂ© prostĹ™edky pro zahĂˇjenĂ­ analĂ˝zy a pro
+ukonÄŤenĂ­ aplikace. ProtoĹľe pro zobrazenĂ­ vĂ˝sledkĹŻ pouĹľijeme ovlĂˇdacĂ­ prvek
+typu text, mohlo by bĂ˝t uĹľiteÄŤnĂ©, kdybychom mohli do poÄŤĂˇteÄŤnĂ­ho stavu uvĂ©st
+i zobrazovĂˇnĂ­. VĹˇechny uvedenĂ© pĹ™Ă­kazy mohou bĂ˝t vyjĂˇdĹ™eny prvky typu
+<em>Button</em> (tlaÄŤĂ­tko).</p>
 
-<p>Pokud si načrtneme podobu odpovídajícího grafického uživatelského 
-rozhraní, dostaneme něco takového:</p>
+<p>Pokud si naÄŤrtneme podobu odpovĂ­dajĂ­cĂ­ho grafickĂ©ho uĹľivatelskĂ©ho
+rozhranĂ­, dostaneme nÄ›co takovĂ©ho:</p>
 
 <div class="center">
 <pre>
 +-------------------------+-----------+
-|    Jméno souboru        | (*) text  |
+|    JmĂ©no souboru        | (*) text  |
 |                         | ( ) HTML  |
 +-------------------------+-----------+
 |                                     |
@@ -890,67 +890,67 @@ rozhraní, dostaneme něco takového:</p>
 </pre>
 </div>
 
-<p>Teď můžeme přistoupit k psaní kódu &mdash; krok po kroku:</p>
+<p>TeÄŹ mĹŻĹľeme pĹ™istoupit k psanĂ­ kĂłdu &mdash; krok po kroku:</p>
 
 <pre>
 from Tkinter import *
 import dokument
 <span class="comment">
-################### Definice tříd ######################</span>
+################### Definice tĹ™Ă­d ######################</span>
 class AplikaceGramatika(Frame):
     def __init__(self, rodic=0):
         Frame.__init__(self, rodic)
-        self.typ = 2 <span class="comment"># vytvoř proměnnou s počáteční hodnotou</span>
+        self.typ = 2 <span class="comment"># vytvoĹ™ promÄ›nnou s poÄŤĂˇteÄŤnĂ­ hodnotou</span>
         self.master.title('Pocitadlo gramatickych prvku')
         self.vybudovatUI()
 </pre>
 
-<p>Nejdříve jsme provedli import modulů Tkinter a dokument. V prvním případě
-jsme si v rámci vytvářeného modulu zajistili viditelnost všech jmen z
-Tkinter, zatímco v druhém případě budeme muset před jména přidávat předponu
+<p>NejdĹ™Ă­ve jsme provedli import modulĹŻ Tkinter a dokument. V prvnĂ­m pĹ™Ă­padÄ›
+jsme si v rĂˇmci vytvĂˇĹ™enĂ©ho modulu zajistili viditelnost vĹˇech jmen z
+Tkinter, zatĂ­mco v druhĂ©m pĹ™Ă­padÄ› budeme muset pĹ™ed jmĂ©na pĹ™idĂˇvat pĹ™edponu
 '<code>dokument</code>'.</p>
 
-<p>Definovali jsme i metodu <code>__init__</code>, která volá metodu
-<code>Frame.__init__</code> své bázové třídy. Tím se zajistí správná vnitřní
-nastavení v rámci Tkinter. Poté vytváříme atribut, ve kterém bude uložena
-hodnota typu dokumentu. A nakonec voláme metodu <code>vybudovatUI</code>,
-která nám vytvoří všechny potřebné ovládací prvky.</p>
+<p>Definovali jsme i metodu <code>__init__</code>, kterĂˇ volĂˇ metodu
+<code>Frame.__init__</code> svĂ© bĂˇzovĂ© tĹ™Ă­dy. TĂ­m se zajistĂ­ sprĂˇvnĂˇ vnitĹ™nĂ­
+nastavenĂ­ v rĂˇmci Tkinter. PotĂ© vytvĂˇĹ™Ă­me atribut, ve kterĂ©m bude uloĹľena
+hodnota typu dokumentu. A nakonec volĂˇme metodu <code>vybudovatUI</code>,
+kterĂˇ nĂˇm vytvoĹ™Ă­ vĹˇechny potĹ™ebnĂ© ovlĂˇdacĂ­ prvky.</p>
 
 <pre>
     def vybudovatUI(self):
-        <span class="comment"># Informace o souboru: Jméno a typ</span>
+        <span class="comment"># Informace o souboru: JmĂ©no a typ</span>
         fSoubor = Frame(self)
         Label(fSoubor, text="Jmeno souboru: ").pack(side=LEFT)
         self.eJmeno = Entry(fSoubor)
         self.eJmeno.insert(INSERT, "test.htm")
         self.eJmeno.pack(side=LEFT, padx=5)
-        
+
         <span class="comment">
-        # Pro zajištění zarovnání přepínacích tlačítek (radio buttons)
-        # se jménem potřebujeme další rámec.</span>
+        # Pro zajiĹˇtÄ›nĂ­ zarovnĂˇnĂ­ pĹ™epĂ­nacĂ­ch tlaÄŤĂ­tek (radio buttons)
+        # se jmĂ©nem potĹ™ebujeme dalĹˇĂ­ rĂˇmec.</span>
         fTyp = Frame(fSoubor, borderwidth=1, relief=SUNKEN)
         self.rText = Radiobutton(fTyp, text="text",
-                                 variable = self.typ, value=2, 
+                                 variable = self.typ, value=2,
                                  command=self.udalostText)
         self.rText.pack(side=TOP, anchor=W)
         self.rHTML = Radiobutton(fTyp, text="HTML",
                                  variable=self.typ, value=1,
                                  command=self.udalostHTML)
         self.rHTML.pack(side=TOP, anchor=W)
-        <span class="comment"># Na počátku vybereme 'text'</span>
+        <span class="comment"># Na poÄŤĂˇtku vybereme 'text'</span>
         self.rText.select()
         fTyp.pack(side=RIGHT, padx=3)
         fSoubor.pack(side=TOP, fill=X)
-        
+
         <span class="comment">
-        # V textovém okně se zobrazuje výstup. Použijeme vycpávku, abychom
-        # získali rámeček. Rodičovským rámcem bude rámec celé aplikace
+        # V textovĂ©m oknÄ› se zobrazuje vĂ˝stup. PouĹľijeme vycpĂˇvku, abychom
+        # zĂ­skali rĂˇmeÄŤek. RodiÄŤovskĂ˝m rĂˇmcem bude rĂˇmec celĂ© aplikace
         # (tj. self)</span>
         self.txtBox = Text(self, width=60, height=10)
         self.txtBox.pack(side=TOP, padx=3, pady=3)
-        
+
         <span class="comment">
-        # Nakonec umístíme příkazová tlačítka, která budou spouštět činnosti.</span>
+        # Nakonec umĂ­stĂ­me pĹ™Ă­kazovĂˇ tlaÄŤĂ­tka, kterĂˇ budou spouĹˇtÄ›t ÄŤinnosti.</span>
         fTlacitka = Frame(self)
         self.bAnalyzuj = Button(fTlacitka, text="Analyzuj",
                                 command=self.udalostAnalyzuj)
@@ -961,62 +961,62 @@ která nám vytvoří všechny potřebné ovládací prvky.</p>
         self.bKonec = Button(fTlacitka, text="Konec",
                              command=self.udalostUkonceni)
         self.bKonec.pack(side=RIGHT, anchor=E, padx=50, pady=2)
-        
+
         fTlacitka.pack(side=BOTTOM, fill=X)
         self.pack()
 </pre>
 
-<p>Nebudu zde vysvětlovat všechny detaily. Místo toho vám doporučuji k
-nahlédnutí učebnici Tkinter, kterou naleznete na webových stránkách jazyka
-Python. Jde o vynikající úvod i referenční příručku k Tkinter. Obecný
-princip <span class="trnote" title="Poznámka překladatele">uvedeného
-kódu</span> spočívá ve vytváření ovládacích prvků odpovídajících tříd, při
-kterém zadáváme nastavení formou <em>pojmenovaných parametrů</em>. Poté je
-příslušný prvek umístěn do svého obklopujícího rámce voláním metody
+<p>Nebudu zde vysvÄ›tlovat vĹˇechny detaily. MĂ­sto toho vĂˇm doporuÄŤuji k
+nahlĂ©dnutĂ­ uÄŤebnici Tkinter, kterou naleznete na webovĂ˝ch strĂˇnkĂˇch jazyka
+Python. Jde o vynikajĂ­cĂ­ Ăşvod i referenÄŤnĂ­ pĹ™Ă­ruÄŤku k Tkinter. ObecnĂ˝
+princip <span class="trnote" title="PoznĂˇmka pĹ™ekladatele">uvedenĂ©ho
+kĂłdu</span> spoÄŤĂ­vĂˇ ve vytvĂˇĹ™enĂ­ ovlĂˇdacĂ­ch prvkĹŻ odpovĂ­dajĂ­cĂ­ch tĹ™Ă­d, pĹ™i
+kterĂ©m zadĂˇvĂˇme nastavenĂ­ formou <em>pojmenovanĂ˝ch parametrĹŻ</em>. PotĂ© je
+pĹ™Ă­sluĹˇnĂ˝ prvek umĂ­stÄ›n do svĂ©ho obklopujĂ­cĂ­ho rĂˇmce volĂˇnĂ­m metody
 <code>pack</code>.</p>
 
-<p>Poznamenejme, že k dalším klíčovým bodům patří použití pomocných prvků
-typu <code>Frame</code>, které sdružují přepínací a příkazová tlačítka.
-U přepínacích tlačítek (radio buttons) se mimo jiné uvádí dvojice parametrů
-s názvy <code>variable</code> (proměnná) a <code>value</code> (hodnota).
-První z uvedených svazuje přepínací tlačítka dohromady tím, že udává stejnou
-vnější proměnnou (<code>self.typ</code>). Druhý parametr přiděluje každému
-přepínacímu tlačítku jednoznačnou hodnotu. Všimněte si také parametru
-<code>command=xxx</code>, který se předává prvkům tlačítek. Jde o metody,
-které bude Tkinter volat v okamžiku stisku tlačítka. Jejich kód je uveden
-níže:</p>
+<p>Poznamenejme, Ĺľe k dalĹˇĂ­m klĂ­ÄŤovĂ˝m bodĹŻm patĹ™Ă­ pouĹľitĂ­ pomocnĂ˝ch prvkĹŻ
+typu <code>Frame</code>, kterĂ© sdruĹľujĂ­ pĹ™epĂ­nacĂ­ a pĹ™Ă­kazovĂˇ tlaÄŤĂ­tka.
+U pĹ™epĂ­nacĂ­ch tlaÄŤĂ­tek (radio buttons) se mimo jinĂ© uvĂˇdĂ­ dvojice parametrĹŻ
+s nĂˇzvy <code>variable</code> (promÄ›nnĂˇ) a <code>value</code> (hodnota).
+PrvnĂ­ z uvedenĂ˝ch svazuje pĹ™epĂ­nacĂ­ tlaÄŤĂ­tka dohromady tĂ­m, Ĺľe udĂˇvĂˇ stejnou
+vnÄ›jĹˇĂ­ promÄ›nnou (<code>self.typ</code>). DruhĂ˝ parametr pĹ™idÄ›luje kaĹľdĂ©mu
+pĹ™epĂ­nacĂ­mu tlaÄŤĂ­tku jednoznaÄŤnou hodnotu. VĹˇimnÄ›te si takĂ© parametru
+<code>command=xxx</code>, kterĂ˝ se pĹ™edĂˇvĂˇ prvkĹŻm tlaÄŤĂ­tek. Jde o metody,
+kterĂ© bude Tkinter volat v okamĹľiku stisku tlaÄŤĂ­tka. Jejich kĂłd je uveden
+nĂ­Ĺľe:</p>
 
 <pre>
     <span class="comment">
-    ################# Metody pro ošetření událostí ####################
-    # je načase vše skoncovat...</span>
+    ################# Metody pro oĹˇetĹ™enĂ­ udĂˇlostĂ­ ####################
+    # je naÄŤase vĹˇe skoncovat...</span>
     def udalostUkonceni(self):
         import sys
         sys.exit()
-    
+
     <span class="comment">
-    # nastavíme vše do počátečního stavu</span>
+    # nastavĂ­me vĹˇe do poÄŤĂˇteÄŤnĂ­ho stavu</span>
     def udalostReset(self):
         self.txtBox.delete(1.0, END)
         self.rText.select()
-    
+
     <span class="comment">
-    # nastavíme hodnotu přepínacího tlačítka</span>
+    # nastavĂ­me hodnotu pĹ™epĂ­nacĂ­ho tlaÄŤĂ­tka</span>
     def udalostText(self):
         self.typ = 2
-    
+
     def udalostHTML(self):
         self.typ = 1
 </pre>
 
-<p>Uvedené metody jsou velmi jednoduché a doufám, že není nutné je
-vysvětlovat. Poslední metoda pro ošetření události zajišťuje provedení
-analýzy:</p>
+<p>UvedenĂ© metody jsou velmi jednoduchĂ© a doufĂˇm, Ĺľe nenĂ­ nutnĂ© je
+vysvÄ›tlovat. PoslednĂ­ metoda pro oĹˇetĹ™enĂ­ udĂˇlosti zajiĹˇĹĄuje provedenĂ­
+analĂ˝zy:</p>
 
 <pre>
     <span class="comment">
-    # Vytvoříme odpovídající typ dokumentu a provedeme analýzu.
-    # Poté zobrazíme výsledky v podobě řetězců.</span>
+    # VytvoĹ™Ă­me odpovĂ­dajĂ­cĂ­ typ dokumentu a provedeme analĂ˝zu.
+    # PotĂ© zobrazĂ­me vĂ˝sledky v podobÄ› Ĺ™etÄ›zcĹŻ.</span>
     def udalostAnalyzuj(self):
         jmenoSouboru = self.eJmeno.get()
         if jmenoSouboru == "":
@@ -1034,68 +1034,68 @@ analýzy:</p>
         self.txtBox.insert(END, str)
 </pre>
 
-<p>I výše uvedený text byste již měli být schopni přečíst a pochopit, co
-dělá. Jeho klíčové body jsou následující:</p>
+<p>I vĂ˝Ĺˇe uvedenĂ˝ text byste jiĹľ mÄ›li bĂ˝t schopni pĹ™eÄŤĂ­st a pochopit, co
+dÄ›lĂˇ. Jeho klĂ­ÄŤovĂ© body jsou nĂˇsledujĂ­cĂ­:</p>
 
 <ul>
-<li>Před vytvořením objektu třídy Dokument zkontroluje platnost zadaného 
-  jména souboru.</li>
-<li>Konkrétní typ dokumentu je vytvořen podle hodnoty proměnné
-  <code>self.typ</code>, která je nastavena podle přepínacích tlačítek.</li>  
-<li>Výsledek je připojen na konec obsahu okna s textem (viz argument
-  <code>END</code> metody <code>insert</code>. To znamená, že můžeme provést
-  několik analýz a porovnávat výsledky. Ve srovnání s dříve zmíněným
-  přístupem, kdy by byly výsledky zobrazovány formou ovládacích prvků s
-  popisným textem (label), jde o jednu z výhod použití výstupu do okna s
+<li>PĹ™ed vytvoĹ™enĂ­m objektu tĹ™Ă­dy Dokument zkontroluje platnost zadanĂ©ho
+  jmĂ©na souboru.</li>
+<li>KonkrĂ©tnĂ­ typ dokumentu je vytvoĹ™en podle hodnoty promÄ›nnĂ©
+  <code>self.typ</code>, kterĂˇ je nastavena podle pĹ™epĂ­nacĂ­ch tlaÄŤĂ­tek.</li>
+<li>VĂ˝sledek je pĹ™ipojen na konec obsahu okna s textem (viz argument
+  <code>END</code> metody <code>insert</code>. To znamenĂˇ, Ĺľe mĹŻĹľeme provĂ©st
+  nÄ›kolik analĂ˝z a porovnĂˇvat vĂ˝sledky. Ve srovnĂˇnĂ­ s dĹ™Ă­ve zmĂ­nÄ›nĂ˝m
+  pĹ™Ă­stupem, kdy by byly vĂ˝sledky zobrazovĂˇny formou ovlĂˇdacĂ­ch prvkĹŻ s
+  popisnĂ˝m textem (label), jde o jednu z vĂ˝hod pouĹľitĂ­ vĂ˝stupu do okna s
   textem.</li>
 </ul>
 
-<p>Teď už nám zbývá jen vytvořit hlavní objekt aplikace a spustit smyčku
-pro zpracování událostí:</p>
+<p>TeÄŹ uĹľ nĂˇm zbĂ˝vĂˇ jen vytvoĹ™it hlavnĂ­ objekt aplikace a spustit smyÄŤku
+pro zpracovĂˇnĂ­ udĂˇlostĂ­:</p>
 
 <pre>
 mojeAplikace = AplikaceGramatika()
 mojeAplikace.mainloop()
 </pre>
 
-<p>Podívejme se, jak vypadá konečný výsledek při spuštění v systému
-MS&nbsp;Windows. Zobrazeny jsou výsledky analýzy testovacího HTML souboru;
-nejdříve v režimu <em>text</em> a poté v režimu <em>HTML</em>:</p>
+<p>PodĂ­vejme se, jak vypadĂˇ koneÄŤnĂ˝ vĂ˝sledek pĹ™i spuĹˇtÄ›nĂ­ v systĂ©mu
+MS&nbsp;Windows. Zobrazeny jsou vĂ˝sledky analĂ˝zy testovacĂ­ho HTML souboru;
+nejdĹ™Ă­ve v reĹľimu <em>text</em> a potĂ© v reĹľimu <em>HTML</em>:</p>
 
-<p class="center"><img src="czgui.png" alt="Konečný vzhled aplikace." 
-title="Konečný vzhled aplikace."></p>
+<p class="center"><img src="czgui.png" alt="KoneÄŤnĂ˝ vzhled aplikace."
+title="KoneÄŤnĂ˝ vzhled aplikace."></p>
 
-<p>A je to. Pokud chcete, můžete pokračovat ve zdokonalování zpracování
-HTML. Můžete vytvořit nové moduly pro nové typy dokumentů. Můžete zkusit
-zaměnit okno s textem za několik prvků s popisným textem vložených do rámce.
-Ale z pohledu našeho původního záměru jsme hotovi. Následující kapitola
-nabízí náměty k dalšímu studiu v závislosti na vašich programátorských
-tužbách. Hlavní je, aby vás to bavilo. A vždycky si pamatujte: <em>Počítač
-je hloupý!</em></p>
+<p>A je to. Pokud chcete, mĹŻĹľete pokraÄŤovat ve zdokonalovĂˇnĂ­ zpracovĂˇnĂ­
+HTML. MĹŻĹľete vytvoĹ™it novĂ© moduly pro novĂ© typy dokumentĹŻ. MĹŻĹľete zkusit
+zamÄ›nit okno s textem za nÄ›kolik prvkĹŻ s popisnĂ˝m textem vloĹľenĂ˝ch do rĂˇmce.
+Ale z pohledu naĹˇeho pĹŻvodnĂ­ho zĂˇmÄ›ru jsme hotovi. NĂˇsledujĂ­cĂ­ kapitola
+nabĂ­zĂ­ nĂˇmÄ›ty k dalĹˇĂ­mu studiu v zĂˇvislosti na vaĹˇich programĂˇtorskĂ˝ch
+tuĹľbĂˇch. HlavnĂ­ je, aby vĂˇs to bavilo. A vĹľdycky si pamatujte: <em>PoÄŤĂ­taÄŤ
+je hloupĂ˝!</em></p>
 
 <hr>
 <div class="foot">
-<p class="navig">[ 
-<a href="cztutfctnl.html" title="Funkcionální programování">předchozí</a> |
-<a href="cztutcont.html">obsah</a> | 
-<a href="cztutrefs.html" title="Odkazy na další zdroje">další</a> 
+<p class="navig">[
+<a href="cztutfctnl.html" title="FunkcionĂˇlnĂ­ programovĂˇnĂ­">pĹ™edchozĂ­</a> |
+<a href="cztutcont.html">obsah</a> |
+<a href="cztutrefs.html" title="Odkazy na dalĹˇĂ­ zdroje">dalĹˇĂ­</a>
 ]</p>
-<p class="note">Pokud vás napadne, co by se dalo na překladu této kapitoly
-vylepšit, zašlete e-mail odklepnutím
+<p class="note">Pokud vĂˇs napadne, co by se dalo na pĹ™ekladu tĂ©to kapitoly
+vylepĹˇit, zaĹˇlete e-mail odklepnutĂ­m
 
 <script type="text/javascript">
 var id = new String('$Id: cztutcase.html,v 1.7 2005/10/07 19:07:04 petr Exp $');
 var ma = new String('prikryl at skil dot cz');
 ma = ma.replace(/ at /, '@');
 ma = ma.replace(/ dot /, '.');
-document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka' 
-               + '&body=Dokument:%20' + id.replace(/\s/g, '%20') 
-               + '%0d%0dPoznámky:%0d" '
-               + 'title="Tento odkaz spustí váš program pro zasílání pošty."'
+document.write('<a href="mailto:' + ma + '?subject=JNP2:%20poznamka'
+               + '&body=Dokument:%20' + id.replace(/\s/g, '%20')
+               + '%0d%0dPoznĂˇmky:%0d" '
+               + 'title="Tento odkaz spustĂ­ vĂˇĹˇ program pro zasĂ­lĂˇnĂ­ poĹˇty."'
                + '>tohoto odkazu<' + '/a>.');
-</script> 
+</script>
 
-Tím budou do dopisu automaticky vloženy informace o tomto HTML dokumentu.</p>
+TĂ­m budou do dopisu automaticky vloĹľeny informace o tomto HTML dokumentu.</p>
 
 <p class="cvs">$Id: cztutcase.html,v 1.7 2005/10/07 19:07:04 petr Exp $</p>
 </div>
